@@ -1,0 +1,14 @@
+---
+layout: post
+title: 阅读学术文章需注意
+date: 2018-07-28
+disqus: y
+---
+
+\* Papers should be read using diffusive mode instead of focus mode with Einstellung. Just play with it and do some free mind scratch on the notebook.
+
+\* Don’t be urgent to copy or write down notes for those key points in the paper. Human is not a copying machine but a soul with intellect! Just try to read ahead for more information, put them into the working memory which is also a good mnemonic exercise. After the initial coarse digestion, extract key points and structure from the paper via rumination, then write them down into the notebook.
+
+\* Break fetters in the mind! Don’t be afraid of or conservative about brave and wild mathematical derivation.
+
+\* Don’t feel inconvenient or be afraid of interruption by searching for more information from website and books, especially when the information is fragmented. Life is intrinsically disordered, from which the sublime order needs to be exploited and reconstructed by strenuous work.

@@ -1,0 +1,30 @@
+---
+layout: post
+title: 2019读书列表
+date: 2020-02-03
+disqus: y
+---
+
+1\. 2019-01-06: 小狗钱钱 : 引导孩子正确认识财富、创造财富的“金钱童话”/ \[德\] 博多·舍费尔 / 王钟欣、余茜 / 南海出版公司 / 2009-2-1
+
+2\. 2019-03-03: 富爸爸投资指南（最新修订版）/ (美)罗伯特·清崎、(美)莎伦·莱希特 / 萧明 / 四川文化出版社 / 2014-1-1
+
+3\. **2019-03-03: 好好赚钱 : 通向自由人生的极简理财课 / 简七 / 中信出版集团 / 2018-3** 
+
+4\. **2019-03-03: 刻意练习 : 如何从新手到大师 / \[美\] 安德斯·艾利克森（Anders Ericsson）、罗伯特·普尔（Robert Pool） / 王正林 / 机械工业出版社 / 2016-11-6** 
+
+5\. 2019-03-21: 富爸爸财务自由之路（最新修订版）/ 罗伯特·清崎 / 四川文艺出版社 / 2017-4
+
+6\. 2019-03-28: 解读基金 : 我的投资观与实践 / 季凯帆 / 中国经济出版社 / 2007-4
+
+7\. **2019-05-17: Autotools : A Practioner's Guide to GNU Autoconf, Automake, and Libtool / John Calcote / No Starch Press / 2010-7-20** 
+
+8\. **2019-05-17: Python in a Nutshell : A Desktop Quick Reference / Alex Martelli、Anna Ravenscroft、Steve Holden / O'Reilly Media / 2017-5-4** 
+
+9\. **2019-05-31: On Writing Well : The Classic Guide To Writing Nonfiction: 30th Anniversary Edition / William Zinsser / HarperCollins Publishers, New / 2008** 
+
+10\. 2019-06-29: 共同基金常识 / \[美\] 约翰•博格 / 巴曙松、吴博 / 中国人民大学出版社 / 2011-12
+
+11\. **2019-08-13: GitHub入门与实践 / \[日\] 大塚弘记 / 支鹏浩、刘斌 / 人民邮电出版社 / 2015-7** 
+
+12\. 2019-08-14: Version Control with Git : Powerful Tools and Techniques for Collaborative Software Development / Jon Loeliger / O'Reilly Media / 2009-6-11

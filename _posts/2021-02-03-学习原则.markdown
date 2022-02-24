@@ -1,0 +1,32 @@
+---
+layout: post
+title: 学习原则
+date: 2021-02-03
+disqus: y
+---
+
+1\. 学习的态度（attitude）
+
+(a) 专注（focus）：屏蔽外界干扰，排除内心杂念
+
+(b) 耐心（patience）：“默而识之，学而不厌”，拓展记忆空间，培养接受与消化大量知识的能力
+
+(c) 细心（meticulosity）：“如切如磋，如琢如磨”
+
+(d) 信心（confidence）：“人皆可以为尧舜”，顶级学者能够理解和掌握的，我们也同样可以
+
+(e) 强行勤勉（diligence）：“敏于事、慎于言”
+
+2\. 学习的方法（methodology）
+
+(a) 学与思并用，理解与内化知识（internalization）
+
+(b) 温故知新（review）：在已有的知识体系中索隐探微，从而获得更加深刻、形象的理解
+
+(c) 学而时习（practice）：动手实践，并与纯理论学习相互印证、促进
+
+3\. 学习的节奏（rythmicity）
+
+(a) 劳逸结合，在专注与发散模式间切换（diffusive mode）
+
+(b) 点滴积累，不断迭代，逼近完美（iteration）
