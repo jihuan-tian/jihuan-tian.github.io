@@ -2,6 +2,8 @@
 layout: post
 title: 《论语》章句分类
 date: 2016-08-30
+category: Thoughts
+tags: 论语
 disqus: y
 ---
 
