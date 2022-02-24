@@ -29,6 +29,13 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Enable page support for posts
+paginate: 10
+paginate_path: "page:num"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
