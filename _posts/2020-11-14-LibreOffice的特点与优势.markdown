@@ -33,7 +33,7 @@ LibreOffice的所有组件均具有方便对文档内容与所包含对象实现
 
 ### 在Writer中使用文档超链接
 
-使用LibreOffice Writer可在文档中插入相对路径的超链接，并且可以精确地定位至文档中具体的某一章节或某个书签，从而可以将多个文档相互关联起来，像是浏览Wikipedia那样阅读我们自己的文档集合。由于超链接可以创建为基于文件系统的相对路径，所以我们只要保证文件目录结构自身的一致性，就可以将整个文件树迁移或者同步至不同的设备上并保证链接始终有效。更详细的介绍可以参考我的这篇文章《[使用LibreOffice Writer构建个人日志系统](https://www.douban.com/note/772042748/)》。
+使用LibreOffice Writer可在文档中插入相对路径的超链接，并且可以精确地定位至文档中具体的某一章节或某个书签，从而可以将多个文档相互关联起来，像是浏览Wikipedia那样阅读我们自己的文档集合。由于超链接可以创建为基于文件系统的相对路径，所以我们只要保证文件目录结构自身的一致性，就可以将整个文件树迁移或者同步至不同的设备上并保证链接始终有效。更详细的介绍可以参考我的这篇文章《[使用LibreOffice Writer构建个人日志系统]({% post_url 2020-07-27-使用LibreOffice Writer构建个人日志系统 %})》。
 
 ### 使用Draw的高级绘图功能
 
@@ -63,7 +63,7 @@ Draw的绘图功能相对于微软的Visio更为强大，几乎可以赶上专�
 
 图6 TexMaths扩展。
 
--   [AltSearch](https://extensions.libreoffice.org/en/extensions/show/alternative-dialog-find-replace-for-writer)：这是一个非常强大的在Writer文档中进行查找、替换的工具。支持使用正则表达式。被查换和替换的对象既可以是文本，也可以是样式。用户通过编写其所支持的宏命令，能够以批处理的方式执行多个查找、替换操作。关于AltSearch的实际使用案例可以参考我的这篇文章《[使用AltSearch格式化Kindle读书笔记](https://www.douban.com/note/783994941/)》。
+-   [AltSearch](https://extensions.libreoffice.org/en/extensions/show/alternative-dialog-find-replace-for-writer)：这是一个非常强大的在Writer文档中进行查找、替换的工具。支持使用正则表达式。被查换和替换的对象既可以是文本，也可以是样式。用户通过编写其所支持的宏命令，能够以批处理的方式执行多个查找、替换操作。关于AltSearch的实际使用案例可以参考我的这篇文章《[使用AltSearch格式化Kindle读书笔记]({% post_url 2020-11-14-使用AltSearch格式化Kindle读书笔记 %})》。
 
 ![](/figures/p77551871.jpg)
 

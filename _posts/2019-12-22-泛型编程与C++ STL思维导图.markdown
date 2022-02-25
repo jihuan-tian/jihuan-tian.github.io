@@ -9,8 +9,4 @@ disqus: y
 
 以下分享我基于《[Generic Programming and the STL](https://book.douban.com/subject/1146225/)》一书制作的思维导图，旨在对泛型编程的基本思想与STL标准库的主要数据结构有一个既宏观又具体的把握。
 
-[查看原图](/figures/p68569201.jpg)
-
 ![](/figures/p68569201.jpg)
-
-查看原图：请在网页版点击图片后，再点击图片右上角按钮。

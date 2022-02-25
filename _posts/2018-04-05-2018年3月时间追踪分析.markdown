@@ -21,4 +21,4 @@ disqus: y
 
 ![](/figures/p49632822.jpg)
 
-更多阅读：[时间追踪小体会](https://www.douban.com/note/662661669/)
+更多阅读：[时间追踪小体会]({% post_url 2018-03-25-时间追踪小体会 %})

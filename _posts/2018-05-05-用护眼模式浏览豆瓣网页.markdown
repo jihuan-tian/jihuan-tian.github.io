@@ -18,39 +18,39 @@ disqus: y
 1\. 豆瓣文章
 
 > /\* Applies to URLs on the domain [www.douban.com](https://www.douban.com) \*/
-
+>
 > body {
-
+>
 > background-color: rgb(246, 240, 222);
-
+>
 > }
-
+>
 > #link-report p {
-
+>
 > color: black;
-
+>
 > font-family: "楷体", "Georgia";
-
+>
 > font-size: 15pt;
-
+>
 > /\* Line height is 1.4 times font size \*/
-
+>
 > line-height: 24pt;
-
+>
 > }
-
+>
 > #link-report blockquote {
-
+>
 > color: blue;
-
+>
 > font-family: "楷体", "Georgia";
-
+>
 > font-size: 15pt;
-
+>
 > /\* Line height is 1.4 times font size \*/
-
+>
 > line-height: 24pt;
-
+>
 > }
 
 ![](/figures/p50394689.jpg)
@@ -58,41 +58,41 @@ disqus: y
 2\. 读书笔记
 
 > /\* Applies to URLs on the domain book.douban.com \*/
-
+>
 > body {
-
+>
 > background-color: rgb(246, 240, 222);
-
+>
 > }
-
+>
 > div.article {
-
+>
 > background-color: rgb(246, 240, 222);
-
+>
 > }
-
+>
 > div.article p {
-
+>
 > color: green;
-
+>
 > font-family: "楷体", "Georgia";
-
+>
 > font-size: 15pt;
-
+>
 > line-height: 24pt;
-
+>
 > }
-
+>
 > div.article blockquote {
-
+>
 > font-family: "楷体", "Georgia";
-
+>
 > font-size: 15pt;
-
+>
 > line-height: 24pt;
-
+>
 > color: black;
-
+>
 > }
 
 ![](/figures/p50394759.jpg)
@@ -100,77 +100,77 @@ disqus: y
 3\. 日记编辑
 
 > /\* Applies to URLs starting with [https://www.douban.com/note/create](https://www.douban.com/note/create) \*/
-
+>
 > body {
-
+>
 > background-color: rgb(246, 240, 222);
-
+>
 > }
-
+>
 > #wrapper .grid-16-8 .article {
-
+>
 > width: 1000px;
-
+>
 > }
-
+>
 > .note-editor {
-
+>
 > width: 1000px;
-
+>
 > position: relative;
-
+>
 > }
-
+>
 > .public-DraftEditor-content .DRE-unstyled, .public-DraftEditor-content p {
-
+>
 > color: black;
-
+>
 > font-family: "楷体", "Georgia";
-
+>
 > font-size: 15pt;
-
+>
 > line-height: 24pt;
-
+>
 > }
-
+>
 > .public-DraftEditor-content blockquote {
-
+>
 > color: blue;
-
+>
 > font-family: "楷体", "Georgia";
-
+>
 > font-size: 15pt;
-
+>
 > line-height: 24pt;
-
+>
 > }
-
+>
 > #link-report p {
-
+>
 > color: black;
-
+>
 > font-family: "楷体", "Georgia";
-
+>
 > font-size: 15pt;
-
+>
 > /\* Line height is 1.4 times font size \*/
-
+>
 > line-height: 24pt;
-
+>
 > }
-
+>
 > #link-report blockquote {
-
+>
 > color: blue;
-
+>
 > font-family: "楷体", "Georgia";
-
+>
 > font-size: 15pt;
-
+>
 > /\* Line height is 1.4 times font size \*/
-
+>
 > line-height: 24pt;
-
+>
 > }
 
 ![](/figures/p50395207.jpg)

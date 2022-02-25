@@ -29,4 +29,4 @@ disqus: y
 
 \* 以GoodNotes文稿为基础，将经过了反复推敲的成型的内容整理成Markdown文档，用于发布博客文章和幻灯片制作。或者以更为严谨的方式整理为LaTeX文档。
 
-更多阅读：《[GoodNotes 5体验](https://www.douban.com/note/704344414/)》
+更多阅读：《[GoodNotes 5体验]({% post_url 2019-01-20-GoodNotes 5体验 %})》

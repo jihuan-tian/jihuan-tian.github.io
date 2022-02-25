@@ -11,4 +11,4 @@ In the article "[How to read a paper](https://www.google.com/url?sa=t&rct=j&q=&e
 
 ![](/figures/p68569104.jpg)
 
-更多阅读：《[如何阅读期刊文章与学术专著](https://www.douban.com/note/791146854/)》
+更多阅读：《[如何阅读期刊文章与学术专著]({% post_url 2021-01-11-如何阅读期刊文章与学术专著 %})》

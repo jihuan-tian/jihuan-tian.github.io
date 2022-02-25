@@ -11,4 +11,4 @@ disqus: y
 
 无论是阅读期刊文章还是学术专著，始终要记住“尽信书不如无书”的道理。即便我们的理性水平与知识储备有限，也要尽力调动自己的理性去分析、理解、评判这些素材，用自己的思想和语言内化新的知识。
 
-更多阅读：《[Note for "How to read a paper" and my suggested paper survey workflow](https://www.douban.com/note/595937624/)》
+更多阅读：《[Note for "How to read a paper" and my suggested paper survey workflow]({% post_url 2016-12-08-Note for How to read a paper and my suggested paper survey workflow %})》
