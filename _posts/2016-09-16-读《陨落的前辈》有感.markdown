@@ -2,6 +2,8 @@
 layout: post
 title: 读《陨落的前辈》有感
 date: 2016-09-16
+categories: [thoughts]
+tags: [阅读,清华]
 disqus: y
 ---
 

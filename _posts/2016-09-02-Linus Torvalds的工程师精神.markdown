@@ -2,6 +2,7 @@
 layout: post
 title: Linus Torvalds的工程师精神
 date: 2016-09-02
+categories: [methodology]
 disqus: y
 ---
 

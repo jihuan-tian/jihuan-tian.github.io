@@ -2,6 +2,8 @@
 layout: post
 title: 己之所欲，勿施于人
 date: 2016-08-28
+categories: [thoughts]
+tags: [儒家思想]
 disqus: y
 ---
 

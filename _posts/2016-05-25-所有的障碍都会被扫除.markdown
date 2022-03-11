@@ -2,6 +2,8 @@
 layout: post
 title: 所有的障碍都会被扫除
 date: 2016-05-25
+categories: [thoughts]
+tags: [数学学习]
 disqus: y
 ---
 

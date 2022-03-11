@@ -2,6 +2,8 @@
 layout: post
 title: 形象与情感的理解层
 date: 2016-05-29
+categories: [methodology]
+tags: [学习方法]
 disqus: y
 ---
 

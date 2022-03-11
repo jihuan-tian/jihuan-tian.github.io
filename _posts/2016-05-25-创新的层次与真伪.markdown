@@ -2,6 +2,8 @@
 layout: post
 title: 创新的层次与真伪
 date: 2016-05-25
+categories: [thoughts]
+tags: [创新]
 disqus: y
 ---
 

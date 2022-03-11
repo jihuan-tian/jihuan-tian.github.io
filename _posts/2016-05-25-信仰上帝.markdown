@@ -2,6 +2,8 @@
 layout: post
 title: 信仰上帝
 date: 2016-05-25
+categories: [thoughts]
+tags: [信仰]
 disqus: y
 ---
 

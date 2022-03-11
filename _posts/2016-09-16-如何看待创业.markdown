@@ -2,6 +2,8 @@
 layout: post
 title: 如何看待创业
 date: 2016-09-16
+categories: [thoughts]
+tags: [创业]
 disqus: y
 ---
 

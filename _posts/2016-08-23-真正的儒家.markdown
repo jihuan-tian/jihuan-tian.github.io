@@ -2,6 +2,8 @@
 layout: post
 title: 真正的儒家
 date: 2016-08-23
+categories: [thoughts]
+tags: [儒家思想]
 disqus: y
 ---
 
