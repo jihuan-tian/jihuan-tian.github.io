@@ -35,7 +35,7 @@ plugins:
   - jekyll-paginate
 
 # Enable page support for posts
-paginate: 20
+paginate: 10
 paginate_path: "page:num"
 
 # Exclude from processing.
