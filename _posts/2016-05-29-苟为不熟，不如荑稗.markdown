@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 苟为不熟，不如荑萆
+title: 苟为不熟，不如荑稗
 date: 2016-05-29
 categories: [thoughts]
 tags: [科研]
