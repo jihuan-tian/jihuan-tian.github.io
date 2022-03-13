@@ -2,7 +2,7 @@
 layout: post
 title: Usage of the const keyword in C++
 date: 2021-01-15
-categories: [Methodology]
+categories: [methodology]
 tags: [programming,C++]
 mathjax: false
 disqus: y

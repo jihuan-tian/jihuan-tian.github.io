@@ -2,7 +2,7 @@
 layout: post
 title: Summary of multi-index convention for partial derivatives
 date: 2022-02-04
-categories: [Math]
+categories: [math]
 tags: [PDE]
 mathjax: true
 disqus: y
