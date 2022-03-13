@@ -2,6 +2,8 @@
 layout: post
 title: 智商的前提是专注
 date: 2016-09-16
+categories: [thoughts]
+tags: [专注]
 disqus: y
 ---
 

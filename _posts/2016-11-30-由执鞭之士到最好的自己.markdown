@@ -2,6 +2,8 @@
 layout: post
 title: 由执鞭之士到最好的自己
 date: 2016-11-30
+categories: [thoughts]
+tags: [论语,职场,管理提升]
 disqus: y
 ---
 

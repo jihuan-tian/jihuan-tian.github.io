@@ -2,6 +2,8 @@
 layout: post
 title: 致友人的一封信
 date: 2016-12-04
+categories: [thoughts]
+tags: [儒家思想]
 disqus: y
 ---
 

@@ -2,6 +2,8 @@
 layout: post
 title: 见微知著
 date: 2016-10-15
+categories: [thoughts]
+tags: [论语,管理提升]
 disqus: y
 ---
 

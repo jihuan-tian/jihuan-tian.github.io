@@ -2,6 +2,8 @@
 layout: post
 title: 讲课形像生动实为舍本逐末
 date: 2016-11-28
+categories: [thoughts]
+tags: [教育]
 disqus: y
 ---
 

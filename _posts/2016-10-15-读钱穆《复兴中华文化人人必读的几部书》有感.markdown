@@ -2,6 +2,8 @@
 layout: post
 title: 读钱穆《复兴中华文化人人必读的几部书》有感
 date: 2016-10-15
+categories: [thoughts]
+tags: [阅读,国学]
 disqus: y
 ---
 

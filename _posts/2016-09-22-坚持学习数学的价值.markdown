@@ -2,6 +2,8 @@
 layout: post
 title: 坚持学习数学的价值
 date: 2016-09-22
+categories: [thoughts]
+tags: [数学学习]
 disqus: y
 ---
 

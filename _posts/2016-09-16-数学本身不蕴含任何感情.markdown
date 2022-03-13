@@ -2,6 +2,8 @@
 layout: post
 title: 数学本身不蕴含任何感情
 date: 2016-09-16
+categories: [thoughts]
+tags: [数学学习]
 disqus: y
 ---
 

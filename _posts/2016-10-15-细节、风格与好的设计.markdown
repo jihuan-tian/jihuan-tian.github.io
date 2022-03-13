@@ -2,6 +2,8 @@
 layout: post
 title: 细节、风格与好的设计
 date: 2016-10-15
+categories: [methodology]
+tags: [阅读,思想,设计]
 disqus: y
 ---
 

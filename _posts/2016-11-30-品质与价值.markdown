@@ -2,6 +2,8 @@
 layout: post
 title: 品质与价值
 date: 2016-11-30
+categories: [thoughts]
+tags: [论语,音乐,长笛]
 disqus: y
 ---
 

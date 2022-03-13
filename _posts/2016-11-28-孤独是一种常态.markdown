@@ -2,6 +2,8 @@
 layout: post
 title: 孤独是一种常态
 date: 2016-11-28
+categories: [thoughts]
+tags: [随想]
 disqus: y
 ---
 
