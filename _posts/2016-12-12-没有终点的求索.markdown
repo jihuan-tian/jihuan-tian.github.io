@@ -2,6 +2,8 @@
 layout: post
 title: 没有终点的求索
 date: 2016-12-12
+categories: [thoughts]
+tags: [数学学习]
 disqus: y
 ---
 

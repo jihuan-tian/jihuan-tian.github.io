@@ -2,6 +2,8 @@
 layout: post
 title: Note for ""How to read a paper"" and my suggested paper survey workflow
 date: 2016-12-08
+categories: [methodology]
+tags: [research]
 disqus: y
 ---
 

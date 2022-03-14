@@ -2,6 +2,8 @@
 layout: post
 title: Clever persons don't care about formal perfection
 date: 2017-02-10
+categories: [thoughts]
+tags: [随想]
 disqus: y
 ---
 

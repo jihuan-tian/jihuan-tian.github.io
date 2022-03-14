@@ -2,6 +2,8 @@
 layout: post
 title: 专业度与用户价值
 date: 2017-02-12
+categories: [thoughts]
+tags: [专注,随想]
 disqus: y
 ---
 

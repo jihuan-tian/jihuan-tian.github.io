@@ -2,6 +2,8 @@
 layout: post
 title: 科技滋长了人的劣根性
 date: 2016-12-17
+categories: [thoughts]
+tags: [思想]
 disqus: y
 ---
 

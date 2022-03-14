@@ -2,6 +2,8 @@
 layout: post
 title: 被封的谷歌与大师之路
 date: 2016-12-29
+categories: [thoughts]
+tags: [思想]
 disqus: y
 ---
 

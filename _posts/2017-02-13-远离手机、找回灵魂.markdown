@@ -2,6 +2,8 @@
 layout: post
 title: 远离手机、找回灵魂
 date: 2017-02-13
+categories: [thoughts]
+tags: [思想,论语]
 disqus: y
 ---
 

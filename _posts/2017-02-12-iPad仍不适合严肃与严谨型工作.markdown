@@ -2,6 +2,8 @@
 layout: post
 title: iPad仍不适合严肃与严谨型工作
 date: 2017-02-12
+categories: [thoughts]
+tags: [iPad]
 disqus: y
 ---
 

@@ -2,6 +2,8 @@
 layout: post
 title: 任务管理的关键在于人
 date: 2017-01-14
+categories: [thoughts]
+tags: [管理提升]
 disqus: y
 ---
 

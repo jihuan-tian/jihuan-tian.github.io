@@ -2,6 +2,8 @@
 layout: post
 title: Explore in the dungeon of science
 date: 2016-12-10
+categories: [methodology]
+tags: [research]
 disqus: y
 ---
 

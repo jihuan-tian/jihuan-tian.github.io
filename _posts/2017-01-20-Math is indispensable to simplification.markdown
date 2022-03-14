@@ -2,6 +2,8 @@
 layout: post
 title: Math is indispensable to simplification
 date: 2017-01-20
+categories: [thoughts]
+tags: [数学学习]
 disqus: y
 ---
 

@@ -2,6 +2,8 @@
 layout: post
 title: 认知过程
 date: 2017-02-01
+categories: [thoughts]
+tags: [哲学,康德]
 disqus: y
 ---
 

@@ -2,6 +2,8 @@
 layout: post
 title: 窈窕淑女，君子好逑
 date: 2017-01-20
+categories: [thoughts]
+tags: [数学学习]
 disqus: y
 ---
 

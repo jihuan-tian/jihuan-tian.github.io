@@ -2,6 +2,8 @@
 layout: post
 title: 我们的记忆力是否真的在衰退？
 date: 2016-12-12
+categories: [thoughts]
+tags: [阅读,管理提升]
 disqus: y
 ---
 

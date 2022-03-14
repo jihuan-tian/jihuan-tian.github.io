@@ -2,6 +2,8 @@
 layout: post
 title: A seed for years now becomes a tree
 date: 2016-12-11
+categories: [thoughts]
+tags: [数学学习]
 disqus: y
 ---
 
