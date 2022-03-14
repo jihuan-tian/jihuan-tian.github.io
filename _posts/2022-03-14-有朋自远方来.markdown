@@ -1,0 +1,31 @@
+---
+layout: post
+title: 有朋自远方来
+date: 2022-03-14
+categories: [thoughts]
+tags: [论语]
+mathjax: false
+disqus: y
+---
+
+《The Man Who Knew Infinity》书中提到Littlewood与Hardy的交往：
+
+> Littlewood had recently moved into rooms on D Staircase of Nevile’s Court. Pausing in the arched doorway at the staircase’s base, he could sight through the portico to the arches across the court framed within it. It was an arresting view—perhaps one reason he remained there for sixty-five years, until his death in 1977. From Hardy’s rooms, it was just nineteen steps down the winding stone staircase, then forty paces through the gate into Nevile’s Court and around to D Staircase. Yet normally the two men communicated by mail or college messenger and did not, in any case, routinely run off to confer with one another in person. And so, that winter evening in 1913, to let Littlewood know he wished to meet with him after Hall, Hardy sent word by messenger.
+
+二人的办公室虽然仅仅相距十九级台阶再加四十步，他们之间的交流却仍大多通过信件与信使，而不经常面谈。然而，这丝毫不妨碍他们之间的密切合作与深刻思想的碰撞交流。想来这就是我们常说但却鲜见的“君子之交”吧！而其中蕴含的精神与孔子和蘧伯玉的交往有着异曲同工之妙。
+
+> 《论语·宪问篇第十四 14.25》 蘧伯玉使人于孔子，孔子与之坐而问焉。曰：「夫子何为？」对曰：「夫子欲寡其过而未能也。」使者出。子曰：「使乎！使乎！」
+
+可以看出，君子专注于“务本”，执著于对真善美的追求。因为“无终食之间违仁”，须臾不能离道，所以实再是没有功夫用来宴乐、交际。 这样一来，有限却深入的交流便显得弥足珍贵，偶尔的造访则更是成为铭记于心的乐事。然而，这样的朋友能否寻得，既须以自身的好学与修行为基础，也要看缘分。如有，则实属上天眷顾；没有，则仍需独自砥砺前行。
+
+> 《论语·学而篇第一 1.2》 有子曰：「其为人也孝弟，而好犯上者，鲜矣；不好犯上，而好作乱者，未之有也。君子务本，本立而道生。 孝弟也者，其为仁之本与！」
+> 
+> 《论语·里仁篇第四 4.5》 子曰：「富与贵，是人之所欲也，不以其道得之，不处也。贫与贱，是人之恶也，不以其道得之，不去也。君子去仁，恶乎成名。君子无终食之间违仁，造次必于是，颠沛必于是。」
+>
+> 《论语·季氏篇第十六 16.5》 孔子曰：「益者三乐，损者三乐。乐节礼乐，乐道人之善，乐多贤友，益矣。乐骄乐，乐佚游，乐宴乐，损矣。」
+>
+> 《论语·卫灵公篇第十五 15.17》 子曰：「群居终日，言不及义，好行小慧，难矣哉！」
+>
+> 《论语·学而篇第一 1.1》 子曰：「学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？」
+>
+> 《论语·子罕篇第九 9.30》 子曰：「可与共学，未可与适道；可与适道，未可与立；可与立，未可与权。」
