@@ -2,6 +2,8 @@
 layout: post
 title: 工具使用论
 date: 2017-04-09
+categories: [thoughts]
+tags: [思想,管理提升]
 disqus: y
 ---
 

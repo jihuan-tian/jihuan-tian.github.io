@@ -2,6 +2,8 @@
 layout: post
 title: 久远的历史
 date: 2017-03-13
+categories: [thoughts]
+tags: [随想]
 disqus: y
 ---
 

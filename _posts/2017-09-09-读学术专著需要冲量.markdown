@@ -2,6 +2,8 @@
 layout: post
 title: 读学术专著需要冲量
 date: 2017-09-09
+categories: [thoughts]
+tags: [科研,管理提升]
 disqus: y
 ---
 

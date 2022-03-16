@@ -2,10 +2,12 @@
 layout: post
 title: 论语入门读书顺序
 date: 2017-02-19
+categories: [thoughts]
+tags: [论语]
 disqus: y
 ---
 
-1\. 傅佩荣《[论语300讲](https://book.douban.com/subject/6787864/)》并配合酷我音乐中的[录音讲座](http://m.kuwo.cn/?albumid=551091&f=ipad&t=weixin&from=singlemessage&isappinstalled=1)。
+1\. 傅佩荣《[论语300讲](https://book.douban.com/subject/6787864/)》
 
 2\. 杨伯峻《[论语译注](https://book.douban.com/subject/4098263/)》
 
@@ -13,7 +15,7 @@ disqus: y
 
 4\. 李泽厚《[论语今读](https://book.douban.com/subject/26362357/)》
 
-5\. 朱熹《[四书章句集注](https://book.douban.com/subject/10582727/)》论语部分
+5\. 朱熹《[四书章句集注](https://book.douban.com/subject/10582727/)》
 
 6\. 傅佩荣《[孔子辞典](https://book.douban.com/subject/25782781/)》
 

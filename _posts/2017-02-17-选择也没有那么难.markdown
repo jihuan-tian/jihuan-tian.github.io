@@ -2,6 +2,8 @@
 layout: post
 title: 选择也没有那么难
 date: 2017-02-17
+categories: [thoughts]
+tags: [随想]
 disqus: y
 ---
 

@@ -2,6 +2,8 @@
 layout: post
 title: 与Hackbusch教授的交流
 date: 2017-02-28
+categories: [thoughts]
+tags: [科研,数学学习]
 disqus: y
 ---
 

@@ -2,6 +2,8 @@
 layout: post
 title: Structured thinking for effective execution
 date: 2017-03-30
+categories: [thoughts]
+tags: [管理提升]
 disqus: y
 ---
 

@@ -2,6 +2,8 @@
 layout: post
 title: 职场人生的成功“越狱”
 date: 2017-03-30
+categories: [thoughts]
+tags: [职场,管理提升]
 disqus: y
 ---
 

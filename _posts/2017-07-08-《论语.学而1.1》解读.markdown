@@ -2,6 +2,8 @@
 layout: post
 title: 《论语.学而1.1》解读
 date: 2017-07-08
+categories: [thoughts]
+tags: [论语]
 disqus: y
 ---
 

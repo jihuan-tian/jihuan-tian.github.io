@@ -2,6 +2,8 @@
 layout: post
 title: 改变自我，接纳新技术
 date: 2017-07-07
+categories: [thoughts]
+tags: [管理提升]
 disqus: y
 ---
 

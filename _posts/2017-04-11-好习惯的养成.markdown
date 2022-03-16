@@ -2,6 +2,8 @@
 layout: post
 title: 好习惯的养成
 date: 2017-04-11
+categories: [thoughts]
+tags: [管理提升]
 disqus: y
 ---
 
