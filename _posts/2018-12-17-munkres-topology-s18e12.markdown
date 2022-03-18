@@ -21,7 +21,7 @@ F(x \times y) = \begin{cases}
 $$
 where $F$ is continuous separately in each of its component variables but is not continuous by itself. This is function is visualized below.
 
-![F(x,y)=xy/(x^2+y^2)](media/99212C74-FBA6-4EF6-9F4B-26FA18A758DC.gif)
+![F(x,y)=xy/(x^2+y^2)](/figures/99212C74-FBA6-4EF6-9F4B-26FA18A758DC.gif)
 
 Fix $y$ at $y_0$, we have $F_{y_0}(x) = F(x \times y_0)$. When $y_0 \neq 0$, $F_{y_0}(x)$ is continuous with respect to $x$ because it is only a composition of continuous real valued functions via simple arithmetic. When $y_0 = 0$, if $x \neq 0$, $F_0(x) = 0$; if $x =0$, $F_0(x)$ is also 0 due to the definition of $F(x \times y)$. Therefore, $F_0(x)$ is a constant function, which is continuous due to Theorem 18.2 (a). Similarly, $F_{x_0}(y)$ is also continuous with respect to $y$.
 
