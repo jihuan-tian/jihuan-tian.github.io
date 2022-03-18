@@ -27,7 +27,7 @@ Take the definition of sequence convergence as an analogy. Its definition in the
 From this it can be seen that the notion of metric or *distance* is discarded in the topological space, where the *rulers* for measuring point proximity degenerates to a collection of open sets. Because set inclusion relation establishes a partial order on this open set collection, the meaning of metric or *distance* is still kept to some extent. Assume that we select a collection of nested open sets (forming a chain in the order relation) as rulers to measure point convergence. The smaller the open set used to circumscribe a segment of the sequence $$\{x_n\}_{n \geq 1}$$, the *closer* they approach the limiting point $$x_0$$. This concept is illustrated below.
 
 <p align="center">
-<img src="/figures/D8E923A5-C4EC-46A8-885B-9B4EEA8D3104.png" width="300px" /></p>
+<img src="/figures/2018-12-15 Convergence of sequence in topological space.png" width="300px" /></p>
 <p align="center">Fig. Convergence of a sequence of points in topological space.</p>
 
 Similarly, for the definition of function continuity in pure topological spaces, the only tool for measuring the amount of deviation or error about a point $$x_0$$ and its function value $$f(x_0)$$ is using open sets. The smaller the open set, the finer the measuring resolution. If the function value can be limited within any neighborhood of $$f(x_0)$$ by confining the variation of $$x$$ around $$x_0$$ in $$X$$, we can say that the set of rulers selected from $$Y$$, viz. its topology, has tried its best to ensure the function’s continuity at $$x_0$$. It is easy to project that the finer the topology of $$Y$$, the more difficult the function to be continuous, due to the improved resolution of the *rulers*.
