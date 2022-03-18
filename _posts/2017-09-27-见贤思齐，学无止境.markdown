@@ -2,6 +2,8 @@
 layout: post
 title: 见贤思齐，学无止境
 date: 2017-09-27
+categories: [thoughts]
+tags: [数学学习,科研,论语]
 disqus: y
 ---
 

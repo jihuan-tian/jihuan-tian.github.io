@@ -2,6 +2,8 @@
 layout: post
 title: 学而时习，不怕重复
 date: 2017-10-06
+categories: [thoughts]
+tags: [数学学习,论语]
 disqus: y
 ---
 

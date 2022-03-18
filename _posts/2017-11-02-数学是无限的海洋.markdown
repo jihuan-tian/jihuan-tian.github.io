@@ -2,6 +2,8 @@
 layout: post
 title: 数学是无限的海洋
 date: 2017-11-02
+categories: [thoughts]
+tags: [数学学习]
 disqus: y
 ---
 

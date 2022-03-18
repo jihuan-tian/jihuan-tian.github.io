@@ -2,6 +2,8 @@
 layout: post
 title: Impression of Zürich
 date: 2017-10-13
+categories: [thoughts]
+tags: [travel]
 disqus: y
 ---
 

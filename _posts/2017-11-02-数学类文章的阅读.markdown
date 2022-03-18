@@ -2,6 +2,8 @@
 layout: post
 title: 数学类文章的阅读
 date: 2017-11-02
+categories: [thoughts]
+tags: [数学学习]
 disqus: y
 ---
 

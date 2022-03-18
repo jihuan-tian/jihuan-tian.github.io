@@ -2,6 +2,8 @@
 layout: post
 title: 早起从来都不是一件简单的事
 date: 2017-10-28
+categories: [thoughts]
+tags: [管理提升,习惯]
 disqus: y
 ---
 

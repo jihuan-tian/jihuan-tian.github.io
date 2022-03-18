@@ -2,6 +2,8 @@
 layout: post
 title: 一生不辍的坚持
 date: 2017-11-17
+categories: [thoughts]
+tags: [习惯]
 disqus: y
 ---
 

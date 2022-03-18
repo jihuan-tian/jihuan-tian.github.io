@@ -2,6 +2,8 @@
 layout: post
 title: 在理论学习与开发工作之间保持平衡
 date: 2017-10-19
+categories: [thoughts]
+tags: [数学学习]
 disqus: y
 ---
 

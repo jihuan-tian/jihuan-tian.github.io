@@ -2,6 +2,8 @@
 layout: post
 title: 如何面对“无底洞任务”
 date: 2017-11-26
+categories: [thoughts]
+tags: [管理提升]
 disqus: y
 ---
 

@@ -2,6 +2,8 @@
 layout: post
 title: 理论与实践交互方能出真知
 date: 2017-10-06
+categories: [thoughts]
+tags: [诗经,C++]
 disqus: y
 ---
 

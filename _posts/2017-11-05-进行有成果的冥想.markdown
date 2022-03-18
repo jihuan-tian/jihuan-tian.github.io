@@ -2,6 +2,8 @@
 layout: post
 title: 进行有成果的冥想
 date: 2017-11-05
+categories: [thoughts]
+tags: [阅读,深度工作,管理提升]
 disqus: y
 ---
 

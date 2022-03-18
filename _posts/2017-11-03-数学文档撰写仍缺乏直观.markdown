@@ -2,6 +2,8 @@
 layout: post
 title: 数学文档撰写仍缺乏直观
 date: 2017-11-03
+categories: [thoughts]
+tags: [数学学习,笔记]
 disqus: y
 ---
 

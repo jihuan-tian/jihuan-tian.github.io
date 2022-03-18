@@ -2,6 +2,8 @@
 layout: post
 title: 重视“量”的积累
 date: 2017-10-25
+categories: [thoughts]
+tags: [管理提升]
 disqus: y
 ---
 
