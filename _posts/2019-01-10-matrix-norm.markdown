@@ -3,7 +3,7 @@ layout: post
 title: Matrix norm
 date: 2019-01-10
 categories: [math]
-tags: [topology]
+tags: [topology,linear-algebra]
 mathjax: true
 disqus: y
 ---

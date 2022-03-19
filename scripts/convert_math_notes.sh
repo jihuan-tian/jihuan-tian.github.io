@@ -1,3 +1,3 @@
 #!/bin/bash
 
-gawk -i inplace '{gsub(/\$/, "$$"); gsub(/\$\$\$\$/, "$$"); print}' "$1"
+gawk -i inplace -f ../scripts/latex-to-md.awk "$1"
