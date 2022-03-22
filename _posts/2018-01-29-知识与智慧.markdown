@@ -2,6 +2,8 @@
 layout: post
 title: 知识与智慧
 date: 2018-01-29
+categories: [thoughts]
+tags: [论语,思想]
 disqus: y
 ---
 

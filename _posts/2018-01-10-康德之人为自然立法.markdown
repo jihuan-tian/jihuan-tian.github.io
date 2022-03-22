@@ -2,6 +2,8 @@
 layout: post
 title: 康德之人为自然立法
 date: 2018-01-10
+categories: [thoughts]
+tags: [哲学,康德,摘录]
 disqus: y
 ---
 

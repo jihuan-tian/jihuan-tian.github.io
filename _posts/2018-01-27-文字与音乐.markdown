@@ -2,6 +2,8 @@
 layout: post
 title: 文字与音乐
 date: 2018-01-27
+categories: [thoughts]
+tags: [音乐,对话]
 disqus: y
 ---
 

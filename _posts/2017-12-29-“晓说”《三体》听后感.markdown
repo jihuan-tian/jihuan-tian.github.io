@@ -2,6 +2,8 @@
 layout: post
 title: “晓说”《三体》听后感
 date: 2017-12-29
+categories: [thoughts]
+tags: [随想,三体]
 disqus: y
 ---
 

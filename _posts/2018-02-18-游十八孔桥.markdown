@@ -2,6 +2,8 @@
 layout: post
 title: 游十八孔桥
 date: 2018-02-18
+categories: [thoughts]
+tags: [日记]
 disqus: y
 ---
 

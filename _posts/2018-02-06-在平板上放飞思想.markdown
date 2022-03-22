@@ -2,6 +2,8 @@
 layout: post
 title: 在平板上放飞思想
 date: 2018-02-06
+categories: [thoughts]
+tags: [工具,iPad]
 disqus: y
 ---
 

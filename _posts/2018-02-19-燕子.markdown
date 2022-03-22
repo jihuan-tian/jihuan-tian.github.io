@@ -2,6 +2,8 @@
 layout: post
 title: 燕子
 date: 2018-02-19
+categories: [thoughts]
+tags: [日记]
 disqus: y
 ---
 

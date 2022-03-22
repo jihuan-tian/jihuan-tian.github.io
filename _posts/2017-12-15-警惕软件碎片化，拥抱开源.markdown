@@ -2,6 +2,8 @@
 layout: post
 title: 警惕软件碎片化，拥抱开源
 date: 2017-12-15
+categories: [thoughts]
+tags: [阅读,管理提升,工具,开源软件]
 disqus: y
 ---
 

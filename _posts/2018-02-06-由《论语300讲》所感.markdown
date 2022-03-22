@@ -2,6 +2,8 @@
 layout: post
 title: 由《论语300讲》所感
 date: 2018-02-06
+categories: [thoughts]
+tags: [论语]
 disqus: y
 ---
 

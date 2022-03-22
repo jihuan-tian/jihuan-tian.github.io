@@ -2,6 +2,8 @@
 layout: post
 title: 千里之堤，溃于蚁穴
 date: 2018-01-17
+categories: [thoughts]
+tags: [管理提升]
 disqus: y
 ---
 

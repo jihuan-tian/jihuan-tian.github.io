@@ -2,6 +2,8 @@
 layout: post
 title: 收之桑榆，失之东隅
 date: 2018-01-13
+categories: [thoughts]
+tags: [随想]
 disqus: y
 ---
 

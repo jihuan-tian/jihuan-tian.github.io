@@ -2,6 +2,8 @@
 layout: post
 title: 儿时的印象笔记
 date: 2018-02-21
+categories: [thoughts]
+tags: [回忆]
 disqus: y
 ---
 

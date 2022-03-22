@@ -2,6 +2,8 @@
 layout: post
 title: 学习当郑重其事
 date: 2018-02-13
+categories: [thoughts]
+tags: [管理提升]
 disqus: y
 ---
 
