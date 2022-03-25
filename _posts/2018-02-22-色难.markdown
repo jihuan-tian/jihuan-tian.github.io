@@ -2,6 +2,8 @@
 layout: post
 title: 色难
 date: 2018-02-22
+categories: [thoughts]
+tags: [论语]
 disqus: y
 ---
 

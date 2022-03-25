@@ -2,6 +2,8 @@
 layout: post
 title: 邓晓芒《康德哲学》笔记：第二讲 《纯粹理性批判》序言与导论
 date: 2018-03-10
+categories: [thoughts]
+tags: [哲学,康德]
 disqus: y
 ---
 

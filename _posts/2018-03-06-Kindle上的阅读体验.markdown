@@ -2,12 +2,13 @@
 layout: post
 title: Kindle上的阅读体验
 date: 2018-03-06
+categories: [thoughts]
+tags: [工具,Kindle,ergonomics,eyes-protection]
 disqus: y
 ---
 
-![](/figures/p48954509.jpg)
-
-Kindle DXG
+![Kindle DXG](/figures/p48954509.jpg)
+<p align="center">Kindle DXG</p>
 
 目前我使用Kindle已经有七年的历史了，从一开始装了“多看”系统的Kindle DXG到现在的Kindle Paper White 3。这个过程其实也是逐步抛弃纸书阅读习惯的过程。从中获得的益处是不言而喻的。比如：
 

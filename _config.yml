@@ -65,3 +65,4 @@ exclude:
   - .directory
   - .gitignore
   - scripts/
+  - drafts/

@@ -1,0 +1,2 @@
+p[style-name='Quotations'] => blockquote:fresh
+p[style-name='Body Text'] => p:fresh 
