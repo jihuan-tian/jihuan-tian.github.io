@@ -2,6 +2,8 @@
 layout: post
 title: 亲手推导数学定理的重要性
 date: 2018-04-13
+categories: [thoughts]
+tags: [数学学习]
 disqus: y
 ---
 

@@ -2,6 +2,8 @@
 layout: post
 title: “尽信书不如无书”的具体实践
 date: 2018-05-04
+categories: [thoughts]
+tags: [数学学习]
 disqus: y
 ---
 

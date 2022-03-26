@@ -2,277 +2,277 @@
 layout: post
 title: 邓晓芒《康德哲学》笔记：第三讲《纯粹理性批判》先验感性论
 date: 2018-03-18
+categories: [thoughts]
+tags: [哲学,康德,思维导图]
 disqus: y
 ---
 
-![](/figures/p49175733.jpg)
-
 ![](/figures/p49175738.jpg)
 
-• 传统上，一般认为人类的认识分为两个层次
+* 传统上，一般认为人类的认识分为两个层次
 
-◦ 感性认识：后天的，经验的，低层次的
+  * 感性认识：后天的，经验的，低层次的
 
-◦ 理性认识：先天的，必然的，高层次的
+  * 理性认识：先天的，必然的，高层次的
 
-• 什么是aesthetics
+* 什么是aesthetics
 
-◦ 来源：古希腊时意为感性论。
+  * 来源：古希腊时意为感性论。
 
-◦ 18世纪鲍姆加通提出将aesthetics理解为美学。
+  * 18世纪鲍姆加通提出将aesthetics理解为美学。
 
-▪ 鲍姆加通是欧洲大陆理性派的传人，被认为是美学之父。
+    * 鲍姆加通是欧洲大陆理性派的传人，被认为是美学之父。
 
-▪ 鲍姆加通认为感性不能算认识，因此将aesthetics认为是跟审美和鉴赏相关的。
+    * 鲍姆加通认为感性不能算认识，因此将aesthetics认为是跟审美和鉴赏相关的。
 
-▪ 日本人将aesthetics翻译为美学。
+    * 日本人将aesthetics翻译为美学。
 
-◦ 康德提出先验感性论
+  * 康德提出先验感性论
 
-▪ 审美属于心理学问题，艺术属于工艺、技术问题。它们都不属于哲学。
+    * 审美属于心理学问题，艺术属于工艺、技术问题。它们都不属于哲学。
 
-▪ 康德认为应将aesthetics还原为古希腊的感性论。所以不应将其翻译为先天美学。
+    * 康德认为应将aesthetics还原为古希腊的感性论。所以不应将其翻译为先天美学。
 
-• 几个概念的解析
+* 几个概念的解析
 
-◦ 先天（a priori）知识：在经验之先的知识。
+  * 先天（a priori）知识：在经验之先的知识。
 
-▪ 形式逻辑
+    * 形式逻辑
 
-▪ 数学的公理和基本原理
+    * 数学的公理和基本原理
 
-▪ 自然科学的基本原理
+    * 自然科学的基本原理
 
-▫ 物质不灭
+      * 物质不灭
 
-▫ 因果性的原理：一切事件都是有原因的
+      * 因果性的原理：一切事件都是有原因的
 
-▫ 一切事物都是有实体的
+      * 一切事物都是有实体的
 
-◦ 后天（posteriori）知识
+  * 后天（posteriori）知识
 
-◦ 先验的（transcendent）与超验的（transcendental）辨析
+  * 先验的（transcendent）与超验的（transcendental）辨析
 
-▪ 先验的（transcendent）
+    * 先验的（transcendent）
 
-▫ OED: By Kant applied to that which transcends his own list of categories (explained as a priori conceptions of the understanding, which it necessarily employs in ordering its experience, but which have no validity outside of experience); hence, transcending or altogether outside experience; not an object of possible experience; unrealizable in human experience.
+      * OED: By Kant applied to that which transcends his own list of categories (explained as a priori conceptions of the understanding, which it necessarily employs in ordering its experience, but which have no validity outside of experience); hence, transcending or altogether outside experience; not an object of possible experience; unrealizable in human experience.
 
-\- 1842 BRANDE Dict. Sc., etc., s.v.Transendental, Kant..draws a distinction between the transcendental and the transcendent... The transcendent..is that which regards those principles as objectively real to which Kant assigns only a subjective or formal reality, and consequently is by him regarded as beyond the limits of human reason altogether.
+        * 1842 BRANDE Dict. Sc., etc., s.v.Transendental, Kant..draws a distinction between the transcendental and the transcendent... The transcendent..is that which regards those principles as objectively real to which Kant assigns only a subjective or formal reality, and consequently is by him regarded as beyond the limits of human reason altogether.
 
-▫ 含义更加直接，偏向于涉及事物本身的结构。
+      * 含义更加直接，偏向于涉及事物本身的结构。
 
-▫ 先验（transcendent）知识专门用来规定和讨论先天知识是如何可能的，以及如何能够运用于经验之上。包括先天知识的来源、作用方式与运用范围。
+      * 先验（transcendent）知识专门用来规定和讨论先天知识是如何可能的，以及如何能够运用于经验之上。包括先天知识的来源、作用方式与运用范围。
 
-▪ 超验的（transcendental）
+    * 超验的（transcendental）
 
-▫ OED: Not derived from experience, but concerned with the presuppositions of experience; pertaining to the general theory of the nature of experience or knowledge, a priori; critical.
+      * OED: Not derived from experience, but concerned with the presuppositions of experience; pertaining to the general theory of the nature of experience or knowledge, a priori; critical.
 
-\- 1801 Encycl. Brit.Suppl. II. 355 Kant..calls all knowledge, of which the object is not furnished by the senses, and which concerns the kind and origin of our ideas, transcendental knowledge.
+        * 1801 Encycl. Brit.Suppl. II. 355 Kant..calls all knowledge, of which the object is not furnished by the senses, and which concerns the kind and origin of our ideas, transcendental knowledge.
 
-\- 1842 BRANDE Dict. Sc. etc., s.v.,The transcendental he \[Kant\] defines to be that which, though it could never be derived from experience, yet is necessarily connected with experience, and which may be shortly expressed as the intellectual form, the matter of which is supplied by sense.
+        * 1842 BRANDE Dict. Sc. etc., s.v.,The transcendental he \[Kant\] defines to be that which, though it could never be derived from experience, yet is necessarily connected with experience, and which may be shortly expressed as the intellectual form, the matter of which is supplied by sense.
 
-\- 1874 W. WALLACE Hegel's Logic §42. 75 That unity of self-consciousness,..Kant calls transcendental..; and he meant thereby that this unity was only in our minds, and did not attach to the objects apart from our knowledge of them.
+        * 1874 W. WALLACE Hegel's Logic §42. 75 That unity of self-consciousness,..Kant calls transcendental..; and he meant thereby that this unity was only in our minds, and did not attach to the objects apart from our knowledge of them.
 
-▫ 更具有形容词性质，偏向于涉及事物的性质。
+      * 更具有形容词性质，偏向于涉及事物的性质。
 
-▪ 中世纪的经验哲学家对于先验、超验的认识
+    * 中世纪的经验哲学家对于先验、超验的认识
 
-▫ 中世纪的经验哲学家，如大阿尔伯特，在探讨形而上学时常谈到先验的。但在当时没有和超验的区别开。
+      * 中世纪的经验哲学家，如大阿尔伯特，在探讨形而上学时常谈到先验的。但在当时没有和超验的区别开。
 
-▫ 对先验的和超验的未区分，意味着关于亚里士多德《形而上学》（metaphysics）认识论和本体论的认识是混淆的
+      * 对先验的和超验的未区分，意味着关于亚里士多德《形而上学》（metaphysics）认识论和本体论的认识是混淆的
 
-\- 形而上学的两个含义
+        * 形而上学的两个含义
 
-\- 第一哲学（对应于先验的）
+        * 第一哲学（对应于先验的）
 
-\- 是探讨任何哲学概念、问题的前提。
+        * 是探讨任何哲学概念、问题的前提。
 
-\- 面向现实和世俗世界，要应用于经验世界。
+        * 面向现实和世俗世界，要应用于经验世界。
 
-\- 涉及认识论。
+        * 涉及认识论。
 
-\- 神学（对应于超验的）
+        * 神学（对应于超验的）
 
-\- 有关于神的。希腊文为λογος，意为心理、灵魂、理性。
+        * 有关于神的。希腊文为λογος，意为心理、灵魂、理性。
 
-\- 超越经验世界，与其无关或者在其之上。
+        * 超越经验世界，与其无关或者在其之上。
 
-\- 涉及物质本体，自在之物。
+        * 涉及物质本体，自在之物。
 
-◦ 概念用例
+  * 概念用例
 
-▪ 先天的范畴
+    * 先天的范畴
 
-▪ 先天的时空
+    * 先天的时空
 
-▪ 先验的图型法
+    * 先验的图型法
 
-• 先验感性论
+* 先验感性论
 
-◦ 基本观点
+  * 基本观点
 
-▪ 感性认识中有先天成分
+    * 感性认识中有先天成分
 
-▪ 数学中有感性认识的先天成分：时间与空间
+    * 数学中有感性认识的先天成分：时间与空间
 
-▪ 时间与空间是先天的主观形式
+    * 时间与空间是先天的主观形式
 
-◦ 基本概念
+  * 基本概念
 
-▪ 直观（anschauen）：与对象直接相关的表象。直观是一切认识或知识的内容或材料的唯一来源。
+    * 直观（anschauen）：与对象直接相关的表象。直观是一切认识或知识的内容或材料的唯一来源。
 
-▫ 感性直观：通过时间、空间的形式感受到的直观。
+      * 感性直观：通过时间、空间的形式感受到的直观。
 
-▫ 知性（理性）直观：人类没有理性直观。上帝也许使用的是理性直观，直接通过思维就可以产生和直观对象。
+      * 知性（理性）直观：人类没有理性直观。上帝也许使用的是理性直观，直接通过思维就可以产生和直观对象。
 
-▪ 对象（object/Gegenstand）：康德会将这两个词混用。
+    * 对象（object/Gegenstand）：康德会将这两个词混用。
 
-▫ 绝对的对象：即，物质体，是我们思考的对象。
+      * 绝对的对象：即，物质体，是我们思考的对象。
 
-▫ 认识的对象：能够认识的对象不一定是物质体，人能够认识的是经验的、现象的对象。
+      * 认识的对象：能够认识的对象不一定是物质体，人能够认识的是经验的、现象的对象。
 
-▪ 感性（Sinnlichkeit）：是asthetics，即感性论的内容。
+    * 感性（Sinnlichkeit）：是asthetics，即感性论的内容。
 
-▫ 感性是最初的接受能力。感性接受物质体对我们感官的刺激，从而产生表象。
+      * 感性是最初的接受能力。感性接受物质体对我们感官的刺激，从而产生表象。
 
-▫ 感性具有主动的成分，即以时间和空间作为先天的主观形式。
+      * 感性具有主动的成分，即以时间和空间作为先天的主观形式。
 
-▫ 感性的细分
+      * 感性的细分
 
-\- 感觉（Erfindung?）：直观中的材料，经验中的质料部分。它只是自在之物刺激我们的感官而形成的现象，而不是自在之物自身。
+        * 感觉（Erfindung?）：直观中的材料，经验中的质料部分。它只是自在之物刺激我们的感官而形成的现象，而不是自在之物自身。
 
-\- 时间与空间：感性的主观形式。
+        * 时间与空间：感性的主观形式。
 
-▪ 现象（Erscheinung/Phenomenon）：意为出现、显现，要比感性更高一层。
+    * 现象（Erscheinung/Phenomenon）：意为出现、显现，要比感性更高一层。
 
-注意：康德使用phenomenon时表示更抽象的含义，比如现象中已经成型的、经过了范畴整理的部分，邓晓芒将其翻译为现相。而相对地，Erscheinung表示现象中更为直接的部分，邓晓芒将其翻译为现象。
+      注意：康德使用phenomenon时表示更抽象的含义，比如现象中已经成型的、经过了范畴整理的部分，邓晓芒将其翻译为现相。而相对地，Erscheinung表示现象中更为直接的部分，邓晓芒将其翻译为现象。
 
-▫ 现象的质料：经过整理的感觉，也包括时间与空间。
+      * 现象的质料：经过整理的感觉，也包括时间与空间。
 
-注意：时间与空间在感性中属于形式，而在现象中属于质料。
+        注意：时间与空间在感性中属于形式，而在现象中属于质料。
 
-▫ 想象的形式：范畴
+      * 想象的形式：范畴
 
-▪ 纯粹直观：用于排除后天接收的杂多。
+    * 纯粹直观：用于排除后天接收的杂多。
 
-▪ 表象（Vorstellung）：是心理学术语，可翻译为观念。包括直观、感觉、知觉、印象、时间、空间、范畴、理念、原理。
+    * 表象（Vorstellung）：是心理学术语，可翻译为观念。包括直观、感觉、知觉、印象、时间、空间、范畴、理念、原理。
 
-◦ 康德对时间与空间的界定
+  * 康德对时间与空间的界定
 
-▪ 时间（内感官）与空间（外感官）是感性的先天形式，是一种主体性的能力。
+    * 时间（内感官）与空间（外感官）是感性的先天形式，是一种主体性的能力。
 
-▪ 空间本身不依赖于时间，但是外感官也处在时间中。
+    * 空间本身不依赖于时间，但是外感官也处在时间中。
 
-▪ 康德对牛顿时空观的批判
+    * 康德对牛顿时空观的批判
 
-▫ 牛顿的时空观
+      * 牛顿的时空观
 
-\- 时间与空间是外部事物的存在方式。
+        * 时间与空间是外部事物的存在方式。
 
-\- 所有的事物都处于宇宙的绝对时空坐标系中。当然，也可以有无数的局部参照系。
+        * 所有的事物都处于宇宙的绝对时空坐标系中。当然，也可以有无数的局部参照系。
 
-\- 时间是无穷无尽的河流。
+        * 时间是无穷无尽的河流。
 
-▫ 康德的观点：康德反对牛顿完全客观化的时空观，而认为时间与空间是我们加给自然界的，是我们自身先天固有的感性形式。
+      * 康德的观点：康德反对牛顿完全客观化的时空观，而认为时间与空间是我们加给自然界的，是我们自身先天固有的感性形式。
 
-▪ 康德对莱布尼茨时空观的批判
+    * 康德对莱布尼茨时空观的批判
 
-▫ 莱布尼茨的时空观
+      * 莱布尼茨的时空观
 
-\- 单子的概念
+        * 单子的概念
 
-\- 单子类似于原子，但不是物质的，而是精神的、灵魂的。
+        * 单子类似于原子，但不是物质的，而是精神的、灵魂的。
 
-\- 单子普遍存在与万物之中。
+        * 单子普遍存在与万物之中。
 
-\- 单子相互作用的实质是数学的和逻辑的关系。
+        * 单子相互作用的实质是数学的和逻辑的关系。
 
-\- 时间与空间是单子数学和逻辑关系的表象（Vorstellung）。
+        * 时间与空间是单子数学和逻辑关系的表象（Vorstellung）。
 
-▫ 康德的观点：莱布尼茨认为单子关系的表象是后天的、经验的，而康德反对莱布尼茨这种完全主观化的时空观。
+      * 康德的观点：莱布尼茨认为单子关系的表象是后天的、经验的，而康德反对莱布尼茨这种完全主观化的时空观。
 
-▪ 康德的时空观既带有主观的成分，又具有先天的成分：时间与空间是主观的先天形式。
+    * 康德的时空观既带有主观的成分，又具有先天的成分：时间与空间是主观的先天形式。
 
-◦ 康德对时间与空间的阐明
+  * 康德对时间与空间的阐明
 
-▪ 阐明的两个类型
+    * 阐明的两个类型
 
-▫ 形而上学的阐明：考察概念本身的固有含义，是本体论、存在论的阐明。
+      * 形而上学的阐明：考察概念本身的固有含义，是本体论、存在论的阐明。
 
-▫ 先验的阐明：考察形而上学的阐明如何构成知识，是功能性的、认识论的阐明。
+      * 先验的阐明：考察形而上学的阐明如何构成知识，是功能性的、认识论的阐明。
 
-▪ 时间与空间的形而上学的阐明
+    * 时间与空间的形而上学的阐明
 
-▫ 时间与空间都不是得自经验的，而是经验的先天条件。解释：我们无法设想没有时间与空间的物体，但是可以设想没有任何物体的时间与空间。所以，时间与空间在逻辑上先于有待被经验的物体。（消极的、否定的阐明）
+      * 时间与空间都不是得自经验的，而是经验的先天条件。解释：我们无法设想没有时间与空间的物体，但是可以设想没有任何物体的时间与空间。所以，时间与空间在逻辑上先于有待被经验的物体。（消极的、否定的阐明）
 
-▫ 时间与空间是内外现象的先天、必然的基础。（积极的、肯定的阐明）
+      * 时间与空间是内外现象的先天、必然的基础。（积极的、肯定的阐明）
 
-\- 空间是外部现象的先天直观形式。
+        * 空间是外部现象的先天直观形式。
 
-\- 时间是内部现象的先天直观形式。
+        * 时间是内部现象的先天直观形式。
 
-\- 时间的地位更为基本。空间必须要纳入到时间中，我们才有可能在内心中对其进行把握。【也就是说，内外的现象都要经过内感官这个大门才可最终被我们接受。】
+        * 时间的地位更为基本。空间必须要纳入到时间中，我们才有可能在内心中对其进行把握。【也就是说，内外的现象都要经过内感官这个大门才可最终被我们接受。】
 
-▫ 时间与空间不是概念的：这是对莱布尼茨逻辑的、关系的观念的否定。（消极的、否定的阐明）
+      * 时间与空间不是概念的：这是对莱布尼茨逻辑的、关系的观念的否定。（消极的、否定的阐明）
 
-▫ 时间与空间是直观的。（积极的、肯定的阐明）
+      * 时间与空间是直观的。（积极的、肯定的阐明）
 
-▪ 时间与空间的先验的阐明：讨论作为先天直观形式的时间与空间是如何形成知识的。
+    * 时间与空间的先验的阐明：讨论作为先天直观形式的时间与空间是如何形成知识的。
 
-▫ 建立于空间之上的知识
+      * 建立于空间之上的知识
 
-\- 几何学
+        * 几何学
 
-\- 几何学的基本原理或公理不是基于概念的推理，而是在空间的形式下通过直观得到的。
+        * 几何学的基本原理或公理不是基于概念的推理，而是在空间的形式下通过直观得到的。
 
-\- 几何学是一门基于直观的，具有构成性的先天综合知识。
+        * 几何学是一门基于直观的，具有构成性的先天综合知识。
 
-▫ 建立于时间之上的知识
+      * 建立于时间之上的知识
 
-\- 算术（邓晓芒举例）：例如，数数利用了时间的均匀性。
+        * 算术（邓晓芒举例）：例如，数数利用了时间的均匀性。
 
-\- 力学（运动学）（康德举例）：物体的运动是在时间中进行的，也因此有了速度的概念。
+        * 力学（运动学）（康德举例）：物体的运动是在时间中进行的，也因此有了速度的概念。
 
-\- 邓晓芒认为康德的这个例子不太合适
+        * 邓晓芒认为康德的这个例子不太合适
 
-\- 关于时空的讨论实际上还在感性的层次，不需要上升到范畴。但是，讨论力学中的运动就要引入范畴中因果性的概念。
+        * 关于时空的讨论实际上还在感性的层次，不需要上升到范畴。但是，讨论力学中的运动就要引入范畴中因果性的概念。
 
-◦ 时空的不对称性
+  * 时空的不对称性
 
-▪ 时间相对于空间更为根本，但却只能借助于空间来表达。例如，带有方向的一维的数轴，钟表的表盘，等等。实际上，时间是无法直接表达的。
+    * 时间相对于空间更为根本，但却只能借助于空间来表达。例如，带有方向的一维的数轴，钟表的表盘，等等。实际上，时间是无法直接表达的。
 
-▪ 以往关于时间的看法
+    * 以往关于时间的看法
 
-▫ 古希腊：时间为命运
+      * 古希腊：时间为命运
 
-▫ 中世纪的奥古斯丁：关于时间，你不说我还明白，一说，我反而糊涂了。
+      * 中世纪的奥古斯丁：关于时间，你不说我还明白，一说，我反而糊涂了。
 
-▫ 柏格森：将时间归结为生命与存在。
+      * 柏格森：将时间归结为生命与存在。
 
-◦ 结论
+  * 结论
 
-▪ 时间与空间不是物质体的属性，而是我们认识能力中的先天直观形式。
+    * 时间与空间不是物质体的属性，而是我们认识能力中的先天直观形式。
 
-▪ 在现象领域，时间与空间提供的仅仅是感性的形式，而不提供感性的内容。
+    * 在现象领域，时间与空间提供的仅仅是感性的形式，而不提供感性的内容。
 
-▪ 时间相对于空间更为根本，占有优势。
+    * 时间相对于空间更为根本，占有优势。
 
-▫ 时间是一维的，有方向性和不可逆性。
+      * 时间是一维的，有方向性和不可逆性。
 
-▫ 空间是三维的，表达不出时间。
+      * 空间是三维的，表达不出时间。
 
-▫ 时间更为隐秘和深奥。
+      * 时间更为隐秘和深奥。
 
-▪ 感性具有经验的实在性和先验的观念性
+    * 感性具有经验的实在性和先验的观念性
 
-▫ 感性中时间与空间的形式必须要用于经验才能够形成实在性，但不具有先验的实在性。
+      * 感性中时间与空间的形式必须要用于经验才能够形成实在性，但不具有先验的实在性。
 
-▫ 感性中时间与空间是先验的观念，而不是后天的观念或者心理学的观念。因为这一点是不能违背的，从而具有客观性。
+      * 感性中时间与空间是先验的观念，而不是后天的观念或者心理学的观念。因为这一点是不能违背的，从而具有客观性。
 
-▫ 将上述客观性用于实际的经验，就使我们的感性具有客观性。注意：康德这里所说的客观性并不是关于自在之物（不能被我们认识的）的客观性，而是一种先天的必然性。这个观点否定了休谟的“怀疑论”。
+      * 将上述客观性用于实际的经验，就使我们的感性具有客观性。注意：康德这里所说的客观性并不是关于自在之物（不能被我们认识的）的客观性，而是一种先天的必然性。这个观点否定了休谟的“怀疑论”。
 
-▪ 康德反对
+    * 康德反对
 
-▫ 经验的观念性：休谟的“怀疑论”，主观唯心主义。
+      * 经验的观念性：休谟的“怀疑论”，主观唯心主义。
 
-▫ 先验的实在性：独断论，包括唯物主义和客观唯心主义的独断论。
+      * 先验的实在性：独断论，包括唯物主义和客观唯心主义的独断论。

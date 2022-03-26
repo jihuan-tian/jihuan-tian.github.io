@@ -2,6 +2,8 @@
 layout: post
 title: 时间记录法实践中的问题
 date: 2018-06-10
+categories: [thoughts]
+tags: [管理提升]
 disqus: y
 ---
 

@@ -1,0 +1,21 @@
+---
+layout: page
+title: 思维导图
+exclude: true
+---
+
+<div id="archives">
+  <div class="archive-group">
+    {% capture tag_name %}思维导图{% endcapture %}
+    <a name="{{ tag_name | slugize }}"></a>
+    {% for post in site.tags[tag_name] %}
+    <article class="archive-item">
+      <h4>
+        <a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a> &nbsp; 
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+      </h4>
+    </article>
+    {% endfor %}
+  </div>
+</div>
