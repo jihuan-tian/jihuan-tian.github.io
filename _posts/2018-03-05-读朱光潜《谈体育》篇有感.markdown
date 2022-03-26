@@ -3,7 +3,7 @@ layout: post
 title: 读朱光潜《谈体育》篇有感
 date: 2018-03-05
 categories: [thoughts]
-tags: [阅读,数学学民]
+tags: [阅读,数学学习]
 disqus: y
 ---
 
