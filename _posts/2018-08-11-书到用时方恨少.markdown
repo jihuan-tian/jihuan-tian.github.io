@@ -2,6 +2,8 @@
 layout: post
 title: 书到用时方恨少
 date: 2018-08-11
+categories: [thoughts]
+tags: [管理提升,论语]
 disqus: y
 ---
 

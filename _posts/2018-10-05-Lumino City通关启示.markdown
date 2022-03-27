@@ -2,6 +2,8 @@
 layout: post
 title: Lumino City通关启示
 date: 2018-10-05
+categories: [thoughts]
+tags: [随想,论语,设计]
 disqus: y
 ---
 

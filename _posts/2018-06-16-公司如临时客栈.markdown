@@ -2,6 +2,8 @@
 layout: post
 title: 公司如临时客栈
 date: 2018-06-16
+categories: [thoughts]
+tags: [职场]
 disqus: y
 ---
 

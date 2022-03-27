@@ -2,6 +2,8 @@
 layout: post
 title: “Naive” problems are not trivial
 date: 2018-09-02
+categories: [thoughts]
+tags: [数学学习]
 disqus: y
 ---
 

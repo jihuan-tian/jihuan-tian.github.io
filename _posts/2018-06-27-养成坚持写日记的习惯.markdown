@@ -2,6 +2,8 @@
 layout: post
 title: 养成坚持写日记的习惯
 date: 2018-06-27
+categories: [thoughts]
+tags: [管理提升,日记]
 disqus: y
 ---
 

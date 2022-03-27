@@ -2,6 +2,8 @@
 layout: post
 title: “悟空”机器人
 date: 2018-10-02
+categories: [thoughts]
+tags: [随想]
 disqus: y
 ---
 

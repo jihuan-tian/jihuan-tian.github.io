@@ -2,6 +2,8 @@
 layout: post
 title: 柳比歇夫时间追踪进行时
 date: 2018-07-14
+categories: [thoughts]
+tags: [管理提升]
 disqus: y
 ---
 

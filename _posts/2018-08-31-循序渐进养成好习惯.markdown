@@ -2,6 +2,8 @@
 layout: post
 title: 循序渐进养成好习惯
 date: 2018-08-31
+categories: [thoughts]
+tags: [管理提升,论语]
 disqus: y
 ---
 

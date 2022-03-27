@@ -2,6 +2,8 @@
 layout: post
 title: 读《ANSYS非官方历史》有感
 date: 2018-07-26
+categories: [thoughts]
+tags: [阅读,随想]
 disqus: y
 ---
 

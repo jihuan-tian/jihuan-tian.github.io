@@ -2,6 +2,8 @@
 layout: post
 title: 攻乎异端，斯害也已
 date: 2018-09-28
+categories: [thoughts]
+tags: [论语,随想]
 disqus: y
 ---
 

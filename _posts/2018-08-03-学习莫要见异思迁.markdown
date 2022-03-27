@@ -2,6 +2,8 @@
 layout: post
 title: 学习莫要见异思迁
 date: 2018-08-03
+categories: [thoughts]
+tags: [管理提升,论语,学习方法]
 disqus: y
 ---
 
