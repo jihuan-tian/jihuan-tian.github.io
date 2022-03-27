@@ -7,7 +7,7 @@ tags: [随想]
 disqus: y
 ---
 
-![](/figures/p54442790.jpg)
+![](/figures/p54442790.gif)
 
 “悟空”机器人：俯卧撑动作
 
