@@ -3,7 +3,7 @@
 template=$(cat <<EOF
 ---
 layout: page
-title: $1
+title: "Tag: $1"
 exclude: true
 ---
 

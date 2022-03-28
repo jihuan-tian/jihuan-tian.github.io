@@ -3,7 +3,7 @@ layout: post
 title: Commit all modified files to Git
 date: 2022-02-25 09:47
 categories: [computer]
-tags: [git]
+tags: [Git]
 disqus: y
 ---
 
