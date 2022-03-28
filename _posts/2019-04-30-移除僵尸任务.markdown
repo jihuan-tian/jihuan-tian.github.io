@@ -2,7 +2,6 @@
 layout: post
 title: 移除僵尸任务
 date: 2019-04-30
-disqus: y
 ---
 
 ![](/figures/p60467129.jpg)

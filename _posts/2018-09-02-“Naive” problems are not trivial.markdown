@@ -4,7 +4,6 @@ title: “Naive” problems are not trivial
 date: 2018-09-02
 categories: [thoughts]
 tags: [数学学习]
-disqus: y
 ---
 
 For novices of mathematics, do not take those seemingly "naive" problems for granted. Sometimes, the problem at hand is really obvious, but we should still not have frequent logical jumps during the formal rigorous proof, otherwise, we cannot escalate from the qualitative and relatively quantitative realm of engineering, which is often built upon phenomenological metaphors, to the absolutely quantitative realm of mathematics, which requires pure and rigorous reasoning.

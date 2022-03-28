@@ -2,7 +2,6 @@
 layout: post
 title: Build your own infrastructure
 date: 2021-10-24
-disqus: y
 ---
 
 Working on an existing infrastructure developed by other people or team is completely different from building an infrastructure from scratch on your own, in the ways of thinking, in the design philosophy followed, in the methodology practiced, in the tool chain adopted, etc.

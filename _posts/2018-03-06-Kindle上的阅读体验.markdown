@@ -4,7 +4,6 @@ title: Kindle上的阅读体验
 date: 2018-03-06
 categories: [thoughts]
 tags: [工具,Kindle,ergonomics,eyes-protection]
-disqus: y
 ---
 
 ![Kindle DXG](/figures/p48954509.jpg)

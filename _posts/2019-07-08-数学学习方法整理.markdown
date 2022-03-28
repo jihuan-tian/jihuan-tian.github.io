@@ -2,7 +2,6 @@
 layout: post
 title: 数学学习方法整理
 date: 2019-07-08
-disqus: y
 ---
 
 ## 1 前言

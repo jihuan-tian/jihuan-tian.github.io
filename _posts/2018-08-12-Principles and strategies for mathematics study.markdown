@@ -4,7 +4,6 @@ title: Principles and strategies for mathematics study
 date: 2018-08-12
 categories: [thoughts]
 tags: [数学学习]
-disqus: y
 ---
 
 1. Make mathematics study a habit with dogged perseverance

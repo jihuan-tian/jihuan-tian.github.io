@@ -4,7 +4,6 @@ title: Impression of Zürich
 date: 2017-10-13
 categories: [thoughts]
 tags: [travel]
-disqus: y
 ---
 
 On Dec 27, 2012, I made the first trip to Zürich. The first site of my visit was a small mountain called Uetliberg sitting at the boundary of Zürich, which offers a panoramic view of the entire city and the Zürichsee. Although the weather was not so good due to intermittent cold rains and accompanying temperature drop, I was still determined to see how the scenery looks like on top of Uetliberg.

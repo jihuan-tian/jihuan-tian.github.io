@@ -5,7 +5,6 @@ date: 2022-03-11
 categories: [thoughts]
 tags: [论语,随想]
 mathjax: false
-disqus: y
 ---
 
 > 《论语·宪问篇第十四 14.23》 子曰：「君子上达，小人下达。」

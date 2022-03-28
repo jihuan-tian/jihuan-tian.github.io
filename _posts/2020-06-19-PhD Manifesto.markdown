@@ -2,7 +2,6 @@
 layout: post
 title: PhD Manifesto
 date: 2020-06-19
-disqus: y
 ---
 
 The following PhD Manifesto was drafted by me on Mar 17, 2019. Now, after more than one year, when I introspect about these opinions, I still think they are valid and will always be a ringing alert to me just in case that I am not industrious enough or deviate from my ultimate mission.

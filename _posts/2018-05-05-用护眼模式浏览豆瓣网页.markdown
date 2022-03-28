@@ -4,7 +4,6 @@ title: 用护眼模式浏览豆瓣网页
 date: 2018-05-05
 categories: [thoughts]
 tags: [ergonomics,eyes-protection]
-disqus: y
 ---
 
 长时间看网页容易导致视疲劳。对此除了定时休息外，还可以通过在浏览器中动态修改网页样式来进一步削弱屏幕对视力的影响。样式修改的基本原则是：

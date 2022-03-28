@@ -4,7 +4,6 @@ title: 土博与政府的周旋
 date: 2018-01-27
 categories: [thoughts]
 tags: [社会经历]
-disqus: y
 ---
 
 昨天完成了落上海社区公共户手续的办理。前后历时4年，大致流程如下：

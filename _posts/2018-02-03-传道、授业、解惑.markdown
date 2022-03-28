@@ -4,7 +4,6 @@ title: 传道、授业、解惑
 date: 2018-02-03
 categories: [methodology]
 tags: [学习方法]
-disqus: y
 ---
 
 ![](/figures/p48379901.jpg)

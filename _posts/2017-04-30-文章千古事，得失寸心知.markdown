@@ -4,7 +4,6 @@ title: 文章千古事，得失寸心知
 date: 2017-04-30
 categories: [thoughts]
 tags: [随想,论语]
-disqus: y
 ---
 
 “文章千古事，得失寸心知。”

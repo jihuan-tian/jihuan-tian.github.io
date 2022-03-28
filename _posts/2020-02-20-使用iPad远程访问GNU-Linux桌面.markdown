@@ -2,7 +2,6 @@
 layout: post
 title: 使用iPad远程访问GNU/Linux桌面
 date: 2020-02-20
-disqus: y
 ---
 
 通过vncserver/viewer可以实现iPad远程访问GNU/Linux桌面。具体做法如下。

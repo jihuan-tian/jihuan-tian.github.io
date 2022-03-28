@@ -4,7 +4,6 @@ title: 康德辞典
 date: 2017-01-26
 categories: [thoughts]
 tags: [哲学,康德]
-disqus: y
 ---
 
 \* 表象：

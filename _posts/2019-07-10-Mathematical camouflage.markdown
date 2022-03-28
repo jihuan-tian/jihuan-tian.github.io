@@ -2,7 +2,6 @@
 layout: post
 title: Mathematical camouflage
 date: 2019-07-10
-disqus: y
 ---
 
 At first glance, it seems some mathematical constructions and proofs are invented by coincidence or ingenuity that is not easily attainable by most people. However, this may be a camouflage produced by the ultimate beautiful proof appearing in a tome. The real story behind the scene could be the followings.

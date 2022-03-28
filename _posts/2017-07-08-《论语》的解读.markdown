@@ -4,7 +4,6 @@ title: 《论语》的解读
 date: 2017-07-08
 categories: [thoughts]
 tags: [论语]
-disqus: y
 ---
 
 子曰：“学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？”

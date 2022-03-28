@@ -5,7 +5,6 @@ date: 2021-11-05
 categories: [thoughts]
 tags: [摘录,阅读,科研]
 mathjax: false
-disqus: y
 ---
 
 1、自然哲学的数学原理

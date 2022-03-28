@@ -4,7 +4,6 @@ title: 细节、风格与好的设计
 date: 2016-10-15
 categories: [methodology]
 tags: [阅读,思想,设计]
-disqus: y
 ---
 
 Paul Graham在他的文章《设计者的品味》（见于《黑客与画家》一书）中对于什么才是构成好的设计的要素阐述了极其精辟、透彻的观点。例如，

@@ -5,7 +5,6 @@ date: 2018-12-13
 categories: [math]
 tags: [topology]
 mathjax: true
-disqus: y
 ---
 
 **Theorem 16.3** If $$A$$ is a subspace of $$X$$ and $$B$$ is a subspace of $$Y$$, then the product  topology on $$A \times B$$ is the same as the topology $$A \times B$$ inherits as a subspace of $$X \times Y$$.

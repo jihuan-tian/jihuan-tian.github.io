@@ -2,7 +2,6 @@
 layout: post
 title: “Turbocharge your writing today” 摘录
 date: 2021-01-16
-disqus: y
 ---
 
 Gardiner, Maria, and Hugh Kearns. 2011. “Turbocharge Your Writing Today.” Nature 475 (7354): 129–30.

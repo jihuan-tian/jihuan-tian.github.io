@@ -5,7 +5,6 @@ date: 2022-03-24
 categories: [computer]
 tags: [ergonomics,eyes-protection,Firefox]
 mathjax: false
-disqus: y
 ---
 
 Customizing the font family used in Firefox reader mode is helpful to increase online reading experience. This can be achieved according to the following procedure.

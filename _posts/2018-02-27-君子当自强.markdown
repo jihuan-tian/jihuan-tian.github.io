@@ -4,7 +4,6 @@ title: 君子当自强
 date: 2018-02-27
 categories: [thoughts]
 tags: [管理提升,论语]
-disqus: y
 ---
 
 本文就讲讲我在刚上大学时学习计算机的一点小经历吧！

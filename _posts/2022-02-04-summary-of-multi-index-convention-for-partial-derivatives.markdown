@@ -5,7 +5,6 @@ date: 2022-02-04
 categories: [math]
 tags: [PDE]
 mathjax: true
-disqus: y
 ---
 
 Let $$d$$ be the spatial dimension. $$\alpha = (\alpha_1, \cdots, \alpha_d) \in \mathbb{N}_0^d$$.

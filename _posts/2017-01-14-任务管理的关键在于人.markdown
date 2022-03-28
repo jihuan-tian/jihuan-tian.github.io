@@ -4,7 +4,6 @@ title: 任务管理的关键在于人
 date: 2017-01-14
 categories: [thoughts]
 tags: [管理提升]
-disqus: y
 ---
 
 说到任务管理，我曾尝试过多种软件和实体工具的组合，如：

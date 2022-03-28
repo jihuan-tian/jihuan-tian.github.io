@@ -2,7 +2,6 @@
 layout: post
 title: 为自我保持一份sacrosanct氛围
 date: 2021-03-28
-disqus: y
 ---
 
 > sacrosanct \[OED\] adj. Of persons and things, especially obligations, laws, etc.: Secured by a religious sanction from violation, infringement, or encroachment; inviolable, sacred.

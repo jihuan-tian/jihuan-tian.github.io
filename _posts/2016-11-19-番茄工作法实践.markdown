@@ -4,7 +4,6 @@ title: 番茄工作法实践
 date: 2016-11-19
 categories: [thoughts]
 tags: [管理提升,番茄工作法]
-disqus: y
 ---
 
 ![](/figures/p38794277.jpg)

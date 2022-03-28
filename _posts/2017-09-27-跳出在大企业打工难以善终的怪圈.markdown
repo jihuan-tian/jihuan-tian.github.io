@@ -4,7 +4,6 @@ title: 跳出在大企业打工难以善终的怪圈
 date: 2017-09-27
 categories: [thoughts]
 tags: [职场,管理提升]
-disqus: y
 ---
 
 读《[为什么说给大企业打工是一场难以善终的结局？](http://mp.weixin.qq.com/s/vCHzRtVAsefRNzCogh6U3A)》有感

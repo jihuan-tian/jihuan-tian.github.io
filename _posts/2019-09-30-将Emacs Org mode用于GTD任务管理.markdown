@@ -2,7 +2,6 @@
 layout: post
 title: 将Emacs Org mode用于GTD任务管理
 date: 2019-09-30
-disqus: y
 ---
 
 在[《以Emacs Org mode为核心的任务管理方案》]({% post_url 2019-04-30-以Emacs Org mode为核心的任务管理方案 %})中，我简要介绍了如何围绕Emacs Org mode构建个人任务管理系统的基本思路与方法。因为Org mode体系庞大、功能繁杂，本文仅以提纲契领的方式介绍不同环节在Org mode中的操作与实现。更为具体与精密的功能机制和实施细节以查阅[Org mode参考手册](https://orgmode.org/manual/index.html)为宜。

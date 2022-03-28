@@ -5,7 +5,6 @@ date: 2018-12-03
 categories: [math]
 tags: [topology]
 mathjax: true
-disqus: y
 ---
 
 

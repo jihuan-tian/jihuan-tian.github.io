@@ -5,7 +5,6 @@ date: 2022-03-25
 categories: [math]
 tags: [real-analysis]
 mathjax: true
-disqus: y
 ---
 
 -   Assume the function space $$X$$ is assigned the norm $$\norm{\cdot}$$.

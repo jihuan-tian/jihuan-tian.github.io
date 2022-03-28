@@ -4,7 +4,6 @@ title: Consideration about improving mathematics study
 date: 2018-08-18
 categories: [thoughts]
 tags: [数学学习]
-disqus: y
 ---
 
 In this article, I’ll present my ideas about how to improve mathematics study, which are the forewords of my handwriting notes on Royden’s “Real Analysis”.

@@ -5,7 +5,6 @@ date: 2018-12-15
 categories: [math]
 tags: [topology]
 mathjax: true
-disqus: y
 ---
 
 When we learn calculus in university as freshmen, we are usually force-fed with the $$\epsilon-\delta$$ language for the definition of a function’s continuity, i.e.

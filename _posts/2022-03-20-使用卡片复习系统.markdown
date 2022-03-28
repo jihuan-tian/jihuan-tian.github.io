@@ -5,7 +5,6 @@ date: 2022-03-20
 categories: [methodology]
 tags: [Anki,管理提升]
 mathjax: false
-disqus: y
 ---
 
 我从2017年11月13日开始使用欧路词典提供的卡片复习功能[背英语单词]({% post_url 2018-02-05-背单词的启示 %})和自行制作的例句课本。该功能根据遗忘曲线自动调整单词出现的频率，对于巩固小而零散的单词是非常有效的。近期，我又阅读了《[Augmenting Long-Term memory](http://augmentingcognition.com/ltm.html)》这篇文章，了解到使用更为通用和可定制性更强的Anki，可将现有背单词与例句的方法进一步拓展至各门学科、知识与技能。

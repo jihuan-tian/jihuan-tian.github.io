@@ -4,7 +4,6 @@ title: 阅读学术文章需注意
 date: 2018-07-28
 categories: [thoughts]
 tags: [科研]
-disqus: y
 ---
 
 * Papers should be read using diffusive mode instead of focus mode with Einstellung. Just play with it and do some free mind scratch on the notebook.

@@ -2,7 +2,6 @@
 layout: post
 title: 算法调试启示
 date: 2021-10-02
-disqus: y
 ---
 
 > 经过几天迷茫中的试探与不懈的努力，终于找到了阶数守恒H型矩阵乘法（level conserving H-matrix multiplication）在使用与精确计算结果相同的矩阵秩（rank）参数的情况下依旧无法达到机器精度（machine precision）的原因：即，叶节点矩阵的秩会在成对格式加法（pairwise formatted addition）中逐渐增加，从而导致预先设定的固定秩不再够用。此外，亦发现导致H型矩阵的秩与将其转换为满阵后的秩不一致的问题乃由输出数据的精度不够导致，而非理论理解错误或算法实现上的问题。

@@ -5,7 +5,6 @@ date: 2018-12-17
 categories: [math]
 tags: [topology]
 mathjax: true
-disqus: y
 ---
 
 Theorem 18.4 in James Munkres “Topology” states that if a function $f : A \rightarrow X \times Y$ is continuous, its coordinate functions $f_1 : A \rightarrow X$ and $f_2 : A \rightarrow Y$ are also continuous, and the converse is also true. This is what we have been familiar with, such as a continuous parametric curve $f: [0, 1] \rightarrow \mathbb{R}^3$ defined as $f(t) = (x(t), y(t), z(t))^T$ with its three components being continuous. However, if a function $g: A \times B \rightarrow X$ is separately continuous in each of its components, i.e. both $g_1: A \rightarrow X$ and $g_2 : B \rightarrow X$ are continuous, $g$ is not necessarily continuous.

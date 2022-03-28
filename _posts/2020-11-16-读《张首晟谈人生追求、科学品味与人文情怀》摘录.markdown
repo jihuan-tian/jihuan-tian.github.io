@@ -2,7 +2,6 @@
 layout: post
 title: 读《张首晟谈人生追求、科学品味与人文情怀》摘录
 date: 2020-11-16
-disqus: y
 ---
 
 [原文链接](http://news.sciencenet.cn/sbhtmlnews/2018/12/341620.shtm)

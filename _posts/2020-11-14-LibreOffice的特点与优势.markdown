@@ -2,7 +2,6 @@
 layout: post
 title: LibreOffice的特点与优势
 date: 2020-11-14
-disqus: y
 ---
 
 继承自OpenOffice、诞生于2011年的LibreOffice经过多年的发展，如今将其作为微软Office办公套件的免费替代是完全可行且更胜一筹的。LibreOffice包含了Writer（文字处理）、Draw（矢量绘图）、Impress（演示文稿）、Calc（电子表格）、Base（数据库）、Math（数学公式）六个组件。本文列举出除Base与Math外各组件的主要特点和相对于微软Office的优势。

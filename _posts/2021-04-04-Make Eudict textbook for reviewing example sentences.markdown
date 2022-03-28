@@ -2,7 +2,6 @@
 layout: post
 title: Make Eudict textbook for reviewing example sentences
 date: 2021-04-04
-disqus: y
 ---
 
 Recently, I've started an activity of recording typical and nice English sentences from dictionaries or books to my personal Markdown document. By providing context and hints, this method is quite helpful and has been proved to be effective for remembering newly studied glossaries. In the following source code block, you can see the format of the Markdown document I've adopted.

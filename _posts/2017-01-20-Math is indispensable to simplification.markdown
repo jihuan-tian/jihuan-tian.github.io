@@ -4,7 +4,6 @@ title: Math is indispensable to simplification
 date: 2017-01-20
 categories: [thoughts]
 tags: [数学学习]
-disqus: y
 ---
 
 One of the tasks or effects introduced by mathematics is to make things simpler by creating new abstract concepts, producing various categories, prescribing definitions and rules, building logical framework, etc. Unfortunately, due to the lack of suitable mathematical tools, some applied “theories” (literally, they are not real theories due to the missing of rigorousness and rationality) become incredibly complicated and unnecessarily cumbersome, even though the mathematics to be involved are not at all difficult to play with. There may be two reasons in the following explaining this situation.

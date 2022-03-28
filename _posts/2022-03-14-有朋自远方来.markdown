@@ -5,7 +5,6 @@ date: 2022-03-14
 categories: [thoughts]
 tags: [论语]
 mathjax: false
-disqus: y
 ---
 
 《The Man Who Knew Infinity》书中提到Littlewood与Hardy的交往：

@@ -2,7 +2,6 @@
 layout: post
 title: 文章的撰写与修改要“知止”
 date: 2021-12-29
-disqus: y
 ---
 
 > 知止而后有定

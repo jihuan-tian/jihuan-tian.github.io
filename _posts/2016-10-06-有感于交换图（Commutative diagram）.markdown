@@ -4,7 +4,6 @@ title: 有感于交换图（Commutative diagram）
 date: 2016-10-06
 categories: [thoughts]
 tags: [数学学习]
-disqus: y
 ---
 
 多少结构精美的空间， 

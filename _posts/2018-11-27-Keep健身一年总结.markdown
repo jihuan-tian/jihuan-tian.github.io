@@ -2,7 +2,6 @@
 layout: post
 title: Keep健身一年总结
 date: 2018-11-27
-disqus: y
 ---
 
 ![](/figures/p56057815.jpg)

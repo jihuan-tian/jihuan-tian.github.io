@@ -2,7 +2,6 @@
 layout: post
 title: 学习原则
 date: 2021-02-03
-disqus: y
 ---
 
 1\. 学习的态度（attitude）

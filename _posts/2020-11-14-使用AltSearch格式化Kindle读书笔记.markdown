@@ -2,7 +2,6 @@
 layout: post
 title: 使用AltSearch格式化Kindle读书笔记
 date: 2020-11-14
-disqus: y
 ---
 
 [AltSearch](https://extensions.libreoffice.org/extensions/alternative-dialog-find-replace-for-writer)是LibreOffice Writer的一个用于自动化执行复杂文本替换操作的扩展，能够在不需要复杂编程的条件下进行一些文档格式的手动与批量转换和调整。该扩展除了支持普通文本与正则表达式的查找与替换外，还能够进行文本与段落样式的匹配与替换，这是其他的排版软件，包括微软的Office，所不具备的。利用这些功能，将其写为简单的批处理脚本，就可以自动地格式化文件，满足常见的学习与工作需求，大大提高工作效率。本文以格式化由Kindle 导出的笔记为例，介绍AltSearch的基本使用方法。

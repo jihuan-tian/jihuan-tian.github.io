@@ -2,7 +2,6 @@
 layout: post
 title: 使用Lilypond排版简谱
 date: 2020-10-11
-disqus: y
 ---
 
 这两天我想做一个简谱，在网上搜索乐谱排版软件，发现了基于GPL协议的Lilypond软件。只不过Lilypond是用来做五线谱的。幸好，又找到剑桥大学 Silas S. Brown 编写的一个 [jianpu-ly.py](http://people.ds.cam.ac.uk/ssb22/mwrhome/jianpu-ly.py) 脚本，通过调用Lilypond能够最终生成简谱。关于它的详细介绍请看[这里](http://people.ds.cam.ac.uk/ssb22/mwrhome/jianpu-ly.html)。

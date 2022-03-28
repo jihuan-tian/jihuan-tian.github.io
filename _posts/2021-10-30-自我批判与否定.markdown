@@ -2,7 +2,6 @@
 layout: post
 title: 自我批判与否定
 date: 2021-10-30
-disqus: y
 ---
 
 人需要自我反省、批判、否定、推翻、重构。

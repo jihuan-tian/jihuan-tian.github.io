@@ -4,7 +4,6 @@ title: 纸质与电子手写笔记相得益彰
 date: 2018-09-04
 categories: [thoughts]
 tags: [工具,GoodNotes,iPad,eyes-protection,ergonomics]
-disqus: y
 ---
 
 自从购买了Apple Pencil后，开始逐渐地由手写笔记转向iPad上的电子笔记，并充分体会到了GoodNotes这个笔记应用在排版、作图、手写识别等方面的强大威力。这里，将两种模式分几个方面比较如下：

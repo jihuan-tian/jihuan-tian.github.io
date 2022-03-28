@@ -2,7 +2,6 @@
 layout: post
 title: 读傅佩荣《工作为什么带给你痛苦》
 date: 2021-03-05
-disqus: y
 ---
 
 [这篇文章](https://weibo.com/ttarticle/p/show?id=2309404610044007415813)体现了做事或工作的三个过程：

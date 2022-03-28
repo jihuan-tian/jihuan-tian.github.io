@@ -2,7 +2,6 @@
 layout: post
 title: 孔门弟子
 date: 2021-02-18
-disqus: y
 ---
 
 ## 德行

@@ -4,7 +4,6 @@ title: Lumino City通关启示
 date: 2018-10-05
 categories: [thoughts]
 tags: [随想,论语,设计]
-disqus: y
 ---
 
 昨天晚上和小仙女一起终于玩完了[State of Play](https://www.stateofplaygames.com/)公司出品的[Lumino City](https://www.stateofplaygames.com/luminocity)。

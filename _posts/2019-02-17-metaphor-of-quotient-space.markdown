@@ -5,7 +5,6 @@ date: 2019-02-17
 categories: [math]
 tags: [topology]
 mathjax: true
-disqus: y
 ---
 
 In James Munkres "Topology" Section 22, the quotient space is defined as below.

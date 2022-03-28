@@ -5,7 +5,6 @@ date: 2021-01-15
 categories: [methodology]
 tags: [programming,C++]
 mathjax: false
-disqus: y
 ---
 
 The use of `const` keyword in C++ applies constraints to the program which will be statically checked by the compiler before program’s running. Therefore, it provides an additional layer of safety mechanism during our programming activity, such as preventing us from involuntarily modifying the value of a constant variable or getting its non-constant (mutable) reference. This will be extremely useful for us to develop and debug large scale numerical libraries in a defensive way, where mathematics and programming techniques are interwoven, which makes us more prone to error than traditional software containing only work flow of logics rather than mathematics. Therefore, it is meaningful to clarify and understand the key points of `const` usage, which will be the topic of this article. 

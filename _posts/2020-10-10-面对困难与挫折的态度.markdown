@@ -2,7 +2,6 @@
 layout: post
 title: 面对困难与挫折的态度
 date: 2020-10-10
-disqus: y
 ---
 
 在《[洛克菲勒留给儿子的38封信](https://book.douban.com/subject/26443717/)》一书中提到：

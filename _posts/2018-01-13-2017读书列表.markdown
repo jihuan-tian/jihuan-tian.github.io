@@ -4,7 +4,6 @@ title: 2017读书列表
 date: 2018-01-13
 categories: [thoughts]
 tags: [阅读]
-disqus: y
 ---
 
 苏东坡传 林语堂 / 张振玉 / 湖南文艺出版社 / 2012-1-1

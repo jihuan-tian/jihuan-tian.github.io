@@ -2,7 +2,6 @@
 layout: post
 title: 以Emacs Org mode为核心的任务管理方案
 date: 2019-04-30
-disqus: y
 ---
 
 ## 前言

@@ -5,7 +5,6 @@ date: 2017-09-30
 categories: [thoughts]
 tags: [阅读,摘录,康德,哲学]
 mathjax: false
-disqus: y
 ---
 
 康德. *论优美感和崇高感*. 商务印书馆, 2009. Kindle edition.

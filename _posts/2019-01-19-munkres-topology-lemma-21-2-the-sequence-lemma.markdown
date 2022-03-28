@@ -5,7 +5,6 @@ date: 2019-01-19
 categories: [math]
 tags: [topology]
 mathjax: true
-disqus: y
 ---
 
 **Lemma 21.2 (The sequence lemma)** Let $$X$$ be a topological space; let $$A \subset X$$. If there is a sequence of points of $$A$$ converging to $$x$$, then $$x \in \bar{A}$$; the converse holds if $$X$$ is metrizable.

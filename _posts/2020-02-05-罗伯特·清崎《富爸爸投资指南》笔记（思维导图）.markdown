@@ -2,7 +2,6 @@
 layout: post
 title: 罗伯特·清崎《富爸爸投资指南》笔记（思维导图）
 date: 2020-02-05
-disqus: y
 ---
 
 [查看原图](/figures/p69768029.jpg)

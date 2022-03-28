@@ -4,7 +4,6 @@ title: 论语入门读书顺序
 date: 2017-02-19
 categories: [thoughts]
 tags: [论语]
-disqus: y
 ---
 
 1\. 傅佩荣《[论语300讲](https://book.douban.com/subject/6787864/)》

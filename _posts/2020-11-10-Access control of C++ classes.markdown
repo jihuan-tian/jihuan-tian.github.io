@@ -2,7 +2,6 @@
 layout: post
 title: Access control of C++ classes
 date: 2020-11-10
-disqus: y
 ---
 
 The C++ public, protected and private keywords enable us to control the access to the data and methods of a class. Such access control mechanism applies to both the definition of a class and its inherited base class. It also discriminates between class developers and clients. The former can visit both public and protected entities, while the latter are only accessible to public class members. Here, the class developer stands for the programmer who writes new classes by inheriting from the existing class hierarchy. The class client represents that who only uses classes in the library in his/her application programs.

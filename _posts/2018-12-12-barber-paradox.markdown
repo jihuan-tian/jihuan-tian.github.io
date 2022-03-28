@@ -5,7 +5,6 @@ date: 2018-12-12
 categories: [math]
 tags: [set-theory]
 mathjax: true
-disqus: y
 ---
 
 According to [Wikipedia](https://en.wikipedia.org/wiki/Barber_paradox?wprov=sfti1), the well known barber paradox states like this:

@@ -2,7 +2,6 @@
 layout: post
 title: 驾考科目一学习笔记（思维导图）
 date: 2019-12-21
-disqus: y
 ---
 
 [查看原图](/figures/p68558456.jpg)

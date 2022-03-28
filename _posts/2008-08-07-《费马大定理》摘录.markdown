@@ -5,7 +5,6 @@ date: 2008-08-07
 categories: [thoughts]
 tags: [阅读]
 mathjax: true
-disqus: y
 ---
 
 ### 摘录

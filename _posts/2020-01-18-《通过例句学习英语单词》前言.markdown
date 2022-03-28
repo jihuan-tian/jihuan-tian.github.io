@@ -2,7 +2,6 @@
 layout: post
 title: 《通过例句学习英语单词》前言
 date: 2020-01-18
-disqus: y
 ---
 
 ## Preface to "Learning English words via sentences"

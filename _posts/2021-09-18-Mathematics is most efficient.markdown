@@ -2,7 +2,6 @@
 layout: post
 title: Mathematics is most efficient
 date: 2021-09-18
-disqus: y
 ---
 
 Mathematics is most efficient, for it solves a category of problems instead of a specific one across multiple disciplines via abstraction and unification.

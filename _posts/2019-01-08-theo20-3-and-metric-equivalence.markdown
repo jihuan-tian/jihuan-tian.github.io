@@ -5,7 +5,6 @@ date: 2019-01-08
 categories: [math]
 tags: [topology]
 mathjax: true
-disqus: y
 ---
 
 ## Proof of Theorem 20.3

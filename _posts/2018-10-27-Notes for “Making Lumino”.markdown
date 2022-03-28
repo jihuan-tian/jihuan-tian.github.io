@@ -2,7 +2,6 @@
 layout: post
 title: Notes for “Making Lumino”
 date: 2018-10-27
-disqus: y
 ---
 
 ![](/figures/p55165191.jpg)

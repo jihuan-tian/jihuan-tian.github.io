@@ -2,7 +2,6 @@
 layout: post
 title: 艾利克森《刻意练习》笔记与体会（思维导图）
 date: 2020-01-05
-disqus: y
 ---
 
 [查看原图](/figures/p69043755.jpg)

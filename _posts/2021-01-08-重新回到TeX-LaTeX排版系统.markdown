@@ -2,7 +2,6 @@
 layout: post
 title: 重新回到TeX/LaTeX排版系统
 date: 2021-01-08
-disqus: y
 ---
 
 记得我上一次全面地使用TeX/LaTeX排版系统还是在研究生期间发表文章和写学位论文的时候，至今已经过去十三年了。在这段离开学校的日子里，于公司项目与琐事的忙碌中，虽然我也会以间接的方式偶尔用到这个工具，比如通过LibreOffice中的TexMaths扩展、Emacs Org mode、Markdown等仍能够录入一些数学公式，但却始终没有机会像撰写正式学术文章那样来系统地使用TeX/LaTeX。由此导致我在这方面的技能一直都没有积累和长进。

@@ -5,7 +5,6 @@ date: 2018-12-19
 categories: [math]
 tags: [topology]
 mathjax: true
-disqus: y
 ---
 
 This post summarises different ways of constructing continuous functions, which are introduced in Section 18 of James Munkres “Topology”.

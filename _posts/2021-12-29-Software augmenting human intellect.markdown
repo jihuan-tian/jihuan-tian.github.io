@@ -2,7 +2,6 @@
 layout: post
 title: Software augmenting human intellect
 date: 2021-12-29
-disqus: y
 ---
 
 [Augmented intelligence](https://dougengelbart.org/content/view/138/) system was initially proposed by Engelbart in 1962. For a manifestation of this concept in software platforms and tools, they should at least possess the following features according to my current understanding.

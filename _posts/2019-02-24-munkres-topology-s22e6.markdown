@@ -5,7 +5,6 @@ date: 2019-02-24
 categories: [math]
 tags: [topology]
 mathjax: true
-disqus: y
 ---
 
 **Exercise 22.6** Recall that $$\mathbb{R}_{K}$$ denotes the real line in the $$K$$-topology. Let $$Y$$ be the quotient space obtained from $$\mathbb{R}_K$$ by collapsing the set $$K$$ to a point; let $$p: \mathbb{R}_K \rightarrow Y$$ be the quotient map.

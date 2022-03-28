@@ -4,7 +4,6 @@ title: 邓晓芒《康德哲学》笔记：第二讲 《纯粹理性批判》序
 date: 2018-03-10
 categories: [thoughts]
 tags: [哲学,康德,思维导图]
-disqus: y
 ---
 
 ![](/figures/p49019805.jpg)

@@ -4,7 +4,6 @@ title: Commit all modified files to Git
 date: 2022-02-25 09:47
 categories: [computer]
 tags: [Git]
-disqus: y
 ---
 
 Following these steps will do the work.

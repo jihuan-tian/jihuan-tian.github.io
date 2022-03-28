@@ -4,7 +4,6 @@ title: 邓晓芒《康德哲学》笔记：第一讲 康德哲学简介
 date: 2018-03-10
 categories: [thoughts]
 tags: [哲学,康德,思维导图]
-disqus: y
 ---
 
 ![](/figures/p49019790.jpg)

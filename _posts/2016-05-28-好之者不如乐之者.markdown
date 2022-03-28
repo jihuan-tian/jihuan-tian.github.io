@@ -4,7 +4,6 @@ title: 好之者不如乐之者
 date: 2016-05-28
 categories: [thoughts]
 tags: [论语]
-disqus: y
 ---
 
 孔子说：“知之者不如好之者，好之者不如乐之者”。

@@ -4,7 +4,6 @@ title: 创新的层次与真伪
 date: 2016-05-25
 categories: [thoughts]
 tags: [创新]
-disqus: y
 ---
 
 记得初中生物课上讲到池塘中的生态系统（如下图所示）：

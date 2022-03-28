@@ -2,7 +2,6 @@
 layout: post
 title: 如何恢复“flow”状态
 date: 2020-11-21
-disqus: y
 ---
 
 当一个人全神贯注于学习与研究工作时，通常都能进入一种《[Emotional Design](https://book.douban.com/subject/1465328/)》这本书所提到的“flow”状态：

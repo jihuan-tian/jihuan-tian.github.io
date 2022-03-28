@@ -2,7 +2,6 @@
 layout: post
 title: 驾考科目四学习笔记（思维导图）
 date: 2020-01-04
-disqus: y
 ---
 
 [查看原图](/figures/p69007787.jpg)

@@ -4,7 +4,6 @@ title: Structured thinking for effective execution
 date: 2017-03-30
 categories: [thoughts]
 tags: [管理提升]
-disqus: y
 ---
 
 In this article, I will list some areas in which we can adopt the structured thinking methodology to achive effective execution.
