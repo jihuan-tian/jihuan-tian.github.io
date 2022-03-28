@@ -66,3 +66,4 @@ exclude:
   - .gitignore
   - scripts/
   - drafts/
+  - drafts-completed/
