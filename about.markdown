@@ -4,6 +4,8 @@ title: About
 permalink: /about/
 ---
 
+<p align="center"><img width="300px" src="/assets/tjh-avatar.png" alt="tjh-avatar" /></p>
+
 > 真正的儒家，
 > 有止于至善的终极目标，有君子固穷的刚毅气节。
 > 既有危邦不入的小心慬慎，又有可仕而仕的智慧敏锐。
