@@ -14,7 +14,7 @@ permalink: /about/
 > 终生学习，以博学、明辨、审问、笃行为乐；
 > 木讷执着，以巧言令色、浅尝辄止为耻。
 
-I persistently pursue excellence in mathematical electromagnetism. My current focus is C++ implementation of Galerkin BEM.
+I persistently pursue excellence in mathematical electromagnetism and dielectric physics. My current focus is C++ implementation of Galerkin BEM.
 
 _PhD Manifesto_
 
