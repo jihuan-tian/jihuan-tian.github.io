@@ -2,6 +2,8 @@
 layout: post
 title: GoodNotes 5体验
 date: 2019-01-20
+categories: [thoughts]
+tags: [GoodNotes,工具]
 ---
 
 ![](/figures/p57534466.jpg)

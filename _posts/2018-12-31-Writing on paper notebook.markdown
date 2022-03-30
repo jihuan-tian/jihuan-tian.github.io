@@ -2,6 +2,8 @@
 layout: post
 title: Writing on paper notebook
 date: 2018-12-31
+categories: [thoughts]
+tags: [note-taking]
 ---
 
 Writing on paper notebook is somehow different from typing at a computer or writing with Apple Pencil on an iPad. On the real paper, although the handwriting is merely scribbles, the mind and heart are free during the process of scratching. It seems like a direct communication with the soul. Because of this immersive working style, it is easier for you to keep focus and enter into a deep work mode. However, when using a computer or an iPad, such kind of freedom is much limited. This is because besides the mental activities, you have to spare additional energy and focus to deal with trifles related to editing operations unless you are so familiar with these techniques that you can ignore the existence of the electronic device. But still, repetitive body and eye strain injury is ineluctable, which will eventually reduce your efficiency and bring irreparable harm. This is especially worth your caution because working in focus and deep mode is usually a persistent time-consuming process, which exacerbates the said adverse effects significantly.

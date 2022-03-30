@@ -2,6 +2,8 @@
 layout: post
 title: Notes for “Making Lumino”
 date: 2018-10-27
+categories: [thoughts]
+tags: [论语,阅读,设计]
 ---
 
 ![](/figures/p55165191.jpg)

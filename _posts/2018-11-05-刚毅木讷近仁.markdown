@@ -2,6 +2,8 @@
 layout: post
 title: 刚毅木讷近仁
 date: 2018-11-05
+categories: [thoughts]
+tags: [论语,随想]
 ---
 
 > 《论语·子路篇第十三 13.27》 子曰：「刚毅木讷，近仁。」

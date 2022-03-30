@@ -2,6 +2,8 @@
 layout: post
 title: Keep健身一年总结
 date: 2018-11-27
+categories: [thoughts]
+tags: [健身,管理提升]
 ---
 
 ![](/figures/p56057815.jpg)
