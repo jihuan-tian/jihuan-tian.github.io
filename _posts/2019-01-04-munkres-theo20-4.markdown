@@ -1,0 +1,48 @@
+---
+layout: post
+title: Theorem 20.4 in James Munkres Topology
+date: 2019-01-04
+categories: [math]
+tags: [topology]
+mathjax: true
+---
+
+**Theorem 20.4** The uniform topology on $$\mathbb{R}^J$$ is finer than the product topology and coarser than the box topology; these three topologies are all different if $$J$$ is infinite.
+
+**Proof:** a) Prove the uniform topology is finer than the product topology.
+
+**Analysis:** Look inside an open ball in the product topology for an open ball in the uniform topology and then apply Lemma 20.2. It should be also noted that the product topology on $$\mathbb{R}^J$$ has each of its coordinate space assigned the standard topology, which is consistent with both topologies induced from the two metrics $$d$$ and $$\bar{d}$$ according to example 2 in this section and Theorem 20.1.
+
+According to the second part of Theorem 19.2, let $$\prod_{\alpha \in J} B_{\alpha}$$ be an arbitrary basis element for the product topology on $$\mathbb{R}^J$$, where only a finite number of $$B_{\alpha}$$s are open intervals in $$\mathbb{R}$$ and not equal to $$\mathbb{R}$$. Let the indices for these $$B_{\alpha}$$s be $$\{\alpha_1, \cdots, \alpha_n\}$$ and for all $$i \in \{1, \cdots, n\}$$, $$B_{\alpha_i} = (a_i, b_i)$$. Then for all $$\vect{x} \in \prod_{\alpha \in J} B_{\alpha}$$ and for all $$\alpha \in J$$, $$x_{\alpha} \in B_{\alpha}$$. Specifically, for all $$i \in \{1, \cdots, n\}$$, $$x_{\alpha_i} \in B_{\alpha_i}$$. Let $$\varepsilon_{\alpha_i} = \min \{ x_{\alpha_i} - a_i, b_i - x_{\alpha_i} \}$$ and $$\varepsilon = \min_{1 \leq i \leq n} \{\varepsilon_{\alpha_1}, \cdots, \varepsilon_{\alpha_n}\}$$. Then we’ll check the open ball $$B_{\bar{\rho}}(\vect{x}, \varepsilon)$$ in $$\mathbb{R}^J$$ with the uniform topology is contained in the basis element $$\prod_{\alpha \in J} B_{\alpha}$$.
+
+For all $$\vect{y} \in B_{\bar{\rho}}(\vect{x}, \varepsilon)$$, $$\bar{\rho}(\vect{x}, \vect{y}) < \varepsilon$$, i.e. $$\sup_{\forall \alpha \in J} \{\bar{d}(x_{\alpha}, y_{\alpha})\} < \varepsilon$$. Therefore, for all $$i \in \{1, \cdots, n\}$$, $$\bar{d}(x_{\alpha_i}, y_{\alpha_i}) < \varepsilon$$. Note that when $$\varepsilon > 1$$, $$B_{\bar{\rho}}(\vect{x}, \varepsilon) = \mathbb{R}^J$$, which is not what we desire. Instead, we need to define the open ball’s radius as $$\varepsilon' = \min\{\varepsilon, 1\}$$. Then we have for all $$\vect{y} \in B_{\bar{\rho}}(\vect{x}, \varepsilon')$$, $$\bar{d}(x_{\alpha_i}, y_{\alpha_i}) = d(x_{\alpha_i}, y_{\alpha_i}) < \varepsilon'$$, i.e. $$y_{\alpha_i} \in (x_{\alpha_i} - \varepsilon', x_{\alpha_i} + \varepsilon') \subset B_{\alpha_i}$$. For other coordinate indices $$\alpha \notin \{\alpha_1, \cdots, \alpha_n\}$$, because $$B_{\alpha} = \mathbb{R}$$, $$y_{\alpha} \in (x_{\alpha} - \varepsilon', x_{\alpha} + \varepsilon') \subset B_{\alpha}$$ holds trivially.
+
+Therefore, the uniform topology is finer than the product topology.
+
+b) Prove the uniform topology is strictly finer than the product topology, when $$J$$ is infinite.
+
+When $$J$$ is infinite, for an open ball $$B_{\bar{\rho}}(\vect{x}, \varepsilon)$$ with $$\varepsilon \in (0, 1]$$, there are infinite number of coordinate components comprising this open ball which are not equal to $$\mathbb{R}$$. Therefore, there is no basis element for the product topology which is contained in $$B_{\bar{\rho}}(\vect{x}, \varepsilon)$$.
+
+c) Prove the box topology is finer than the uniform topology.
+
+For any basis element $$B_{\bar{\rho}}(\vect{x}, \varepsilon)$$ for the uniform topology, when $$\varepsilon > 1$$, $$B_{\bar{\rho}}(\vect{x}, \varepsilon) = \mathbb{R}^J$$. Then for all $$\vect{y} \in B_{\bar{\rho}}(\vect{x}, \varepsilon)$$, any basis element for the box topology containing this $$\vect{y}$$ is contained in $$B_{\bar{\rho}}(\vect{x}, \varepsilon)$$.
+
+When $$\varepsilon \in (0, 1]$$, $$\bar{d}$$ is equivalent to $$d$$ on $$\mathbb{R}$$. Then for all $$\vect{y} \in B_{\bar{\rho}}(\vect{x}, \varepsilon)$$, we have
+
+
+ $$
+\sup_{\alpha \in J} \{ \bar{d}(x_{\alpha}, y_{\alpha}) \} = \sup_{\alpha \in J} \{ d(x_{\alpha}, y_{\alpha}) \} < \varepsilon.
+$$ 
+
+
+Therefore, for all $$\alpha \in J$$, $$y_{\alpha} \in (x_{\alpha} - \varepsilon, x_{\alpha} + \varepsilon)$$. Then we may tend to say that $$\prod_{\alpha \in J} (x_{\alpha} - \varepsilon, x_{\alpha} + \varepsilon)$$ is a basis element for the box topology containing $$\vect{y}$$, which is contained in $$B_{\bar{\rho}}(\vect{x}, \varepsilon)$$. However, this is not true. Because $$\vect{y}$$ can be thus selected such that as $$\alpha$$ changes in $$J$$, $$\bar{d}(x_{\alpha}, y_{\alpha})$$ can be arbitrarily close to $$\varepsilon$$, which leads to $$\sup_{\alpha \in J} \{ \bar{d}(x_{\alpha}, y_{\alpha}) \} = \varepsilon$$. This makes $$\vect{y} \notin B_{\bar{\rho}}(\vect{x}, \varepsilon)$$ and $$\prod_{\alpha \in J} (x_{\alpha} - \varepsilon, x_{\alpha} + \varepsilon)$$ is not contained in $$B_{\bar{\rho}}(\vect{x}, \varepsilon)$$. Such example can be given for $$\mathbb{R}^{\omega}$$, where we let $$\vect{y} = \{y_n = x_n + \varepsilon - \frac{\varepsilon}{n}\}_{n \in \mathbb{Z}_+}$$. When $$n \rightarrow \infty$$, $$\bar{d}(x_n, y_n) \rightarrow \varepsilon$$.
+
+With this point clarified, a smaller basis element should be selected for the box topology, such as $$\prod_{\alpha \in J} (x_{\alpha} - \frac{\varepsilon}{2}, x_{\alpha} + \frac{\varepsilon}{2})$$. For all $$\vect{y}$$ in this basis element, $$\sup_{\alpha \in J} \{ \bar{d}(x_{\alpha}, y_{\alpha}) \} \leq \frac{\varepsilon}{2} < \varepsilon$$. Hence $$\prod_{\alpha \in J} (x_{\alpha} - \frac{\varepsilon}{2}, x_{\alpha} + \frac{\varepsilon}{2}) \subset B_{\bar{\rho}}(\vect{x}, \varepsilon)$$ and the box topology is finer than the uniform topology.
+
+**Remark:** The proof in the book for this part inherently adopts the definition of open set via topological basis introduced in section 13.
+
+d) Prove the box topology is strictly finer than the uniform topology, when $$J$$ is infinite.
+
+**Analysis:** Because the open ball in the uniform topology sets an upper bound on the dimension of each coordinate component, it can be envisioned that if we construct a basis element for the box topology with the dimension for each coordinate component approaching to zero, it cannot cover any open ball in the uniform topology with a fixed radius no matter how small it is.
+
+Let’s consider the case in $$\mathbb{R}^{\omega}$$. Select a basis element for the box topology as $$\prod_{n = 1}^{\infty} (x_n - \frac{c}{n}, x_n + \frac{c}{n})$$ with $$(c > 0)$$. Then for all $$\varepsilon > 0$$, there exists $$\vect{y}_0 \in B_{\bar{\rho}}(\vect{x}, \varepsilon)$$ such that $$\vect{y}_0 \notin \prod_{n = 1}^{\infty} (x_n - \frac{c}{n}, x_n + \frac{c}{n})$$. For example, we can select $$\vect{y}_0 = (x_n + \frac{\varepsilon}{2})_{n \geq 1}$$. Then there exists an $$n_0 \in \mathbb{Z}_+$$ such that when $$n > n_0$$, $$\frac{c}{n} < \frac{\varepsilon}{n}$$ and $$y_n \notin (x_n - \frac{c}{n}, x_n + \frac{c}{n})$$. Hence, the box topology is strictly finer than the uniform topology.

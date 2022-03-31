@@ -7,7 +7,7 @@ tags: [topology,linear-algebra]
 mathjax: true
 ---
 
-In our [previous post]({% post_url 2019-01-08-theo20-3-and-metric-equivalence %}), we introduced various definitions of matrix norms in $$\mathbb{R}^{n \times n}$$ based on the corresponding vector norms in $$\mathbb{R}^n$$. Meanwhile, the equivalence of different vector norms and their induced metrics and topologies in $$\mathbb{R}^n$$ is also inherited into $$\mathbb{R}^{n \times n}$$. In this article, we’ll show why the above defined matrix norms are valid.
+In our [previous post]({% post_url 2019-01-08-munkres-topology-theo20-3-and-metric-equivalence %}), we introduced various definitions of matrix norms in $$\mathbb{R}^{n \times n}$$ based on the corresponding vector norms in $$\mathbb{R}^n$$. Meanwhile, the equivalence of different vector norms and their induced metrics and topologies in $$\mathbb{R}^n$$ is also inherited into $$\mathbb{R}^{n \times n}$$. In this article, we’ll show why the above defined matrix norms are valid.
 
 Generally, the definition of a matrix norm in $$\mathbb{R}^{n \times n}$$ should satisfy the following four conditions:
 

@@ -7,7 +7,7 @@ tags: [topology]
 mathjax: true
 ---
 
-## Proof of Theorem 20.3
+# Proof of Theorem 20.3
 
 **Theorem 20.3** The topologies on $$\mathbb{R}^n$$ induced by the euclidean metric $$d$$ and the square metric $$\rho$$ are the same as the product topology on $$\mathbb{R}^n$$.
 
@@ -87,7 +87,7 @@ Finally, the two metrics generate the same topology as the product topology on $
 
 Then, these two metrics are considered to be equivalent in a topological sense and such “equivalence” can be understood  like this. We have already known in [this post](https://www.cnblogs.com/peabody/p/10125356.html) that in a topological space, the concept of convergence is defined based on using a collection of nested open sets as rulers for “distance” measurement, when there is still no metric established. The equivalence of two metrics in a topological sense just means that the convergence behaviors in the topological spaces induced from these two metrics are the same.
 
-## Examples of equivalent metrics
+# Examples of equivalent metrics
 
 In linear algebra, we have already witnessed examples of equivalent metrics, which are induced from corresponding norms for vectors or matrices.
 
