@@ -6,7 +6,11 @@ categories: [methodology]
 tags: [数学学习,笔记,输出型学习]
 ---
 
-[TOC]
+# Table of contents
+{:.no_toc}
+
+* toc starts here
+{:toc}
 
 # 1 前言
 
