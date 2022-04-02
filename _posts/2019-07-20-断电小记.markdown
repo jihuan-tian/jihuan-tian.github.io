@@ -2,6 +2,8 @@
 layout: post
 title: 断电小记
 date: 2019-07-20
+categories: [thoughts]
+tags: [论语,生活]
 ---
 
 > 《论语·子罕篇第九 9.14》 子欲居九夷。或曰：「陋，如之何？」子曰：「君子居之，何陋之有！」

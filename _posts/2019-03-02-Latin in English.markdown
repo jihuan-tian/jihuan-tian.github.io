@@ -2,6 +2,8 @@
 layout: post
 title: Latin in English
 date: 2019-03-02
+categories: [thoughts]
+tags: [英语学习]
 ---
 
 This post summarizes those Latin words I come across during paper reading and English word study, which can be taken as the epitome of evolutional and perpetual vestige of human culture.

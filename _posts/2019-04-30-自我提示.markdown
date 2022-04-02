@@ -2,6 +2,8 @@
 layout: post
 title: 自我提示
 date: 2019-04-30
+categories: [thoughts]
+tags: [管理提升]
 ---
 
 -   **专注** ：专注做事，心无旁骛。在混乱、嘈杂的环境中依旧能够保持心境的乐观、精神的集中、思维的敏锐、做事的高效。想一想在对[Linus的采访视频](https://www.bilibili.com/video/av17507825/)中，他是如何屏蔽外界干扰的。

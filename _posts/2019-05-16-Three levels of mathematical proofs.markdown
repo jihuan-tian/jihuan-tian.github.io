@@ -2,6 +2,8 @@
 layout: post
 title: Three levels of mathematical proofs
 date: 2019-05-16
+categories: [methodology]
+tags: [数学学习]
 ---
 
 The first level merely needs already defined concepts and constructed formulations. The problem can be solved based on existing theorems without any risk like doing arithmetic.
