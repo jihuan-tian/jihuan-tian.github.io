@@ -2,11 +2,13 @@
 layout: post
 title: 将Emacs Org mode用于GTD任务管理
 date: 2019-09-30
+categories: [thoughts]
+tags: [管理提升,Org-mode,Emacs]
 ---
 
 在[《以Emacs Org mode为核心的任务管理方案》]({% post_url 2019-04-30-以Emacs Org mode为核心的任务管理方案 %})中，我简要介绍了如何围绕Emacs Org mode构建个人任务管理系统的基本思路与方法。因为Org mode体系庞大、功能繁杂，本文仅以提纲契领的方式介绍不同环节在Org mode中的操作与实现。更为具体与精密的功能机制和实施细节以查阅[Org mode参考手册](https://orgmode.org/manual/index.html)为宜。
 
-## 定义任务状态关键词
+# 定义任务状态关键词
 
 变量`org-todo-keywords`用于指定可给任务赋予的状态关键词。该变量的值为一组序列（sequence）构成的列表。每一个序列以符号`type`或`sequence`开头，其后则是一组用于定义任务状态关键词的字符串。若这一组字符串中的某一个为竖线`|`，则在竖线前的所有字符串代表任务未结束的状态，之后的则代表任务结束的状态。若没有竖线，则仅最后一个字符串代表任务结束的状态，其之前所有的字符串都代表任务未结束的状态。这样的`type`或`sequence`序列可以定义多个。但是对于一般的任务管理来说，只定义一个就足够了。
 
@@ -14,17 +16,21 @@ date: 2019-09-30
 
 我所使用的任务状态关键词设置如下：
 
+```lisp
 (setq org-todo-keywords
  '((sequence "TODO(t)" "ONGOING(o)" "MAYBE(m)" "WAIT(w)" "DELEGATED(d)" "|"
      "DONE(f)" "CANCELLED(c)" "STUCK(s)")))
+```
 
-## 任务组标签
+# 任务组标签
 
 在Org mode中，当光标处于某个任务条目上时，按下快捷键`C-cC-c，`即可为该任务设置标签。对于任务组，我会为其加上标签T`G予`以识别。默认情况下，某一层级条目的标签会被其所包含的所有子条目继承。这样一来，当想要通过搜索标签T`G来`查看所有任务组时，具体的细节任务也会一并列出，干扰视线。为此，需要设置变量o`rg-tags-exclude-from-inheritance，`对T`G标`签禁用继承。
 
+```lisp
 (setq org-tags-exclude-from-inheritance '("TG"))
+```
 
-## 自定义日程视图
+# 自定义日程视图
 
 ## 自定义日程视图简介
 
@@ -32,7 +38,9 @@ Org mode中的日程视图（Agenda view）具有强大的模式匹配与搜索�
 
 日程视图的定义需要通过设置变量`org-agenda-custom-commands`来完成。该变量是一个列表，其中的每一项对应一个视图设置。这个视图设置的基本格式为：
 
+```lisp
 (key desc type match settings files)
+```
 
 各部分的含义如下：
 
@@ -64,7 +72,9 @@ Org mode中的日程视图（Agenda view）具有强大的模式匹配与搜索�
 
 随着日积月累，当用户定义的日程视图比较多时，管理起来就会较为混乱，同时可供绑定的字母快捷键也开始不够用。为此，可以将功能、类别相似的视图归为一组。这个组视图在`org-agenda-custom-commands`中的定义方式为：
 
+```lisp
 (Group-key . desc)
+```
 
 其中的`Group-key`为一个字母，指定了组的快捷键。
 
