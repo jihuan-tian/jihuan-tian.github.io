@@ -2,8 +2,9 @@
 layout: post
 title: 驾考科目二学习笔记（思维导图）
 date: 2019-12-21
+categories: [thoughts]
+tags: [开车,思维导图]
 ---
 
-[查看原图](/figures/p68558533.jpg)
-
-![](/figures/p68558533.jpg)
+<p align="center"><img src="/figures/p68558533.jpg" alt="驾考科目二学习笔记（思维导图）" /></p>
+<p align="center">驾考科目二学习笔记（思维导图）</p>

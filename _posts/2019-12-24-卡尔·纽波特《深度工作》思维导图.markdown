@@ -2,8 +2,8 @@
 layout: post
 title: 卡尔·纽波特《深度工作》思维导图
 date: 2019-12-24
+categories: [thoughts]
+tags: [阅读,摘录,深度工作,思维导图]
 ---
 
-[查看原图](/figures/p68651736.jpg)
-
-![](/figures/p68651736.jpg)
+<p align="center"><img src="/figures/p68651736.jpg" alt="" /></p>
