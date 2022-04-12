@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Mindmap for ""Principles of boundary element methods""
+title: Mindmap for "Principles of Boundary Element Methods"
 date: 2019-12-25
+categories: [math]
+tags: [BEM,思维导图]
 ---
 
 This is a mindmap made from my notes for the paper "[Principles of boundary element methods](https://perso.univ-rennes1.fr/martin.costabel/publis/Co_PrinciplesBEM.pdf)", which is written by Martin Costabel.
 
-[查看原图](/figures/p75819011.jpg)
-
-![](/figures/p75819011.jpg)
+<p align="center"><img src="/figures/p75819011.jpg" alt="Mindmap for Principles of Boundary Element Methods" /></p>
+<p align="center">Mindmap for Principles of Boundary Element Methods</p>

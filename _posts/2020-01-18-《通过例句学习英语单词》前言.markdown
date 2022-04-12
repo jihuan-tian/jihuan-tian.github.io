@@ -2,9 +2,11 @@
 layout: post
 title: 《通过例句学习英语单词》前言
 date: 2020-01-18
+categories: [thoughts]
+tags: [英语学习]
 ---
 
-## Preface to "Learning English words via sentences"
+# Preface to "Learning English words via sentences"
 
 Words and sentences are mortar and bricks of English language. If they are further concerted by a logical mind and styled by a sentimental heart, a good piece of writing can be produced.
 

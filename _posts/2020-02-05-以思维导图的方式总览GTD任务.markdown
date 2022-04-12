@@ -2,32 +2,42 @@
 layout: post
 title: 以思维导图的方式总览GTD任务
 date: 2020-02-05
+categories: [thoughts]
+tags: [GTD,思维导图,Freeplane,Org-mode,Emacs]
 ---
 
 Emacs Org mode作为实施GTD方法的任务与项目管理工具是极为强大和有效的。尽管如此，我在使用过程中亦发现了一个因Emacs文本操作模式而难以解决的情况，即对于具有复杂结构与大量细节的项目，在Org mode中只能进行单个或数个细节任务的查看而无法与此同时进行整体架构浏览以及呈现不同子任务间的复杂关系，也就是陷入了我们常说的“只见树森不见林”的状态。在刚创建项目任务时这个问题还不那么明显。随着任务复杂度与数量的增加，很容导致不少（尤其是不那么重要的）任务虽然被如实地记录下来，但最终还是被尘封在了Org mode文件的某个子树上。
 
 针对这个情况，想到思维导图是用于整理与规纳具有复杂结构信息的利器，将Emacs Org mode任务导出到Freeplane中用思维导图的方式进行管理便很有必要的了。具体的做法详述如下。
 
-首先，在~/.emacs中加入下面一行，从而将Freemind文档格式加入到Emacs Org mode文档导出后台列表中：
+首先，在`~/.emacs`中加入下面一行，从而将Freemind文档格式加入到Emacs Org mode文档导出后台列表中：
 
+```lisp
 (setq org-export-backends '(freemind odt latex icalendar html ascii))
+```
 
-然后，在Org mode文件中选中要导出的任务树，按快捷键Ctrl+c, e导出，然后选择：
+然后，在Org mode文件中选中要导出的任务树，按快捷键`Ctrl+c, e`导出，然后选择：
 
+```
 \[f\] Export to Freemind Mindmap \[f\] As Freemind Mindmap file \[o\] As Freemind Mindmap file and open
+```
 
 由于Emacs编辑器默认使用的是utf-8编码，
 
+```lisp
 (prefer-coding-system 'utf-8)
+```
 
-所以，导出的\*.mm思维导图文件也是该编码格式。然而，在默认条件下（至少是Windows下）启动Freeplane时采用的并非utf-8编码，从而导致如果在从Emacs Org mode导出的思维导图中含有中文字符的话，就会在Freeplane中显示为乱码。为此，需要使Freeplane的默认编码为utf-8。然而，找遍了Freeplane的所有对话框设置，并没有相关设置项。通过搜索，由这里发现，可以通过加入JVM环境变量选项-Dfile.encoding=UTF8来解决。
+所以，导出的`*.mm`思维导图文件也是该编码格式。然而，在默认条件下（至少是Windows下）启动Freeplane时采用的并非utf-8编码，从而导致如果在从Emacs Org mode导出的思维导图中含有中文字符的话，就会在Freeplane中显示为乱码。为此，需要使Freeplane的默认编码为utf-8。然而，找遍了Freeplane的所有对话框设置，并没有相关设置项。通过搜索，由这里发现，可以通过加入JVM环境变量选项`-Dfile.encoding=UTF8`来解决。
 
 对于GNU/Linux来说，一如继往地可以将其加入到~/.bashrc中：
 
-export \_JAVA\_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun.java2d.xrender=true -Dfile.encoding=UTF8 $\_JAVA\_OPTIONS"
+```bash
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun.java2d.xrender=true -Dfile.encoding=UTF8 $_JAVA_OPTIONS"
+```
 
-对于Windows版本，需要找到Freeplane的安装路径（我的为C:\\Program Files\\Freeplane），将其加入到启动配置文件freeplane.l4j.ini中。当然，也可以加入到freeplane.bat中。但这样一来，双击图标执行Freeplane时，该文件编码设置就无法生效了。
+对于Windows版本，需要找到Freeplane的安装路径（我的为`C:\\Program Files\\Freeplane`），将其加入到启动配置文件`freeplane.l4j.ini`中。当然，也可以加入到`freeplane.bat`中。但这样一来，双击图标执行Freeplane时，该文件编码设置就无法生效了。
 
-然后，就可以用Freeplane打开导出的\*.mm文件，进行进一步的编辑与组织了。效果如下图所示。
+然后，就可以用Freeplane打开导出的`*.mm`文件，进行进一步的编辑与组织了。效果如下图所示。
 
-![](/figures/p69768108.jpg)
+<p align="center"><img src="/figures/p69768108.jpg" alt="" /></p>

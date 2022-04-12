@@ -2,8 +2,9 @@
 layout: post
 title: 驾考科目四学习笔记（思维导图）
 date: 2020-01-04
+categories: [thoughts]
+tags: [开车,思维导图]
 ---
 
-[查看原图](/figures/p69007787.jpg)
-
-![](/figures/p69007787.jpg)
+<p align="center"><img src="/figures/p69007787.jpg" alt="驾考科目四学习笔记（思维导图）" /></p>
+<p align="center">驾考科目四学习笔记（思维导图）</p>

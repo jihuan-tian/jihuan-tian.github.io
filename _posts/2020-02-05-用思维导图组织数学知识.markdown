@@ -2,23 +2,25 @@
 layout: post
 title: 用思维导图组织数学知识
 date: 2020-02-05
+categories: [thoughts]
+tags: [思维导图,数学学习,LaTeX]
 ---
 
 思维导图可以说是用于整理与规纳具有复杂结构知识的利器。因此，将其用于包含各种定义、定理与逻辑关系的数学知识便极为适合。幸好，思维导图软件Freeplane已经具有输入LaTeX数学公式的功能。本文便对该功能和用法予以介绍。
 
 Freeplane使用的是基于Java的[Jlatexmath](https://github.com/opencollab/jlatexmath)库显示LaTeX数学公式的。该库亦被用于著名的Scilab与Geogebra。Freeplane支持两种使用LaTeX的方式：
 
-1\. 在节点核心（node core）内以\latex作为输入文本的开头（默认快捷键设置的情况下，按F2直接进入节点核心编辑），之后所有文本被解释为LaTeX代码并被转换为矢量图片。初次创建LaTeX公式时，具有语法加亮功能的对话框不会弹出，而是直接在节点核心内编辑。对于已经包含LaTeX公式的节点，双击则在弹出的对话框中进行编辑。
+1. 在节点核心（node core）内以\latex作为输入文本的开头（默认快捷键设置的情况下，按F2直接进入节点核心编辑），之后所有文本被解释为LaTeX代码并被转换为矢量图片。初次创建LaTeX公式时，具有语法加亮功能的对话框不会弹出，而是直接在节点核心内编辑。对于已经包含LaTeX公式的节点，双击则在弹出的对话框中进行编辑。
 
-![](/figures/p69768137.jpg)
+<p align="center"><img src="/figures/p69768137.jpg" alt="caption" /></p>
 
-2\. 默认快捷键设置的情况下，按Ctrl+Shift+u后在弹出的对话框中输入LaTeX代码，则可在节点核心的下方生成数学公式。需注意的是，在GNU/Linux下，按下Ctrl+Shift+u后，Freeplane中仅会出现一个带有下划线的字母u，之后的输入要么不起作用，要么在按回车后显示出奇怪的字符。网上搜索了一下[发现](https://en.wikipedia.org/wiki/Unicode_input)，这是由于在GNU/Linux下，Ctrl+Shift+u是GTK+用于输入Unicode字符的默认快捷键而且无法修改。所以，只得将Freeplane中公式输入快捷键改为Ctrl+Shift+l。
+2. 默认快捷键设置的情况下，按`Ctrl+Shift+u`后在弹出的对话框中输入LaTeX代码，则可在节点核心的下方生成数学公式。需注意的是，在GNU/Linux下，按下`Ctrl+Shift+u`后，Freeplane中仅会出现一个带有下划线的字母u，之后的输入要么不起作用，要么在按回车后显示出奇怪的字符。网上搜索了一下[发现](https://en.wikipedia.org/wiki/Unicode_input)，这是由于在GNU/Linux下，`Ctrl+Shift+u`是GTK+用于输入Unicode字符的默认快捷键而且无法修改。所以，只得将Freeplane中公式输入快捷键改为`Ctrl+Shift+l`。
 
-![](/figures/p69768138.jpg)
+<p align="center"><img src="/figures/p69768138.jpg" alt="" /></p>
 
 为了保证排版出的数学公式不至于太长，可以对节点的最大宽度进行限制。但是该方法仅对节点核心内的公式有效。而节点核心下方的公式宽度只能通过LaTeX来强行控制。最终，在节点核心中及其下方输入的数学公式看起来是这样的：
 
-![](/figures/p69768143.jpg)
+<p align="center"><img src="/figures/p69768143.jpg" alt="" /></p>
 
 目前，[Jlatexmath](https://github.com/opencollab/jlatexmath)支持的功能如下：
 
@@ -36,47 +38,45 @@ The vertical and horizontal lines are handled in array environment;
 The commands to change the size of the font are available: \tiny, \small,...,\LARGE, \huge, \Huge.
 ```
 
-可以看出，以上功能基本上可以满足常见数学公式输入的需求。而且，用户可以使用\newcommand与\newenvironment定义新的命令与环境，从而方便复杂命令的输入。如下图所示，相关配置位于Preferences → Plugins → LaTeX。
+可以看出，以上功能基本上可以满足常见数学公式输入的需求。而且，用户可以使用`\newcommand`与`\newenvironment`定义新的命令与环境，从而方便复杂命令的输入。如下图所示，相关配置位于Preferences → Plugins → LaTeX。
 
-![](/figures/p69768151.jpg)
+<p align="center"><img src="/figures/p69768151.jpg" alt="" /></p>
 
 目前，我使用的一些常用宏命令如下：
 
 ```latex
 % Math symbol commands
-\newcommand\{\intd\}\{\,\{\rm d\}\} % Symbol 'd' used in integration, such as 'dx'
-\newcommand\{\diff\}\{\{\rm d\}\} % Symbol 'd' used in differentiation
-\newcommand\{\Diff\}\{\{\rm D\}\} % Symbol 'D' used in differentiation
-\newcommand\{\pdiff\}\{\partial\} % Partial derivative
-%\newcommand\{DD\}\[2\]\{\frac\{\diff\}\{\diff #2\}\left( #1 \right)\}
-%\newcommand\{Dd\}\[2\]\{\frac\{\diff #1\}\{\diff #2\}\}
-%\newcommand\{PD\}\[2\]\{\frac\{\pdiff\}\{\pdiff #2\}\left( #1 \right)\}
-%\newcommand\{Pd\}\[2\]\{\frac\{\pdiff #1\}\{\pdiff #2\}\}
-\newcommand\{\rme\}\{\{\rm e\}\} % Exponential e
-\newcommand\{\rmi\}\{\{\rm i\}\} % Imaginary unit i
-\newcommand\{\rmj\}\{\{\rm j\}\} % Imaginary unit j
-\newcommand\{\vect\}\[1\]\{\boldsymbol\{#1\}\} % Vector typeset in bold and italic
-\newcommand\{\normvect\}\{\vect\{n\}\} % Normal vector: n
-\newcommand\{\dform\}\[1\]\{\overset\{\rightharpoonup\}\{\boldsymbol\{#1\}\}\} % Vector for differential form
-\newcommand\{\cochain\}\[1\]\{\overset\{\rightharpoonup\}\{#1\}\} % Vector for cochain
-\newcommand\{\Abs\}\[1\]\{\big\left\vert #1\big\right\vert\} % Absolute value (single big vertical bar)
-\newcommand\{\abs\}\[1\]\{\left\vert #1\right\vert\} % Absolute value (single vertical bar)
-\newcommand\{\Norm\}\[1\]\{\big\left\Vert #1\big\right\Vert\} % Norm (double big vertical bar)
-\newcommand\{\norm\}\[1\]\{\left\Vert #1\right\Vert\} % Norm (double vertical bar)
-\newcommand\{\ouset\}\[3\]\{\overset\{#3\}\{\underset\{#2\}\{#1\}\}\} % over and under set
+\newcommand{\intd}{\,{\rm d}} % Symbol 'd' used in integration, such as 'dx'
+\newcommand{\diff}{{\rm d}} % Symbol 'd' used in differentiation
+\newcommand{\Diff}{{\rm D}} % Symbol 'D' used in differentiation
+\newcommand{\pdiff}{\partial} % Partial derivative
+%\newcommand{DD}[2]{\frac{\diff}{\diff #2}\left( #1 \right)}
+%\newcommand{Dd}[2]{\frac{\diff #1}{\diff #2}}
+%\newcommand{PD}[2]{\frac{\pdiff}{\pdiff #2}\left( #1 \right)}
+%\newcommand{Pd}[2]{\frac{\pdiff #1}{\pdiff #2}}
+\newcommand{\rme}{{\rm e}} % Exponential e
+\newcommand{\rmi}{{\rm i}} % Imaginary unit i
+\newcommand{\rmj}{{\rm j}} % Imaginary unit j
+\newcommand{\vect}[1]{\boldsymbol{#1}} % Vector typeset in bold and italic
+\newcommand{\normvect}{\vect{n}} % Normal vector: n
+\newcommand{\dform}[1]{\overset{\rightharpoonup}{\boldsymbol{#1}}} % Vector for differential form
+\newcommand{\cochain}[1]{\overset{\rightharpoonup}{#1}} % Vector for cochain
+\newcommand{\Abs}[1]{\big\left\vert #1\big\right\vert} % Absolute value (single big vertical bar)
+\newcommand{\abs}[1]{\left\vert #1\right\vert} % Absolute value (single vertical bar)
+\newcommand{\Norm}[1]{\big\left\Vert #1\big\right\Vert} % Norm (double big vertical bar)
+\newcommand{\norm}[1]{\left\Vert #1\right\Vert} % Norm (double vertical bar)
+\newcommand{\ouset}[3]{\overset{#3}{\underset{#2}{#1}}} % over and under set
 % Super/subscript for column index of a matrix, which is used in tensor analysis.
-\newcommand\{\cscript\}\[1\]\{\;\; #1\}
+\newcommand{\cscript}[1]{\;\; #1}
 % Star symbol used as prefix in front of a paragraph with no indent
-\newcommand\{\prefstar\}\{\noindent$\ast$ \}
+\newcommand{\prefstar}{\noindent$\ast$ }
 % Big vertical line restricting the function.
-% Example: $u(x)\restrict\_\{\Omega\_0\}$
-\newcommand\{\restrict\}\{\big\vert\}
+% Example: $u(x)\restrict_{\Omega_0}$
+\newcommand{\restrict}{\big\vert}
 ```
 
 此外需要注意的是，由于Jlatexmath自成一体，不依赖亦不调用用户自己安装的TeX/LaTeX系统，所以无法加载新的功能包。
 
 最后，给出我以前总结的有关索伯列夫空间的思维导图。可以看出，繁杂的知识点得到了很好的梳理，宏观脉络与微观细节得以同时呈现。
 
-[查看原图](/figures/p69768160.jpg)
-
-![](/figures/p69768160.jpg)
+<p align="center"><img src="/figures/p69768160.jpg" alt="" /></p>
