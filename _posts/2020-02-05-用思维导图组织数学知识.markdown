@@ -3,7 +3,7 @@ layout: post
 title: 用思维导图组织数学知识
 date: 2020-02-05
 categories: [thoughts]
-tags: [思维导图,数学学习,LaTeX]
+tags: [思维导图,数学学习,LaTeX,Freeplane]
 ---
 
 思维导图可以说是用于整理与规纳具有复杂结构知识的利器。因此，将其用于包含各种定义、定理与逻辑关系的数学知识便极为适合。幸好，思维导图软件Freeplane已经具有输入LaTeX数学公式的功能。本文便对该功能和用法予以介绍。
@@ -11,12 +11,9 @@ tags: [思维导图,数学学习,LaTeX]
 Freeplane使用的是基于Java的[Jlatexmath](https://github.com/opencollab/jlatexmath)库显示LaTeX数学公式的。该库亦被用于著名的Scilab与Geogebra。Freeplane支持两种使用LaTeX的方式：
 
 1. 在节点核心（node core）内以\latex作为输入文本的开头（默认快捷键设置的情况下，按F2直接进入节点核心编辑），之后所有文本被解释为LaTeX代码并被转换为矢量图片。初次创建LaTeX公式时，具有语法加亮功能的对话框不会弹出，而是直接在节点核心内编辑。对于已经包含LaTeX公式的节点，双击则在弹出的对话框中进行编辑。
-
-<p align="center"><img src="/figures/p69768137.jpg" alt="caption" /></p>
-
+   ![](/figures/p69768137.jpg)
 2. 默认快捷键设置的情况下，按`Ctrl+Shift+u`后在弹出的对话框中输入LaTeX代码，则可在节点核心的下方生成数学公式。需注意的是，在GNU/Linux下，按下`Ctrl+Shift+u`后，Freeplane中仅会出现一个带有下划线的字母u，之后的输入要么不起作用，要么在按回车后显示出奇怪的字符。网上搜索了一下[发现](https://en.wikipedia.org/wiki/Unicode_input)，这是由于在GNU/Linux下，`Ctrl+Shift+u`是GTK+用于输入Unicode字符的默认快捷键而且无法修改。所以，只得将Freeplane中公式输入快捷键改为`Ctrl+Shift+l`。
-
-<p align="center"><img src="/figures/p69768138.jpg" alt="" /></p>
+   ![](/figures/p69768138.jpg)
 
 为了保证排版出的数学公式不至于太长，可以对节点的最大宽度进行限制。但是该方法仅对节点核心内的公式有效。而节点核心下方的公式宽度只能通过LaTeX来强行控制。最终，在节点核心中及其下方输入的数学公式看起来是这样的：
 
@@ -50,10 +47,10 @@ The commands to change the size of the font are available: \tiny, \small,...,\LA
 \newcommand{\diff}{{\rm d}} % Symbol 'd' used in differentiation
 \newcommand{\Diff}{{\rm D}} % Symbol 'D' used in differentiation
 \newcommand{\pdiff}{\partial} % Partial derivative
-%\newcommand{DD}[2]{\frac{\diff}{\diff #2}\left( #1 \right)}
-%\newcommand{Dd}[2]{\frac{\diff #1}{\diff #2}}
-%\newcommand{PD}[2]{\frac{\pdiff}{\pdiff #2}\left( #1 \right)}
-%\newcommand{Pd}[2]{\frac{\pdiff #1}{\pdiff #2}}
+\newcommand{\DD}[2]{\frac{\diff}{\diff #2}\left( #1 \right)}
+\newcommand{\Dd}[2]{\frac{\diff #1}{\diff #2}}
+\newcommand{\PD}[2]{\frac{\pdiff}{\pdiff #2}\left( #1 \right)}
+\newcommand{\Pd}[2]{\frac{\pdiff #1}{\pdiff #2}}
 \newcommand{\rme}{{\rm e}} % Exponential e
 \newcommand{\rmi}{{\rm i}} % Imaginary unit i
 \newcommand{\rmj}{{\rm j}} % Imaginary unit j
