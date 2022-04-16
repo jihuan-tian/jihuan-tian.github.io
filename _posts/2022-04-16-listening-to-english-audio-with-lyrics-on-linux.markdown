@@ -53,7 +53,7 @@ To study English from movies is consistent with the methodology of praxis. GNU/L
 	sudo make install
 	```
 	
-    However, after the installation, `osdlyrics` cannot be started reporting the following message, which indicates the errors is caused by `osdlyrics-daemon`.
+    However, after the installation, `osdlyrics` cannot be started reporting the following message, which indicates the error is caused by `osdlyrics-daemon`.
 	
 	> *Error*: in function _start_daemon_cb: ol_main.c[769]
 	> Unable to start daemon: GDBus.Error:org.freedesktop.DBus.Error.Spawn.ChildExited: Process org.osdlyrics.Daemon exited with status 1
