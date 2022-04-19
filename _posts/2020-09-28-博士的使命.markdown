@@ -2,6 +2,8 @@
 layout: post
 title: 博士的使命
 date: 2020-09-28
+categories: [thoughts]
+tags: [PhD,科研,论语]
 ---
 
 昨天收到同事发来的文章《[国家不背这个锅](https://mp.weixin.qq.com/s/a1vEVQWEhSDm4Jlj3XKJhQ)》，似乎这两天“双一流”成了一部分人的热门话题。对于“双一流”，我基本持否定态度。

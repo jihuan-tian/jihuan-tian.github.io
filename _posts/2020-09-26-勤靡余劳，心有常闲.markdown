@@ -2,6 +2,8 @@
 layout: post
 title: 勤靡余劳，心有常闲
 date: 2020-09-26
+categories: [thoughts]
+tags: [数学学习,写作,GoodNotes]
 ---
 
 今日完成数学博客文章的整理《[Isometric embedding of metric space](https://www.cnblogs.com/peabody/p/13735896.html)》。而我自从上次于2019年10月3日更新有效的博客文章（非思维导图、非书本内容的直接编排）《[Various formulations of Maxwell equations](https://www.cnblogs.com/peabody/p/11620044.html)》至今已经马上整整一年了。而在去年十月之前，我尚且还能保持相对频繁的博客文章产出。尽管从去年下半年到今年上半年历经了买房、学车、装修、搬入新家等几件大事，但这却不能抹杀我这一年来在数学博客文章的撰写方面毫无成果的惨痛事实。这是需要予以严厉自我批评与深刻反省的：
