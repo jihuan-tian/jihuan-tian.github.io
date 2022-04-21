@@ -24,31 +24,51 @@ tags: [Lilypond,音乐]
 -   小调：6=F#
 -   标题：title=采茶舞曲
 -   三联音：3\[ q1 q1 q1 \]
--   重复：R{ 1 1 1 } A{ 2 | 3 }
+-   重复：R{ 1 1 1 } A{ 2 \| 3 }
 
 同时在原始脚本的基础之上我还作了一些修改，增加了乐曲速度（tempo）设定功能。
 
 一个典型的简谱源文件如下：
 
-> %% tempo: 4=60 title=标题 1=C 2/4 1 2 3 4 5 6 7 1'
+```
+%% tempo: 4=60
+title=标题
+1=C
+2/4
+
+1 2 3 4 5 6 7 1'
+```
 
 将该文件存为`jianpu.txt`后，先调用`jianpu-ly.py`生成Lilypond输入文件：
 
-> jianpu-ly.py < jianpu.txt > jianpu.ly
+```bash
+jianpu-ly.py < jianpu.txt > jianpu.ly
+```
 
 然后调用`lilypond`程序，生成指定格式的乐谱文件。令人惊喜的是，不光可以排版出PDF、PS、PNG等格式的简谱，还可以生成midi文件，直接播放试听。可以用如下方式调用`lilypond`：
 
-> # 生成PDF文件、midi文件 lilypond jianpu.ly # 生成png文件、midi文件 lilypond --png jianpu.ly # 生成ps文件、midi文件 lilypond --ps jianpu.ly
+```bash
+# 生成PDF文件、midi文件
+lilypond jianpu.ly
+# 生成png文件、midi文件
+lilypond --png jianpu.ly
+# 生成ps文件、midi文件
+lilypond --ps jianpu.ly
+```
 
 可以用`timidity`直接播放生成的midi文件，或者将其转换为RIFF wav格式，再用普通的音频播放器来听。
 
-> timidity -Ow -o jianpu.wav jianpu.midi
+```bash
+timidity -Ow -o jianpu.wav jianpu.midi
+```
 
 为了方便使用，我编写了一个bash脚本`make_jianpu.sh`，用于将上述几个命令的执行自动化。
 
 此外，我在使用的过程中发现，若使用默认的Lilypond设置，虽然能够生成正确的midi文件，但却无法排版出升、降与还原号（accidentals）。经过一番试探，发现只要在`/usr/share/lilypond/2.14.2/ly/engraver-init.ly`文件中第168行添加：
 
-> \consists "Accidental_engraver"
+```
+\consists "Accidental_engraver"
+```
 
 便可以解决该问题。这是因为，经`jianpu-ly.py`脚本转换生成的Lilypond文件基于的是RhythmicStaff context。而`engraver-init.ly`中的默认配置并未包括对accidentals的“雕刻”（engrave）。所以，需要手动加上。
 
@@ -56,7 +76,21 @@ tags: [Lilypond,音乐]
 
 源文件：
 
-> %% tempo: 4=120 title=博基上校进行曲 arranger=排版：皮波迪先生@豆瓣 2016-02-14 1=C 2/4 q1' q0 q7. s6 q5 q3 q1 q3 q5 s5 s6 q5 s5 s6 5 - R{ q5 q3 0 q0 q3 q4 q5 3' 3' 1' - q5 q3 0 q0 q3 q4 q3 5 5 4 - q4 q2 0 } A{ q0 q2 q3 q4 q5 q3 0 q0 q3 q4 q3 q2 5 q3 q#4 2 q6 5 ( - 5 ) - | q0 q6 q7 q6 } q1' q5 0 q0 q5 q4 q3 q2 6 q2 q7, 5 q7, 1 ( - 1 ) q3 q3 1'. q7 s6 s#5 q6 q5 q4 3 ( - q3 ) q3 q4 q3 6 q#5. s6 1' q6. s1' #2' ( - #2' ) 6 3'. q2' s1' s7 q6 q#5. s6 2. q4 q6 q0 s1' s7 s1' s2' q3' q0 q7. s1' 6 ( - 6 ) q3 q3 1'. q7 s6 s#5 q6 q5 q4 3 ( - q3 ) q3 q4 q3 6 q#5. s6 1' q6. s1' #2' ( - #2' ) 6 3'. q2' s1' s7 q6 q#5. s6 2. q4 q6 q0 s1' s7 s1' s2' q3' q0 q7. s1' 6 ( - 6 ) 5 \ff
+```
+%% tempo: 4=120
+
+title=博基上校进行曲
+arranger=排版：皮波迪先生@豆瓣 2016-02-14
+1=C
+2/4
+
+q1' q0 q7. s6 q5 q3 q1 q3 q5 s5 s6 q5 s5 s6 5 -
+
+R{ q5 q3 0 q0 q3 q4 q5 3' 3' 1' - q5 q3 0 q0 q3 q4 q3 5 5 4 - q4 q2 0 }
+
+A{ q0 q2 q3 q4 q5 q3 0 q0 q3 q4 q3 q2 5 q3 q#4 2 q6 5 ( - 5 ) - | 
+   q0 q6 q7 q6 } q1' q5 0 q0 q5 q4 q3 q2 6 q2 q7, 5 q7, 1 ( - 1 ) q3 q3 1'. q7 s6 s#5 q6 q5 q4 3 ( - q3 ) q3 q4 q3 6 q#5. s6 1' q6. s1' #2' ( - #2' ) 6 3'. q2' s1' s7 q6 q#5. s6 2. q4 q6 q0 s1' s7 s1' s2' q3' q0 q7. s1' 6 ( - 6 ) q3 q3 1'. q7 s6 s#5 q6 q5 q4 3 ( - q3 ) q3 q4 q3 6 q#5. s6 1' q6. s1' #2' ( - #2' ) 6 3'. q2' s1' s7 q6 q#5. s6 2. q4 q6 q0 s1' s7 s1' s2' q3' q0 q7. s1' 6 ( - 6 ) 5 \ff
+```
 
 简谱：
 
