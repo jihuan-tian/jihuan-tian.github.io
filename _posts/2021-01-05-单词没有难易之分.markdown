@@ -2,6 +2,8 @@
 layout: post
 title: 单词没有难易之分
 date: 2021-01-05
+categories: [thoughts]
+tags: [英语学习,背单词]
 ---
 
 像是plagiarism、vexillology、phantasmagoria这样的词汇，我们一般都会觉得它们比较复杂、难以记忆。相反地，对于afternoon、celebrate、certainly这些中小学就学过的单词，则感到熟悉自然、非常简单。然而，不同的单词只不过是字母不同的排列组合，其本身并无难易之别。但之所以我们对不同词汇有着不同的感受，只不过是由于我们接触它们时间的早晚以及使用频率有所不同罢了。

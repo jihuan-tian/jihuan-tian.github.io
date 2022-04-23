@@ -2,6 +2,8 @@
 layout: post
 title: 算法开发与自我提升
 date: 2021-07-16
+categories: [thoughts]
+tags: [算法开发,随想,论语]
 ---
 
 > 《论语·公冶长篇第五 5.14》 子路有闻，未之能行，唯恐有闻。

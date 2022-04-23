@@ -2,6 +2,8 @@
 layout: post
 title: A scholar, like a maker or craftsman
 date: 2021-07-22
+categories: [thoughts]
+tags: [科研,思想]
 ---
 
 A scholar, like a maker or craftsman, should not condescend to be a manager or an organizer. Since this will only make him/her satisfied about the control of resources and the power over other people, instead of discover the beauty and verity behind conscientious deeds and destined cause.
