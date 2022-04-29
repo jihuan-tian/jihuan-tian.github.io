@@ -5,7 +5,13 @@ is_need_commit=`git status | grep "nothing to commit, working tree clean"`
 if [ -z "$is_need_commit" ]; then
   echo "=== Commit the changes!"
   git add --all
-  git commit -m `date +%F-%H-%M`
+
+  if  [ "$#" -eq 1 ]; then
+    # When there is a command line argument, use it as the committing message.
+    git commit -m `date +%F-%H-%M`": $1"
+  else
+    git commit -m `date +%F-%H-%M`
+  fi
 else
   echo "=== There are no changes to commit!"
 fi
