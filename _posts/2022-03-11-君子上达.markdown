@@ -3,7 +3,7 @@ layout: post
 title: 君子上达
 date: 2022-03-11
 categories: [thoughts]
-tags: [论语,随想]
+tags: [论语,随想,算法开发]
 mathjax: false
 ---
 
