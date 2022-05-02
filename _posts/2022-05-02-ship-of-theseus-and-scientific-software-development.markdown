@@ -7,7 +7,7 @@ tags: [算法开发,Octave,C++]
 mathjax: false
 ---
 
-The “[Ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus)” is a philosophical question about the identify of a ship during its renovation. If the parts of the ship were incrementally replaced piece by piece, would it still preserve its original identify as the ship of Theseus after the whole maintenance was finished? If it finally became a different new ship, when did it start to possess the identify of the new ship?
+The “[Ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus)” is a philosophical question about the identity of a ship during its renovation. If the parts of the ship were incrementally replaced piece by piece, would it still preserve its original identity as the ship of Theseus after the whole maintenance was finished? If it finally became a different new ship, when did it start to possess the identity of the new ship?
 
 Leave aside the answer to this question, the spirit of “piece-by-piece” replacement can be borrowed as an effective software engineering methodology which is especially suitable for developing scientific libraries and tools.
 
