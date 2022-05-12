@@ -43,8 +43,15 @@ plugins:
 paginate: 10
 paginate_path: "page:num"
 
+# Code highlighter
+highlighter: rouge
+
 # Markdown parser
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
