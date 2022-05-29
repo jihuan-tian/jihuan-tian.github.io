@@ -3,7 +3,7 @@ layout: post
 title: Clipboards in X Window System
 date: 2022-05-28
 categories: [computer]
-tags: [Bash,Command,Linux,X-Window]
+tags: [Bash,Command,Linux,X-Window,Emacs]
 mathjax: false
 ---
 
@@ -14,7 +14,7 @@ There are three types of clipboards in X Window System.
     It contains the last selection of text via mouse dragging in an X application. Clicking the middle mouse button will paste its contents elsewhere. This is a very convenient way for fast copying and pasting on Linux, since only mouse clicking is needed without bothering to press the `Ctrl+c/Ctrl+v` hotkeys.
 -   Secondary selection
     
-    It is a counterpart of the primary selection, but most applications do not support it. Luckily, in Emacs we can use this function via mouse clicking similar to the operation for the primary selection, but with the `Meta` key pressed. When some text is selected in this way, Emacs will highlight it using a color different from that for a normal mouse selection, which is controlled by the face `secondary-selection`.
+    It is a counterpart of the primary selection, but most applications do not support it. Luckily, in Emacs we can use this function via mouse clicking similar to the operation for the primary selection, but with the `Meta` key pressed. When some text is selected in this way, Emacs will highlight it using a color different from that for a normal mouse selection, which is controlled by the face `secondary-selection`. By the way, the face for the primary selection in Emacs is `region`.
 -   Clipboard
     
     This is the classical clipboard manipulated via the `Ctrl+c/Ctrl+v` hotkeys, which we&rsquo;ve been familiar with in most operating systems.
