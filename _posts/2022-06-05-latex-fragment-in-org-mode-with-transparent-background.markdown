@@ -15,7 +15,7 @@ There are three back-ends that can be used to convert LaTeX source code snippets
 (setq org-preview-latex-default-process 'dvisvgm)
 ```
 
-Detailed configurations for these back-ends including command name and options are configured in the variable `otpion~org-preview-latex-process-alist`. Other options for LaTeX image generation such as foreground, background, scaling, etc. are controlled by `org-format-latex-options`.
+Detailed configurations for these back-ends including command name and options are configured in the variable `org-preview-latex-process-alist`. Other options for LaTeX image generation such as foreground, background, scaling, etc. are controlled by `org-format-latex-options`.
 
 To generate LaTeX fragment images with a transparent background, which will be compatible with different Emacs color themes, we should **not** set the property `:background` in `org-format-latex-options` as `Transparent`, but `default` instead. The generated LaTeX fragments in my solarized-light color theme looks like this.
 
