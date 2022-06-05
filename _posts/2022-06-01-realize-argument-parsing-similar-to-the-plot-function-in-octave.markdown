@@ -7,7 +7,7 @@ tags: [Octave]
 mathjax: false
 ---
 
-In GNU Octave, the frequently used `plot` function has several overloaded versions as below.
+In GNU Octave, the frequently used `plot` function has several overloaded versions:
 
     -- : plot (Y)
     -- : plot (X, Y)
