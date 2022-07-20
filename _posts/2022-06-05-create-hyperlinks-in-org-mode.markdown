@@ -7,6 +7,12 @@ tags: [Emacs,知识联接, Org-mode]
 mathjax: false
 ---
 
+# Table of contents
+{:.no_toc}
+
+* toc starts here
+{:toc}
+
 This article summarizes several ways that I often use for insertion of hyperlinks in Emacs Org mode. They are very helpful for us to maintain inter-connected notes and documents.
 
 
@@ -16,8 +22,15 @@ Press the hotkey `C-u C-c C-l` to insert a link to a file on your local computer
 
 Because I often use the `Helm` package for an interactive prompt of a file name or folder path, all the history files once selected via `Helm` can be quickly revisited. After pressing `C-u C-c C-l`, a further `C-c h` will trigger the `Helm` history. By navigating in the list of file names, we then come to the interested item. If it is to be used directly as the link target, press `F1`. If its name or path is to be modified before using, press `F2`. When the modification is finished, press `F1` to insert the final link.
 
-When the target local file is a folder not an ordinary file, even though the link created for it as above can be opened in Emacs `Dired` by pressing `C-c C-o`, it cannot be opened correctly in the PDF document that is compiled from the exported LaTeX file. This is because the link will be appended with a `.pdf` extension by the `Hyperref` LaTeX package. To solve problem, manually add `run:` to the beginning of the link address.
+# Insert a link to a directory
 
+When the target local file is a folder not an ordinary file, even though the link created for it as above can be opened in Emacs `Dired` by pressing `C-c C-o`, it cannot be opened correctly in the PDF document that is compiled from the exported LaTeX file. This is because the link will be appended with a `.pdf` extension by the `Hyperref` LaTeX package. To solve problem, manually replace the link's identifying string `file` with `run` at the beginning of the link address.
+
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-07-15 Fri&gt; </span></span> However, when we export the Org contents into LaTeX using this method, there will be an error like this:
+
+    user-error: Unable to resolve link: "run:path-to-the-directory/"
+
+According to [StackExchange](https://tex.stackexchange.com/a/558242/84490), a definitive method is to keep the `file` prefix intact and append a dot to the link address. This will prevent `Hyperref` from *presumptuously* adding the `.pdf` extension.
 
 # Insert a link to a specific position in a local file
 

@@ -8,7 +8,12 @@ dl, dd, ol, ul, figure {
   padding: 0;
 }
 
-
+/* Org timestamp */
+.timestamp {
+    font-style: italic;
+    margin-right: 0.5em;
+    background-color: #dfe7ac;
+}
 
 /**
  * Basic styling
