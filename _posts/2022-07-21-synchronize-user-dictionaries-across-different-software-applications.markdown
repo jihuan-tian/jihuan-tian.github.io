@@ -7,7 +7,7 @@ tags: [Bash,Aspell]
 mathjax: false
 ---
 
-My toolchain for programming and document writing includes Emacs, Eclipse, LibreOffice and Joplin. All of them provide a spell check function. As time goes on, I&rsquo;ve added more and more rare words and terminology to them independently. To make the spell checking behavior consistent and remove the redundancy of adding a same word to all the applications, it is necessary to synchronize their user dictionaries. Since most of the time I work within Emacs, whose spell checker is `aspell`, I intend to copy all the words accumulated in `~/.aspell.en.pws` to the other applications.
+My toolchain for programming and document writing includes Emacs, Eclipse, LibreOffice Joplin and Freeplane. All of them provide a spell check function. As time goes on, I&rsquo;ve added more and more rare words and terminology to them independently. To make the spell checking behavior consistent and remove the redundancy of adding a same word to all the applications, it is necessary to synchronize their user dictionaries. Since most of the time I work within Emacs, whose spell checker is `aspell`, I intend to copy all the words accumulated in `~/.aspell.en.pws` to the other applications.
 
 
 # Synchronize to Joplin
@@ -59,3 +59,7 @@ In my case, I use `~/.eclipse.dict`. Then simply copy all `aspell` word list to 
 ```bash
 gawk '{if (NR > 1) print;}' ~/.aspell.en.pws > ~/.eclipse.dict
 ```
+
+# Synchronize to Freeplane
+
+The method is the same as Eclipse with the dictionary file being `~/.config/freeplane/1.9.x/UserDictionary_en.txt`.
