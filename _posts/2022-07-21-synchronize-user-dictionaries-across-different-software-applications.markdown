@@ -3,9 +3,15 @@ layout: post
 title: Synchronize user dictionaries across different software applications
 date: 2022-07-21
 categories: [computer]
-tags: [Bash,Aspell]
+tags: [Bash,Aspell,Command]
 mathjax: false
 ---
+
+# Table of contents
+{:.no_toc}
+
+* toc starts here
+{:toc}
 
 My toolchain for programming and document writing includes Emacs, Eclipse, LibreOffice, Joplin and Freeplane. For web page browsing and email, I use Firefox and Thunderbird. All of them provide a spell check function. As time goes on, I&rsquo;ve added more and more rare words and terminology to them independently. To make the spell checking behavior consistent and remove the redundancy of adding a same word to all the applications, it is necessary to synchronize their user dictionaries. Since most of the time I work within Emacs, whose spell checker is `aspell`, I intend to copy all the words accumulated in `~/.aspell.en.pws` to the other applications.
 
@@ -67,3 +73,11 @@ The method is the same as Eclipse with the dictionary file being `~/.config/free
 # Synchronize to Firefox and Thunderbird
 
 The method is the same as Eclipse with the dictionary file being `persdict.dat` in the default profile folder of Firefox or Thunderbird. Its absolute path can be obtained by visiting `about:profiles` in Firefox or Thunderbird.
+
+# Synchronize to KDE applications
+
+KDE applications like Kate, Okular, etc. rely on the plugin `Sonnet` for spell checking, which uses `aspell` as its backend. Therefore, spell checking in KDE applications is consistent with that in Emacs and there is nothing more to do.
+
+# Summary
+
+The above user dictionary synchronizations coalesce into a definitive solution for a consistent and uniform spell checking in KDE Plasma on Linux.
