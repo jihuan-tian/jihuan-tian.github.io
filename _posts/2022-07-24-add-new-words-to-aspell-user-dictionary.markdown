@@ -7,7 +7,17 @@ tags: [Aspell,Command,Bash]
 mathjax: false
 ---
 
-This script can be used to add a list of words on the command line to the user dictionary of Aspell, e.g. `~/.aspell.en.pws`. The option `-a` lets `aspell` enter a [pipe mode](http://aspell.net/man-html/Through-A-Pipe.html), which supports the following commands. In our script, combining the commands `*word` and `#`, the output of `echo` is redirected to the standard input of `aspell`.
+This script can be used to add a list of words on the command line to the user dictionary of Aspell, e.g. `~/.aspell.en.pws`.
+
+```bash
+for word in "$@"
+do
+    echo -e "*$word\n#" | aspell -a
+    echo "$word is added!"
+done 
+```
+
+The option `-a` lets `aspell` enter a [pipe mode](http://aspell.net/man-html/Through-A-Pipe.html), which supports the following commands. In our script, combining the commands `*word` and `#`, the output of `echo` is redirected to the standard input of `aspell`.
 
 | \*word | Add a word to the personal dictionary                                   |
 | &word  | Insert the all-lowercase version of the word in the personal dictionary |
@@ -20,11 +30,3 @@ This script can be used to add a list of words on the command line to the user d
 | !      | Enter terse mode                                                        |
 | %      | Exit terse mode                                                         |
 | ^      | Spell-check the rest of the line                                        |
-
-```bash
-for word in "$@"
-do
-    echo -e "*$word\n#" | aspell -a
-    echo "$word is added!"
-done 
-```
