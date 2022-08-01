@@ -44,16 +44,16 @@ The commands to change the size of the font are available: \tiny, \small,...,\LA
 ```latex
 % Math symbol commands
 \newcommand{\intd}{\,{\rm d}} % Symbol 'd' used in integration, such as 'dx'
-\newcommand{\diff}{{\rm d}} % Symbol 'd' used in differentiation
-\newcommand{\Diff}{{\rm D}} % Symbol 'D' used in differentiation
+\newcommand{\diff}{% raw %}{{\rm d}}{% endraw %} % Symbol 'd' used in differentiation
+\newcommand{\Diff}{% raw %}{{\rm D}}{% endraw %} % Symbol 'D' used in differentiation
 \newcommand{\pdiff}{\partial} % Partial derivative
 \newcommand{\DD}[2]{\frac{\diff}{\diff #2}\left( #1 \right)}
 \newcommand{\Dd}[2]{\frac{\diff #1}{\diff #2}}
 \newcommand{\PD}[2]{\frac{\pdiff}{\pdiff #2}\left( #1 \right)}
 \newcommand{\Pd}[2]{\frac{\pdiff #1}{\pdiff #2}}
-\newcommand{\rme}{{\rm e}} % Exponential e
-\newcommand{\rmi}{{\rm i}} % Imaginary unit i
-\newcommand{\rmj}{{\rm j}} % Imaginary unit j
+\newcommand{\rme}{% raw %}{{\rm e}}{% endraw %} % Exponential e
+\newcommand{\rmi}{% raw %}{{\rm i}}{% endraw %} % Imaginary unit i
+\newcommand{\rmj}{% raw %}{{\rm j}}{% endraw %} % Imaginary unit j
 \newcommand{\vect}[1]{\boldsymbol{#1}} % Vector typeset in bold and italic
 \newcommand{\normvect}{\vect{n}} % Normal vector: n
 \newcommand{\dform}[1]{\overset{\rightharpoonup}{\boldsymbol{#1}}} % Vector for differential form

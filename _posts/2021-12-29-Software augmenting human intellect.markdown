@@ -2,6 +2,8 @@
 layout: post
 title: Software augmenting human intellect
 date: 2021-12-29
+categories: [thoughts]
+tags: [工具]
 ---
 
 [Augmented intelligence](https://dougengelbart.org/content/view/138/) system was initially proposed by Engelbart in 1962. For a manifestation of this concept in software platforms and tools, they should at least possess the following features according to my current understanding.
@@ -10,4 +12,4 @@ date: 2021-12-29
 -   Having a large scale framework and adequate complicated features. This ensures us to use it for serious and titanic work with a definitive quality.
 -   Being programmable and extensible. This can be achieved via a plugin layer or the software itself can be directly accessed and interacted via programming. Being not only a tool but also a tool for making new tools, the software can be delicately tuned and adapted to our needs and habits, integrated with us as a whole.
 
-Some good examples that I recommend: Emacs, AUCTeX, Org mode, LaTeX, Lilypond, LibreOffice.
+Some good examples that I recommend: Emacs, AUCTeX, Org mode, LaTeX.

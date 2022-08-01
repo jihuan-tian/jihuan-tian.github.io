@@ -1,5 +1,9 @@
 This is an inline equation $$alpha$$.
 
+    \[ 
+abc 
+ \]
+
    $$
 \int_0^{\infty}
     $$ 

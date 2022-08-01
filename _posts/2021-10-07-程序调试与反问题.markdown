@@ -2,6 +2,8 @@
 layout: post
 title: 程序调试与反问题
 date: 2021-10-07
+categories: [thoughts]
+tags: [算法开发,反问题]
 ---
 
 程序调试本质上便是一个[反问题]({% post_url 2018-02-08-反问题的启示 %})的求解过程。
