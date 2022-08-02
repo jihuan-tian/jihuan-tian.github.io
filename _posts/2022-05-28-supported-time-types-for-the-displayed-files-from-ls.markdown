@@ -3,7 +3,7 @@ layout: post
 title: Supported time types for the displayed files from ls
 date: 2022-05-28
 categories: [computer]
-tags: [Linux,Command]
+tags: [Linux,command]
 mathjax: false
 ---
 

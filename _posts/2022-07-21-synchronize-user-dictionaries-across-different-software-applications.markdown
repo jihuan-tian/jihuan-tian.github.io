@@ -3,7 +3,7 @@ layout: post
 title: Synchronize user dictionaries across different software applications
 date: 2022-07-21
 categories: [computer]
-tags: [Bash,Aspell,Command]
+tags: [Bash,Aspell,command]
 mathjax: false
 ---
 

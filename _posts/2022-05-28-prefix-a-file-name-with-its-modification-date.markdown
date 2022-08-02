@@ -3,7 +3,7 @@ layout: post
 title: Prefix a file name with its modification date
 date: 2022-05-28
 categories: [computer]
-tags: [Linux,Bash,Command]
+tags: [Linux,Bash,command]
 mathjax: false
 ---
 

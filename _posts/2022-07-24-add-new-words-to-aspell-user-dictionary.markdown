@@ -3,7 +3,7 @@ layout: post
 title: Add new words to Aspell user dictionary
 date: 2022-07-24
 categories: [computer]
-tags: [Aspell,Command,Bash]
+tags: [Aspell,command,Bash]
 mathjax: false
 ---
 

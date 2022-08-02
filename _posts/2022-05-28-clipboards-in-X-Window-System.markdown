@@ -3,7 +3,7 @@ layout: post
 title: Clipboards in X Window System
 date: 2022-05-28
 categories: [computer]
-tags: [Bash,Command,Linux,X-Window,Emacs]
+tags: [Bash,command,Linux,X-Window,Emacs]
 mathjax: false
 ---
 

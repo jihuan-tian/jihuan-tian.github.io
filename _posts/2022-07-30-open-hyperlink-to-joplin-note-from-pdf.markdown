@@ -3,7 +3,7 @@ layout: post
 title: Open hyperlink to Joplin note from PDF
 date: 2022-07-30
 categories: [computer]
-tags: [Joplin,知识联接,Command]
+tags: [Joplin,知识联接,command]
 mathjax: false
 ---
 
