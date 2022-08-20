@@ -1,0 +1,16 @@
+---
+layout: post
+title: 见贤思齐
+date: 2022-08-20
+categories: [thoughts]
+tags: [科研]
+mathjax: false
+---
+
+今日清晨浏览多尺度仿真相关文献。看到了Martin Oliver Steinhauser所编写的专著&ldquo;Computational Multiscale Modeling of Fluids and Solids&rdquo;。其中的内容涉及数学、物理、软件设计与编程方法，体现出理论基础深厚扎实、内容详尽、研究范围广的特点。尤其是数学部分，从最基础的集合论讲起，再到拓扑学、微分几何、泛函分析、偏微分方程，给人很深的印象。
+
+Martin Oliver Steinhauser是Fraunhofer公司的仿真研究专家与项目经理，曾领导了在德国全国范围内多家机构参与的多尺度仿真软件MMM-Tools开发项目，在10年的时间里拥有多达50万行代码的编写与开发经验。这充分表明他在融汇贯通从底层到面向应用的理论知识的同时，始终孜孜不倦地将其付诸实践。From theory to praxis，Martin的治学风格很好地体现了什么才是真正的博学、笃行，是值得我学习与追赶的榜样。同时，该书也启发我应当像海绵一样充分、快速地全方位吸收理论知识，以开放的心态与无畏的勇气勤勉研究，不给自己的记忆力、脑力、能力设置上限，永不满足。
+
+最后，摘录出Martin给从事仿真工作的“用户”提出的建议：
+
+> I hope to convince those readers who consider themselves just users of ready-made software packages that it is very interesting to understand some of the common physical and mathematical principles on which these programs are based and, yet more important, that a thorough understanding of the functioning of a simulation code may enhance considerably the efficiency with which such programs are used.
