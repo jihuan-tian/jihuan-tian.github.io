@@ -14,6 +14,8 @@ The following set of tools can cooperate to achieve the said purpose, which allo
     ```bash
     xdpyinfo | grep resolution
     ```
+    
+        resolution:    82x82 dots per inch
 
 2.  Open the PDF file in Okular and set the zoom percentage to 100%.
 
