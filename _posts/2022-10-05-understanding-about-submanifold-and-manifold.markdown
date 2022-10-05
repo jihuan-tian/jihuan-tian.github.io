@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Understanding about submanifold and manifold
-date: 2022-10-06
+date: 2022-10-05
 categories: [math]
 tags: [differential-geometry]
 mathjax: true
