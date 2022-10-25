@@ -1,0 +1,10 @@
+---
+layout: post
+title: 在科学未知的迷雾中
+date: 2022-10-25
+categories: [thoughts]
+tags: [科研,论语]
+mathjax: false
+---
+
+在科学未知的迷雾中，面对记忆与智力的相对有限性，我们依然要保持求知的欲望、求真的责任以及必胜的信心（Wir mussen wissen. Wir werden wissen. – David Hilbert）。这并非人的自大，相反地，在科学的殿堂前，人总是渺小的，然而这并不妨碍我们成为拼搏前行的勇者（《论语·为政篇第二 2.24》 子曰：「非其鬼而祭之，谄也。见义不为，无勇也。」）。
