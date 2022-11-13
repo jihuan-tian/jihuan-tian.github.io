@@ -15,5 +15,5 @@ According to the Org mode manual, the dollar sign `$` is treated as math delimit
 
 For example, the dollar signs in `$\alpha$-th` will be escaped as `\$` when it is exported to LaTeX document, just because the closing `$` is not followed by a whitespace or punctuation. N.B. The hyphen character `-` is not treated as punctuation by Org mode.
 
-Therefore, the safest way is to use `\(...\)` for inline math delimiters.
+Therefore, the safest way is to use `\(...\)` for inline math delimiters in Org mode.
 
