@@ -1,0 +1,24 @@
+---
+layout: post
+title: 边界元算法开发状态与算法库简介
+date: 2022-12-30
+categories: [math]
+tags: [算法开发,BEM]
+mathjax: false
+---
+
+目前，我已实现了基于纯代数方法的三维伽辽金边界元 C++ 算法库，主要包括奇异数值积分、矩阵压缩与操作、针对线性迭代求解器的大型矩阵预处理等关键模块。以拉普拉斯方程在狄利克雷边界、诺伊曼边界、混合边界条件下的三个子问题作为测试算例，验证了该算法库的正确性。
+
+该算法库的主要特性与潜力如下：
+
+1.  伽辽金边界元方法相对于传统的配置方法与 Nyström 方法具有更好的数值稳定性，对于模型中的棱边与尖角无需特殊处理。
+2.  与传统的快速多极方法不同，该算法库基于不依赖具体物理问题及其控制方程的纯代数方法实现。因此，可将其作为通用的基础架构，快速构建针对不同物理问题与工程应用的纯边界元求解器或边界元-有限元耦合求解器，例如，电磁学、声学、弹性力学、热学以及流场的仿真分析。
+3.  相较于传统边界元方法，以伽辽金变分法作为统一的理论基础，将伽辽金边界元与伽辽金有限元方法直接耦合在数值分析与算法实现两个层面都更加容易。该耦合求解器使纯边界元方法能够处理包含多介质、复杂几何结构与非线性参数的场域，大大拓展其应用范围；同时，在求解无限大的开域问题上，比纯有限元方法更有优势。
+
+I have implemented a C++ library of 3D Galerkin boundary element method (BEM) based on pure algebraic methods, which include singular numerical quadrature, matrix compression and manipulation, preconditioner for iterative linear solvers. At the moment, this library has been verified for solving the Laplace problem with Dirichlet, Neumann and mixed boundary conditions.
+
+Its main features and potentials are as follows.
+
+1.  Compared to traditional methods, such as the collocation and Nyström methods, Galerkin-BEM has a better numerical stability and does not need special treatment of sharp edges and corners in a model.
+2.  Unlike the traditional fast multipole method (FMM), this library is not limited to a specific physical problem and its governing equations, due to the adoption of pure algebraic methods. Hence, it can be used as a general framework to efficiently build pure BEM or BEM-FEM (finite element method) coupled solvers for a variety of physical problems and engineering applications, such as electromagnetics, acoustics, elasticity, thermal and flow field.
+3.  Under the unified theoretical foundation of Galerkin variation, direct coupling of the Galerkin BEM and Galerkin FEM is much easier in the senses of both numerical analysis and algorithm implementation. Such coupling endows BEM with the capability of handling field domains having multi-media, complex geometry and nonlinear parameters, which greatly enhances the applicability of BEM and outperforms FEM when solving infinite open domain problems.
