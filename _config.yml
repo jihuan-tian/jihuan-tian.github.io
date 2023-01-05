@@ -24,7 +24,7 @@ email: jihuan_tian@hotmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   As regards numerical analysis, mathematical electromagnetism, dielectric physics, Linux techniques and personal thoughts.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://jihuan-tian.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Configuration for social media
 rss: "RSS"
