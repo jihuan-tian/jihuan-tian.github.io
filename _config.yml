@@ -29,6 +29,8 @@ url: "https://jihuan-tian.github.io" # the base hostname & protocol for your sit
 # Configuration for social media
 rss: "RSS"
 github_username: jihuan-tian
+linkedin_username: jihuan-tian
+twitter_username: JihuanT
 
 # Buildsettings
 timezone: Asia/Shanghai
