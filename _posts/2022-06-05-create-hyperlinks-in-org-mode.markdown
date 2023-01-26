@@ -47,7 +47,7 @@ When the local file is a LibreOffice document, the method is same. Just open the
 
 # Insert a link to other heading in the current Org file
 
-Execute the command `helm-org-in-buffer-headings`, which corresponds to the menu item `<tools> <Helm> <Org> <Org headlines in buffer>`. Then input the heading text pattern or navigate through the list. Finally, press `F4` to insert the link. At present, I bind this function locally with the shortcut key `F7`.
+Execute the command `helm-org-in-buffer-headings` (this depends on the MELPA package `helm-org`), which corresponds to the menu item `<tools> <Helm> <Org> <Org headlines in buffer>`. Then input the heading text pattern or navigate through the list. Finally, press `F4` to insert the link. At present, I bind this function locally with the shortcut key `F7`.
 
 ```emacs-lisp
 (define-key org-mode-map [(f7)] 'helm-org-in-buffer-headings)
@@ -56,7 +56,7 @@ Execute the command `helm-org-in-buffer-headings`, which corresponds to the menu
 
 # Insert a link to other heading in a different Org file
 
-There are two cases here. When the target Org file has been registered in the Org file list `org-agenda-files`, execute the command `helm-org-agenda-files-headings`, which corresponds to the menu item `<tools> <Helm> <Org> <Org headlines in org agenda files>`. Then input the pattern or navigate through the list. Finally, press `F4` to insert the link. At present, I bind this function with the shortcut key `Shift+F7`.
+There are two cases here. When the target Org file has been registered in the Org file list `org-agenda-files`, execute the command `helm-org-agenda-files-headings` (this depends on the MELPA package `helm-org`), which corresponds to the menu item `<tools> <Helm> <Org> <Org headlines in org agenda files>`. Then input the pattern or navigate through the list. Finally, press `F4` to insert the link. At present, I bind this function with the shortcut key `Shift+F7`.
 
 ```emacs-lisp
 (define-key org-mode-map [(shift f7)] 'helm-org-agenda-files-headings)
