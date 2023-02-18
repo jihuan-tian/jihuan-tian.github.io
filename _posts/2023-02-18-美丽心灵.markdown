@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 美丽灵灵
+title: 美丽心灵
 date: 2023-02-18
 categories: [thoughts]
 tags: [随想,科研,论语]
