@@ -129,7 +129,6 @@ a {
   }
 }
 
-
 /**
  * Blockquotes
  */
@@ -138,7 +137,7 @@ blockquote {
   border-left: 4px solid $grey-color-light;
   padding-left: $spacing-unit / 2;
   /* @include relative-font-size(1.0); */
-  font-family: Georgia, "Times New Roman", "楷体", serif;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', '楷体', serif;
   font-size: 20px;
   letter-spacing: -1px;
 
