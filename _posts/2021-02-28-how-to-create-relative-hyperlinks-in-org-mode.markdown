@@ -23,3 +23,6 @@ Then, the configuration added to `~/.emacs` for enabling relative hyperlinks in 
 ```lisp
 (setq org-link-file-path-type 'relative)
 ```
+
+Read more
+* [Create hyperlinks in Org mode]({% post_url 2022-06-05-create-hyperlinks-in-org-mode %})

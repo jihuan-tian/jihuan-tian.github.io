@@ -26,3 +26,6 @@ To make Org mode able to handle this link, we should add a new link type `joplin
 ```
 
 In this function, we call the Joplin program using `start-process` and pass the full URL to it. The argument `url` of the `lambda` function associated with the `follow` action contains the string after the comma in the original link, i.e. `//x-callback-url/openNote?id=a700a59f8a054e1aab97c296bf72fe3d`. Therefore, we use `concat` to restore the original link. The second parameter of `start-process` is `nil`, which prevents Emacs from creating a buffer for the process.
+
+Read more
+* [Create hyperlinks in Org mode]({% post_url 2022-06-05-create-hyperlinks-in-org-mode %})
