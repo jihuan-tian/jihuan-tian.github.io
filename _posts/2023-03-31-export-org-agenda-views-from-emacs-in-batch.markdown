@@ -7,7 +7,7 @@ tags: [Emacs,Org-mode,GTD]
 mathjax: false
 ---
 
-As mentioned in the previous posts [以 Emacs Org mode 为核心的任务管理方案]({% post_url 2019-04-30-以Emacs Org mode为核心的任务管理方案 %}) and [将 Emacs Org mode 用于 GTD 任务管理]({% post_url 2019-09-30-将Emacs Org mode用于GTD任务管理 %}), the basic philosophy and key procedures of GTD can be realized with Org agenda. For frequent reviewing of todo lists in inbox, finished tasks and deadlines, I need to export corresponding agenda views into HTML files and host them on my local Apache server. This export operation can be automated in batch by staring Emacs from the command line and executing the lisp function `org-batch-store-agenda-views`.
+As mentioned in the previous posts [以 Emacs Org mode 为核心的任务管理方案]({% post_url 2019-04-30-以Emacs Org mode为核心的任务管理方案 %}) and [将 Emacs Org mode 用于 GTD 任务管理]({% post_url 2019-09-30-将Emacs Org mode用于GTD任务管理 %}), the basic philosophy and key procedures of GTD can be realized with Org agenda. For frequent reviewing of todo lists in inbox, finished tasks and deadlines, I need to export corresponding agenda views into HTML files and host them on my local Apache server. This export operation can be automated in batch by starting Emacs from the command line and executing the lisp function `org-batch-store-agenda-views`.
 
 First, customize the variable `org-agenda-custom-commands` according to [this post]({% post_url 2019-09-30-将Emacs Org mode用于GTD任务管理 %}).
 
