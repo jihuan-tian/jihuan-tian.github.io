@@ -1,0 +1,20 @@
+---
+layout: post
+title: 构思与编码
+date: 2023-04-06
+categories: [methodology]
+tags: [算法开发]
+mathjax: false
+---
+
+今天大致写出了用于计算 Galerkin 边界元中数值奇异积分的 producer-consumer 并行模型代码框架。虽然在细节实施上尚未完成，但也算是近期一直以来在未知的黑暗中不断摸索试探的一点点进展。
+
+由此获得的经验与体会是：在算法开发过程中，可能终究会碰到一些逻辑步骤与数据结构均非常复杂的功能模块——这或许是由于待处理问题与相应技术方案本身就是一块难啃的骨头，根本没有什么投机取巧的办法能够回避与绕开；或者是由于当我们处于开发的早期阶段，思路尚不完全清晰，设计方案亦不成熟，更没有现成的基础设施代码（infrastructure code）可以让我们直接在应用层面方便舒适地调用。此时，只能像解开缠绕在一起的乱麻一般，虽然我们根本无法看清与掌握如何从当前的混乱状态出发直到彻底理清头绪所需的所有步骤，也不清楚当下正在做的操作会带来哪些深远的影响，但仍要在大方向的指引下，秉持一贯的开发原则与风格，耐心细致、一点一点地做。
+
+这种实践的过程，并非美好理想中的那种情境，即，先构思一个完善、精细的流程图，再无需动脑、费力地照图实施即可——传统软件工程中绘制的多种 UML 图可以说是这种工作模式的极致。然而，当我们亲身投入到一个未曾具体经历且带有研究性的软件开发项目时，很难从一开始就凭空得到精密的构思与切实可行的方案。这是因为，具体的开发工作需要这样的构思与方案提供指导，而构思与方案的形成又需要通过实践来搜集信息并从中提炼出精辟的洞见。所以从某种角度来说，这是一个先有鸡还是先有蛋的问题。虽然在逻辑上构思与方案的形成先于编码开发工作，但在具体实践中，它们与编码开发形成的是一种彼此交织、相辅相成的共生关系。在开发过程中，我们获得了逐步深入的理解，这种理解又会被用来改进、优化代码的设计。这样看来，应将传统的先设计再编码的做法应替换为在头脑风暴与敏捷开发间多次迭代的最佳实践。
+
+本文最后给出的建议是：
+
+> When our brains are vague, we should still keep on scratching, drafting, illustrating, writing and coding. We mustn&rsquo;t wait doing nothing until everything is ready. Even though algorithm design precedes coding logically, in practice, these two activities are concomitant and reciprocal, just because coding itself is another form of thinking process.
+
+更多阅读：《[Writing and thinking are symbiotic]({% post_url 2022-09-02-writing-and-thinking-are-symbiotic %})》
