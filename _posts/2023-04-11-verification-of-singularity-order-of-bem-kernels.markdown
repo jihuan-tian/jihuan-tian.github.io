@@ -122,23 +122,23 @@ Then the kernel function can be derived from the general form with
 $$\sigma=3$$, $$t=2$$, $$a=0$$. Hence, the singularity order of the
 hyper-singular potential kernel is 3.
 
+# References
+
 <div id="refs" class="references hanging-indent">
 
-<div id="ref-ErichsenEfficient1998">
+<div id="ref-ErichsenEfficient1998" markdown="1">
 
 Erichsen, Stefan, and Stefan A. Sauter. 1998. “Efficient Automatic
-Quadrature in 3-d Galerkin Bem.” *Computer Methods in Applied Mechanics
-and Engineering*, Papers presented at the seventh conference on
+Quadrature in 3-d Galerkin Bem.” *Computer Methods in Applied Mechanics and Engineering*, Papers presented at the seventh conference on
 numerical methods and computational mechanics in science and
 engineering, 157 (3): 215–24.
 <https://doi.org/10.1016/S0045-7825(97)00236-3>.
 
 </div>
 
-<div id="ref-SteinbachNumerical2007">
+<div id="ref-SteinbachNumerical2007" markdown="1">
 
-Steinbach, Olaf. 2007. *Numerical Approximation Methods for Elliptic
-Boundary Value Problems: Finite and Boundary Elements*. Springer Science
+Steinbach, Olaf. 2007. *Numerical Approximation Methods for Elliptic Boundary Value Problems: Finite and Boundary Elements*. Springer Science
 & Business Media.
 
 </div>
