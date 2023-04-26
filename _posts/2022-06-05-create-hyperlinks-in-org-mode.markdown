@@ -32,7 +32,7 @@ When the target local file is a folder not an ordinary file, even though the lin
 
 According to [StackExchange](https://tex.stackexchange.com/a/558242/84490), a definitive method is to keep the `file` prefix intact and append a dot to the link address. This will prevent `Hyperref` from *presumptuously* adding the `.pdf` extension.
 
-# Insert a link to a specific position in a local file
+# Insert a link to a specific position in a local PDF file
 
 When the local file is a PDF document compiled from LaTeX, a link can be created with pinpoint accuracy to any LaTeX labels and `hypertargets`. Here a `hypertarget` is a macro in `Hyperref`, which can be used to create a named anchor like that in an HTML file. For example,
 
@@ -41,6 +41,19 @@ When the local file is a PDF document compiled from LaTeX, a link can be created
 ```
 
 Then insert the link to the local file as usual in Org mode and append it with `#anchor-name`.
+
+To check existing named anchors or rather named destinations stored in the PDF file, use the `pdfinfo` command with the `-dests` option.
+
+```text
+-dests Print a list of all named destinations. If a pagerange is specified using "-f" and
+"-l", only destinations in the page range are listed.
+```
+
+# Insert a link to a specific page in a local PDF file
+
+Add a new item `("\\.pdf::\\([0-9]+\\)\\'" . "okular -p %1 %s")` to the alist variable `org-file-apps`. Then, when a hyperlink to a PDF file is appended with `::<page-no>`, the PDF file will be opened by Okular and directly jumps to the specified page.
+
+# Insert a link to a specific position in a local LibreOffice file
 
 When the local file is a LibreOffice document, the method is same. Just open the navigation panel, from which any items in `Headings`, `Bookmarks` and `Hyperlinks` groups can be link to. The anchor names are their displayed names.
 
@@ -97,3 +110,15 @@ To make Org mode able to handle this link, we should add a new link type `joplin
 ```
 
 In this function, we call the Joplin program using `start-process` and pass the full URL to it. The argument `url` of the `lambda` function associated with the `follow` action contains the string after the comma in the original link, i.e. `//x-callback-url/openNote?id=a700a59f8a054e1aab97c296bf72fe3d`. Therefore, we use `concat` to restore the original link. The second parameter of `start-process` is `nil`, which prevents Emacs from creating a buffer for the process.
+
+# Other issues
+
+## Cannot open a hyperlink to a local folder
+
+Sometimes when I click on the hyperlink to a folder in the local file system, the message below appears in the mini buffer without opening the directory in Dired.
+
+```text
+Running less /directory/to/my/folder/...done
+```
+
+Solution: Add the item `(directory . emacs)` to the alist variable `org-file-apps`.

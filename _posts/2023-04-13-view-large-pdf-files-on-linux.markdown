@@ -20,6 +20,8 @@ bind shift-up any scrollUp(32)
 bind shift-down any scrollDown(32)
 ```
 
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2023-04-26 Wed&gt; </span></span> The Postscript and PDF viewer GNU gv performs even better than Xpdf. After loading a large PDF file, there is no refreshing in gv when we scroll the page.
+
 # Lessons learned
 
 Some classical Linux software can be relied upon due to their better speed, extensibility and capability for extreme cases. Good examples are Xpdf, Gnuplot, less, etc.
