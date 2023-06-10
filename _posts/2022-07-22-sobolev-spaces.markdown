@@ -3,7 +3,7 @@ layout: post
 title: Summary of Sobolev spaces and their norms
 date: 2022-07-22
 categories: [math]
-tags: [PDE]
+tags: [PDE,Sobolev-space]
 mathjax: true
 ---
 
