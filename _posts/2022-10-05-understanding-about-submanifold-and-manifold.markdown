@@ -11,6 +11,8 @@ For any point $$p$$ of a submanifold $$M$$ in an Euclidean space $$\mathbb{R}^{n
 
 Another understanding about submanifold is not based on the above **explicit** representation of some $$r$$ coordinate components by the $$n$$ independent components, but is described as the common locus of a set of constraint functions $$F(x)=0$$ or $$F(x)=t$$, where 0 or $$t$$ belongs to $$\mathbb{R}^{r}$$ and there are $$r$$ equations in the system. Then we need to check the Jacobian matrix of the map $$F(x)$$. If it has rank $$r$$, $$M$$ is a $$n$$-dimensional submanifold in $$\mathbb{R}^{n+r}$$. With the help of implicit function theorem, this definition is equivalent to the first one.
 
+Here we should bear in mind that **the rank of the Jacobian matrix is actually the number of the constraints instead of the number of free variables or dimensions of the submanifold**. Hence, the submanifold dimension is the co-dimension of $$r$$ in $$\mathbb{R}^{r+n}$$, i.e. $$n$$.
+
 For the definition of a manifold $$M$$, the global Euclidean space is not mandatory and the absolute space-time notion is abandoned. Instead, it relies on two points. Assume there is an open covering of $$M$$,
 
 1.  for each open set $$U$$ in this covering, there is a one-to-one correspondence between $$U$$ and an open set in $$\mathbb{R}^{n}$$. N.B. At the moment, we only have this local bijection, but not a homeomorphism, since no topology has been constructed yet. In this way, each open set in the covering of $$M$$ is assigned a coordinate chart.

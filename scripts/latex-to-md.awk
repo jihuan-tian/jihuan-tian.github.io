@@ -9,6 +9,14 @@ BEGIN {
 }
 
 {
+    # Replace \( and \) with $$.
+    gsub(/(\\\()|(\\\))/, "$$");
+
+    # Replace \[ with \n$$.
+    gsub(/\\\[/, "\n$$");
+    # Replace \] with $$\n.
+    gsub(/\\\]/, "$$\n");
+    
     # Replace all dollar character with double dollar characters. Thus, there
     # will be four dollar characters, if there are display equations wrapped
     # between "$$ ... $$" in the original document.
