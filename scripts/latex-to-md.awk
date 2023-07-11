@@ -1,5 +1,6 @@
-# This awk script is used for converting a latex document to kramdown markdown
-# format, which is the markdown engine I've adopted in Jekyll blog.
+# This awk script is used for converting a directly written latex document to
+# kramdown markdown format, which is the markdown engine I've adopted in Jekyll
+# blog.
 
 BEGIN {
     # Initialize the counter for four dolloar characters.
