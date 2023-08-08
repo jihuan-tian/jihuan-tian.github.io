@@ -1,0 +1,27 @@
+% Created 2023-08-08 Tue 22:07
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\input{page-size}
+\input{generic}
+\input{math}
+\input{font-selection}
+\author{Jihuan Tian}
+\date{\today}
+\title{The meaning of Jacobian matrix having a rank \(r\)}
+\hypersetup{
+ pdfauthor={Jihuan Tian},
+ pdftitle={The meaning of Jacobian matrix having a rank \(r\)},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\setcounter{tocdepth}{5}
+\tableofcontents
+
+Let \(F(x) = 0\) be a set of \(r\) constraint functions defining a locus, where \(x\in \mathbb{R}^{r+n}\). If the Jacobian matrix of the multi-dimensional map \(F\) has rank \(r\), it means all the constraint equations are effective or independent, and \(r\) coordinate components in \(x\) can be eliminated, i.e. represented by the other \(n\) coordinate components. Hence, the locus or submanifold defined by \(F(x) = 0\) has \(n\) dimensions.
+
+Here we should bear in mind that \textbf{the rank of the Jacobian matrix is actually the number of the constraints instead of the number of free variables or dimensions of the submanifold}. Hence, the submanifold dimension is the co-dimension of \(r\) in \(\mathbb{R}^{r+n}\), i.e. \(n\).
+\end{document}

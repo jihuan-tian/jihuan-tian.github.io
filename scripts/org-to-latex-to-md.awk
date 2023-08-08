@@ -1,9 +1,11 @@
-# This awk script is used for converting a Markdown document containing LaTeX
-# which is exported from Org mode to kramdown markdown format, which is the
-# markdown engine I've adopted in Jekyll blog.
+# This awk script is used for correcting LaTeX wrappers in the markdown
+# document, which is converted from a LaTeX document via pandoc. This LaTeX
+# document is exported from Org model.
 
 {
+    # Replace inline equation wrappers.
     gsub(/(\\\()|(\\\))/, "$$");
+    # Replace display equation wrappers.
     gsub(/\\\[/, "\n$$");
     gsub(/\\\]/, "$$\n");
 
