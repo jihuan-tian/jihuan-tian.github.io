@@ -6,8 +6,8 @@
     # Replace inline equation wrappers.
     gsub(/(\\\()|(\\\))/, "$$");
     # Replace display equation wrappers.
-    gsub(/\\\[/, "\n$$");
-    gsub(/\\\]/, "$$\n");
+    gsub(/\\\[\s*/, "\n\n$$\n");
+    gsub(/\\\]\s*/, "\n$$\n\n");
 
     # Process bibliography item.
     $0 = gensub(/^(<div id="ref-.+)>$/, "\\1 markdown=\"1\">", 1);
