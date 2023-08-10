@@ -14,7 +14,7 @@ html[data-theme="light"] {
   --bg-hover-color: rgb(246,240,222);
   --line-gray-color: #c0cdd9;
   --content-text: #000;
-  --link-color: #3a3bff;
+  --link-color: #2a7ae2;
   --error-text-color: #8b0000;
 }
 html[data-theme="dark"] {
@@ -41,6 +41,7 @@ html[data-theme="dark"] {
   color: var(--link-color);
 }
 .mt-timeline a:hover {
+  color: #111;
   text-decoration: underline;
 }
 .mt-timeline::-webkit-scrollbar {

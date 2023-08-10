@@ -45,7 +45,7 @@ window.addEventListener("load", () => {
     text_max_lines: "0",
 
     // Customize the text of the link pointing to the Mastodon page (appears after the last toot)
-    link_see_more: "See more posts at Mastodon",
+    link_see_more: "See more toots at Mastodon",
   });
 });
 
