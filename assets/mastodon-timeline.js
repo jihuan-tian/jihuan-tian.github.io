@@ -323,8 +323,8 @@ MastodonApi.prototype.getToots = function () {
     // Media attachments
     let media = "";
     if (status_.media_attachments.length > 0) {
-      for (let picid in status_.media_attachments) {
-        media = this.replaceMedias(
+      for (let picid = 0; picid < status_.media_attachments.length; picid++) {
+        media += this.replaceMedias(
           status_.media_attachments[picid],
           status_.sensitive
         );
@@ -385,8 +385,7 @@ MastodonApi.prototype.getToots = function () {
     // Check if clicked in a toot
     if (
       e.target.localName == "article" ||
-      e.target.offsetParent.localName == "article" ||
-      e.target.localName == "img"
+      e.target.offsetParent.localName == "article"
     ) {
       openTootURL(e);
     }
@@ -498,9 +497,9 @@ MastodonApi.prototype.replaceMedias = function (m, s) {
     (spoiler ? "toot-media-spoiler" : "") +
     ' img-ratio14_7 loading-spinner">' +
     (spoiler ? '<button class="spoiler-link">Show content</button>' : "") +
-    '<img onload="removeSpinner(this)" onerror="removeSpinner(this)" src="' +
+    '<a href="' + m.url + '" target="_blank"><img onload="removeSpinner(this)" onerror="removeSpinner(this)" src="' +
     m.preview_url +
-    '" alt="" loading="lazy" />' +
+    '" alt="" loading="lazy" /></a>' +
     "</div>";
 
   return pic;
