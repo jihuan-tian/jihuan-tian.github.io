@@ -81,6 +81,9 @@ let MastodonApi = function (params_) {
 
   // Get the toots
   this.getToots();
+
+  // Process LaTeX equations in toots.
+  MathJax.Hub.Queue(['Typeset', MathJax.Hub, "mt-body"]);
 };
 
 // Theme style
