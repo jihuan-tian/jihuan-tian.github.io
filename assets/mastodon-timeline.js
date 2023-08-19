@@ -3,7 +3,8 @@
 // https://gitlab.com/idotj/mastodon-embed-feed-timeline
 
 // Timeline settings
-window.addEventListener("load", () => {
+// window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   let mapi = new MastodonApi({
     // Id of the <div> containing the timeline
     container_body_id: "mt-body",
@@ -47,6 +48,9 @@ window.addEventListener("load", () => {
     // Customize the text of the link pointing to the Mastodon page (appears after the last toot)
     link_see_more: "See more toots at Mastodon",
   });
+
+  // Process LaTeX equations in toots.
+  MathJax.Hub.Queue(['Typeset', MathJax.Hub, "mt-body"]);
 });
 
 let MastodonApi = function (params_) {
@@ -81,9 +85,6 @@ let MastodonApi = function (params_) {
 
   // Get the toots
   this.getToots();
-
-  // Process LaTeX equations in toots.
-  MathJax.Hub.Queue(['Typeset', MathJax.Hub, "mt-body"]);
 };
 
 // Theme style

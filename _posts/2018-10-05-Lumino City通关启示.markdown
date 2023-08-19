@@ -3,7 +3,7 @@ layout: post
 title: Lumino City通关启示
 date: 2018-10-05
 categories: [thoughts]
-tags: [随想,论语,设计]
+tags: [随想,论语,设计,游戏]
 ---
 
 昨天晚上和小仙女一起终于玩完了[State of Play](https://www.stateofplaygames.com/)公司出品的[Lumino City](https://www.stateofplaygames.com/luminocity)。
@@ -29,3 +29,5 @@ tags: [随想,论语,设计]
 Luke通宵达旦地工作
 
 由这个鲜活的例子看来，任何精品乃至不朽作品的诞生，都是将热情、勤奋、技能与天赋聚焦于一点后，长期添砖加瓦般地积累、“如切如磋，如琢如磨”般地反复修正、重构、提炼、完善的产物，无一例外。而这不正是符合儒家精神所要求的“君子”境界么？通过[Lumino City](https://www.stateofplaygames.com/luminocity)这个游戏，我不仅获得了美的体验、纯真的感动、无尽的回味，更是收获了慎思笃行、止于至善的启发，因此打五星强烈推荐。
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=1&id=34751629&auto=1&height=430"></iframe>

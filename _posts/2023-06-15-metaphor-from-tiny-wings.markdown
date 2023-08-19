@@ -3,7 +3,7 @@ layout: post
 title: Metaphor from Tiny Wings
 date: 2023-06-15
 categories: [thoughts]
-tags: [算法开发,论语]
+tags: [算法开发,论语,游戏]
 mathjax: false
 ---
 
@@ -21,3 +21,5 @@ mathjax: false
 “不忘初心”的口号容易让人获得一种虚无的信心与空洞的自豪。但当它对应到具体的实践与真实的生命体验时，就会以上述清零、重置、重启的感觉呈现，这已近乎无助的努力与绝望的抗战。然而，只有身处于这种体验与状态时，我才会觉得一切都是合理的、正确的、正常的（Alles in Ordnung）。因为这才是开发者的真实状态，也是事物从无到有、不断提升的一般规律，更是有志于学者求仁得仁的命运。
 
 > 《论语·述而篇第七 7.15》冉有曰：「夫子为卫君乎？」子贡曰：「诺，吾将问之。」入曰：「伯夷、叔齐何人也？」曰：「古之贤人也。」曰：「怨乎？」曰：「求仁而得仁，又何怨？」出曰：「夫子不为也。」
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=1309877176&auto=1&height=32"></iframe>
