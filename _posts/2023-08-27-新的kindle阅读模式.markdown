@@ -1,0 +1,67 @@
+---
+layout: post
+title: 新的 Kindle 阅读模式
+date: 2023-08-27
+categories: [computer]
+tags: [Kindle,阅读]
+mathjax: false
+---
+
+通过 Kindle 上的集中式阅读取代手机上的碎片化阅读。相对于在电脑或手机上的浏览，使用 Kindle 更容易实现“慢阅读”，而非走马观花。同时，由于 Amazon Kindle 服务已退出中国，原先通过微信推送网文到 Kindle 设备的功能已不能使用，所以需要有新的流程收集和阅读网络文章。
+
+新的流程如下：
+
+1.  针对专业理论与技术、业余爱好领域，在 Thunderbird 中订阅 RSS 或者 News letter。
+2.  每周末浏览本周更新的文章列表，将有价值的文章在 Thunderbird 中标上星号，以便今后快速列出。
+3.  将这些文章在 Firefox 中打开，用 Joplin 收集为笔记。
+4.  将 Joplin 笔记批量导出为 markdown+front matter 文件，基于 GNU Make ，将其批量转换为 mobi 格式，然后通过 USB 拷贝至 Kindle 。
+    
+    由于 Joplin 会将导出的文件放入相应的以 Notebook 名称命名的子文件夹中，所以在选定的导出文件夹中创建顶层 Makefile ，将指定的子文件夹引入为 phony 目标。使用 `-C` 选项使 make 命令能够递归处理子文件夹中的内容。
+    
+    ```makefile
+    SUBDIRS = Reading Technology
+    
+    .PHONY: subdirs $(SUBDIRS)
+    
+    subdirs: $(SUBDIRS)
+    
+    $(SUBDIRS):
+            $(MAKE) -C $@
+    ```
+    
+    在子文件夹中的 Makefile 如下。其中，调用了脚本 `md2mobi.sh` 转换文件格式。
+    
+    ```makefile
+    mobi_files := $(patsubst %.md,%.mobi,$(wildcard *.md))
+    
+    all: $(mobi_files)
+    
+    %.mobi : %.md
+            md2mobi.sh ../en-gb-metadata.xml "$<"
+    ```
+    
+    `md2mobi.sh` 先使用 pandoc 将 Markdown 转为 epub 格式。然后使用 Calibre 提供的 `ebook-convert` 命令将 epub 格式转为 mobi 格式（注：目前 Kindle 已不支持 epub 格式）。
+    
+    ```bash
+    md2epub.sh "$1" "$2"
+    ebook-convert "${2%md}epub" "${2%md}mobi"
+    ```
+    
+    `md2epub.sh` 内容如下。
+    
+    ```bash
+    export https_proxy=http://192.168.0.100:1080; export http_proxy=http://192.168.0.100:1080; pandoc -f markdown -t epub --epub-metadata="$1" -o "${2%md}epub" "$2"
+    ```
+    
+    可看到，上面设定了 http 与 https 代理，用于下载无法正常访问的图片资源。脚本的第一个参数是一个 XML 文件，用于指定 epub 文件的语言。其内容如下：
+    
+    ```xml
+    <dc:language>en-GB</dc:language>
+    ```
+    
+    对于英语文章如果不作此设定，则最终生成的 mobi 文件在 Kindle 上阅读时，字体样式和大小无法自动重排并调整，往往会字体过小或者笔划太细，看起来很不舒服。
+    
+    脚本的第二个参数则为 markdown 文件名。
+
+5.  在下周逐个阅读文章。在此过程中记好笔记，及时查单词与短语。
+6.  下周末整理单词至欧路词典，整理短语与例句到 Anki 卡片。将 Kindle 中的 `documents/My Clippings.txt` 同步到电脑，归整到读书笔记中。
