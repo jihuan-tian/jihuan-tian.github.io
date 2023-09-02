@@ -18,14 +18,17 @@ The following graphics object properties should be clarified.
         
         -   For paged formats (such as PS, PDF, EPS, etc.), it specifies the position and size of the printed figure on the page.
         -   For non-paged formats (such as JPG, PNG, BMP, etc.), only `paperposition(3)` and `paperposition(4)` have effect.
-        
-        The default paper position is about `[2.513059313371983 4.203497844624088 3.473881373256034 2.593004310751825]`.
+
 -   Properties of the paper onto which the figure is to be printed, which is only applicable to paged formats
     
     -   `papersize` specifies the size with the unit specified by `paperunits` (the default unit is inch) of the paper onto which the figure will be printed. The default paper size is `8.5*11` inches, which is the US letter page.
     -   `paperorientation` specifies the orientation of the paper. The default orientation is portrait, which is consistent with the paper size `8.5*11` inches.
     
     Usually, there is no need to manually set the paper size, because it can be automatically deduced from the displayed figure size by the `print` function. This can be confirmed by checking the generated `*.tex` file below, if the `epslatexstandalone` engine is adopted:
+    
+    ```latex
+    \usepackage[papersize={250.00bp,186.00bp},text={250.00bp,186.00bp}]{geometry}
+    ```
     
     When the figure&rsquo;s display size changes, the above values `papersize` and `text` will change accordingly. These values have the unit bp, i.e. big point, which is 1/72 inch. `250 bp*186 bp` are computed from the figure&rsquo;s display size in unit of pixel, which are stored in `position(3)` and `position(4)`. The transformation shown below is based on the monitor&rsquo;s DPI detected by Octave.
     
