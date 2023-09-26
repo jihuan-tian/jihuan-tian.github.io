@@ -9,11 +9,9 @@ mathjax: false
 
 Upgrading to GoodNotes version 6 needs an additional payment, even though I&rsquo;ve already purchased version 5. Therefore, the once claimed permanent software license is only valid for a single version, not the whole software life time. Meanwhile, CamScanner Pro for scanning documents which I purchased years ago cannot run on recent iPad OS anymore.
 
-Considering building up a digital knowledge and information database which can last in a stable format at least for my whole life time, I find it mandatory to discard these seemingly well commercially supported and user friendly software tools and platform. Instead, I will switch to more fundamental and general hardware and software. For writing with a pen directly on a digital device, I&rsquo;ve abandoned iPad + Apple Pencil and started to use Wacom tablet. The following photo shows my Wacom Intuos 4100 tablet that was purchased on <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-09-17 Sun&gt;</span></span>.
+Considering building up a digital knowledge and information database which can last in a stable format at least for my whole life time, I find it mandatory to discard these seemingly well commercially supported and user friendly software tools and platforms. Instead, I will switch to more fundamental and general hardware and software. For writing with a pen directly on a digital device, I&rsquo;ve abandoned iPad + Apple Pencil and started to use Wacom tablet. The following photo shows my Wacom Intuos 4100 tablet that was purchased on <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-09-17 Sun&gt;</span></span>.
 
-![img](/figures/2023-09-18-wacom-intuos-4000.JPG)
-
-To make it supported by Debian Linux, the following packages should be installed:
+![img](/figures/2023-09-18-wacom-intuos-4000.JPG) To make it supported by Debian Linux, the following packages should be installed:
 
 -   `libwacom2`: driver for identifying Wacom tablets
 -   `xserver-xorg-input-wacom`: X.Org driver for Wacom tablets
@@ -40,78 +38,70 @@ We can use the `xsetwacom` command to check device information and customize tab
     xsetwacom get <device-id/device-full-name> all
     ```
     
-    -   Default stylus device parameters
-        
-        ```text
-        Option "Area" "0 0 15200 9500"
-        Button: Actions are not supported by xorg.conf. Try shell format (-s) instead.
-        Button: Actions are not supported by xorg.conf. Try shell format (-s) instead.
-        Button: Actions are not supported by xorg.conf. Try shell format (-s) instead.
-        Button: Actions are not supported by xorg.conf. Try shell format (-s) instead.
-        Button: Actions are not supported by xorg.conf. Try shell format (-s) instead.
-        Option "DebugLevel" "0"
-        Option "CommonDBG" "0"
-        Option "Suppress" "2"
-        Option "RawSample" "4"
-        Option "PressCurve" "0 0 100 100"
-        Option "Mode" "Absolute"
-        Option "TPCButton" "off"
-        Option "Touch" "off"
-        Property 'Wacom Hardware Touch Switch' does not exist on device.
-        Option "Gesture" "off"
-        Option "ZoomDistance" "0"
-        Option "ScrollDistance" "0"
-        Option "TapTime" "250"
-        Property 'Wacom Proximity Threshold' does not exist on device.
-        Option "Rotate" "none"
-        Property 'Wacom Wheel Buttons' does not exist on device.
-        Property 'Wacom Wheel Buttons' does not exist on device.
-        Property 'Wacom Wheel Buttons' does not exist on device.
-        Property 'Wacom Wheel Buttons' does not exist on device.
-        Property 'Wacom Wheel Buttons' does not exist on device.
-        Property 'Wacom Wheel Buttons' does not exist on device.
-        Property 'Wacom Strip Buttons' does not exist on device.
-        Property 'Wacom Strip Buttons' does not exist on device.
-        Property 'Wacom Strip Buttons' does not exist on device.
-        Property 'Wacom Strip Buttons' does not exist on device.
-        Option "Threshold" "26"
-        Option "Serial" "0"
-        Option "PressureRecalibration" "on"
-        ```
-        
-        It can be seen that in the above information, configuration for the buttons is not shown, which should be checked by adding the `-s` option as suggested. Then we have the following
-        
-        ```text
-        xsetwacom set "21" "Button" "1" "button +1 "
-        xsetwacom set "21" "Button" "2" "button +2 "
-        xsetwacom set "21" "Button" "3" "button +3 "
-        xsetwacom set "21" "Button" "8" "button +8 "
-        xsetwacom set "21" "Button" "9" "button +9 "
-        ```
-    -   Map the tablet to an area on the screen:
-        
-        ```bash
-        xsetwacom set <device-id/device-full-name> MapToOutput 3840x2160+0+0
-        ```
-    -   Adjust the effective input area on the tablet, which should have the same aspect ratio as the mapped screen area. The meaning of the `Area` parameter:
-        
-        > Area x1 y1 x2 y2 Set the tablet input area in device coordinates in the form top left x/y and bottom right x/y. Top left and bottom right are defined in the device&rsquo;s native orientation, regardless of the actual rotation currently applied. Input outside of these coordinates will be clipped to the edges of the area defined. Default: 0 0 x2 y2; with x2 and y2 tablet specific.
-        
-        As seen from above device parameters, the top left corner position and dimension of the original maximum input area is &ldquo;0 0 15200 9500&rdquo;. The resolution of the Wacom Intuos 4100 is 2540 dpi, hence the physical dimension of the input area is 152\*95 mm. The aspect ratio of my screen is 1.7778 and that of the Wacom tablet is 1.6, which is a little narrower. Therefore, use the width of the effective input area as the basis to derive the height of the input area using the aspect ratio of the screen.
-        
-        Compute the height of the input area:
-        
-        ```octave
-        ans = 15200/(3840/2160);
-        ```
-        
-            8550
-        
-        Use the command below to set the input area for the stylus.
-        
-        ```bash
-        xsetwacom set <device-full-name> Area 0 0 15200 8550
-        ```
+    Default stylus device parameters are
+    
+    ```text
+    Option "Area" "0 0 15200 9500"
+    Button: Actions are not supported by xorg.conf. Try shell format (-s) instead.
+    Button: Actions are not supported by xorg.conf. Try shell format (-s) instead.
+    Button: Actions are not supported by xorg.conf. Try shell format (-s) instead.
+    Button: Actions are not supported by xorg.conf. Try shell format (-s) instead.
+    Button: Actions are not supported by xorg.conf. Try shell format (-s) instead.
+    Option "DebugLevel" "0"
+    Option "CommonDBG" "0"
+    Option "Suppress" "2"
+    Option "RawSample" "4"
+    Option "PressCurve" "0 0 100 100"
+    Option "Mode" "Absolute"
+    Option "TPCButton" "off"
+    Option "Touch" "off"
+    Property 'Wacom Hardware Touch Switch' does not exist on device.
+    Option "Gesture" "off"
+    Option "ZoomDistance" "0"
+    Option "ScrollDistance" "0"
+    Option "TapTime" "250"
+    Property 'Wacom Proximity Threshold' does not exist on device.
+    Option "Rotate" "none"
+    Property 'Wacom Wheel Buttons' does not exist on device.
+    Property 'Wacom Wheel Buttons' does not exist on device.
+    Property 'Wacom Wheel Buttons' does not exist on device.
+    Property 'Wacom Wheel Buttons' does not exist on device.
+    Property 'Wacom Wheel Buttons' does not exist on device.
+    Property 'Wacom Wheel Buttons' does not exist on device.
+    Property 'Wacom Strip Buttons' does not exist on device.
+    Property 'Wacom Strip Buttons' does not exist on device.
+    Property 'Wacom Strip Buttons' does not exist on device.
+    Property 'Wacom Strip Buttons' does not exist on device.
+    Option "Threshold" "26"
+    Option "Serial" "0"
+    Option "PressureRecalibration" "on"
+    ```
+    
+    It can be seen that in the above information, configuration for the buttons is not shown, which should be checked by adding the `-s` option as suggested. Then we have the following
+    
+    ```text
+    xsetwacom set "21" "Button" "1" "button +1 "
+    xsetwacom set "21" "Button" "2" "button +2 "
+    xsetwacom set "21" "Button" "3" "button +3 "
+    xsetwacom set "21" "Button" "8" "button +8 "
+    xsetwacom set "21" "Button" "9" "button +9 "
+    ```
+-   Map the tablet to an area on the screen:
+    
+    ```bash
+    xsetwacom set <device-id/device-full-name> MapToOutput 3840x2160+0+0
+    ```
+-   Adjust the effective input area on the tablet, which should have the same aspect ratio as the mapped screen area. The meaning of the `Area` parameter:
+    
+    > Area x1 y1 x2 y2 Set the tablet input area in device coordinates in the form top left x/y and bottom right x/y. Top left and bottom right are defined in the device&rsquo;s native orientation, regardless of the actual rotation currently applied. Input outside of these coordinates will be clipped to the edges of the area defined. Default: 0 0 x2 y2; with x2 and y2 tablet specific.
+    
+    As seen from above device parameters, the top left corner position and dimension of the original maximum input area is &ldquo;0 0 15200 9500&rdquo;. The resolution of the Wacom Intuos 4100 is 2540 dpi, hence the physical dimension of the input area is 152\*95 mm. The aspect ratio of my screen is 1.7778 and that of the Wacom tablet is 1.6, which is a little narrower. Therefore, use the width of the effective input area as the basis to derive the height of the input area using the aspect ratio of the screen.
+    
+    Use the command below to set the input area for the stylus.
+    
+    ```bash
+    xsetwacom set <device-full-name> Area 0 0 15200 8550
+    ```
 
 I&rsquo;ve defined collections of `xsetwacom` commands for different applications that I often use.
 
