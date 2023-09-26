@@ -145,7 +145,11 @@ I&rsquo;ve defined collections of `xsetwacom` commands for different application
     xsetwacom set 'Wacom Intuos S Pen stylus' Button 8 "button +8"
     xsetwacom set 'Wacom Intuos S Pen stylus' Button 9 "button +9"
     ```
--   Configuration for Okular in presentation mode, with which I can mark my Beamer slides. In the definition of key combinations that are bound to Wacom tablet buttons, `+control` means pressing down the Ctrl key, while `-control` means release it. N.B. These key combinations should firstly be associated with related actions in Okular, then we can use Wacom tablet to trigger them.
+    
+    In Xournal++ preferences, the stylus buttons are configured to &ldquo;Eraser&rdquo; and &ldquo;Select region&rdquo;:
+    
+    ![img](/figures/2023-09-26_22-41-42-stylus-buttons-in-xournalpp.png)
+-   Configuration for Okular in presentation mode, with which I can mark my Beamer slides.
     
     ```bash
     # Red pen
@@ -165,6 +169,10 @@ I&rsquo;ve defined collections of `xsetwacom` commands for different application
     xsetwacom set 'Wacom Intuos S Pen stylus' Button 8 "button +8"
     xsetwacom set 'Wacom Intuos S Pen stylus' Button 9 "button +9"
     ```
+    
+    ![img](/figures/2023-09-26_22-45-23-drawing-in-okular-presentation-mode.png) In the definition of key combinations that are bound to Wacom tablet buttons, `+control` means pressing down the Ctrl key, while `-control` means release it. N.B. These key combinations should firstly be associated with related actions in Okular as shown below, then we can use Wacom tablet to trigger them.
+    
+    ![img](/figures/2023-09-26_22-43-02-okular-fast-keys-for-drawing.png)
 -   Configuration for Okular in reading and annotation mode, with which I can take notes directly in PDF files.
     
     ```bash
@@ -182,6 +190,27 @@ I&rsquo;ve defined collections of `xsetwacom` commands for different application
     # Set other default bindings in case they are modified elsewhere.
     xsetwacom set 'Wacom Intuos S Pen stylus' Button 1 "button +1"
     xsetwacom set 'Wacom Intuos S Pen stylus' Button 3 "button +3"
+    xsetwacom set 'Wacom Intuos S Pen stylus' Button 8 "button +8"
+    xsetwacom set 'Wacom Intuos S Pen stylus' Button 9 "button +9"
+    ```
+-   Configuration for Inkscape
+    
+    ```bash
+    # Freehand line
+    xsetwacom set 'Wacom Intuos S Pad pad' Button 1 "key p"
+    # Calligraphic line
+    xsetwacom set 'Wacom Intuos S Pad pad' Button 2 "key c"
+    # Rectangle and square
+    xsetwacom set 'Wacom Intuos S Pad pad' Button 3 "key r"
+    # Circle and ellipse
+    xsetwacom set 'Wacom Intuos S Pad pad' Button 8 "key e"
+    # Erase existing paths
+    xsetwacom set 'Wacom Intuos S Pen stylus' Button 2 "key +shift e -shift"
+    # Pick color from image
+    xsetwacom set 'Wacom Intuos S Pen stylus' Button 3 "key d"
+    
+    # Set other default bindings in case they are modified elsewhere.
+    xsetwacom set 'Wacom Intuos S Pen stylus' Button 1 "button +1"
     xsetwacom set 'Wacom Intuos S Pen stylus' Button 8 "button +8"
     xsetwacom set 'Wacom Intuos S Pen stylus' Button 9 "button +9"
     ```
