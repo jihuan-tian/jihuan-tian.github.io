@@ -42,6 +42,11 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
 
+feed:
+  posts_limit: 1000000
+  categories:
+    - thoughts
+
 # Enable page support for posts
 paginate: 10
 paginate_path: "page:num"
