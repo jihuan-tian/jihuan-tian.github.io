@@ -46,6 +46,10 @@ feed:
   posts_limit: 1000000
   categories:
     - thoughts
+    - math
+    - physics
+    - computer
+    - methodology
 
 # Enable page support for posts
 paginate: 10
