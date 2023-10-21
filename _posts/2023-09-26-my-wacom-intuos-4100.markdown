@@ -119,7 +119,7 @@ I&rsquo;ve defined collections of `xsetwacom` commands for different application
     
     ```bash
     # Set effective input area on the tablet.
-    xsetwacom set 'Wacom Intuos S Pen stylus' Area 0 0 10688 9500
+    xsetwacom set 'Wacom Intuos S Pen stylus' Area 4512 0 15200 9500
     # Map the tablet's effective input area to the physical screen.
     xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 1920x2160+0+0
     # Rotate the tablet couterclockwise by 90 degrees.
@@ -135,7 +135,17 @@ I&rsquo;ve defined collections of `xsetwacom` commands for different application
     # Rotate the tablet couterclockwise by 90 degrees.
     xsetwacom set 'Wacom Intuos S Pen stylus' Rotate none
     ```
--   Map the effective input area to the right half of the full main screen
+-   Map the effective input area to the right half of the full main screen with rotation
+    
+    ```bash
+    # Set effective input area on the tablet.
+    xsetwacom set 'Wacom Intuos S Pen stylus' Area 4512 0 15200 9500
+    # Map the tablet's effective input area to the physical screen.
+    xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 1920x2160+1920+0
+    # Rotate the tablet couterclockwise by 90 degrees.
+    xsetwacom set 'Wacom Intuos S Pen stylus' Rotate cw
+    ```
+-   Map the effective input area to the right half of the full main screen without rotation
     
     ```bash
     # Set effective input area on the tablet.
