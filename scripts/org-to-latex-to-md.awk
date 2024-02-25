@@ -1,6 +1,6 @@
 # This awk script is used for correcting LaTeX wrappers in the markdown
 # document, which is converted from a LaTeX document via pandoc. This LaTeX
-# document is exported from Org model.
+# document is exported from Org mode.
 
 {
     # Replace inline equation wrappers.
