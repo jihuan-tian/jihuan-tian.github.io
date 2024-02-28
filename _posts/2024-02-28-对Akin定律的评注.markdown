@@ -1,0 +1,50 @@
+---
+layout: post
+title: 对 Akin 定律的评注
+date: 2024-02-28
+categories: [thoughts]
+tags: [阅读,管理提升]
+mathjax: false
+---
+
+[Akin&rsquo;s Laws of Spacecraft Design](https://spacecraft.ssl.umd.edu/akins_laws.html)
+
+-   Engineering is done with numbers. Analysis without numbers is only an opinion. When in doubt, estimate. In an emergency, guess. But be sure to go back and clean up the mess when the real numbers come along.
+    
+    只有定量分析才有意义。即便暂时没有足够的信息可提供准确的数据，也有必要暂时给定参数值，用以完善分析逻辑。待以后有了真实的或者准确的数据后，再代入之前的分析逻辑中，得出相对正确的结论与判断。
+
+-   Your best design efforts will inevitably wind up being useless in the final design. Learn to live with the disappointment.
+    
+    事物都是处于一种流变的状态（state of flux）。没有绝对正确、亘古不变的设计方案。
+
+-   At the start of any design effort, the person who most wants to be team leader is least likely to be capable of it.
+    
+    一心想要成为团队带头人，就会不自觉地引入“操纵人”的政治。应该关注事情本身，而不是人。
+
+-   Not having all the information you need is never a satisfactory excuse for not starting the analysis.
+    
+    即便在信息不充足的条件下也要做出理性的分析，不要拖延。凡事从理性分析出发，是一种做事的方式。当然，受客观条件局限，这并不意味着理性总是正确的，但它的确是能让思路稳固下来的有效方法。
+
+-   (Shea&rsquo;s Law) The ability to improve a design occurs primarily at the interfaces. This is also the prime location for screwing it up.
+    
+    绝缘设计同样是关注界面。
+
+-   A bad design with a good presentation is doomed eventually. A good design with a bad presentation is doomed immediately.
+    
+    表达的重要性。一是内容的筛选和组织要以目标受众为中心而不是以个人喜好、（哪怕是）真理为中心。二是要注重表达的形式。
+
+-   (von Tiesenhausen&rsquo;s Law of Engineering Design) If you want to have a maximum effect on the design of a new engineering system, learn to draw. Engineers always wind up designing the vehicle to look like the initial artist&rsquo;s concept.
+    
+    学会画示意图、草图、流程图……除了能从思维中提炼出一维流形般的逻辑丝线，思维本身其实是一种高维空间中的实体。当向处于不同维度的模式投影时，会得到不同的图。这些图增进了我们对事物和自我的理解。
+
+-   (de Saint-Exupery&rsquo;s Law of Design) A designer knows that they have achieved perfection not when there is nothing left to add, but when there is nothing left to take away.
+    
+    少即是多，慢即是快。
+
+-   Any run-of-the-mill engineer can design something which is elegant. A good engineer designs systems to be efficient. A great engineer designs them to be effective.
+    
+    逻辑与理论本身可以很漂亮，但却很有可能低效、无用。
+
+-   You really understand something the third time you see it (or the first time you teach it.)
+    
+    学而时习，输出型学习。但也不应好为人师。
