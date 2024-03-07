@@ -23,7 +23,7 @@ Phenomenon
 from anki.scheduler.base import ScheduleCardsAsNew ImportError: cannot import name 'ScheduleCardsAsNew' from 'anki.scheduler.base' (/usr/local/share/anki/scheduler/base.pyc)
 ```
 
-Solution: Download Anki Connect version 23.10.29.0 and use its contents to replace those in the folder `~.local/share/Anki2/addons21/2055492159`.
+Solution: Download Anki Connect version 23.10.29.0 and use its contents to replace those in the folder `~/.local/share/Anki2/addons21/2055492159`.
 
 Reference: <https://www.youtube.com/watch?v=vxNJzoueK9M>
 
