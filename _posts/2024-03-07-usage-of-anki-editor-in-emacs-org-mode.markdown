@@ -1,0 +1,17 @@
+---
+layout: post
+title: Usage of anki-editor in Emacs Org mode
+date: 2024-03-07
+categories: [computer]
+tags: [Emacs,Anki,Org-mode,MathJax,LaTex]
+mathjax: false
+---
+
+-   When editing a new Anki note from Emacs Org mode, execute `M-x anki-editor-mode` then `M-x anki-editor-insert-note`.
+    
+    Because my Anki notes coexist with my formal notes and working journals, I need a way to quickly differentiate them. Adding a `anki` tag to the Anki note heading in Org mode is not perfect, since this tag will also be assigned to Anki cards. Therefore, I choose to always use &ldquo;anki:&rdquo; as the prefix of my Anki note heading, so that it can be easily filtered out by executing the command `helm-org-in-buffer-headings`.
+    
+    After writing the anki note, execute `M-x anki-editor-push-notes` to transfer the note to Anki.
+
+-   Enable MathJax mode instead of LaTeX mode in Anki card by setting `anki-editor-use-math-jax` to `t`, because the vertical alignment of equations rendered in LaTeX mode is not correct.
+-   Since MathJax is used, display equations as well as math environments should be wrapped between double dollars. Otherwise, a bare math environment cannot be recognized by MathJax.
