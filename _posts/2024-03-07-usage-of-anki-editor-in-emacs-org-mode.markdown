@@ -15,4 +15,4 @@ mathjax: false
 
 -   Enable MathJax mode instead of LaTeX mode in Anki card by setting `anki-editor-use-math-jax` to `t`, because the vertical alignment of equations rendered in LaTeX mode is not correct.
 -   Since MathJax is used, display equations as well as math environments should be wrapped between double dollars. Otherwise, a bare math environment cannot be recognized by MathJax.
--   Because Anki and Org mode now share a common system of tags, tag names should follow the stricter rules required by Org mode. For example, dash "-" is not allowed in a tag.
+-   Because Anki and Org mode now share a common system of tags, tag names should follow the stricter rules required by Org mode. For example, dash "-" and plus "+" are not allowed in a tag.
