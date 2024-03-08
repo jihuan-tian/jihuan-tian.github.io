@@ -21,9 +21,9 @@ mathjax: true
 -   LAPACK relies on BLAS as its building blocks for portability. BLAS is the low-level interface between LAPACK and different machine architectures. Hence, the efficiency of LAPACK depends on the implementation of BLAS.
 -   Different levels of operations in BLAS
     
-    -   Level 1: vector operations, such as \(y \leftarrow \alpha x + y\), which cannot achieve high efficiency on most modern supercomputers. However, they comprise only a insignificant fraction in a typical linear algebra computation task.
-    -   Level 2: matrix-vector operations, such as \(y \leftarrow \alpha Ax + \beta y\). On computers with one more levels of cache, such as PC, RISC workstation, the performance is limited by the rate of data movement between different levels of memory.
-    -   Level 3: matrix-matrix operations, such as \(C \leftarrow \alpha AB + \beta C\). The data movement issues in Level 2 is solved in this level and \(O(n^3)\) floating-point operations can be achieved o1n \(O(n^2)\) data.
+    -   Level 1: vector operations, such as $$y \leftarrow \alpha x + y$$, which cannot achieve high efficiency on most modern supercomputers. However, they comprise only a insignificant fraction in a typical linear algebra computation task.
+    -   Level 2: matrix-vector operations, such as $$y \leftarrow \alpha Ax + \beta y$$. On computers with one more levels of cache, such as PC, RISC workstation, the performance is limited by the rate of data movement between different levels of memory.
+    -   Level 3: matrix-matrix operations, such as $$C \leftarrow \alpha AB + \beta C$$. The data movement issues in Level 2 is solved in this level and $$O(n^3)$$ floating-point operations can be achieved o1n $$O(n^2)$$ data.
     
     *Therefore, LAPACK itself can run in parallel. Compared to the high level task based parallelism provided by TBB, this is a parallelism at the kernel function level.*
 -   More complicated linear algebra algorithms such as Cholesky and LU factorization are implemented as **block algorithms** by LAPACK to achieve the highest performance which is commensurate with the peak performance for matrix-matrix multiplication, i.e. BLAS level 3.
