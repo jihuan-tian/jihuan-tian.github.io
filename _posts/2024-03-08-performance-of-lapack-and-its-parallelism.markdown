@@ -4,7 +4,7 @@ title: Performance of LAPACK and its parallelism
 date: 2023-12-16
 categories: [computer]
 tags: [LAPACK,HPC]
-mathjax: false
+mathjax: true
 ---
 
 -   LAPACK was originally targeted to achieve good performance on **single-processor vector machines** and on **shared memory multiprocessor machines** with a modest number of powerful processors.
