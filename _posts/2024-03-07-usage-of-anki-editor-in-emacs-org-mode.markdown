@@ -3,7 +3,7 @@ layout: post
 title: Usage of anki-editor in Emacs Org mode
 date: 2024-03-07
 categories: [computer]
-tags: [Emacs,Anki,Org-mode,MathJax,LaTex]
+tags: [Emacs,Anki,Org-mode,MathJax,LaTeX]
 mathjax: false
 ---
 
