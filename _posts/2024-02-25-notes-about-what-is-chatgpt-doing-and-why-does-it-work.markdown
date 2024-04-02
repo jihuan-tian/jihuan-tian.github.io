@@ -7,7 +7,7 @@ tags: [ChatGPT,人工智能]
 mathjax: true
 ---
 
-The follow contents are my notes taken during reading the book &ldquo;What is ChatGPT Doing and Why does it work?&rdquo;, which is written by Stephen Wolfram. I hope they will help you get an impression or basic understanding about the capability and potential of ChatGPT as well as its limitations. Then with a critical mind, we can reconsider how to incorporate ChatGPT into our existing study, research, programming, knowledge management, or even creative activities.
+The following contents are my notes taken during reading the book &ldquo;What is ChatGPT Doing and Why does it work?&rdquo;, which is written by Stephen Wolfram. I hope they will help you get an impression or basic understanding about the capability and potential of ChatGPT as well as its limitations. Then with a critical mind, we can reconsider how to incorporate ChatGPT into our existing study, research, programming, knowledge management, or even creative activities.
 
 -   Features of ChatGPT
     -   Collected prodigious amounts of data from the web for training

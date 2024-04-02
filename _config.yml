@@ -28,10 +28,6 @@ url: "https://jihuan-tian.github.io" # the base hostname & protocol for your sit
 
 # Configuration for social media
 rss: "RSS"
-github_username: jihuan-tian
-mastodon:
-- username: tjh
-  instance: emacs.ch
 
 # Buildsettings
 timezone: Asia/Shanghai
