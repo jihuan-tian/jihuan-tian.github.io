@@ -3,7 +3,7 @@ layout: post
 title: 文献阅读方法改进
 date: 2018-10-09
 categories: [methodology]
-tags: [科研,论语]
+tags: [科研,文献,论语]
 ---
 
 在学术文章与专著的阅读方面，我发现自己稍不留神便常常走入如下两个极端：
