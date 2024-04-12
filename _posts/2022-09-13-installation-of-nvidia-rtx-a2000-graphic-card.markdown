@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Installation of NVIDIA RTX A2000 graphic card
+title: Installation of NVIDIA RTX A2000 graphic card and configuration for HiDPI
 date: 2022-09-13
 categories: [computer]
-tags: [hardware,NVIDIA]
+tags: [hardware,NVIDIA,HiDPI]
 mathjax: false
 ---
 
@@ -43,4 +43,27 @@ Next, I adjusted the font size for displaying on my high DPI monitor, since ever
         ```
 -   Firefox: in `about:config`, set `layout.css.devPixelsPerPx` to 2.
 
+-   Zotero: in `about:config`, set `layout.css.devPixelsPerPx` to 1.2.
+-   Paraview
+    
+    ```bash
+    export QT_AUTO_SCREEN_SCALE_FACTOR=1
+    paraview &
+    ```
+    
+    <span class="timestamp-wrapper"><span class="timestamp">[2023-09-01 Fri] </span></span> This variable should be set to 0 when using other programs, such as emacs and octave.
+-   Anki: [Anki reference](https://docs.ankiweb.net/platform/windows/text-size.html) and [Qt reference](https://doc.qt.io/qt-5/highdpi.html)
+    
+    ```bash
+    alias anki="ANKI_NOHIGHDPI=1 ANKI_WEBSCALE=1.5 anki"
+    ```
+-   Applications based on Java, such as PlantUML, yEd: set the environment variable `GDK_SCALE` to a value larger than 1. For example, in `~/.bashrc`:
+    
+    ```bash
+    alias plantuml="GDK_SCALE=2 java -jar /usr/share/plantuml/plantuml.jar -gui -tsvg"
+    ```
+-   Netease music: add the command line option `--force-device-scale-factor=1.5`.
+
 Finally, I enabled `vdpau` for playing video in VLC. This can be configured by setting VLC&rsquo;s video output device to `VDPAU output`.
+
+See [here](https://wiki.archlinux.org/title/HiDPI) for more information about HiDPI configuration on Linux.

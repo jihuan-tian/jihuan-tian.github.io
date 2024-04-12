@@ -3,7 +3,7 @@ layout: post
 title: Use sox to further remove noise in the microphone recording
 date: 2024-04-06
 categories: [computer]
-tags: [audio,multiple,PulseAudio]
+tags: [audio,multimedia,PulseAudio]
 mathjax: false
 ---
 
