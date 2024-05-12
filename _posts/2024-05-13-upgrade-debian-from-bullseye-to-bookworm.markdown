@@ -8,18 +8,18 @@ mathjax: false
 ---
 
 - [Basic information](#org1497414)
-      - [After `sudo apt upgrade`](#org8d660de)
-      - [During `sudo apt dist-upgrade`](#orge6a3dd4)
-      - [After `sudo apt dist-upgrade`](#orgc17398d)
-        - [Anki](#orgd24ea13)
-        - [Emacs](#org98d1ed9)
-        - [Python](#org7dd4b3a)
-        - [Jekyll](#orgc835d28)
-        - [Texlive based LaTeX](#org3ee59af)
-        - [GNU Octave](#org23d9778)
-        - [KDE Plasma desktop](#org7a5f4ff)
-        - [PulseAudio](#orgaaf499c)
-        - [Wacom](#org4f3d147)
+  - [After `sudo apt upgrade`](#org8d660de)
+  - [During `sudo apt dist-upgrade`](#orge6a3dd4)
+  - [After `sudo apt dist-upgrade`](#orgc17398d)
+    - [Anki](#orgd24ea13)
+    - [Emacs](#org98d1ed9)
+    - [Python](#org7dd4b3a)
+    - [Jekyll](#orgc835d28)
+    - [Texlive based LaTeX](#org3ee59af)
+    - [GNU Octave](#org23d9778)
+    - [KDE Plasma desktop](#org7a5f4ff)
+    - [PulseAudio](#orgaaf499c)
+    - [Wacom](#org4f3d147)
 
 Upgrading a Linux system is always a non-trivial task. In the following, I&rsquo;ll list the phenomena and problems I met during upgrading Debian from Bullseye to Bookworm.
 
@@ -218,7 +218,7 @@ systemctl --user restart pulseaudio.service
 
 <a id="org4f3d147"></a>
 
-## Wacom
+## Wacom tablet
 
 When switching to my predefined fast keys for some applications such as `xournal`, there is the &ldquo;invalid offset&rdquo; error.
 
