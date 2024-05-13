@@ -7,7 +7,7 @@ tags: [Awk,Markdown,Org-mode]
 mathjax: false
 ---
 
-According to my experience, a feasible work flow for exporting Org mode contents including math equations to markdown (either used for GitHub Pages or Gitlab) needs two steps.
+According to my experience, a feasible work flow for exporting Org mode contents including math equations to markdown (either used for GitHub Pages or Gitlab) needs three steps.
 
 1.  Export the Org mode contents to a LaTeX file.
 2.  Convert the LaTeX file to GFM markdown format using `pandoc`, which also handles the citation of bibliography.
@@ -21,10 +21,10 @@ According to my experience, a feasible work flow for exporting Org mode contents
     
     With `KaTeX` in Gitlab, for best compatibility of equation rendering, inline equations should be placed within ``$`...`$`` instead of `$...$`, while display equations should be wrapped in the source code block
     
-    ```text
-    ```math
-    ```
-    ```
+    <code>
+    &#96;&#96;&#96;math<br/>
+    &#96;&#96;&#96;
+    </code>
     
     instead of double-dollars.
     
@@ -32,7 +32,7 @@ According to my experience, a feasible work flow for exporting Org mode contents
     
     -   For GitHub Pages
         
-        ```awk
+        ```text
         {
             # Replace inline equation wrappers.
             gsub(/\\\(/, "$$");
@@ -76,7 +76,7 @@ According to my experience, a feasible work flow for exporting Org mode contents
         ```
     -   For Gitlab
         
-        ```awk
+        ```text
         {
             # Replace inline equation wrappers.
             gsub(/\\\(/, "$`");
