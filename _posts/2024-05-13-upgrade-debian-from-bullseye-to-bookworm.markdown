@@ -20,6 +20,7 @@ mathjax: false
   - [KDE Plasma desktop](#org7a5f4ff)
   - [PulseAudio](#orgaaf499c)
   - [Wacom](#org4f3d147)
+  - [Video player](#orgdb17c7c)
 
 Upgrading a Linux system is always a non-trivial task. In the following, I&rsquo;ll list the phenomena and problems I met during upgrading Debian from Bullseye to Bookworm.
 
@@ -233,3 +234,15 @@ xsetwacom -s get <device-id/device-full-name> all | grep Button
 ```
 
 Solution: all settings related to Button 9 on the Pen Stylus should be removed from my Wacom scripts.
+
+<a id="orgdb17c7c"></a>
+
+## Video player
+
+VLC and mplayer cannot play mkv or mp4. VLC reported the following error.
+
+```text
+VLC could not decode the format "h264" (H264 - MPEG-4 AVC (part10))
+```
+
+Solution: install the Debian package `mediastreamer2-plugin-openh264`.
