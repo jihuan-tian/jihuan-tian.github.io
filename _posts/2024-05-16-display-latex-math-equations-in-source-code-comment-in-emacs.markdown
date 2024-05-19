@@ -33,4 +33,4 @@ Define a string filter function to remove the leading comment symbols. Then LaTe
   (setq texfrag-equation-filter #'identity))
 ```
 
-![img](figures/2024-05-16_13-24-21-texfrag-for-programming@emacs.png)
+![img](/figures/2024-05-16_13-24-21-texfrag-for-programming@emacs.png)
