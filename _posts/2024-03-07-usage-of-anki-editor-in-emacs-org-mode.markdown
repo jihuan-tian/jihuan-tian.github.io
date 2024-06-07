@@ -14,5 +14,7 @@ mathjax: false
     After writing the anki note, execute `M-x anki-editor-push-notes` to transfer the note to Anki.
 
 -   Enable MathJax mode instead of LaTeX mode in Anki card by setting `anki-editor-use-math-jax` to `t`, because the vertical alignment of equations rendered in LaTeX mode is not correct.
--   Since MathJax is used, display equations as well as math environments should be wrapped between double dollars. Otherwise, a bare math environment cannot be recognized by MathJax.
--   Because Anki and Org mode now share a common system of tags, tag names should follow the stricter rules required by Org mode. For example, dash "-" and plus "+" are not allowed in a tag.
+-   **Since MathJax is used, display equations as well as math environments should be wrapped between double dollars.** Otherwise, a bare math environment cannot be recognized by MathJax. When a display equation contains an inner math environment, such as `aligned`, **the two pairs of double dollars should be in a same line with `\begin{aligned}` and `\end{aligned}`**. Otherwise, there will be many empty lines inserted between them in the exported content, which disable MathJax rendering of this equation.
+-   Because Anki and Org mode now share a common system of tags, tag names should follow the stricter rules required by Org mode. For example, dash &ldquo;-&rdquo; and plus &ldquo;+&rdquo; are not allowed in a tag.
+-   Do not specify deck in higher level heading in Org mode. Specify the deck for each note.
+-   Sometimes, `anki-editor-push-notes` need to run several times to take effect.
