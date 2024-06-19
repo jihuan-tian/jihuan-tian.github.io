@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fundamentals theorems in PDE theory
+title: Fundamental theorems in PDE theory
 date: 2024-06-19
 categories: [math]
 tags: [PDE]
