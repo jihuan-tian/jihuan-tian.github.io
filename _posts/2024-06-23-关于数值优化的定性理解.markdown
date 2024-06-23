@@ -4,7 +4,7 @@ title: 关于数值优化的定性理解
 date: 2024-06-23
 categories: [math]
 tags: [optimization]
-mathjax: false
+mathjax: true
 ---
 
 做数值优化的过程中会遇到目标函数的连续性比较差的情况。当然，这并不是说目标函数本身不连续，而是说用来定义函数连续性、且与自变量无关的常数 C 非常小：
