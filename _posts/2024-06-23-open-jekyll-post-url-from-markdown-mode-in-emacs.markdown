@@ -7,7 +7,7 @@ tags: [Emacs,Jekyll]
 mathjax: false
 ---
 
-Even though a Jekyll blog article is written in the Markdown format on the whole, post URLs are in the Liquid grammar, which cannot be directly opened from `markdown-mode` in Emacs. Such as post URL looks like this:
+Even though a Jekyll blog article is written in the Markdown format on the whole, post URLs are in the Liquid grammar, which cannot be directly opened from `markdown-mode` in Emacs. Such a post URL looks like this:
 
 ```text
 {% raw %}[Link text]({% post_url jekyll-markdown-file-name %}{% endraw %})
