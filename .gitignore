@@ -7,3 +7,4 @@ drafts-completed
 vendor
 *~
 *.bak
+.directory
