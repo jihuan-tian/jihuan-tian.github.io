@@ -29,13 +29,13 @@ mathjax: true
 
 **Theorem 3** Let the approximated bilinear form $$\tilde{a}(\cdot; \cdot)$$ be defined using the symmetric approximation $$(4.17)$$ of the local Steklov–Poincaré operators $$S_i$$. Then, the assumptions of Theorem 2 are satisfied, and we have the quasi-optimal error estimate:
 
-$$ \Vert\tilde{u} - \hat{u}_h\Vert_{H^{1/2}(\Sigma)} \leq c \left\{ \inf_{v_h \in W_h} \Vert\tilde{u} - v_h\Vert_{H^{1/2}(\Sigma)} + \sum_{i=1}^p \inf_{\psi_{h,i} \in Z_{h,i}} \VertS_i \tilde{u}_i - \psi_{h,i}\Vert_{H^{-1/2}(\Gamma_i)} \right\}. $$
+$$ \Vert\tilde{u} - \hat{u}_h\Vert_{H^{1/2}(\Sigma)} \leq c \left\{ \inf_{v_h \in W_h} \Vert\tilde{u} - v_h\Vert_{H^{1/2}(\Sigma)} + \sum_{i=1}^p \inf_{\psi_{h,i} \in Z_{h,i}} \Vert S_i \tilde{u}_i - \psi_{h,i}\Vert_{H^{-1/2}(\Gamma_i)} \right\}. $$
 
 **Proof:**
 
 1.  **Stability Estimate:** The stability estimate is crucial for ensuring that the approximation $$\tilde{S}_i$$ remains controlled. From equation (4.15), the stability estimate is given by:
     
-    $$ \Vertw_{h,i}\Vert_{H^{-1/2}(\Gamma_i)} \leq c \Vertu_i\Vert_{H^{1/2}(\Gamma_i)}. $$
+    $$ \Vert w_{h,i}\Vert_{H^{-1/2}(\Gamma_i)} \leq c \Vert u_i\Vert_{H^{1/2}(\Gamma_i)}. $$
     
     This inequality tells us that the discrete function $$w_{h,i}$$, which approximates the solution in the domain $$\Omega_i$$, is bounded in terms of the $$H^{1/2}$$ norm of $$u_i$$ on the interface $$\Gamma_i$$.
 
@@ -47,31 +47,31 @@ $$ \Vert\tilde{u} - \hat{u}_h\Vert_{H^{1/2}(\Sigma)} \leq c \left\{ \inf_{v_h \i
     
     The bound follows:
     
-    $$ \Vert\tilde{S}_i u_i\Vert_{H^{-1/2}(\Gamma_i)} \leq \VertD_i u_i\Vert_{H^{-1/2}(\Gamma_i)} + \left\Vert\left(\frac{1}{2}I + K'_i\right) w_{h,i}\right\Vert_{H^{-1/2}(\Gamma_i)}. $$
+    $$ \Vert\tilde{S}_i u_i\Vert_{H^{-1/2}(\Gamma_i)} \leq \Vert D_i u_i\Vert_{H^{-1/2}(\Gamma_i)} + \left\Vert\left(\frac{1}{2}I + K'_i\right) w_{h,i}\right\Vert_{H^{-1/2}(\Gamma_i)}. $$
     
     Using the stability estimate, we further get:
     
-    $$ \Vert\tilde{S}_i u_i\Vert_{H^{-1/2}(\Gamma_i)} \leq c \Vertu_i\Vert_{H^{1/2}(\Gamma_i)}. $$
+    $$ \Vert\tilde{S}_i u_i\Vert_{H^{-1/2}(\Gamma_i)} \leq c \Vert u_i\Vert_{H^{1/2}(\Gamma_i)}. $$
 
 3.  **Boundedness of $$\tilde{a}(u; v)$$:** For $$u, v \in W$$, the bilinear form $$\tilde{a}(\cdot; \cdot)$$ involves terms like $$\langle \tilde{S}_i u, v \rangle_{L^2(\Gamma_i)}$$. Using the Cauchy–Schwarz inequality, we can show:
     
-    $$ \vert\tilde{a}(u; v)\vert \leq \sum_{i=1}^p \vert \langle \tilde{S}_i u, v \rangle_{L^2(\Gamma_i)} \vert \leq \sum_{i=1}^p \Vert\tilde{S}_i u\Vert_{H^{-1/2}(\Gamma_i)} \Vertv\Vert_{H^{1/2}(\Gamma_i)}. $$
+    $$ \vert\tilde{a}(u; v)\vert \leq \sum_{i=1}^p \vert \langle \tilde{S}_i u, v \rangle_{L^2(\Gamma_i)} \vert \leq \sum_{i=1}^p \Vert\tilde{S}_i u\Vert_{H^{-1/2}(\Gamma_i)} \Vert v\Vert_{H^{1/2}(\Gamma_i)}. $$
     
     Given the previous bound on $$\Vert\tilde{S}_i u_i\Vert$$:
     
-    $$ \vert\tilde{a}(u; v)\vert \leq c \sum_{i=1}^p \Vertu\Vert_{H^{1/2}(\Gamma_i)} \Vertv\Vert_{H^{1/2}(\Gamma_i)}. $$
+    $$ \vert\tilde{a}(u; v)\vert \leq c \sum_{i=1}^p \Vert u\Vert_{H^{1/2}(\Gamma_i)} \Vert v\Vert_{H^{1/2}(\Gamma_i)}. $$
     
     This establishes the boundedness of $$\tilde{a}(\cdot; \cdot)$$.
 
 4.  **W-ellipticity of $$\tilde{a}(u; v)$$:** W-ellipticity is a stronger form of boundedness that essentially states the bilinear form $$\tilde{a}(\cdot; \cdot)$$ is coercive. This can be shown using the properties of the assembled local hypersingular integral operators $$D_i$$, which ensure that:
     
-    $$ \tilde{a}(u; u) \geq c \Vertu\Vert_{H^{1/2}(\Sigma)}^2. $$
+    $$ \tilde{a}(u; u) \geq c \Vert u\Vert_{H^{1/2}(\Sigma)}^2. $$
     
     This means that the bilinear form is coercive, which is a requirement for applying the Lax-Milgram theorem.
 
 5.  **Application of Theorem 2:** Theorem 2 provides the quasi-optimal error estimate under the conditions of boundedness and ellipticity of the bilinear form. With these conditions met, we apply Theorem 2 to obtain:
     
-    $$ \Vert\tilde{u} - \hat{u}_h\Vert_{H^{1/2}(\Sigma)} \leq c \left\{ \inf_{v_h \in W_h} \Vert\tilde{u} - v_h\Vert_{H^{1/2}(\Sigma)} + \sum_{i=1}^p \inf_{\psi_{h,i} \in Z_{h,i}} \VertS_i \tilde{u}_i - \psi_{h,i}\Vert_{H^{-1/2}(\Gamma_i)} \right\}. $$
+    $$ \Vert\tilde{u} - \hat{u}_h\Vert_{H^{1/2}(\Sigma)} \leq c \left\{ \inf_{v_h \in W_h} \Vert\tilde{u} - v_h\Vert_{H^{1/2}(\Sigma)} + \sum_{i=1}^p \inf_{\psi_{h,i} \in Z_{h,i}} \Vert S_i \tilde{u}_i - \psi_{h,i}\Vert_{H^{-1/2}(\Gamma_i)} \right\}. $$
     
     This error estimate shows that the approximation error is controlled by the best approximation in the discrete space $$W_h$$ and the sum of the local approximation errors in the spaces $$Z_{h,i}$$.
 
@@ -85,13 +85,13 @@ Certainly! Let&rsquo;s break down the proof of Theorem 3 in more detail, address
 
 **Theorem 3** Let the approximated bilinear form $$\tilde{a}(\cdot; \cdot)$$ be defined using the symmetric approximation $$(4.17)$$ of the local Steklov–Poincaré operators $$S_i$$. Then, the assumptions of Theorem 2 are satisfied, and we have the quasi-optimal error estimate:
 
-$$ \Vert\tilde{u} - \hat{u}_h\Vert_{H^{1/2}(\Sigma)} \leq c \left\{ \inf_{v_h \in W_h} \Vert\tilde{u} - v_h\Vert_{H^{1/2}(\Sigma)} + \sum_{i=1}^p \inf_{\psi_{h,i} \in Z_{h,i}} \VertS_i \tilde{u}_i - \psi_{h,i}\Vert_{H^{-1/2}(\Gamma_i)} \right\}. $$
+$$ \Vert\tilde{u} - \hat{u}_h\Vert_{H^{1/2}(\Sigma)} \leq c \left\{ \inf_{v_h \in W_h} \Vert\tilde{u} - v_h\Vert_{H^{1/2}(\Sigma)} + \sum_{i=1}^p \inf_{\psi_{h,i} \in Z_{h,i}} \Vert S_i \tilde{u}_i - \psi_{h,i}\Vert_{H^{-1/2}(\Gamma_i)} \right\}. $$
 
 **Proof:**
 
 1.  **Stability Estimate:** The stability estimate is crucial for ensuring that the approximation $$\tilde{S}_i$$ remains controlled. From equation (4.15), the stability estimate is given by:
     
-    $$ \Vertw_{h,i}\Vert_{H^{-1/2}(\Gamma_i)} \leq c \Vertu_i\Vert_{H^{1/2}(\Gamma_i)}. $$
+    $$ \Vert w_{h,i}\Vert_{H^{-1/2}(\Gamma_i)} \leq c \Vert u_i\Vert_{H^{1/2}(\Gamma_i)}. $$
     
     This inequality tells us that the discrete function $$w_{h,i}$$, which approximates the solution in the domain $$\Omega_i$$, is bounded in terms of the $$H^{1/2}$$ norm of $$u_i$$ on the interface $$\Gamma_i$$.
 
@@ -103,31 +103,31 @@ $$ \Vert\tilde{u} - \hat{u}_h\Vert_{H^{1/2}(\Sigma)} \leq c \left\{ \inf_{v_h \i
     
     The bound follows:
     
-    $$ \Vert\tilde{S}_i u_i\Vert_{H^{-1/2}(\Gamma_i)} \leq \VertD_i u_i\Vert_{H^{-1/2}(\Gamma_i)} + \left\Vert\left(\frac{1}{2}I + K'_i\right) w_{h,i}\right\Vert_{H^{-1/2}(\Gamma_i)}. $$
+    $$ \Vert\tilde{S}_i u_i\Vert_{H^{-1/2}(\Gamma_i)} \leq \Vert D_i u_i\Vert_{H^{-1/2}(\Gamma_i)} + \left\Vert\left(\frac{1}{2}I + K'_i\right) w_{h,i}\right\Vert_{H^{-1/2}(\Gamma_i)}. $$
     
     Using the stability estimate, we further get:
     
-    $$ \Vert\tilde{S}_i u_i\Vert_{H^{-1/2}(\Gamma_i)} \leq c \Vertu_i\Vert_{H^{1/2}(\Gamma_i)}. $$
+    $$ \Vert\tilde{S}_i u_i\Vert_{H^{-1/2}(\Gamma_i)} \leq c \Vert u_i\Vert_{H^{1/2}(\Gamma_i)}. $$
 
 3.  **Boundedness of $$\tilde{a}(u; v)$$:** For $$u, v \in W$$, the bilinear form $$\tilde{a}(\cdot; \cdot)$$ involves terms like $$\langle \tilde{S}_i u, v \rangle_{L^2(\Gamma_i)}$$. Using the Cauchy–Schwarz inequality, we can show:
     
-    $$ \vert\tilde{a}(u; v)\vert \leq \sum_{i=1}^p \vert \langle \tilde{S}_i u, v \rangle_{L^2(\Gamma_i)} \vert \leq \sum_{i=1}^p \Vert\tilde{S}_i u\Vert_{H^{-1/2}(\Gamma_i)} \Vertv\Vert_{H^{1/2}(\Gamma_i)}. $$
+    $$ \vert\tilde{a}(u; v)\vert \leq \sum_{i=1}^p \vert \langle \tilde{S}_i u, v \rangle_{L^2(\Gamma_i)} \vert \leq \sum_{i=1}^p \Vert\tilde{S}_i u\Vert_{H^{-1/2}(\Gamma_i)} \Vert v\Vert_{H^{1/2}(\Gamma_i)}. $$
     
     Given the previous bound on $$\Vert\tilde{S}_i u_i\Vert$$:
     
-    $$ \vert\tilde{a}(u; v)\vert \leq c \sum_{i=1}^p \Vertu\Vert_{H^{1/2}(\Gamma_i)} \Vertv\Vert_{H^{1/2}(\Gamma_i)}. $$
+    $$ \vert\tilde{a}(u; v)\vert \leq c \sum_{i=1}^p \Vert u\Vert_{H^{1/2}(\Gamma_i)} \Vert v\Vert_{H^{1/2}(\Gamma_i)}. $$
     
     This establishes the boundedness of $$\tilde{a}(\cdot; \cdot)$$.
 
 4.  **W-ellipticity of $$\tilde{a}(u; v)$$:** W-ellipticity is a stronger form of boundedness that essentially states the bilinear form $$\tilde{a}(\cdot; \cdot)$$ is coercive. This can be shown using the properties of the assembled local hypersingular integral operators $$D_i$$, which ensure that:
     
-    $$ \tilde{a}(u; u) \geq c \Vertu\Vert_{H^{1/2}(\Sigma)}^2. $$
+    $$ \tilde{a}(u; u) \geq c \Vert u\Vert_{H^{1/2}(\Sigma)}^2. $$
     
     This means that the bilinear form is coercive, which is a requirement for applying the Lax-Milgram theorem.
 
 5.  **Application of Theorem 2:** Theorem 2 provides the quasi-optimal error estimate under the conditions of boundedness and ellipticity of the bilinear form. With these conditions met, we apply Theorem 2 to obtain:
     
-    $$ \Vert\tilde{u} - \hat{u}_h\Vert_{H^{1/2}(\Sigma)} \leq c \left\{ \inf_{v_h \in W_h} \Vert\tilde{u} - v_h\Vert_{H^{1/2}(\Sigma)} + \sum_{i=1}^p \inf_{\psi_{h,i} \in Z_{h,i}} \VertS_i \tilde{u}_i - \psi_{h,i}\Vert_{H^{-1/2}(\Gamma_i)} \right\}. $$
+    $$ \Vert\tilde{u} - \hat{u}_h\Vert_{H^{1/2}(\Sigma)} \leq c \left\{ \inf_{v_h \in W_h} \Vert\tilde{u} - v_h\Vert_{H^{1/2}(\Sigma)} + \sum_{i=1}^p \inf_{\psi_{h,i} \in Z_{h,i}} \Vert S_i \tilde{u}_i - \psi_{h,i}\Vert_{H^{-1/2}(\Gamma_i)} \right\}. $$
     
     This error estimate shows that the approximation error is controlled by the best approximation in the discrete space $$W_h$$ and the sum of the local approximation errors in the spaces $$Z_{h,i}$$.
 
