@@ -77,9 +77,9 @@ $$ \Vert\tilde{u} - \hat{u}_h\Vert_{H^{1/2}(\Sigma)} \leq c \left\{ \inf_{v_h \i
 
 In summary, each step builds on the previous ones, establishing stability, boundedness, and ellipticity, which are then used to apply Theorem 2 to derive the final error estimate.
 
-*A: Some steps are still vague. Could you be more elaborate on the details?*
+*Q: Some steps are still vague. Could you be more elaborate on the details?*
 
-*Certainly! Let&rsquo;s break down the proof of Theorem 3 in more detail, addressing each critical step:*
+*A: Certainly! Let&rsquo;s break down the proof of Theorem 3 in more detail, addressing each critical step:*
 
 **Theorem 3** Let the approximated bilinear form $$\tilde{a}(\cdot; \cdot)$$ be defined using the symmetric approximation $$(4.17)$$ of the local Steklov–Poincaré operators $$S_i$$. Then, the assumptions of Theorem 2 are satisfied, and we have the quasi-optimal error estimate:
 
