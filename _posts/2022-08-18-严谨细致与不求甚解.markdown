@@ -2,7 +2,7 @@
 layout: post
 title: 严谨细致与不求甚解
 date: 2022-08-18
-categories: [methodology]
+categories: [thoughts]
 tags: [数学学习]
 mathjax: false
 ---

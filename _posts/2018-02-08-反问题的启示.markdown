@@ -2,7 +2,7 @@
 layout: post
 title: 反问题的启示
 date: 2018-02-08
-categories: [methodology]
+categories: [thoughts]
 tags: [反问题,思想]
 ---
 

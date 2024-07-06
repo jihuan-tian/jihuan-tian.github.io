@@ -2,7 +2,7 @@
 layout: post
 title: Ship of Theseus and scientific software development
 date: 2022-05-02
-categories: [methodology]
+categories: [thoughts]
 tags: [算法开发,Octave,C++]
 mathjax: false
 ---

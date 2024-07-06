@@ -2,7 +2,7 @@
 layout: post
 title: Avoid low-level mistakes in numerical software development
 date: 2023-01-20
-categories: [methodology]
+categories: [thoughts]
 tags: [算法开发]
 mathjax: false
 ---

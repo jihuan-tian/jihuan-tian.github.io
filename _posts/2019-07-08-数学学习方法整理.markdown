@@ -2,7 +2,7 @@
 layout: post
 title: 数学学习方法整理
 date: 2019-07-08
-categories: [methodology]
+categories: [thoughts]
 tags: [数学学习,笔记,输出型学习]
 ---
 

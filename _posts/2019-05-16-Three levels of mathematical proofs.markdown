@@ -2,7 +2,7 @@
 layout: post
 title: Three levels of mathematical proofs
 date: 2019-05-16
-categories: [methodology]
+categories: [thoughts]
 tags: [数学学习]
 ---
 

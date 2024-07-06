@@ -2,7 +2,7 @@
 layout: post
 title: Make Eudict textbook for reviewing example sentences
 date: 2021-04-04
-categories: [methodology]
+categories: [thoughts]
 tags: [英语学习]
 ---
 

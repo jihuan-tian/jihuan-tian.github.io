@@ -2,7 +2,7 @@
 layout: post
 title: 如何写数学证明
 date: 2018-04-30
-categories: [methodology]
+categories: [thoughts]
 tags: [数学学习]
 ---
 

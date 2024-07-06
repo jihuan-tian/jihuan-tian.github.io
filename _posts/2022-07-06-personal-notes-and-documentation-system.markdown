@@ -2,7 +2,7 @@
 layout: post
 title: Personal notes and documentation system
 date: 2022-07-06
-categories: [methodology]
+categories: [thoughts]
 tags: [note-taking,Anki,LaTeX]
 mathjax: false
 ---

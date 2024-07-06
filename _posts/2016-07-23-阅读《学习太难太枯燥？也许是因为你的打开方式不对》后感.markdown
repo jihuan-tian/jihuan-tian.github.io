@@ -2,7 +2,7 @@
 layout: post
 title: 阅读《学习太难太枯燥？也许是因为你的打开方式不对》后感
 date: 2016-07-23
-categories: [methodology]
+categories: [thoughts]
 tags: [数学学习,学习方法]
 ---
 

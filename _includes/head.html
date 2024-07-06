@@ -8,9 +8,6 @@
   <link rel="shortcut icon" type="image/x-icon" href="{{ "/assets/favicon.ico?" | prepend: site.baseurl }}">
   <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet">
   {%- feed_meta -%}
-  {%- if jekyll.environment == 'production' and site.google_analytics -%}
-    {%- include google-analytics.html -%}
-  {%- endif -%}
 
   {% if page.mathjax %}
     {% include mathjax-config.html %}

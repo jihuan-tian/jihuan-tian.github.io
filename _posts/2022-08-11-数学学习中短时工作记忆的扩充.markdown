@@ -2,7 +2,7 @@
 layout: post
 title: 数学学习中短时工作记忆的扩充
 date: 2022-08-11
-categories: [methodology]
+categories: [thoughts]
 tags: [数学学习]
 mathjax: false
 ---

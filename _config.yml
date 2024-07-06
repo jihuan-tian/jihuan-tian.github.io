@@ -22,10 +22,10 @@ title: 止于至善
 author: Jihuan Tian
 email: jihuan_tian@hotmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  As regards numerical analysis, mathematical electromagnetism, dielectric physics, Linux techniques and personal thoughts.
+  As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jihuan-tian.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-
+# url: "http://afflatus.theworkpc.com:29000" # the base hostname & protocol for your site, e.g. http://example.com
 # Configuration for social media
 rss: "RSS"
 
@@ -43,9 +43,7 @@ feed:
   categories:
     - thoughts
     - math
-    - physics
     - computer
-    - methodology
 
 # Enable page support for posts
 paginate: 10
@@ -87,3 +85,4 @@ exclude:
   - scripts/
   - drafts/
   - drafts-completed/
+  - _posts/texfrag

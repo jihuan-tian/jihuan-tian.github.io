@@ -2,7 +2,7 @@
 layout: post
 title: Don't underestimate the error caused by float and double
 date: 2023-01-10
-categories: [methodology]
+categories: [thoughts]
 tags: [算法开发,Octave,C++]
 mathjax: true
 ---

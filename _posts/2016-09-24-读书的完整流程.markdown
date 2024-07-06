@@ -2,7 +2,7 @@
 layout: post
 title: 读书的完整流程
 date: 2016-09-24
-categories: [methodology]
+categories: [thoughts]
 tags: [阅读,管理提升]
 ---
 

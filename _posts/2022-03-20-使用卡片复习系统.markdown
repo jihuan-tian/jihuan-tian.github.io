@@ -2,7 +2,7 @@
 layout: post
 title: 使用卡片复习系统
 date: 2022-03-20
-categories: [methodology]
+categories: [thoughts]
 tags: [Anki,管理提升]
 mathjax: false
 ---

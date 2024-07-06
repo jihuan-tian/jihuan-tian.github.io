@@ -2,7 +2,7 @@
 layout: post
 title: Workflow for paper review
 date: 2022-08-21
-categories: [methodology]
+categories: [thoughts]
 tags: [科研,文献,Zotero,Org-mode]
 mathjax: false
 ---

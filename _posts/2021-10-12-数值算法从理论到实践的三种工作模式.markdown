@@ -2,7 +2,7 @@
 layout: post
 title: 数值算法从理论到实践的三种工作模式
 date: 2021-10-12
-categories: [methodology]
+categories: [thoughts]
 tags: [算法开发]
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: 数学笔记的改进
 date: 2018-09-15
-categories: [methodology]
+categories: [thoughts]
 tags: [数学学习,论语]
 ---
 

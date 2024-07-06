@@ -2,7 +2,7 @@
 layout: post
 title: Theory provides concepts and insights
 date: 2016-12-03
-categories: [methodology]
+categories: [thoughts]
 tags: [research]
 ---
 

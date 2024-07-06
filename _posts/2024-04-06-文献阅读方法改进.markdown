@@ -2,7 +2,7 @@
 layout: post
 title: 文献阅读方法改进
 date: 2024-04-06
-categories: [methodology]
+categories: [thoughts]
 tags: [科研,文献]
 mathjax: false
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: 如何学习一门新的编程语言
 date: 2018-06-07
-categories: [methodology]
+categories: [thoughts]
 tags: [programming]
 ---
 

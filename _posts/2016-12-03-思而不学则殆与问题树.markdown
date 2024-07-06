@@ -2,7 +2,7 @@
 layout: post
 title: 思而不学则殆与问题树
 date: 2016-12-03
-categories: [methodology]
+categories: [thoughts]
 tags: [论语,科研]
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: 如何面对科研中的困惑
 date: 2021-10-10
-categories: [methodology]
+categories: [thoughts]
 tags: [科研,文献]
 ---
 

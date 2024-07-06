@@ -2,7 +2,7 @@
 layout: post
 title: 构思与编码
 date: 2023-04-06
-categories: [methodology]
+categories: [thoughts]
 tags: [算法开发]
 mathjax: false
 ---

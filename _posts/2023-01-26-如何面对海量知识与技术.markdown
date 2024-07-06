@@ -2,7 +2,7 @@
 layout: post
 title: 如何面对海量知识与技术
 date: 2023-01-26
-categories: [methodology]
+categories: [thoughts]
 tags: [算法开发]
 mathjax: false
 ---

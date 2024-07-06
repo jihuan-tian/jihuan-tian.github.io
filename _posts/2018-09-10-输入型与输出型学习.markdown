@@ -2,7 +2,7 @@
 layout: post
 title: 输入型与输出型学习
 date: 2018-09-10
-categories: [methodology]
+categories: [thoughts]
 tags: [数学学习,输出型学习]
 ---
 
