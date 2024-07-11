@@ -40,6 +40,25 @@ Previously, when I wanted to publish some Org contents including LaTeX math equa
     ```
 3.  Use an [Awk script]({% post_url 2024-05-13-convert-org-mode-contents-to-markdown %}) to convert LaTeX equation wrappers to be suitable for MathJax or KaTeX.
 
-Unfortunately, due some unknown cause, pandoc cannot process bibliography anymore and I don&rsquo;t know if this is related to my system upgrade from Debian Bullseyes to Bookworm. Meanwhile, the markdown export functionality provided by Org mode is even poorer than pandoc. Since I do not want to invest time to write a markdown exporter in Elisp at the moment, I have also tried other alternatives, such as `TeXmacs` with the [tm2md](https://github.com/PikachuHy/texmacs-converter-tm2md/tree/master) plugin, neither can bibliography be handled and the generated markdown text is far from satisfying. Finally, I resorted to `make4ht`, which converts LaTeX to html. So far as I know, `make4ht` is the best document conversion tool which can preserve the original LaTeX typesetting.
+Unfortunately, due some unknown cause, pandoc cannot process bibliography anymore and I don&rsquo;t know if this is related to my system upgrade from Debian Bullseyes to Bookworm. Meanwhile, the markdown export functionality provided by Org mode is even poorer than pandoc. Since I do not want to invest time to write a markdown exporter in Elisp at the moment, I have also tried other alternatives, such as `TeXmacs` with the [tm2md](https://github.com/PikachuHy/texmacs-converter-tm2md/tree/master) plugin, neither can bibliography be handled and the generated markdown text is far from satisfying. Finally, I resorted to `make4ht`, which converts LaTeX to html. So far as I know, `make4ht` is the best document conversion tool which can preserve the original LaTeX typesetting. Its command line usage is like this.
+
+```text
+make4ht -f html5-css <tex-file.tex> "mathjax"
+bibtex <tex-file.aux>
+make4ht -f html5-css <tex-file.tex> "mathjax"
+```
+
+Then open the generated HTML file and use the following Elisp script to correct display equations:
+
+```elisp
+(defun tjh/correct-make4ht ()
+  (interactive)
+  (goto-char (point-min))
+  (replace-string "\\begin {equation" "\\begin{equation")
+  (goto-char (point-min))
+  (replace-string "\\end {equation" "\\end{equation"))
+```
+
+Finally, extract the main contents from the HTML file (including the table of contents, since the `[toc]` markdown directive is not recognized when the file extension is `html`) and add the markdown preamble. To prevent some HTML tags are processed by Jekyll first which makes further HTML rendering incorrect, the file should be saved with the `html` extension.
 
 I&rsquo;ve already wasted much time studying the usage of Org mode, pandoc and Awk etc., tuning their parameters, previewing and testing the conversion quality. Even though these tools give me the freedom and long term stability of my note and writing system, wasting time on tools instead of directly working on the project and solving problems is definitely a pitfall. To realize this point and make good balance between them, I have spent many years.
