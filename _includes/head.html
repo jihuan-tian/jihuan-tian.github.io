@@ -5,6 +5,9 @@
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link rel="stylesheet" href="{{ "/assets/css/htmlize-syntax-highlight.css" | relative_url }}">
+  {% if page.custom_css %}
+    <link rel="stylesheet" href="{{ page.custom_css | relative_url }}">
+  {% endif %}
   <link rel="shortcut icon" type="image/x-icon" href="{{ "/assets/favicon.ico?" | prepend: site.baseurl }}">
   <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet">
   {%- feed_meta -%}
