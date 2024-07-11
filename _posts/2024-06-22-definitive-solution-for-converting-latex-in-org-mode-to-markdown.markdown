@@ -43,9 +43,9 @@ Previously, when I wanted to publish some Org contents including LaTeX math equa
 Unfortunately, due some unknown cause, pandoc cannot process bibliography anymore and I don&rsquo;t know if this is related to my system upgrade from Debian Bullseyes to Bookworm. Meanwhile, the markdown export functionality provided by Org mode is even poorer than pandoc. Since I do not want to invest time to write a markdown exporter in Elisp at the moment, I have also tried other alternatives, such as `TeXmacs` with the [tm2md](https://github.com/PikachuHy/texmacs-converter-tm2md/tree/master) plugin, neither can bibliography be handled and the generated markdown text is far from satisfying. Finally, I resorted to `make4ht`, which converts LaTeX to html. So far as I know, `make4ht` is the best document conversion tool which can preserve the original LaTeX typesetting. Its command line usage is like this.
 
 ```text
-make4ht -f html5-css <tex-file.tex> "mathjax"
+make4ht -f html5-css <tex-file.tex> "mathjax,fn-in"
 bibtex <tex-file.aux>
-make4ht -f html5-css <tex-file.tex> "mathjax"
+make4ht -f html5-css <tex-file.tex> "mathjax,fn-in"
 ```
 
 Then open the generated HTML file and use the following Elisp script to correct display equations:
