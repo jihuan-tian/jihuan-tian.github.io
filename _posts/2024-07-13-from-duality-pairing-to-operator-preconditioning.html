@@ -1,0 +1,103 @@
+---
+layout: post
+title: From duality pairing to operator preconditioning
+date: 2024-07-13
+categories: [math]
+tags: [FEM,BEM,PDE,functional-analysis]
+mathjax: true
+custom_css: /assets/css/make4ht.css
+---
+
+<h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
+   <div class='tableofcontents'>
+    <span class='sectionToc'>1 <a href='#x1-20001' id='QQ2-1-2'>Duality pairing</a></span>
+<br />    <span class='sectionToc'>2 <a href='#x1-30002' id='QQ2-1-3'>Gelfand triple</a></span>
+<br />    <span class='sectionToc'>3 <a href='#x1-40003' id='QQ2-1-4'>Operator preconditioning</a></span>
+   </div>
+<!-- l. 24 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>1    </span> <a id='x1-20001'></a>Duality pairing</h3>
+<!-- l. 26 --><p class='noindent'>In  Galerkin  BEM,  the  mass  matrix  \(\mathcal {M}\)  for  the  identity  operator  \(I: H^{1/2}(\Gamma ) \rightarrow H^{1/2}(\Gamma )\)
+<span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-2001f1'></a> is the
+duality pairing between trial basis functions \(\{ \varphi _j \}_{j=1}^n\) in \(V_h \subset H^{1/2}(\Gamma )\) and test basis functions \(\{ \psi _i \}_{i=1}^m\) in \(W_h \subset H^{-1/2}(\Gamma )\). To compute the matrix element \(\mathcal {M}_{ij}\), we
+directly compute the \(L_2(\Gamma )\) inner product of \(\varphi _j\) and \(\psi _i\).
+</p><!-- l. 28 --><p class='indent'>   The reason why we can do this is: \(H^{1/2}(\Gamma )\) is a subspace of \(L_2(\Gamma )\), so the trial basis function \(\varphi _j\) in the finite dimensional
+subspace \(V_h\) is also an \(L_2\) function. Meanwhile, we are using a finite dimensional polynomial space \(W_h\) to approximate \(H^{-1/2}(\Gamma )\),
+such as the subspace spanned by piecewise constant functions. Therefore, the test basis function \(\psi _i\) is also an \(L_2\)
+function and computing \(\langle \varphi _j,\psi _i \rangle = \int _{\Gamma } \varphi _j\psi _i \intd s_x\) is meaningful. From this we can see that even though the original Sobolev spaces
+adopted in the weak form are relatively large, in practice, we are building matrices and searching the solution in
+smaller spaces.
+</p><!-- l. 30 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>2    </span> <a id='x1-30002'></a>Gelfand triple</h3>
+<!-- l. 32 --><p class='noindent'>Because the duality pairing between \(H^{1/2}\) and \(H^{-1/2}\) inherits the duality pairing defined in \(L_2\), and \(H^{1/2}\) is dense in \(L_2\), according to
+(<a href='#XBrezisFunctional2011'>Brezis</a>, page 136), \(L_2\) is self-dual or identified with itself and \(H^{-1/2}\) is a space larger than \(H^{1/2}\). There is the chain
+                                                                                               
+                                                                                               
+of embedded function spaces on the boundary \(\Gamma \): \begin{equation}  H^{1/2}(\Gamma ) \subset L_2(\Gamma ) \simeq L_2^{*}(\Gamma ) \subset H^{-1/2}(\Gamma ).  \end{equation}<a id='x1-3001r1'></a> Similarly, in Galerkin FEM, function spaces are
+defined in the domain \(\Omega \) and we also have \begin{equation}  H_0^1(\Omega ) \subset H^1(\Omega ) \subset L_2(\Omega ) \simeq L_2^{*}(\Omega ) \subset H^{-1}(\Omega ).  \end{equation}<a id='x1-3002r2'></a> The central space \(L_2\) in the above two chains is called the
+pivot space, which is <span class='p1xb-x-x-109'>wrapped </span>by a dense subspace of \(L_2\) and its dual space. Such a “sandwich”
+structure like \(( H^{1/2}(\Gamma ), L_2(\Gamma ), H^{-1/2}(\Gamma ) )\) or \(( H_0^1(\Omega ), L_2(\Omega ), H^{-1}(\Omega ) )\) is called the <span class='p1xb-x-x-109'>Gelfand triple</span>. In general, this triple is written as \begin{equation}  \label {eq:gelfand-triple} V\subset H \simeq H^{*} \subset V^{*}.  \end{equation}<a id='x1-3003r3'></a> Even though the
+Riesz-Fréchet representation theorem tells us that for a Hilbert space we can identify it with its dual space,
+we cannot <span class='p1xb-x-x-109'>simultaneously </span>identify \(V\) with \(V^{\ast }\) and \(H\) with \(H^{\ast }\). This is because when we define bounded
+linear functionals on the dense subspace \(V\) by restricting the domain of the linear functionals on \(H\),
+the duality pairing \(\langle \cdot ,\cdot \rangle _{V^{\ast },V}\) inherits the original duality pairing \(\langle \cdot ,\cdot \rangle _{H^{\ast },H}\), the latter of which further depends on
+the inner product in \(H\). So the inner product in \(V\) is not used, and \(V\) cannot be identified with \(V^{\ast }\) when \(H\)
+has been identified with \(H^{\ast }\). On the other hand, if we want to identify \(V\) with \(V^{\ast }\), the inner product in \(V\)
+should be used. Then the inner product in \(H\) as well as the identification between \(H\) and \(H^{\ast }\) should be
+abandoned.
+</p><!-- l. 47 --><p class='indent'>   Here is the important point: <span class='p1xb-x-x-109'>if we want to identify a Hilbert space </span>\(H\) <span class='p1xb-x-x-109'>with its dual space </span>\(H^{\ast }\)<span class='p1xb-x-x-109'>, according to the
+</span><span class='p1xb-x-x-109'>Riesz-Fréchet representation theorem, duality pairing describes the way of applying a bounded linear
+</span><span class='p1xb-x-x-109'>functional in the dual space onto an element in the Hilbert space. This duality pairing is actually determined
+</span><span class='p1xb-x-x-109'>by the inner product assigned to </span>\(H\)<span class='p1xb-x-x-109'>.</span>
+</p><!-- l. 49 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>3    </span> <a id='x1-40003'></a>Operator preconditioning</h3>
+<!-- l. 51 --><p class='noindent'>In BEM, we also have the above “sandwich” with \(L_2(\Gamma )\) as the pivot. Taking the Laplace problem as example. There
+are two possible choices of key integral operators to be discretized as stiff matrices:
+</p><!-- l. 53 --><p class='indent'>
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-4002x1'>
+     <!-- l. 54 --><p class='noindent'>The single layer potential integral operator \(V: H^{-1/2}(\Gamma ) \rightarrow H^{1/2}(\Gamma )\).
+     </p></li>
+<li class='enumerate' id='x1-4004x2'>
+     <!-- l. 55 --><p class='noindent'>The hyper singular integral operator \(D: H^{1/2}(\Gamma ) \rightarrow H^{-1/2}(\Gamma )\).</p></li></ol>
+<!-- l. 58 --><p class='indent'>   The “sandwich” is \(H^{1/2}(\Gamma ) \rightarrow L_2(\Gamma ) \rightarrow H^{-1/2}(\Gamma )\).
+</p><!-- l. 60 --><p class='indent'>   If FEM is used, the key operator is the Laplace operator \(-\Delta : H_0^1(\Omega ) \rightarrow H^{-1}(\Omega )\) and the “sandwich” is \(H_0^1(\Omega ) \rightarrow L_2(\Omega ) \rightarrow H^{-1}(\Omega )\).
+</p><!-- l. 62 --><p class='indent'>   According to (<a href='#XMardalPreconditioning2011'>Mardal and Winther</a>), the condition for Krylov space methods to be applicable, such as CG,
+GMRES, etc., is that the operator should be symmetric and belong to the space of bounded linear operators from
+a Hilbert space \(X\) to <span class='p1xb-x-x-109'>itself</span>, i.e. \(\mathcal {L}(X,X)\). In other words, the domain space and the range space of the operator should be the
+same. Obviously, neither \(V\) nor \(D\) satisfies this condition. They belong to a space \(\mathcal {L}(X,Y)\) where \(X \neq Y\) and usually \(X\) and \(Y\) are a pair
+of dual spaces.
+</p><!-- l. 64 --><p class='indent'>   Generally, let a partial differential equation (PDE) or boundary integral equation (BIE) be \(Au = f\), where the
+symmetric operator \(A: X \rightarrow Y\) is an isomorphism from \(X\) to \(Y\) and \(X \neq Y\). If \(A=V\), \(Y\) is smaller space than \(X\). If \(A=D\) or \(A=-\Delta \), \(Y\) is a larger space. To solve
+this equation using Krylov space methods, we can apply a <span class='p1xb-x-x-109'>left preconditioner </span>\(B: Y \rightarrow X\) to both sides of the equation,
+                                                                                               
+                                                                                               
+which is another isomorphism from \(Y\) to \(X\). Then the composition \(BA\) is an isomorphism from \(X\) to itself. The
+preconditioned operator equation (strong form) is \begin{equation}  BA u = Bf.  \end{equation}<a id='x1-4005r4'></a> Its weak form is \begin{equation}  \left \langle BA u, v \right \rangle _X = \left \langle Bf, v \right \rangle _X \quad \forall v\in X.  \end{equation}<a id='x1-4006r5'></a> Because both \(BAu\) and the test function \(v\) are in \(X\), \(\left \langle \cdot ,\cdot \right \rangle _X\)
+is an inner product on \(X\) instead of duality pairing as in the weak form without the preconditioner \(\left \langle Au,v \right \rangle = \left \langle f, v \right \rangle \). To ensure
+that the new operator \(BA: X \rightarrow X\) is symmetric so that Krylov methods can be applied, the inner product \(\left \langle \cdot ,\cdot \right \rangle _X\)
+should not be arbitrarily given but be induced by the inverse operator \(B^{-1}\) as \(\langle B^{-1}\cdot ,\cdot \rangle _X\). This can be proved by
+simply checking the equality between \begin{equation}  \left \langle BAu, v \right \rangle _X = \left \langle B^{-1}BAu, v \right \rangle = \left \langle Au, v \right \rangle  \end{equation}<a id='x1-4007r6'></a> and \begin{equation}  \left \langle u, BAv \right \rangle _X = \left \langle u, B^{-1}BAv \right \rangle = \left \langle u, Av \right \rangle .  \end{equation}<a id='x1-4008r7'></a> Because \(A\) is symmetric, we have \(\left \langle Au,v \right \rangle = \left \langle u,Av \right \rangle \), hence \(\left \langle BAu,v \right \rangle _X = \left \langle u, BAv \right \rangle _{X}\). Therefore, \(BA\) is
+symmetric.
+</p><!-- l. 82 --><p class='indent'>   Now, a Krylov space method can be selected to solve the equation \(BAu = Bf\). The whole method is called the
+preconditioned Krylov space method. <span class='p1xb-x-x-109'>It can be understood that applying a preconditioner to the equation is
+</span><span class='p1xb-x-x-109'>equivalent to define a norm </span>\(\langle B^{-1}\cdot ,\cdot \rangle \) <span class='p1xb-x-x-109'>on </span>\(X\)<span class='p1xb-x-x-109'>. The error estimate of the preconditioner Krylov space method is also given
+</span><span class='p1xb-x-x-109'>in this norm.</span>
+</p><!-- l. 1 --><p class='noindent'>
+</p>
+   <h3 class='likesectionHead'><a id='x1-5000'></a>References</h3>
+<!-- l. 1 --><p class='noindent'>
+  </p><div class='thebibliography'>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XBrezisFunctional2011'></a><span class='bibsp'>   </span></span>Haim  Brezis.   <span class='p1xi-x-x-109'>Functional  Analysis,  Sobolev  Spaces  and  Partial  Differential  Equations</span>.   Springer.   ISBN
+  978-0-387-70913-0 978-0-387-70914-7. doi: 10.1007/978-0-387-70914-7.
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XMardalPreconditioning2011'></a><span class='bibsp'>   </span></span>Kent-Andre  Mardal  and  Ragnar  Winther.    Preconditioning  discretizations  of  systems  of  partial
+  differential equations. 18(1):1–40. ISSN 1099-1506. doi: 10.1002/nla.716.
+</p>
+  </div>
+   <div class='footnotes'><a id='x1-2002x1'></a>
+<!-- l. 26 --><p class='indent'>      <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-90'>N.B. The bilinear form associated with this identity operator is </span>\(b_I: H^{1/2}(\Gamma )\times H^{-1/2}(\Gamma ) \rightarrow \mathbb {R}\)<span class='p1xr-x-x-90'>.</span></p>                                                                                              </div>
