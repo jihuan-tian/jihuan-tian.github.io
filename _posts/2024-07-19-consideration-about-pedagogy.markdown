@@ -9,7 +9,7 @@ mathjax: false
 
 In my opinion, the following top-down hierarchy should be instilled into students&rsquo; hearts. The importance of them degrades by level.
 
-1.  The Primer Mover
+1.  The Prime Mover
     -   To know.
         
         > Wir müssen wissen. Wir werden wissen - David Hilbert
