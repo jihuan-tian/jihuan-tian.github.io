@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Migrated project working journals to org-roam root directory
+title: Migrated project work journals to org-roam root directory
 date: 2024-07-19
 categories: [computer]
 tags: [Org-mode]
 mathjax: false
 ---
 
-`org-roam` does not support Org files scattered in different folders which do not share a common ancestor. Therefore, I have to migrate my project working journals to the `org-roam` root directory. Since I still prefer to store project resources including figures, illustrations, scanned documents, mindmaps etc. into the project&rsquo;s own folder, all the relative links to these resources in the working journals should be converted with respect to the `org-roam` root directory.
+`org-roam` does not support Org files scattered in different folders which do not share a common ancestor. Therefore, I have to migrate my project work journals to the `org-roam` root directory. Since I still prefer to store project resources including figures, illustrations, scanned documents, mindmaps etc. into the project&rsquo;s own folder, all the relative links to these resources in the work journals should be converted with respect to the `org-roam` root directory.
 
 With the help of ChatGPT, I wrote the following Elisp function to achieve the above purpose. Note that this script also works for a link to Org heading like this `[[file:../../file.org::heading text]]`.
 

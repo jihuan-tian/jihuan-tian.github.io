@@ -12,7 +12,7 @@ mathjax: false
 -   白板上书写，然后将图片存入电脑
 -   纸版文章上直接批注：很显然，只批注，但未归纳整理
 -   纸版工作日志上记录：目前并未扫描
--   working journal 中记录
+-   work journal 中记录
 -   bib-notes 中记录
 -   Zotero 中记录
 
