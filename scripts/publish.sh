@@ -6,6 +6,9 @@ if [ -z "$is_need_commit" ]; then
   echo "=== Commit the changes!"
   git add --all
 
+  # Remove _config.yml from the commit.
+  git restore --staged _config.yml
+
   if  [ "$#" -eq 1 ]; then
     # When there is a command line argument, use it as the committing message.
     git commit -m `date +%F-%H-%M`": $1"
