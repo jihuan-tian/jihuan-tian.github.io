@@ -1,0 +1,133 @@
+---
+layout: post
+title: Rumination on first order electrical circuit
+date: 2024-08-01
+categories: [math]
+tags: [linear-algebra,electrical-circuit]
+mathjax: true
+custom_css: /assets/css/make4ht.css
+---
+
+<h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
+   <div class='tableofcontents'>
+    <span class='sectionToc'>1 <a href='#x1-20001' id='QQ2-1-2'>General theory about linear operator</a></span>
+<br />     <span class='subsectionToc'>1.1 <a href='#x1-30001.1' id='QQ2-1-3'>Definition of linear operator</a></span>
+<br />     <span class='subsectionToc'>1.2 <a href='#x1-40001.2' id='QQ2-1-4'>Relationship between kernel and image</a></span>
+<br />     <span class='subsectionToc'>1.3 <a href='#x1-50001.3' id='QQ2-1-5'>Structure of the solution set of a linear equation</a></span>
+<br />    <span class='sectionToc'>2 <a href='#x1-60002' id='QQ2-1-6'>Solution of a first order linear time invariant (LTI) circuit</a></span>
+<br />     <span class='subsectionToc'>2.1 <a href='#x1-70002.1' id='QQ2-1-7'>Definition of steady state</a></span>
+<br />     <span class='subsectionToc'>2.2 <a href='#x1-80002.2' id='QQ2-1-8'>Meaning of general solution and particular solution</a></span>
+<br />     <span class='subsectionToc'>2.3 <a href='#x1-90002.3' id='QQ2-1-9'>Transient process and switching theorem</a></span>
+   </div>
+<!-- l. 24 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>1    </span> <a id='x1-20001'></a>General theory about linear operator</h3>
+<!-- l. 26 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>1.1    </span> <a id='x1-30001.1'></a>Definition of linear operator</h4>
+<!-- l. 28 --><p class='noindent'>Let \(L\) be a linear operator from a vector space \(V\) to \(W\), i.e. \(L\in \mathcal {L}(V,W)\). For all \(x,y\) in \(V\) and \(\alpha \in \mathbb {R}\), \begin{equation}  \begin {aligned} L(x+y)&amp;=L(x)+L(y) \\ L(\alpha x)&amp;=\alpha L(x) \end {aligned}.  \end{equation}<a id='x1-3001r1'></a> Examples of linear operators:
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-3003x1'>
+     <!-- l. 37 --><p class='noindent'>Linear operator between Cartesian spaces: \(A: \mathbb {R}^n \rightarrow \mathbb {R}^{m}\), hence \(A\) is a matrix in \(\mathbb {R}^{m\times n}\).
+                                                                                               
+                                                                                               
+     </p></li>
+<li class='enumerate' id='x1-3005x2'>
+     <!-- l. 38 --><p class='noindent'>Linear operator in a first order ordinary differential equation (ODE): \(D = a_1\frac {\diff }{\diff t}+a_0\).</p></li></ol>
+<!-- l. 40 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>1.2    </span> <a id='x1-40001.2'></a>Relationship between kernel and image</h4>
+   <div class='definition'><div class='newtheorem'>
+<!-- l. 42 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Definition 1 (Kernel and image of a linear operator)</span> </span><a id='x1-4002'></a>Let \(L\in \mathcal {L}(V,W)\). Its kernel is the subspace of \(V\) \begin{equation}  \kernel (L) = \left \{ v\in V \vert Lv = 0 \right \}.  \end{equation}<a id='x1-4003r2'></a> Its image is the
+subspace of \(W\) \begin{equation}  \image (L) = \left \{ w\in W \vert \exists v\in V, \suchthat Lv = w \right \}.  \end{equation}<a id='x1-4004r3'></a>
+</p>
+   </div>
+<!-- l. 52 --><p class='indent'>   </p></div> The kernel can be understood as the set of solutions for the homogeneous linear equation \(Lv = 0\).
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 55 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 1 (Rank plus nullity theorem)</span> </span><a id='x1-4006'></a><span class='p1xi-x-x-109'>Let </span>\(L\in \mathcal {L}(V,W)\)<span class='p1xi-x-x-109'>. </span>\begin{equation}  \mathrm {dim}(\kernel (L)) + \mathrm {dim}(\image (L)) = \mathrm {dim}(V)  \end{equation}<a id='x1-4007r4'></a>
+</p>
+   </div>
+<!-- l. 61 --><p class='indent'>   </p></div>
+   <div class='proof'><div class='newtheorem'>
+<!-- l. 63 --><p class='noindent'><span class='head'>
+<span class='p1xsc-x-x-109'>P<span class='small-caps'>roof</span></span> </span><a id='x1-4009'></a>The domain of the linear operator \(L\) can be decomposed as a direct sum of the kernel and its orthogonal
+complement \begin{equation}  V = \kernel (L) \oplus \kernel (L)^{\perp }.  \end{equation}<a id='x1-4010r5'></a> Therefore \begin{equation}  \mathrm {dim}(V) = \mathrm {dim}(\kernel (L)) + \mathrm {dim}(\kernel (L)^{\perp }).  \end{equation}<a id='x1-4011r6'></a> If we restrict the domain of \(L\) from \(V\) to \(\kernel (L)^{\perp }\) and let \(B = \kernel (L)^{\perp }\), we get a new operator \(\tilde {L}: B \rightarrow \image (L)\). We will show that
+this map is bijective.
+</p><!-- l. 74 --><p class='indent'>   Because \(\tilde {L}\) is a restriction of \(L\), \(\kernel (\tilde {L})\) is also a restriction of \(\kernel (L)\) to \(B\), i.e. \begin{equation}  \kernel (\tilde {L}) = \kernel (L)\cap B = \kernel (L)\cap \kernel (L)^{\perp } = \left \{ 0 \right \}.  \end{equation}<a id='x1-4012r7'></a> Therefore, \(\tilde {L}\) is injective.
+</p><!-- l. 80 --><p class='indent'>   For any \(w\in \image (L)\), there exists \(v\in V\) such that \(Lv = w\), where \(v\) can be decomposed as \(v = v_0 + v_1\) with \(v_0\in \kernel (L)\) and \(v_1\in \kernel (L)^{\perp }\). Hence \(Lv = L(v_0+v_1) = L(v_0) + L(v_1) = L(v_1) = \tilde {L}(v_1) = w\). Therefore, \(v_1\) is the
+pre-image of \(w\) under \(\tilde {L}\). \(\tilde {L}\) is surjective. Because it is also injective, \(\tilde {L}\) is bijective and \(\mathrm {dim}(\kernel (L)^{\perp }) = \mathrm {dim}(\image (L))\). Then the theorem is
+proved.
+</p>
+   </div>
+<!-- l. 83 --><p class='indent'>   </p></div>
+                                                                                               
+                                                                                               
+   <h4 class='subsectionHead'><span class='titlemark'>1.3    </span> <a id='x1-50001.3'></a>Structure of the solution set of a linear equation</h4>
+<!-- l. 86 --><p class='noindent'>The inhomogeneous linear equation is \(Lx = b\), where \(b\in W\) is the given data. To find the set of solutions \(x\in X \subset V\), it
+is equivalent to find the domain space of the restricted operator \(\tilde {L}: X \rightarrow \left \{ b \right \}\). According to Theorem <a href='#x1-4007r1'>1<!-- tex4ht:ref: theo:rank-plus-nullity  --></a>, the
+dimension of the solution set \(X\) is equal to the dimension of the kernel of \(\tilde {L}\). Because \(\tilde {L}\) represents the same
+operation as \(L\), it is also the kernel of \(L\). This kernel is just the solution set of the homogeneous equation
+\(Lx = 0\).
+</p><!-- l. 88 --><p class='indent'>   Let \(x_\mathrm {p}\) be a particular solution of \(Lx = b\), i.e. \(Lx_\mathrm {p} = b\). Then the solution space is \begin{equation}  X = \kernel (L) + x_\mathrm {p}.  \end{equation}<a id='x1-5001r8'></a> For any \(x_\mathrm {h}\in \kernel (L)\), it is called a general solution of the
+homogeneous equation \(Lx = 0\). Therefore, a specific solution of the inhomogeneous linear equation is the sum of a
+general solution and a particular solution. Due to the linearity of the operator \(L\), it is obvious that such a
+decomposed formulation is really the solution of \(Lx=b\): \begin{equation}  L(x_{\mathrm {h}} + x_{\mathrm {p}}) = Lx_{\mathrm {h}} + Lx_{\mathrm {p}} = 0 + b = b.  \end{equation}<a id='x1-5002r9'></a> Which one of \(x_{\mathrm {h}}\) should be selected from \(\kernel (L)\) depends on additional
+constraints.
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>2    </span> <a id='x1-60002'></a>Solution of a first order linear time invariant (LTI) circuit</h3>
+<!-- l. 99 --><p class='noindent'>The equation for a first order LTI circuit is just a specific example of the above general linear equation \(Lx=b\), where \(L= D = \frac {\diff }{\diff t} - \lambda \).
+Here we write the original differential operator \(a_1\frac {\diff }{\diff t} + a_0\) as this equivalent form \(\frac {\diff }{\diff t}-\lambda \) is because we want to cast the
+homogeneous equation into an eigen equation form.
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>2.1    </span> <a id='x1-70002.1'></a>Definition of steady state</h4>
+<!-- l. 102 --><p class='noindent'>If a device or a circuit is operating under a steady state, according to the semantics of <span class='p1xb-x-x-109'>steady</span>, the state of the
+device or circuit is either time invariant or periodic. So we have two situations:
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-7002x1'>
+     <!-- l. 104 --><p class='noindent'>The state of the circuit is a constant function, which can be handled by the switching theorem and
+     three-factor theorem.
+     </p></li>
+<li class='enumerate' id='x1-7004x2'>
+     <!-- l. 105 --><p class='noindent'>The state of the circuit is a periodic function.
+          </p><ol class='enumerate2'>
+<li class='enumerate' id='x1-7006x1'>
+          <!-- l. 107 --><p class='noindent'>If the excitation is a special periodic function, i.e. sinusoidal, phasor method will be used.
+          </p></li>
+<li class='enumerate' id='x1-7008x2'>
+                                                                                               
+                                                                                               
+          <!-- l. 108 --><p class='noindent'>If the excitation is an arbitrary periodic function, Fourier series expansion will be applied to
+          the excitation and phasor method will be adopted for each independent frequency. Based on
+          the principle of superposition for LTI circuit, the total response is a linear combination of the
+          responses at all frequencies with the same expansion coefficients in the former Fourier series.
+          Therefore, the result usually takes the form of an infinite sum.</p></li></ol>
+     </li></ol>
+<!-- l. 112 --><p class='indent'>   In the following, we only consider the first case of steady state.
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>2.2    </span> <a id='x1-80002.2'></a>Meaning of general solution and particular solution</h4>
+<!-- l. 115 --><p class='noindent'>According to the linear operator theory, the solution set \(X\) of a first order LTI circuit equation \(Dx=b\) should have the
+form \begin{equation}  X = \kernel (D) + x_{\mathrm {p}}(t),  \end{equation}<a id='x1-8001r10'></a> where the particular solution \(x_{\mathrm {p}}(t)\) represents the steady state of the circuit. In reality, the circuit has fixed
+parameters and a certain initial state \(x(0)\). It is this initial state \(x(0)\) that the solution \(x(t)\) can be uniquely found in the set
+\(X\).
+</p><!-- l. 121 --><p class='indent'>   The kernel of \(D\) is the just the solution set of the homogeneous equation \begin{equation}  \frac {\diff x_{\mathrm {h}}(t)}{\diff t} - \lambda x_{\mathrm {h}}(t) = 0.  \end{equation}<a id='x1-8002r11'></a> This is
+just the eigen equation for the differential operator \(\frac {\diff }{\diff t}\): \begin{equation}  \frac {\diff }{\diff t} x_{\mathrm {h}}(t) = \lambda x_h(t).  \end{equation}<a id='x1-8003r12'></a> Because the eigen function
+<span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-8004f1'></a> of \(\frac {\diff }{\diff t}\) is \(\exp (\lambda t)\), the 1-dimensional
+eigen space <span class='footnote-mark'><a href='#fn2x0' id='fn2x0-bk'><sup class='textsuperscript'>2</sup></a></span><a id='x1-8006f2'></a>
+associated with the eigen value \(\lambda \) is \begin{equation}  C \exp (\lambda t),  \end{equation}<a id='x1-8008r13'></a> where \(C\) is an unknown constant. This eigen space is just \(\kernel (D)\).
+</p><!-- l. 135 --><p class='indent'>   Therefore, the general form of the solution for the inhomogeneous equation \(Dx = b\) is \begin{equation}  x(t) = x_{\mathrm {h}}(t) + x_{\mathrm {p}}(t) = C\exp (\lambda t) + x_{\mathrm {p}}(t).  \end{equation}<a id='x1-8009r14'></a> The constant \(C\) can be
+determined from the initial condition \(x(0)\) of the circuit by solving the equation below \begin{equation}  x(0) = C\exp (\lambda 0) + x_{\mathrm {p}}(0) = C + x_{\mathrm {p}}(0).  \end{equation}<a id='x1-8010r15'></a> Since we only consider the
+first case of steady state, \(x_{\mathrm {p}}(t)\) is a constant \(x_{\mathrm {p}}\). Therefore \(C = x(0) - x_{\mathrm {p}}\). In classical electrical circuit book, \(x_{\mathrm {p}}\) is written as
+\(x_{\infty }\).
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>2.3    </span> <a id='x1-90002.3'></a>Transient process and switching theorem</h4>
+<!-- l. 146 --><p class='noindent'>We still consider the first case of steady state. Therefore, circuit switching means when the topology of the
+circuit changes, its state changes from the first steady state \(x_{\mathrm {p}_1}\) to the second steady state \(x_{\mathrm {p}_2}\). The transient
+process in-between is described by the solution \(x(t)\) under the initial condition \(x(0)\). And the switching
+theorem is a method to compute this initial condition. The basic idea is energy cannot suddenly
+change.
+</p>
+   <div class='footnotes'><a id='x1-8005x2.2'></a>
+<!-- l. 129 --><p class='indent'>      <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-90'>The said eigen function corresponds to eigen vector in linear algebra.</span></p><a id='x1-8007x2.2'></a>
+<!-- l. 129 --><p class='indent'>        <span class='footnote-mark'><a href='#fn2x0-bk' id='fn2x0'><sup class='textsuperscript'>2</sup></a></span><span class='p1xr-x-x-90'>This is a space of function. Compare with the eigen space of vectors in linear algebra.</span></p>                                                        </div>
