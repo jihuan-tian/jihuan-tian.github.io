@@ -1,0 +1,201 @@
+---
+layout: post
+title: Summary of Green's identities
+date: 2024-08-02
+categories: [math]
+tags: [PDE,BEM]
+mathjax: true
+custom_css: /assets/css/make4ht.css
+---
+
+<h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
+   <div class='tableofcontents'>
+    <span class='sectionToc'>1 <a href='#x1-20001' id='QQ2-1-2'>Classical formulation of Green’s identities</a></span>
+<br />    <span class='sectionToc'>2 <a href='#x1-30002' id='QQ2-1-3'>Representation formula for the Laplace equation: the third Green’s identity</a></span>
+<br />    <span class='sectionToc'>3 <a href='#x1-40003' id='QQ2-1-4'>General formulation of Green’s identities</a></span>
+   </div>
+<!-- l. 24 --><p class='indent'>   Green’s identities are indispensable for solving partial differential equations. For example, consider the
+Poisson’s equation \begin{equation}  -\Delta u = f \quad \text {in \(\Omega \)},  \end{equation}<a id='x1-1001r1'></a> with a Dirichlet boundary condition \(\gamma _0 u=g_{\mathrm {D}}\) on \(\Gamma _{\mathrm {D}}\) and Neumann condition \(\gamma _1u = g_{\mathrm {N}}\) on \(\Gamma _{\mathrm {N}}\). We can apply a test
+function \(v\in H_0^1(\Omega )\) to both sides of the equation: \begin{equation}  \int _{\Omega } -v\Delta u \intd x = \int _{\Omega } fv \intd x.  \end{equation}<a id='x1-1002r2'></a> Then use the Green’s first identity \begin{equation}  \int _{\Omega }v\Delta u \intd x =-\int _{\Omega } (\nabla u)\cdot (\nabla v) \intd x + \int _{\pdiff \Omega } v \frac {\pdiff u}{\pdiff \vect {n}} \intd s,  \end{equation}<a id='x1-1003r3'></a> and consider the fact that \(v\) vanishes on
+\(\Gamma _{\mathrm {D}}\), we have the weak form or variational form of the original equation as \begin{equation}  \int _{\Omega } (\nabla u)\cdot (\nabla v) \intd x = -\int _{\Omega }v\Delta u \intd x + \int _{\pdiff \Omega } v \frac {\pdiff u}{\pdiff \vect {n}} \intd s = -\int _{\Omega } fv \intd x + \int _{\Gamma _{\mathrm {N}}} v \frac {\pdiff u}{\pdiff \vect {n}} \intd s.  \end{equation}<a id='x1-1004r4'></a> This equation can be directly solved
+using the FEM.
+</p><!-- l. 45 --><p class='indent'>   If the BEM is used, the procedure is to first represent the solution \(u\) in the domain \(\Omega \) using an integral form, then
+take the limit \(x \rightarrow \Gamma \) , i.e. let the target point approach the domain boundary, and a boundary integral equation (BIE)
+can be obtained using the limiting properties of integral operators. The derivation of the representation formula
+also involves the second Green’s identity.
+</p><!-- l. 47 --><p class='indent'>   Therefore, in this essay, I will summarize various forms of Green’s identities.
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>1    </span> <a id='x1-20001'></a>Classical formulation of Green’s identities</h3>
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 50 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 1 (Gauss-Ostrogradski Theorem)</span> </span><a id='x1-2002'></a><span class='p1xi-x-x-109'>Let </span>\(u\in C^1(\bar \Omega )\)<span class='p1xi-x-x-109'>. Then </span>\begin{equation}  \int _{\Omega } \frac {\pdiff u}{\pdiff x_{i}} \intd x = \int _{\pdiff \Omega } \gamma _0^{\rm int}u n_i \intd s \quad i=1,\cdots ,d,  \end{equation}<a id='x1-2003r5'></a> <span class='p1xi-x-x-109'>where </span>\(n_i\) <span class='p1xi-x-x-109'>is the </span>\(i\)<span class='p1xi-x-x-109'>-th component of the outward unit normal vector
+</span><span class='p1xi-x-x-109'>field at </span>\(x\)<span class='p1xi-x-x-109'>, </span>\(\gamma _0^{\rm int}\) <span class='p1xi-x-x-109'>is the Dirichlet trace operator.</span>
+</p>
+   </div>
+                                                                                               
+                                                                                               
+<!-- l. 59 --><p class='indent'>   </p></div>
+   <div class='proof'><div class='newtheorem'>
+<!-- l. 61 --><p class='noindent'><span class='head'>
+<span class='p1xsc-x-x-109'>P<span class='small-caps'>roof</span></span> </span><a id='x1-2005'></a>Assume the \(d\) dimensional domain \(\Omega \) is convex. Then the value range, i.e. lower bound and upper
+bound, for the \(i\)-th coordinate \(x_i\) can be represented by the other coordinate components as \begin{equation}  x_i \in [f_{\mathrm {L}}(x_1,\cdots ,\hat {x_i},\cdots ,x_d), f_{\mathrm {H}}(x_1,\cdots ,\hat {x_i},\cdots ,x_d)].  \end{equation}<a id='x1-2006r6'></a> The two
+equations \begin{equation}  \label {eq:lower-bound-xi-domain-boundary} x_i = f_{\mathrm {L}}(x_1,\cdots ,\hat {x_i},\cdots ,x_d)  \end{equation}<a id='x1-2007r7'></a> and \begin{equation}  \label {eq:upper-bound-xi-domain-boundary} x_i = f_{\mathrm {H}}(x_1,\cdots ,\hat {x_i},\cdots ,x_d)  \end{equation}<a id='x1-2008r8'></a> determine two subsets of the boundary \(\partial \Omega \), which are \(d-1\) dimensional manifolds in
+\(\mathbb {R}^d\).
+</p><!-- l. 78 --><p class='indent'>   Using the Fubini’s theorem, the left hand side integration on \(\Omega \) can be split into to two successive parts, one is
+with respect to the coordinate \(x_i\), the other is with respect to remaining coordinates: \begin{equation}  \int _{\Omega } \frac {\pdiff u}{\pdiff x_i} \intd x = \int _U \intd x_1\cdots \intd \hat {x_i}\cdots \intd x_d \int _{f_{\mathrm {L}}(x_1,\cdots ,\hat {x_i},\cdots ,x_d)}^{f_{\mathrm {H}}(x_1,\cdots ,\hat {x_i},\cdots ,x_d)} \frac {\pdiff u}{\pdiff x_i} \intd x_i,  \end{equation}<a id='x1-2009r9'></a> where \(U\) is the integration
+domain with respect to the remaining coordinate variables. Therefore, the left hand side of the
+Gauss-Ostrogradski identity is equal to \begin{equation}  \int _U \left [ u(x_1,\cdots ,f_{\mathrm {H}},\cdots ,x_d) - u(x_1,\cdots ,f_{\mathrm {L}},\cdots ,x_d) \right ] \intd x_1\cdots \intd \hat {x_i}\cdots \intd x_d.  \end{equation}<a id='x1-2010r10'></a>
+</p><!-- l. 92 --><p class='indent'>   For \(n^i\) in the boundary integral on the right hand side, it is the \(i\)-th component of the <span class='p1xb-x-x-109'>outward </span>normal vector of \(\partial \Omega \).
+Because Equation (<a href='#x1-2007r7'>7<!-- tex4ht:ref: eq:lower-bound-xi-domain-boundary  --></a>) describes the lower domain boundary with respect to the \(i\)-th coordinate (written as \(\partial \Omega _{\mathrm {L}_i}\)) and
+Equation (<a href='#x1-2008r8'>8<!-- tex4ht:ref: eq:upper-bound-xi-domain-boundary  --></a>) describes the upper domain boundary \(\partial \Omega _{\mathrm {H}_i}\), \(n^i &lt; 0\) on \(\partial \Omega _{\mathrm {L}_i}\) and \(n^i &gt; 0\) on \(\partial \Omega _{\mathrm {H}_i}\). For remaining parts of \(\partial \Omega \), \(n^i=0\). This is illustrated in
+the following figure.
+</p>
+<div class='center'>
+<!-- l. 94 --><p class='noindent'>
+</p><!-- l. 95 --><p class='noindent'><img alt='PIC' src='/figures/2024-08-02-10-12-illustration-of-gauss-ostrogradski.png'' /></p></div>
+<!-- l. 98 --><p class='indent'>   Furthermore, because the geometric meaning of \(n^{i}\) is the cosine of the angle between the outward normal
+vector and the \(i\)-th coordinate axis, \(n^i \intd s\) is actually a signed projection of the surface integral element \(\intd s\) to the
+multi-dimensional coordinate “plane” spanned by \((x_1,\cdots ,\hat {x_i},\cdots ,x_d)\).
+</p><!-- l. 100 --><p class='indent'>   Therefore, the right hand side is \begin{equation}  \begin {aligned} \rhs &amp;= \int _{\partial \Omega _{\mathrm {H}_i}} u(x_1,\cdots ,f_{\mathrm {H}},\cdots ,x_d) n^i \intd s + \int _{\partial \Omega _{\mathrm {L}_i}} u(x_1,\cdots ,f_{\mathrm {L}},\cdots ,x_d) n^i \intd s \\ &amp;= \int _U \left [ u(x_1,\cdots ,f_{\mathrm {H}},\cdots ,x_d) - u(x_1,\cdots ,f_{\mathrm {L}},\cdots ,x_d) \right ] \intd x_1\cdots \intd \hat {x_i}\cdots \intd x_d \end {aligned}.  \end{equation}<a id='x1-2011r11'></a> This is just the same as the left hand side.
+</p><!-- l. 113 --><p class='indent'>   When the domain is not convex, we can split it into several convex subdomains \(\left \{\Omega \right \}_{i=1}^n\) and apply the above
+conclusion to each \(\Omega _i\). Then we add the identities for all subdomains. Because the boundary integrals cancel on
+interior interfaces, the sum of these identities is the Gauss-Ostrogradski identity for the global domain
+\(\Omega \).
+</p>
+   </div>
+<!-- l. 114 --><p class='indent'>   </p></div>
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 116 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 2 (Gauss divergence Theorem)</span> </span><a id='x1-2013'></a><span class='p1xi-x-x-109'>Let </span>\(u\in \left [ C^1(\bar \Omega ) \right ]^d\)<span class='p1xi-x-x-109'>. Then </span>\begin{equation}  \int _{\Omega } \divergence \vect {u} \intd x = \int _{\pdiff \Omega } \gamma _0^{\rm int} \vect {u}\cdot \vect {n} \intd s.  \end{equation}<a id='x1-2014r12'></a>
+</p>
+   </div>
+<!-- l. 122 --><p class='indent'>   </p></div>
+   <div class='proof'><div class='newtheorem'>
+<!-- l. 124 --><p class='noindent'><span class='head'>
+                                                                                               
+                                                                                               
+<span class='p1xsc-x-x-109'>P<span class='small-caps'>roof</span></span> </span><a id='x1-2016'></a>Apply the Gauss-Ostrogradski Theorem <a href='#x1-2003r1'>1<!-- tex4ht:ref: theo:gauss-ostrogradski  --></a> to each term in \(\divergence \vect {u}\).
+</p>
+   </div>
+<!-- l. 126 --><p class='indent'>   </p></div>
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 128 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 3 (Integration by parts)</span> </span><a id='x1-2018'></a><span class='p1xi-x-x-109'>Let </span>\(u,v\in C^1(\bar \Omega )\)<span class='p1xi-x-x-109'>. Then </span>\begin{equation}  \int _{\Omega }\frac {\pdiff u}{\pdiff x_i} v \intd x + \int _{\Omega } u \frac {\pdiff v}{\pdiff x_i} \intd x = \int _{\pdiff \Omega } \left ( \gamma _0^{\rm int}u \right ) \left ( \gamma _0^{\rm int}v \right ) n_i \intd s.  \end{equation}<a id='x1-2019r13'></a>
+</p>
+   </div>
+<!-- l. 136 --><p class='indent'>   </p></div>
+   <div class='proof'><div class='newtheorem'>
+<!-- l. 138 --><p class='noindent'><span class='head'>
+<span class='p1xsc-x-x-109'>P<span class='small-caps'>roof</span></span> </span><a id='x1-2021'></a>Apply the Gauss-Ostrogradski Theorem <a href='#x1-2003r1'>1<!-- tex4ht:ref: theo:gauss-ostrogradski  --></a> to \(uv\).
+</p>
+   </div>
+<!-- l. 140 --><p class='indent'>   </p></div>
+   <div class='proposition'><div class='newtheorem'>
+<!-- l. 142 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Proposition 1</span> </span><a id='x1-2023'></a><span class='p1xi-x-x-109'>Let </span>\(u\in C^2(\bar \Omega )\)<span class='p1xi-x-x-109'>. </span>\begin{equation}  \int _{\Omega } \Delta u \intd x = \int _{\pdiff \Omega } \frac {\pdiff u}{\pdiff \vect {n}} \intd s.  \end{equation}<a id='x1-2024r14'></a>
+</p>
+   </div>
+<!-- l. 147 --><p class='indent'>   </p></div>
+   <div class='proof'><div class='newtheorem'>
+<!-- l. 149 --><p class='noindent'><span class='head'>
+<span class='p1xsc-x-x-109'>P<span class='small-caps'>roof</span></span> </span><a id='x1-2026'></a>Apply Gauss divergence Theorem <a href='#x1-2014r2'>2<!-- tex4ht:ref: theo:gauss-div  --></a> to \(\nabla u\) or replace \(u\) with \(\frac {\pdiff u}{\pdiff x_{i}}\) and \(v\) with \(1\) in Theorem <a href='#x1-2019r3'>3<!-- tex4ht:ref: theo:int-by-parts  --></a>.
+</p>
+   </div>
+<!-- l. 152 --><p class='indent'>   </p></div>
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 154 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 4 (Green’s first identity)</span> </span><a id='x1-2028'></a><span class='p1xi-x-x-109'>Let </span>\(u,v\in C^2(\bar \Omega )\)<span class='p1xi-x-x-109'>. </span>\begin{equation}  \label {eq:green-1st-identity} \begin {aligned} \int _{\Omega }v\Delta u \intd x &amp;=-\int _{\Omega } (\nabla u)\cdot (\nabla v) \intd x + \int _{\pdiff \Omega } v \frac {\pdiff u}{\pdiff \vect {n}} \intd s \\ \int _{\Omega }u\Delta v \intd x &amp;=-\int _{\Omega } (\nabla u)\cdot (\nabla v) \intd x + \int _{\pdiff \Omega } u \frac {\pdiff v}{\pdiff \vect {n}} \intd s \end {aligned}.  \end{equation}<a id='x1-2029r15'></a>
+                                                                                               
+                                                                                               
+</p>
+   </div>
+<!-- l. 166 --><p class='indent'>   </p></div>
+   <div class='proof'><div class='newtheorem'>
+<!-- l. 168 --><p class='noindent'><span class='head'>
+<span class='p1xsc-x-x-109'>P<span class='small-caps'>roof</span></span> </span><a id='x1-2031'></a>To prove the first equation, replace \(u\) with \(\frac {\pdiff u}{\pdiff x_{i}}\) in Theorem <a href='#x1-2019r3'>3<!-- tex4ht:ref: theo:int-by-parts  --></a>, we have
+                                                \[ \int _{\Omega }\frac {\pdiff ^2 u}{\pdiff x_i^2} v \intd x=\int _{\pdiff \Omega } \frac {\pdiff u}{\pdiff x_i} v n_i \intd s - \int _{\Omega }\frac {\pdiff u}{\pdiff x_i}\frac {\pdiff v}{\pdiff x_{i}} \intd x. \]
+ Then sum up this relation for \(i=1,\cdots ,d\) and the first equation is obtained. The proof of the second equation is
+similar.
+</p>
+   </div>
+<!-- l. 177 --><p class='indent'>   </p></div>
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 179 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 5 (Green’s second identity)</span> </span><a id='x1-2033'></a><span class='p1xi-x-x-109'>Let </span>\(u,v\in C^2(\bar \Omega )\)<span class='p1xi-x-x-109'>. </span>\begin{equation}  \label {eq:green-2nd-identity} \int _{\Omega } \left ( v\Delta u - u\Delta v \right ) \intd x = \int _{\pdiff \Omega } \left [ v \frac {\pdiff u}{\pdiff \vect {n}} - u \frac {\pdiff v}{\pdiff \vect {n}} \right ] \intd s.  \end{equation}<a id='x1-2034r16'></a>
+</p>
+   </div>
+<!-- l. 187 --><p class='indent'>   </p></div>
+   <div class='proof'><div class='newtheorem'>
+<!-- l. 189 --><p class='noindent'><span class='head'>
+<span class='p1xsc-x-x-109'>P<span class='small-caps'>roof</span></span> </span><a id='x1-2036'></a>Subtract the two equations in Theorem <a href='#x1-2029r4'>4<!-- tex4ht:ref: theo:green-1st-identity  --></a>, we get the Green’s second identity.
+</p>
+   </div>
+<!-- l. 191 --><p class='indent'>   </p></div>
+                                                                                               
+                                                                                               
+<!-- l. 193 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>2    </span> <a id='x1-30002'></a>Representation formula for the Laplace equation: the third Green’s identity</h3>
+<!-- l. 195 --><p class='noindent'>Consider the Green’s second identity (<a href='#x1-2034r16'>16<!-- tex4ht:ref: eq:green-2nd-identity  --></a>), we replace \(v\) with the fundamental solution \(U^{\ast }(x,y)=\frac {1}{\lvert x-y \rvert }\) of the Laplace equation
+and \(u\) with a harmonic function \(\varphi (y)\): \begin{equation}  \int _{\Omega } \left ( U^{\ast }(x,y)\Delta _y \varphi - \varphi \Delta _y U^{\ast }(x,y) \right ) \intd y = \int _{\pdiff \Omega } \left [ U^{\ast }(x,y) \frac {\pdiff \varphi }{\pdiff \vect {n}_y} - \varphi \frac {\pdiff U^{\ast }(x,y)}{\pdiff \vect {n}_y} \right ] \intd s_y,  \end{equation}<a id='x1-3001r17'></a> where \(x\in \Omega \). Because \(\varphi \) is harmonic, the first term on the left hand side is zero. The
+singularity in the second integral on the left hand side should be evaluated in the sense of Cauchy principal
+value, i.e. we remove a ball \(B_{\varepsilon }(x)\) with a radius \(\varepsilon \) around the singularity \(x\) from \(\Omega \), then apply the second Green’s identity
+in \(\tilde {\Omega }:= \Omega \backslash B_{\varepsilon }(x)\), and finally take the limit \(\varepsilon \rightarrow 0\).
+</p>
+<div class='center'>
+<!-- l. 202 --><p class='noindent'>
+</p><!-- l. 203 --><p class='noindent'><img alt='PIC' src='/figures/2024-08-02-16-21-representation-formula-cauchy-principal-value.png' /></p></div>
+<!-- l. 206 --><p class='indent'>   The left hand side is \begin{equation}  -\int _{\tilde {\Omega }} \varphi \Delta _y U^{\ast }(x,y) \intd y.  \end{equation}<a id='x1-3002r18'></a> The fundamental solution \(U^{\ast }(x-y)\) is singular at \(x\) and harmonic elsewhere, so it is always zero in
+\(\tilde {\Omega }\). When \(\varepsilon \rightarrow 0\), the left hand side is zero.
+</p><!-- l. 212 --><p class='indent'>   Because the boundary of \(\tilde {\Omega }\) comprises two parts \(\partial \Omega \) and \(\partial B_{\varepsilon }(x)\), the right hand side is \begin{equation}  \int _{\partial \Omega } \left [ U^{\ast }(x,y) \frac {\pdiff \varphi }{\pdiff \vect {n}_y} - \varphi \frac {\pdiff U^{\ast }(x,y)}{\pdiff \vect {n}_y} \right ] \intd s_y + \int _{\partial B_{\varepsilon }(x)} \left [ U^{\ast }(x,y) \frac {\pdiff \varphi }{\pdiff \vect {n}_y} - \varphi \frac {\pdiff U^{\ast }(x,y)}{\pdiff \vect {n}_y} \right ] \intd s_y.  \end{equation}<a id='x1-3003r19'></a> Because \(x\in \Omega \) and \(y\in \partial \Omega \), the first term has no
+singularity and we just keep it there.
+</p><!-- l. 222 --><p class='indent'>   In the second term, the normal vector \(\vect {n}_y\) at \(\partial B_{\varepsilon }(x)\) points inward and is equal to \(\frac {x-y}{\lvert x-y \rvert }\). The normal derivative of the
+harmonic function is \begin{equation}  \frac {\partial \varphi }{\partial \vect {n}_y} = \nabla \varphi \cdot \frac {x-y}{\lvert x-y \rvert }.  \end{equation}<a id='x1-3004r20'></a> Then \begin{equation}  U^{\ast }(x,y)\frac {\partial \varphi }{\partial \vect {n}_y} = \frac {1}{4\pi \lvert x-y \rvert } \nabla \varphi \cdot \frac {x-y}{\lvert x-y \rvert } = \frac {1}{4\pi \varepsilon } \nabla \varphi \cdot \frac {x-y}{\lvert x-y \rvert }.  \end{equation}<a id='x1-3005r21'></a> When \(\varphi \in C^2(\Omega )\), \(\nabla \varphi \) is a continuous vector field. When \(\varepsilon \) is small enough, \(\nabla \varphi \) is nearly a constant
+vector field through \(B_{\varepsilon }(x)\). Therefore, its flux at antipodal points on \(\partial B_{\varepsilon }(x)\) cancel out.
+</p>
+<div class='center'>
+<!-- l. 234 --><p class='noindent'>
+</p><!-- l. 235 --><p class='noindent'><img alt='PIC' src='/figures/2024-08-02-16-21-representation-formula-gradient-integral.png' /></p></div>
+<!-- l. 238 --><p class='indent'>   Therefore, when \(\varepsilon \rightarrow 0\), \begin{equation}  \int _{\partial B_{\varepsilon }(x)} U^{\ast }(x,y)\frac {\partial \varphi }{\partial \vect {n}_y} \intd s_y = \frac {1}{4\pi \varepsilon } \int _{\partial B_{\varepsilon }(x)} \nabla \varphi \cdot \frac {x-y}{\lvert x-y \rvert } \intd s_y = 0.  \end{equation}<a id='x1-3006r22'></a>
+</p><!-- l. 245 --><p class='indent'>   The normal derivative of the fundamental solution is \begin{equation}  \frac {\partial U^{\ast }(x,y)}{\partial \vect {n}_y} = \nabla _y U^{\ast }(x,y) \cdot \vect {n}_y = \nabla _y U^{\ast }(x,y) \cdot \frac {x-y}{\lvert x-y \rvert } = \frac {x-y}{4\pi \lvert x-y \rvert ^3} \frac {x-y}{\lvert x-y \rvert } = \frac {1}{4\pi \lvert x-y \rvert ^2}.  \end{equation}<a id='x1-3007r23'></a> Because \(\lvert x-y \rvert = \varepsilon \), \begin{equation}  \int _{\partial B_{\varepsilon }(x)} - \varphi (y) \frac {1}{4\pi \varepsilon ^2} \intd s_y.  \end{equation}<a id='x1-3008r24'></a> When \(\varepsilon \rightarrow 0\), \(\varphi (y) \rightarrow \varphi (x)\) and the above integral is just
+\(-\varphi (x)\).
+</p><!-- l. 258 --><p class='indent'>   Summarizing above results, we have the representation formula \begin{equation}  \varphi (x) = \int _{\partial \Omega } \left [ U^{\ast }(x,y) \frac {\pdiff \varphi }{\pdiff \vect {n}_y} - \varphi \frac {\pdiff U^{\ast }(x,y)}{\pdiff \vect {n}_y} \right ] \intd s_y \quad x\in \Omega ,  \end{equation}<a id='x1-3009r25'></a> which is a combination of single layer
+potential and double layer potential. Such a representation formula is also called the third Green’s
+identity.
+</p><!-- l. 266 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>3    </span> <a id='x1-40003'></a>General formulation of Green’s identities</h3>
+<!-- l. 268 --><p class='noindent'>Let \(X\) be a Hilbert space with the inner product \(\left \langle \cdot ,\cdot \right \rangle _X\) and the induced norm \(\sqrt {\left \langle \cdot ,\cdot \right \rangle _X}\). Let \(X'\) be the dual space of \(X\) with respect to the duality
+pairing \(\left \langle \cdot ,\cdot \right \rangle \) <span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-4001f1'></a>.
+</p><!-- l. 270 --><p class='indent'>   Now we take the general self-adjoint second order differential operator \(L: X \rightarrow X'\) as an example. \begin{equation}  \label {eq:diff-operator-2nd-order} (Lu)(x):= -\sum _{i,j=1}^d \frac {\pdiff }{\pdiff x_j} \left [ a_{ji}(x)\frac {\pdiff u}{\pdiff x_{i}} \right ] + a_0(x)u(x).  \end{equation}<a id='x1-4003r26'></a> Because \(L\) is
+self-adjoint, \(a_{ji}(x) = a_{ij}(x)\). Test \((Lu)(x)\) with \(v(x)\) and apply integration by parts in Theorem <a href='#x1-2019r3'>3<!-- tex4ht:ref: theo:int-by-parts  --></a>, we have \begin{equation}  \begin {aligned} \int _{\Omega }(Lu)(x)v(x) \intd x &amp;= \sum _{i,j=1}^d \int _{\Omega } a_{ji}(x)\frac {\pdiff u}{\pdiff x_{i}}\frac {\pdiff v}{\pdiff x_{j}} \intd x + \int _{\Omega } a_0(x)u(x)v(x) \intd x \\ &amp; \quad - \sum _{i,j=1}^d\int _{\pdiff \Omega } \gamma _0^{\rm int}\left ( a_{ji}(x)\frac {\pdiff u}{\pdiff x_{i}} \right ) \gamma _0^{\rm int}v(x) n_j \intd s \\ &amp;=\sum _{i,j=1}^d \int _{\Omega } a_{ji}(x)\frac {\pdiff u}{\pdiff x_{i}}\frac {\pdiff v}{\pdiff x_{j}} \intd x + \int _{\Omega } a_0(x)u(x)v(x) \intd x \\ &amp; \quad -\int _{\pdiff \Omega } \gamma _0^{\rm int} \left [ \sum _{i,j=1}^d n_j a_{ji}(x)\frac {\pdiff u}{\pdiff x_{i}} \right ] \gamma _0^{\rm int}v(x) \intd s. \end {aligned}  \end{equation}<a id='x1-4004r27'></a> Define the interior
+conormal trace: \begin{equation}  \label {eq:interior-conormal-trace} \gamma _1^{\rm int}u(x):= \lim _{\Omega \ni \tilde {x} \rightarrow x \in \pdiff \Omega } \left [ \sum _{i,j=1}^d n_j(x)a_{ji}(\tilde {x})\frac {\pdiff u(\tilde {x})}{\pdiff \tilde {x}_i} \right ].  \end{equation}<a id='x1-4005r28'></a> Define the bilinear form \(a(u,v)\): \begin{equation}  \label {eq:bilinear-form-2nd-order-pde} a(u,v):= \sum _{i,j=1}^d\int _{\Omega }a_{ji}(x)\frac {\pdiff u}{\pdiff x_{i}}\frac {\pdiff v}{\pdiff x_{j}}\intd x + \int _{\Omega }a_0uv \intd x.  \end{equation}<a id='x1-4006r29'></a> Because the original operator \(L\) is self-adjoint, \(a_{ji}(x) = a_{ij}(x)\), the bilinear
+                                                                                               
+                                                                                               
+form \(a(u,v)\) is symmetric. Then we have the general form of the Green’s first identity: \begin{equation}  \label {eq:green-1st-identity-general} a(u,v) = \int _{\Omega } (Lu)(x)v(x) \intd x + \int _{\pdiff \Omega } \gamma _1^{\rm int}u(x) \gamma _0^{\rm int}v(x) \intd s.  \end{equation}<a id='x1-4007r30'></a> Because \(a(u,v) = a(v,u)\), we also
+have \begin{equation}  a(v,u) = \int _{\Omega } (Lv)(x)u(x) \intd x + \int _{\pdiff \Omega } \gamma _1^{\rm int}v(x) \gamma _0^{\rm int}u(x) \intd s.  \end{equation}<a id='x1-4008r31'></a> Subtract it from Equation (<a href='#x1-4007r30'>30<!-- tex4ht:ref: eq:green-1st-identity-general  --></a>), we obtain the general form of the Green’s second identity: \begin{equation}  \label {eq:green-2nd-identity-general} \int _{\Omega } (Lu)(x)v(x) \intd x - \int _{\Omega }(Lv)(x)u(x) \intd x = \int _{\pdiff \Omega }\gamma _1^{\rm int}v(x)\gamma _0^{\rm int}u(x) \intd s - \int _{\pdiff \Omega } \gamma _1^{\rm int}u(x)\gamma _0^{\rm int}v(x) \intd s.  \end{equation}<a id='x1-4009r32'></a>
+With duality pairing, these two Green’s identities can be written in a compact form as below. \begin{equation}  \label {eq:green-1st-identity-compact} a(u,v) = \left \langle Lu, v \right \rangle _{\Omega } + \left \langle \gamma _1^{\rm int}u, \gamma _0^{\rm int}v \right \rangle _{\Gamma }.  \end{equation}<a id='x1-4010r33'></a> \begin{equation}  \label {eq:green-2nd-identity-compact} \left \langle Lu, v \right \rangle _{\Omega } - \left \langle u, Lv \right \rangle _{\Omega } = \left \langle \gamma _1^{\rm int}v, \gamma _0^{\rm int}u \right \rangle _{\Gamma } - \left \langle \gamma _1^{\rm int}u, \gamma _0^{\rm int}v \right \rangle _{\Gamma }.  \end{equation}<a id='x1-4011r34'></a>
+Here we use the subscript \(\Omega \) to indicate volume integral and use the subscript \(\Gamma \) to indicate surface
+integral.
+</p><!-- l. 333 --><p class='indent'>   Specifically, when the coefficient \(a_{ji}\) is the Kronecker delta \(\delta _{ji}\) and \(a_0 = 0\), we obtain the <span class='p1xb-x-x-109'>negative </span>Laplace operator \(-\Delta \).
+Hence the bilinear form is \begin{equation}  a(u,v) = \int _{\Omega } \sum _{i=1}^d \frac {\partial u}{\partial x_i} \frac {\partial v}{\partial x_j} \intd x = \int _{\Omega } \grad u \cdot \grad v \intd x.  \end{equation}<a id='x1-4012r35'></a> The general Green’s first identity becomes \begin{equation}  \label {eq:green-1st-identity-general-laplace} \int _{\Omega }\grad u\cdot \grad v \intd x = \int _{\Omega }-v\Delta u \intd x + \int _{\Omega } v \frac {\pdiff u}{\pdiff \vect {n}} \intd s,  \end{equation}<a id='x1-4013r36'></a> which is consistent with Equation
+(<a href='#x1-2029r15'>15<!-- tex4ht:ref: eq:green-1st-identity  --></a>).
+</p><!-- l. 346 --><p class='indent'>   The general Green’s second identity becomes \begin{equation}  \left \langle \Delta u, v \right \rangle _{\Omega } - \left \langle u, \Delta v \right \rangle _{\Omega } = \left \langle \gamma _1^{\rm int}u, \gamma _0^{\rm int}v \right \rangle _{\Gamma } - \left \langle \gamma _1^{\rm int}v, \gamma _0^{\rm int}u \right \rangle _{\Gamma },  \end{equation}<a id='x1-4014r37'></a> which is consistent with Equation (<a href='#x1-2034r16'>16<!-- tex4ht:ref: eq:green-2nd-identity  --></a>).
+</p><!-- l. 1 --><p class='noindent'>
+</p>
+   <h3 class='likesectionHead'><a id='x1-5000'></a>References</h3>
+<!-- l. 1 --><p class='noindent'>
+  </p><div class='thebibliography'>
+  <p class='bibitem'><span class='biblabel'>
+<a id='Xevans-pde-2010'></a><span class='bibsp'>   </span></span>Lawrence C.   Evans.     <span class='p1xi-x-x-109'>Partial   Differential   Equations</span>.     &amp;nbsp;Graduate   Studies   in   Mathematics
+  ISBN:    9780821849743.    American    Mathematical    Society.         ISBN    978-0-8218-4974-3.         URL
+  <a class='url' href='https://book.douban.com/subject/4767375/'><span class='t1xtt-x-x-109'>https://book.douban.com/subject/4767375/</span></a>.
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XSteinbachNumerical2007'></a><span class='bibsp'>   </span></span>Olaf  Steinbach.    <span class='p1xi-x-x-109'>Numerical  Approximation  Methods  for  Elliptic  Boundary  Value  Problems:  Finite  and
+  </span><span class='p1xi-x-x-109'>Boundary Elements</span>. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2.
+</p>
+  </div>
+   <div class='footnotes'><a id='x1-4002x3'></a>
+<!-- l. 268 --><p class='indent'>      <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-90'>Note the difference between inner product and duality pairing. The two operands in the former operation are both in </span>\(X\)<span class='p1xr-x-x-90'>, while in
+</span><span class='p1xr-x-x-90'>the latter operation, one is in </span>\(X\) <span class='p1xr-x-x-90'>and the other is in </span>\(X'\)<span class='p1xr-x-x-90'>. That’s why </span>\(\left \langle \cdot ,\cdot \right \rangle \) <span class='p1xr-x-x-90'>is called duality pairing.</span></p>                                                                      </div>
