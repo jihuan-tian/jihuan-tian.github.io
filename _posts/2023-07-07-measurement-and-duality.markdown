@@ -3,7 +3,7 @@ layout: post
 title: Measurement and duality
 date: 2023-07-07
 categories: [math]
-tags: [differential-geometry]
+tags: [differential-geometry,duality]
 mathjax: true
 ---
 
