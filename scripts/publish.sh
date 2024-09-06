@@ -22,7 +22,7 @@ fi
 is_need_push=`git status | grep "Your branch is up to date with 'origin/main'."`
 if [ -z "$is_need_push" ]; then
   echo "=== Start to push to remote branch!"
-  git push
+  http_proxy=192.168.0.100:1080 https_proxy=192.168.0.100:1080 git push
 else
   echo "There is nothing to push!"
 fi
