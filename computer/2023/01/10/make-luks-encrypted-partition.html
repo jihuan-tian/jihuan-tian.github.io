@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Make LUKS encrypted partition | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Make LUKS encrypted partition" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I’ve been using veracrypt on my Linux workstation to crypt all my data disks or partitions for a long time. Now I switch to Linux Unified Key Setup (LUKS) for my newly purchased Seagate One Touch Desktop disk." />
+<meta property="og:description" content="I’ve been using veracrypt on my Linux workstation to crypt all my data disks or partitions for a long time. Now I switch to Linux Unified Key Setup (LUKS) for my newly purchased Seagate One Touch Desktop disk." />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2023/01/10/make-luks-encrypted-partition.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2023/01/10/make-luks-encrypted-partition.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-10T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Make LUKS encrypted partition" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2023-01-10T00:00:00+08:00","datePublished":"2023-01-10T00:00:00+08:00","description":"I’ve been using veracrypt on my Linux workstation to crypt all my data disks or partitions for a long time. Now I switch to Linux Unified Key Setup (LUKS) for my newly purchased Seagate One Touch Desktop disk.","headline":"Make LUKS encrypted partition","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2023/01/10/make-luks-encrypted-partition.html"},"url":"https://jihuan-tian.github.io/computer/2023/01/10/make-luks-encrypted-partition.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Make LUKS encrypted partition</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-01-10T00:00:00+08:00" itemprop="datePublished">Jan 10, 2023 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/command">command</a>
+          
+            <a href="/tags/hardware">hardware</a>
+          
+            <a href="/tags/security">security</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>I’ve been using <code class="language-plaintext highlighter-rouge">veracrypt</code> on my Linux workstation to crypt all my data disks or partitions for a long time. Now I switch to <a href="https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup">Linux Unified Key Setup (LUKS)</a> for my newly purchased Seagate One Touch Desktop disk.</p>
+
+<h1 id="fundamental-concepts">Fundamental concepts</h1>
+
+<ul>
+  <li>
+    <p>GPT (GUID Partition Table)</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GPT is modern standard for the layout of the partition table. GPT uses 64-bit log‐ ical block addresses, checksums, UUIDs and names for partitions and an unlimited number of partitions (although the number of partitions is usually restricted to 128 in many partitioning tools).
+    
+Note that the first sector is still reserved for a protective MBR in the GPT speci‐ fication. It prevents MBR-only partitioning tools from mis-recognizing and over‐ writing GPT disks.
+    
+GPT is always a better choice than MBR, especially on modern hardware with a UEFI boot loader.
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>DOS-type (MBR)</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A DOS-type partition table can describe an unlimited number of partitions. In sec‐ tor 0 there is room for the description of 4 partitions (called `primary'). One of these may be an extended partition; this is a box holding logical partitions, with descriptors found in a linked list of sectors, each preceding the corresponding logical partitions. The four primary partitions, present or not, get numbers 1-4. Logical partitions are numbered starting from 5.
+    
+In a DOS-type partition table the starting offset and the size of each partition is stored in two ways: as an absolute number of sectors (given in 32 bits), and as a Cylinders/Heads/Sectors triple (given in 10+8+6 bits). The former is OK -- with 512-byte sectors this will work up to 2 TB. The latter has two problems. First, these C/H/S fields can be filled only when the number of heads and the number of sectors per track are known. And second, even if we know what these numbers should be, the 24 bits that are available do not suffice. DOS uses C/H/S only, Windows uses both, Linux never uses C/H/S. The C/H/S addressing is deprecated and may be unsupported in some later fdisk version.
+</code></pre></div>    </div>
+
+    <p><strong>For a partition larger than 2TB, use the GPT partition instead of MBR.</strong></p>
+  </li>
+</ul>
+
+<h1 id="procedures">Procedures</h1>
+
+<ol>
+  <li>
+    <p>Check the block devices using <code class="language-plaintext highlighter-rouge">lsblk</code>. It can be seen that the new disk is <code class="language-plaintext highlighter-rouge">/dev/sdc</code>, which has two partitions already.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NAME               MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda                  8:0    0 465.8G  0 disk 
+├─sda1               8:1    0  14.9G  0 part [SWAP]
+├─sda2               8:2    0  93.1G  0 part /
+└─sda3               8:3    0 357.7G  0 part 
+  └─veracrypt1_1   254:0    0 357.7G  0 dm   
+    └─veracrypt1_0 254:1    0 357.7G  0 dm   
+      └─veracrypt1 254:2    0 357.7G  0 dm   /home/jihuan/文档
+sdb                  8:16   0   1.8T  0 disk 
+├─sdb1               8:17   0 548.2G  0 part 
+├─sdb2               8:18   0 779.7G  0 part 
+├─sdb3               8:19   0 789.9G  0 part 
+└─veracrypt2_1     254:3    0   1.8T  0 dm   
+  └─veracrypt2_0   254:4    0   1.8T  0 dm   
+    └─veracrypt2   254:5    0   1.8T  0 dm   /media/backup
+sdc                  8:32   0   3.6T  0 disk 
+├─sdc1               8:33   0   200M  0 part 
+└─sdc2               8:34   0   3.6T  0 part 
+sr0                 11:0    1  1024M  0 rom
+</code></pre></div>    </div>
+  </li>
+  <li>Unmount partitions <code class="language-plaintext highlighter-rouge">/dev/sdc1</code> or <code class="language-plaintext highlighter-rouge">/dev/sdc2</code> if needed.</li>
+  <li>
+    <p>Check the type of existing partitions on the disk using <code class="language-plaintext highlighter-rouge">gdisk</code>. We can see the first partition is EFI.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gdisk <span class="nt">-l</span> /dev/sdc
+</code></pre></div>    </div>
+  </li>
+  <li>Within the <code class="language-plaintext highlighter-rouge">gdisk</code> session, delete existing partitions using the <code class="language-plaintext highlighter-rouge">d</code> command.</li>
+  <li>Create a new Linux LUKS partition using the <code class="language-plaintext highlighter-rouge">n</code> command. The partition type code is <code class="language-plaintext highlighter-rouge">8309</code>.</li>
+  <li>Change the partition name to <code class="language-plaintext highlighter-rouge">Backup</code> using the <code class="language-plaintext highlighter-rouge">c</code> command.</li>
+  <li>Use the <code class="language-plaintext highlighter-rouge">w</code> command to write out the partition table.</li>
+  <li>
+    <p>Format the partition <code class="language-plaintext highlighter-rouge">/dev/sdc1</code> with LUKS.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>cryptsetup luksFormat /dev/sdc1
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Open the LUKS partition and associate it with a map point named <code class="language-plaintext highlighter-rouge">backup</code>.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>cryptsetup luksOpen /dev/sdc1 backup
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Check the block devices using <code class="language-plaintext highlighter-rouge">lsblk</code> again and we can see the map point <code class="language-plaintext highlighter-rouge">backup</code> becomes a child of <code class="language-plaintext highlighter-rouge">sdc</code> in the tree view.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NAME               MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
+sda                  8:0    0 465.8G  0 disk
+├─sda1               8:1    0  14.9G  0 part  [SWAP]
+├─sda2               8:2    0  93.1G  0 part  /
+└─sda3               8:3    0 357.7G  0 part
+└─veracrypt1_1   254:0    0 357.7G  0 dm
+└─veracrypt1_0 254:1    0 357.7G  0 dm
+└─veracrypt1 254:2    0 357.7G  0 dm    /home/jihuan/文档
+sdb                  8:16   0   1.8T  0 disk
+├─sdb1               8:17   0 548.2G  0 part
+├─sdb2               8:18   0 779.7G  0 part
+├─sdb3               8:19   0 789.9G  0 part
+└─veracrypt2_1     254:3    0   1.8T  0 dm
+└─veracrypt2_0   254:4    0   1.8T  0 dm
+└─veracrypt2   254:5    0   1.8T  0 dm    /media/backup
+sdc                  8:32   0   3.6T  0 disk
+└─sdc1               8:33   0   3.6T  0 part
+└─backup         254:6    0   3.6T  0 crypt
+sr0                 11:0    1  1024M  0 rom
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Create an <code class="language-plaintext highlighter-rouge">ext4</code> file system in the LUKS partition.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mkfs.ext4 /dev/mapper/backup
+</code></pre></div>    </div>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mke2fs 1.46.2 (28-Feb-2021)
+Creating filesystem with 976750540 4k blocks and 244195328 inodes
+Filesystem UUID: 6694d01b-92b9-44cf-b4c5-83aaf748ce01
+Superblock backups stored on blocks:
+32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968,
+102400000, 214990848, 512000000, 550731776, 644972544
+    
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (262144 blocks): done
+Writing superblocks and filesystem accounting information: done
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Mount the created <code class="language-plaintext highlighter-rouge">ext4</code> file system as usual.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/mapper/backup /media/backup2
+</code></pre></div>    </div>
+  </li>
+  <li>Run <code class="language-plaintext highlighter-rouge">rynsc</code> to backup data.</li>
+  <li>
+    <p>Umount the volume and close the LUKS partition.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>umount /media/backup2
+<span class="nb">sudo </span>cryptsetup luksClose backup
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+
+  </div><a class="u-url" href="/computer/2023/01/10/make-luks-encrypted-partition.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>使用LibreOffice Writer文档构建个人管理与监督体系 | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="使用LibreOffice Writer文档构建个人管理与监督体系" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="基于Emacs Org mode的GTD任务管理方法可以有效地管理复杂繁多的任务，在具体与细节上进行很好的把控。而要从宏观层面把握项目进度，在中长期的时间尺度上纵观个人职业发展乃至整个人生的走向，则需要基于周、月、季度、半年、年末一系列时间节点上的整体规划、回顾、评估、反省与展望。目前，我基于LibreOffice Writer文档实现并实践了上述理念，从而形成了个人管理与监督体系。本文则简要介绍该文档的结构。" />
+<meta property="og:description" content="基于Emacs Org mode的GTD任务管理方法可以有效地管理复杂繁多的任务，在具体与细节上进行很好的把控。而要从宏观层面把握项目进度，在中长期的时间尺度上纵观个人职业发展乃至整个人生的走向，则需要基于周、月、季度、半年、年末一系列时间节点上的整体规划、回顾、评估、反省与展望。目前，我基于LibreOffice Writer文档实现并实践了上述理念，从而形成了个人管理与监督体系。本文则简要介绍该文档的结构。" />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/methodology/2020/02/20/%E4%BD%BF%E7%94%A8LibreOffice-Writer%E6%96%87%E6%A1%A3%E6%9E%84%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%AE%A1%E7%90%86%E4%B8%8E%E7%9B%91%E7%9D%A3%E4%BD%93%E7%B3%BB.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/methodology/2020/02/20/%E4%BD%BF%E7%94%A8LibreOffice-Writer%E6%96%87%E6%A1%A3%E6%9E%84%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%AE%A1%E7%90%86%E4%B8%8E%E7%9B%91%E7%9D%A3%E4%BD%93%E7%B3%BB.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-20T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="使用LibreOffice Writer文档构建个人管理与监督体系" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2020-02-20T00:00:00+08:00","datePublished":"2020-02-20T00:00:00+08:00","description":"基于Emacs Org mode的GTD任务管理方法可以有效地管理复杂繁多的任务，在具体与细节上进行很好的把控。而要从宏观层面把握项目进度，在中长期的时间尺度上纵观个人职业发展乃至整个人生的走向，则需要基于周、月、季度、半年、年末一系列时间节点上的整体规划、回顾、评估、反省与展望。目前，我基于LibreOffice Writer文档实现并实践了上述理念，从而形成了个人管理与监督体系。本文则简要介绍该文档的结构。","headline":"使用LibreOffice Writer文档构建个人管理与监督体系","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/methodology/2020/02/20/%E4%BD%BF%E7%94%A8LibreOffice-Writer%E6%96%87%E6%A1%A3%E6%9E%84%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%AE%A1%E7%90%86%E4%B8%8E%E7%9B%91%E7%9D%A3%E4%BD%93%E7%B3%BB.html"},"url":"https://jihuan-tian.github.io/computer/methodology/2020/02/20/%E4%BD%BF%E7%94%A8LibreOffice-Writer%E6%96%87%E6%A1%A3%E6%9E%84%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%AE%A1%E7%90%86%E4%B8%8E%E7%9B%91%E7%9D%A3%E4%BD%93%E7%B3%BB.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">使用LibreOffice Writer文档构建个人管理与监督体系</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-02-20T00:00:00+08:00" itemprop="datePublished">Feb 20, 2020 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+            <a href="/methodology">Methodology</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/LibreOffice">LibreOffice</a>
+          
+            <a href="/tags/管理提升">管理提升</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>基于<a href="/thoughts/2019/04/30/%E4%BB%A5Emacs-Org-mode%E4%B8%BA%E6%A0%B8%E5%BF%83%E7%9A%84%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88.html">Emacs Org mode的GTD任务管理方法</a>可以有效地管理复杂繁多的任务，在具体与细节上进行很好的把控。而要从宏观层面把握项目进度，在中长期的时间尺度上纵观个人职业发展乃至整个人生的走向，则需要基于周、月、季度、半年、年末一系列时间节点上的整体规划、回顾、评估、反省与展望。目前，我基于LibreOffice Writer文档实现并实践了上述理念，从而形成了个人管理与监督体系。本文则简要介绍该文档的结构。</p>
+
+<p>首先，我会为每年都创建一个这样的文档。文档内包含如下内容（以下层级列表在文档中分别赋以“标题一”、“标题二”等等的样式，从而可以在LibreOffice Writer导航栏中浏览整个文档的结构）：</p>
+
+<ul>
+  <li>
+    <p>项目整体规划与回顾</p>
+
+    <ul>
+      <li>
+        <p>年度规划（说明：这里可以针对官方项目、个人项目、学习、管理、事务等多个方面进行全年的远景规划，写下想要实现的个人目标和期望达到的人生状态。因为一年的时间毕竟比较长，年初通常带有一定激情的想法不一定符合现实，所以随着时间的推移，有可能需要对远景规划做一定的修改。因此，下面包含了年初和每个季度的版本。）</p>
+
+        <ul>
+          <li>
+            <p>年初版本</p>
+          </li>
+          <li>
+            <p>第一季度末版本</p>
+          </li>
+          <li>
+            <p>第二季度末版本</p>
+          </li>
+          <li>
+            <p>第三季度末版本</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>第一季度计划（说明：这是针对第一季度具体工作的安排。）</p>
+      </li>
+      <li>
+        <p>第一季度回顾与小结（说明：这是针对第一季度执行情况的总结。）</p>
+      </li>
+      <li>
+        <p>第二季度计划</p>
+      </li>
+      <li>
+        <p>第二季度回顾与小结</p>
+      </li>
+      <li>
+        <p>第三季度计划</p>
+      </li>
+      <li>
+        <p>第三季度回顾与小结</p>
+      </li>
+      <li>
+        <p>第四季度计划</p>
+      </li>
+      <li>
+        <p>第四季度回顾与小结</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>周计划与回顾模板（说明：用于做周规划与回顾的模板。每周开始的时候，将其拷贝到后面相应的周编号下。）</p>
+  </li>
+  <li>
+    <p>第1周</p>
+  </li>
+  <li>
+    <p>第2周</p>
+  </li>
+  <li>
+    <p>…</p>
+  </li>
+</ul>
+
+<p>有了上述的基本架构后，对于具体的计划条目，可仿照Emacs Org mode为其设置不同的任务状态，并用不同的颜色区别。这包括：</p>
+
+<ul>
+  <li>
+    <p>[Finished] 绿色：已完成</p>
+  </li>
+  <li>
+    <p>[Unfinished] 红色：未完成</p>
+  </li>
+  <li>
+    <p>[Partly finished] 蓝色：部分完成</p>
+  </li>
+  <li>
+    <p>[Unplanned finished] 紫色：未列入计划但完成的</p>
+  </li>
+  <li>
+    <p>[Ongoing] 土黄色：执行中</p>
+  </li>
+  <li>
+    <p>[Cancelled] 红色删除线：取消</p>
+  </li>
+</ul>
+
+<p>上述定义的文字样式可以预先在样式单中定义好。然后通过编写VBA宏命令，实现将每个任务状态对应的样式自动应用到当前光标所在的段落上，并在段首插入诸如[Finished]、[Ongoing]这样的字符。这样一来，就不需要每次都得用鼠标选中文字再设置样式了。VBA宏命令的源代码如下：</p>
+
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Sub</span> <span class="nf">SetTaskStatusString</span><span class="p">(</span><span class="n">cTaskStatus</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="n">cStyleName</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span>
+   <span class="k">Dim</span> <span class="nv">oDoc</span>
+   <span class="k">Dim</span> <span class="nv">oText</span>
+   <span class="k">Dim</span> <span class="nv">oViewCursor</span>
+   <span class="k">Dim</span> <span class="nv">oTextCursor</span>
+   <span class="k">Dim</span> <span class="nv">oSearchDescriptor</span>
+   <span class="k">Dim</span> <span class="nv">cTaskStatusListReg</span>
+   <span class="k">Dim</span> <span class="nv">oFoundAll</span>
+   <span class="k">Dim</span> <span class="nv">n</span>
+
+   <span class="n">oDoc</span> <span class="o">=</span> <span class="n">ThisComponent</span>
+   <span class="n">oText</span> <span class="o">=</span> <span class="n">oDoc</span><span class="p">.</span><span class="n">Text</span>
+
+   <span class="n">oViewCursor</span> <span class="o">=</span> <span class="n">oDoc</span><span class="p">.</span><span class="n">CurrentController</span><span class="p">.</span><span class="n">getViewCursor</span><span class="p">()</span>
+   <span class="n">oTextCursor</span> <span class="o">=</span> <span class="n">oText</span><span class="p">.</span><span class="n">createTextCursorByRange</span><span class="p">(</span><span class="n">oViewCursor</span><span class="p">)</span>
+
+   <span class="c1">' Select current paragraph using text cursor.</span>
+   <span class="n">oTextCursor</span><span class="p">.</span><span class="n">gotoStartOfParagraph</span><span class="p">(</span><span class="k">False</span><span class="p">)</span>
+   <span class="n">oTextCursor</span><span class="p">.</span><span class="n">gotoEndOfParagraph</span><span class="p">(</span><span class="k">True</span><span class="p">)</span>
+
+   <span class="c1">' Apply the specified character style for the current task status.</span>
+   <span class="n">oTextCursor</span><span class="p">.</span><span class="n">CharStyleName</span> <span class="o">=</span> <span class="n">cStyleName</span>
+
+   <span class="c1">' Insert the task status string.</span>
+   <span class="k">If</span> <span class="n">Len</span><span class="p">(</span><span class="n">cTaskStatus</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">Then</span>
+      <span class="n">oTextCursor</span><span class="p">.</span><span class="n">getText</span><span class="p">.</span><span class="n">insertString</span><span class="p">(</span><span class="n">oTextCursor</span><span class="p">.</span><span class="n">getStart</span><span class="p">(),</span> <span class="s">"\["</span> <span class="o">&amp;</span> <span class="n">cTaskStatus</span> <span class="o">&amp;</span> <span class="s">"\] "</span><span class="p">,</span> <span class="k">False</span><span class="p">)</span>
+   <span class="k">End</span> <span class="k">If</span>
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Sub</span> <span class="nf">SetFinished</span><span class="p">()</span>
+   <span class="n">SetTaskStatusString</span><span class="p">(</span><span class="s">"Finished"</span><span class="p">,</span> <span class="s">"Finished task"</span><span class="p">)</span>
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Sub</span> <span class="nf">SetUnFinished</span><span class="p">()</span>
+   <span class="n">SetTaskStatusString</span><span class="p">(</span><span class="s">"Unfinished"</span><span class="p">,</span> <span class="s">"Unfinished task"</span><span class="p">)</span>
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Sub</span> <span class="nf">SetPartlyFinished</span><span class="p">()</span>
+   <span class="n">SetTaskStatusString</span><span class="p">(</span><span class="s">"Partly finished"</span><span class="p">,</span> <span class="s">"Partly finished task"</span><span class="p">)</span>
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Sub</span> <span class="nf">SetUnplannedFinished</span><span class="p">()</span>
+   <span class="n">SetTaskStatusString</span><span class="p">(</span><span class="s">"Unplanned finished"</span><span class="p">,</span> <span class="s">"Unplanned finished task"</span><span class="p">)</span>
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Sub</span> <span class="nf">SetOngoing</span><span class="p">()</span>
+   <span class="n">SetTaskStatusString</span><span class="p">(</span><span class="s">"Ongoing"</span><span class="p">,</span> <span class="s">"Ongoing"</span><span class="p">)</span>
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Sub</span> <span class="nf">SetCancelled</span><span class="p">()</span>
+   <span class="n">SetTaskStatusString</span><span class="p">(</span><span class="s">"Cancelled"</span><span class="p">,</span> <span class="s">"Cancelled"</span><span class="p">)</span>
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Sub</span> <span class="nf">SetTodo</span><span class="p">()</span>
+   <span class="n">SetTaskStatusString</span><span class="p">(</span><span class="s">"Todo"</span><span class="p">,</span> <span class="s">"Default Style"</span><span class="p">)</span>
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Sub</span> <span class="nf">SetDefaultStyle</span><span class="p">()</span>
+   <span class="n">SetTaskStatusString</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="s">"Default Style"</span><span class="p">)</span>
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Sub</span> <span class="nf">Emphasize</span><span class="p">()</span>
+   <span class="n">SetTaskStatusString</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="s">"Emphasis"</span><span class="p">)</span>
+<span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div></div>
+
+<p>为了进一步方便操作，可以再自定义一个工具栏，其中的按钮绑定了设定任务状态的VBA宏，如下图所示。</p>
+
+<p align="center"><img src="/figures/p69869614.jpg" alt="" /></p>
+
+<p>以上便是我在实际学习与工作中用于任务规划与回顾的文档模板。其实，具体采用什么形式与格式的文件来做这件事并不重要，关键是要能够让自己形成规划、执行、反馈、改进的闭环，以求持续地自我改进。此外，再顺便提一下，我之所以采用LibreOffice Writer作为主力办公软件，除了一方面它是开源软件外，还在于它提供了许多微软Office所没有的强大功能。例如，可以在LibreOffice文档中创建精确指向到另一个文件中某个位置处的超链接。这样一来，我的规划与回顾文档和我的日志、工作笔记文档等等都是彼此关联的，跳转浏览、相互对照起来非常方便。同时，由于这些超链接是以相对路径的格式存储的，所以只要文件之间的相对存储位置不发生变化，那么把整个文件树拷贝到不同的电脑或磁盘上，链接都是始终有效的。</p>
+
+
+  </div><a class="u-url" href="/computer/methodology/2020/02/20/%E4%BD%BF%E7%94%A8LibreOffice-Writer%E6%96%87%E6%A1%A3%E6%9E%84%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%AE%A1%E7%90%86%E4%B8%8E%E7%9B%91%E7%9D%A3%E4%BD%93%E7%B3%BB.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

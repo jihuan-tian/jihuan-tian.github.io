@@ -1,0 +1,63 @@
+
+/* ****************************************************** 
+ *        Created with wxMaxima version 22.12.0       * 
+ ****************************************************** */
+.input {
+    color: 
+	rgb(0,0,255);
+}
+.comment {
+    font-size: 18px;
+    font-style: normal;
+    color: #111;
+}
+.code_variable {
+    color: rgb(0,128,0);
+}
+.code_function {
+
+    color: rgb(128,0,0);
+}
+.code_comment {
+    color: rgb(64,64,64);
+}
+.code_number {
+    color: rgb(128,64,0);
+}
+.code_string {
+    color: rgb(0,0,128);
+}
+.code_operator {
+    color: rgb(0,0,128);
+}
+.code_lisp {
+    color: rgb(255,0,128);
+}
+.code_endofline {
+    color: rgb(192,192,192);}
+img {
+    -ms-interpolation-mode: bicubic;
+}
+.image {
+    font-family: Times New Roman;
+    text-align: center;
+    color: rgb(0,0,0);
+    padding: 2mm;
+}
+.prompt {
+    color: rgb(255,128,128);
+}
+table {
+    border: 0px;
+}
+table td {
+    border: 0px;
+    vertical-align: top;
+    padding: 1mm;
+}
+table th {
+    border: 0px;
+}
+table tr {
+    border: 0px;
+}

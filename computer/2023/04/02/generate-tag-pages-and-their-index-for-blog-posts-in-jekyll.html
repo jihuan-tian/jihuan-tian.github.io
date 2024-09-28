@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Generate tag pages and their index for blog posts in Jekyll | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Generate tag pages and their index for blog posts in Jekyll" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Generate a tag page containing related blog posts" />
+<meta property="og:description" content="Generate a tag page containing related blog posts" />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2023/04/02/generate-tag-pages-and-their-index-for-blog-posts-in-jekyll.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2023/04/02/generate-tag-pages-and-their-index-for-blog-posts-in-jekyll.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-04-02T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Generate tag pages and their index for blog posts in Jekyll" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2023-04-02T00:00:00+08:00","datePublished":"2023-04-02T00:00:00+08:00","description":"Generate a tag page containing related blog posts","headline":"Generate tag pages and their index for blog posts in Jekyll","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2023/04/02/generate-tag-pages-and-their-index-for-blog-posts-in-jekyll.html"},"url":"https://jihuan-tian.github.io/computer/2023/04/02/generate-tag-pages-and-their-index-for-blog-posts-in-jekyll.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Generate tag pages and their index for blog posts in Jekyll</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-04-02T00:00:00+08:00" itemprop="datePublished">Apr 2, 2023 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/Jekyll">Jekyll</a>
+          
+            <a href="/tags/知识联接">知识联接</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="generate-a-tag-page-containing-related-blog-posts">Generate a tag page containing related blog posts</h1>
+
+<p>I use the following Jekyll page template for displaying a list of blog posts assigned with a specific tag.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: page
+title: "Tag: &lt;tag-name&gt;"
+exclude: true
+---
+
+&lt;div id="archives"&gt;
+  &lt;div class="archive-group"&gt;
+    
+    &lt;a name="&lt;tag-name&gt;"&gt;&lt;/a&gt;
+    
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div></div>
+
+<p>N.B. The <code class="language-plaintext highlighter-rouge">layout</code> type in the front matter for a tag page should be <code class="language-plaintext highlighter-rouge">page</code> instead of <code class="language-plaintext highlighter-rouge">post</code>. If the default navigation menu for the blog is used, which is defined in <code class="language-plaintext highlighter-rouge">&lt;site-source-root&gt;/_includes/header.html</code> as below, the option <code class="language-plaintext highlighter-rouge">exclude: true</code> in the front matter is needed to prevent tag pages from appearing as menu items.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"trigger"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Comment out the default sorted categories. --&gt;</span><span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>In my case, I enforce a fixed order of the categories appearing in the navigation menu, hence the option <code class="language-plaintext highlighter-rouge">exclude: true</code> is ignored.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"trigger"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Enforce a fixed order for my categories. --&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"page-link"</span> <span class="na">href=</span><span class="s">"/math/"</span><span class="nt">&gt;</span>Math<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"page-link"</span> <span class="na">href=</span><span class="s">"/physics/"</span><span class="nt">&gt;</span>Physics<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"page-link"</span> <span class="na">href=</span><span class="s">"/computer/"</span><span class="nt">&gt;</span>Computer<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"page-link"</span> <span class="na">href=</span><span class="s">"/methodology/"</span><span class="nt">&gt;</span>Methodology<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"page-link"</span> <span class="na">href=</span><span class="s">"/thoughts/"</span><span class="nt">&gt;</span>Thoughts<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"page-link"</span> <span class="na">href=</span><span class="s">"/tags/"</span><span class="nt">&gt;</span>Tags<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"page-link"</span> <span class="na">href=</span><span class="s">"/about/"</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>A bash script <code class="language-plaintext highlighter-rouge">gen-tag-pge.sh</code> is created for generating such tag page, where <code class="language-plaintext highlighter-rouge">&lt;tag-name&gt;</code> in the above template is replaced with the first Bash command line argument <code class="language-plaintext highlighter-rouge">$1</code>. The whole multi-line template is redirected to the standard input (<code class="language-plaintext highlighter-rouge">stdin</code>) of the <code class="language-plaintext highlighter-rouge">cat</code> command as <a href="https://en.wikipedia.org/wiki/Here_document">here-document</a>, i.e. the text between <code class="language-plaintext highlighter-rouge">&lt;&lt;label</code> and <code class="language-plaintext highlighter-rouge">label</code>, where <code class="language-plaintext highlighter-rouge">labbel</code> is <code class="language-plaintext highlighter-rouge">EOF</code> here.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nv">template</span><span class="o">=</span><span class="si">$(</span><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+---
+layout: page
+title: "Tag: </span><span class="nv">$1</span><span class="sh">"
+exclude: true
+---
+
+&lt;div id="archives"&gt;
+  &lt;div class="archive-group"&gt;
+    
+    &lt;a name="</span><span class="nv">$1</span><span class="sh">"&gt;&lt;/a&gt;
+    
+  &lt;/div&gt;
+&lt;/div&gt;
+</span><span class="no">EOF
+</span><span class="si">)</span>
+
+<span class="nv">tag_page_file</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>.html
+
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="s2">"</span><span class="nv">$tag_page_file</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"The tag page has already existed!"</span>
+<span class="k">else
+    </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$template</span><span class="s2">"</span> <span class="o">&gt;</span> <span class="s2">"</span><span class="nv">$tag_page_file</span><span class="s2">"</span>
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<h1 id="generate-an-index-page-including-all-tags">Generate an index page including all tags</h1>
+
+<p>To create an index page including hyperlinks to all the tag pages, I’ve written a Bash script as below.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nv">front_matter</span><span class="o">=</span><span class="si">$(</span><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+---
+layout: page
+title: Tags
+permalink: /tags/
+---
+
+&lt;div id="archives"&gt;
+  &lt;div class="archive-group"&gt;
+    &lt;h4 class="tag-head"&gt;
+</span><span class="no">EOF
+</span><span class="si">)</span>
+
+<span class="nv">sorted_tag_index</span><span class="o">=</span><span class="sb">`</span><span class="nb">ls</span> | xargs <span class="nt">-I</span> <span class="s1">'{}'</span> <span class="nb">basename</span> <span class="s1">'{}'</span> .html | gawk <span class="nt">-f</span> ../scripts/gen-tag-link.awk<span class="sb">`</span>
+
+<span class="nv">back_matter</span><span class="o">=</span><span class="si">$(</span><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+    &lt;/h4&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</span><span class="no">EOF
+</span><span class="si">)</span>
+
+<span class="nb">echo</span> <span class="s2">"</span><span class="nv">$front_matter</span><span class="s2">"</span> <span class="o">&gt;</span> ../tags.html
+<span class="nb">echo</span> <span class="s2">"</span><span class="nv">$sorted_tag_index</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> ../tags.html
+<span class="nb">echo</span> <span class="s2">"</span><span class="nv">$back_matter</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> ../tags.html
+</code></pre></div></div>
+
+<p>Here I use the <code class="language-plaintext highlighter-rouge">ls</code> command to list all tag HTML pages in the lexicographic order. This will not only order the English tag names but also Chinese tag names according to the phonetic alphabet. Then I use <code class="language-plaintext highlighter-rouge">xargs</code> to get the base file name of each tag page. Finally, I use an <code class="language-plaintext highlighter-rouge">Awk</code> script to generate a hyperlink to each tag as well as printing out the number of related blog posts.</p>
+
+<div class="language-awk highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="k">print</span> <span class="s2">"      &lt;a href=\""</span><span class="nv">$0</span><span class="s2">"\"&gt;"</span><span class="nv">$0</span><span class="s2">"()&lt;/a&gt;"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+  </div><a class="u-url" href="/computer/2023/04/02/generate-tag-pages-and-their-index-for-blog-posts-in-jekyll.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

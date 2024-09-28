@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Problems of preview-latex | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Problems of preview-latex" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="preview-latex is a handy function provided by AUCTeX for directly rendering LaTeX equations and inserted figures in a Emacs buffer under the latex-mode. lstlistings is LaTeX package for highlighting source code. According to my experience, when lstlistings package is used, preview-latex have the following problems, some of which can be overcome actually." />
+<meta property="og:description" content="preview-latex is a handy function provided by AUCTeX for directly rendering LaTeX equations and inserted figures in a Emacs buffer under the latex-mode. lstlistings is LaTeX package for highlighting source code. According to my experience, when lstlistings package is used, preview-latex have the following problems, some of which can be overcome actually." />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2023/10/21/problems-of-preview-latex.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2023/10/21/problems-of-preview-latex.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-10-21T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Problems of preview-latex" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2023-10-21T00:00:00+08:00","datePublished":"2023-10-21T00:00:00+08:00","description":"preview-latex is a handy function provided by AUCTeX for directly rendering LaTeX equations and inserted figures in a Emacs buffer under the latex-mode. lstlistings is LaTeX package for highlighting source code. According to my experience, when lstlistings package is used, preview-latex have the following problems, some of which can be overcome actually.","headline":"Problems of preview-latex","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2023/10/21/problems-of-preview-latex.html"},"url":"https://jihuan-tian.github.io/computer/2023/10/21/problems-of-preview-latex.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Problems of preview-latex</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-10-21T00:00:00+08:00" itemprop="datePublished">Oct 21, 2023 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/LaTeX">LaTeX</a>
+          
+            <a href="/tags/preview-latex">preview-latex</a>
+          
+            <a href="/tags/AUCTeX">AUCTeX</a>
+          
+            <a href="/tags/lstlistings">lstlistings</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><code class="language-plaintext highlighter-rouge">preview-latex</code> is a handy function provided by AUCTeX for directly rendering LaTeX equations and inserted figures in a Emacs buffer under the <code class="language-plaintext highlighter-rouge">latex-mode</code>. <code class="language-plaintext highlighter-rouge">lstlistings</code> is LaTeX package for highlighting source code. According to my experience, when <code class="language-plaintext highlighter-rouge">lstlistings</code> package is used, <code class="language-plaintext highlighter-rouge">preview-latex</code> have the following problems, some of which can be overcome actually.</p>
+
+<ul>
+  <li>
+    <p>When <code class="language-plaintext highlighter-rouge">\lstlistofalgorithms</code> appears at the end of a LaTeX document, <code class="language-plaintext highlighter-rouge">preview-latex</code> will get stuck and consume 100% CPU.</p>
+
+    <p>Solution: remove <code class="language-plaintext highlighter-rouge">sections</code> from the variable <code class="language-plaintext highlighter-rouge">preview-default-option-list</code> in <code class="language-plaintext highlighter-rouge">preview-latex</code>, which will stop processing <code class="language-plaintext highlighter-rouge">\lstlistofalgorithms</code>.</p>
+  </li>
+  <li>Preview of math symbols in a <code class="language-plaintext highlighter-rouge">lstlistings</code> algorithm is a mess.</li>
+  <li>Math symbols in an environment introduced by <code class="language-plaintext highlighter-rouge">ntheorem</code>, such as <code class="language-plaintext highlighter-rouge">Theorem</code>, <code class="language-plaintext highlighter-rouge">Definition</code>, <code class="language-plaintext highlighter-rouge">Remark</code>, etc., will become bold face in the preview.</li>
+  <li>
+    <p>A <code class="language-plaintext highlighter-rouge">\mbox</code> command appearing in the <code class="language-plaintext highlighter-rouge">postbreak</code> property of <code class="language-plaintext highlighter-rouge">lstlistings</code> configuration will make <code class="language-plaintext highlighter-rouge">preview-latex</code> fail.</p>
+
+    <p>As shown below, the <code class="language-plaintext highlighter-rouge">\mbox</code> command should be replaced with <code class="language-plaintext highlighter-rouge">\hbox</code>. The difference between <code class="language-plaintext highlighter-rouge">\mbox</code> and <code class="language-plaintext highlighter-rouge">\hbox</code> is <a href="https://tex.stackexchange.com/a/118169">here</a>.</p>
+
+    <div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\makeatletter</span>
+<span class="k">\@</span>ifclassloaded<span class="p">{</span>beamer<span class="p">}{</span>
+  <span class="k">\newsavebox\redarrow</span>
+  <span class="k">\sbox\redarrow</span><span class="p">{</span><span class="k">\raisebox</span><span class="p">{</span>0ex<span class="p">}</span>[0ex][0ex]<span class="p">{</span><span class="k">\ensuremath</span><span class="p">{</span><span class="k">\color</span><span class="p">{</span>red<span class="p">}</span><span class="k">\hookrightarrow\space</span><span class="p">}}}</span>
+  <span class="k">\lstset</span><span class="p">{</span>postbreak=<span class="k">\usebox\redarrow</span><span class="p">}</span>
+<span class="p">}{</span><span class="k">\lstset</span><span class="p">{</span>postbreak=<span class="k">\mbox</span><span class="p">{</span><span class="k">\textcolor</span><span class="p">{</span>red<span class="p">}{$</span><span class="nv">\hookrightarrow</span><span class="p">$}</span><span class="k">\space</span><span class="p">}}}</span>
+<span class="k">\makeatother</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+
+  </div><a class="u-url" href="/computer/2023/10/21/problems-of-preview-latex.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

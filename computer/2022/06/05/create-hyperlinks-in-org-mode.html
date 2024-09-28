@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Create hyperlinks in Org mode | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Create hyperlinks in Org mode" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Table of contents" />
+<meta property="og:description" content="Table of contents" />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2022/06/05/create-hyperlinks-in-org-mode.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2022/06/05/create-hyperlinks-in-org-mode.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-05T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Create hyperlinks in Org mode" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2022-06-05T00:00:00+08:00","datePublished":"2022-06-05T00:00:00+08:00","description":"Table of contents","headline":"Create hyperlinks in Org mode","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2022/06/05/create-hyperlinks-in-org-mode.html"},"url":"https://jihuan-tian.github.io/computer/2022/06/05/create-hyperlinks-in-org-mode.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Create hyperlinks in Org mode</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-06-05T00:00:00+08:00" itemprop="datePublished">Jun 5, 2022 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/Emacs">Emacs</a>
+          
+            <a href="/tags/Org-mode">Org-mode</a>
+          
+            <a href="/tags/知识联接">知识联接</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 class="no_toc" id="table-of-contents">Table of contents</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#insert-a-link-to-a-local-file" id="markdown-toc-insert-a-link-to-a-local-file">Insert a link to a local file</a></li>
+  <li><a href="#insert-a-link-to-a-directory" id="markdown-toc-insert-a-link-to-a-directory">Insert a link to a directory</a></li>
+  <li><a href="#insert-a-link-to-a-specific-position-in-a-local-pdf-file" id="markdown-toc-insert-a-link-to-a-specific-position-in-a-local-pdf-file">Insert a link to a specific position in a local PDF file</a></li>
+  <li><a href="#insert-a-link-to-a-specific-page-in-a-local-pdf-file" id="markdown-toc-insert-a-link-to-a-specific-page-in-a-local-pdf-file">Insert a link to a specific page in a local PDF file</a></li>
+  <li><a href="#insert-a-link-to-a-specific-position-in-a-local-libreoffice-file" id="markdown-toc-insert-a-link-to-a-specific-position-in-a-local-libreoffice-file">Insert a link to a specific position in a local LibreOffice file</a></li>
+  <li><a href="#insert-a-link-to-other-heading-in-the-current-org-file" id="markdown-toc-insert-a-link-to-other-heading-in-the-current-org-file">Insert a link to other heading in the current Org file</a></li>
+  <li><a href="#insert-a-link-to-other-heading-in-a-different-org-file" id="markdown-toc-insert-a-link-to-other-heading-in-a-different-org-file">Insert a link to other heading in a different Org file</a></li>
+  <li><a href="#insert-a-link-to-an-info-node-and-help-document" id="markdown-toc-insert-a-link-to-an-info-node-and-help-document">Insert a link to an Info node and help document</a></li>
+  <li><a href="#insert-a-link-to-a-joplin-note" id="markdown-toc-insert-a-link-to-a-joplin-note">Insert a link to a Joplin note</a></li>
+  <li><a href="#other-issues" id="markdown-toc-other-issues">Other issues</a>    <ul>
+      <li><a href="#cannot-open-a-hyperlink-to-a-local-folder" id="markdown-toc-cannot-open-a-hyperlink-to-a-local-folder">Cannot open a hyperlink to a local folder</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>This article summarizes several ways that I often use for insertion of hyperlinks in Emacs Org mode. They are very helpful for us to maintain inter-connected notes and documents.</p>
+
+<h1 id="insert-a-link-to-a-local-file">Insert a link to a local file</h1>
+
+<p>Press the hotkey <code class="language-plaintext highlighter-rouge">C-u C-c C-l</code> to insert a link to a file on your local computer. By setting the variable <code class="language-plaintext highlighter-rouge">org-link-file-path-type</code>’s value as <code class="language-plaintext highlighter-rouge">relative</code>, the link is relative to the current directory. This is useful to make it effective, when the whole directory tree containing the file is migrated or synchronized to other mount points or devices.</p>
+
+<p>Because I often use the <code class="language-plaintext highlighter-rouge">Helm</code> package for an interactive prompt of a file name or folder path, all the history files once selected via <code class="language-plaintext highlighter-rouge">Helm</code> can be quickly revisited. After pressing <code class="language-plaintext highlighter-rouge">C-u C-c C-l</code>, a further <code class="language-plaintext highlighter-rouge">C-c h</code> will trigger the <code class="language-plaintext highlighter-rouge">Helm</code> history. By navigating in the list of file names, we then come to the interested item. If it is to be used directly as the link target, press <code class="language-plaintext highlighter-rouge">F1</code>. If its name or path is to be modified before using, press <code class="language-plaintext highlighter-rouge">F2</code>. When the modification is finished, press <code class="language-plaintext highlighter-rouge">F1</code> to insert the final link.</p>
+
+<h1 id="insert-a-link-to-a-directory">Insert a link to a directory</h1>
+
+<p>When the target local file is a folder not an ordinary file, even though the link created for it as above can be opened in Emacs <code class="language-plaintext highlighter-rouge">Dired</code> by pressing <code class="language-plaintext highlighter-rouge">C-c C-o</code>, it cannot be opened correctly in the PDF document that is compiled from the exported LaTeX file. This is because the link will be appended with a <code class="language-plaintext highlighter-rouge">.pdf</code> extension by the <code class="language-plaintext highlighter-rouge">Hyperref</code> LaTeX package. To solve problem, manually replace the link’s identifying string <code class="language-plaintext highlighter-rouge">file</code> with <code class="language-plaintext highlighter-rouge">run</code> at the beginning of the link address.</p>
+
+<p><span class="timestamp-wrapper"><span class="timestamp">&lt;2022-07-15 Fri&gt; </span></span> However, when we export the Org contents into LaTeX using this method, there will be an error like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user-error: Unable to resolve link: "run:path-to-the-directory/"
+</code></pre></div></div>
+
+<p>According to <a href="https://tex.stackexchange.com/a/558242/84490">StackExchange</a>, a definitive method is to keep the <code class="language-plaintext highlighter-rouge">file</code> prefix intact and append a dot to the link address. This will prevent <code class="language-plaintext highlighter-rouge">Hyperref</code> from <em>presumptuously</em> adding the <code class="language-plaintext highlighter-rouge">.pdf</code> extension.</p>
+
+<h1 id="insert-a-link-to-a-specific-position-in-a-local-pdf-file">Insert a link to a specific position in a local PDF file</h1>
+
+<p>When the local file is a PDF document compiled from LaTeX, a link can be created with pinpoint accuracy to any LaTeX labels and <code class="language-plaintext highlighter-rouge">hypertargets</code>. Here a <code class="language-plaintext highlighter-rouge">hypertarget</code> is a macro in <code class="language-plaintext highlighter-rouge">Hyperref</code>, which can be used to create a named anchor like that in an HTML file. For example,</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\hypertarget</span><span class="p">{</span>anchor-name<span class="p">}{</span>text<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Then insert the link to the local file as usual in Org mode and append it with <code class="language-plaintext highlighter-rouge">#anchor-name</code>.</p>
+
+<p>To check existing named anchors or rather named destinations stored in the PDF file, use the <code class="language-plaintext highlighter-rouge">pdfinfo</code> command with the <code class="language-plaintext highlighter-rouge">-dests</code> option.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-dests Print a list of all named destinations. If a pagerange is specified using "-f" and
+"-l", only destinations in the page range are listed.
+</code></pre></div></div>
+
+<h1 id="insert-a-link-to-a-specific-page-in-a-local-pdf-file">Insert a link to a specific page in a local PDF file</h1>
+
+<p>Add a new item <code class="language-plaintext highlighter-rouge">("\\.pdf::\\([0-9]+\\)\\'" . "okular -p %1 %s")</code> to the alist variable <code class="language-plaintext highlighter-rouge">org-file-apps</code>. Then, when a hyperlink to a PDF file is appended with <code class="language-plaintext highlighter-rouge">::&lt;page-no&gt;</code>, the PDF file will be opened by Okular and directly jumps to the specified page.</p>
+
+<h1 id="insert-a-link-to-a-specific-position-in-a-local-libreoffice-file">Insert a link to a specific position in a local LibreOffice file</h1>
+
+<p>When the local file is a LibreOffice document, the method is same. Just open the navigation panel, from which any items in <code class="language-plaintext highlighter-rouge">Headings</code>, <code class="language-plaintext highlighter-rouge">Bookmarks</code> and <code class="language-plaintext highlighter-rouge">Hyperlinks</code> groups can be link to. The anchor names are their displayed names.</p>
+
+<h1 id="insert-a-link-to-other-heading-in-the-current-org-file">Insert a link to other heading in the current Org file</h1>
+
+<p>Execute the command <code class="language-plaintext highlighter-rouge">helm-org-in-buffer-headings</code> (this depends on the MELPA package <code class="language-plaintext highlighter-rouge">helm-org</code>), which corresponds to the menu item <code class="language-plaintext highlighter-rouge">&lt;tools&gt; &lt;Helm&gt; &lt;Org&gt; &lt;Org headlines in buffer&gt;</code>. Then input the heading text pattern or navigate through the list. Finally, press <code class="language-plaintext highlighter-rouge">F4</code> to insert the link. At present, I bind this function locally with the shortcut key <code class="language-plaintext highlighter-rouge">F7</code>.</p>
+
+<div class="language-emacs-lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">define-key</span> <span class="nv">org-mode-map</span> <span class="nv">[</span><span class="p">(</span><span class="nv">f7</span><span class="p">)</span><span class="nv">]</span> <span class="ss">'helm-org-in-buffer-headings</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="insert-a-link-to-other-heading-in-a-different-org-file">Insert a link to other heading in a different Org file</h1>
+
+<p>There are two cases here. When the target Org file has been registered in the Org file list <code class="language-plaintext highlighter-rouge">org-agenda-files</code>, execute the command <code class="language-plaintext highlighter-rouge">helm-org-agenda-files-headings</code> (this depends on the MELPA package <code class="language-plaintext highlighter-rouge">helm-org</code>), which corresponds to the menu item <code class="language-plaintext highlighter-rouge">&lt;tools&gt; &lt;Helm&gt; &lt;Org&gt; &lt;Org headlines in org agenda files&gt;</code>. Then input the pattern or navigate through the list. Finally, press <code class="language-plaintext highlighter-rouge">F4</code> to insert the link. At present, I bind this function with the shortcut key <code class="language-plaintext highlighter-rouge">Shift+F7</code>.</p>
+
+<div class="language-emacs-lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">define-key</span> <span class="nv">org-mode-map</span> <span class="nv">[</span><span class="p">(</span><span class="nv">shift</span> <span class="nv">f7</span><span class="p">)</span><span class="nv">]</span> <span class="ss">'helm-org-agenda-files-headings</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>When the target Org file has not been registered in <code class="language-plaintext highlighter-rouge">org-agenda-files</code>, we simply press <code class="language-plaintext highlighter-rouge">C-u C-c C-l</code> to insert a relative link to the file. Then we should manually append the target heading text prefixed by <code class="language-plaintext highlighter-rouge">::</code> to the link.</p>
+
+<h1 id="insert-a-link-to-an-info-node-and-help-document">Insert a link to an Info node and help document</h1>
+
+<p>It is convenient to browse Info documents about various programs and libraries on Linux in Emacs. If we want to refer to a particular Info node from an Org note, it is possible to create a hyperlink to it using the link type <code class="language-plaintext highlighter-rouge">elisp:</code>.</p>
+
+<p>First, we should get a copy of the Info node name by pressing <code class="language-plaintext highlighter-rouge">c</code> in an <code class="language-plaintext highlighter-rouge">Info</code> session. Then back in Org mode, we create a hyperlink as <code class="language-plaintext highlighter-rouge">[[elisp:(info "&lt;info-node-name&gt;")][&lt;link-name&gt;]]</code>.</p>
+
+<p>Similarly, a hyperlink can also be created in Org which jumps to the help of a function, variable or key-bindings, etc. For example,</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">[[elisp:(describe-function 'car)][elisp function car]]</code> links to the help document of the elisp function <code class="language-plaintext highlighter-rouge">car</code>;</li>
+  <li><code class="language-plaintext highlighter-rouge">[[elisp:(describe-variable 'debug-on-error)][elisp variable debug-on-error]]</code> links to the help document of the lisp variable <code class="language-plaintext highlighter-rouge">debug-on-error</code>;</li>
+  <li><code class="language-plaintext highlighter-rouge">[[elisp:(describe-key (kbd "C-c C-c"))][Key binding C-c C-c]]</code> links to the help document of the key binding <code class="language-plaintext highlighter-rouge">C-c C-c</code>.</li>
+</ul>
+
+<p>In addition to using the link type <code class="language-plaintext highlighter-rouge">elisp:</code>, a simpler method is to use the hyperlink type <code class="language-plaintext highlighter-rouge">info:</code> for Info document and <code class="language-plaintext highlighter-rouge">help:</code> for help document. For example, <code class="language-plaintext highlighter-rouge">[[info:elisp#Introduction][Elisp Introduction section]]</code> links to the “Introduction” section in the Elisp Info document and <code class="language-plaintext highlighter-rouge">[[help:debug-on-error][debug-on-error]]</code> links to the help document for the elisp variable <code class="language-plaintext highlighter-rouge">debug-on-error</code>.</p>
+
+<h1 id="insert-a-link-to-a-joplin-note">Insert a link to a Joplin note</h1>
+
+<p>The external URL link for a Joplin note looks like this, which is not supported by Emacs Org mode.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>joplin://x-callback-url/openNote?id=a700a59f8a054e1aab97c296bf72fe3d
+</code></pre></div></div>
+
+<p>To make Org mode able to handle this link, we should add a new link type <code class="language-plaintext highlighter-rouge">joplin</code> by calling the <code class="language-plaintext highlighter-rouge">elisp</code> function <code class="language-plaintext highlighter-rouge">org-link-set-parameters</code>.</p>
+
+<div class="language-emacs-lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">org-link-set-parameters</span>
+ <span class="c1">;; Name of the link type for Joplin node external URL link.</span>
+ <span class="s">"joplin"</span>
+ <span class="c1">;; Define the action when clicking on the link.</span>
+ <span class="ss">:follow</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nv">url</span><span class="p">)</span>
+           <span class="c1">;; Open the link with the joplin script.</span>
+           <span class="p">(</span><span class="nv">start-process</span> <span class="s">"Joplin Session"</span> <span class="no">nil</span> <span class="s">"joplin"</span> <span class="p">(</span><span class="nv">concat</span> <span class="s">"joplin:"</span> <span class="nv">url</span><span class="p">))))</span>
+</code></pre></div></div>
+
+<p>In this function, we call the Joplin program using <code class="language-plaintext highlighter-rouge">start-process</code> and pass the full URL to it. The argument <code class="language-plaintext highlighter-rouge">url</code> of the <code class="language-plaintext highlighter-rouge">lambda</code> function associated with the <code class="language-plaintext highlighter-rouge">follow</code> action contains the string after the comma in the original link, i.e. <code class="language-plaintext highlighter-rouge">//x-callback-url/openNote?id=a700a59f8a054e1aab97c296bf72fe3d</code>. Therefore, we use <code class="language-plaintext highlighter-rouge">concat</code> to restore the original link. The second parameter of <code class="language-plaintext highlighter-rouge">start-process</code> is <code class="language-plaintext highlighter-rouge">nil</code>, which prevents Emacs from creating a buffer for the process.</p>
+
+<h1 id="other-issues">Other issues</h1>
+
+<h2 id="cannot-open-a-hyperlink-to-a-local-folder">Cannot open a hyperlink to a local folder</h2>
+
+<p>Sometimes when I click on the hyperlink to a folder in the local file system, the message below appears in the mini buffer without opening the directory in Dired.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Running less /directory/to/my/folder/...done
+</code></pre></div></div>
+
+<p>Solution: Add the item <code class="language-plaintext highlighter-rouge">(directory . emacs)</code> to the alist variable <code class="language-plaintext highlighter-rouge">org-file-apps</code>.</p>
+
+<p>Backlinks: <a href="/computer/2022/07/30/create-link-to-joplin-notes-in-emacs-org-mode.html">《Create link to Joplin notes in Emacs Org mode》</a>, <a href="/computer/2023/03/17/create-link-to-info-node-and-help-doc.html">《Create link to Info node and help document in Emacs Org mode》</a></p>
+
+  </div><a class="u-url" href="/computer/2022/06/05/create-hyperlinks-in-org-mode.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

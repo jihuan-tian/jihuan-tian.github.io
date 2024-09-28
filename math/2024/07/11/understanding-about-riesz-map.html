@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Understanding about Riesz map | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Understanding about Riesz map" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Contents  1 Riesz representation theorem (Brezis)  2 Construction of the Riesz map as a preconditioner   2.1 Riesz map to be used as a preconditioner depends on the definition of inner product   2.2 Riesz map as a baseline preconditioner  3 Construction of the Riesz map as a space adaptor   3.1 Issue of implicit range spaces in BEM   3.2 Mass matrix as space projection   3.3 Riesz map for transforming a function from dual space to range space" />
+<meta property="og:description" content="Contents  1 Riesz representation theorem (Brezis)  2 Construction of the Riesz map as a preconditioner   2.1 Riesz map to be used as a preconditioner depends on the definition of inner product   2.2 Riesz map as a baseline preconditioner  3 Construction of the Riesz map as a space adaptor   3.1 Issue of implicit range spaces in BEM   3.2 Mass matrix as space projection   3.3 Riesz map for transforming a function from dual space to range space" />
+<link rel="canonical" href="https://jihuan-tian.github.io/math/2024/07/11/understanding-about-riesz-map.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/math/2024/07/11/understanding-about-riesz-map.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-07-11T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Understanding about Riesz map" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2024-07-11T00:00:00+08:00","datePublished":"2024-07-11T00:00:00+08:00","description":"Contents  1 Riesz representation theorem (Brezis)  2 Construction of the Riesz map as a preconditioner   2.1 Riesz map to be used as a preconditioner depends on the definition of inner product   2.2 Riesz map as a baseline preconditioner  3 Construction of the Riesz map as a space adaptor   3.1 Issue of implicit range spaces in BEM   3.2 Mass matrix as space projection   3.3 Riesz map for transforming a function from dual space to range space","headline":"Understanding about Riesz map","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2024/07/11/understanding-about-riesz-map.html"},"url":"https://jihuan-tian.github.io/math/2024/07/11/understanding-about-riesz-map.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+    <link rel="stylesheet" href="/assets/css/make4ht.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"></script>
+
+  
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Understanding about Riesz map</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-07-11T00:00:00+08:00" itemprop="datePublished">Jul 11, 2024 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/math">Math</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/FEM">FEM</a>
+          
+            <a href="/tags/BEM">BEM</a>
+          
+            <a href="/tags/PDE">PDE</a>
+          
+            <a href="/tags/functional-analysis">functional-analysis</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
+   <div class='tableofcontents'>
+    <span class='sectionToc'>1 <a href='#x1-20001' id='QQ2-1-2'>Riesz representation theorem (Brezis)</a></span>
+<br />    <span class='sectionToc'>2 <a href='#x1-30002' id='QQ2-1-3'>Construction of the Riesz map as a preconditioner</a></span>
+<br />     <span class='subsectionToc'>2.1 <a href='#x1-40002.1' id='QQ2-1-4'>Riesz map to be used as a preconditioner depends on the
+definition of inner product</a></span>
+<br />     <span class='subsectionToc'>2.2 <a href='#x1-50002.2' id='QQ2-1-5'>Riesz map as a baseline preconditioner</a></span>
+<br />    <span class='sectionToc'>3 <a href='#x1-60003' id='QQ2-1-6'>Construction of the Riesz map as a space adaptor</a></span>
+<br />     <span class='subsectionToc'>3.1 <a href='#x1-70003.1' id='QQ2-1-7'>Issue of implicit range spaces in BEM</a></span>
+<br />     <span class='subsectionToc'>3.2 <a href='#x1-80003.2' id='QQ2-1-8'>Mass matrix as space projection</a></span>
+<br />     <span class='subsectionToc'>3.3 <a href='#x1-90003.3' id='QQ2-1-9'>Riesz map for transforming a function from dual space to range space</a></span>
+   </div>
+
+<h3 class='sectionHead'><span class='titlemark'>1    </span> <a id='x1-20001'></a>Riesz representation theorem (<a href='#XBrezisFunctional2011'>Brezis</a>)</h3>
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 27 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 1 (Riesz-Fréchet representation theorem)</span> </span><a id='x1-2002'></a><span class='p1xi-x-x-109'>Let </span>\(H\) <span class='p1xi-x-x-109'>be a Hilbert space and </span>\(H'\) <span class='p1xi-x-x-109'>be its dual space. </span>\(\left ( \cdot ,\cdot \right )\) <span class='p1xi-x-x-109'>is the
+</span><span class='p1xi-x-x-109'>inner product on </span>\(H\)<span class='p1xi-x-x-109'>. </span>\(\left \langle \cdot ,\cdot \right \rangle \) <span class='p1xi-x-x-109'>is the duality pairing between </span>\(H\) <span class='p1xi-x-x-109'>and </span>\(H'\)<span class='p1xi-x-x-109'>. Given any </span>\(f \in H'\)<span class='p1xi-x-x-109'>, there exits a unique </span>\(u \in H\) <span class='p1xi-x-x-109'>such that </span>\begin{equation}  \label {eq:riesz-representation} \left \langle f,v \right \rangle = \left ( u,v \right ) \quad \forall v\in H  \end{equation}<a id='x1-2003r1'></a> <span class='p1xi-x-x-109'>and </span>\(\lVert f \rVert _{H'} = \lVert u \rVert _H\)<span class='p1xi-x-x-109'>.</span>
+</p>
+   </div>
+<!-- l. 35 --><p class='indent'>   </p></div>
+                                                                                               
+                                                                                               
+<!-- l. 37 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>2    </span> <a id='x1-30002'></a>Construction of the Riesz map as a preconditioner</h3>
+<!-- l. 39 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>2.1    </span> <a id='x1-40002.1'></a>Riesz map to be used as a preconditioner depends on the definition of inner product</h4>
+<!-- l. 41 --><p class='noindent'>The two functions in the duality pairing on the left hand side of Equation (<a href='#x1-2003r1'>1<!-- tex4ht:ref: eq:riesz-representation  --></a>) have different roles: \(f\) is the bounded
+linear functional and \(v\) is the object to be operated by it. The two functions \(u\)and \(v\) in the inner product on the right
+hand side have the same identity. This theorem states that there is an isometric isomorphism between a Hilbert
+space and its dual space.
+</p><!-- l. 43 --><p class='indent'>   Riesz map is a map from the dual space \(H'\) to the primal space \(H\), i.e. \(\tau : H' \rightarrow H\). Hence, the Riesz-Fréchet theorem can be
+written as \begin{equation}  \left ( \tau f, v \right ) = \left \langle f, v \right \rangle \quad \forall v \in H  \end{equation}<a id='x1-4001r2'></a> and \(\lVert \tau f \rVert _H = \lVert f \rVert _{H'}\). The Riesz map depends on the definition of the inner product on \(H\). Here are three
+examples.
+</p><!-- l. 49 --><p class='indent'>
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-4003x1'>
+     <!-- l. 50 --><p class='noindent'>Use the canonical \(L_2\) inner product on \(H\). Then \begin{equation}  \left ( \tau f, v \right ) = \int _{\Omega } (\tau f) v \intd x.  \end{equation}<a id='x1-4004r3'></a> Equate it to the duality pairing \(\left \langle f, v \right \rangle \): \begin{equation}  \int _{\Omega } (\tau f) v \intd x = \left \langle f, v \right \rangle \quad \forall v\in H.  \end{equation}<a id='x1-4005r4'></a> If we treat \(\tau f\) (as a whole) as the
+     solution to be sought, this equation is actually in the weak form or variational form. By introducing the
+     identity operator \(I: H \rightarrow H'\), the integral on the left hand side can be written as a bilinear form, \begin{equation}  \left \langle I (\tau f), v \right \rangle = \left \langle f, v \right \rangle \quad \forall v\in H.  \end{equation}<a id='x1-4006r5'></a> The strong
+     form or operator form of the equation is \begin{equation}  I (\tau f) = f.  \end{equation}<a id='x1-4007r6'></a> Then the Riesz map \(\tau \) is the inverse operator of \(I\), i.e.
+     \(I^{-1}\).
+     </p><!-- l. 68 --><p class='noindent'>Now we want to see the discretized matrix form of the operators \(I\) and \(\tau \). The discretization is carried out
+     using the Galerkin method. Let \(H_h\) be a finite dimensional subspace of the primal space \(H\) with the basis \(\left \{\varphi _1,\cdots ,\varphi _n \right \}\), and \(H_h'\)
+     be a finite dimensional subspace of the dual space \(H'\) with the basis \(\left ( \psi _1,\cdots ,\psi _m \right )\). The matrix for \(I\) is \begin{equation}  \mathcal {M}_{ij} = \left \langle I\varphi _j, \varphi _i \right \rangle = \left ( \varphi _j, \varphi _i \right ),  \end{equation}<a id='x1-4008r7'></a> and the matrix for \(\tau \) is
+     \(\mathcal {M}^{-1}\).
+</p>
+     <div class='newtheorem'>
+     <!-- l. 74 --><p class='noindent'><span class='head'>
+     <span class='p1xb-x-x-109'>Comment 1</span> </span><a id='x1-4010'></a><span class='p1xi-x-x-109'>Here we directly use the matrix coefficient </span>\(\mathcal {M}_{ij}\) <span class='p1xi-x-x-109'>as a representation of the whole matrix </span>\(\mathcal {M}\)<span class='p1xi-x-x-109'>. Such
+     </span><span class='p1xi-x-x-109'>a representation is unambiguous and is consistent with the convention for writing tensors in differential
+     </span><span class='p1xi-x-x-109'>geometry. Because </span>\(I\) <span class='p1xi-x-x-109'>maps </span>\(\varphi _j\) <span class='p1xi-x-x-109'>in </span>\(H\) <span class='p1xi-x-x-109'>to a same function in </span>\(H'\)<span class='p1xi-x-x-109'>, the duality pairing of </span>\(I\varphi _j\) <span class='p1xi-x-x-109'>and </span>\(\varphi _i\) <span class='p1xi-x-x-109'>is actually the </span>\(L_2\) <span class='p1xi-x-x-109'>inner product
+     </span><span class='p1xi-x-x-109'>of </span>\(\varphi _j\) <span class='p1xi-x-x-109'>and </span>\(\varphi _i\)<span class='p1xi-x-x-109'>.</span>
+</p>
+     </div>
+     <!-- l. 76 --><p class='noindent'>
+</p>
+     <div class='definition'><div class='newtheorem'>
+     <!-- l. 78 --><p class='noindent'><span class='head'>
+                                                                                               
+                                                                                               
+     <span class='p1xb-x-x-109'>Definition 1 (Mass matrix)</span> </span><a id='x1-4012'></a>The matrix \(\mathcal {M}\) with its elements being the inner product between each
+     pair of basis functions of \(H\) is called the mass matrix with respect to \(H\). <a id='x1-40111'></a>
+</p>
+     </div>
+     <!-- l. 81 --><p class='noindent'></p></div>
+     </li>
+<li class='enumerate' id='x1-4014x2'>
+     <!-- l. 83 --><p class='noindent'>If \(H\) is the Sobolev space \(H_0^1(\Omega )\), we can use the inner product inherited from \(H^1(\Omega )\): \begin{equation}  \left ( u,v \right )_{H^1(\Omega )} = \int _{\Omega } \left ( \nabla u \cdot \nabla v + uv \right ) \intd x.  \end{equation}<a id='x1-4015r8'></a> Then the left hand side of Equation
+     (<a href='#x1-2003r1'>1<!-- tex4ht:ref: eq:riesz-representation  --></a>) is \begin{equation}  \left ( \tau f, v \right ) = \int _{\Omega } \left ( \nabla (\tau f)\cdot (\nabla v) + (\tau f) v \right ) \intd x.  \end{equation}<a id='x1-4016r9'></a> The corresponding weak form is \begin{equation}  \left ( \tau f, v \right ) = \int _{\Omega } \left ( \nabla (\tau f)\cdot (\nabla v) + (\tau f) v \right ) \intd x = \left \langle f, v \right \rangle \quad \forall v\in H.  \end{equation}<a id='x1-4017r10'></a> Its strong form is \begin{equation}  -\Delta (\tau f) + \tau f = f,  \end{equation}<a id='x1-4018r11'></a> i.e. \begin{equation}  \left ( -\Delta + I \right )(\tau f) = f.  \end{equation}<a id='x1-4019r12'></a> This is just the Helmholtz equation and \(\tau f\) is its
+     solution. Solving \(\tau f\) for this equation with the given data \(f\) has the same effect as the Riesz map
+     \(\tau \). Therefore, using the above inner product, the Riesz map is the inverse of the Helmholtz
+     operator.
+     </p><!-- l. 105 --><p class='noindent'>The matrix derived from the weak form of the Helmholtz operator is \begin{equation}  \mathcal {H}_{ij} = \int _{\Omega } \left ( \nabla \varphi _j \cdot \nabla \varphi _i + \varphi _j \varphi _i \right ) \intd x.  \end{equation}<a id='x1-4020r13'></a> The matrix for \(\tau \) is \(\mathcal {H}^{-1}\). \(\mathcal {H}\) can also be
+     understood as a new <span class='p1xb-x-x-109'>mass matrix </span>with respect to the above inner product.
+     </p></li>
+<li class='enumerate' id='x1-4022x3'>
+     <!-- l. 111 --><p class='noindent'>In this case, \(H\) is still \(H_0^1(\Omega )\), but the inner product becomes \begin{equation}  \left ( u,v \right )_{H^1(\Omega )} = \int _{\Omega } \nabla u \cdot \nabla v \intd x.  \end{equation}<a id='x1-4023r14'></a> This inner product induces the semi-norm on \(H^1(\Omega )\), which is
+     also a norm on \(H_0^1(\Omega )\).
+     </p><!-- l. 117 --><p class='noindent'>The weak form equation is \begin{equation}  \int _{\Omega } \nabla (\tau f) \cdot (\nabla v) \intd x = \left \langle f, v \right \rangle \quad \forall v\in H.  \end{equation}<a id='x1-4024r15'></a> The strong form is \begin{equation}  -\Delta (\tau f) = f.  \end{equation}<a id='x1-4025r16'></a> This is just the Poisson equation. Riesz map \(\tau \) is
+     the inverse of the Laplace operator. The matrix for the Laplace operator is \begin{equation}  \mathcal {L}_{ij} = \int _{\Omega } \nabla \varphi _j \cdot \nabla \varphi _i \intd x.  \end{equation}<a id='x1-4026r17'></a> Similarly, \(\mathcal {L}\) can
+     be understood as a <span class='p1xb-x-x-109'>mass matrix </span>with respect to the above inner product. The matrix for \(\tau \) is
+     \(\mathcal {L}^{-1}\).</p></li></ol>
+<!-- l. 132 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>2.2    </span> <a id='x1-50002.2'></a>Riesz map as a baseline preconditioner</h4>
+<!-- l. 134 --><p class='noindent'>From above we can see that the Riesz map from \(H'\) to \(H\) is actually the inverse of a differential operator \(\tilde {A}: H \rightarrow H'\), or it
+can also be understood as a kind of mass matrix which depends on the inner product adopted for
+\(H\). According to (<a href='#XMardalPreconditioning2011'>Mardal and Winther</a>), a preconditioner \(B\) is an isomorphism from \(H'\) to \(H\). Therefore,
+the Riesz map can be considered as a preconditioner, even though it is not optimal according to
+(<a href='#XKirbyFunctional2010'>Kirby</a>).
+</p><!-- l. 136 --><p class='indent'>   Since a Riesz map is the inverse of \(\tilde {A}\), its matrix form usually cannot be directly assembled. We can first
+assemble the matrix \(\widetilde {\mathcal {A}}\) for the operator \(\tilde {A}\), then compute the approximate inverse of \(\widetilde {\mathcal {A}}\). In practice, when we use a
+preconditioner in an iterative solver, only matrix/vector multiplication is needed and a direct computation of
+matrix inverse is avoided. Instead, the linear system \(\widetilde {\mathcal {A}}x = y\) is to be solved, which has the same effect as
+\(\tilde {\mathcal {A}}^{-1}y\).
+</p>
+                                                                                               
+                                                                                               
+   <div class='newtheorem'>
+<!-- l. 138 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Comment 2</span> </span><a id='x1-5002'></a><span class='p1xi-x-x-109'>As        an        operator,        the        Riesz        map        </span>\(\tau \)        <span class='p1xi-x-x-109'>maps        from        </span>\(H'\)        <span class='p1xi-x-x-109'>to        </span>\(H\)<span class='p1xi-x-x-109'>.        As
+</span><span class='p1xi-x-x-109'>an       inverse       matrix       </span>\(\tilde {\mathcal {A}}^{-1}\)<span class='p1xi-x-x-109'>,       the       matrix       </span>\(\tau \)       <span class='p1xi-x-x-109'>have       row       and       column       spaces       as       </span>\((H_h, H_h)\)
+<span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-5003f1'></a> <span class='p1xi-x-x-109'>.
+</span><span class='p1xi-x-x-109'>At the first glance, it seems that the matrix spaces </span>\(\left ( H_h,H_h \right )\) <span class='p1xi-x-x-109'>do not match the operator spaces </span>\(H' \rightarrow H\)<span class='p1xi-x-x-109'>. However, this is actually
+</span><span class='p1xi-x-x-109'>correct, since </span>\(\tilde {\mathcal {A}}\) <span class='p1xi-x-x-109'>is derived from the weak form of the differential operator </span>\(\tilde {A}\)<span class='p1xi-x-x-109'>, whose row and column spaces are </span>\(\left ( H_h,H_h \right )\)<span class='p1xi-x-x-109'>. These
+</span><span class='p1xi-x-x-109'>spaces are just the same as those of the stiff matrix of the PDE. Therefore, the matrix for the Riesz map can be
+</span><span class='p1xi-x-x-109'>directly applied to the stiff matrix as a preconditioner.</span>
+</p>
+   </div>
+<!-- l. 140 --><p class='indent'>
+</p><!-- l. 142 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>3    </span> <a id='x1-60003'></a>Construction of the Riesz map as a space adaptor</h3>
+<!-- l. 144 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>3.1    </span> <a id='x1-70003.1'></a>Issue of implicit range spaces in BEM</h4>
+<!-- l. 146 --><p class='noindent'>In (<a href='#XBetckeProduct2017'>Betcke et al.</a>), product algebra is proposed for handling the discretization of the composition of
+two operators used in BEM. Being different from FEM, BEM has the issue of implicit range spaces
+(<a href='/math/2024/07/04/domain-range-and-dual-spaces-in-bem.html'>Domain, range and dual spaces in BEM</a>). When there is a composition of two
+operators \(BA\), \(C=BA\) cannot be discretized as a whole usually. Then it is natural for us to build the two matrices
+for \(A\) and \(B\) first. Then we use \(\mathcal {A}\) and \(\mathcal {B}\) to construct the matrix \(\mathcal {C}\) for \(C\). However, \(\mathcal {C}\) is usually not a direct
+product of \(\mathcal {A}\) and \(\mathcal {B}\). Actually, after discretization, the range space of \(A\) is hidden and the test space of
+\(A\), which is the row space of \(\mathcal {A}\) does not match the domain space of \(B\), which is the column space of
+\(\mathcal {B}\).
+</p><!-- l. 148 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>3.2    </span> <a id='x1-80003.2'></a>Mass matrix as space projection</h4>
+<!-- l. 150 --><p class='noindent'>Definitions of the operators and matrices which are related to \(BA\): </p>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 152 --><p class='noindent'>\(A: \mathcal {H}_A^{\mathrm {dom}} \rightarrow \mathcal {H}_A^{\mathrm {ran}}\);
+                                                                                               
+                                                                                               
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 153 --><p class='noindent'>\(B: \mathcal {H}_{B}^{\mathrm {dom}} \rightarrow \mathcal {H}_{B}^{\mathrm {ran}}\) with \(\mathcal {H}_{A}^{\mathrm {ran}} \subset \mathcal {H}_{B}^{\mathrm {dom}}\), which makes the composition of \(A\) and \(B\) meaningful;
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 154 --><p class='noindent'>The identity maps \(M_A\) and \(M_B\) from the corresponding range space to dual space;
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 155 --><p class='noindent'>The mass matrices \(\mathcal {M}_A\) and \(\mathcal {M}_B\) associated with the identity maps;
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 156 --><p class='noindent'>The Riesz maps \(M_A^{-1}\) and \(M_B^{-1}\) as the inverse maps of \(M_A\) and \(M_B\) respectively;
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 157 --><p class='noindent'>The matrices for the Riesz maps \(\mathcal {M}_A^{-1}\) and \(\mathcal {M}_B^{-1}\).</p></li></ul>
+<!-- l. 160 --><p class='indent'>   The following commutative diagram shows the relationship between function spaces, when we are dealing
+with the discretization of \(BA\). </p><figure class='figure'> 
+
+                                                                                               
+                                                                                               
+                                                                                               
+                                                                                               
+<!-- l. 164 --><p class='noindent'><img alt='PIC' src='/figures/2024-07-11-cd-for-ba-discretization.png' />
+                                                                                               
+                                                                                               
+</p>
+   </figure>
+<!-- l. 167 --><p class='indent'>   Taking the operator \(A\) as example. Let \(\left \{ \varphi _1,\cdots ,\varphi _n \right \}\) be the basis of the finite dimensional subspace \(\mathcal {V}_h^{\mathrm {ran}}\) of the range space \(\mathcal {H}_A^{\mathrm {ran}}\). Let \(\left \{ \psi _1,\cdots ,\psi _m \right \}\)
+be the basis of the finite dimensional subspace \(\mathcal {V}_h^{\mathrm {dual}}\) of the dual space \(\mathcal {H}_A^{\mathrm {dual}}\). Then the mass matrix \(\mathcal {M}_A\) is \begin{equation}  \left ( \mathcal {M}_A \right )_{ij} = \left \langle \varphi _j, \psi _i \right \rangle .  \end{equation}<a id='x1-8001r18'></a> This is the projection
+of each basis function in the range space to each basis function in the dual space. The formulation of this mass
+matrix involves two different spaces and the projection of basis function is evaluated via the duality pairing.
+However, when the Riesz map is used as a preconditioner as in Section <a href='#x1-30002'>2<!-- tex4ht:ref: sec:org690cf71  --></a>, the mass matrix involves only
+the primal space without its dual and the projection of basis function is evaluated via the inner
+product.
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>3.3    </span> <a id='x1-90003.3'></a>Riesz map for transforming a function from dual space to range space</h4>
+<!-- l. 175 --><p class='noindent'>The Riesz map \(M_A^{-1}: \mathcal {H}_A^{\mathrm {dual}} \rightarrow \mathcal {H}_{A}^{\mathrm {ran}}\) is the inverse of the identity operator from the range space to the dual space. For short, we write
+it as \(M_A^{-1}: H' \rightarrow H\). The associated matrix \(\mathcal {M}_A^{-1}\) have row and column spaces as \(\left ( H_h, H_h' \right )\), which are compatible with the operator spaces.
+This is different from the case when the Riesz map is used as a preconditioner.
+</p><!-- l. 177 --><p class='indent'>   By following the red route in the above diagram, the matrix \(\mathcal {C}\) can be obtained as \begin{equation}  \mathcal {C}=\mathcal {B} \mathcal {M}_A^{-1} \mathcal {A}.  \end{equation}<a id='x1-9001r19'></a> Let \(u\) be a function in \(\mathcal {H}_{A}^{\mathrm {dom}}\). In the
+finite dimensional subspace, its associated vector is \(\vect {u}\). Then applying \(\mathcal {C}\) to \(\vect {u}\), we obtain a vector in the weak form, i.e.
+in the dual space \(\mathcal {H}_{B}^{\mathrm {dual}}\): \begin{equation}  \mathcal {B} \mathcal {M}_A^{-1} \mathcal {A} \vect {u}.  \end{equation}<a id='x1-9002r20'></a> If we further apply the Riesz matrix \(\mathcal {M}_B^{-1}\), we have the vector in the strong form, i.e. in the range
+space \(\mathcal {H}_{B}^{\mathrm {ran}}\): \begin{equation}  \mathcal {M}_B^{-1} \mathcal {B} \mathcal {M}_A^{-1} \mathcal {A} \vect {u}.  \end{equation}<a id='x1-9003r21'></a>
+</p><!-- l. 1 --><p class='noindent'>
+</p>
+   <h3 class='likesectionHead'><a id='x1-10000'></a>References</h3>
+<!-- l. 1 --><p class='noindent'>
+  </p><div class='thebibliography'>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XBetckeProduct2017'></a><span class='bibsp'>   </span></span>Timo Betcke, Matthew Scroggs, and Wojciech Smigaj. Product algebras for galerkin discretisations of
+  boundary integral operators and their applications. URL <a class='url' href='http://arxiv.org/abs/1711.10607'><span class='t1xtt-x-x-109'>http://arxiv.org/abs/1711.10607</span></a>.
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XBrezisFunctional2011'></a><span class='bibsp'>   </span></span>Haim  Brezis.   <span class='p1xi-x-x-109'>Functional  Analysis,  Sobolev  Spaces  and  Partial  Differential  Equations</span>.   Springer.   ISBN
+  978-0-387-70913-0 978-0-387-70914-7. doi: 10.1007/978-0-387-70914-7.
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XKirbyFunctional2010'></a><span class='bibsp'>   </span></span>Robert C. Kirby.  From functional analysis to iterative methods.  52(2):269–293.  ISSN 0036-1445.  doi:
+  10.1137/070706914.
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XMardalPreconditioning2011'></a><span class='bibsp'>   </span></span>Kent-Andre  Mardal  and  Ragnar  Winther.    Preconditioning  discretizations  of  systems  of  partial
+  differential equations. 18(1):1–40. ISSN 1099-1506. doi: 10.1002/nla.716.
+</p>
+                                                                                               
+                                                                                               
+  </div>
+   <div class='footnotes'><a id='x1-5004x1'></a>
+<!-- l. 139 --><p class='indent'>      <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-90'>Here we write the row space in front of the column space for a matrix as the Galerkin discretization of an operator.</span></p>    </div>
+
+<p></p>
+
+  </div><a class="u-url" href="/math/2024/07/11/understanding-about-riesz-map.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Link C++ code with GNU Octave | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Link C++ code with GNU Octave" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Table of contents" />
+<meta property="og:description" content="Table of contents" />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2022/08/08/link-cpp-code-with-gnu-octave.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2022/08/08/link-cpp-code-with-gnu-octave.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-08T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Link C++ code with GNU Octave" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2022-08-08T00:00:00+08:00","datePublished":"2022-08-08T00:00:00+08:00","description":"Table of contents","headline":"Link C++ code with GNU Octave","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2022/08/08/link-cpp-code-with-gnu-octave.html"},"url":"https://jihuan-tian.github.io/computer/2022/08/08/link-cpp-code-with-gnu-octave.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Link C++ code with GNU Octave</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-08-08T00:00:00+08:00" itemprop="datePublished">Aug 8, 2022 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/C++">C++</a>
+          
+            <a href="/tags/Octave">Octave</a>
+          
+            <a href="/tags/算法开发">算法开发</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 class="no_toc" id="table-of-contents">Table of contents</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#generate-oct-module" id="markdown-toc-generate-oct-module">Generate oct module</a></li>
+  <li><a href="#generate-standalone-program" id="markdown-toc-generate-standalone-program">Generate standalone program</a></li>
+  <li><a href="#common-flags-and-variables-used-by-mkoctfile" id="markdown-toc-common-flags-and-variables-used-by-mkoctfile">Common flags and variables used by mkoctfile</a></li>
+</ul>
+
+<p>To realize the concept of <a href="/thoughts/2022/05/02/ship-of-theseus-and-scientific-software-development.html">Ship of Theseus</a> for scientific software development, it is requisite to interface C++ libraries with GNU Octave. In the following, I’ll introduce the key commands for compiling C++ source code and linking with Octave.</p>
+
+<h1 id="generate-oct-module">Generate oct module</h1>
+
+<p>To generate an <code class="language-plaintext highlighter-rouge">oct</code> module, which is in binary format and can be directly called from an Octave session like a normal <code class="language-plaintext highlighter-rouge">.m</code> script, the command <code class="language-plaintext highlighter-rouge">mkoctfile</code> should be used.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkoctfile <span class="o">[</span>OPTIONS] oct_module.cc
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">mkoctfile</code> calls the default C++ compiler, such as <code class="language-plaintext highlighter-rouge">g++</code>, and will automatically configures the necessary include path, library search path and library name for linking with Octave’s core library <code class="language-plaintext highlighter-rouge">liboctave.so</code> (N.B. On Linux, this library is not located in <code class="language-plaintext highlighter-rouge">/usr/lib</code> but in <code class="language-plaintext highlighter-rouge">/usr/lib/x86_64-linux-gnu</code>). Moreover, in-house or third-party header files and libraries can be introduced into the compiling and linking process, which significantly expands the capability of our <code class="language-plaintext highlighter-rouge">oct</code> file to be implemented. Therefore, the command options of <code class="language-plaintext highlighter-rouge">mkoctfile</code> are quite similar to those of a C++ compiler. For example,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-I DIR: include directory for searching header files.
+-D DEF: definition of compiler macros.
+-l LIB: library to be linked.
+-L DIR: directory for searching libraries.
+-c: compile but do not link.
+-g: enable debugging options.
+-o FILE: specify output file name.
+</code></pre></div></div>
+
+<h1 id="generate-standalone-program">Generate standalone program</h1>
+
+<p>Instead of running a compiled <code class="language-plaintext highlighter-rouge">oct</code> in an Octave session, if we want to make a standalone C++ program which relies on the data structure and functions provided by Octave, execute <code class="language-plaintext highlighter-rouge">mkoctfile</code> with the <code class="language-plaintext highlighter-rouge">--link-stand-alone</code> option.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkoctfile <span class="nt">--link-stand-alone</span> standalone_program.cc <span class="nt">-o</span> standalone_program.out
+</code></pre></div></div>
+
+<h1 id="common-flags-and-variables-used-by-mkoctfile">Common flags and variables used by mkoctfile</h1>
+
+<p>If our C++ source code to be linked with Octave depends on other header files or libraries, we should provide correct compiler and linker options for <code class="language-plaintext highlighter-rouge">mkoctfile</code>. Common flags and variables are summarized as below.</p>
+
+<ul>
+  <li>
+    <p>For compiling and linking</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Variable name</th>
+          <th>Meaning</th>
+          <th>Default value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">CC</code></td>
+          <td>C compiler</td>
+          <td><code class="language-plaintext highlighter-rouge">gcc</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">CXX</code></td>
+          <td>C++ compiler</td>
+          <td><code class="language-plaintext highlighter-rouge">g++</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">F77</code></td>
+          <td>Fortran compiler</td>
+          <td><code class="language-plaintext highlighter-rouge">gfortran</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">RANLIB</code></td>
+          <td>The ranlib command, which generates index for archive.</td>
+          <td><code class="language-plaintext highlighter-rouge">ranlib</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>For including header file and searching library</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Variable name</th>
+          <th>Meaning</th>
+          <th>Default value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">INCLUDEDIR</code></td>
+          <td>System wide include directory</td>
+          <td><code class="language-plaintext highlighter-rouge">/usr/include</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">LIBDIR</code></td>
+          <td>System wide library directory</td>
+          <td><code class="language-plaintext highlighter-rouge">/usr/lib/x86_64-linux-gnu</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">LIBOCTAVE</code></td>
+          <td>Octave core library</td>
+          <td><code class="language-plaintext highlighter-rouge">-loctave</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">LIBOCTINTERP</code></td>
+          <td>Octave interpolation library</td>
+          <td><code class="language-plaintext highlighter-rouge">-loctinterp</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Preprocessor and compiler options</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Variable name</th>
+          <th>Meaning</th>
+          <th>Default value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">CPPFLAGS</code></td>
+          <td>C preprocessor flags</td>
+          <td><code class="language-plaintext highlighter-rouge">-Wdate-time -D_FORTIFY_SOURCE=2</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">CFLAGS</code></td>
+          <td>C compiler flags</td>
+          <td><code class="language-plaintext highlighter-rouge">-g -O2 \</code></td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td><code class="language-plaintext highlighter-rouge">-fdebug-prefix-map=/build/octave-d7p05X/octave-4.4.1=. \</code></td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td><code class="language-plaintext highlighter-rouge">-fstack-protector-strong \</code></td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td><code class="language-plaintext highlighter-rouge">-Wformat -Werror=format-security</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">CXXFLAGS</code></td>
+          <td>C++ compiler flags</td>
+          <td><code class="language-plaintext highlighter-rouge">-g -O2 \</code></td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td><code class="language-plaintext highlighter-rouge">-fdebug-prefix-map=/build/octave-d7p05X/octave-4.4.1=. \</code></td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td><code class="language-plaintext highlighter-rouge">-fstack-protector-strong \</code></td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td><code class="language-plaintext highlighter-rouge">-Wformat -Werror=format-security</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">FFLAGS</code></td>
+          <td>Fortran compiler flags</td>
+          <td><code class="language-plaintext highlighter-rouge">-g -O2 \</code></td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td><code class="language-plaintext highlighter-rouge">-fdebug-prefix-map=/build/octave-d7p05X/octave-4.4.1=. \</code></td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td><code class="language-plaintext highlighter-rouge">-fstack-protector-strong</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Linker options</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Variable name</th>
+          <th>Meaning</th>
+          <th>Default value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">LFLAGS</code></td>
+          <td>Path for searching Octave libraries</td>
+          <td><code class="language-plaintext highlighter-rouge">-L/usr/lib/x86_64-linux-gnu/octave/4.4.1 \</code></td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td><code class="language-plaintext highlighter-rouge">-L/usr/lib/x86_64-linux-gnu</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">LIBS</code></td>
+          <td>Other dependent libraries besides Octave</td>
+          <td><code class="language-plaintext highlighter-rouge">-lutil -lm</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">OCTAVE_LIBS</code></td>
+          <td>Octave libraries to be linked with</td>
+          <td><code class="language-plaintext highlighter-rouge">-loctinterp -loctave</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">OCTLIBDIR</code></td>
+          <td>Path to Octave libraries</td>
+          <td><code class="language-plaintext highlighter-rouge">/usr/lib/x86_64-linux-gnu/octave/4.4.1</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>To check the current value of the above variables adopted by <code class="language-plaintext highlighter-rouge">mkoctfile</code>, the option <code class="language-plaintext highlighter-rouge">-p</code> can be used for the inquiry.</p>
+
+
+  </div><a class="u-url" href="/computer/2022/08/08/link-cpp-code-with-gnu-octave.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

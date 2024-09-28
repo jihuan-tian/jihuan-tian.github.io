@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Understanding about operator discretization | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Understanding about operator discretization" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Contents  1 Vectors in strong form and weak form  2 Discretization of the inverse of an operator  3 Discretization of a preconditioner  4 Summary 1 Vectors in strong form and weak form Let \(V\) and \(W\) be two Hilbert spaces. Let \(V_h\) be the finite dimensional subspace of \(V\) with the basis \(\left \{ \varphi _{1},\cdots ,\varphi _{n} \right \}\) and \(W_h\) be the finite dimensional subspace of \(W\) with the basis \(\left \{ \zeta _{1},\cdots ,\zeta _{p} \right \}\). Let \(W&#39;\) be the dual space of \(W\) and \(W_h&#39;\) be its finite dimensional subspace with the basis \(\left \{ \psi _{1},\cdots ,\psi _{m} \right \}\). Let \(A: V \rightarrow W\) be a bounded linear operator from \(V\) to \(W\) and \(A_h: V_h \rightarrow W_h\) be its finite dimensional approximation. A function \(u_h\in V_h\) can be expanded as \(u_h=\sum _{i=1}^n u_i \varphi _i\). Its expansion coefficients make up the strong form vector \(\underline {u} = (u_1,\cdots ,u_n)^{\mathrm {T}}\) of \(u_h\). Here we explicitly write this vector as \(\underline {u}^{\mathrm {S}}\) to be differentiated from the weak form. To discretize the operator \(A_h\), we need two steps: Apply \(A_h\) to \(u_h\), which produces a function \(w_h\) in \(W_h\). Project \(w_h\) to each basis function \(\psi _i\) of \(W_h&#39;\). The said projection is formed by duality pairing \(\left \langle \cdot ,\cdot \right \rangle _{W_h&#39;,W_h}\) 1 and will produce a vector \(\underline {w}^{\mathrm {W}}\), which is the weak form of \(w_h\). This vector is not related to the expansion coefficients \(w_k\) of \(w_h\) in \(W_h\), i.e. \(w_h = \sum _{k=1}^p w_k\zeta _k\), but is the projection coefficients of \(w_h\) in the dual space \(W_h&#39;\). The expression for \(\underline {w}^{\mathrm {W}}\) can be expanded as \begin{equation} \underline {w}^{\mathrm {W}} = \begin {pmatrix} \left \langle \psi _1, w_h \right \rangle \\ \vdots \\ \left \langle \psi _m, w_h \right \rangle \end {pmatrix} = \begin {pmatrix} \left \langle \psi _1,A_hu_h \right \rangle \\ \vdots \\ \left \langle \psi _m,A_hu_h \right \rangle \end {pmatrix} = \begin {pmatrix} \left \langle \psi _1,A_h\sum _{j=1}^n u_j\varphi _j \right \rangle \\ \vdots \\ \left \langle \psi _m,A_h\sum _{j=1}^n u_j\varphi _j \right \rangle \end {pmatrix} = \begin {pmatrix} \sum _{j=1}^n \left \langle \psi _1, A_h \varphi _j \right \rangle u_j \\ \vdots \\ \sum _{j=1}^n \left \langle \psi _m, A_h \varphi _j \right \rangle u_j \end {pmatrix}. \end{equation} Its matrix form is \begin{equation} \underline {w}^{\mathrm {W}} = \mathcal {A} \underline {u}^{\mathrm {S}}, \end{equation} where \(\mathcal {A}_{ij} = \left \langle \psi _i, A_h\varphi _j \right \rangle \). If we substitute \(w_h = \sum _{k=1}^p w_k\zeta _k\) into the left hand side of this equation, we have \begin{equation} \underline {w}^{\mathrm {W}} = \begin {pmatrix} \left \langle \psi _1, \sum _{k=1}^p w_i\zeta _k \right \rangle \\ \vdots \\ \left \langle \psi _m, \sum _{k=1}^p w_i\zeta _k \right \rangle \end {pmatrix} = \begin {pmatrix} \sum _{k=1}^p \left \langle \psi _1, \zeta _k \right \rangle w_k \\ \vdots \\ \sum _{k=1}^p \left \langle \psi _m, \zeta _k \right \rangle w_k \\ \end {pmatrix} = \begin {pmatrix} \sum _{j=1}^n \left \langle \psi _1, A_h \varphi _j \right \rangle u_j \\ \vdots \\ \sum _{j=1}^n \left \langle \psi _m, A_h \varphi _j \right \rangle u_j \end {pmatrix}. \end{equation} Its matrix form is \begin{equation} \underline {w}^{\mathrm {W}} = \mathcal {M}_{W_h&#39;,W_h} \underline {w}^{\mathrm {S}} = \mathcal {A} \underline {u}^{\mathrm {S}}. \end{equation} In this equation, \(\mathcal {M}_{W_h&#39;,W_h}\) is the mass matrix associated with the duality pairing between the dual space \(W_h&#39;\) and the range space \(W_h\) with respect to the operator \(A\) 2. For simplicity, this matrix is written as \(\mathcal {M}_A\). The vector \(\underline {w}^{\mathrm {S}}\) contains the actual expansion coefficients \((w_{1},\cdots ,w_{p})^{\mathrm {T}}\) of \(w_h\) in \(W_h\), therefore it is the strong form of \(w_h\), which can be derived from the weak form of \(w_h\) as below: \begin{equation} \underline {w}^{\mathrm {S}} = \mathcal {M}_A^{-1} \underline {w}^{\mathrm {W}} = \mathcal {M}_A^{-1}\mathcal {A}\underline {u}^{\mathrm {S}}. \end{equation} This means the mass matrix \(\mathcal {M}_A\) should be a square matrix and invertible, which requires two conditions: The number of basis elements adopted for the range space \(W_h\) of \(A\) should be the same as that for the dual space \(W_h&#39;\). Take the single layer potential (SLP) operator \(V: H^{-1/2}(\Gamma ) \rightarrow H^{1/2}(\Gamma )\) in BEM as an example. \(W\) is \(H^{1/2}(\Gamma )\) and \(W&#39;\) is \(H^{-1/2}(\Gamma )\). \(W_h\) is usually the piecewise linear continuous function space and \(W_h&#39;\) is the piecewise constant function space. Basis functions of the former space are configured at nodes in the mesh, while basis functions for the latter space are configured in cells. Therefore, the number of basis functions of the two spaces usually mismatch. The remedy is to construct the space \(W_h&#39;\) on the dual mesh, then there is a one-to-one correspondence between each cell in the dual mesh and each node in the primal mesh. The duality pairing between \(W_h&#39;\) and \(W_h\) should be \(\inf \sup \) stable in the sense that the following condition should be satisfied (Betcke et al.) \begin{equation} \inf _{u\in W_h} \sup _{v\in W_h&#39;} \frac {\lvert \left \langle u,v \right \rangle \rvert }{\lVert u \rVert _{W_h} \lVert v \rVert _{W_h&#39;}} \geq c &gt; 0. \end{equation} Then the mass matrix \(\mathcal {M}_A\) is invertible. This \(\inf \sup \) stability is just the unique solvability condition or well-posedness condition of the following variational formulation: given \(f\in V&#39;\), find \(u\in U\), such that \begin{equation} a(u,v) = \left \langle f, v \right \rangle \quad \forall v\in V. \end{equation} Such a variational formulation involves the generalized bilinear form \(a(\cdot ,\cdot ): U\times V \rightarrow \mathbb {R}\), where the two component spaces \(U\) and \(V\) are different. Therefore, this condition is a generalization of the ellipticity condition involved in the Lax-Milgram Lemma, where the bilinear form requires two identical spaces. For the duality pairing \(\left \langle \cdot ,\cdot \right \rangle _{W_h&#39;, W_h}\), it is actually a bilinear form \(a(\cdot ,\cdot ): W_h\times W_h&#39; \rightarrow \mathbb {R}\) defined as \(a(u,v) := \left \langle v, Iu \right \rangle \), where \(I: W_h \rightarrow W_h\) is the identity operator. If the \(\inf \sup \) condition is satisfied, the mass matrix, as a discretization of the operator \(I\), is invertible. 2 Discretization of the inverse of an operator In BEM, when there is source distribution \(f\in \tilde {H}^{-1}(\Omega )\) in the volume domain \(\Omega \), the Newton potential \(N_0 f\) will also contribute to the Neumann trace at the boundary \(\Gamma \) as \(V^{-1}(N_0 f)\), where \(N_0: \tilde {H}^{-1}(\Omega ) \rightarrow H^{1/2}(\Gamma )\) and \(V^{-1}: H^{1/2}(\Gamma ) \rightarrow H^{-1/2}(\Gamma )\). It is obvious that if somehow we can directly discretize the inverse SLP operator \(V^{-1}\) into a matrix \(\mathcal {V}^{\dagger }\), its row and column function spaces are \(^{\mathrm {W}}H_h^{1/2}(\Gamma )\times ^{\mathrm {S}}H_h^{1/2}(\Gamma )\). On the other hand, if the matrix for \(V\) is \(\mathcal {V}\) and \(\mathcal {V}^{-1}\) is its inverse matrix, the row and column function spaces of \(\mathcal {V}^{-1}\) are \(^{\mathrm {S}}H_h^{-1/2}(\Gamma )\times ^{\mathrm {W}}H_h^{-1/2}(\Gamma )\) \(\mathcal {V}^{-1}\). Therefore, \(\mathcal {V}^{\dagger }\) and \(\mathcal {V}^{-1}\) are two different matrices. N.B. Even though the function spaces related to matrices \(\mathcal {V}\) and \(\mathcal {V}^{-1}\) are the same \(H_h^{-1/2}(\Gamma )\times H_h^{-1/2}(\Gamma )\), the input or output vectors of the two matrices have different identities in the sense of strong or weak. In practice, an inverse operator like \(V^{-1}\) cannot be directly evaluated or discretized. We can only compute an approximation \(\tilde {\mathcal {V}^{\dagger }}\) of \(\mathcal {V}^{\dagger }\) by starting from the inverse of the matrix for the original operator, which is \(\mathcal {V}^{-1}\). In \(V^{-1}(N_0f)\), \(N_0f\) directly returns a strong form vector in \(H_h^{1/2}(\Gamma )\), which is the column space of the matrix \(\tilde {\mathcal {V}^{\dagger }}\). Hence we need to project this strong form vector from \(H_h^{1/2}(\Gamma )\) to the weak column space \(H_h^{-1/2}(\Gamma )\) of \(\mathcal {V}^{-1}\), and we can call this operation as space adaptation. This can be directly achieved by multiplying the mass matrix \(\mathcal {M}_{V}\) induced by the duality pairing between \(H_h^{-1/2}(\Gamma )\) and \(H_h^{1/2}(\Gamma )\). The output from \(\mathcal {V}^{-1}\) is a strong form vector in \(H_h^{-1/2}(\Gamma )\), which should be further mapped to the weak row space \(H_h^{1/2}(\Gamma )\) of \(\mathcal {V}^{\dagger }\). Because this is also a direct projection of a strong form vector to a weak form vector, we need to multiply the mass matrix \(\mathcal {M}_{V^{-1}}\) induced by the duality pairing between \(H_h^{1/2}(\Gamma )\) and \(H_h^{-1/2}(\Gamma )\). Let the basis of \(H_h^{1/2}(\Gamma )\) be \(\left \{ \varphi _{1},\cdots ,\varphi _{n} \right \}\) and the basis of \(H_h^{-1/2}(\Gamma )\) be \(\left \{ \psi _{1},\cdots ,\psi _{m} \right \}\). The coefficients of the above two mass matrices are \begin{equation} \mathcal {M}_V[i,j] = \left \langle \psi _i,\varphi _j \right \rangle \quad i=1,\cdots ,m, j=1,\cdots ,n \end{equation} and \begin{equation} \mathcal {M}_{V^{-1}}[i,j] = \left \langle \varphi _i,\psi _j \right \rangle \quad i=1,\cdots ,n, j=1,\cdots ,m. \end{equation} Therefore, \(\mathcal {M}_V = \mathcal {M}_{V^{-1}}^{\mathrm {T}}\). The matrix \(\tilde {\mathcal {V}}^{\dagger }\) as an approximate discretization of the inverse operator \(V^{-1}\) is \begin{equation} \tilde {\mathcal {V}^{\dagger }} = \mathcal {M}_V^{\mathrm {T}} \mathcal {V}^{-1} \mathcal {M}_V. \end{equation} The commutative diagram for the above operators and matrices is shown below, where the red route indicates the computation of \(\tilde {\mathcal {V}^{\dagger }}\) as the approximation for \(\mathcal {V}^{\dagger }\)." />
+<meta property="og:description" content="Contents  1 Vectors in strong form and weak form  2 Discretization of the inverse of an operator  3 Discretization of a preconditioner  4 Summary 1 Vectors in strong form and weak form Let \(V\) and \(W\) be two Hilbert spaces. Let \(V_h\) be the finite dimensional subspace of \(V\) with the basis \(\left \{ \varphi _{1},\cdots ,\varphi _{n} \right \}\) and \(W_h\) be the finite dimensional subspace of \(W\) with the basis \(\left \{ \zeta _{1},\cdots ,\zeta _{p} \right \}\). Let \(W&#39;\) be the dual space of \(W\) and \(W_h&#39;\) be its finite dimensional subspace with the basis \(\left \{ \psi _{1},\cdots ,\psi _{m} \right \}\). Let \(A: V \rightarrow W\) be a bounded linear operator from \(V\) to \(W\) and \(A_h: V_h \rightarrow W_h\) be its finite dimensional approximation. A function \(u_h\in V_h\) can be expanded as \(u_h=\sum _{i=1}^n u_i \varphi _i\). Its expansion coefficients make up the strong form vector \(\underline {u} = (u_1,\cdots ,u_n)^{\mathrm {T}}\) of \(u_h\). Here we explicitly write this vector as \(\underline {u}^{\mathrm {S}}\) to be differentiated from the weak form. To discretize the operator \(A_h\), we need two steps: Apply \(A_h\) to \(u_h\), which produces a function \(w_h\) in \(W_h\). Project \(w_h\) to each basis function \(\psi _i\) of \(W_h&#39;\). The said projection is formed by duality pairing \(\left \langle \cdot ,\cdot \right \rangle _{W_h&#39;,W_h}\) 1 and will produce a vector \(\underline {w}^{\mathrm {W}}\), which is the weak form of \(w_h\). This vector is not related to the expansion coefficients \(w_k\) of \(w_h\) in \(W_h\), i.e. \(w_h = \sum _{k=1}^p w_k\zeta _k\), but is the projection coefficients of \(w_h\) in the dual space \(W_h&#39;\). The expression for \(\underline {w}^{\mathrm {W}}\) can be expanded as \begin{equation} \underline {w}^{\mathrm {W}} = \begin {pmatrix} \left \langle \psi _1, w_h \right \rangle \\ \vdots \\ \left \langle \psi _m, w_h \right \rangle \end {pmatrix} = \begin {pmatrix} \left \langle \psi _1,A_hu_h \right \rangle \\ \vdots \\ \left \langle \psi _m,A_hu_h \right \rangle \end {pmatrix} = \begin {pmatrix} \left \langle \psi _1,A_h\sum _{j=1}^n u_j\varphi _j \right \rangle \\ \vdots \\ \left \langle \psi _m,A_h\sum _{j=1}^n u_j\varphi _j \right \rangle \end {pmatrix} = \begin {pmatrix} \sum _{j=1}^n \left \langle \psi _1, A_h \varphi _j \right \rangle u_j \\ \vdots \\ \sum _{j=1}^n \left \langle \psi _m, A_h \varphi _j \right \rangle u_j \end {pmatrix}. \end{equation} Its matrix form is \begin{equation} \underline {w}^{\mathrm {W}} = \mathcal {A} \underline {u}^{\mathrm {S}}, \end{equation} where \(\mathcal {A}_{ij} = \left \langle \psi _i, A_h\varphi _j \right \rangle \). If we substitute \(w_h = \sum _{k=1}^p w_k\zeta _k\) into the left hand side of this equation, we have \begin{equation} \underline {w}^{\mathrm {W}} = \begin {pmatrix} \left \langle \psi _1, \sum _{k=1}^p w_i\zeta _k \right \rangle \\ \vdots \\ \left \langle \psi _m, \sum _{k=1}^p w_i\zeta _k \right \rangle \end {pmatrix} = \begin {pmatrix} \sum _{k=1}^p \left \langle \psi _1, \zeta _k \right \rangle w_k \\ \vdots \\ \sum _{k=1}^p \left \langle \psi _m, \zeta _k \right \rangle w_k \\ \end {pmatrix} = \begin {pmatrix} \sum _{j=1}^n \left \langle \psi _1, A_h \varphi _j \right \rangle u_j \\ \vdots \\ \sum _{j=1}^n \left \langle \psi _m, A_h \varphi _j \right \rangle u_j \end {pmatrix}. \end{equation} Its matrix form is \begin{equation} \underline {w}^{\mathrm {W}} = \mathcal {M}_{W_h&#39;,W_h} \underline {w}^{\mathrm {S}} = \mathcal {A} \underline {u}^{\mathrm {S}}. \end{equation} In this equation, \(\mathcal {M}_{W_h&#39;,W_h}\) is the mass matrix associated with the duality pairing between the dual space \(W_h&#39;\) and the range space \(W_h\) with respect to the operator \(A\) 2. For simplicity, this matrix is written as \(\mathcal {M}_A\). The vector \(\underline {w}^{\mathrm {S}}\) contains the actual expansion coefficients \((w_{1},\cdots ,w_{p})^{\mathrm {T}}\) of \(w_h\) in \(W_h\), therefore it is the strong form of \(w_h\), which can be derived from the weak form of \(w_h\) as below: \begin{equation} \underline {w}^{\mathrm {S}} = \mathcal {M}_A^{-1} \underline {w}^{\mathrm {W}} = \mathcal {M}_A^{-1}\mathcal {A}\underline {u}^{\mathrm {S}}. \end{equation} This means the mass matrix \(\mathcal {M}_A\) should be a square matrix and invertible, which requires two conditions: The number of basis elements adopted for the range space \(W_h\) of \(A\) should be the same as that for the dual space \(W_h&#39;\). Take the single layer potential (SLP) operator \(V: H^{-1/2}(\Gamma ) \rightarrow H^{1/2}(\Gamma )\) in BEM as an example. \(W\) is \(H^{1/2}(\Gamma )\) and \(W&#39;\) is \(H^{-1/2}(\Gamma )\). \(W_h\) is usually the piecewise linear continuous function space and \(W_h&#39;\) is the piecewise constant function space. Basis functions of the former space are configured at nodes in the mesh, while basis functions for the latter space are configured in cells. Therefore, the number of basis functions of the two spaces usually mismatch. The remedy is to construct the space \(W_h&#39;\) on the dual mesh, then there is a one-to-one correspondence between each cell in the dual mesh and each node in the primal mesh. The duality pairing between \(W_h&#39;\) and \(W_h\) should be \(\inf \sup \) stable in the sense that the following condition should be satisfied (Betcke et al.) \begin{equation} \inf _{u\in W_h} \sup _{v\in W_h&#39;} \frac {\lvert \left \langle u,v \right \rangle \rvert }{\lVert u \rVert _{W_h} \lVert v \rVert _{W_h&#39;}} \geq c &gt; 0. \end{equation} Then the mass matrix \(\mathcal {M}_A\) is invertible. This \(\inf \sup \) stability is just the unique solvability condition or well-posedness condition of the following variational formulation: given \(f\in V&#39;\), find \(u\in U\), such that \begin{equation} a(u,v) = \left \langle f, v \right \rangle \quad \forall v\in V. \end{equation} Such a variational formulation involves the generalized bilinear form \(a(\cdot ,\cdot ): U\times V \rightarrow \mathbb {R}\), where the two component spaces \(U\) and \(V\) are different. Therefore, this condition is a generalization of the ellipticity condition involved in the Lax-Milgram Lemma, where the bilinear form requires two identical spaces. For the duality pairing \(\left \langle \cdot ,\cdot \right \rangle _{W_h&#39;, W_h}\), it is actually a bilinear form \(a(\cdot ,\cdot ): W_h\times W_h&#39; \rightarrow \mathbb {R}\) defined as \(a(u,v) := \left \langle v, Iu \right \rangle \), where \(I: W_h \rightarrow W_h\) is the identity operator. If the \(\inf \sup \) condition is satisfied, the mass matrix, as a discretization of the operator \(I\), is invertible. 2 Discretization of the inverse of an operator In BEM, when there is source distribution \(f\in \tilde {H}^{-1}(\Omega )\) in the volume domain \(\Omega \), the Newton potential \(N_0 f\) will also contribute to the Neumann trace at the boundary \(\Gamma \) as \(V^{-1}(N_0 f)\), where \(N_0: \tilde {H}^{-1}(\Omega ) \rightarrow H^{1/2}(\Gamma )\) and \(V^{-1}: H^{1/2}(\Gamma ) \rightarrow H^{-1/2}(\Gamma )\). It is obvious that if somehow we can directly discretize the inverse SLP operator \(V^{-1}\) into a matrix \(\mathcal {V}^{\dagger }\), its row and column function spaces are \(^{\mathrm {W}}H_h^{1/2}(\Gamma )\times ^{\mathrm {S}}H_h^{1/2}(\Gamma )\). On the other hand, if the matrix for \(V\) is \(\mathcal {V}\) and \(\mathcal {V}^{-1}\) is its inverse matrix, the row and column function spaces of \(\mathcal {V}^{-1}\) are \(^{\mathrm {S}}H_h^{-1/2}(\Gamma )\times ^{\mathrm {W}}H_h^{-1/2}(\Gamma )\) \(\mathcal {V}^{-1}\). Therefore, \(\mathcal {V}^{\dagger }\) and \(\mathcal {V}^{-1}\) are two different matrices. N.B. Even though the function spaces related to matrices \(\mathcal {V}\) and \(\mathcal {V}^{-1}\) are the same \(H_h^{-1/2}(\Gamma )\times H_h^{-1/2}(\Gamma )\), the input or output vectors of the two matrices have different identities in the sense of strong or weak. In practice, an inverse operator like \(V^{-1}\) cannot be directly evaluated or discretized. We can only compute an approximation \(\tilde {\mathcal {V}^{\dagger }}\) of \(\mathcal {V}^{\dagger }\) by starting from the inverse of the matrix for the original operator, which is \(\mathcal {V}^{-1}\). In \(V^{-1}(N_0f)\), \(N_0f\) directly returns a strong form vector in \(H_h^{1/2}(\Gamma )\), which is the column space of the matrix \(\tilde {\mathcal {V}^{\dagger }}\). Hence we need to project this strong form vector from \(H_h^{1/2}(\Gamma )\) to the weak column space \(H_h^{-1/2}(\Gamma )\) of \(\mathcal {V}^{-1}\), and we can call this operation as space adaptation. This can be directly achieved by multiplying the mass matrix \(\mathcal {M}_{V}\) induced by the duality pairing between \(H_h^{-1/2}(\Gamma )\) and \(H_h^{1/2}(\Gamma )\). The output from \(\mathcal {V}^{-1}\) is a strong form vector in \(H_h^{-1/2}(\Gamma )\), which should be further mapped to the weak row space \(H_h^{1/2}(\Gamma )\) of \(\mathcal {V}^{\dagger }\). Because this is also a direct projection of a strong form vector to a weak form vector, we need to multiply the mass matrix \(\mathcal {M}_{V^{-1}}\) induced by the duality pairing between \(H_h^{1/2}(\Gamma )\) and \(H_h^{-1/2}(\Gamma )\). Let the basis of \(H_h^{1/2}(\Gamma )\) be \(\left \{ \varphi _{1},\cdots ,\varphi _{n} \right \}\) and the basis of \(H_h^{-1/2}(\Gamma )\) be \(\left \{ \psi _{1},\cdots ,\psi _{m} \right \}\). The coefficients of the above two mass matrices are \begin{equation} \mathcal {M}_V[i,j] = \left \langle \psi _i,\varphi _j \right \rangle \quad i=1,\cdots ,m, j=1,\cdots ,n \end{equation} and \begin{equation} \mathcal {M}_{V^{-1}}[i,j] = \left \langle \varphi _i,\psi _j \right \rangle \quad i=1,\cdots ,n, j=1,\cdots ,m. \end{equation} Therefore, \(\mathcal {M}_V = \mathcal {M}_{V^{-1}}^{\mathrm {T}}\). The matrix \(\tilde {\mathcal {V}}^{\dagger }\) as an approximate discretization of the inverse operator \(V^{-1}\) is \begin{equation} \tilde {\mathcal {V}^{\dagger }} = \mathcal {M}_V^{\mathrm {T}} \mathcal {V}^{-1} \mathcal {M}_V. \end{equation} The commutative diagram for the above operators and matrices is shown below, where the red route indicates the computation of \(\tilde {\mathcal {V}^{\dagger }}\) as the approximation for \(\mathcal {V}^{\dagger }\)." />
+<link rel="canonical" href="https://jihuan-tian.github.io/math/2024/07/24/understanding-about-operator-discretization.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/math/2024/07/24/understanding-about-operator-discretization.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-07-24T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Understanding about operator discretization" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2024-07-24T00:00:00+08:00","datePublished":"2024-07-24T00:00:00+08:00","description":"Contents  1 Vectors in strong form and weak form  2 Discretization of the inverse of an operator  3 Discretization of a preconditioner  4 Summary 1 Vectors in strong form and weak form Let \\(V\\) and \\(W\\) be two Hilbert spaces. Let \\(V_h\\) be the finite dimensional subspace of \\(V\\) with the basis \\(\\left \\{ \\varphi _{1},\\cdots ,\\varphi _{n} \\right \\}\\) and \\(W_h\\) be the finite dimensional subspace of \\(W\\) with the basis \\(\\left \\{ \\zeta _{1},\\cdots ,\\zeta _{p} \\right \\}\\). Let \\(W&#39;\\) be the dual space of \\(W\\) and \\(W_h&#39;\\) be its finite dimensional subspace with the basis \\(\\left \\{ \\psi _{1},\\cdots ,\\psi _{m} \\right \\}\\). Let \\(A: V \\rightarrow W\\) be a bounded linear operator from \\(V\\) to \\(W\\) and \\(A_h: V_h \\rightarrow W_h\\) be its finite dimensional approximation. A function \\(u_h\\in V_h\\) can be expanded as \\(u_h=\\sum _{i=1}^n u_i \\varphi _i\\). Its expansion coefficients make up the strong form vector \\(\\underline {u} = (u_1,\\cdots ,u_n)^{\\mathrm {T}}\\) of \\(u_h\\). Here we explicitly write this vector as \\(\\underline {u}^{\\mathrm {S}}\\) to be differentiated from the weak form. To discretize the operator \\(A_h\\), we need two steps: Apply \\(A_h\\) to \\(u_h\\), which produces a function \\(w_h\\) in \\(W_h\\). Project \\(w_h\\) to each basis function \\(\\psi _i\\) of \\(W_h&#39;\\). The said projection is formed by duality pairing \\(\\left \\langle \\cdot ,\\cdot \\right \\rangle _{W_h&#39;,W_h}\\) 1 and will produce a vector \\(\\underline {w}^{\\mathrm {W}}\\), which is the weak form of \\(w_h\\). This vector is not related to the expansion coefficients \\(w_k\\) of \\(w_h\\) in \\(W_h\\), i.e. \\(w_h = \\sum _{k=1}^p w_k\\zeta _k\\), but is the projection coefficients of \\(w_h\\) in the dual space \\(W_h&#39;\\). The expression for \\(\\underline {w}^{\\mathrm {W}}\\) can be expanded as \\begin{equation} \\underline {w}^{\\mathrm {W}} = \\begin {pmatrix} \\left \\langle \\psi _1, w_h \\right \\rangle \\\\ \\vdots \\\\ \\left \\langle \\psi _m, w_h \\right \\rangle \\end {pmatrix} = \\begin {pmatrix} \\left \\langle \\psi _1,A_hu_h \\right \\rangle \\\\ \\vdots \\\\ \\left \\langle \\psi _m,A_hu_h \\right \\rangle \\end {pmatrix} = \\begin {pmatrix} \\left \\langle \\psi _1,A_h\\sum _{j=1}^n u_j\\varphi _j \\right \\rangle \\\\ \\vdots \\\\ \\left \\langle \\psi _m,A_h\\sum _{j=1}^n u_j\\varphi _j \\right \\rangle \\end {pmatrix} = \\begin {pmatrix} \\sum _{j=1}^n \\left \\langle \\psi _1, A_h \\varphi _j \\right \\rangle u_j \\\\ \\vdots \\\\ \\sum _{j=1}^n \\left \\langle \\psi _m, A_h \\varphi _j \\right \\rangle u_j \\end {pmatrix}. \\end{equation} Its matrix form is \\begin{equation} \\underline {w}^{\\mathrm {W}} = \\mathcal {A} \\underline {u}^{\\mathrm {S}}, \\end{equation} where \\(\\mathcal {A}_{ij} = \\left \\langle \\psi _i, A_h\\varphi _j \\right \\rangle \\). If we substitute \\(w_h = \\sum _{k=1}^p w_k\\zeta _k\\) into the left hand side of this equation, we have \\begin{equation} \\underline {w}^{\\mathrm {W}} = \\begin {pmatrix} \\left \\langle \\psi _1, \\sum _{k=1}^p w_i\\zeta _k \\right \\rangle \\\\ \\vdots \\\\ \\left \\langle \\psi _m, \\sum _{k=1}^p w_i\\zeta _k \\right \\rangle \\end {pmatrix} = \\begin {pmatrix} \\sum _{k=1}^p \\left \\langle \\psi _1, \\zeta _k \\right \\rangle w_k \\\\ \\vdots \\\\ \\sum _{k=1}^p \\left \\langle \\psi _m, \\zeta _k \\right \\rangle w_k \\\\ \\end {pmatrix} = \\begin {pmatrix} \\sum _{j=1}^n \\left \\langle \\psi _1, A_h \\varphi _j \\right \\rangle u_j \\\\ \\vdots \\\\ \\sum _{j=1}^n \\left \\langle \\psi _m, A_h \\varphi _j \\right \\rangle u_j \\end {pmatrix}. \\end{equation} Its matrix form is \\begin{equation} \\underline {w}^{\\mathrm {W}} = \\mathcal {M}_{W_h&#39;,W_h} \\underline {w}^{\\mathrm {S}} = \\mathcal {A} \\underline {u}^{\\mathrm {S}}. \\end{equation} In this equation, \\(\\mathcal {M}_{W_h&#39;,W_h}\\) is the mass matrix associated with the duality pairing between the dual space \\(W_h&#39;\\) and the range space \\(W_h\\) with respect to the operator \\(A\\) 2. For simplicity, this matrix is written as \\(\\mathcal {M}_A\\). The vector \\(\\underline {w}^{\\mathrm {S}}\\) contains the actual expansion coefficients \\((w_{1},\\cdots ,w_{p})^{\\mathrm {T}}\\) of \\(w_h\\) in \\(W_h\\), therefore it is the strong form of \\(w_h\\), which can be derived from the weak form of \\(w_h\\) as below: \\begin{equation} \\underline {w}^{\\mathrm {S}} = \\mathcal {M}_A^{-1} \\underline {w}^{\\mathrm {W}} = \\mathcal {M}_A^{-1}\\mathcal {A}\\underline {u}^{\\mathrm {S}}. \\end{equation} This means the mass matrix \\(\\mathcal {M}_A\\) should be a square matrix and invertible, which requires two conditions: The number of basis elements adopted for the range space \\(W_h\\) of \\(A\\) should be the same as that for the dual space \\(W_h&#39;\\). Take the single layer potential (SLP) operator \\(V: H^{-1/2}(\\Gamma ) \\rightarrow H^{1/2}(\\Gamma )\\) in BEM as an example. \\(W\\) is \\(H^{1/2}(\\Gamma )\\) and \\(W&#39;\\) is \\(H^{-1/2}(\\Gamma )\\). \\(W_h\\) is usually the piecewise linear continuous function space and \\(W_h&#39;\\) is the piecewise constant function space. Basis functions of the former space are configured at nodes in the mesh, while basis functions for the latter space are configured in cells. Therefore, the number of basis functions of the two spaces usually mismatch. The remedy is to construct the space \\(W_h&#39;\\) on the dual mesh, then there is a one-to-one correspondence between each cell in the dual mesh and each node in the primal mesh. The duality pairing between \\(W_h&#39;\\) and \\(W_h\\) should be \\(\\inf \\sup \\) stable in the sense that the following condition should be satisfied (Betcke et al.) \\begin{equation} \\inf _{u\\in W_h} \\sup _{v\\in W_h&#39;} \\frac {\\lvert \\left \\langle u,v \\right \\rangle \\rvert }{\\lVert u \\rVert _{W_h} \\lVert v \\rVert _{W_h&#39;}} \\geq c &gt; 0. \\end{equation} Then the mass matrix \\(\\mathcal {M}_A\\) is invertible. This \\(\\inf \\sup \\) stability is just the unique solvability condition or well-posedness condition of the following variational formulation: given \\(f\\in V&#39;\\), find \\(u\\in U\\), such that \\begin{equation} a(u,v) = \\left \\langle f, v \\right \\rangle \\quad \\forall v\\in V. \\end{equation} Such a variational formulation involves the generalized bilinear form \\(a(\\cdot ,\\cdot ): U\\times V \\rightarrow \\mathbb {R}\\), where the two component spaces \\(U\\) and \\(V\\) are different. Therefore, this condition is a generalization of the ellipticity condition involved in the Lax-Milgram Lemma, where the bilinear form requires two identical spaces. For the duality pairing \\(\\left \\langle \\cdot ,\\cdot \\right \\rangle _{W_h&#39;, W_h}\\), it is actually a bilinear form \\(a(\\cdot ,\\cdot ): W_h\\times W_h&#39; \\rightarrow \\mathbb {R}\\) defined as \\(a(u,v) := \\left \\langle v, Iu \\right \\rangle \\), where \\(I: W_h \\rightarrow W_h\\) is the identity operator. If the \\(\\inf \\sup \\) condition is satisfied, the mass matrix, as a discretization of the operator \\(I\\), is invertible. 2 Discretization of the inverse of an operator In BEM, when there is source distribution \\(f\\in \\tilde {H}^{-1}(\\Omega )\\) in the volume domain \\(\\Omega \\), the Newton potential \\(N_0 f\\) will also contribute to the Neumann trace at the boundary \\(\\Gamma \\) as \\(V^{-1}(N_0 f)\\), where \\(N_0: \\tilde {H}^{-1}(\\Omega ) \\rightarrow H^{1/2}(\\Gamma )\\) and \\(V^{-1}: H^{1/2}(\\Gamma ) \\rightarrow H^{-1/2}(\\Gamma )\\). It is obvious that if somehow we can directly discretize the inverse SLP operator \\(V^{-1}\\) into a matrix \\(\\mathcal {V}^{\\dagger }\\), its row and column function spaces are \\(^{\\mathrm {W}}H_h^{1/2}(\\Gamma )\\times ^{\\mathrm {S}}H_h^{1/2}(\\Gamma )\\). On the other hand, if the matrix for \\(V\\) is \\(\\mathcal {V}\\) and \\(\\mathcal {V}^{-1}\\) is its inverse matrix, the row and column function spaces of \\(\\mathcal {V}^{-1}\\) are \\(^{\\mathrm {S}}H_h^{-1/2}(\\Gamma )\\times ^{\\mathrm {W}}H_h^{-1/2}(\\Gamma )\\) \\(\\mathcal {V}^{-1}\\). Therefore, \\(\\mathcal {V}^{\\dagger }\\) and \\(\\mathcal {V}^{-1}\\) are two different matrices. N.B. Even though the function spaces related to matrices \\(\\mathcal {V}\\) and \\(\\mathcal {V}^{-1}\\) are the same \\(H_h^{-1/2}(\\Gamma )\\times H_h^{-1/2}(\\Gamma )\\), the input or output vectors of the two matrices have different identities in the sense of strong or weak. In practice, an inverse operator like \\(V^{-1}\\) cannot be directly evaluated or discretized. We can only compute an approximation \\(\\tilde {\\mathcal {V}^{\\dagger }}\\) of \\(\\mathcal {V}^{\\dagger }\\) by starting from the inverse of the matrix for the original operator, which is \\(\\mathcal {V}^{-1}\\). In \\(V^{-1}(N_0f)\\), \\(N_0f\\) directly returns a strong form vector in \\(H_h^{1/2}(\\Gamma )\\), which is the column space of the matrix \\(\\tilde {\\mathcal {V}^{\\dagger }}\\). Hence we need to project this strong form vector from \\(H_h^{1/2}(\\Gamma )\\) to the weak column space \\(H_h^{-1/2}(\\Gamma )\\) of \\(\\mathcal {V}^{-1}\\), and we can call this operation as space adaptation. This can be directly achieved by multiplying the mass matrix \\(\\mathcal {M}_{V}\\) induced by the duality pairing between \\(H_h^{-1/2}(\\Gamma )\\) and \\(H_h^{1/2}(\\Gamma )\\). The output from \\(\\mathcal {V}^{-1}\\) is a strong form vector in \\(H_h^{-1/2}(\\Gamma )\\), which should be further mapped to the weak row space \\(H_h^{1/2}(\\Gamma )\\) of \\(\\mathcal {V}^{\\dagger }\\). Because this is also a direct projection of a strong form vector to a weak form vector, we need to multiply the mass matrix \\(\\mathcal {M}_{V^{-1}}\\) induced by the duality pairing between \\(H_h^{1/2}(\\Gamma )\\) and \\(H_h^{-1/2}(\\Gamma )\\). Let the basis of \\(H_h^{1/2}(\\Gamma )\\) be \\(\\left \\{ \\varphi _{1},\\cdots ,\\varphi _{n} \\right \\}\\) and the basis of \\(H_h^{-1/2}(\\Gamma )\\) be \\(\\left \\{ \\psi _{1},\\cdots ,\\psi _{m} \\right \\}\\). The coefficients of the above two mass matrices are \\begin{equation} \\mathcal {M}_V[i,j] = \\left \\langle \\psi _i,\\varphi _j \\right \\rangle \\quad i=1,\\cdots ,m, j=1,\\cdots ,n \\end{equation} and \\begin{equation} \\mathcal {M}_{V^{-1}}[i,j] = \\left \\langle \\varphi _i,\\psi _j \\right \\rangle \\quad i=1,\\cdots ,n, j=1,\\cdots ,m. \\end{equation} Therefore, \\(\\mathcal {M}_V = \\mathcal {M}_{V^{-1}}^{\\mathrm {T}}\\). The matrix \\(\\tilde {\\mathcal {V}}^{\\dagger }\\) as an approximate discretization of the inverse operator \\(V^{-1}\\) is \\begin{equation} \\tilde {\\mathcal {V}^{\\dagger }} = \\mathcal {M}_V^{\\mathrm {T}} \\mathcal {V}^{-1} \\mathcal {M}_V. \\end{equation} The commutative diagram for the above operators and matrices is shown below, where the red route indicates the computation of \\(\\tilde {\\mathcal {V}^{\\dagger }}\\) as the approximation for \\(\\mathcal {V}^{\\dagger }\\).","headline":"Understanding about operator discretization","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2024/07/24/understanding-about-operator-discretization.html"},"url":"https://jihuan-tian.github.io/math/2024/07/24/understanding-about-operator-discretization.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+    <link rel="stylesheet" href="/assets/css/make4ht.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"></script>
+
+  
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Understanding about operator discretization</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-07-24T00:00:00+08:00" itemprop="datePublished">Jul 24, 2024 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/math">Math</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/BEM">BEM</a>
+          
+            <a href="/tags/PDE">PDE</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
+   <div class='tableofcontents'>
+    <span class='sectionToc'>1 <a href='#x1-20001' id='QQ2-1-2'>Vectors in strong form and weak form</a></span>
+<br />    <span class='sectionToc'>2 <a href='#x1-30002' id='QQ2-1-3'>Discretization of the inverse of an operator</a></span>
+<br />    <span class='sectionToc'>3 <a href='#x1-40003' id='QQ2-1-4'>Discretization of a preconditioner</a></span>
+<br />    <span class='sectionToc'>4 <a href='#x1-50004' id='QQ2-1-5'>Summary</a></span>
+   </div>
+<!-- l. 24 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>1    </span> <a id='x1-20001'></a>Vectors in strong form and weak form</h3>
+<!-- l. 26 --><p class='noindent'>Let \(V\) and \(W\) be two Hilbert spaces. Let \(V_h\) be the finite dimensional subspace of \(V\) with the basis \(\left \{ \varphi _{1},\cdots ,\varphi _{n} \right \}\) and \(W_h\) be the finite
+dimensional subspace of \(W\) with the basis \(\left \{ \zeta _{1},\cdots ,\zeta _{p} \right \}\). Let \(W'\) be the dual space of \(W\) and \(W_h'\) be its finite dimensional
+subspace with the basis \(\left \{ \psi _{1},\cdots ,\psi _{m} \right \}\). Let \(A: V \rightarrow W\) be a bounded linear operator from \(V\) to \(W\) and \(A_h: V_h \rightarrow W_h\) be its finite dimensional
+approximation.
+</p><!-- l. 28 --><p class='indent'>   A function \(u_h\in V_h\) can be expanded as \(u_h=\sum _{i=1}^n u_i \varphi _i\). Its expansion coefficients make up the <span class='p1xb-x-x-109'>strong </span>form vector \(\underline {u} = (u_1,\cdots ,u_n)^{\mathrm {T}}\) of \(u_h\). Here we
+explicitly write this vector as \(\underline {u}^{\mathrm {S}}\) to be differentiated from the weak form.
+</p><!-- l. 30 --><p class='indent'>   To discretize the operator \(A_h\), we need two steps:
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-2002x1'>
+     <!-- l. 32 --><p class='noindent'>Apply \(A_h\) to \(u_h\), which produces a function \(w_h\) in \(W_h\).
+     </p></li>
+<li class='enumerate' id='x1-2004x2'>
+     <!-- l. 33 --><p class='noindent'>Project \(w_h\) to each basis function \(\psi _i\) of \(W_h'\).</p></li></ol>
+                                                                                               
+                                                                                               
+<!-- l. 36 --><p class='indent'>   The  said  projection  is  formed  by  duality  pairing  \(\left \langle \cdot ,\cdot \right \rangle _{W_h',W_h}\)
+<span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-2005f1'></a> and
+will produce a vector \(\underline {w}^{\mathrm {W}}\), which is the <span class='p1xb-x-x-109'>weak </span>form of \(w_h\). This vector is <span class='p1xb-x-x-109'>not </span>related to the expansion coefficients \(w_k\) of \(w_h\) in \(W_h\),
+i.e. \(w_h = \sum _{k=1}^p w_k\zeta _k\), but is the projection coefficients of \(w_h\) in the dual space \(W_h'\).
+</p><!-- l. 38 --><p class='indent'>   The expression for \(\underline {w}^{\mathrm {W}}\) can be expanded as \begin{equation}  \underline {w}^{\mathrm {W}} = \begin {pmatrix} \left \langle \psi _1, w_h \right \rangle \\ \vdots \\ \left \langle \psi _m, w_h \right \rangle \end {pmatrix} = \begin {pmatrix} \left \langle \psi _1,A_hu_h \right \rangle \\ \vdots \\ \left \langle \psi _m,A_hu_h \right \rangle \end {pmatrix} = \begin {pmatrix} \left \langle \psi _1,A_h\sum _{j=1}^n u_j\varphi _j \right \rangle \\ \vdots \\ \left \langle \psi _m,A_h\sum _{j=1}^n u_j\varphi _j \right \rangle \end {pmatrix} = \begin {pmatrix} \sum _{j=1}^n \left \langle \psi _1, A_h \varphi _j \right \rangle u_j \\ \vdots \\ \sum _{j=1}^n \left \langle \psi _m, A_h \varphi _j \right \rangle u_j \end {pmatrix}.  \end{equation}<a id='x1-2007r1'></a> Its matrix form is \begin{equation}  \underline {w}^{\mathrm {W}} = \mathcal {A} \underline {u}^{\mathrm {S}},  \end{equation}<a id='x1-2008r2'></a> where \(\mathcal {A}_{ij} = \left \langle \psi _i, A_h\varphi _j \right \rangle \). If we substitute \(w_h = \sum _{k=1}^p w_k\zeta _k\) into the left hand
+side of this equation, we have \begin{equation}  \underline {w}^{\mathrm {W}} = \begin {pmatrix} \left \langle \psi _1, \sum _{k=1}^p w_i\zeta _k \right \rangle \\ \vdots \\ \left \langle \psi _m, \sum _{k=1}^p w_i\zeta _k \right \rangle \end {pmatrix} = \begin {pmatrix} \sum _{k=1}^p \left \langle \psi _1, \zeta _k \right \rangle w_k \\ \vdots \\ \sum _{k=1}^p \left \langle \psi _m, \zeta _k \right \rangle w_k \\ \end {pmatrix} = \begin {pmatrix} \sum _{j=1}^n \left \langle \psi _1, A_h \varphi _j \right \rangle u_j \\ \vdots \\ \sum _{j=1}^n \left \langle \psi _m, A_h \varphi _j \right \rangle u_j \end {pmatrix}.  \end{equation}<a id='x1-2009r3'></a> Its matrix form is \begin{equation}  \underline {w}^{\mathrm {W}} = \mathcal {M}_{W_h',W_h} \underline {w}^{\mathrm {S}} = \mathcal {A} \underline {u}^{\mathrm {S}}.  \end{equation}<a id='x1-2010r4'></a> In this equation, \(\mathcal {M}_{W_h',W_h}\) is the mass matrix associated
+with the duality pairing between the dual space \(W_h'\) and the range space \(W_h\) with respect to the operator \(A\)
+<span class='footnote-mark'><a href='#fn2x0' id='fn2x0-bk'><sup class='textsuperscript'>2</sup></a></span><a id='x1-2011f2'></a>. For
+simplicity, this matrix is written as \(\mathcal {M}_A\).
+</p><!-- l. 90 --><p class='indent'>   The vector \(\underline {w}^{\mathrm {S}}\) contains the actual expansion coefficients \((w_{1},\cdots ,w_{p})^{\mathrm {T}}\) of \(w_h\) in \(W_h\), therefore it is the <span class='p1xb-x-x-109'>strong form </span>of \(w_h\), which can be
+derived from the weak form of \(w_h\) as below: \begin{equation}  \underline {w}^{\mathrm {S}} = \mathcal {M}_A^{-1} \underline {w}^{\mathrm {W}} = \mathcal {M}_A^{-1}\mathcal {A}\underline {u}^{\mathrm {S}}.  \end{equation}<a id='x1-2013r5'></a> This means the mass matrix \(\mathcal {M}_A\) should be a square matrix and invertible,
+which requires two conditions:
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-2015x1'>
+     <!-- l. 96 --><p class='noindent'>The number of basis elements adopted for the range space \(W_h\) of \(A\) should be the same as that for the
+     dual space \(W_h'\).
+     </p><!-- l. 98 --><p class='noindent'>Take the single layer potential (SLP) operator \(V: H^{-1/2}(\Gamma ) \rightarrow H^{1/2}(\Gamma )\) in BEM as an example. \(W\) is \(H^{1/2}(\Gamma )\) and \(W'\) is \(H^{-1/2}(\Gamma )\). \(W_h\) is usually the
+     piecewise linear continuous function space and \(W_h'\) is the piecewise constant function space. Basis
+     functions of the former space are configured at nodes in the mesh, while basis functions for the
+     latter  space  are  configured  in  cells.  Therefore,  the  number  of  basis  functions  of  the  two  spaces
+     usually mismatch. The remedy is to construct the space \(W_h'\) on the dual mesh, then there is a one-to-one
+     correspondence between each cell in the dual mesh and each node in the primal mesh.
+     </p></li>
+<li class='enumerate' id='x1-2017x2'>
+     <!-- l. 100 --><p class='noindent'>The duality pairing between \(W_h'\) and \(W_h\) should be \(\inf \sup \) stable in the sense that the following condition should be
+     satisfied (<a href='#XBetckeProduct2017'>Betcke et al.</a>) \begin{equation}  \inf _{u\in W_h} \sup _{v\in W_h'} \frac {\lvert \left \langle u,v \right \rangle \rvert }{\lVert u \rVert _{W_h} \lVert v \rVert _{W_h'}} \geq c &gt; 0.  \end{equation}<a id='x1-2018r6'></a></p></li></ol>
+<!-- l. 105 --><p class='noindent'>Then the mass matrix \(\mathcal {M}_A\) is invertible.
+</p><!-- l. 107 --><p class='indent'>   This \(\inf \sup \) stability is just the unique solvability condition or well-posedness condition of the following variational
+formulation: given \(f\in V'\), find \(u\in U\), such that \begin{equation}  a(u,v) = \left \langle f, v \right \rangle \quad \forall v\in V.  \end{equation}<a id='x1-2019r7'></a> Such a variational formulation involves the generalized bilinear form \(a(\cdot ,\cdot ): U\times V \rightarrow \mathbb {R}\),
+where the two component spaces \(U\) and \(V\) are different. Therefore, this condition is a generalization of the ellipticity
+condition involved in the Lax-Milgram Lemma, where the bilinear form requires two identical
+spaces.
+</p><!-- l. 113 --><p class='indent'>   For the duality pairing \(\left \langle \cdot ,\cdot \right \rangle _{W_h', W_h}\), it is actually a bilinear form \(a(\cdot ,\cdot ): W_h\times W_h' \rightarrow \mathbb {R}\) defined as \(a(u,v) := \left \langle v, Iu \right \rangle \), where \(I: W_h \rightarrow W_h\) is the identity operator. If the \(\inf \sup \)
+condition is satisfied, the mass matrix, as a discretization of the operator \(I\), is invertible.
+</p><!-- l. 115 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>2    </span> <a id='x1-30002'></a>Discretization of the inverse of an operator</h3>
+<!-- l. 117 --><p class='noindent'>In BEM, when there is source distribution \(f\in \tilde {H}^{-1}(\Omega )\) in the volume domain \(\Omega \), the Newton potential \(N_0 f\) will also contribute to
+                                                                                               
+                                                                                               
+the Neumann trace at the boundary \(\Gamma \) as \(V^{-1}(N_0 f)\), where \(N_0: \tilde {H}^{-1}(\Omega ) \rightarrow H^{1/2}(\Gamma )\) and \(V^{-1}: H^{1/2}(\Gamma ) \rightarrow H^{-1/2}(\Gamma )\). It is obvious that if somehow we can directly discretize the
+inverse SLP operator \(V^{-1}\) into a matrix \(\mathcal {V}^{\dagger }\), its row and column function spaces are \(^{\mathrm {W}}H_h^{1/2}(\Gamma )\times ^{\mathrm {S}}H_h^{1/2}(\Gamma )\). On the other hand, if the matrix for \(V\)
+is \(\mathcal {V}\) and \(\mathcal {V}^{-1}\) is its inverse matrix, the row and column function spaces of \(\mathcal {V}^{-1}\) are \(^{\mathrm {S}}H_h^{-1/2}(\Gamma )\times ^{\mathrm {W}}H_h^{-1/2}(\Gamma )\) \(\mathcal {V}^{-1}\). Therefore, \(\mathcal {V}^{\dagger }\) and \(\mathcal {V}^{-1}\) are two
+different matrices. <span class='p1xb-x-x-109'>N.B. Even though the function spaces related to matrices </span>\(\mathcal {V}\) <span class='p1xb-x-x-109'>and </span>\(\mathcal {V}^{-1}\) <span class='p1xb-x-x-109'>are the same </span>\(H_h^{-1/2}(\Gamma )\times H_h^{-1/2}(\Gamma )\)<span class='p1xb-x-x-109'>, the
+</span><span class='p1xb-x-x-109'>input or output vectors of the two matrices have different identities in the sense of strong or
+</span><span class='p1xb-x-x-109'>weak.</span>
+</p><!-- l. 119 --><p class='indent'>   In practice, an inverse operator like \(V^{-1}\) cannot be directly evaluated or discretized. We can only compute an
+approximation \(\tilde {\mathcal {V}^{\dagger }}\) of \(\mathcal {V}^{\dagger }\) by starting from the inverse of the matrix for the original operator, which is \(\mathcal {V}^{-1}\). In \(V^{-1}(N_0f)\), \(N_0f\) directly
+returns a strong form vector in \(H_h^{1/2}(\Gamma )\), which is the column space of the matrix \(\tilde {\mathcal {V}^{\dagger }}\). Hence we need to project this
+strong form vector from \(H_h^{1/2}(\Gamma )\) to the <span class='p1xb-x-x-109'>weak </span>column space \(H_h^{-1/2}(\Gamma )\) of \(\mathcal {V}^{-1}\), and we can call this operation as <span class='p1xb-x-x-109'>space
+</span><span class='p1xb-x-x-109'>adaptation</span>. This can be directly achieved by multiplying the mass matrix \(\mathcal {M}_{V}\) induced by the duality pairing
+between \(H_h^{-1/2}(\Gamma )\) and \(H_h^{1/2}(\Gamma )\). The output from \(\mathcal {V}^{-1}\) is a strong form vector in \(H_h^{-1/2}(\Gamma )\), which should be further mapped to
+the <span class='p1xb-x-x-109'>weak </span>row space \(H_h^{1/2}(\Gamma )\) of \(\mathcal {V}^{\dagger }\). Because this is also a direct projection of a strong form vector to a weak
+form vector, we need to multiply the mass matrix \(\mathcal {M}_{V^{-1}}\) induced by the duality pairing between \(H_h^{1/2}(\Gamma )\) and
+\(H_h^{-1/2}(\Gamma )\).
+</p><!-- l. 121 --><p class='indent'>   Let the basis of \(H_h^{1/2}(\Gamma )\) be \(\left \{ \varphi _{1},\cdots ,\varphi _{n} \right \}\) and the basis of \(H_h^{-1/2}(\Gamma )\) be \(\left \{ \psi _{1},\cdots ,\psi _{m} \right \}\). The coefficients of the above two mass matrices are \begin{equation}  \mathcal {M}_V[i,j] = \left \langle \psi _i,\varphi _j \right \rangle \quad i=1,\cdots ,m, j=1,\cdots ,n  \end{equation}<a id='x1-3001r8'></a> and \begin{equation}  \mathcal {M}_{V^{-1}}[i,j] = \left \langle \varphi _i,\psi _j \right \rangle \quad i=1,\cdots ,n, j=1,\cdots ,m.  \end{equation}<a id='x1-3002r9'></a> Therefore, \(\mathcal {M}_V = \mathcal {M}_{V^{-1}}^{\mathrm {T}}\).
+The matrix \(\tilde {\mathcal {V}}^{\dagger }\) as an approximate discretization of the inverse operator \(V^{-1}\) is \begin{equation}  \tilde {\mathcal {V}^{\dagger }} = \mathcal {M}_V^{\mathrm {T}} \mathcal {V}^{-1} \mathcal {M}_V.  \end{equation}<a id='x1-3003r10'></a> The commutative diagram for the above
+operators and matrices is shown below, where the red route indicates the computation of \(\tilde {\mathcal {V}^{\dagger }}\) as the approximation
+for \(\mathcal {V}^{\dagger }\).
+</p>
+   <figure class='figure'> 
+
+                                                                                               
+                                                                                               
+                                                                                               
+                                                                                               
+<!-- l. 137 --><p class='noindent'><img alt='PIC' src='/figures/2024-07-24_12-30-43-commutative-diagram-for-inverse-operator.png'/>
+                                                                                               
+                                                                                               
+</p>
+   </figure>
+<!-- l. 140 --><p class='indent'>   Another example is the discretization of the Steklov-Poincaré operator in the symmetric form for the
+interior problem: \begin{equation}  S = D + \left ( \frac {1}{2}I_1 + K' \right ) V^{-1} \left ( \frac {1}{2}I_2 + K \right ),  \end{equation}<a id='x1-3004r11'></a> where the mapping properties of involved operators are \begin{equation}  \begin {aligned} S, D &amp;: H^{1/2}(\Gamma ) \rightarrow H^{-1/2}(\Gamma ) \\ I_1, K' &amp;: H^{-1/2}(\Gamma ) \rightarrow H^{-1/2}(\Gamma ) \\ V^{-1} &amp;: H^{1/2}(\Gamma ) \rightarrow H^{-1/2}(\Gamma ) \\ I_2, K &amp;: H^{1/2}(\Gamma ) \rightarrow H^{1/2}(\Gamma ) \end {aligned}.  \end{equation}<a id='x1-3005r12'></a> Let \(\mathcal {M}\) be the mass matrix between \(H^{-1/2}(\Gamma )\)
+and \(H^{1/2}(\Gamma )\), we have the matrix form for \(S\) as \begin{equation}  \mathcal {S} = \mathcal {D} + \left ( \frac {1}{2}\mathcal {M}^{\mathrm {T}} + \mathcal {K}^{\mathrm {T}} \right ) \mathcal {M}^{-\mathrm {T}} \mathcal {M}^{\mathrm {T}} \mathcal {V}^{-1} \mathcal {M} \mathcal {M}^{-1} \left ( \frac {1}{2}\mathcal {M} + \mathcal {K} \right ) = \left ( \frac {1}{2}\mathcal {M}^{\mathrm {T}} + \mathcal {K}^{\mathrm {T}} \right ) \mathcal {V}^{-1} \left ( \frac {1}{2}\mathcal {M} + \mathcal {K} \right ),  \end{equation}<a id='x1-3006r13'></a> which follows the red route in the following commutative
+diagram.
+</p>
+   <figure class='figure'> 
+
+                                                                                               
+                                                                                               
+                                                                                               
+                                                                                               
+<!-- l. 166 --><p class='noindent'><img alt='PIC' src='/figures/2024-07-24_12-31-33-commutative-diagram-for-steklov-poincare.png'/>
+                                                                                               
+                                                                                               
+</p>
+   </figure>
+   <h3 class='sectionHead'><span class='titlemark'>3    </span> <a id='x1-40003'></a>Discretization of a preconditioner</h3>
+<!-- l. 172 --><p class='noindent'>When an iterative solver is used in BEM, only matrix/vector multiplication is needed. Therefore, the stiffness
+matrix \(\mathcal {S}\) associated with the Steklov-Poincaré operator \(S\) is not assembled explicitly, while each of its component
+matrix that constitutes \(S\) except the inverse matrix \(\mathcal {V}^{-1}\) will be assembled, i.e. \(\mathcal {D}\) and \(\frac {1}{2}\mathcal {M} + \mathcal {K}\). Let the input vector of \(\mathcal {S}\) be \(\underline {u}\) and the
+result of \(\left ( \frac {1}{2}\mathcal {M} + \mathcal {K} \right ) \underline {u}\) be \(\underline {b}\). Then computing \(\mathcal {V}^{-1} \underline {b}\) is equivalent to solving \(\mathcal {V} \underline {x} = \underline {b}\) for \(\underline {x}\). During the solution of this equation, \(\mathcal {V}\) should be
+preconditioned. Using the concept of operator preconditioning (<a href='#XMardalPreconditioning2011'>Mardal and Winther</a>), the preconditioning
+operator for \(V\) is \(I + D\), due to the fact that \((I+D)^{-1}\) is spectrally equivalent to \(V\) (<a href='#XHsiaoDomain2000'>Hsiao et al.</a>). Then the matrix
+corresponding to \((I+D)^{-1}\) is the preconditioning matrix, whose inverse will be applied to the two sides of \(\mathcal {V}\underline {x} = \underline {b}\).
+Compared to multigrid and multilevel preconditioning techniques, operator preconditioning has two
+advantages:
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-4002x1'>
+     <!-- l. 174 --><p class='noindent'>It does not rely on a hierarchical mesh, which is much easier to implement.
+     </p></li>
+<li class='enumerate' id='x1-4004x2'>
+     <!-- l. 175 --><p class='noindent'>There is a rigorous proof about spectral equivalence, so the condition number of the preconditioned
+     system can be controlled uniformly independent of the mesh size.</p></li></ol>
+<!-- l. 178 --><p class='indent'>   <span class='p1xb-x-x-109'>N.B. The preconditioning operator corresponds to the inverse of the preconditioning matrix.</span>
+</p><!-- l. 180 --><p class='indent'>   With the conclusion for the discretization of an inverse operator, the approximate matrix for \((I+D)^{-1}\) is \begin{equation}  \mathcal {M}_D^{\mathrm {T}} (\tilde {\mathcal {M}} + \mathcal {D})^{-1} \mathcal {M}_D,  \end{equation}<a id='x1-4005r14'></a> where \(\mathcal {M}_D\)
+is the mass matrix related to the duality pairing \(\left \langle \cdot ,\cdot \right \rangle _{H_h^{1/2}(\Gamma ), H_h^{-1/2}(\Gamma )}\) between the dual space and range space of the
+operator \(D\), \(\tilde {\mathcal {M}}\) is the mass matrix related to the inner product in \(H^{1/2}(\Gamma )\), since its row space and column space
+are the same space \(H^{1/2}(\Gamma )\). The row space of \(\mathcal {M}_D^{\mathrm {T}} (\tilde {\mathcal {M}} + \mathcal {D})^{-1} \mathcal {M}_D\) is the dual space of the domain space of the operator \(I+D\), i.e.
+\(^{\mathrm {W}}H^{-1/2}(\Gamma )\). Its column space is the range space of \(I+D\), i.e. \(^{\mathrm {S}}H^{-1/2}(\Gamma )\). Therefore, the preconditioning matrix is a square
+matrix.
+</p><!-- l. 186 --><p class='indent'>   The inverse of the preconditioning matrix is \begin{equation}  \mathcal {M}_D^{-1} (\tilde {\mathcal {M}} + \mathcal {D}) \mathcal {M}_D^{-\mathrm {T}},  \end{equation}<a id='x1-4006r15'></a> which is to be multiplied to \(\mathcal {V}\) from left. Its row and column
+spaces are \(^{\mathrm {S}}H^{-1/2}(\Gamma )\times ^{\mathrm {W}}H^{-1/2}(\Gamma )\). We also notice that the function spaces for the preconditioned matrix \(\mathcal {M}_D^{\mathrm {T}} (\tilde {\mathcal {M}} + \mathcal {D})^{-1} \mathcal {M}_D \mathcal {V}\) are \(^{\mathrm {S}}H^{-1/2}(\Gamma )\times ^{\mathrm {S}}H^{-1/2}(\Gamma )\), i.e. its row and column
+spaces are both in the strong form.
+</p><!-- l. 192 --><p class='indent'>   The above example is special in that the preconditioning operator \(I+D\) is explicitly known and can be evaluated.
+Therefore, there is no need to build the matrix for \((I+D)^{-1}\) first, then compute its inverse. Instead, we can directly build
+the inverse of the preconditioning matrix using the rule of product algebra (<a href='#XBetckeProduct2017'>Betcke et al.</a>) for discretizing a
+composition of operators \((I+D)V\). Its matrix form is \begin{equation}  (\tilde {\mathcal {M}} + \mathcal {D}) \mathcal {M}_V^{-1} \mathcal {V},  \end{equation}<a id='x1-4007r16'></a> where \(\mathcal {M}_V\) is the duality pairing between the dual and
+range space of the operator \(V\), which is just the transpose of \(\mathcal {M}_D\). The row space of \(\tilde {\mathcal {M}} + \mathcal {D}\) is \(^{\mathrm {W}}H_h^{1/2}(\Gamma )\), which is the
+dual space of the range space of the operator \(I+D\), i.e. \(^{\mathrm {S}}H^{-1/2}(\Gamma )\). However, as we mentioned above, the row
+and column spaces of a preconditioned matrix should be in the strong form, and the row space
+should be the range space of the operator \(I+D\). Therefore, we need to perform another weak form to
+strong form transformation via the inverse of the matrix \(\mathcal {M}_D\). Finally, we obtain \begin{equation}  \mathcal {M}_D^{-1} (\tilde {\mathcal {M}} + \mathcal {D}) \mathcal {M}_D^{-\mathrm {T}} \mathcal {V}  \end{equation}<a id='x1-4008r17'></a> and the inverse of the
+preconditioning matrix is \(\mathcal {M}_D^{-1} (\tilde {\mathcal {M}} + \mathcal {D}) \mathcal {M}_D^{-\mathrm {T}}\). This result is the same as the previous method. The commutative diagram is as
+                                                                                               
+                                                                                               
+below.
+</p>
+   <figure class='figure'> 
+
+                                                                                               
+                                                                                               
+                                                                                               
+                                                                                               
+<!-- l. 204 --><p class='noindent'><img alt='PIC' src='/figures/2024-07-24_12-32-05-commutative-diagram-for-preconditioner.png'/>
+                                                                                               
+                                                                                               
+</p>
+   </figure>
+   <h3 class='sectionHead'><span class='titlemark'>4    </span> <a id='x1-50004'></a>Summary</h3>
+<!-- l. 209 --><p class='noindent'>In BEM, the discretization of an operator and its input and output functions involve the concept of strong and
+weak form. The transformation between such strong form and weak form is realized via the duality pairing
+between the range space and dual space of the operator. Even though, the matrix obtained from operator
+discretization hides the range space, when the inverse of an operator is to be discretized, such range space
+emerges to the surface. If we want to build a preconditioner using operator preconditioning technique, such
+problem will also arise.
+</p><!-- l. 211 --><p class='indent'>   Following is a list of key points to be kept in mind:
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-5002x1'>
+     <!-- l. 213 --><p class='noindent'>The discretization of an operator produces a matrix which involves the domain space and dual
+     space of the operator, while <span class='p1xb-x-x-109'>the range space is implicit</span>.
+     </p></li>
+<li class='enumerate' id='x1-5004x2'>
+     <!-- l. 214 --><p class='noindent'>The input vector of the matrix is a <span class='p1xb-x-x-109'>strong form </span>vector in the domain space, which is associated with
+     the column space of the matrix.
+     </p></li>
+<li class='enumerate' id='x1-5006x3'>
+     <!-- l. 215 --><p class='noindent'>The output vector of the matrix is a <span class='p1xb-x-x-109'>weak form </span>vector in the dual space of the operator’s range
+     space, which is associated with the row space of the matrix. The weak form vector can be considered
+     as a direct projection from the implicit range space to its dual space via duality paring.
+     </p></li>
+<li class='enumerate' id='x1-5008x4'>
+     <!-- l. 216 --><p class='noindent'>To get the <span class='p1xb-x-x-109'>strong form </span>vector related to the output function of the operator, we need to further
+     multiply the inverse of the mass matrix associated with the duality pairing to the <span class='p1xb-x-x-109'>weak form </span>vector.
+     This is inverse mass matrix is the discretization of the Riesz map mentioned in (<a href='#XBetckeProduct2017'>Betcke et al.</a>).
+     </p></li>
+<li class='enumerate' id='x1-5010x5'>
+     <!-- l. 217 --><p class='noindent'>The Galerkin matrix for the inverse of an operator maps a strong form vector in the range space of
+     the original operator to a weak form vector in the dual space of the domain space.
+                                                                                               
+                                                                                               
+     </p></li>
+<li class='enumerate' id='x1-5012x6'>
+     <!-- l. 218 --><p class='noindent'>The inverse of the Galerkin matrix for an operator maps a weak form vector in the dual space of
+     the range space to a strong form vector in the domain space.
+     </p></li>
+<li class='enumerate' id='x1-5014x7'>
+     <!-- l. 219 --><p class='noindent'>The row and column spaces of a preconditioned matrix are both in the strong form.</p></li></ol>
+<!-- l. 1 --><p class='noindent'>
+</p>
+   <h3 class='likesectionHead'><a id='x1-6000'></a>References</h3>
+<!-- l. 1 --><p class='noindent'>
+  </p><div class='thebibliography'>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XBetckeProduct2017'></a><span class='bibsp'>   </span></span>Timo Betcke, Matthew Scroggs, and Wojciech Smigaj. Product algebras for galerkin discretisations of
+  boundary integral operators and their applications. URL <a class='url' href='http://arxiv.org/abs/1711.10607'><span class='t1xtt-x-x-109'>http://arxiv.org/abs/1711.10607</span></a>.
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XHsiaoDomain2000'></a><span class='bibsp'>   </span></span>G. C. Hsiao, O. Steinbach, and W. L. Wendland.   Domain decomposition methods via boundary
+  integral equations. 125(1):521–537. ISSN 0377-0427. doi: 10.1016/S0377-0427(00)00488-X.
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XMardalPreconditioning2011'></a><span class='bibsp'>   </span></span>Kent-Andre  Mardal  and  Ragnar  Winther.    Preconditioning  discretizations  of  systems  of  partial
+  differential equations. 18(1):1–40. ISSN 1099-1506. doi: 10.1002/nla.716.
+</p>
+  </div>
+   <div class='footnotes'><a id='x1-2006x1'></a>
+<!-- l. 36 --><p class='indent'>      <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-90'>If there is no ambiguity from the context, we can simply write the duality pairing as </span>\(\left \langle \cdot ,\cdot \right \rangle \) <span class='p1xr-x-x-90'>without indicating the primal and dual
+</span><span class='p1xr-x-x-90'>space.</span></p><a id='x1-2012x1'></a>
+<!-- l. 88 --><p class='indent'>        <span class='footnote-mark'><a href='#fn2x0-bk' id='fn2x0'><sup class='textsuperscript'>2</sup></a></span><span class='p1xr-x-x-90'>When specifying the function spaces related to a matrix, we put the row space in front of the column space.</span></p>                 </div>
+
+<p></p>
+
+  </div><a class="u-url" href="/math/2024/07/24/understanding-about-operator-discretization.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

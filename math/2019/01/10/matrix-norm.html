@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Matrix norm | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Matrix norm" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In our previous post, we introduced various definitions of matrix norms in \(\mathbb{R}^{n \times n}\) based on the corresponding vector norms in \(\mathbb{R}^n\). Meanwhile, the equivalence of different vector norms and their induced metrics and topologies in \(\mathbb{R}^n\) is also inherited into \(\mathbb{R}^{n \times n}\). In this article, we’ll show why the above defined matrix norms are valid." />
+<meta property="og:description" content="In our previous post, we introduced various definitions of matrix norms in \(\mathbb{R}^{n \times n}\) based on the corresponding vector norms in \(\mathbb{R}^n\). Meanwhile, the equivalence of different vector norms and their induced metrics and topologies in \(\mathbb{R}^n\) is also inherited into \(\mathbb{R}^{n \times n}\). In this article, we’ll show why the above defined matrix norms are valid." />
+<link rel="canonical" href="https://jihuan-tian.github.io/math/2019/01/10/matrix-norm.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/math/2019/01/10/matrix-norm.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-10T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Matrix norm" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2019-01-10T00:00:00+08:00","datePublished":"2019-01-10T00:00:00+08:00","description":"In our previous post, we introduced various definitions of matrix norms in \\(\\mathbb{R}^{n \\times n}\\) based on the corresponding vector norms in \\(\\mathbb{R}^n\\). Meanwhile, the equivalence of different vector norms and their induced metrics and topologies in \\(\\mathbb{R}^n\\) is also inherited into \\(\\mathbb{R}^{n \\times n}\\). In this article, we’ll show why the above defined matrix norms are valid.","headline":"Matrix norm","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2019/01/10/matrix-norm.html"},"url":"https://jihuan-tian.github.io/math/2019/01/10/matrix-norm.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"></script>
+
+  
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Matrix norm</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-01-10T00:00:00+08:00" itemprop="datePublished">Jan 10, 2019 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/math">Math</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/topology">topology</a>
+          
+            <a href="/tags/linear-algebra">linear-algebra</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>In our <a href="/math/2019/01/08/munkres-topology-theo20-3-and-metric-equivalence.html">previous post</a>, we introduced various definitions of matrix norms in \(\mathbb{R}^{n \times n}\) based on the corresponding vector norms in \(\mathbb{R}^n\). Meanwhile, the equivalence of different vector norms and their induced metrics and topologies in \(\mathbb{R}^n\) is also inherited into \(\mathbb{R}^{n \times n}\). In this article, we’ll show why the above defined matrix norms are valid.</p>
+
+<p>Generally, the definition of a matrix norm in \(\mathbb{R}^{n \times n}\) should satisfy the following four conditions:</p>
+
+<ol>
+  <li>Positive definiteness: for all \(A \in \mathbb{R}^{n \times n}\), \(\norm{A} \geq 0\). \(\norm{A} = 0\) if and only if \(A = 0\).</li>
+  <li>Absolute homogeneity: for all \(\alpha \in \mathbb{R}\) and \(A \in \mathbb{R}^{n \times n}\), \(\norm{\alpha A} = \abs{\alpha} \norm{A}\).</li>
+  <li>Triangle inequality: for all \(A, B \in \mathbb{R}^{n \times n}\), \(\norm{A + B} \leq \norm{A} + \norm{B}\).</li>
+  <li>Sub-multiplicity: for all \(A, B \in \mathbb{R}^{n \times n}\), \(\norm{AB} \leq \norm{A} \norm{B}\).</li>
+</ol>
+
+<p>Therefore, we need to prove the following theorem in order to meet the above requirements.</p>
+
+<p><strong>Theorem</strong> Let \(\norm{\cdot}\) be a norm on \(\mathbb{R}^n\). Then for all \(A \in \mathbb{R}^{n \times n}\), its matrix norm \(\zeta: \mathbb{R}^{n \times n} \rightarrow \mathbb{R}\) can be defined as</p>
+
+\[\zeta(A) = \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \frac{\norm{A \vect{x}}}{\norm{\vect{x}}} = \sup_{\forall \vect{x} \in \mathbb{R}^n, \norm{\vect{x}}=1} \norm{A \vect{x}}\]
+
+<p><strong>Proof</strong> a) Positive definiteness and absolute homogeneity directly inherit from vector norms.</p>
+
+<p>b) The triangle inequality can be proved as following.</p>
+
+\[\begin{aligned}
+\zeta(A + B) &amp;= \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \frac{\norm{(A + B) \vect{x}}}{\norm{\vect{x}}} = \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \frac{\norm{A\vect{x} + B\vect{x}}}{\norm{\vect{x}}} \\
+&amp; \leq \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \frac{\norm{A\vect{x}} + \norm{B\vect{x}}}{\norm{\vect{x}}} \leq \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \frac{\norm{A\vect{x}}}{\norm{\vect{x}}} + \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \frac{\norm{B\vect{x}}}{\norm{\vect{x}}} = \zeta(A) + \zeta(B).
+\end{aligned}\]
+
+<p>c) For sub-multiplicity, we have</p>
+
+\[\begin{aligned}
+\zeta(AB) &amp;= \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \frac{\norm{AB\vect{x}}}{\norm{\vect{x}}} = \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \frac{\norm{AB\vect{x}} \norm{B\vect{x}}}{\norm{B\vect{x}}\norm{\vect{x}}} \\
+&amp;\leq \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \frac{\norm{A\vect{x}}}{\norm{\vect{x}}} \cdot \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \frac{\norm{B\vect{x}}}{\norm{\vect{x}}} = \norm{A} \cdot \norm{B}.
+\end{aligned}\]
+
+<p>d) Prove \(\zeta(A) = \sup_{\forall \vect{x} \in \mathbb{R}^n, \norm{\vect{x}} = 1} \norm{A\vect{x}}\).</p>
+
+<p>Note that \(\frac{1}{\norm{\vect{x}}}\) is a scalar value in \(\mathbb{R}\), then with the proved absolute homogeneity, we have</p>
+
+\[\zeta(A) = \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \frac{\norm{A\vect{x}}}{\norm{\vect{x}}} = \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \left\Vert A \cdot \frac{\vect{x}}{\norm{\vect{x}}} \right\Vert.\]
+
+<p>By letting \(\vect{x}' = \frac{\vect{x}}{\norm{\vect{x}}}\), we have this part proved.</p>
+
+<p>Summarizing a) to d), \(\norm{\cdot}\) is literally a matrix norm induced from the corresponding vector norm.</p>
+
+<p>Next, we prove the validity of the detailed formulations of the matrix norms, i.e.</p>
+
+<ol>
+  <li>1-norm: \(\norm{A}_1 = \max_{1 \leq j \leq n} \sum_{i=1}^n \abs{a_{ij}}\), which is the maximum absolute column sum;</li>
+  <li>2-norm: \(\norm{A}_2 = \sqrt{\rho(A^T A)}\), where \(\rho\) represents the spectral radius, i.e. the maximum eigenvalue of \(A^TA\);</li>
+  <li>\(\infty\)-norm: \(\norm{A}_{\infty} = \max_{1 \leq i \leq n} \sum_{j=1}^n \abs{a_{ij}}\), which is the maximum absolute row sum.</li>
+</ol>
+
+<p>a) 1-norm: Because</p>
+
+\[\begin{aligned}
+\norm{A\vect{x}}_1 &amp;= \sum_{i=1}^n \left\vert \sum_{j=1}^n a_{ij} x_j \right\vert \leq \sum_{i=1}^n \sum_{j=1}^n \abs{a_{ij} x_j} = \sum_{j=1}^n \left( \abs{x_j} \sum_{i=1}^n \abs{a_{ij}} \right) \\
+&amp;\leq \left( \sum_{j=1}^n \abs{x_j} \right) \cdot \max_{1 \leq j \leq n} \left( \sum_{i=1}^n \abs{a_{ij}} \right),
+\end{aligned}\]
+
+<p>we have</p>
+
+\[\norm{A}_1 \leq \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \frac{\norm{A\vect{x}}_1}{\norm{\vect{x}}_1} \leq \frac{\left( \sum_{j=1}^n \abs{x_j} \right) \cdot \max_{1 \leq j \leq n} \left( \sum_{i=1}^n \abs{a_{ij}} \right)}{\sum_{j=1}^n \abs{x_j}} = \max_{1 \leq j \leq n} \left( \sum_{i=1}^n \abs{a_{ij}} \right).\]
+
+<p>Then, we need to show that the maximum value on the right hand side is achievable.</p>
+
+<p>Assume that when \(j = j_0\), \(\sum_{i=1}^n \abs{a_{ij}}\) has the maximum value. If this value is zero, it means \(A\) is a zero matrix and the definition of matrix 1-norm is trivially true. If this value is not zero, by letting \(\vect{x} = (\delta_{ij_0})_{i \geq 1}^n\) with \(\delta_{ij_0}\) being the Kronecker delta, we have</p>
+
+\[\frac{\norm{A\vect{x}}_1}{\norm{\vect{x}}_1} = \frac{\sum_{i=1}^n \abs{a_{ij_0}}}{1} = \max_{1 \leq j \leq n} \left( \sum_{i=1}^n \abs{a_{ij}} \right).\]
+
+<p>b) 2-norm: The proof for this part needs the <em>intervention</em> of inner product \(\langle \cdot, \cdot \rangle\) of vectors in \(\mathbb{R}^n\), from which the vector 2-norm can be induced. Then we have</p>
+
+\[\norm{A}_2 = \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \frac{\norm{A\vect{x}}_2}{\norm{\vect{x}}_2} = \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \sqrt{\frac{\langle A\vect{x}, A\vect{x} \rangle}{\langle \vect{x}, \vect{x} \rangle}} = \sup_{\forall \vect{x} \in \mathbb{R}^n, \vect{x} \neq 0} \sqrt{\frac{\langle A^*A\vect{x}, \vect{x} \rangle}{\langle \vect{x}, \vect{x} \rangle}},\]
+
+<p>where \(A^*\) is the adjoint operator, i.e. transpose of \(A\). Therefore, \(A^*A\) is a real valued symmetric matrix which has \(n\) real eigenvalues \(\{\lambda_i\}_{i=1}^n\) with \(0 \leq \lambda_1 \leq \cdots \leq \lambda_n\) and \(n\) corresponding orthonormal eigenvectors \(\{\vect{v}_i\}_{i=1}^n\) (N.B. There may be duplicates in the eigenvalues).  For all \(\vect{x} \in \mathbb{R}^n\), it can be expanded as \(\vect{x} = \sum_{i=1}^n a_i \vect{v}_i\) and \(A^*A\vect{x} = \sum_{i=1}^n a_i A^*A \vect{v}_i = \sum_{i=1}^n a_i \lambda_i \vect{v}_i\). Then we have</p>
+
+\[\begin{aligned}
+\langle A^*A\vect{x}, \vect{x} \rangle &amp;= \left\langle \sum_{i=1}^n a_i \lambda_i \vect{v}_i, \sum_{j=1}^n a_j \vect{v}_j \right\rangle = \sum_{i=1}^n \sum_{j=1}^n \lambda_i a_i^2 \langle \vect{v}_i, \vect{v}_j \rangle \\
+&amp;= \sum_{i=1}^n \sum_{j=1}^n \lambda_i a_i^2 \delta_{ij} = \sum_{i=1} \lambda_i a_i^2.
+\end{aligned}\]
+
+<p>Meanwhile,</p>
+
+\[\langle \vect{x}, \vect{x} \rangle = \left\langle \sum_{i=1}^n a_i \vect{v}_i, \sum_{j=1}^n a_j \vect{v}_j \right\rangle = \sum_{i=1}^n \sum_{j=1}^n a_i a_j \langle \vect{v}_i, \vect{v}_j \rangle = \sum_{i=1}^n a_i^2.\]
+
+<p>Therefore,</p>
+
+\[\frac{\norm{A\vect{x}}_2}{\norm{\vect{x}}_2} \leq \sqrt{\frac{\lambda_n \sum_{i=1}^n a_i^2}{\sum_{i=1}^n a_i^2}} = \sqrt{\lambda_n}.\]
+
+<p>By letting \(a_1 = a_2 = \cdots = a_{n-1} = 0\) and \(a_n = 1\), we have \(\frac{\norm{A\vect{x}}_2}{\norm{\vect{x}}_2} = \sqrt{\lambda_n}\). Hence,</p>
+
+\[\norm{A}_2 = \sqrt{\lambda_n} = \sqrt{\rho(A^*A)}\]
+
+<p>and the definition of matrix 2-norm is valid.</p>
+
+<p>c) \(\infty\)-norm:</p>
+
+\[\begin{aligned}
+\norm{A\vect{x}}_{\infty} &amp;= \max_{1 \leq i \leq n} \left( \left\vert \sum_{j=1}^n a_{ij} x_j \right\vert \right) \leq \max_{1 \leq i \leq n} \left( \sum_{j=1}^n \abs{a_{ij}} \cdot \abs{x_j} \right) \\
+&amp;= \max_{1 \leq i \leq n} \left( \left( \sum_{j=1}^n \abs{a_{ij}} \right) \cdot \left( \max_{1 \leq j \leq n} \abs{x_j} \right) \right) = \left( \max_{1 \leq i \leq n} \sum_{j=1}^n \abs{a_{ij}} \right) \cdot \left( \max_{1 \leq j \leq n} \abs{x_j} \right) \\
+\norm{\vect{x}}_{\infty} &amp;= \max_{1 \leq i \leq n} \abs{x_i}
+\end{aligned}\]
+
+<p>Therefore, \(\frac{\norm{A\vect{x}}_{\infty}}{\norm{\vect{x}}_{\infty}} \leq \max_{1 \leq i \leq n} \sum_{j=1}^n \abs{a_{ij}}\). Then, we need to prove this maximum value is achievable.</p>
+
+<p>Assume when \(i = i_0\), \(\sum_{j=1}^n \abs{a_{i_0 j}}\) achieves the maximum. If this value is zero, \(A\) is a zero matrix and the definition of matrix \(\infty\)-norm is trivially true. If this value is not zero, by letting \(\vect{x} = (\sgn(a_{i_0 1}), \cdots, \sgn(a_{i_0 n}))^{\rm T}\), we have \(\norm{\vect{x}}_{\infty} = 1\) and \(\norm{A\vect{x}}_{\infty} = \sum_{j=1}^n \abs{a_{i_0 j}} = \max_{1 \leq i \leq n} \sum_{j=1}^n \abs{a_{ij}}\).  Hence, \(\frac{\norm{A\vect{x}}_{\infty}}{\norm{\vect{x}}_{\infty}} = \max_{1 \leq i \leq n} \sum_{j=1}^n \abs{a_{ij}}\) and the definition of \(\infty\)-norm is valid.</p>
+
+
+  </div><a class="u-url" href="/math/2019/01/10/matrix-norm.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

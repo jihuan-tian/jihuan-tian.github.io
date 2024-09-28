@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Shape functions and basis functions in FEM | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Shape functions and basis functions in FEM" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="According to my graduate student experience, the difference between shape functions and basis functions in FEM was not clarified in my numerical method course. Therefore, in this article, I illustrate and explain this point with the help of the symbolic math software Maxima." />
+<meta property="og:description" content="According to my graduate student experience, the difference between shape functions and basis functions in FEM was not clarified in my numerical method course. Therefore, in this article, I illustrate and explain this point with the help of the symbolic math software Maxima." />
+<link rel="canonical" href="https://jihuan-tian.github.io/math/2024/08/07/shape-functions-and-basis-functions-in-fem.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/math/2024/08/07/shape-functions-and-basis-functions-in-fem.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-08-07T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Shape functions and basis functions in FEM" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2024-08-07T00:00:00+08:00","datePublished":"2024-08-07T00:00:00+08:00","description":"According to my graduate student experience, the difference between shape functions and basis functions in FEM was not clarified in my numerical method course. Therefore, in this article, I illustrate and explain this point with the help of the symbolic math software Maxima.","headline":"Shape functions and basis functions in FEM","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2024/08/07/shape-functions-and-basis-functions-in-fem.html"},"url":"https://jihuan-tian.github.io/math/2024/08/07/shape-functions-and-basis-functions-in-fem.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+    <link rel="stylesheet" href="/assets/css/maxima.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"></script>
+
+  
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Shape functions and basis functions in FEM</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-08-07T00:00:00+08:00" itemprop="datePublished">Aug 7, 2024 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/math">Math</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/FEM">FEM</a>
+          
+            <a href="/tags/Maxima">Maxima</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div class="comment">According to my graduate student experience, the difference between shape functions and basis functions in FEM was not clarified in my numerical method course. Therefore, in this article, I illustrate and explain this point with the help of the symbolic math software <a href="https://maxima.sourceforge.io/">Maxima</a>.</div>
+
+<h2>
+  1 Lagrange polynomials as shape functions on reference cells
+</h2>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Load packages.
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i1)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">kill</span><span class="code_operator">(</span><span class="code_variable">all</span><span class="code_operator">)</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i6)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">load</span><span class="code_operator">(</span><span class="code_string">&quot;eigen&quot;</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_function">load</span><span class="code_operator">(</span><span class="code_string">&quot;fem.mac&quot;</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_function">load</span><span class="code_operator">(</span><span class="code_string">&quot;draw&quot;</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_function">load</span><span class="code_operator">(</span><span class="code_string">&quot;color_map.mac&quot;</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_function">load</span><span class="code_operator">(</span><span class="code_string">&quot;mnewton&quot;</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_function">load</span><span class="code_operator">(</span><span class="code_string">&quot;tex_format.mac&quot;</span><span class="code_operator">)</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Plot configurations
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i12)	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">fig_size</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_number">1280</span><span class="code_endofline">,</span><span class="code_number">1024</span><span class="code_operator">]</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_variable">wxplot_size</span> <span class="code_operator">:</span> <span class="code_variable">fig_size</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_variable">fig_font</span> <span class="code_operator">:</span> <span class="code_string">&quot;Helvetica&quot;</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_variable">fig_font_size</span> <span class="code_operator">:</span> <span class="code_number">20</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_variable">wxanimate_autoplay</span> <span class="code_operator">:</span> <span class="code_function">false</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_variable">wxanimate_framerate</span> <span class="code_operator">:</span> <span class="code_number">1</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Subsection cell -->
+
+
+<h3>
+  1.1 1D
+</h3>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Generate the four 3rd order Lagrange polynomials on $[0, 1]$.
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i13)	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">reference_cell_1d</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i14)	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">support_points_1d</span> <span class="code_operator">:</span> <span class="code_function">GenLagrangeNodes1D</span><span class="code_operator">(</span><span class="code_number">3</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\operatorname{(support\_ points\_ 1d)	}\left[ 0\operatorname{,}\frac{1}{3}\operatorname{,}\frac{2}{3}\operatorname{,}1\right] \]
+</p>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i16)	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">shape_functions_1d</span> <span class="code_operator">:</span> <span class="code_function">GenLagrangeBases1D</span><span class="code_operator">(</span><span class="code_number">3</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_endofline">,</span> <span class="code_operator">'</span><span class="code_variable">ξ</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_function">PrintEquationList</span><span class="code_operator">(</span><span class="code_variable">shape_functions_1d</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\]\[-\frac{9 \left( \xi -1\right) \, \left( \xi -\frac{2}{3}\right) \, \left( \xi -\frac{1}{3}\right) }{2}
+\]\[\frac{27 \left( \xi -1\right) \, \left( \xi -\frac{2}{3}\right)  \xi }{2}
+\]\[-\frac{27 \left( \xi -1\right) \, \left( \xi -\frac{1}{3}\right)  \xi }{2}
+\]\[\frac{9 \left( \xi -\frac{2}{3}\right) \, \left( \xi -\frac{1}{3}\right)  \xi }{2}\]
+</p>
+
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+We can see that a Lagrange polynomial is evaluated to 1 at its own support points and 0 at the support points of the other polynomails.
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i17)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">wxdraw2d</span><span class="code_operator">(</span><span class="code_variable">grid</span><span class="code_operator">=</span><span class="code_function">true</span><span class="code_endofline">,</span> <span class="code_variable">xrange</span><span class="code_operator">=</span><span class="code_variable">reference_cell_1d</span><span class="code_endofline">,</span> <span class="code_variable">yrange</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_operator">-</span><span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">5</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">.</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">dimensions</span><span class="code_operator">=</span><span class="code_variable">fig_size</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">terminal</span><span class="code_operator">=</span><span class="code_variable">wxt</span><span class="code_endofline">,</span> <span class="code_variable">font</span><span class="code_operator">=</span><span class="code_variable">font_name</span><span class="code_endofline">,</span> <span class="code_variable">font_size</span><span class="code_operator">=</span><span class="code_variable">fig_font_size</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">clist</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;Shape function with support point at 0&quot;</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">explicit</span><span class="code_operator">(</span><span class="code_variable">shape_functions_1d</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">clist</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;Shape function with support point at 1/3&quot;</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">explicit</span><span class="code_operator">(</span><span class="code_variable">shape_functions_1d</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">clist</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;Shape function with support point at 2/3&quot;</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">explicit</span><span class="code_operator">(</span><span class="code_variable">shape_functions_1d</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">clist</span><span class="code_operator">[</span><span class="code_number">4</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;Shape function with support point at 1&quot;</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">explicit</span><span class="code_operator">(</span><span class="code_variable">shape_functions_1d</span><span class="code_operator">[</span><span class="code_number">4</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">black</span><span class="code_endofline">,</span> <span class="code_variable">line_type</span> <span class="code_operator">=</span> <span class="code_variable">dots</span><span class="code_endofline">,</span> <span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;&quot;</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">implicit</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">=</span><span class="code_variable">support_points_1d</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">x</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">y</span><span class="code_endofline">,</span> <span class="code_operator">-</span><span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">5</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">.</span><span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">black</span><span class="code_endofline">,</span> <span class="code_variable">line_type</span> <span class="code_operator">=</span> <span class="code_variable">dots</span><span class="code_endofline">,</span> <span class="code_variable">key</span><span class="code_operator">=</span><span class="code_string">&quot;&quot;</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">implicit</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">=</span><span class="code_variable">support_points_1d</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">x</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">y</span><span class="code_endofline">,</span> <span class="code_operator">-</span><span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">5</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">.</span><span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">blue</span><span class="code_endofline">,</span> <span class="code_variable">point_type</span><span class="code_operator">=</span><span class="code_variable">filled_circle</span><span class="code_endofline">,</span> <span class="code_variable">point_size</span><span class="code_operator">=</span><span class="code_number">3</span><span class="code_endofline">,</span> <span class="code_function">points</span><span class="code_operator">(</span><span class="code_function">makelist</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_variable">support_points_1d</span><span class="code_operator">[</span><span class="code_variable">i</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_number">0</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">i</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_number">4</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline"><br/>
+</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+  <img src="/figures/shape-functions-and-basis-functions-in-fem-publish_4.png"  style="max-width:90%;" loading="lazy" alt=" (Graphics) " /><br/>
+
+
+
+
+<!-- Subsection cell -->
+
+
+<h3>
+  1.2 2D
+</h3>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+First, we generate two sets of 2nd order Lagrange polynomials in the 1D reference cell $[0, 1]$. Then by taking their tensor product, we can generate the 2nd order Lagrange polynomials on the 2D unit cell $[0, 1] \times [0, 1]$
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i18)	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">support_points_2d</span> <span class="code_operator">:</span> <span class="code_function">GenLagrangeNodes2D</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_endofline">,</span> <span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\operatorname{(support\_ points\_ 2d)	}\begin{pmatrix}0 &amp; 0\\
+\frac{1}{2} &amp; 0\\
+1 &amp; 0\\
+0 &amp; \frac{1}{2}\\
+\frac{1}{2} &amp; \frac{1}{2}\\
+1 &amp; \frac{1}{2}\\
+0 &amp; 1\\
+\frac{1}{2} &amp; 1\\
+1 &amp; 1\end{pmatrix}\]
+</p>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i20)	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">shape_functions_2d</span> <span class="code_operator">:</span> <span class="code_endofline"><br/>
+</span><span class="code_function">GenLagrangeBases2D</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_endofline">,</span> <span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_endofline">,</span> <span class="code_operator">'</span><span class="code_operator">[</span><span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_function">PrintEquationList</span><span class="code_operator">(</span><span class="code_variable">shape_functions_2d</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\]\[4 \left( \eta -1\right) \, \left( \eta -\frac{1}{2}\right) \, \left( \xi -1\right) \, \left( \xi -\frac{1}{2}\right) 
+\]\[-8 \left( \eta -1\right) \, \left( \eta -\frac{1}{2}\right) \, \left( \xi -1\right)  \xi 
+\]\[4 \left( \eta -1\right) \, \left( \eta -\frac{1}{2}\right) \, \left( \xi -\frac{1}{2}\right)  \xi 
+\]\[-8 \left( \eta -1\right)  \eta \, \left( \xi -1\right) \, \left( \xi -\frac{1}{2}\right) 
+\]\[16 \left( \eta -1\right)  \eta \, \left( \xi -1\right)  \xi 
+\]\[-8 \left( \eta -1\right)  \eta \, \left( \xi -\frac{1}{2}\right)  \xi 
+\]\[4 \left( \eta -\frac{1}{2}\right)  \eta \, \left( \xi -1\right) \, \left( \xi -\frac{1}{2}\right) 
+\]\[-8 \left( \eta -\frac{1}{2}\right)  \eta \, \left( \xi -1\right)  \xi 
+\]\[4 \left( \eta -\frac{1}{2}\right)  \eta \, \left( \xi -\frac{1}{2}\right)  \xi \]
+</p>
+
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+The shape functions are generated in the tensor product order or lexicographic order, i.e. for the list of support points of these shape functions, their first coordinate component ξ runs faster than the second η.
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i30)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">with_slider_draw3d</span><span class="code_operator">(</span><span class="code_variable">i</span><span class="code_endofline">,</span> <span class="code_function">linspace</span><span class="code_operator">(</span><span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_function">length</span><span class="code_operator">(</span><span class="code_variable">shape_functions_2d</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_function">length</span><span class="code_operator">(</span><span class="code_variable">shape_functions_2d</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span><span class="code_variable">grid</span><span class="code_operator">=</span><span class="code_function">true</span><span class="code_endofline">,</span> <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_function">false</span><span class="code_endofline">,</span> <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">red</span><span class="code_endofline">,</span> <span class="code_variable">dimensions</span><span class="code_operator">=</span><span class="code_variable">fig_size</span><span class="code_endofline">,</span> <span class="code_variable">font</span><span class="code_operator">=</span><span class="code_variable">font_name</span><span class="code_endofline">,</span> <span class="code_variable">font_size</span><span class="code_operator">=</span><span class="code_variable">fig_font_size</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">title</span><span class="code_operator">=</span><span class="code_function">sconcat</span><span class="code_operator">(</span><span class="code_string">&quot;Polynomial No.&quot;</span><span class="code_endofline">,</span> <span class="code_variable">i</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">xlabel</span><span class="code_operator">=</span><span class="code_string">&quot;ξ&quot;</span><span class="code_endofline">,</span> <span class="code_variable">ylabel</span><span class="code_operator">=</span><span class="code_string">&quot;η&quot;</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">transparent</span><span class="code_operator">=</span><span class="code_function">true</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">explicit</span><span class="code_operator">(</span><span class="code_variable">shape_functions_2d</span><span class="code_operator">[</span><span class="code_variable">i</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">blue</span><span class="code_endofline">,</span> <span class="code_variable">point_type</span><span class="code_operator">=</span><span class="code_variable">filled_circle</span><span class="code_endofline">,</span> <span class="code_variable">point_size</span><span class="code_operator">=</span><span class="code_number">3</span><span class="code_endofline">,</span> <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_function">false</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">points</span><span class="code_operator">(</span><span class="code_function">makelist</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_variable">support_points_2d</span><span class="code_operator">[</span><span class="code_variable">p</span><span class="code_endofline">,</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">support_points_2d</span><span class="code_operator">[</span><span class="code_variable">p</span><span class="code_endofline">,</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">p</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_number">9</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">points_joined</span><span class="code_operator">=</span><span class="code_function">true</span><span class="code_endofline">,</span> <span class="code_variable">line_type</span><span class="code_operator">=</span><span class="code_variable">solid</span><span class="code_endofline">,</span> <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">purple</span><span class="code_endofline">,</span> <span class="code_variable">line_width</span><span class="code_operator">=</span><span class="code_number">3</span><span class="code_endofline">,</span> <span class="code_variable">point_size</span><span class="code_operator">=</span><span class="code_number">2</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">points</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_operator">[</span><span class="code_variable">support_points_2d</span><span class="code_operator">[</span><span class="code_variable">i</span><span class="code_endofline">,</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">support_points_2d</span><span class="code_operator">[</span><span class="code_variable">i</span><span class="code_endofline">,</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">support_points_2d</span><span class="code_operator">[</span><span class="code_variable">i</span><span class="code_endofline">,</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">support_points_2d</span><span class="code_operator">[</span><span class="code_variable">i</span><span class="code_endofline">,</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">]</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline"><br/>
+</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+  <img src="/figures/shape-functions-and-basis-functions-in-fem-publish_10.gif"  alt="Animated Diagram" loading="lazy" style="max-width:90%;" />
+
+
+
+
+<!-- Section cell -->
+
+
+<h2>
+  2 Map from reference cell to real cell
+</h2>
+
+
+<!-- Subsection cell -->
+
+
+<h3>
+  2.1 1D
+</h3>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+A 1D real cell is a line segment, which is embedded in $\mathbb{R}^3$. When this line segment is straight, the map $\chi_{\tau}$ from $[0,1]$ to this real cell is simple, which is merely a translation and rotation from the reference cell $[0,1]$. When this line segment is bent, the map is not trivial. Since a linear combination of the above Lagrange shape functions can be used to approximate any continuous functions defined on the reference cell, it can also be used to approximate the map $\chi_{\tau}$ for this line segment. Because we are in 3D space, we need three such linear combinations of shape functions to represent $x$, $y$ and $z$ coordinate components respectively.
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+A Lagrange shape function has the property that it is evaluated to 1 at its own support point and to 0 at the support points of the other shape functions. So to make sure that the map $\chi_{\tau}$ produces points located exactly on the bent real cell that correspond to those support points in the reference cell, for each coordinate component respectively, the coefficient before each shape function in the linear combination should be the coodinate component of the point on the real cell which corresponds to the support point of the current shape function in the reference cell.
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Now let's define a parametric cubic curve in 3D space. N.B. This corresponds the manifold description of the geometric entity.
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">curve</span><span class="code_operator">(</span><span class="code_variable">ξ</span><span class="code_operator">)</span> <span class="code_operator">:</span><span class="code_operator">=</span> <span class="code_operator">[</span><span class="code_number">1</span><span class="code_endofline">.</span><span class="code_number">2</span> <span class="code_operator">*</span> <span class="code_variable">ξ</span><span class="code_operator">^</span><span class="code_number">3</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">.</span><span class="code_number">5</span> <span class="code_operator">*</span> <span class="code_variable">ξ</span><span class="code_operator">^</span><span class="code_number">2</span> <span class="code_operator">+</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">5</span> <span class="code_operator">*</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_operator">-</span><span class="code_number">2</span> <span class="code_operator">*</span> <span class="code_variable">ξ</span><span class="code_operator">^</span><span class="code_number">3</span> <span class="code_operator">-</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+
+\[\operatorname{	}\operatorname{curve}\left( \xi \right) \operatorname{:=}\left[ 1.2 {{\xi }^{3}}\operatorname{,}1.5 {{\xi }^{2}}+0.5 \xi \operatorname{,}\left( -2\right)  {{\xi }^{3}}-0.3\right] \]
+
+</p>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+The curve looks like this. Here we colorize the curve based on the value of its parameter ξ, which is specified via the option enhanced3d=[ξ, ξ].
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">wxdraw3d</span><span class="code_operator">(</span><span class="code_variable">grid</span><span class="code_operator">=</span><span class="code_function">true</span><span class="code_endofline">,</span> <span class="code_variable">dimensions</span><span class="code_operator">=</span><span class="code_variable">fig_size</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">terminal</span><span class="code_operator">=</span><span class="code_variable">wxt</span><span class="code_endofline">,</span> <span class="code_variable">font</span><span class="code_operator">=</span><span class="code_variable">font_name</span><span class="code_endofline">,</span> <span class="code_variable">font_size</span><span class="code_operator">=</span><span class="code_variable">fig_font_size</span><span class="code_endofline">,</span> <span class="code_variable">proportional_axes</span><span class="code_operator">=</span><span class="code_variable">xyz</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">xlabel</span><span class="code_operator">=</span><span class="code_string">&quot;x&quot;</span><span class="code_endofline">,</span> <span class="code_variable">ylabel</span><span class="code_operator">=</span><span class="code_string">&quot;y&quot;</span><span class="code_endofline">,</span> <span class="code_variable">zlabel</span><span class="code_operator">=</span><span class="code_string">&quot;z&quot;</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">parametric</span><span class="code_operator">(</span><span class="code_function">curve</span><span class="code_operator">(</span><span class="code_variable">ξ</span><span class="code_operator">)</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_function">curve</span><span class="code_operator">(</span><span class="code_variable">ξ</span><span class="code_operator">)</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_function">curve</span><span class="code_operator">(</span><span class="code_variable">ξ</span><span class="code_operator">)</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline"><br/>
+</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+  <img src="/figures/shape-functions-and-basis-functions-in-fem-publish_15.png"  style="max-width:90%;" loading="lazy" alt=" (Graphics) " /><br/>
+
+
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+If we want to use the second order shape functions to represent this curve, besides the two end points, an additional point approximately in the middle of the curve should be provided. This point can be acquired by first taking a convex combination of the two two end points. Then project this new point onto the curve.
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Starting and ending points of the curve are
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">p1</span> <span class="code_operator">:</span> <span class="code_function">curve</span><span class="code_operator">(</span><span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">;</span><span class="code_endofline"><br/>
+</span><span class="code_variable">p2</span> <span class="code_operator">:</span> <span class="code_function">curve</span><span class="code_operator">(</span><span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\operatorname{(p1)	}\left[ 0\operatorname{,}0\operatorname{,}-0.3\right] \]
+</p>
+<p>
+\[\operatorname{(p2)	}\left[ 1.2\operatorname{,}2.0\operatorname{,}-2.3\right] \]
+</p>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Convex combination of $p_1$ and $p_2$ is
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">p_middle</span> <span class="code_operator">:</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">5</span> <span class="code_operator">*</span> <span class="code_variable">p1</span> <span class="code_operator">+</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">5</span> <span class="code_operator">*</span> <span class="code_variable">p2</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\operatorname{(p\_ middle)	}\left[ 0.6\operatorname{,}1.0\operatorname{,}-1.3\right] \]
+</p>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Initial guess of the parameter ξ for generating the projection of the middle point on the curve:
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">ξ0</span> <span class="code_operator">:</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">5</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Here we let the projection satisfies the condition that the connection line of the above middle point and its projection point is perpendicular to the tangent vector at this projection point. So let's define an objective function which minimizes the dot product of the tangent vector and the connection line.
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+First, define a function for computing the tangent vector at a point on the curve:
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">curve_tangent</span><span class="code_operator">(</span><span class="code_variable">ξ</span><span class="code_operator">)</span> <span class="code_operator">:</span><span class="code_operator">=</span> <span class="code_function">subst</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">=</span><span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_function">diff</span><span class="code_operator">(</span><span class="code_function">curve</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">x</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\operatorname{	}\operatorname{curve\_ tangent}\left( \xi \right) \operatorname{:=}\operatorname{subst}\left( x=\xi \operatorname{,}\frac{d}{d x} \operatorname{curve}(x)\right) \]
+</p>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Then, the objective function is
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">project_middle_obj</span> <span class="code_operator">:</span> <span class="code_function">innerproduct</span><span class="code_operator">(</span><span class="code_operator">(</span><span class="code_function">curve</span><span class="code_operator">(</span><span class="code_variable">ξ</span><span class="code_operator">)</span> <span class="code_operator">-</span> <span class="code_variable">p_middle</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_function">curve_tangent</span><span class="code_operator">(</span><span class="code_variable">ξ</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\]\[rat: replaced 0.5 by 1/2 = 0.5
+\]\[rat: replaced 3.0 by 3/1 = 3.0
+\]\[rat: replaced -1.0 by -1/1 = -1.0
+\]\[rat: replaced 0.5 by 1/2 = 0.5
+\]\[rat: replaced 1.5 by 3/2 = 1.5
+\]\[rat: replaced 0.9999999999999998 by 1/1 = 1.0
+\]\[rat: replaced 3.6 by 18/5 = 3.6
+\]\[rat: replaced -0.6 by -3/5 = -0.6
+\]\[rat: replaced 1.2 by 6/5 = 1.2\]
+</p>
+<p>
+
+\[\operatorname{(project\_ middle\_ obj)	}\frac{1632 {{\xi }^{5}}+450 {{\xi }^{3}}-591 {{\xi }^{2}}-275 \xi -50}{100}\]
+
+</p>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+The minimization problem can be solved by the Newton's method.
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">sol</span> <span class="code_operator">:</span> <span class="code_function">mnewton</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_variable">project_middle_obj</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">ξ</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">ξ0</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\operatorname{(sol)	}\left[ \left[ \xi =0.7552127951245737\right] \right] \]
+</p>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Sustitute this ξ into the curve's parametric equation, we obtain the projection point.
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">project_middle</span> <span class="code_operator">:</span> <span class="code_function">curve</span><span class="code_operator">(</span><span class="code_function">rhs</span><span class="code_operator">(</span><span class="code_variable">sol</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\operatorname{(project\_ middle)	}\left[ 0.5168794478345868\operatorname{,}1.233125946442094\operatorname{,}-1.161465746390978\right] \]
+</p>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+The support points in the real cell as well as the middle point are shown below. Meanwhile, the support points in the reference cell associated with Lagrange functions are always $[0, 0.5, 1]$. This indicates the curve to be interpolated by Lagrange functions has a different parameterization from its original parametric representation.
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">wxdraw3d</span><span class="code_operator">(</span><span class="code_variable">grid</span><span class="code_operator">=</span><span class="code_function">true</span><span class="code_endofline">,</span> <span class="code_variable">dimensions</span><span class="code_operator">=</span><span class="code_variable">fig_size</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">terminal</span><span class="code_operator">=</span><span class="code_variable">wxt</span><span class="code_endofline">,</span> <span class="code_variable">font</span><span class="code_operator">=</span><span class="code_variable">font_name</span><span class="code_endofline">,</span> <span class="code_variable">font_size</span><span class="code_operator">=</span><span class="code_variable">fig_font_size</span><span class="code_endofline">,</span> <span class="code_variable">proportional_axes</span><span class="code_operator">=</span><span class="code_variable">xyz</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">xlabel</span><span class="code_operator">=</span><span class="code_string">&quot;x&quot;</span><span class="code_endofline">,</span> <span class="code_variable">ylabel</span><span class="code_operator">=</span><span class="code_string">&quot;y&quot;</span><span class="code_endofline">,</span> <span class="code_variable">zlabel</span><span class="code_operator">=</span><span class="code_string">&quot;z&quot;</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">parametric</span><span class="code_operator">(</span><span class="code_function">curve</span><span class="code_operator">(</span><span class="code_variable">ξ</span><span class="code_operator">)</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_function">curve</span><span class="code_operator">(</span><span class="code_variable">ξ</span><span class="code_operator">)</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_function">curve</span><span class="code_operator">(</span><span class="code_variable">ξ</span><span class="code_operator">)</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">red</span><span class="code_endofline">,</span> <span class="code_variable">point_type</span><span class="code_operator">=</span><span class="code_variable">circle</span><span class="code_endofline">,</span> <span class="code_variable">point_size</span><span class="code_operator">=</span><span class="code_number">2</span><span class="code_endofline">,</span> <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_function">false</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">points</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_variable">p_middle</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">blue</span><span class="code_endofline">,</span> <span class="code_variable">point_type</span><span class="code_operator">=</span><span class="code_variable">filled_circle</span><span class="code_endofline">,</span> <span class="code_variable">point_size</span><span class="code_operator">=</span><span class="code_number">3</span><span class="code_endofline">,</span> <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_function">false</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">points</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_variable">p1</span><span class="code_endofline">,</span> <span class="code_variable">project_middle</span><span class="code_endofline">,</span> <span class="code_variable">p2</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">blue</span><span class="code_endofline">,</span> <span class="code_variable">point_type</span><span class="code_operator">=</span><span class="code_operator">-</span><span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_function">false</span><span class="code_endofline">,</span> <span class="code_variable">points_joined</span><span class="code_operator">=</span><span class="code_function">true</span><span class="code_endofline">,</span> <span class="code_variable">line_type</span><span class="code_operator">=</span><span class="code_variable">dashes</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">points</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_variable">p1</span><span class="code_endofline">,</span> <span class="code_variable">p2</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">blue</span><span class="code_endofline">,</span> <span class="code_variable">point_type</span><span class="code_operator">=</span><span class="code_operator">-</span><span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_function">false</span><span class="code_endofline">,</span> <span class="code_variable">points_joined</span><span class="code_operator">=</span><span class="code_function">true</span><span class="code_endofline">,</span> <span class="code_variable">line_type</span><span class="code_operator">=</span><span class="code_variable">dashes</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">points</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_variable">p_middle</span><span class="code_endofline">,</span> <span class="code_variable">project_middle</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline"><br/>
+</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+  <img src="/figures/shape-functions-and-basis-functions-in-fem-publish_26.png"  style="max-width:90%;" loading="lazy" alt=" (Graphics) " /><br/>
+
+
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Then the map from the reference cell to the real cell can be constructed using 2nd order 1D Lagrange shape functions.
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">shape_functions_1d</span> <span class="code_operator">:</span> <span class="code_function">GenLagrangeBases1D</span><span class="code_operator">(</span><span class="code_number">2</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_endofline">,</span> <span class="code_operator">'</span><span class="code_variable">ξ</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\operatorname{(shape\_ functions\_ 1d)	}\left[ 2 \left( \xi -1\right) \, \left( \xi -\frac{1}{2}\right) \operatorname{,}-4 \left( \xi -1\right)  \xi \operatorname{,}2 \left( \xi -\frac{1}{2}\right)  \xi \right] \]
+</p>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">map_from_ref_to_real_1d</span> <span class="code_operator">:</span> <span class="code_variable">p1</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_1d</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span> <span class="code_operator">+</span> <span class="code_variable">project_middle</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_1d</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span> <span class="code_operator">+</span> <span class="code_variable">p2</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_1d</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_function">PrintEquationList</span><span class="code_operator">(</span><span class="code_variable">map_from_ref_to_real_1d</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\]\[2.4 \left( \xi -\frac{1}{2}\right)  \xi -2.067517791338348 \left( \xi -1\right)  \xi 
+\]\[4.0 \left( \xi -\frac{1}{2}\right)  \xi -4.932503785768375 \left( \xi -1\right)  \xi 
+\]\[-4.6 \left( \xi -\frac{1}{2}\right)  \xi +4.645862985563912 \left( \xi -1\right)  \xi -0.6 \left( \xi -1\right) \, \left( \xi -\frac{1}{2}\right) \]
+</p>
+
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Now we plot the interpolated curve using 2nd order Lagrange functions together with the original curve. We can see that the interpolated curve exactly passes through the three support points in the real cell.
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">wxdraw3d</span><span class="code_operator">(</span><span class="code_variable">grid</span><span class="code_operator">=</span><span class="code_function">true</span><span class="code_endofline">,</span> <span class="code_variable">dimensions</span><span class="code_operator">=</span><span class="code_variable">fig_size</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">terminal</span><span class="code_operator">=</span><span class="code_variable">wxt</span><span class="code_endofline">,</span> <span class="code_variable">font</span><span class="code_operator">=</span><span class="code_variable">font_name</span><span class="code_endofline">,</span> <span class="code_variable">font_size</span><span class="code_operator">=</span><span class="code_variable">fig_font_size</span><span class="code_endofline">,</span> <span class="code_variable">proportional_axes</span><span class="code_operator">=</span><span class="code_variable">xyz</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">xlabel</span><span class="code_operator">=</span><span class="code_string">&quot;x&quot;</span><span class="code_endofline">,</span> <span class="code_variable">ylabel</span><span class="code_operator">=</span><span class="code_string">&quot;y&quot;</span><span class="code_endofline">,</span> <span class="code_variable">zlabel</span><span class="code_operator">=</span><span class="code_string">&quot;z&quot;</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">parametric</span><span class="code_operator">(</span><span class="code_function">curve</span><span class="code_operator">(</span><span class="code_variable">ξ</span><span class="code_operator">)</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_function">curve</span><span class="code_operator">(</span><span class="code_variable">ξ</span><span class="code_operator">)</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_function">curve</span><span class="code_operator">(</span><span class="code_variable">ξ</span><span class="code_operator">)</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">blue</span><span class="code_endofline">,</span> <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_function">false</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">parametric</span><span class="code_operator">(</span><span class="code_variable">map_from_ref_to_real_1d</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">map_from_ref_to_real_1d</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">map_from_ref_to_real_1d</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">color</span><span class="code_operator">=</span><span class="code_variable">blue</span><span class="code_endofline">,</span> <span class="code_variable">point_type</span><span class="code_operator">=</span><span class="code_variable">filled_circle</span><span class="code_endofline">,</span> <span class="code_variable">point_size</span><span class="code_operator">=</span><span class="code_number">2</span><span class="code_endofline">,</span> <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_function">false</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">points</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_variable">p1</span><span class="code_endofline">,</span> <span class="code_variable">project_middle</span><span class="code_endofline">,</span> <span class="code_variable">p2</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline"><br/>
+</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+  <img src="/figures/shape-functions-and-basis-functions-in-fem-publish_32.png"  style="max-width:90%;" loading="lazy" alt=" (Graphics) " /><br/>
+
+
+
+
+<!-- Subsection cell -->
+
+
+<h3>
+  2.2 2D
+</h3>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Similarto the 1D case, a 2D real cell embedded in $\mathbb{R}^3$ is an arbitrary quadrilateral, either flat or curved and not necessarily a parallelogram. Therefore, the map $\chi_{\tau}$ from the 2D reference cell $[0,1] \times [0,1]$ to a real cell can be expanded by a set of 2D Lagrange shape functions. When the Lagrange polynomial order is 1, the mapped real cell is planar. When the order is higher than 1, the mapped real cell is curved. Such a map is actually a linear combination of the shape functions weighted by corresponding support point coordinates. The basic philosophy of computing the projection of intermediate points which are to be used as support points of shape functions is similar and no examples are given here.
+</div>
+
+
+<!-- Section cell -->
+
+
+<h2>
+  3 Basis functions of finite element
+</h2>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+The shape functions adopted by a discontinuous finite element, which conforms to the $L^2$ function space, can use Lagrange polynomials defined on the reference cell $[0,1] \times [0,1]$. Hence, the shape functions in each cell in the domain on which the finite element is defined corresponds to a unique basis function of the finite element space.
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Even though the continuous finite element adtops the same shape functions as the discontinuous finite element, because it conforms to the Sobolev space $H^1$, functions constructed from this finite element should be continuous across cell boundaries. Then for a basis function in the finite element space, when its support point is in the interior of a cell, the situation is simple and it is just the shape function with the same support point in this cell. When the support point of the basis function in on an edge, face or a vertex, such support point will be shared by several cells. Then the basis function of the finite element space determined by the continuous finite element is a concatenation of those shape functions in these cells whose support points are just the common support point of the basis function.
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Let's use the sphere model as an example.
+</div>
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+Figure 1:Mesh for a sphere
+<br/>
+  <img src="/figures/shape-functions-and-basis-functions-in-fem-publish_34.png" alt="Diagram" style="max-width:90%;" loading="lazy" /></div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+We select four cells from the mesh and construct the basis function situated at node #8 in the continuous finite element space.
+</div>
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+Figure 2:Four elements from the mesh for the sphere
+<br/>
+  <img src="/figures/shape-functions-and-basis-functions-in-fem-publish_35.png" alt="Diagram" style="max-width:90%;" loading="lazy" /></div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+The vertices in each cell are enumerated below.<br/>Cell 92: [9 71 77 8]<br/>Cell 94: [8 77 72 2]<br/>Cell 110: [2 84 90 8]<br/>Cell 112: [8 90 85 9]
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+These vertices are arranged in the clockwise order. When the mesh is read into a FEM solver, these vertices will be rearranged into lexicographic order for example by swapping the last two vertices in a cell. Hence they become<br/>Cell 92: [9 71 8 77]<br/>Cell 94: [8 77 2 72]<br/>Cell 110: [2 84 8 90]<br/>Cell 112: [8 90 9 85]
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Then shape functions with indices [1,2,3,4] defined by a first order continuous finite element in the reference cell will be assigned to these vertices in order. Therefore, for the basis function at node #8 in the finite element space, it is a concatenation of 4 shape functions:<br/>Shape function #3 in the reference cell corresponding to cell 92<br/>Shape function #1 in the reference cell corresponding to cell 94<br/>Shape function #3 in the reference cell corresponding to cell 110<br/>Shape function #1 in the reference cell corresponding to cell 112
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+To visualize the distribution of basis function on these four cells, which are actually its support set, we can plot four parametric surfaces using the map from each reference cell to its corresponding real cell. Then, we colorize the parametric surface using the value of related shape function.
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Vertex coordinates
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">node9</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">7071067827963321</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">7071067795767629</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">node71</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">2959042210220728</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">6562956747206669</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">6940581238803165</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">node77</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">2069290967160619</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">4625779322341045</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">8620916456748057</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">node8</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">382683433164956</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">9238795321799713</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">node72</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">3048963989653106</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">3017651820890481</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">903313877219181</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">node2</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">node84</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_operator">-</span><span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">3037257264799272</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">3035840488652949</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">9030987810581932</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">node90</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_operator">-</span><span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">2041682670359604</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">461491589969017</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">8633312406738223</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">node85</span> <span class="code_operator">:</span> <span class="code_operator">[</span><span class="code_operator">-</span><span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">2959042210220861</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">6562956747206589</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">.</span><span class="code_number">6940581238803184</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Because the cells are flat, we use first order shape function in the map from reference cell to real cells.
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">shape_functions_for_map_2d</span> <span class="code_operator">:</span> <span class="code_endofline"><br/>
+</span><span class="code_function">GenLagrangeBases2D</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_endofline">,</span> <span class="code_operator">'</span><span class="code_operator">[</span><span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\operatorname{(shape\_ functions\_ for\_ map\_ 2d)	}\left[ \left( 1-\eta \right) \, \left( 1-\xi \right) \operatorname{,}\left( 1-\eta \right)  \xi \operatorname{,}\eta \, \left( 1-\xi \right) \operatorname{,}\eta  \xi \right] \]
+</p>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">cell92_map</span> <span class="code_operator">:</span> <span class="code_variable">node9</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span> <span class="code_operator">+</span> <span class="code_variable">node71</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span> <span class="code_operator">+</span><span class="code_endofline"><br/>
+</span><span class="code_variable">node8</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span> <span class="code_operator">+</span> <span class="code_variable">node77</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">4</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">cell94_map</span> <span class="code_operator">:</span> <span class="code_variable">node8</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span> <span class="code_operator">+</span> <span class="code_variable">node77</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span> <span class="code_operator">+</span><span class="code_endofline"><br/>
+</span><span class="code_variable">node2</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span> <span class="code_operator">+</span> <span class="code_variable">node72</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">4</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">cell110_map</span> <span class="code_operator">:</span> <span class="code_variable">node2</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span> <span class="code_operator">+</span> <span class="code_variable">node84</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span> <span class="code_operator">+</span><span class="code_endofline"><br/>
+</span><span class="code_variable">node8</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span> <span class="code_operator">+</span> <span class="code_variable">node90</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">4</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">cell112_map</span> <span class="code_operator">:</span> <span class="code_variable">node8</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span> <span class="code_operator">+</span> <span class="code_variable">node90</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span> <span class="code_operator">+</span><span class="code_endofline"><br/>
+</span><span class="code_variable">node9</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span> <span class="code_operator">+</span> <span class="code_variable">node85</span> <span class="code_operator">*</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_operator">[</span><span class="code_number">4</span><span class="code_operator">]</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+When the continuous finite element space is first order, its shape functions are the same as the shape functions used by the first order map.
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">shape_functions_for_finite_element</span> <span class="code_operator">:</span> <span class="code_variable">shape_functions_for_map_2d</span><span class="code_endofline">$</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">wxdraw3d</span><span class="code_operator">(</span><span class="code_variable">grid</span><span class="code_operator">=</span><span class="code_function">true</span><span class="code_endofline">,</span> <span class="code_variable">dimensions</span><span class="code_operator">=</span><span class="code_variable">fig_size</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">terminal</span><span class="code_operator">=</span><span class="code_variable">wxt</span><span class="code_endofline">,</span> <span class="code_variable">font</span><span class="code_operator">=</span><span class="code_variable">font_name</span><span class="code_endofline">,</span> <span class="code_variable">font_size</span><span class="code_operator">=</span><span class="code_variable">fig_font_size</span><span class="code_endofline">,</span> <span class="code_variable">proportional_axes</span><span class="code_operator">=</span><span class="code_variable">xyz</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">xlabel</span><span class="code_operator">=</span><span class="code_string">&quot;x&quot;</span><span class="code_endofline">,</span> <span class="code_variable">ylabel</span><span class="code_operator">=</span><span class="code_string">&quot;y&quot;</span><span class="code_endofline">,</span> <span class="code_variable">zlabel</span><span class="code_operator">=</span><span class="code_string">&quot;z&quot;</span><span class="code_endofline">,</span> <span class="code_variable">view</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_number">38</span><span class="code_endofline">,</span><span class="code_number">207</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_variable">shape_functions_for_finite_element</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">parametric_surface</span><span class="code_operator">(</span><span class="code_variable">cell92_map</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell92_map</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell92_map</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_variable">shape_functions_for_finite_element</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">parametric_surface</span><span class="code_operator">(</span><span class="code_variable">cell94_map</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell94_map</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell94_map</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_variable">shape_functions_for_finite_element</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">parametric_surface</span><span class="code_operator">(</span><span class="code_variable">cell110_map</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell110_map</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell110_map</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_variable">shape_functions_for_finite_element</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">parametric_surface</span><span class="code_operator">(</span><span class="code_variable">cell112_map</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell112_map</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell112_map</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline"><br/>
+</span>    <span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+  <img src="/figures/shape-functions-and-basis-functions-in-fem-publish_38.png"  style="max-width:90%;" loading="lazy" alt=" (Graphics) " /><br/>
+
+
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+If the finite element is 2nd order continuous, the shape functions in the reference cell are organized in the lexicographic order:<br/>^<br/>|  7 8 9<br/>|  4 5 6<br/>|  1 2 3<br/>----------&gt;
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Then for the basis function at node #8 in the finite element space, it is a concatenation of 4 shape functions:<br/>Shape function #7 in the reference cell corresponding to cell 92<br/>Shape function #1 in the reference cell corresponding to cell 94<br/>Shape function #7 in the reference cell corresponding to cell 110<br/>Shape function #1 in the reference cell corresponding to cell 112
+</div>
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+Define Lagrange shape functions for the 2nd order finite element:
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">shape_functions_for_finite_element</span> <span class="code_operator">:</span> <span class="code_function">GenLagrangeBases2D</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_endofline">,</span> <span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_endofline">,</span> <span class="code_variable">reference_cell_1d</span><span class="code_endofline">,</span> <span class="code_operator">'</span><span class="code_operator">[</span><span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline">$</span><span class="code_endofline"><br/>
+</span><span class="code_function">PrintEquationList</span><span class="code_operator">(</span><span class="code_variable">shape_functions_for_finite_element</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<p>
+\[\]\[4 \left( \eta -1\right) \, \left( \eta -\frac{1}{2}\right) \, \left( \xi -1\right) \, \left( \xi -\frac{1}{2}\right) 
+\]\[-8 \left( \eta -1\right) \, \left( \eta -\frac{1}{2}\right) \, \left( \xi -1\right)  \xi 
+\]\[4 \left( \eta -1\right) \, \left( \eta -\frac{1}{2}\right) \, \left( \xi -\frac{1}{2}\right)  \xi 
+\]\[-8 \left( \eta -1\right)  \eta \, \left( \xi -1\right) \, \left( \xi -\frac{1}{2}\right) 
+\]\[16 \left( \eta -1\right)  \eta \, \left( \xi -1\right)  \xi 
+\]\[-8 \left( \eta -1\right)  \eta \, \left( \xi -\frac{1}{2}\right)  \xi 
+\]\[4 \left( \eta -\frac{1}{2}\right)  \eta \, \left( \xi -1\right) \, \left( \xi -\frac{1}{2}\right) 
+\]\[-8 \left( \eta -\frac{1}{2}\right)  \eta \, \left( \xi -1\right)  \xi 
+\]\[4 \left( \eta -\frac{1}{2}\right)  \eta \, \left( \xi -\frac{1}{2}\right)  \xi \]
+</p>
+
+
+
+<!-- Text cell -->
+
+
+<div class="comment">
+The basis function at node #8 can be plotted as below.
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">wxdraw3d</span><span class="code_operator">(</span><span class="code_variable">grid</span><span class="code_operator">=</span><span class="code_function">true</span><span class="code_endofline">,</span> <span class="code_variable">dimensions</span><span class="code_operator">=</span><span class="code_variable">fig_size</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">terminal</span><span class="code_operator">=</span><span class="code_variable">wxt</span><span class="code_endofline">,</span> <span class="code_variable">font</span><span class="code_operator">=</span><span class="code_variable">font_name</span><span class="code_endofline">,</span> <span class="code_variable">font_size</span><span class="code_operator">=</span><span class="code_variable">fig_font_size</span><span class="code_endofline">,</span> <span class="code_variable">proportional_axes</span><span class="code_operator">=</span><span class="code_variable">xyz</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">xlabel</span><span class="code_operator">=</span><span class="code_string">&quot;x&quot;</span><span class="code_endofline">,</span> <span class="code_variable">ylabel</span><span class="code_operator">=</span><span class="code_string">&quot;y&quot;</span><span class="code_endofline">,</span> <span class="code_variable">zlabel</span><span class="code_operator">=</span><span class="code_string">&quot;z&quot;</span><span class="code_endofline">,</span> <span class="code_variable">view</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_number">38</span><span class="code_endofline">,</span><span class="code_number">207</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_variable">shape_functions_for_finite_element</span><span class="code_operator">[</span><span class="code_number">7</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">parametric_surface</span><span class="code_operator">(</span><span class="code_variable">cell92_map</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell92_map</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell92_map</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_variable">shape_functions_for_finite_element</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">parametric_surface</span><span class="code_operator">(</span><span class="code_variable">cell94_map</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell94_map</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell94_map</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_variable">shape_functions_for_finite_element</span><span class="code_operator">[</span><span class="code_number">7</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">parametric_surface</span><span class="code_operator">(</span><span class="code_variable">cell110_map</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell110_map</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell110_map</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_variable">enhanced3d</span><span class="code_operator">=</span><span class="code_operator">[</span><span class="code_variable">shape_functions_for_finite_element</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_operator">]</span><span class="code_endofline">,</span><span class="code_endofline"><br/>
+</span>    <span class="code_function">parametric_surface</span><span class="code_operator">(</span><span class="code_variable">cell112_map</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell112_map</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">cell112_map</span><span class="code_operator">[</span><span class="code_number">3</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_variable">ξ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">η</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline"><br/>
+</span>    <span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+  <img src="/figures/shape-functions-and-basis-functions-in-fem-publish_43.png"  style="max-width:90%;" loading="lazy" alt=" (Graphics) " /><br/>
+
+<p></p>
+
+  </div><a class="u-url" href="/math/2024/08/07/shape-functions-and-basis-functions-in-fem.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>使用AltSearch格式化Kindle读书笔记 | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="使用AltSearch格式化Kindle读书笔记" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="AltSearch是LibreOffice Writer的一个用于自动化执行复杂文本替换操作的扩展，能够在不需要复杂编程的条件下进行一些文档格式的手动与批量转换和调整。该扩展除了支持普通文本与正则表达式的查找与替换外，还能够进行文本与段落样式的匹配与替换，这是其他的排版软件，包括微软的Office，所不具备的。利用这些功能，将其写为简单的批处理脚本，就可以自动地格式化文件，满足常见的学习与工作需求，大大提高工作效率。本文以格式化由Kindle 导出的笔记为例，介绍AltSearch的基本使用方法。" />
+<meta property="og:description" content="AltSearch是LibreOffice Writer的一个用于自动化执行复杂文本替换操作的扩展，能够在不需要复杂编程的条件下进行一些文档格式的手动与批量转换和调整。该扩展除了支持普通文本与正则表达式的查找与替换外，还能够进行文本与段落样式的匹配与替换，这是其他的排版软件，包括微软的Office，所不具备的。利用这些功能，将其写为简单的批处理脚本，就可以自动地格式化文件，满足常见的学习与工作需求，大大提高工作效率。本文以格式化由Kindle 导出的笔记为例，介绍AltSearch的基本使用方法。" />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2020/11/14/%E4%BD%BF%E7%94%A8AltSearch%E6%A0%BC%E5%BC%8F%E5%8C%96Kindle%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2020/11/14/%E4%BD%BF%E7%94%A8AltSearch%E6%A0%BC%E5%BC%8F%E5%8C%96Kindle%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-14T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="使用AltSearch格式化Kindle读书笔记" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2020-11-14T00:00:00+08:00","datePublished":"2020-11-14T00:00:00+08:00","description":"AltSearch是LibreOffice Writer的一个用于自动化执行复杂文本替换操作的扩展，能够在不需要复杂编程的条件下进行一些文档格式的手动与批量转换和调整。该扩展除了支持普通文本与正则表达式的查找与替换外，还能够进行文本与段落样式的匹配与替换，这是其他的排版软件，包括微软的Office，所不具备的。利用这些功能，将其写为简单的批处理脚本，就可以自动地格式化文件，满足常见的学习与工作需求，大大提高工作效率。本文以格式化由Kindle 导出的笔记为例，介绍AltSearch的基本使用方法。","headline":"使用AltSearch格式化Kindle读书笔记","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2020/11/14/%E4%BD%BF%E7%94%A8AltSearch%E6%A0%BC%E5%BC%8F%E5%8C%96Kindle%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html"},"url":"https://jihuan-tian.github.io/computer/2020/11/14/%E4%BD%BF%E7%94%A8AltSearch%E6%A0%BC%E5%BC%8F%E5%8C%96Kindle%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">使用AltSearch格式化Kindle读书笔记</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-11-14T00:00:00+08:00" itemprop="datePublished">Nov 14, 2020 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/LibreOffice">LibreOffice</a>
+          
+            <a href="/tags/Kindle">Kindle</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><a href="https://extensions.libreoffice.org/extensions/alternative-dialog-find-replace-for-writer">AltSearch</a>是LibreOffice Writer的一个用于自动化执行复杂文本替换操作的扩展，能够在不需要复杂编程的条件下进行一些文档格式的手动与批量转换和调整。该扩展除了支持普通文本与正则表达式的查找与替换外，还能够进行文本与段落样式的匹配与替换，这是其他的排版软件，包括微软的Office，所不具备的。利用这些功能，将其写为简单的批处理脚本，就可以自动地格式化文件，满足常见的学习与工作需求，大大提高工作效率。本文以格式化由Kindle 导出的笔记为例，介绍AltSearch的基本使用方法。</p>
+
+<p>由Kindle iPad版导出的芝加哥格式的笔记直接存为LibreOffice Writer文件，其格式基本与纯文本无异，并不适合结构化的浏览或发布为豆瓣笔记。所以，需要对文本格式进行调整。对此，首先在LibreOffice Writer中点击绿色望远镜按钮，打开AltSearch对话框：</p>
+
+<p align="center"><img src="/figures/p77551963.jpg" alt="" /></p>
+
+<p>然后依次执行如下步骤：</p>
+
+<ol>
+  <li>
+    <p>删除<code class="language-plaintext highlighter-rouge">标注（黄色）</code>之类的标记和后面的（原版书）页码：</p>
+
+    <ul>
+      <li>搜索：<code class="language-plaintext highlighter-rouge">^标注\(.*\)\s*-\s*第\s*\d+\s*页·</code></li>
+      <li>替换为空字符</li>
+    </ul>
+  </li>
+  <li>
+    <p>搜索<code class="language-plaintext highlighter-rouge">笔记</code>并删除后面的（原版书）页码：</p>
+
+    <ul>
+      <li>搜索：<code class="language-plaintext highlighter-rouge">^(笔记\s*-\s*)第\s*\d+\s*页·</code></li>
+      <li>替换：<code class="language-plaintext highlighter-rouge">\1</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>将<code class="language-plaintext highlighter-rouge">位置</code>替换为<code class="language-plaintext highlighter-rouge">P</code>并将其与下一行合并：</p>
+
+    <ul>
+      <li>搜索：<code class="language-plaintext highlighter-rouge">位置\s*(\d+)\s*\p</code></li>
+      <li>替换:<code class="language-plaintext highlighter-rouge">P\1</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>将所有段落设为<code class="language-plaintext highlighter-rouge">Quotations</code>样式：</p>
+
+    <ul>
+      <li>搜索：<code class="language-plaintext highlighter-rouge">.*</code></li>
+      <li>替换：<code class="language-plaintext highlighter-rouge">\P{Quotations}</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>将所有以<code class="language-plaintext highlighter-rouge">笔记</code>开头的段落设为`Text Body样式：</p>
+
+    <ul>
+      <li>搜索：<code class="language-plaintext highlighter-rouge">^\s*笔记</code></li>
+      <li>替换：<code class="language-plaintext highlighter-rouge">\P{Text Body}</code></li>
+    </ul>
+  </li>
+</ol>
+
+<p>上述步骤手动操作起来比较繁琐，我们可以利用AltSearch的批处理模式将其写为脚本。点击AltSearch对话框中的<code class="language-plaintext highlighter-rouge">Batch</code>按钮：</p>
+
+<p align="center"><img src="/figures/p77551961.jpg" alt="" /></p>
+
+<p>在如下打开的批处理模式对话框中点击<code class="language-plaintext highlighter-rouge">Edit</code>，打开文本编辑器编辑脚本。需要注意的是，如果是第一次运行AltSearch，点击<code class="language-plaintext highlighter-rouge">Edit</code>后会提示使用什么编辑器进行编辑，直接输入编辑器的命令名确认即可。</p>
+
+<p align="center"><img src="/figures/p77551966.jpg" alt="" /></p>
+
+<p>然后，将下面的脚本拷贝到文件末尾<code class="language-plaintext highlighter-rouge">[End]</code>的前一行即可。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Name] Process the selected Kindle notes in Chicago format
+  [Parameters]   MsgOff Regular CurrSelection
+
+  [Find]^标注\(.*\)\s*-\s*第\s*\d+\s*页·
+  [Replace]
+  [Command] ReplaceAll
+
+  [Find]^(笔记\s*-\s*)第\s*\d+\s*页·
+  [Replace]\1
+  [Command] ReplaceAll
+
+  [Find]位置\s*(\d+)\s*\p
+  [Replace]P\1 
+  [Command] ReplaceAll
+  
+  [Find].*
+  [Replace]\P{Quotations}
+  [Command] ReplaceAll
+  
+  [Find]^\s*笔记
+  [Replace]\P{Text Body}
+  [Command] ReplaceAll
+</code></pre></div></div>
+
+<p>可以看出，这个脚本的语法非常简单：方括号中的单词表示需要执行的命令，括号之后则为该命令执行所需的参数。目前用到命令有：</p>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Name</code>：定义脚本功能名称。</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Parameters</code>：指定脚本功能执行时的参数，包括：</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">MsgOff</code>：关闭提示信息。</li>
+      <li><code class="language-plaintext highlighter-rouge">Regular</code>：使用正则表达式查找与替换。</li>
+      <li><code class="language-plaintext highlighter-rouge">CurrSelection</code>：仅操作当前选中的文本。</li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Find</code>：指定待查找的文本或正则表达式。</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Replace</code>：指定需替换的文本或样式</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">\1</code>：反斜线后加一个数字N，表示正则表达式中第N括号中匹配的部分。</li>
+      <li><code class="language-plaintext highlighter-rouge">\P{Paragraph style name}</code>：将名称为<code class="language-plaintext highlighter-rouge">Paragraph style name</code>的段落样式应用于查找到的文本。该段落样式需事先在LibreOffice Writer中定义好。</li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Command</code>：指定需要执行的命令。<code class="language-plaintext highlighter-rouge">ReplaceAll</code>则表示对所有匹配的文本执行替换。</p>
+  </li>
+</ol>
+
+<p>更多AltSearch的功能可以查阅其说明书。</p>
+
+<p>接下来，点击<code class="language-plaintext highlighter-rouge">Refresh</code>钮，则可以看到刚才新添加进去的脚本功能：</p>
+
+<p align="center"><img src="/figures/p77551971.jpg" alt="" /></p>
+
+<p>这时，在LibreOffice Writer选中所有需要处理的文本，在AltSearch对话框中选中需要执行的脚本功能，点击<code class="language-plaintext highlighter-rouge">Execute</code>，便可以完成自动化处理工作。最后，根据个人需要，可以再手动设置Kindle图书中各个章节的标题样式。至此，就可以得到一份漂亮的读书笔记了。</p>
+
+
+  </div><a class="u-url" href="/computer/2020/11/14/%E4%BD%BF%E7%94%A8AltSearch%E6%A0%BC%E5%BC%8F%E5%8C%96Kindle%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

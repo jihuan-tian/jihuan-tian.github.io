@@ -1,0 +1,21 @@
+.builtin {
+  /* font-lock-builtin-face */
+ color: #859900;
+ }
+.comment {
+  /* font-lock-comment-face */
+ color: #93a1a1;
+  font-style: italic;
+ }
+.function-name {
+  /* font-lock-function-name-face */
+ color: #268bd2;
+ }
+.keyword {
+  /* font-lock-keyword-face */
+ color: #859900;
+ }
+.string {
+  /* font-lock-string-face */
+ color: #2aa198;
+ }

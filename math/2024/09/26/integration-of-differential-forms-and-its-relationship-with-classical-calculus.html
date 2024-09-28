@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Integration of differential forms and its relationship with classical calculus | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Integration of differential forms and its relationship with classical calculus" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction Integration of a \(k\)-form over an oriented region in \(\mathbb{R}^k\) Integration of a \(k\)-form over an oriented parameterized \(k\)-subset in a manifold \(M^n\) Line integral Surface integral Volume integral" />
+<meta property="og:description" content="Introduction Integration of a \(k\)-form over an oriented region in \(\mathbb{R}^k\) Integration of a \(k\)-form over an oriented parameterized \(k\)-subset in a manifold \(M^n\) Line integral Surface integral Volume integral" />
+<link rel="canonical" href="https://jihuan-tian.github.io/math/2024/09/26/integration-of-differential-forms-and-its-relationship-with-classical-calculus.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/math/2024/09/26/integration-of-differential-forms-and-its-relationship-with-classical-calculus.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-09-26T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Integration of differential forms and its relationship with classical calculus" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2024-09-26T00:00:00+08:00","datePublished":"2024-09-26T00:00:00+08:00","description":"Introduction Integration of a \\(k\\)-form over an oriented region in \\(\\mathbb{R}^k\\) Integration of a \\(k\\)-form over an oriented parameterized \\(k\\)-subset in a manifold \\(M^n\\) Line integral Surface integral Volume integral","headline":"Integration of differential forms and its relationship with classical calculus","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2024/09/26/integration-of-differential-forms-and-its-relationship-with-classical-calculus.html"},"url":"https://jihuan-tian.github.io/math/2024/09/26/integration-of-differential-forms-and-its-relationship-with-classical-calculus.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"></script>
+
+  
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Integration of differential forms and its relationship with classical calculus</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-09-26T00:00:00+08:00" itemprop="datePublished">Sep 26, 2024 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/math">Math</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/differential-geometry">differential-geometry</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li><a href="#org52a65b5">Introduction</a></li>
+  <li><a href="#orgfd454b1">Integration of a \(k\)-form over an oriented region in \(\mathbb{R}^k\)</a></li>
+  <li><a href="#orgbf32e8c">Integration of a \(k\)-form over an oriented parameterized \(k\)-subset in a manifold \(M^n\)</a>
+    <ul>
+      <li><a href="#orgdb71cf7">Line integral</a></li>
+      <li><a href="#org063cec0">Surface integral</a></li>
+      <li><a href="#orgdf771ed">Volume integral</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><a id="org52a65b5"></a></p>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>Exterior differential forms are entities to be integrated, not differentiated. For a \(k\)-form, it is to be integrated on a manifold or a subset of a manifold which has \(k\) dimensions. Therefore, a local coordinate chart with \(k\) coordinate variables can be assigned to the integration domain.</p>
+
+<p>Force belongs to the cotangent space, while displacement belongs to the tangent space. The application of a force to a displacement is actually a projection of the force to the displacement vector or taking the inner product of these two quantities, and a scalar value, the work done, is returned. This situation fits well with the application of a cotangent vector to a tangent vector where the concept of duality is involved (see <a href="/math/2024/08/16/concept-of-duality.html">Concept of duality</a>).</p>
+
+<p>For electric field, if it is exerted on a point charge, we get the electric force. Therefore, the electric force is just scaling of the electric field. Hence, the electric field should belong to the cotangent space, i.e. it is a 1-form. If we integrate the electric field 1-form along a path, we obtain the potential drop between the starting and ending points of the path.</p>
+
+<p>For magnetic induction or magnetic flux density, it is associated with a 2-form. When it is applied to a 2-vector, it returns the signed area spanned by the 2-vector which is further scaled by the normal component of the magnetic induction. Therefore, the returned scalar value is the magnetic flux through the area. If we integrate the magnetic induction 2-form on a surface, we obtained the total magnetic flux though the surface.</p>
+
+<p><a id="orgfd454b1"></a></p>
+
+<h1 id="integration-of-a-k-form-over-an-oriented-region-in-mathbbrk">Integration of a \(k\)-form over an oriented region in \(\mathbb{R}^k\)</h1>
+
+<p>For a coordinate chart \((U, u)\) with \(k\) variables embedded in a manifold \(M^n\), it is locally homeomorphic to \(\mathbb{R}^k\). Therefore, the integration on this oriented coordinate chart is just like the integration in a region in \(\mathbb{R}^k\). So we first examine the integration of a \(k\)-form \(\alpha^k = a(u)du^1\wedge\cdots\wedge du^k\) over an oriented region in \(\mathbb{R}^k\).</p>
+
+\[\begin{equation}
+\int_{(U,o)} \alpha^k = \int_{(U,o)} a(u) du^1\wedge\cdots\wedge du^k := o(u) \int_{U} a(u) du^1\cdots du^k.
+\end{equation}\]
+
+<p>\(o(u)\) determines the orientation of the selected coordinate chart \((u)\).</p>
+
+<p><a id="orgbf32e8c"></a></p>
+
+<h1 id="integration-of-a-k-form-over-an-oriented-parameterized-k-subset-in-a-manifold-mn">Integration of a \(k\)-form over an oriented parameterized \(k\)-subset in a manifold \(M^n\)</h1>
+
+<p>Let \(F\) be a map from \(U\) to \(M^n\), where \(U\) is assigned a coordinate chart \((u)\) with \(k\) variables. The Jacobian matrix of this map \(F\) may not have a full rank, hence the range \(F(U)\) may not have \(k\) dimensions for all points in it. Therefore, \(F(U)\) is called a \(k\)-subset of \(M^n\) and the actual dimension of the geometric entity can be smaller than \(k\).</p>
+
+<p>The \(k\)-form \(\alpha^k\) is to be integrated over this \(k\)-subset. The integral should be pulled back to the local coordinate chart \((u)\) as below.</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \int_{(U,o; F)} \alpha^k &amp;= \int_{(U,o)} F^{\ast} \alpha^k \\
+    &amp;= \int_{(U,o)}
+    (F^{\ast}\alpha^k)(\boldsymbol{\partial}u^1,\cdots,\boldsymbol{\partial}u^k)
+    du^1\wedge\cdots\wedge du^k \\
+    &amp;= o(u) \int_U
+    (F^{\ast}\alpha^k)(\boldsymbol{\partial}u^1,\cdots,\boldsymbol{\partial}u^k)
+    du^1\cdots du^k \\
+    &amp;= o(u) \int_U
+    \alpha^k(F_{\ast}(\boldsymbol{\partial}u^1),\cdots,F_{\ast}(\boldsymbol{\partial}u^k))
+    du^1\cdots du^k.
+  \end{aligned}
+\end{equation}\]
+
+<p>In the above integral, the \(k\)-subset in \(M^n\) is written as \((U,o; F)\), which explicitly specifies the map \(F\) from \(U\) to the \(k\)-subset and the orientation function \(o(\cdot)\). \(F_{\ast}(\boldsymbol{\partial}u^i)\) is the push forward of the basis vector in the tangent space with the coordinate chart \((u)\) to a vector in the manifold \(M^n\). The matrix representation of \(F_{\ast}\) is the Jacobian matrix of \(F\), while the vector representation of \(\boldsymbol{\partial}u^i\) is \((0,\cdots,1,\cdots,0)^{\mathrm{T}}\) with \(1\) being the \(i\)-th component. Therefore, \(F_{\ast}(\boldsymbol{\partial}u^i)\) is just the \(i\)-th column of the Jacobian matrix.</p>
+
+<p><a id="orgdb71cf7"></a></p>
+
+<h2 id="line-integral">Line integral</h2>
+
+<p>In classical calculus, the line integral or path integral of a vector field \(\boldsymbol{A}\) along a path \(c\) is</p>
+
+\[\begin{equation}
+  \int_c \boldsymbol{A} \cdot d \boldsymbol{l}.
+\end{equation}\]
+
+<p>In the Cartesian space \((x) = (x^1,\cdots,x^d)\), we assume the path \(c\) has a parametric representation \(x(t)\), which depends on the unique parameter \(t\). \(t\) can be scaled to the range \([0, 1]\). Therefore, the infinitesimal directed line segment \(d \boldsymbol{l}\) is</p>
+
+\[\begin{equation}
+  d \boldsymbol{l} = \frac{dx}{dt} dt,
+\end{equation}\]
+
+<p>where \(t\) can be considered as time and \(\frac{dx}{dt}\) is the velocity vector. Therefore, their multiplication produces the infinitesimal directed line segment \(d \boldsymbol{l}\), which is the displacement within time \(dt\).</p>
+
+<p>We notice that in the above line integral, the inner product is used, which involves the metric of the space. In classical calculus, only Cartesian space is considered, which has an orthonormal basis, so the inner product possesses a simple form. For example, if \(d=3\), we have</p>
+
+\[\begin{equation}
+  \int_{c} \boldsymbol{A}\cdot d \boldsymbol{l} = \int_0^1 \sum_{i=1}^3 A^i \frac{dx^i}{dt} dt.
+\end{equation}\]
+
+<p>However, if an arbitrary coordinate frame is selected for the space which may not be orthonormal, the metric tensor \(g_{ij}\) will appear, which makes the expression look more complicated:</p>
+
+\[\begin{equation}
+\int_c\boldsymbol{A} \cdot d \boldsymbol{l} =  \int_0^1 \sum_{i=1}^3 \left(\sum_{j=1}^3 g_{ij}A^j\right) \frac{dx^i}{dt} dt.
+\end{equation}\]
+
+<p>Using the Einstein summation notation, this becomes</p>
+
+\[\begin{equation}
+\int_c \boldsymbol{A}\cdot d \boldsymbol{l} = \int_0^1 g_{ij}A^j \frac{dx^i}{dt} dt,
+\end{equation}\]
+
+<p>where \(g_{ij}A^j\) is just the 1-form associated with the tangent vector \(\boldsymbol{A}\).</p>
+
+<p>By introducing differential form, the above integral can be simplified, since the metric tensor is inherent in the coordinate transformation property of the differential form. Let \(\alpha^1 = \sum_{i=1}^d a_i dx^i\) be the 1-form associated with \(\boldsymbol{A}\). We pull back its integration from the global frame \((x)\) to the local chart \((t)\):</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \int_c \alpha^1 &amp;= \int_c \sum_{i=1}^d a_i(x) dx^i \\
+    &amp;= o(t) \int_0^1 F^{\ast} \left( \sum_{i=1}^d a_i dx^i \right) \\
+    &amp;= o(t) \int_0^1 \sum_{i=1}^d a_i(x(t)) F^{\ast}(dx^i) \\
+    &amp;= o(t) \int_0^1 \sum_{i=1}^d a_i(x(t)) \frac{dx^i}{dt} dt,
+  \end{aligned}
+\end{equation}\]
+
+<p>where \(a_i(x(t)) = g_{ij}(x(t))A^j(x(t))\). In the local coordinate chart \((t)\), there is only one variable. The orientation of this chart depends on the direction of the unique tangent space basis vector \(dt\). If we assume \(dt\) defines the positive orientation, the integration of a 1-form along a path is equivalent to the line integral of a vector field in classical calculus.</p>
+
+<p><a id="org063cec0"></a></p>
+
+<h2 id="surface-integral">Surface integral</h2>
+
+<p>In classical calculus, the surface integral of a vector field \(\boldsymbol{B}\) is only considered in \(\mathbb{R}^3\), where the coordinate chart is orthonormal.</p>
+
+\[\begin{equation}
+  \int_{S} \boldsymbol{B}\cdot d \boldsymbol{S}.
+\end{equation}\]
+
+<p>The surface element \(d \boldsymbol{S}\) has a direction, which is the outward unit normal vector \(\hat{\boldsymbol{n}}\) of the surface. The classical method projects \(d \boldsymbol{S}\) to three orthogonal planes, i.e. \(yz\) , \(zx\) and \(xy\) (or we say \(d \boldsymbol{S}\) is projected along three axes, \(x\), \(y\) and \(z\)). If \(\hat{\boldsymbol{n}} = (\cos\alpha,\cos\beta,\cos\gamma)\), the projected surface elements (with signs) are</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    dy\wedge dz &amp;= \cos\alpha dS \\
+    dz\wedge dx &amp;= \cos\beta dS \\
+    dx\wedge dy &amp;= \cos\gamma dS,
+  \end{aligned}
+\end{equation}\]
+
+<p>where \(dS\) is the non-negative area of the surface element \(d \boldsymbol{S}\). Obviously, if \(0 \leq \alpha \leq \frac{\pi}{2}\), the projection of \(d \boldsymbol{S}\) along the \(x\) axis is larger than or equal to 0; when \(\frac{\pi}{2} &lt; \alpha \leq \pi\), the projection is negative. Cases for \(\beta\) and \(\gamma\) are similar.</p>
+
+<p>Then the surface integral is the sum of three parts,</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \int_S \boldsymbol{B}\cdot d \boldsymbol{S} &amp;= \int_S B^1 dy\wedge dz + B^2 dz\wedge
+    dx + B^3 dx\wedge dy \\
+    &amp;= \int_S B^1 \sgn(\cos\alpha) dydz + B^2 \sgn(\cos\beta) dzdx + B^3 \sgn(\cos\gamma)
+    dxdy.
+  \end{aligned}
+\end{equation}\]
+
+<p>We can see that the signs of those direction cosines are explicitly written out, so that those signed wedge products \(dy\wedge dz\), \(dz\wedge dx\) and \(dx\wedge dy\) are replaced with unsigned surface elements \(dydz\), \(dzdx\) and \(dxdy\). The physical meaning of such surface integral is the flux of the vector field \(\boldsymbol{B}\) passing through the surface \(\boldsymbol{S}\).</p>
+
+<p>For the surface integral expressed in differential form, we need a 2-form \(\beta^2\). Let \(F\) be a map from the local coordinate patch \(U\) to a 2-subset in \(\mathbb{R}^3\). This 2-subset is the same as the surface \(S\). The integral is</p>
+
+\[\begin{equation}
+  \int_{F(U)} \beta^2 = \int_{F(U)} b_1 dx^2\wedge dx^3 + b_2 dx^3\wedge dx^1 + b_3 dx^1\wedge dx^2.
+\end{equation}\]
+
+<p>Pull back to the coordinate chart \((U, u)\):</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \int_{F(U)} \beta^2 &amp;= \int_{(U,o)} \left\{ b_1(x(u)) \det \left\{
+        \frac{\partial(x^2,x^3)}{\partial(u^1,u^2)} \right\} + b_2(x(u)) \det \left\{
+        \frac{\partial(x^3,x^1)}{\partial(u^1,u^2)} \right\} + b_3(x(u)) \det \left\{
+        \frac{\partial(x^1,x^2)}{\partial(u^1,u^2)} \right\} \right\}  du^1\wedge du^2 \\
+    &amp;= o(u) \int_U \left\{ b_1(x(u)) \det \left\{
+        \frac{\partial(x^2,x^3)}{\partial(u^1,u^2)} \right\} + b_2(x(u)) \det \left\{
+        \frac{\partial(x^3,x^1)}{\partial(u^1,u^2)} \right\} + b_3(x(u)) \det \left\{
+        \frac{\partial(x^1,x^2)}{\partial(u^1,u^2)} \right\} \right\}  du^1du^2.
+  \end{aligned}
+\end{equation}\]
+
+<p>Or we can write it as</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \int_{F(U)} \beta^2 &amp;= \int_{(U,o)} F^{\ast}\beta^2 \\
+    &amp;= \int_{(U,o)} (F^{\ast}\beta^2)(\boldsymbol{\partial}u^1, \boldsymbol{\partial}u^2)
+    du^1\wedge du^2 \\
+    &amp;= o(u) \int_U (F^{\ast}\beta^2)(\boldsymbol{\partial}u^1, \boldsymbol{\partial}u^2)
+    du^1du^2 \\
+    &amp;= o(u) \int_U \beta^2(F_{\ast}\boldsymbol{\partial}u^1, F_{\ast}\boldsymbol{\partial}u^2)
+    du^1du^2 \\
+    &amp;= o(u) \int_U \beta^2\left(\frac{\partial x}{\partial u^1}, \frac{\partial x}{\partial
+      u^2}\right) du^1du^2.
+  \end{aligned}
+\end{equation}\]
+
+<p>We already know that in an \(n\)-dimensional manifold, a tangent vector \(\boldsymbol{B}\) can be identified with a pseudo \((n-1)\)-form via its interior product with the pseudo volume \(n\)-form. Because the above integral obviously depends on the orientation of the coordinate chart, \(\beta^2\) should be a true form. Then the association of a tangent vector and an \((n-1)\)-form should be modified a little like this: a <strong>pseudo</strong> tangent vector \(\boldsymbol{B}\) can be identified with a <strong>true</strong> \((n-1)\)-form via its interior product with the pseudo volume \(n\)-form. Hence, when \(n=3\), the pseudo vector \(\boldsymbol{B}\) corresponds to a true \(2\)-form \(\beta^2\). N.B. The selection of \(\boldsymbol{B}\) as a pseudo vector is meaningful. For example, in electromagnetics, the magnetic flux density \(\boldsymbol{B}\) is a pseudo vector not a true vector, because when the orientation of the coordinate charge changes, its direction in the space flips.</p>
+
+<p>Then the 2-form \(\beta^2\) is</p>
+
+\[\begin{equation}
+  \beta^2 = i_{\boldsymbol{B}}\mathrm{vol}^3.
+\end{equation}\]
+
+<p>Its integration over \(F(U)\) is</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \int_{F(U)} \beta^2 &amp;= \int_{F(U)} i_{\boldsymbol{B}}\mathrm{vol}^3 \\
+    &amp;= o(u) \int_U i_{\boldsymbol{B}}\mathrm{vol}^3 \left( \frac{\partial x}{\partial u^1}, \frac{\partial x}{\partial
+        u^2} \right) du^1du^2 \\
+    &amp;= o(u) \int_U \mathrm{vol}^3\left(\vect{B}, \frac{\partial x}{\partial u^1}, \frac{\partial x}{\partial
+        u^2}\right) du^1du^2.
+  \end{aligned}
+\end{equation}\]
+
+<p>In the above expression, both \(\mathrm{vol}^3\) and \(\boldsymbol{B}\) are pseudo and depend on the orientation of \(\mathbb{R}^3\). However, because they appear together, the above integral does not depend on the orientation of \(\mathbb{R}^3\) but only depends on the orientation of the local coordinate chart \((U,u)\). This means the flux of a vector field through a directed surface only depends on the orientation of the surface but not on the 3D space, which is reasonable.</p>
+
+<p>We can select the surface unit normal vector \(\hat{\boldsymbol{n}}\) such that the three vectors \((\hat{\boldsymbol{n}}, \frac{\partial x}{\partial u^{1}}, \frac{\partial x}{\partial u^{2}})\) (which have been pushed forward into \(\mathbb{R}^3\)) have the same orientation as that for \(\mathbb{R}^3\). With the normal vector defined, we can decompose the vector field \(\boldsymbol{B}\) into a normal component \(\boldsymbol{B}_{\mathrm{n}}\) and a tangential component \(\boldsymbol{B}_{\mathrm{t}}\), where \(\boldsymbol{B}_{\mathrm{n}} = (\boldsymbol{B}\cdot\hat{\boldsymbol{n}})\hat{\boldsymbol{n}}\) and \(\boldsymbol{B}_{\mathrm{t}} = \boldsymbol{B} - \boldsymbol{B}_{\mathrm{n}}\). Then the volume form in the above integral can be further expanded as</p>
+
+\[\begin{equation}
+  o(u) \int_U \mathrm{vol}^3 \left(\boldsymbol{B}, \frac{\partial x}{\partial u^{1}}, \frac{\partial
+      x}{\partial u^{2}} \right) du^1du^2 = o(u) \int_{U} \mathrm{vol}^3 \left(
+    \vect{B}_{\mathrm{n}} + \vect{B}_{\mathrm{t}}, \frac{\partial
+      x}{\partial u^{1}}, \frac{\partial x}{\partial u^{2}} \right) du^1du^2.
+\end{equation}\]
+
+<p>Because \(\boldsymbol{B}_{\mathrm{t}}\) lies in the plane spanned by the two tangent vectors \(\frac{\partial x}{\partial u^{1}}\) and \(\frac{\partial x}{\partial u^{2}}\), \(\boldsymbol{B}_{\mathrm{t}}\) does not contribute to the volume form. Therefore, the integral becomes</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    o(u) \int_{U} \mathrm{vol}^3 \left( \vect{B}_{\mathrm{n}}, \frac{\partial  x}{\partial
+      u^{1}}, \frac{\partial x}{\partial u^{2}} \right) du^1du^2 &amp;=  o(u) \int_{U}
+  \mathrm{vol}^3 \left( (\vect{B}\cdot\hat{\vect{n}})\hat{\vect{n}}, \frac{\partial
+      x}{\partial u^{1}}, \frac{\partial x}{\partial u^{2}} \right) du^1du^2 \\
+  &amp;= o(u)
+  \int_{U} (\vect{B}\cdot\hat{\vect{n}}) \mathrm{vol}^3 \left( \hat{\vect{n}},
+    \frac{\partial x}{\partial u^{1}}, \frac{\partial x}{\partial u^{2}} \right) du^1du^2
+  \\
+  &amp;= o(u)
+  \int_{U} B_{\mathrm{n}} \left( i_{\hat{\vect{n}}}\mathrm{vol}^3 \right) \left(
+    \frac{\partial x}{\partial u^{1}}, \frac{\partial x}{\partial u^{2}} \right) du^1du^2,
+  \end{aligned}
+\end{equation}\]
+
+<p>where \(B_{\mathrm{n}}\) is the normal component (in scalar value) of the vector field \(\boldsymbol{B}\) and \(i_{\hat{\boldsymbol{n}}}\mathrm{vol}^{3}\) is the area 2-form. Because \(\hat{\boldsymbol{n}}\) is a pseudo vector and \(\mathrm{vol}^3\) is a pseudo form, this area 2-form is a true form. If we let</p>
+
+\[\begin{equation}
+  dS := \left( i_{\hat{\vect{n}}}\mathrm{vol}^3 \right) \left(
+    \frac{\partial x}{\partial u^{1}}, \frac{\partial x}{\partial u^{2}} \right) du^1du^2,
+\end{equation}\]
+
+<p>we have</p>
+
+\[\begin{equation}
+\int_{F(U)} \beta^2 = o(u) \int_U B_n dS,
+\end{equation}\]
+
+<p>which is consistent with the flux integral we’ve learned in classical calculus.</p>
+
+<p><a id="orgdf771ed"></a></p>
+
+<h2 id="volume-integral">Volume integral</h2>
+
+<p>A typical example of the volume integral of a scalar field in \(\mathbb{R}^3\) is the integral of charge density \(\rho\). In classical calculus, this is simply a tri-fold integral</p>
+
+\[\begin{equation}
+ \int_V \rho dxdydz.
+\end{equation}\]
+
+<p>It is obvious that the integral does not depends on the orientation of the coordinate frame.</p>
+
+<p>If differential form is used, we identify the charge density \(\rho\) with the pseudo volume 3-form \(\rho \mathrm{vol}^3\). Then its integral over a volume \(F(U)\) is</p>
+
+\[\begin{equation}
+  \int_{F(U)} \rho \mathrm{vol}^3 = \int_U \rho(u) \mathrm{vol}^3 \left( \frac{\partial
+      x}{\partial u^{1}}, \frac{\partial x}{\partial u^{2}}, \frac{\partial x}{\partial
+      u^{3}} \right) du^1du^2du^3.
+\end{equation}\]
+
+<p>where \(o(u)\) in the pseudo volume form cancels with the \(o(u)\) in the integral and the final result does not depend on the orientation. Or the integral can be written as</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \int_{(F(U), o)} \rho \mathrm{vol}^3 &amp;= \int_{(F(U), o)} \rho(x) o(x) dx^1\wedge x^2\wedge dx^3 \\
+    &amp;= \int_{(U,o)} F^{\ast}\left( \rho(x) o(x) dx^1\wedge dx^2\wedge dx^3 \right) \\
+    &amp;= \int_{(U,o)} \rho(x(u)) o(u) \Abs{\det \left\{
+        \frac{\partial(x^1,x^2,x^3)}{\partial(u^1,u^2,u^3)} \right\}} du^1\wedge
+    du^2\wedge du^3\\
+    &amp;= \int_U \rho(x(u)) \Abs{\det \left\{
+        \frac{\partial(x^1,x^2,x^3)}{\partial(u^1,u^2,u^3)} \right\}} du^1du^2du^3.
+  \end{aligned}
+\end{equation}\]
+
+
+  </div><a class="u-url" href="/math/2024/09/26/integration-of-differential-forms-and-its-relationship-with-classical-calculus.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

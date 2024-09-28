@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Usage of the const keyword in C++ | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Usage of the const keyword in C++" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The use of const keyword in C++ applies constraints to the program which will be statically checked by the compiler before program’s running. Therefore, it provides an additional layer of safety mechanism during our programming activity, such as preventing us from involuntarily modifying the value of a constant variable or getting its non-constant (mutable) reference. This will be extremely useful for us to develop and debug large scale numerical libraries in a defensive way, where mathematics and programming techniques are interwoven, which makes us more prone to error than traditional software containing only work flow of logics rather than mathematics. Therefore, it is meaningful to clarify and understand the key points of const usage, which will be the topic of this article." />
+<meta property="og:description" content="The use of const keyword in C++ applies constraints to the program which will be statically checked by the compiler before program’s running. Therefore, it provides an additional layer of safety mechanism during our programming activity, such as preventing us from involuntarily modifying the value of a constant variable or getting its non-constant (mutable) reference. This will be extremely useful for us to develop and debug large scale numerical libraries in a defensive way, where mathematics and programming techniques are interwoven, which makes us more prone to error than traditional software containing only work flow of logics rather than mathematics. Therefore, it is meaningful to clarify and understand the key points of const usage, which will be the topic of this article." />
+<link rel="canonical" href="https://jihuan-tian.github.io/thoughts/2021/01/15/usage-of-the-const-keyword-in-cpp.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/thoughts/2021/01/15/usage-of-the-const-keyword-in-cpp.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-15T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Usage of the const keyword in C++" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2021-01-15T00:00:00+08:00","datePublished":"2021-01-15T00:00:00+08:00","description":"The use of const keyword in C++ applies constraints to the program which will be statically checked by the compiler before program’s running. Therefore, it provides an additional layer of safety mechanism during our programming activity, such as preventing us from involuntarily modifying the value of a constant variable or getting its non-constant (mutable) reference. This will be extremely useful for us to develop and debug large scale numerical libraries in a defensive way, where mathematics and programming techniques are interwoven, which makes us more prone to error than traditional software containing only work flow of logics rather than mathematics. Therefore, it is meaningful to clarify and understand the key points of const usage, which will be the topic of this article.","headline":"Usage of the const keyword in C++","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/thoughts/2021/01/15/usage-of-the-const-keyword-in-cpp.html"},"url":"https://jihuan-tian.github.io/thoughts/2021/01/15/usage-of-the-const-keyword-in-cpp.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Usage of the const keyword in C++</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-01-15T00:00:00+08:00" itemprop="datePublished">Jan 15, 2021 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/thoughts">Thoughts</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/programming">programming</a>
+          
+            <a href="/tags/C++">C++</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>The use of <code class="language-plaintext highlighter-rouge">const</code> keyword in C++ applies constraints to the program which will be statically checked by the compiler before program’s running. Therefore, it provides an additional layer of safety mechanism during our programming activity, such as preventing us from involuntarily modifying the value of a constant variable or getting its non-constant (mutable) reference. This will be extremely useful for us to develop and debug large scale numerical libraries in a defensive way, where mathematics and programming techniques are interwoven, which makes us more prone to error than traditional software containing only work flow of logics rather than mathematics. Therefore, it is meaningful to clarify and understand the key points of <code class="language-plaintext highlighter-rouge">const</code> usage, which will be the topic of this article.</p>
+
+<h2 id="differentiate-between-internal-and-external-linkage-of-a-const-variable">Differentiate between internal and external linkage of a <code class="language-plaintext highlighter-rouge">const</code> variable</h2>
+
+<p>We often come across a scenario that a <code class="language-plaintext highlighter-rouge">const</code> variable is declared and initialized at the same time in a header file, which will be included by many compilation modules, i.e. cpp files. Such variables are internally linked by the compiler, which are stored in the compiler’s symbol table and do not require memory allocation. This is called constant folding.</p>
+
+<p>When a <code class="language-plaintext highlighter-rouge">const</code> variable is declared with an <code class="language-plaintext highlighter-rouge">extern</code> prefix in a header file but without initialization, the connotation of <code class="language-plaintext highlighter-rouge">extern</code> means the actual definition of this <code class="language-plaintext highlighter-rouge">const</code> variable is not in the same header file, but in some cpp file. Then, this variable is externally linked by the compiler, which is not stored in the symbol table of the compiler and requires actual memory allocation.</p>
+
+<h2 id="associativity-of-const-keyword">Associativity of <code class="language-plaintext highlighter-rouge">const</code> keyword</h2>
+
+<p><code class="language-plaintext highlighter-rouge">const T * p</code> or <code class="language-plaintext highlighter-rouge">T const * p</code> defines a pointer, which points to a <code class="language-plaintext highlighter-rouge">const</code> value of type <code class="language-plaintext highlighter-rouge">T</code>, while the memory address stored in <code class="language-plaintext highlighter-rouge">p</code> itself can be modified.</p>
+
+<p><code class="language-plaintext highlighter-rouge">T * const p</code> defines a pointer which points to a value of type <code class="language-plaintext highlighter-rouge">T</code>. The difference from above is that the address stored in the pointer cannot be changed and the value stored in the variable of type <code class="language-plaintext highlighter-rouge">T</code> can be modified.</p>
+
+<p><code class="language-plaintext highlighter-rouge">const T * const p</code> defines a pointer which points to a <code class="language-plaintext highlighter-rouge">const</code> value of type <code class="language-plaintext highlighter-rouge">T</code> and the address in <code class="language-plaintext highlighter-rouge">p</code> is also <code class="language-plaintext highlighter-rouge">const</code>.</p>
+
+<p>Anyway, the basic principle is that the <code class="language-plaintext highlighter-rouge">const</code> keyword is bounded to its closest entity from the right and if <code class="language-plaintext highlighter-rouge">const</code> is the left-most keyword, it is bounded from the left.</p>
+
+<h2 id="const-return-value-of-a-function"><code class="language-plaintext highlighter-rouge">const</code> return value of a function</h2>
+
+<p>We should keep in mind that the direct return value of a function which has not yet been assigned to an external <code class="language-plaintext highlighter-rouge">lvalue</code> is treated as <code class="language-plaintext highlighter-rouge">const</code>. This means the following expression is wrong, i.e. the direct return value of a function cannot be overridden.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">foo</span><span class="p">();</span>
+
+<span class="n">foo</span><span class="p">()</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="temporary-objects">Temporary objects</h2>
+
+<p>Temporary objects of a class are created by directly calling the constructor of the class. When it is used as an <code class="language-plaintext highlighter-rouge">lvalue</code>, it is mutable. When it is used as a <code class="language-plaintext highlighter-rouge">rvalue</code>, it is <code class="language-plaintext highlighter-rouge">const</code>. When a temporary object is passed to a function as argument, it is treated as a <code class="language-plaintext highlighter-rouge">rvalue</code> and hence has <code class="language-plaintext highlighter-rouge">const</code> type.</p>
+
+<p>The operator <code class="language-plaintext highlighter-rouge">&amp;</code> for extracting a variable’s memory address cannot be applied to a temporary object. Therefore, a temporary object can only be passed to a function by <code class="language-plaintext highlighter-rouge">const</code> reference but not by address or mutable reference.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ClassName</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">foo_pass_by_pointer</span><span class="p">(</span><span class="k">const</span> <span class="n">ClassName</span> <span class="o">*</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">foo_pass_by_const_reference</span><span class="p">(</span><span class="k">const</span> <span class="n">ClassName</span> <span class="o">&amp;</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">foo_pass_by_reference</span><span class="p">(</span><span class="n">ClassName</span> <span class="o">&amp;</span><span class="p">);</span>
+
+<span class="c1">// Invalid</span>
+<span class="n">foo_pass_by_pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ClassName</span><span class="p">());</span>
+<span class="c1">// Valid</span>
+<span class="n">foo_pass_by_const_reference</span><span class="p">(</span><span class="n">ClassName</span><span class="p">());</span>
+<span class="c1">// Invalid</span>
+<span class="n">foo_pass_by_reference</span><span class="p">(</span><span class="n">ClassName</span><span class="p">());</span>
+</code></pre></div></div>
+
+<h2 id="use-the-const-keyword-in-a-class">Use the <code class="language-plaintext highlighter-rouge">const</code> keyword in a class</h2>
+
+<h3 id="const-member-functions"><code class="language-plaintext highlighter-rouge">const</code> member functions</h3>
+
+<h4 id="dichotomy-between-const-and-mutable-member-functions">Dichotomy between <code class="language-plaintext highlighter-rouge">const</code> and mutable member functions</h4>
+
+<p>When the <code class="language-plaintext highlighter-rouge">const</code> keyword is explicitly appended to both the declaration and definition of a member function in a class, the compiler is told that member variables of the class should not be changed during the execution of this member function. This explicit declaration is mandatory because the compiler has no knowledge about the constness of member variables during the function execution.</p>
+
+<p><code class="language-plaintext highlighter-rouge">const</code> member functions are mandatory because they are the only interfaces for accessing constant objects. If they are not defined, the following compiler error will usually appear:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: passing 'const ClassName' as 'this' argument of 'int&amp; ClassName::member_function()'  discards qualifiers [-fpermissive]
+</code></pre></div></div>
+
+<p>This can be understood like this: every member function in a class has an inherent first argument which is the <strong>this</strong> pointer pointing to the instance of the current object, as shown below.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result_type</span> <span class="nf">member_function</span><span class="p">(</span><span class="n">ClassName</span> <span class="o">*</span> <span class="n">this_pointer</span><span class="p">,</span> <span class="p">...);</span>
+</code></pre></div></div>
+
+<p>This is a mutable version of <code class="language-plaintext highlighter-rouge">member_function</code>.</p>
+
+<p>When the <code class="language-plaintext highlighter-rouge">const</code> keyword is appended to it,</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result_type</span> <span class="n">member_function</span><span class="p">(...)</span> <span class="k">const</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>it is a <code class="language-plaintext highlighter-rouge">const</code> version of <code class="language-plaintext highlighter-rouge">member_function</code> which is equivalent to declaring a function as</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result_type</span> <span class="nf">member_function</span><span class="p">(</span><span class="k">const</span> <span class="n">ClassName</span> <span class="o">*</span> <span class="n">this_pointer</span><span class="p">,</span> <span class="p">...);</span>
+</code></pre></div></div>
+
+<p>Therefore, if there is only a mutable version of <code class="language-plaintext highlighter-rouge">member_function</code> provided, when it is called from a <code class="language-plaintext highlighter-rouge">const</code> object of <code class="language-plaintext highlighter-rouge">ClassName</code>, there will be an implicit typecast from <code class="language-plaintext highlighter-rouge">ClassName *</code> to <code class="language-plaintext highlighter-rouge">const ClassName *</code>. This is forbidden by the compiler and the above “discards qualifiers” error message will appear. On the other hand, if there is only a <code class="language-plaintext highlighter-rouge">const</code> version of <code class="language-plaintext highlighter-rouge">member_function</code> provided, when it is called from a mutable object of <code class="language-plaintext highlighter-rouge">ClassName</code>, there is no error, because typecasting from <code class="language-plaintext highlighter-rouge">ClassName *</code> to <code class="language-plaintext highlighter-rouge">const ClassName *</code> is valid.</p>
+
+<p>After understanding this, when we design and implement a new class, it is a good practice for us to apply the dichotomy between <code class="language-plaintext highlighter-rouge">const</code> and mutable to all class member functions.</p>
+
+<h4 id="return-value-of-a-const-member-function">Return value of a <code class="language-plaintext highlighter-rouge">const</code> member function</h4>
+
+<p>If the returned value of a <code class="language-plaintext highlighter-rouge">const</code> member function is a reference to some member variable in the class, because all member variables have been considered as <code class="language-plaintext highlighter-rouge">const</code> by the compiler inside the <code class="language-plaintext highlighter-rouge">const</code> member function, the returned reference should also be <code class="language-plaintext highlighter-rouge">const</code>.</p>
+
+<h4 id="access-class-static-variables-from-a-const-member-function">Access class static variables from a <code class="language-plaintext highlighter-rouge">const</code> member function</h4>
+
+<p>A <code class="language-plaintext highlighter-rouge">const</code> member function only ensures that no changes will happen to class member variables. Therefore, class static variables, which do not belong to any instance of the class, can be modified within a <code class="language-plaintext highlighter-rouge">const</code> member function.</p>
+
+<h3 id="const-member-variables"><code class="language-plaintext highlighter-rouge">const</code> member variables</h3>
+
+<h4 id="non-static-member-variables">Non-static member variables</h4>
+
+<p>When a non-static member variable of a class is declared as <code class="language-plaintext highlighter-rouge">const</code>, it is not required to be initialized with a value at the same time as that required for a global <code class="language-plaintext highlighter-rouge">const</code> variable. The <code class="language-plaintext highlighter-rouge">const</code> keyword here only means that once this member variable is initialized, its value cannot be changed any further. Still, it is grammatically correct that such initial value is given at the declaration of a non-static member variable. However, in this way, each instance of this class will have the same value for this variable which cannot be modified. Then, there is actually no need to keep a same copy for it in each instance and we should define it as a <code class="language-plaintext highlighter-rouge">const</code> static member variable instead.</p>
+
+<p>The appropriate place for initializing a <code class="language-plaintext highlighter-rouge">const</code> non-static member variable is the initializer list of the class’s constructor. This is because before the execution of the constructor’s function body, member variables of the class have already been initialized according to the initializer list. Therefore, it is the only chance to assign value to a <code class="language-plaintext highlighter-rouge">const</code> non-static member variable in the initializer list.</p>
+
+<p>It should also be noted that constant folding is not applicable to a <code class="language-plaintext highlighter-rouge">const</code> non-static member variable. Meanwhile, because it cannot be guaranteed to be initialized with a value, it cannot be used to specify the size of an array.</p>
+
+<h4 id="static-member-variables">Static member variables</h4>
+
+<p>A <code class="language-plaintext highlighter-rouge">const</code> static member variable in a class is shared by all the instances of the class. It is stored in the symbol list without memory allocation. Hence, constant folding is enabled for it and it can be used to specify the size of an array. There are two ways to initialize a <code class="language-plaintext highlighter-rouge">const</code> static member variable.</p>
+
+<ol>
+  <li>
+    <p>Initialized at the declaration, i.e. <em>in situ</em> initialization.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ClassName</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Initialized outside the class, which is usually placed in the corresponding cpp file for the class.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">int</span> <span class="n">ClassName</span><span class="o">::</span><span class="n">size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>One thing should be noted that because member variables of a class are initialized in the same order as their declaration, we have to make sure that the declaration and initialization of the static <code class="language-plaintext highlighter-rouge">const</code> member variable should be in front of the array whose size is defined via this variable.</p>
+
+<h2 id="good-practices-of-using-const">Good practices of using <code class="language-plaintext highlighter-rouge">const</code></h2>
+
+<ul>
+  <li>Whenever a reference or a pointer is passed to a function, it should be declared as <code class="language-plaintext highlighter-rouge">const</code> in the function’s signature as much as possible. This is due to the following considerations.
+    <ul>
+      <li>Enable the function to be able to operate on a <code class="language-plaintext highlighter-rouge">const</code> object, because it is impossible to cast a type from <code class="language-plaintext highlighter-rouge">const</code> to mutable, unless <code class="language-plaintext highlighter-rouge">std::const_cast</code> is used.</li>
+      <li>Stick to the spirit of defensive programming and avoid any unnecessary or careless modification of the variable.</li>
+    </ul>
+  </li>
+  <li>Static <code class="language-plaintext highlighter-rouge">const</code> member variable had better be initialized <em>in situ</em>.</li>
+  <li>Always keep in mind the dichotomy between <code class="language-plaintext highlighter-rouge">const</code> and mutable member functions when designing a class. For class member functions which never change member variables, they should be declared as <code class="language-plaintext highlighter-rouge">const</code>, so that they can be used for both mutable and <code class="language-plaintext highlighter-rouge">const</code> object.</li>
+</ul>
+
+
+  </div><a class="u-url" href="/thoughts/2021/01/15/usage-of-the-const-keyword-in-cpp.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
