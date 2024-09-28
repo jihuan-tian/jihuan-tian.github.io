@@ -34,3 +34,5 @@ returns nil."
          (or url (and ref (car (markdown-reference-definition
                                 (downcase (if (string= ref "") text ref))))))))))
 ```
+
+{{ "2024-06-23-open-jekyll-post-url-from-markdown-mode-in-emacs" | backlink }}

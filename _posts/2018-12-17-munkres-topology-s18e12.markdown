@@ -37,3 +37,5 @@ From the above analysis, some lessons can be learned.
 
 1. Pure analysis can be made and general conclusions can be obtained before entering into the real world with a solid example.
 2. A tangible counter example is a sound proof for negation of a proposition. Just one is enough!
+
+{{ "2018-12-17-munkres-topology-s18e12" | backlink }}

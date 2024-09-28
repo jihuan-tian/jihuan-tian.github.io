@@ -118,3 +118,5 @@ $$
 References
 
 [^Ada75]: Robert Alexander Adams. Sobolev Spaces (Pure and applied mathematics, a series of monographs and textbooks). &nbsp;PURE AND APPLIED MATHEMATICS: A series of Monographs and Textbooks ISBN: 9780120441501. Academic Press, June 1975. 
+
+{{ "2022-02-04-summary-of-multi-index-convention-for-partial-derivatives" | backlink }}

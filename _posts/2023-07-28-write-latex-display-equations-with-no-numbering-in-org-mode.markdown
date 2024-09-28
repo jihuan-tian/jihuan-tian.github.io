@@ -51,3 +51,5 @@ Solution to the above problem: always use `\begin{equation*} ... \end{equation*}
   \begin{bmatrix}a & b \\ c & d \end{bmatrix}
 \end{equation*}
 ```
+
+{{ "2023-07-28-write-latex-display-equations-with-no-numbering-in-org-mode" | backlink }}

@@ -14,3 +14,5 @@ mathjax: false
 在代码调试的过程中，等待程序编译的那段时间可以给我带来片刻的闲暇。这一小段时间可作略加休憩，却仍旧不能用来看手机或网页，为的是保证头脑的干净、清醒，维持不被外界与内在打扰、神圣不可侵犯的工作氛围。此时，适宜闭目养神、调整心情、放松身体、向内观想，让思绪化作多股极细的水流，缓缓渗透、经过、浸润由理性编织的密网，从而为我下一次顶住压力、潜入研究的深海、梳理代码中的繁杂细节做好准备。
 
 Sometimes the real cause of some error is hidden beneath the surface, or even outside the realm of our seemingly rigorous and perfect logic. This is because not all the internal or innermost mechanism and system logic are presented to us, either due to the encapsulation of technical details by the product manufacturer, or due to our limited knowledge, experience and crafts. For most of the time, our logical and rational thinking cannot be fully relied upon. Our mission is to enlarge its fidelity and applicability through in-depth thinking and hard working.
+
+{{ "2023-02-21-experience-from-cuda-program-debugging" | backlink }}

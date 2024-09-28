@@ -62,3 +62,5 @@ The reason for the difference between mutable and const is described as follows.
 -   If the function argument type is `const Ref<const VectorXd>` or `const Ref<const VectorXd>&`, both are grammatically correct. The former is pass-by-value with respect to the object `Ref<const VectorXd>`, while the latter is pass-by-reference. Here the `Ref` object is created for `VectorXd`, the memory of which has already been dynamically allocated. Therefore, `Ref<VectorXd>` itself is a small object. For `Ref<Vector3d>`, the memory for `Vector3d` is fixed and statically created, the entirety of which is a member of `Ref<Vector3d>`. Therefore, `Ref<Vector3d>` is relatively a large object and pass-by-reference is preferred. So we should use `const Ref<const Vector3d>&`. For simplicity, for any type `T`, we only use `const Ref<const T>&`.
 
 Reference: <https://stackoverflow.com/a/21138316>
+
+{{ "2024-02-24-eigen-matrix-data-transfer-between-cpp-and-labview" | backlink }}

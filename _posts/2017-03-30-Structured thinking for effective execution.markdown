@@ -31,3 +31,5 @@ a. Freeplane
 b. MindNote
 
 In a word, structured actions are effective and efficient for handling from daily affairs to life-scale career in a template-based, procedural and iterative way.
+
+{{ "2017-03-30-Structured thinking for effective execution" | backlink }}

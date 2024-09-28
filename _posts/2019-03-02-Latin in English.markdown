@@ -32,3 +32,5 @@ This post summarizes those Latin words I come across during paper reading and En
 -   non sequitur: a statement that does not seem to follow what has just been said in any natural or logical way
 -   vox populi or vox pop: the voice of the people
 -   Vox populi, vox Dei: The voice of the people is the voice of God.
+
+{{ "2019-03-02-Latin in English" | backlink }}

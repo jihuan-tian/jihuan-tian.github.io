@@ -53,3 +53,5 @@ b_{K'}:& H^{-\frac{1}{2}+s}(\Gamma_{\rm N}) \times H^{\frac{1}{2}+s}(\Gamma_{\rm
 $$
 
 We can see $$\mathscr{I}_1 $$ and $$\mathscr{I}_2 $$ are not identity matrices. This further strengthens our understanding about the fact that they are mass matrices instead of identity matrices. Meanwhile, $$\mathscr{K} $$ on the right hand side is different from $$\mathscr{K} $$ on the left hand side. This also holds for $$\mathscr{K}' $$, $$\mathscr{V} $$ and $$\mathscr{D} $$. Moreover, $$\mathscr{V} $$ and $$\mathscr{D} $$ on the right hand side are not symmetric matrices.
+
+{{ "2022-06-01-discretization-of-bilinear-forms" | backlink }}

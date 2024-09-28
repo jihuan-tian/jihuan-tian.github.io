@@ -13,3 +13,5 @@ On the contrary, if someone from the very beginning only talks about big words s
 
 <p align="center"><img src="/figures/2023-03-27_20-40-11-freeplane-1-10-new-ui.png" alt="Freeplane 1.10" /></p>
 <p align="center">Freeplane 1.10</p>
+
+{{ "2023-03-27-freeplane-new-user-interface" | backlink }}

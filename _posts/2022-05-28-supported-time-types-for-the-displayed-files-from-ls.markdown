@@ -23,3 +23,5 @@ Three types of time are supported for files stored on Linux, which can be access
     -   `-l -t -c`: show `ctime` and sort by `ctime`.
 
 Furthermore, if the option `--full-time` is present, the full-ISO format of the date and time will be displayed.
+
+{{ "2022-05-28-supported-time-types-for-the-displayed-files-from-ls" | backlink }}

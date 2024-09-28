@@ -40,3 +40,5 @@ joplin "joplin://x-callback-url/openNote?id=$note_id"
 ```
 
 In this way, by simply double clicking on the note id in the error message dialog, then running this script, we can directly jump to the note in Joplin.
+
+{{ "2022-07-30-open-hyperlink-to-joplin-note-from-pdf" | backlink }}

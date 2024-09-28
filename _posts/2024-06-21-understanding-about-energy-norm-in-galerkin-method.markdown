@@ -80,3 +80,5 @@ system.
   ISBN 978-1-4419-2611-1. URL <a class='url' href='https://book.douban.com/subject/4219448/#'><span class='t1xtt-x-x-109'>https://book.douban.com/subject/4219448/#</span></a>.
 </p>
   </div>
+
+{{ "2024-06-21-understanding-about-energy-norm-in-galerkin-method" | backlink }}

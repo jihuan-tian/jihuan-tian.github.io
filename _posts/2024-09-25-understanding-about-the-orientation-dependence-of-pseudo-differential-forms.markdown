@@ -71,3 +71,5 @@ $$
 we find out $$\mathrm{vol}_v^3 $$ is just equivalent to $$\mathrm{vol}_u^3 $$.
 
 Also note that for a given pseudo form, with the anti symmetry of wedge product, we can arbitrarily change the order of basis elements in the wedge product $$du^1\wedge\cdots\wedge du^n $$ while keeping the differential form unchanged, as long as we add a factor $$(-1)^m $$ to it, where $$m $$ is the number of permutations. However, such an operation has nothing to do with the orientation of the local coordinate chart, since the chart does not change in this process. So this is only an algebraic operation.
+
+{{ "2024-09-25-understanding-about-the-orientation-dependence-of-pseudo-differential-forms" | backlink }}

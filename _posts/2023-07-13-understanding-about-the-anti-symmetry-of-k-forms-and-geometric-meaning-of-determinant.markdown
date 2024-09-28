@@ -39,3 +39,5 @@ $$\left\{ (\alpha_1(u_i), \cdots, \alpha_k(u_i)) \right\}_{i=1}^{k}$$ is
 the geometric meaning of determinant.
 
 [^1]: The following display equation is wrapped around `\begin{equation*} ... \end{equation*}` for correct visualization in Emacs Org mode.
+
+{{ "2023-07-13-understanding-about-the-anti-symmetry-of-k-forms-and-geometric-meaning-of-determinant" | backlink }}

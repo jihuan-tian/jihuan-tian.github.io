@@ -44,3 +44,5 @@ It will lead to the following error.
 After loading `ox-gfm`, when pressing `C-c C-e` in Org mode, a new export option will be displayed as below. Then a better Markdown transformation can be produced than the default back-end in Org mode.
 
 ![ox-gfm export](/figures/2022-05-20_11-45-26-ox-gfm-export.png)
+
+{{ "2022-05-20-convert-an-org-mode-article-to-markdown-format" | backlink }}

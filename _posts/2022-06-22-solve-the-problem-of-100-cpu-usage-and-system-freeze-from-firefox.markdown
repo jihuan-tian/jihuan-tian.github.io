@@ -28,3 +28,5 @@ Initially, I thought this might be caused by Firefox&rsquo;s own multi-threading
 ![](/figures/2022-06-22_09-13-29-limit-firefox-processes.png "Limit the number of processes used by Firefox")
 
 Another guess on the cause of the problem might be related to the open source display driver `nouveau`. After some search, I came to this [bug report](https://bugs.webkit.org/show_bug.cgi?id=200437), which suggests to set the environment variable `WEBKIT_DISABLE_COMPOSITING_MODE=1`. According to the [documentation of WebKit](https://trac.webkit.org/wiki/EnvironmentVariables), this option forces the accelerated compositing mode adopted by `WebKitGTK` to be always off. And this just solves my problem.
+
+{{ "2022-06-22-solve-the-problem-of-100-cpu-usage-and-system-freeze-from-firefox" | backlink }}

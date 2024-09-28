@@ -13,3 +13,5 @@ mathjax: true
 -   Isometry: this is the equivalence in the sense of metric.
 -   Differentiable homeomorphism: it is a homeomorphism with the forward map $$f$$ being differentiable.
 -   Diffeomorphism: it is a homeomorphism with both the forward map $$f$$ and backward map $$f^{-1}$$ being differentiable.
+
+{{ "2022-10-06-typical-equivalence-relations-between-mathematical-spaces" | backlink }}

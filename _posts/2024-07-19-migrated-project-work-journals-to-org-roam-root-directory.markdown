@@ -93,3 +93,5 @@ I do not like the Zettelkasten concept. It would produce a lot of scattered smal
 The topology among my notes and journals can be visualized via `org-roam-ui`.
 
 ![img](/figures/2024-07-19-org-roam-all-note-links.png)
+
+{{ "2024-07-19-migrated-project-work-journals-to-org-roam-root-directory" | backlink }}

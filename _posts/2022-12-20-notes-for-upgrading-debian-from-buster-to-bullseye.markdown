@@ -48,3 +48,5 @@ mathjax: false
         -Dswt.autoScale.method=nearest
         ```
     -   The rendering backend of the compositor should not use OpenGL, which will make the process `kwin_x11` occupy 100% CPU and the whole system stuck.
+
+{{ "2022-12-20-notes-for-upgrading-debian-from-buster-to-bullseye" | backlink }}

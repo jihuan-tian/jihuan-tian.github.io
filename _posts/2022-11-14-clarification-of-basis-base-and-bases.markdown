@@ -18,3 +18,5 @@ According to (Nelson 2008)[^1] P58
 Therefore, when we talk about the basis of some space, such as an Euclidean space or Sobolev space, the word **basis** itself is already a collection of elements in this space, while any single one of them should be described as **basis element** or **basis function**. On the other hand, **base** should never appear in such occasions. Also note the plural form of basis coincides with that of base.
 
 [^1]: Nelson, David, ed. 2008. The Penguin Dictionary of Mathematics: Fourth Edition. 4th edition. London: Penguin Books.
+
+{{ "2022-11-14-clarification-of-basis-base-and-bases" | backlink }}

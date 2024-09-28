@@ -41,3 +41,5 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun
 然后，就可以用Freeplane打开导出的`*.mm`文件，进行进一步的编辑与组织了。效果如下图所示。
 
 <p align="center"><img src="/figures/p69768108.jpg" alt="" /></p>
+
+{{ "2020-02-05-以思维导图的方式总览GTD任务" | backlink }}

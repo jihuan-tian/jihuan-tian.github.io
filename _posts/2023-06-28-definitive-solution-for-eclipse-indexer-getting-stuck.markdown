@@ -35,3 +35,5 @@ For the first issue, I have verified that a successful solution is to separate t
 For the second situation that the indexer "waiting for exclusive index access", close all opened editors will release locks on those files and the indexer should continue its work.
 
 If the problem is still unsolved, restart Eclipse may help. If the problem is still unsolved, try these solutions several times with patience.
+
+{{ "2023-06-28-definitive-solution-for-eclipse-indexer-getting-stuck" | backlink }}

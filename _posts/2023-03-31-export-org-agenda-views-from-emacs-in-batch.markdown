@@ -20,3 +20,5 @@ Write a simplified initialization file `~/.emacs-batch-org` and start Emacs as b
 ```text
 emacs -Q -l ~/.emacs-batch-org --eval='(org-batch-store-agenda-views)' --kill
 ```
+
+{{ "2023-03-31-export-org-agenda-views-from-emacs-in-batch" | backlink }}

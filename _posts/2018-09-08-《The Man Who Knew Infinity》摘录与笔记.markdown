@@ -2004,3 +2004,5 @@ Epilogue
 > P7048 Someone once said of Hardy that "conceivably he could have been
 > an advertising genius or a public relations officer." Here was the
 > evidence for it.
+
+{{ "2018-09-08-《The Man Who Knew Infinity》摘录与笔记" | backlink }}

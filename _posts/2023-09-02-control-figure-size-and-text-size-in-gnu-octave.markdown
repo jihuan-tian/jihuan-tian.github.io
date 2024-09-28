@@ -62,3 +62,5 @@ Options of the `print` function which overrides some figure properties:
 -   `-F:<SIZE>` specifies font size for all text in the figure. Not recommended.
 
 When measuring figure size on the screen, I&rsquo;ve also found only `gv` can correctly display the actual (physical) size of an EPS image. Neither Okular nor Gwenview can. For viewing PNG files, Gwenview, Gimp and Okular will display the 100% scale by using the monitor&rsquo;s DPI such as 161, without considering the actual ppi used by the PNG file. Usually, I print a PNG file with a high resolution, such as 500. Therefore, the image viewed with 100% scale looks more than 3 (500dpi/161dpi) times larger than its physical size.
+
+{{ "2023-09-02-control-figure-size-and-text-size-in-gnu-octave" | backlink }}

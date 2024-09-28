@@ -78,3 +78,5 @@ The adopted finite dimensional space $$X_M $$ leads to the discretization error,
 # Strang Lemma
 
 Not only the trial and test function spaces (usually Sobolev spaces) can be approximated by finite dimensional spaces via the Galerkin-Bubnov method, the linear form on the right hand side of the variational problem in Equation \ref{eq:variational-problem-finite-dim} can also be approximated. For example, if the linear functional $$f\in X' $$ on the right hand side is represented as $$Bg $$, where $$B: Y \rightarrow X' $$ is a bounded linear operator and $$g\in Y $$, the finite dimensional approximation $$g_N $$ of $$g $$ leads to another source of perturbation to the PDE. Strang Lemma then characterizes the quasi-optimal error estimate in this case, i.e. the new solution error is controlled by a scaled sum of the space approximation error $$\inf_{v_M\in X_M} \lVert u - v_M \rVert_X $$ and the right hand side data error $$\lVert g - g_N \rVert_Y $$.
+
+{{ "2024-06-19-fundamental-theorems-in-pde-theory" | backlink }}

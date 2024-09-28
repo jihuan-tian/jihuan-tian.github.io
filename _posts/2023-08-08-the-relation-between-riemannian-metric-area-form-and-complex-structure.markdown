@@ -60,3 +60,5 @@ $$
 $$
 
 which is equal to the left hand side $$g(X,Y) $$ of the first equation.
+
+{{ "2023-08-08-the-relation-between-riemannian-metric-area-form-and-complex-structure" | backlink }}

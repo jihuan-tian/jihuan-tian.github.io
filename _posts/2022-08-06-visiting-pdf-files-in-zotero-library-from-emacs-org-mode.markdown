@@ -104,3 +104,5 @@ does not exist, or if `bibtex-completion-pdf-field' is nil."
                                            path nil)) paths)
                 if result collect result)))))))))
 ```
+
+{{ "2022-08-06-visiting-pdf-files-in-zotero-library-from-emacs-org-mode" | backlink }}

@@ -14,3 +14,5 @@ I&rsquo;ve kept using GNU Octave since 2004, from being a PhD candidate, to work
 Compared to the numerical simulation environment setup from Python libraries including numpy, scipy and matplotlib, GNU Octave&rsquo;s scripting language is much more natural to mathematical thinking. Meanwhile, it frees us from remembering a bunch of names for hierarchical classes and packages as those in Python. For most of the time, we don&rsquo;t need to do everything in a universal and comprehensive Python ecological system. Although this seems an attractive prospect, what we actually want is simply to play with math, perform some calculations and quantitatively verify our ideas. For sure GNU Octave is the best choice for such purpose.
 
 Many thanks to GNU Octave&rsquo;s authors, developers and contributors!
+
+{{ "2023-08-30-review-on-gnu-octave" | backlink }}

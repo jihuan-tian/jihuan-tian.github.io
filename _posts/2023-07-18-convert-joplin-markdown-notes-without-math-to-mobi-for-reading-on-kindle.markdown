@@ -45,3 +45,5 @@ To convert all the Markdown files in the current folder, execute this command:
 ```bash
 ls *.md | xargs -I "{}" md2mobi.sh "{}" ../en-gb-metadata.xml
 ```
+
+{{ "2023-07-18-convert-joplin-markdown-notes-without-math-to-mobi-for-reading-on-kindle" | backlink }}

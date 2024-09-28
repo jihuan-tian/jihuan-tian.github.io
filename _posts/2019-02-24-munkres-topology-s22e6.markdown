@@ -59,3 +59,5 @@ Let $$x_1, x_2 \in Y$$, $$x_1 = \alpha$$ and $$x_2 = 0$$. For any open set in $$
 With the proved S17E13 and the obtained conclusion in part (a) that $$Y$$ is no Hausdorff, we know that the diagonal set $$\Delta$$ is not closed in $$Y \times Y$$. Meanwhile, because its preimage $$(p \times p)^{-1}(\Delta) = \{x \times x \vert x \in \mathbb{R}\}$$ is closed in $$\mathbb{R}_K \times \mathbb{R}_K$$, the product map $$p \times p$$ is not a quotient map.
 
 Finally, the following figure illustrates the original space $$\mathbb{R}_K$$ and the quotient space $$Y$$. The transformation from $$\mathbb{R}_K$$ to $$Y$$ can be considered as merging a countable number of knots on a rope.
+
+{{ "2019-02-24-munkres-topology-s22e6" | backlink }}

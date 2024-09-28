@@ -14,3 +14,5 @@ Before today, this testing task was a headache for me, which is quite like the s
 The reason why I haven't got the idea of using wet paper as a bridge is that I felt this method was not so pleasant and elegant. This feeling or idea is ridiculous! Furthermore, it is because I am too afraid of making mistakes and making everything into a mess, i.e. I'm afraid that a too large current will make the circuit destroyed. This idea is also rootless and funny!  Therefore, I just stood and stuck there with a vacant mind, did nothing meaningful or helpful!
 
 After this experience, I begin to realize that if someone wants to be successful, he must be brave enough to do everything that could be helpful and implement every idea he could brew after logical and rational thinking, analysis, estimation and imagination. Moreover, he must be even shameless to make mistakes, from which he can get more valuable knowledge and experiences. When someone knows each road which leads to failure, he is not so far away from his final success.
+
+{{ "2013-03-01-leakage-current-testing-and-verification" | backlink }}

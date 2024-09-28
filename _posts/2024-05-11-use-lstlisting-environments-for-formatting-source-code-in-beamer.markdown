@@ -89,3 +89,5 @@ ERROR: Paragraph ended before \lstag@countleadingspaces was complete.
                    \par 
 l.141 \end{frame}
 ```
+
+{{ "2024-05-11-use-lstlisting-environments-for-formatting-source-code-in-beamer" | backlink }}

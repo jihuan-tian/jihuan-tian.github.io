@@ -47,3 +47,5 @@ Staying up till 4am in the morning. Great work needs blood, toil, tears and swea
 Details are the linchpin of the final success.
 
 更多阅读：《[Lumino City通关启示]({% post_url 2018-10-05-Lumino City通关启示 %})》
+
+{{ "2018-10-27-Notes for “Making Lumino”" | backlink }}

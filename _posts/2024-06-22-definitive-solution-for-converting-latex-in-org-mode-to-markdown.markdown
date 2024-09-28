@@ -62,3 +62,5 @@ Then open the generated HTML file and use the following Elisp script to correct 
 Finally, extract the main contents from the HTML file (including the table of contents, since the `[toc]` markdown directive is not recognized when the file extension is `html`) and add the markdown preamble. To prevent some HTML tags are processed by Jekyll first which makes further HTML rendering incorrect, the file should be saved with the `html` extension. It is fortunate that Liquid markup language is still supported. Hence, link to an existing post can be conveniently inserted by using the `post_url` command.
 
 I&rsquo;ve already wasted much time studying the usage of Org mode, pandoc and Awk etc., tuning their parameters, previewing and testing the conversion quality. Even though these tools give me the freedom and long term stability of my note and writing system, wasting time on tools instead of directly working on the project and solving problems is definitely a pitfall. To realize this point and make good balance between them, I have spent many years.
+
+{{ "2024-06-22-definitive-solution-for-converting-latex-in-org-mode-to-markdown" | backlink }}

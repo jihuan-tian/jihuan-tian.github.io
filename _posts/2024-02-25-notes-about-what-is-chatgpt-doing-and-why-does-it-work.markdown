@@ -90,3 +90,5 @@ The following contents are my notes taken during reading the book &ldquo;What is
     -   Generate a summary of a specific topic: just for acquiring an initial impression, since it lacks insight and criticism.
     -   Provide prompt for new molecular forms and material ingredients.
     -   Assist coding with Copilot: should still be careful with the automatic prompt.
+
+{{ "2024-02-25-notes-about-what-is-chatgpt-doing-and-why-does-it-work" | backlink }}

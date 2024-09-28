@@ -57,3 +57,5 @@ If $$X​$$ is assigned a metric, a collection of nested open balls $$\left\{B_n
    **Proof** For all $$x, y \in X$$, let their distance be $$d(x, y) = \epsilon$$. Select an open ball $$B_d(x, \frac{\epsilon}{2})$$ and for all $$z \in B_d(x, \frac{\epsilon}{2})$$, we have $$d(x, y) \leq d(x, z) + d(z, y)$$ and thus $$d(z, y) \geq d(x, y) - d(x, z)$$. Because $$d(x, z) < \frac{\epsilon}{2}$$, $$d(z, y) > \epsilon - \frac{\epsilon}{2} = \frac{\epsilon}{2}$$. Hence $$z \notin B_d(y, \frac{\epsilon}{2})$$. Similarly, for all $$z \in B_d(y, \frac{\epsilon}{2})$$, $$z \notin B_d(x, \frac{\epsilon}{2})$$. Therefore, $$X$$ satisfies the Hausdorff axiom.
 
    Up to now, the conditions in the proposition of this part of the remark have been met. Because $$\mathbb{R}$$ with the finite complement topology only satisfies the $$T_1$$ axiom, which is a weaker condition than the Hausdorff axiom, according to the contrapositive of the above lemma, $$\mathbb{R}$$ is not metrizable.
+
+{{ "2019-01-19-munkres-topology-lemma-21-2-the-sequence-lemma" | backlink }}

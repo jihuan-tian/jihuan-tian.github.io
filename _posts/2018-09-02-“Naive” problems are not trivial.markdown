@@ -13,3 +13,5 @@ On the other hand, the description of the textbook may also have ambiguities whi
 Anyway, no matter which of the above two cases a mathematics beginner has met, it is always suggested to follow the route of fastidiousness and rigorousness, which is not at all targeted for satisfying the teacher’s requirements. Try to learn being honest and humble in front of truth and rationality.
 
 ![](/figures/p53644619.jpg)
+
+{{ "2018-09-02-“Naive” problems are not trivial" | backlink }}

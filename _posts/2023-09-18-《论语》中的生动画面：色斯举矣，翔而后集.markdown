@@ -14,3 +14,5 @@ mathjax: false
 ![img](/figures/2024-04-24-色斯举矣1.jpeg)
 
 ![img](/figures/2024-04-24-色斯举矣2.jpeg)
+
+{{ "2023-09-18-《论语》中的生动画面：色斯举矣，翔而后集" | backlink }}

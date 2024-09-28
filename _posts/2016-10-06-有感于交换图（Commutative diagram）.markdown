@@ -25,3 +25,5 @@ tags: [数学学习]
 拥有的永恒便超越了时间。
 
 ![](/figures/p37740850.jpg)
+
+{{ "2016-10-06-有感于交换图（Commutative diagram）" | backlink }}

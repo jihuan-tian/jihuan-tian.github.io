@@ -103,3 +103,5 @@ Edit `/etc/iptables.up.rules`:
 # Communication quality verification
 
 I&rsquo;ve verified that 1920x1080 video resolution at 30 fps and screen sharing at 120 fps are well supported.
+
+{{ "2023-06-11-encrypted-communication-via-jami" | backlink }}

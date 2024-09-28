@@ -140,3 +140,5 @@ One thing should be noted that because member variables of a class are initializ
   * Stick to the spirit of defensive programming and avoid any unnecessary or careless modification of the variable.
 * Static `const` member variable had better be initialized *in situ*.
 * Always keep in mind the dichotomy between `const` and mutable member functions when designing a class. For class member functions which never change member variables, they should be declared as `const`, so that they can be used for both mutable and `const` object.
+
+{{ "2021-01-15-usage-of-the-const-keyword-in-cpp" | backlink }}

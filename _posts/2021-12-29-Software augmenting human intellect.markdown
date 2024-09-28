@@ -13,3 +13,5 @@ tags: [工具]
 -   Being programmable and extensible. This can be achieved via a plugin layer or the software itself can be directly accessed and interacted via programming. Being not only a tool but also a tool for making new tools, the software can be delicately tuned and adapted to our needs and habits, integrated with us as a whole.
 
 Some good examples that I recommend: Emacs, AUCTeX, Org mode, LaTeX.
+
+{{ "2021-12-29-Software augmenting human intellect" | backlink }}

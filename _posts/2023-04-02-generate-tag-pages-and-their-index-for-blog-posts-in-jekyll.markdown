@@ -146,3 +146,5 @@ Here I use the `ls` command to list all tag HTML pages in the lexicographic orde
   print "      <a href=\""$0"\">"$0"({{ site.tags['"$0"'].size }})</a>"
 }
 ```
+
+{{ "2023-04-02-generate-tag-pages-and-their-index-for-blog-posts-in-jekyll" | backlink }}

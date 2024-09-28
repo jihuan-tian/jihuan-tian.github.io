@@ -29,3 +29,5 @@ In this function, we call the Joplin program using `start-process` and pass the 
 
 Read more
 * [Create hyperlinks in Org mode]({% post_url 2022-06-05-create-hyperlinks-in-org-mode %})
+
+{{ "2022-07-30-create-link-to-joplin-notes-in-emacs-org-mode" | backlink }}

@@ -36,3 +36,5 @@ During the years of my PhD research, a numerical experiment for verifying theore
     -   Tool and environment: LibreOffice Writer
 
 Now, I have switched to Emacs Org mode, which provides a basic markup language support and a powerful LaTeX export backend. Furthermore, with the help of its **babel** extension, I am able to start interactive sessions to write and run multilingual source code, which include but not limited to math computation (both numerical and symbolic) and visualization via Octave and Maxima, rigorous mathematical drawing via Asymptote, Bash and Python scripts, Linux command execution, etc. In this way, all the previous stages involved in a numerical experiment can be incorporated into Emacs. Among them, stage 2~5 can be coalesced into Org mode. This will greatly reduce the burden of switching among different tools and environments, which spares my brain more space for meaningful and in-depth thinking.
+
+{{ "2023-01-19-perform-numerical-experiments-in-emacs-org-mode" | backlink }}

@@ -23,3 +23,5 @@ Therefore, the modern `qt` is a better choice than `gnuplot`, which has no such 
 However, because I usually start an Octave session from within Emacs by executing the `run-octave` command, a created figure window cannot be closed via either mouse clicking or key pressing `Ctrl+w`, while it is normal when Octave is started from a console.
 
 Previously , I thought this was a bug in Octave's graphics system. According to this [answer](https://stackoverflow.com/a/52946855/14842106), it is caused by an inappropriate command line argument `--no-line-editing` adopted by Emacs in the variable `inferior-octave-startup-args`. Then the solution is to customize this variable with the value `("-i" "--line-editing" "--silent")`.
+
+{{ "2022-04-23-close-qt-figure-window-in-octave" | backlink }}

@@ -22,3 +22,5 @@ git add `git status | grep modified | cut -d ":" -f 2 | sed -e 's/^\s*//'`
 ```
 
 Similarly, this method can be adapted for committing files in other status.
+
+{{ "2022-02-25-Commit-all-modified-files-to-Git" | backlink }}

@@ -41,3 +41,5 @@ The above process of proof can be illustrated as below.
 ![](/figures/15447141961713.jpg)
 
 **Remark:** The above two routes for generating topology on $$A \times B$$ must lead to the same result, otherwise, the theory itself is inappropriately proposed. A theory must be at least self-consistent before its debut in reality.
+
+{{ "2018-12-13-munkres-topology-theo16-3" | backlink }}

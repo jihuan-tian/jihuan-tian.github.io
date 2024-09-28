@@ -26,3 +26,5 @@ However, the capability of the Dolphin&rsquo;s file name filter is still limited
 
 <p align="center"><img src="/figures/2022-10-26_21-20-41-file-filter-in-emacs-dired.png" alt="Only TeX and PDF files are displayed in the Dired mode in Emacs" /></p>
 <p align="center">Only TeX and PDF files are displayed in the Dired mode in Emacs</p>
+
+{{ "2022-10-26-filtering-in-file-explorer-on-linux" | backlink }}

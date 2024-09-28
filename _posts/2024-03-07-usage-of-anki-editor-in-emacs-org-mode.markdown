@@ -18,3 +18,5 @@ mathjax: false
 -   Because Anki and Org mode now share a common system of tags, tag names should follow the stricter rules required by Org mode. For example, dash &ldquo;-&rdquo; and plus &ldquo;+&rdquo; are not allowed in a tag.
 -   Do not specify deck in higher level heading in Org mode. Specify the deck for each note.
 -   Sometimes, `anki-editor-push-notes` need to run several times to take effect.
+
+{{ "2024-03-07-usage-of-anki-editor-in-emacs-org-mode" | backlink }}

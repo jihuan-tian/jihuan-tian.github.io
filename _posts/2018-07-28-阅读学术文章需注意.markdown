@@ -13,3 +13,5 @@ tags: [科研]
 * Break fetters in the mind! Don’t be afraid of or conservative about brave and wild mathematical derivation.
 
 * Don’t feel inconvenient or be afraid of interruption by searching for more information from website and books, especially when the information is fragmented. Life is intrinsically disordered, from which the sublime order needs to be exploited and reconstructed by strenuous work.
+
+{{ "2018-07-28-阅读学术文章需注意" | backlink }}

@@ -32,3 +32,5 @@ Let $$U = [0, 1) \times (1, 2)$$ be an open set of $$A$$ in the subspace topolog
 Let $$U = \{(x,y) \vert xy = 1 \;\text{and}\; x > 0 \}$$ which is closed in $$\mathbb{R} \times \mathbb{R}$$. According to Theorem 17.2, $$U$$ is also closed in the subspace $$A$$. Then $$q(U)=(0,+\infty)$$, which is not closed in $$\mathbb{R}$$. Hence $$q$$ is not a closed map.
 
 **Comment** This exercise shows that a function being open or closed map is a sufficient but not a necessary condition for the function to be a quotient map.
+
+{{ "2019-02-09-munkres-topology-s22e3" | backlink }}

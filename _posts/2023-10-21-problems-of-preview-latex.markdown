@@ -27,3 +27,5 @@ mathjax: false
     }{\lstset{postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}}}
     \makeatother
     ```
+
+{{ "2023-10-21-problems-of-preview-latex" | backlink }}

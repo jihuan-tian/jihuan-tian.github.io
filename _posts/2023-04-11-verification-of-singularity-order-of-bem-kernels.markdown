@@ -144,3 +144,5 @@ Steinbach, Olaf. 2007. *Numerical Approximation Methods for Elliptic Boundary Va
 </div>
 
 </div>
+
+{{ "2023-04-11-verification-of-singularity-order-of-bem-kernels" | backlink }}

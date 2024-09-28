@@ -65,3 +65,5 @@ mathjax: false
 
 5.  在下周逐个阅读文章。在此过程中记好笔记，及时查单词与短语。
 6.  下周末整理单词至欧路词典，整理短语与例句到 Anki 卡片。将 Kindle 中的 `documents/My Clippings.txt` 同步到电脑，归整到读书笔记中。
+
+{{ "2023-08-27-新的kindle阅读模式" | backlink }}

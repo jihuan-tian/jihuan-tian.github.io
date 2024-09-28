@@ -18,3 +18,5 @@ mathjax: false
 > When our brains are vague, we should still keep on scratching, drafting, illustrating, writing and coding. We mustn&rsquo;t wait doing nothing until everything is ready. Even though algorithm design precedes coding logically, in practice, these two activities are concomitant and reciprocal, just because coding itself is another form of thinking process.
 
 更多阅读：《[Writing and thinking are symbiotic]({% post_url 2022-09-02-writing-and-thinking-are-symbiotic %})》
+
+{{ "2023-04-06-构思与编码" | backlink }}

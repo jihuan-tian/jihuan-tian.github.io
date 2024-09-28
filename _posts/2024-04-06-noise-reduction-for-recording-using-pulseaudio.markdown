@@ -53,3 +53,5 @@ When I perform sound recording using the microphone on my Logitech H151 headset 
     -   About beamforming
         -   <https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/#index45h3>
         -   <https://arunraghavan.net/2016/06/beamforming-in-pulseaudio/>
+
+{{ "2024-04-06-noise-reduction-for-recording-using-pulseaudio" | backlink }}

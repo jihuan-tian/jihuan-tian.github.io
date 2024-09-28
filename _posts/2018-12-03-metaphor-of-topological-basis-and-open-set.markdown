@@ -15,3 +15,5 @@ The abstract concept on topological basis and open set can be likened to throwin
 Another point to be noted is since the concept of metric has not come into play yet, the said “without boundary” implies some kind of infinity, which does not mean a distance with infinite length, but drawing local topological bases one inside another *ad infinitum*. In addition, because such kind of never-stopping self-nesting operation can be applied to each point in an open set, some sense of continuity can bud from here. And it is natural to see that the definition of continuity relies on open set.
 
 ![](/figures/Throwing pebbles into a pond.png)
+
+{{ "2018-12-03-metaphor-of-topological-basis-and-open-set" | backlink }}

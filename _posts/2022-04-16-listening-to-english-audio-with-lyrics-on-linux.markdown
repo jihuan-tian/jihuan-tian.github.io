@@ -75,3 +75,5 @@ Now the English movie audio can be played with a synchronously scrolling lyrics 
 
 <p align="center"><img src="/figures/Screenshot_20220415_vlc-osdlyrics.png" alt="Scrolling lyrics" /></p>
 <p align="center">Scrolling lyrics</p>
+
+{{ "2022-04-16-listening-to-english-audio-with-lyrics-on-linux" | backlink }}

@@ -40,3 +40,5 @@ N.B. `alsa_input.platform-snd_aloop.0.analog-stereo` is a virtual device in the 
 References
 
 -   <https://askubuntu.com/a/608211>
+
+{{ "2024-04-06-use-sox-to-further-remove-noise-in-the-microphone-recording" | backlink }}

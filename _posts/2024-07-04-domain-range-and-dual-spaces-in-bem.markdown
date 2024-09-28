@@ -24,3 +24,5 @@ The test function $$v $$ will not be directly applied to the solution function $
 However, for the double layer integral operator $$K: H^{1/2}(\Gamma) \rightarrow H^{1/2}(\Gamma) $$, the trial function space is $$H^{1/2}(\Gamma) $$ and the test space is $$H^{-1/2}(\Gamma) $$, which are different. Hence, the matrix for $$K $$ is generally not a square matrix.
 
 See also [Difference between interpolation and projection in FEM]({% post_url 2022-05-24-difference-between-interpolation-and-projection-in-fem %}).
+
+{{ "2024-07-04-domain-range-and-dual-spaces-in-bem" | backlink }}

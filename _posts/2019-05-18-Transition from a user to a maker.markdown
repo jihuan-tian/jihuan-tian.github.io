@@ -11,3 +11,5 @@ After many tries of free and open source libraries for official projects and my 
 Therefore, it is necessary to keep a habit of learning and practicing mathematics through my whole career life. To be, or not to be, that is a question!
 
 Reference: [PhD Manifesto]({% post_url 2020-06-19-PhD Manifesto %})
+
+{{ "2019-05-18-Transition from a user to a maker" | backlink }}

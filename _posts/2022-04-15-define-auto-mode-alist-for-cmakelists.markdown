@@ -61,3 +61,5 @@ Because those variables configured by `custom-set-variables` take effect before 
    ("\\.m4\\'" . m4-mode)
    ("\\.proto\\'" . protobuf-mode)))
 ```
+
+{{ "2022-04-15-define-auto-mode-alist-for-cmakelists" | backlink }}

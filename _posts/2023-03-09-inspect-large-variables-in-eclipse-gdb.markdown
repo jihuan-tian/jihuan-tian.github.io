@@ -21,3 +21,5 @@ According to Eclipse documentation on `GDB command file`:
 > Specifies the GDB debugger command file that will be used by default for each newly created debug launch. This can be useful if you often/always want to use a GDB command file for your launches. Each launch configuration allows to override this setting in the Debugger tab.
 
 we know that the configuration for debug launch of each executable may override the setting in `GDB command file`. After checking the Debugger setting for my tester, I found out it only specified `.gdbinit` in the working directory as the command file instead of the one in my home directory `~/.gdbinit`.
+
+{{ "2023-03-09-inspect-large-variables-in-eclipse-gdb" | backlink }}

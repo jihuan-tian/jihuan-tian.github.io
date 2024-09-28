@@ -48,3 +48,5 @@ mathjax: false
 -   You really understand something the third time you see it (or the first time you teach it.)
     
     学而时习，输出型学习。但也不应好为人师。
+
+{{ "2024-02-28-对Akin定律的评注" | backlink }}
