@@ -25,3 +25,5 @@ mathjax: false
     ```
     
     `sed` first replaces HTML quote `&quot;` with `"` and then `//` with `https://`. Finally, `xargs` passes each line of extracted URL to `wget` which downloads the image.
+
+{{ 2022-12-31-batch-download-images-from-xiaohongshu | backlink }}

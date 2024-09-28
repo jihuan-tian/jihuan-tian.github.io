@@ -18,3 +18,5 @@ It is cumbersome to add a customized window rule for each GTK+ 3 application. Th
 ![img](/figures/2022-06-21_10-05-33-midori-without-title-bar.png "Midori without title bar")
 
 ![img](/figures/2022-06-21_10-07-03-midori-with-title-bar.png "Midori with title bar after installation of gtk3-nocsd")
+
+{{ 2022-06-21-enable-the-title-bar-of-gtk3-window-in-kde-plasma | backlink }}

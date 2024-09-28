@@ -44,3 +44,5 @@ Cause: coding system error.
 Solution: In the commit message of `084ffad14fa700ad1ba95d8cbfe4a8f6052e2408` of `anki-editor`, the `request` package must be upgraded to 0.3.1. My previous version is `20211107.1907`, which produces the above error.
 
 Reference: <https://github.com/louietan/anki-editor/issues/51#issuecomment-533876400>
+
+{{ 2024-03-07-solved-the-issue-of-anki-editor-not-working | backlink }}

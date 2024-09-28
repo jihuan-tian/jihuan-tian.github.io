@@ -122,3 +122,5 @@ else
     fi
 fi
 ```
+
+{{ 2022-05-28-clipboards-in-X-Window-System | backlink }}

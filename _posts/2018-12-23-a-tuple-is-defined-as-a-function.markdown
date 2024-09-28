@@ -37,3 +37,5 @@ For all these types of tuples, if $$\alpha$$ is an index belongs to the index se
 From the above it can be seen that a tuple of elements, which are literally tangible *data*, are viewed as the rule of assignment for a *function*, which is more abstract. In addition, while we have already been given to the stereotype of a tuple, which is a container holding a list of ordered elements, the function mapping version of a tuple does not require any order relation prescribed for the tuple’s index set. 
 
 Considering these concepts in computer programming, a tuple of values or objects can be either stored in an ordered array as in procedural programming. Or the tuple can be stored within a function as in functional programming. Without loss of generality, this functional perspective can be further applied to matrix and tensor, which eliminates or mingles the boundary between data and operation.
+
+{{ 2018-12-23-a-tuple-is-defined-as-a-function | backlink }}

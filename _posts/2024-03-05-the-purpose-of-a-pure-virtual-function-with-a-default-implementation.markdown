@@ -15,3 +15,5 @@ Therefore, a pure virtual function with an implementation has two design purpose
 
 1.  The derived class, if not abstract, should has its own implementation of the virtual function.
 2.  The provided implementation of the pure virtual function in the parent class can be used by derived classes as a common method.
+
+{{ 2024-03-05-the-purpose-of-a-pure-virtual-function-with-a-default-implementation | backlink }}

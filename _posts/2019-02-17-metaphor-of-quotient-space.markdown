@@ -21,3 +21,5 @@ With these concepts in mind, we can take paper folding and pasting as an example
 ![](/figures/2019-02-17 Metaphor of quotient space.png)
 
 Figure. Illustration of quotient space using the example of paper folding and pasting.
+
+{{ 2019-02-17-metaphor-of-quotient-space | backlink }}

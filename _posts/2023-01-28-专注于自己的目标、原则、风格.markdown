@@ -18,3 +18,5 @@ mathjax: false
 5.  直接潜入（理论知识与代码的）深海（dive into the deep ocean），忘我工作。
 6.  牢记与贯彻这些品质：勇气（courage）、沉静（sedateness）、自信（confidence）、耐心（patience）、专注（focus）、细心（meticulousness）、勤勉（strenuousness）、坚持（Perseverance）。
 7.  在算法开发方面，不怕麻烦，不怕做大的重构（refactor）与修改（overhaul）。通过使用版本管理工具创建一个个分枝，尽情地试探与把玩不同的方程与求解方式，实现、验证、测试自己的想法。要充分调动自己的聪明才智去构思最精巧、最高效的算法，绝不能为了图快、图省事而在计算性能上打折扣。义无返顾、耐心细致地在每一个细节上下足功夫，扎扎实实地将算法完整地做出来。见义不为无勇也。
+
+{{ 2023-01-28-专注于自己的目标、原则、风格 | backlink }}

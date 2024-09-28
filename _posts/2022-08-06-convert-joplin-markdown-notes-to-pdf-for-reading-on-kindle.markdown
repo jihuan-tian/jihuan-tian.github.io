@@ -23,3 +23,5 @@ Here I let `pandoc` use the LaTeX package `extsizes` for enabling a larger font 
 \usepackage[papersize={3.6in,4.8in},top=0.5cm, bottom=0.5cm, left=0.5cm, right=0.5cm]{geometry}
 \pagestyle{empty}
 ```
+
+{{ 2022-08-06-convert-joplin-markdown-notes-to-pdf-for-reading-on-kindle | backlink }}

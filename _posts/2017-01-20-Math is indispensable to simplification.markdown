@@ -13,3 +13,5 @@ One of the tasks or effects introduced by mathematics is to make things simpler 
 2\. People are usually in a hurry and hunger for short-term profit.
 
 Hence, they do not possess the required tranquility and patience to collect and organize those minute and multifarious logical details in mathematics. They even have never wanted to change this situation through their whole lives.
+
+{{ 2017-01-20-Math is indispensable to simplification | backlink }}

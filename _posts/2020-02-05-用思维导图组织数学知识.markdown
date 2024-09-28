@@ -77,3 +77,5 @@ The commands to change the size of the font are available: \tiny, \small,...,\LA
 最后，给出我以前总结的有关索伯列夫空间的思维导图。可以看出，繁杂的知识点得到了很好的梳理，宏观脉络与微观细节得以同时呈现。
 
 <p align="center"><img src="/figures/p69768160.jpg" alt="" /></p>
+
+{{ 2020-02-05-用思维导图组织数学知识 | backlink }}

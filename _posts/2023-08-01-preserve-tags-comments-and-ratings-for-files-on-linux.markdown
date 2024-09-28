@@ -26,3 +26,5 @@ Unluckily, file copying and pasting within Dolphin does not preserve the above e
 -   [Tagging your files](https://vhanda.in/blog/2014/07/tagging-your-files/)
 -   [Guidelines for extended attributes](https://www.freedesktop.org/wiki/CommonExtendedAttributes/)
 -   <https://www.lesbonscomptes.com/pages/extattrs.html>
+
+{{ 2023-08-01-preserve-tags-comments-and-ratings-for-files-on-linux | backlink }}

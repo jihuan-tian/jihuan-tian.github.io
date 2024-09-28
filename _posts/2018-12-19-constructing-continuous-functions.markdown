@@ -28,3 +28,5 @@ This post summarises different ways of constructing continuous functions, which 
 9. Uniform limit of a sequence of continuous functions. 
 
     N.B. The range space of these functions should have a metric.
+
+{{ 2018-12-19-constructing-continuous-functions | backlink }}

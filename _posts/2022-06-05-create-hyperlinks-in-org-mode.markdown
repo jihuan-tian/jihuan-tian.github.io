@@ -122,3 +122,5 @@ Running less /directory/to/my/folder/...done
 ```
 
 Solution: Add the item `(directory . emacs)` to the alist variable `org-file-apps`.
+
+{{ 2022-06-05-create-hyperlinks-in-org-mode | backlink }}

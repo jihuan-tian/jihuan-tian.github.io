@@ -25,3 +25,5 @@ bind shift-down any scrollDown(32)
 # Lessons learned
 
 Some classical Linux software can be relied upon due to their better speed, extensibility and capability for extreme cases. Good examples are Xpdf, Gnuplot, less, etc.
+
+{{ 2023-04-13-view-large-pdf-files-on-linux | backlink }}

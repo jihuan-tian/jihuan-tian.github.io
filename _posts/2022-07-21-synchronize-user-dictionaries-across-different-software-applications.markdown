@@ -81,3 +81,5 @@ KDE applications like Kate, Okular, etc. rely on the plugin `Sonnet` for spell c
 # Summary
 
 The above user dictionary synchronizations coalesce into a definitive solution for a consistent and uniform spell checking in KDE Plasma on Linux.
+
+{{ 2022-07-21-synchronize-user-dictionaries-across-different-software-applications | backlink }}

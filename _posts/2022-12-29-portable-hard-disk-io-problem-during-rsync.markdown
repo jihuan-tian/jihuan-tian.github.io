@@ -74,3 +74,5 @@ Yesterday, when making data backup to my portable hard disk West Digital My Pass
     -c This  option  causes e2fsck to use badblocks(8) program to do a read-only scan of the device in order to find any bad blocks.  If any bad blocks are found, they are added to the bad block inode to prevent them from being allocated to a file or directory.
     -p Automatically  repair ("preen") the file system.  This option will cause e2fsck to automatically fix any filesystem problems that can be safely fixed without human intervention.  If e2fsck discovers a problem which may require the system administrator to take additional corrective action, e2fsck will print a description of the problem and then exit with the value 4  logically  or'ed  into the exit code.
     ```
+
+{{ 2022-12-29-portable-hard-disk-io-problem-during-rsync | backlink }}

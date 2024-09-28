@@ -141,3 +141,5 @@ $$
 $$
 
 The equivalence of matrix norms implies the equivalence of their induced metrics and topologies on $$\mathbb{R}^{n \times n}$$.
+
+{{ 2019-01-08-munkres-topology-theo20-3-and-metric-equivalence | backlink }}

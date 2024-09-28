@@ -53,3 +53,5 @@ Initially, I though this was caused by the `hyperref` package (included in the `
 After a morning of trial-and-error, the culprit is the `thref` option used with the `ntheorem` package (included in the `texlive-latex-extra` package). Removing it solves the problem.
 
 *Lessons learned: for a beginner or even an experienced user (but not a developer), the error messages reported by LaTeX interpreter are even more esoteric than those from the C++ compiler.*
+
+{{ 2024-05-12-ntheorem-does-not-work-with-hyperref-anymore | backlink }}

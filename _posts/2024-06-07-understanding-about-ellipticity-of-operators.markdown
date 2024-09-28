@@ -53,3 +53,5 @@ $$
 $$
 
 We can see that this discrete formulation is consistent with the ellipticity condition. The ellipticity constant $$c_1^A $$ of the bounded linear operator $$A $$ corresponds to the minimum eigenvalue of the positive definite matrix $$\mathscr{A} $$. That&rsquo;s why the ellipticity condition is the key in the Lax-Milgram Lemma, which governs the existence and uniqueness of the solution for a PDE formed by $$A $$.
+
+{{ 2024-06-07-understanding-about-ellipticity-of-operators | backlink }}

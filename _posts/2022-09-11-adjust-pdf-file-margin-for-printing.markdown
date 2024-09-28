@@ -33,3 +33,5 @@ The following set of tools can cooperate to achieve the said purpose, which allo
     # Specify margin size values for four page sides indpendently.
     pdfcrop --margins '<left> <top> <right> <bottom>' input.pdf output.pdf
     ```
+
+{{ 2022-09-11-adjust-pdf-file-margin-for-printing | backlink }}

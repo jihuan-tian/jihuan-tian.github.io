@@ -130,3 +130,5 @@ $$ \Vert\tilde{u} - \hat{u}_h\Vert_{H^{1/2}(\Sigma)} \leq c \left\{ \inf_{v_h \i
     This error estimate shows that the approximation error is controlled by the best approximation in the discrete space $$W_h$$ and the sum of the local approximation errors in the spaces $$Z_{h,i}$$.
 
 In summary, each step builds on the previous ones, establishing stability, boundedness, and ellipticity, which are then used to apply Theorem 2 to derive the final error estimate.
+
+{{ 2024-07-05-使用人工智能辅助数学学习 | backlink }}

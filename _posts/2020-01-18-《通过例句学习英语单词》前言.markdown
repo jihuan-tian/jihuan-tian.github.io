@@ -15,3 +15,5 @@ Mastering a word can be likened to understanding a person. We need to know its o
 The aim of compiling this document is the desire to accurately master the meaning and connotation of English words by learning from example sentences. This is because a sentence can provide a context for easy understanding and remembering. The following sentences are mainly selected from Oxford Advanced Learner’s Dictionary, Oxford English Dictionary and Merriam-Webster Dictionary etc, or sometimes created by myself.
 
 更多阅读：《[背单词一年总结]({% post_url 2018-11-12-背单词一年总结 %})》
+
+{{ 2020-01-18-《通过例句学习英语单词》前言 | backlink }}

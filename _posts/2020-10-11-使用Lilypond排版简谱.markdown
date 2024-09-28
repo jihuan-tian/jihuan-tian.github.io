@@ -97,3 +97,5 @@ A{ q0 q2 q3 q4 q5 q3 0 q0 q3 q4 q3 q2 5 q3 q#4 2 q6 5 ( - 5 ) - |
 ![](/figures/p76662838.jpg)
 
 `jianpu-ly.py`与`make_jianpu.sh`的源代码可以在[这里](https://github.com/jihuan-tian/jianpu-ly)下载。
+
+{{ 2020-10-11-使用Lilypond排版简谱 | backlink }}

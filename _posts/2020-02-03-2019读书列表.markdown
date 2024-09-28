@@ -29,3 +29,5 @@ tags: [阅读]
 11\. **2019-08-13: GitHub入门与实践 / \[日\] 大塚弘记 / 支鹏浩、刘斌 / 人民邮电出版社 / 2015-7** 
 
 12\. 2019-08-14: Version Control with Git : Powerful Tools and Techniques for Collaborative Software Development / Jon Loeliger / O'Reilly Media / 2009-6-11
+
+{{ 2020-02-03-2019读书列表 | backlink }}

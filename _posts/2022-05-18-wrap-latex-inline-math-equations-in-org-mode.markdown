@@ -17,3 +17,5 @@ For example, the dollar signs in `$\alpha$-th` will be escaped as `\$` when it i
 
 Therefore, the safest way is to use `\(...\)` for inline math delimiters in Org mode.
 
+
+{{ 2022-05-18-wrap-latex-inline-math-equations-in-org-mode | backlink }}

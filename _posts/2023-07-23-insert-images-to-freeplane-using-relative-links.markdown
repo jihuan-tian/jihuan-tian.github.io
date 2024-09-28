@@ -17,3 +17,5 @@ The behavior of inserting images in Freeplane is as below.
 -   For an image copied from the internet and directly pasted into Freeplane, Freeplane will first make a local copy, then insert it using relative path, which is desired.
 -   For an local image pasted directly into Freeplane, Freeplane will link to this image file using relative path, which is desired.
 -   The above function provided by Freeplane is enough and the `InsertInlineImage` add-on is not needed anymore.
+
+{{ 2023-07-23-insert-images-to-freeplane-using-relative-links | backlink }}

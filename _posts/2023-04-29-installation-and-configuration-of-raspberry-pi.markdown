@@ -94,3 +94,5 @@ In the above configuration, settting the correct user ID, group ID and locale ar
     1.  Unplug the SD card and insert it into a PC.
     2.  Mount the `boot` partition and append the text `init=/bin/sh` to the file `cmdline.txt`.
     3.  Reboot Raspberry Pi and get access to the console. Modify `/etc/fstab` and restore the original contents of the file `/boot/cmdline.txt`.
+
+{{ 2023-04-29-installation-and-configuration-of-raspberry-pi | backlink }}

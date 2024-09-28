@@ -66,3 +66,5 @@ Even though the forward declaration can suppress compiler errors, the lone decla
 At the beginning of the project, there may be not enough tangible materials, including code, pseudocode, notes, derivations, etc. Hence, a detailed and feasible overall design of the function modules is unrealistic. However, as the project goes on, we gradually form an overall picture of the functional modules and accumulate enough information to perform a scanning of the `#include` directives in all the header files. Then a directed graph can be drawn for illustrating their dependencies.
 
 To resolve those circular dependencies, we need to decompose large header files into functional atoms. This is because the mutual dependency of two header files can never be an absolute 100% dependency. Such dependency must have concentrated on a quite limited number of points, such as some class declarations or shared data structures. Therefore, separate each of them into an independent file will for sure solve the problem.
+
+{{ 2022-04-29-organizing-header-files-without-circular-dependency | backlink }}

@@ -48,3 +48,5 @@ After adding the option, restart Samba:
 ```bash
 sudo smbcontrol smbd reload-config
 ```
+
+{{ 2023-04-01-share-files-between-linux-windows-and-ios | backlink }}

@@ -14,3 +14,5 @@ Martin Oliver Steinhauser是Fraunhofer公司的仿真研究专家与项目经理
 最后，摘录出Martin给从事仿真工作的“用户”提出的建议：
 
 > I hope to convince those readers who consider themselves just users of ready-made software packages that it is very interesting to understand some of the common physical and mathematical principles on which these programs are based and, yet more important, that a thorough understanding of the functioning of a simulation code may enhance considerably the efficiency with which such programs are used.
+
+{{ 2022-08-20-见贤思齐 | backlink }}

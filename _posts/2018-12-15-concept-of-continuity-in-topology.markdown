@@ -46,3 +46,5 @@ Let $$y = f(x)$$ and $$y_0 = f(x_0)$$. The condition $$\vert y - y_0 \vert < \ep
 Let $$V$$ be an open set in $$Y = \mathbb{R}$$ assigned with the metric topology.Then for all $$y_0 \in V$$, there exists an open interval $$(c, d) $$ containing $$y_0$$, such that $$(c, d) \subset V$$. Let $$\epsilon = \min\{y_0 - c, d - y_0\}$$, we have $$y_0 \in (y_0 - \epsilon, y_0 + \epsilon) \subset V$$. According to the given $$\epsilon-\delta$$ version, there exists a $$\delta > 0$$ such that when $${\rm dist}_X (x, x_0) = \vert x - x_0 \vert < \delta$$, $${\rm dist}_Y(y, y_0) = \vert y - y_0 \vert < \epsilon$$. It should be noted here that because $$f$$ may not be injective, there could be more than one element in $$f^{-1}(y_0)$$. Then the above $$\epsilon-\delta$$ condition holds for any $$x_0$$ selected from $$f^{-1}(y_0)$$.
 
 Because $$y_0$$ is arbitrary in $$V$$ and $$x_0$$ is arbitrary in $$f^{-1}(y_0)$$, taking the union of all such open intervals $$(x_0 - \delta, x_0 + \delta)$$ will produce $$f^{-1}(V)$$, which is also an open set in $$X$$.
+
+{{ 2018-12-15-concept-of-continuity-in-topology | backlink }}

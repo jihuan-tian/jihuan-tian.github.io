@@ -25,3 +25,5 @@ In addition to the comparison mode study, I shall also keep it in mind as an ale
 3. one’s limited energy and passion should be invested on the most difficult parts or even unsolved problems.
 
 With these consideration in mind, the following notes will be taken in a quick and “dirty” way, where there may exist jumps in the logical derivation. After each phase of such study, the notes will be collected into GoodNotes as a source for slide making and article writing.
+
+{{ 2018-08-18-Consideration about improving mathematics study | backlink }}

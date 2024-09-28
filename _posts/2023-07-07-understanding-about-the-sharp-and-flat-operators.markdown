@@ -152,3 +152,5 @@ $$u^{\flat}(v) = (Mu)^T v = u^T M^T v = u^T M v$$
 and
 
 $$\alpha(\beta^{\sharp}) = \alpha M^{-1} \beta^T.$$
+
+{{ 2023-07-07-understanding-about-the-sharp-and-flat-operators | backlink }}

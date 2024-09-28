@@ -12,3 +12,5 @@ Days ago, I downloaded and installed Firefox of the newest version. I also set i
 In `System Settings` → `Personalization` → `Applications` → `Default Applications` → `Web Browser`, check the `in the following application` then switch back to the default `in an application based on the contents of the URL`. The above problem is solved.
 
 ![img](/figures/2022-06-07_11-57-34-reset-default-browser-in-system-setting.png)
+
+{{ 2022-06-07-set-default-web-browser-for-opening-links-on-linux | backlink }}

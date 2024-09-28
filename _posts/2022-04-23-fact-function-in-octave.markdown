@@ -246,3 +246,5 @@ persistent wisdom = ...
 	    "Some of these Richard Stallman facts are completely true. Seriously.";
 	   };
 ```
+
+{{ 2022-04-23-fact-function-in-octave | backlink }}

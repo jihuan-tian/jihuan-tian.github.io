@@ -31,3 +31,5 @@ tags: [生活]
 ![](/figures/p71353057.jpg)
 
 ![](/figures/p71353040.jpg)
+
+{{ 2020-04-07-装修感悟 | backlink }}

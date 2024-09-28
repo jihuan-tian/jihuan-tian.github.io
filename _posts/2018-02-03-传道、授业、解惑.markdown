@@ -25,3 +25,5 @@ Format of double precision floating numbers
 - 物理仿真呈现真实现象。
 
 通过以上过程，以期实现高屋建瓴、深入浅出、触类旁通的传道、授业、解惑。
+
+{{ 2018-02-03-传道、授业、解惑 | backlink }}

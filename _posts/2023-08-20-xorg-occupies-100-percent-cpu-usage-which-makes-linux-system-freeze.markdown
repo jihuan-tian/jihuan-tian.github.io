@@ -61,3 +61,5 @@ Other tried solutions which now I think may not be related:
 
 1.  Run `nvidia-settings`, set the PowerMizer preferred mode as &ldquo;maximum&rdquo;.
 2.  Turn off the `nvidia-suspend` service.
+
+{{ 2023-08-20-xorg-occupies-100-percent-cpu-usage-which-makes-linux-system-freeze | backlink }}

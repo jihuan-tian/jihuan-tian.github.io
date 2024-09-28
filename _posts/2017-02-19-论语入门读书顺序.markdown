@@ -19,3 +19,5 @@ tags: [论语]
 6\. 傅佩荣《[孔子辞典](https://book.douban.com/subject/25782781/)》
 
 其中，傅佩荣《[孔子辞典](https://book.douban.com/subject/25782781/)》与杨伯峻《[论语译注](https://book.douban.com/subject/4098263/)》作为辞典随时查询。
+
+{{ 2017-02-19-论语入门读书顺序 | backlink }}

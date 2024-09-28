@@ -90,3 +90,5 @@ Schur complement is often used to solve this equation system.
 We can see that the Schur complement method is actually the Gauss-Seidel (Gauss elimination) method for a $$2\times 2$$ matrix, or the method for solving linear equations of two variables which we once learnt in middle school. *Sometimes a high level mathematical method, such as the Schur complement used in PDE, tallies with an elementary method, both of which bear a same idea or spirit.*
 
 The benefit of this method is by decomposing the original large system matrix into two smaller problems, less memory is needed and the iterative solver usually converges faster.
+
+{{ 2024-04-28-schur-complement | backlink }}

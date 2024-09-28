@@ -27,3 +27,5 @@ mathjax: true
     
     *Therefore, LAPACK itself can run in parallel. Compared to the high level task based parallelism provided by TBB, this is a parallelism at the kernel function level.*
 -   More complicated linear algebra algorithms such as Cholesky and LU factorization are implemented as **block algorithms** by LAPACK to achieve the highest performance which is commensurate with the peak performance for matrix-matrix multiplication, i.e. BLAS level 3.
+
+{{ 2024-03-08-performance-of-lapack-and-its-parallelism | backlink }}

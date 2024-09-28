@@ -97,3 +97,5 @@ ans = "./figures/2022-11-26-gaussian.png";
 ```
 
 ![img](/figures/2022-11-26-gaussian.png)
+
+{{ 2022-11-26-plot-a-figure-with-latex-symbols-in-octave | backlink }}

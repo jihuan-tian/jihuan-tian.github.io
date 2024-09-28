@@ -17,3 +17,5 @@ tags: [写作,易经,论语,管理提升,习惯]
 > Always aim at complete harmony of thought and word and deed. Always aim at purifying your thoughts and everything will be well.
 
 更多阅读：《[重视“量”的积累]({% post_url 2017-10-25-重视“量”的积累 %})》、《[养成坚持写日记的习惯]({% post_url 2018-06-27-养成坚持写日记的习惯 %})》
+
+{{ 2020-10-05-写纸质日记的益处 | backlink }}

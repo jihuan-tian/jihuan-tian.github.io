@@ -24,3 +24,5 @@ To realize the concept of instant editing, it is beneficial for us to get famili
     
     This is very useful for focusing to a specific subtree for reading and editing.
     <p align="center"><img src="/figures/2022-10-26_16-01-21-subtree-in-indirect-buffer.png" alt="" /></p>
+
+{{ 2022-10-26-navigation-in-org-mode-for-instant-editing | backlink }}

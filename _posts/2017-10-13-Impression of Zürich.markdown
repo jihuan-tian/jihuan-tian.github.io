@@ -67,3 +67,5 @@ After entering into Professor's office, I found I had come into a completely aca
 After greeting with each other, he directly came to the topic. During the talk, I wrote down mathematical equations, explained various terms and described the numerical methods used for different sub-problems. After each part of my introduction, he restated the concept using much more accurate and detailed nomenclatures along with his comments on the application conditions as well as pros and cons of the methods. For the equation system in the electromagnetic software package I was now working on, he had deep mathematical and physical understandings on each term in the equation. I had never witnessed in anybody such understandings or descriptions so profound and clear. Finally, Professor Hiptmair gave me suggestions on an implementation of the preconditioner, which I would have a try tomorrow.
 
 Although the second visit of Zürich was quite short, I could really feel how professional and devoted the scientist in ETH is!
+
+{{ 2017-10-13-Impression of Zürich | backlink }}

@@ -20,3 +20,5 @@ Detailed configurations for these back-ends including command name and options a
 To generate LaTeX fragment images with a transparent background, which will be compatible with different Emacs color themes, we should **not** set the property `:background` in `org-format-latex-options` as `Transparent`, but `default` instead. The generated LaTeX fragments in my solarized-light color theme looks like this.
 
 <p align="center"><img src="/figures/2022-05-27_18-00-12-latex-fragment-transparent-background-in-org.png" alt="" /></p>
+
+{{ 2022-06-05-latex-fragment-in-org-mode-with-transparent-background | backlink }}

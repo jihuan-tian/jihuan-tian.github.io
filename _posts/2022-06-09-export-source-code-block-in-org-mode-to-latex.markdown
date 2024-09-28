@@ -49,3 +49,5 @@ A snapshot of the source code exported to LaTeX is shown below, from which we ca
 
 <p align="center"><img src="/figures/2022-06-08-source-code-typeset-by-listings.png" alt="Source code typeset by listings package" /></p>
 <p align="center">Source code typeset by listings package</p>
+
+{{ 2022-06-09-export-source-code-block-in-org-mode-to-latex | backlink }}

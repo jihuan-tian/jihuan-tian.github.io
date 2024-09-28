@@ -58,3 +58,5 @@ In my opinion, the following top-down hierarchy should be instilled into student
     -   Rigorous and logical.
     -   Humorous and relaxed.
     -   Static slides and dynamic demonstration.
+
+{{ 2024-07-19-consideration-about-pedagogy | backlink }}

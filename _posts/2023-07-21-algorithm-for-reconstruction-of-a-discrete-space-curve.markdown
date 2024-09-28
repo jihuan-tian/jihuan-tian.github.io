@@ -42,3 +42,5 @@ With the above definitions and array sizes clarified, the algorithm for
 reconstruction of a discrete space curve is given below.
 
 ![img](/figures/2023-07-21-algorithm-reconstruct-discrete-space-curve.png)
+
+{{ 2023-07-21-algorithm-for-reconstruction-of-a-discrete-space-curve | backlink }}

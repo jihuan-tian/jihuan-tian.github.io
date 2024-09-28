@@ -128,3 +128,5 @@ According to my experience, a feasible work flow for exporting Org mode contents
     ```
     
 There is still the problem that math environments such as theorem, definition, proposition, etc. cannot be exported to markdown preserving the original format.
+
+{{ 2024-05-13-convert-org-mode-contents-to-markdown | backlink }}

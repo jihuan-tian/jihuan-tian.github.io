@@ -67,3 +67,5 @@ Next, I adjusted the font size for displaying on my high DPI monitor, since ever
 Finally, I enabled `vdpau` for playing video in VLC. This can be configured by setting VLC&rsquo;s video output device to `VDPAU output`.
 
 See [here](https://wiki.archlinux.org/title/HiDPI) for more information about HiDPI configuration on Linux.
+
+{{ 2022-09-13-installation-of-nvidia-rtx-a2000-graphic-card | backlink }}

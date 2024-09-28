@@ -135,3 +135,5 @@ Define a function $$G: \mathbb{R} \times \mathbb{R} - \{0\} \rightarrow \mathbb{
 **Proof** Take the addition operation $$f+g$$ as example. It is defined as $$(f+g)(x)=f(x)+g(x)$$, which can be considered as a composition of two functions $$h_1: \mathbb{R} \rightarrow f(\mathbb{R}) \times g(\mathbb{R})$$ with $$h_1(x)=(f(x),g(x))$$ and $$h_2: f(\mathbb{R}) \times g(\mathbb{R}) \rightarrow \mathbb{R}$$ with $$h_2(x,y)=x+y$$. For each coordinate map of $$h_1$$, it is the continuous identity map. According to Theorem 18.4 (Maps into products), $$h_1$$ is continuous. $$h_2$$ is the addition operation with a restricted domain, which is also continuous. Therefore $$f+g=h_2 \circ h_1$$ is continuous.
 
 Similarly, we can prove $$f-g$$, $$f \cdot g$$ and $$f/g$$ with $$g(x) \neq 0$$ for all $$x$$ are continuous.
+
+{{ 2019-02-03-continuity-of-arithmetic-operations | backlink }}

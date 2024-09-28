@@ -18,3 +18,5 @@ I wrote the following diary on March 14, 2013, which is a testimony of my early 
 > There is still a long way to go in order to achieve the above goal. During this period, I shall never refuse to do simpler things! One cannot reach for what is beyond his grasp too much. Even for the expert, such as Andreas and Joerg, they are still doing engineering work and solving simple problem. This will not prevent them from doing more fundamental and theoretical research.
 >
 > When you feel you are not able to manage something, ask what is the matter with and what happens to your heart instead of finding excuses.
+
+{{ 2023-04-14-my-early-dreams | backlink }}

@@ -40,3 +40,5 @@ If using Octave, we can get them by calling `stdin`, `stdout` and `stderr`. In C
     ```
     
     `2>&1` redirects the standard error to the standard output.
+
+{{ 2022-08-03-redirect-program-output-to-log-files | backlink }}

@@ -335,3 +335,5 @@ $$
   \end{aligned}
 \end{equation}
 $$
+
+{{ 2024-09-26-integration-of-differential-forms-and-its-relationship-with-classical-calculus | backlink }}

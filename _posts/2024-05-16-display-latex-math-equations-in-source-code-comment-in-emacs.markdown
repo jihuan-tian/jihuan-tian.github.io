@@ -34,3 +34,5 @@ Define a string filter function to remove the leading comment symbols. Then LaTe
 ```
 
 ![img](/figures/2024-05-16_13-24-21-texfrag-for-programming@emacs.png)
+
+{{ 2024-05-16-display-latex-math-equations-in-source-code-comment-in-emacs | backlink }}

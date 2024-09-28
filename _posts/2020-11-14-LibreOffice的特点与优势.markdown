@@ -74,3 +74,5 @@ Draw的绘图功能相对于微软的Visio更为强大，几乎可以赶上专�
 - [LanguageTool](https://extensions.libreoffice.org/en/extensions/show/languagetool)：开源的拼写检查软件，支持多种语言和不同的平台，包括PC独立软件，LibreOffice集成插件，Firefox集成插件。
 - [Export As Images](https://extensions.libreoffice.org/en/extensions/show/export-as-images)：将所有Impress中的幻灯片和Draw中的绘图页面批量导出为图片。
 - [Zotero LibreOffice Integration](https://extensions.libreoffice.org/en/extensions/show/zotero-libreoffice-integration)：与Zotero软件配合使用，用于学术文献的插入、引用。
+
+{{ 2020-11-14-LibreOffice的特点与优势 | backlink }}

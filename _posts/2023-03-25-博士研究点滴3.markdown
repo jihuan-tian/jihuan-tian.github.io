@@ -26,3 +26,5 @@ mathjax: false
 > 2008-07-30 突然间想到，自己充其量做的不过是 numerical experiment ，根本就不是什么 numerical analysis 。
 
 这便是在工科领域内做数值计算的局限——根本性的问题是搞不定的。
+
+{{ 2023-03-25-博士研究点滴3 | backlink }}

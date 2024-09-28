@@ -246,3 +246,5 @@ VLC could not decode the format "h264" (H264 - MPEG-4 AVC (part10))
 ```
 
 Solution: install the Debian package `mediastreamer2-plugin-openh264`.
+
+{{ 2024-05-13-upgrade-debian-from-bullseye-to-bookworm | backlink }}

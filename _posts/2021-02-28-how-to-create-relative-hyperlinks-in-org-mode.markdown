@@ -26,3 +26,5 @@ Then, the configuration added to `~/.emacs` for enabling relative hyperlinks in 
 
 Read more
 * [Create hyperlinks in Org mode]({% post_url 2022-06-05-create-hyperlinks-in-org-mode %})
+
+{{ 2021-02-28-how-to-create-relative-hyperlinks-in-org-mode | backlink }}

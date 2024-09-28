@@ -269,3 +269,5 @@ I&rsquo;ve defined collections of `xsetwacom` commands for different application
     xsetwacom set 'Wacom Intuos S Pen stylus' Button 8 "button +8"
     xsetwacom set 'Wacom Intuos S Pen stylus' Button 9 "button +9"
     ```
+
+{{ 2023-09-26-my-wacom-intuos-4100 | backlink }}

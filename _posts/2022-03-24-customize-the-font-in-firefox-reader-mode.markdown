@@ -23,3 +23,5 @@ Customizing the font family used in Firefox reader mode is helpful to increase o
 4. Restart Firefox to take effect.
 
 If you want, more styles and features can be customized with the help of the Developer Tool in Firefox.
+
+{{ 2022-03-24-customize-the-font-in-firefox-reader-mode | backlink }}

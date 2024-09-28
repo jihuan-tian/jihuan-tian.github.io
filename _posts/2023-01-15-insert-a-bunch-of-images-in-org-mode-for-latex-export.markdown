@@ -34,3 +34,5 @@ The exported LaTeX code:
   \includegraphics[width=0.35\textwidth]{../figures/image3.png}
 \end{center}
 ```
+
+{{ 2023-01-15-insert-a-bunch-of-images-in-org-mode-for-latex-export | backlink }}

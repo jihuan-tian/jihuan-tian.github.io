@@ -59,3 +59,5 @@ After doing the above and restarting Emacs with previous desktop loaded, the ini
 
 -   Only load those frequently used packages to reduce the probability of being confronted with errors and bugs, which are either caused by a specific package or by the symbiotic effect of some packages.
 -   It is worthy and rewarding to be patient to monitor and tune the behavior of our production tool.
+
+{{ 2023-03-29-probable-memory-leak-in-emacs-27 | backlink }}
