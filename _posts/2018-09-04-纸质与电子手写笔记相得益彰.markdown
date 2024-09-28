@@ -32,4 +32,4 @@ tags: [工具,GoodNotes,iPad,eyes-protection,ergonomics]
 
 更多阅读：《[GoodNotes 5体验]({% post_url 2019-01-20-GoodNotes 5体验 %})》
 
-{{ 2018-09-04-纸质与电子手写笔记相得益彰 | backlink }}
+{{ "2018-09-04-纸质与电子手写笔记相得益彰" | backlink }}

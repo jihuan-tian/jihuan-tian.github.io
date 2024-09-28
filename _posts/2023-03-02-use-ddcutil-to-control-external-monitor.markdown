@@ -195,4 +195,4 @@ sudo ddcutil --display 2 setvcp 12 30
 sudo ddcutil --display 2 setvcp 1a 75
 ```
 
-{{ 2023-03-02-use-ddcutil-to-control-external-monitor | backlink }}
+{{ "2023-03-02-use-ddcutil-to-control-external-monitor" | backlink }}

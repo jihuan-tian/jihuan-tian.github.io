@@ -26,4 +26,4 @@ After Zotero and Emacs Org mode are orchestrated, not only a citation key linked
 
 It can be envisioned that once we become familiar with this working mode after some customization and practices, the efficiency and quality of our note taking and paper writing will be exalted to a new level.
 
-{{ 2022-05-24-orchestration-of-zotero-and-emacs-org-mode-for-bibliography-management | backlink }}
+{{ "2022-05-24-orchestration-of-zotero-and-emacs-org-mode-for-bibliography-management" | backlink }}

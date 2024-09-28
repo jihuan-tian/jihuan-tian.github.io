@@ -30,4 +30,4 @@ tags: [数学学习]
 
    c. Be brave, open and confident to apply the learned mathematical concepts and techniques to problems in real world. Any success or even financial income derived from such competent or irreplaceable work will produce positive feedback on your diligent and perennial study. Furthermore, you may discover new meanings from it besides the pure and sublime beauty of the mathematical edifice with its rigorousness and delicacies.
 
-{{ 2018-08-12-Principles and strategies for mathematics study | backlink }}
+{{ "2018-08-12-Principles and strategies for mathematics study" | backlink }}

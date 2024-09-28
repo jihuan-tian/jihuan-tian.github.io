@@ -22,4 +22,4 @@ According to Eclipse documentation on `GDB command file`:
 
 we know that the configuration for debug launch of each executable may override the setting in `GDB command file`. After checking the Debugger setting for my tester, I found out it only specified `.gdbinit` in the working directory as the command file instead of the one in my home directory `~/.gdbinit`.
 
-{{ 2023-03-09-inspect-large-variables-in-eclipse-gdb | backlink }}
+{{ "2023-03-09-inspect-large-variables-in-eclipse-gdb" | backlink }}

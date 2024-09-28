@@ -13,4 +13,4 @@ In `System Settings` → `Personalization` → `Applications` → `Default Appli
 
 ![img](/figures/2022-06-07_11-57-34-reset-default-browser-in-system-setting.png)
 
-{{ 2022-06-07-set-default-web-browser-for-opening-links-on-linux | backlink }}
+{{ "2022-06-07-set-default-web-browser-for-opening-links-on-linux" | backlink }}

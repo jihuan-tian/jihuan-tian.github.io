@@ -30,4 +30,4 @@ mathjax: true
         pointwise sense. Hence we still need to prove $$u_n$$ converges to
         $$u$$ in the norm assigned to $$X$$.
 
-{{ 2022-03-25-prove-a-function-space-is-banach | backlink }}
+{{ "2022-03-25-prove-a-function-space-is-banach" | backlink }}

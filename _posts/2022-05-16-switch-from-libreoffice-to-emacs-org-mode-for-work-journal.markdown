@@ -15,4 +15,4 @@ Today, for taking the work journal on algorithm development, I switched from Lib
 4.  There is no solution for efficient LaTeX input and typesetting in LibreOffice. The extension Texmaths is just usable but cannot beat the synergy of Org mode, YASnippet and CDLaTeX.
 
 
-{{ 2022-05-16-switch-from-libreoffice-to-emacs-org-mode-for-work-journal | backlink }}
+{{ "2022-05-16-switch-from-libreoffice-to-emacs-org-mode-for-work-journal" | backlink }}

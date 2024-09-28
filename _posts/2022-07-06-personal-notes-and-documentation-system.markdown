@@ -26,4 +26,4 @@ In addition, I&rsquo;ve adopted these concepts or philosophies during the struct
 
 <p align="center"><a href="/figures/2022-07-04-notes-and-documentation-system.png"><img src="/figures/2022-07-04-notes-and-documentation-system.png" alt="" /></a></p>
 
-{{ 2022-07-06-personal-notes-and-documentation-system | backlink }}
+{{ "2022-07-06-personal-notes-and-documentation-system" | backlink }}

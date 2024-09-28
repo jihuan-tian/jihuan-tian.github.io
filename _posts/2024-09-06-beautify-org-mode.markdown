@@ -59,4 +59,4 @@ The final effect of my Org mode is as below.
 
 ![img](/figures/2024-09-06_10-40-54-beautify-org-mode.png)
 
-{{ 2024-09-06-beautify-org-mode | backlink }}
+{{ "2024-09-06-beautify-org-mode" | backlink }}

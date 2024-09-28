@@ -63,4 +63,4 @@ Finally, extract the main contents from the HTML file (including the table of co
 
 I&rsquo;ve already wasted much time studying the usage of Org mode, pandoc and Awk etc., tuning their parameters, previewing and testing the conversion quality. Even though these tools give me the freedom and long term stability of my note and writing system, wasting time on tools instead of directly working on the project and solving problems is definitely a pitfall. To realize this point and make good balance between them, I have spent many years.
 
-{{ 2024-06-22-definitive-solution-for-converting-latex-in-org-mode-to-markdown | backlink }}
+{{ "2024-06-22-definitive-solution-for-converting-latex-in-org-mode-to-markdown" | backlink }}

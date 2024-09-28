@@ -68,4 +68,4 @@ Finally, I enabled `vdpau` for playing video in VLC. This can be configured by s
 
 See [here](https://wiki.archlinux.org/title/HiDPI) for more information about HiDPI configuration on Linux.
 
-{{ 2022-09-13-installation-of-nvidia-rtx-a2000-graphic-card | backlink }}
+{{ "2022-09-13-installation-of-nvidia-rtx-a2000-graphic-card" | backlink }}

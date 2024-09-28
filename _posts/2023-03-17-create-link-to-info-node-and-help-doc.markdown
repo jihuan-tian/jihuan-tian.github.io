@@ -22,4 +22,4 @@ In addition to using the link type `elisp:`, a simpler method is to use the hype
 Read more
 * [Create hyperlinks in Org mode]({% post_url 2022-06-05-create-hyperlinks-in-org-mode %})
 
-{{ 2023-03-17-create-link-to-info-node-and-help-doc | backlink }}
+{{ "2023-03-17-create-link-to-info-node-and-help-doc" | backlink }}

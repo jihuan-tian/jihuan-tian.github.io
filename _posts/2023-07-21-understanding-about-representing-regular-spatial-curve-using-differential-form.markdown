@@ -23,4 +23,4 @@ mathjax: true
   geometrically exists. This is why the definition of a regular curve
   requires $$d\gamma\neq 0$$ everywhere on the curve.
 
-{{ 2023-07-21-understanding-about-representing-regular-spatial-curve-using-differential-form | backlink }}
+{{ "2023-07-21-understanding-about-representing-regular-spatial-curve-using-differential-form" | backlink }}

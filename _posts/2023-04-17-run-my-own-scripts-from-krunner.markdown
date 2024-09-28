@@ -23,4 +23,4 @@ My personal scripts are placed in the folder `/usr/local/bin/scripts`, which has
 
 ![img](/figures/2023-04-17_05-31-07-kmenuedit.png)
 
-{{ 2023-04-17-run-my-own-scripts-from-krunner | backlink }}
+{{ "2023-04-17-run-my-own-scripts-from-krunner" | backlink }}

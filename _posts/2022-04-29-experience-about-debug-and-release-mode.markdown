@@ -15,4 +15,4 @@ In this post, I'll summarize my experience and understanding about the debug mod
 4. During the stage of performance profiling, we are interested in which lines of the source code are the bottleneck. If the program to be profiled is compiled in the release mode, due to compiler optimization, the generated machine code of the executable or library does not rigorously correspond with the source code. Therefore, it is recommended to use the debug mode for performance profiling.
 5. After the program is theoretically verified and its performance is tuned and optimized, it is the time for us to switch to the release mode and get its maximum speed.
 
-{{ 2022-04-29-experience-about-debug-and-release-mode | backlink }}
+{{ "2022-04-29-experience-about-debug-and-release-mode" | backlink }}

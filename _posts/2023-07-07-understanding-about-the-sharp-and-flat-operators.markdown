@@ -153,4 +153,4 @@ and
 
 $$\alpha(\beta^{\sharp}) = \alpha M^{-1} \beta^T.$$
 
-{{ 2023-07-07-understanding-about-the-sharp-and-flat-operators | backlink }}
+{{ "2023-07-07-understanding-about-the-sharp-and-flat-operators" | backlink }}

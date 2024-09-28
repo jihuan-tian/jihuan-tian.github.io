@@ -13,4 +13,4 @@ mathjax: false
 
 ![img](/figures/2024-04-19-snowman-on-desk.jpg)
 
-{{ 2024-04-19-应将记笔记视为一个过程 | backlink }}
+{{ "2024-04-19-应将记笔记视为一个过程" | backlink }}

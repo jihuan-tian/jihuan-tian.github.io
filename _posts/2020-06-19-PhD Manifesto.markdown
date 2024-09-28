@@ -18,4 +18,4 @@ The following PhD Manifesto was drafted by me on Mar 17, 2019. Now, after more t
 
 **4. A PhD should not degenerate from a maker into a user.**
 
-{{ 2020-06-19-PhD Manifesto | backlink }}
+{{ "2020-06-19-PhD Manifesto" | backlink }}

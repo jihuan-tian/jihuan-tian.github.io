@@ -15,4 +15,4 @@ tags: [科研,写作]
 <p align="center"><img src="/figures/p86814150.jpg" alt="文章撰写与修改的时间边际效应" /></p>
 <p align="center">文章撰写与修改的时间边际效应</p>
 
-{{ 2021-12-29-文章的撰写与修改要“知止” | backlink }}
+{{ "2021-12-29-文章的撰写与修改要“知止”" | backlink }}

@@ -50,4 +50,4 @@ DISPLAY=:1; okular file.pdf &
 tightvncserver -kill :1
 ```
 
-{{ 2020-02-20-使用iPad远程访问GNU-Linux桌面 | backlink }}
+{{ "2020-02-20-使用iPad远程访问GNU-Linux桌面" | backlink }}

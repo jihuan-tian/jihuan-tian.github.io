@@ -25,4 +25,4 @@ However, for the double layer integral operator $$K: H^{1/2}(\Gamma) \rightarrow
 
 See also [Difference between interpolation and projection in FEM]({% post_url 2022-05-24-difference-between-interpolation-and-projection-in-fem %}).
 
-{{ 2024-07-04-domain-range-and-dual-spaces-in-bem | backlink }}
+{{ "2024-07-04-domain-range-and-dual-spaces-in-bem" | backlink }}

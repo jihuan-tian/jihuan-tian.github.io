@@ -60,4 +60,4 @@ In FEM or BEM, the five entities, namely triangulation, manifold, mapping, quadr
     
     The evaluation of the shape functions and their derivatives for a finite element is performed at all quadrature points in the unit cell. These are fixed values, which can be precomputed and stored. The vector forms of differential forms in the global Cartesian frame can be computed from these fixed values and transformed to a real cell with the help of the mapping object. And the mapping object further depends on the manifold object.
 
-{{ 2024-09-24-the-interplay-between-triangulation-manifold-mapping-quadrature-point-and-finite-element | backlink }}
+{{ "2024-09-24-the-interplay-between-triangulation-manifold-mapping-quadrature-point-and-finite-element" | backlink }}

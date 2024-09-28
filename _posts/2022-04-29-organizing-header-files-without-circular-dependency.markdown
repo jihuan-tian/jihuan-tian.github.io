@@ -67,4 +67,4 @@ At the beginning of the project, there may be not enough tangible materials, inc
 
 To resolve those circular dependencies, we need to decompose large header files into functional atoms. This is because the mutual dependency of two header files can never be an absolute 100% dependency. Such dependency must have concentrated on a quite limited number of points, such as some class declarations or shared data structures. Therefore, separate each of them into an independent file will for sure solve the problem.
 
-{{ 2022-04-29-organizing-header-files-without-circular-dependency | backlink }}
+{{ "2022-04-29-organizing-header-files-without-circular-dependency" | backlink }}

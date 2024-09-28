@@ -83,4 +83,4 @@ mathjax: false
 
 ![](/figures/2011-08-14-庐山之行-17.jpeg)
 
-{{ 2011-08-14-庐山之行 | backlink }}
+{{ "2011-08-14-庐山之行" | backlink }}

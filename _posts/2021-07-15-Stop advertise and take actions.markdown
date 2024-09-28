@@ -10,4 +10,4 @@ Do not advertise concepts, ideas, principles, methods or core values to other pe
 
 Therefore, the task of first priority is to follow your rationale thoughts, establish a system of doctrines, adhere to them, take actions to verify, revise and solidify them. If there is any true value thereof, it will manifest itself.
 
-{{ 2021-07-15-Stop advertise and take actions | backlink }}
+{{ "2021-07-15-Stop advertise and take actions" | backlink }}

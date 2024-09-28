@@ -59,4 +59,4 @@ Let $$f: \mathbb{R} \rightarrow \mathbb{R}^{\omega}$$ be defined as $$f(t) = (t,
 
 For any basis element $$(a, b)$$ in $$\mathbb{R}$$ containing $$0$$, with $$a < 0$$ and $$b > 0$$, by letting $$\delta = \min\{-a, b\}$$, we have $$(-\delta, \delta) \subset (a, b)$$ and $$0 \in (-\delta, \delta)$$. The image of $$(-\delta, \delta)$$ under $$f$$ is $$\prod_{n=1}^{\infty} (-\delta, \delta)$$. Then there exist an $$n_0 \in \mathbb{Z}_+$$ such that $$(-\delta, \delta)$$ is not contained in $$(-\frac{1}{n_0}, \frac{1}{n_0})$$. Therefore, $$\pi_{n_0}(f((-\delta, \delta)))$$ is not contained in $$\pi_{n_0}(\vect{U})$$ and $$\pi_{n_0}(f((a, b)))$$ is not contained in $$\pi_{n_0}(\vect{U})$$. Hence the image of $$(a, b)$$ under $$f$$ is not contained in $$\vect{U}$$. This contradicts Theorem 18.1 (4) and $$f$$ is not continuous.
 
-{{ 2018-12-23-munkres-topology-theo19-6 | backlink }}
+{{ "2018-12-23-munkres-topology-theo19-6" | backlink }}

@@ -94,4 +94,4 @@ If our C++ source code to be linked with Octave depends on other header files or
 
 To check the current value of the above variables adopted by `mkoctfile`, the option `-p` can be used for the inquiry.
 
-{{ 2022-08-08-link-cpp-code-with-gnu-octave | backlink }}
+{{ "2022-08-08-link-cpp-code-with-gnu-octave" | backlink }}

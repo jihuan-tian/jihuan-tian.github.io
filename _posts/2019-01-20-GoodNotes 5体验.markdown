@@ -40,4 +40,4 @@ GoodNotes 5界面
 
 更多阅读：《[纸质与电子手写笔记相得益彰]({% post_url 2018-09-04-纸质与电子手写笔记相得益彰 %})》
 
-{{ 2019-01-20-GoodNotes 5体验 | backlink }}
+{{ "2019-01-20-GoodNotes 5体验" | backlink }}

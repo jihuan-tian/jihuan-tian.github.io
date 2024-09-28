@@ -19,4 +19,4 @@ I wrote the following diary on March 14, 2013, which is a testimony of my early 
 >
 > When you feel you are not able to manage something, ask what is the matter with and what happens to your heart instead of finding excuses.
 
-{{ 2023-04-14-my-early-dreams | backlink }}
+{{ "2023-04-14-my-early-dreams" | backlink }}

@@ -15,4 +15,4 @@ The reason why I haven't got the idea of using wet paper as a bridge is that I f
 
 After this experience, I begin to realize that if someone wants to be successful, he must be brave enough to do everything that could be helpful and implement every idea he could brew after logical and rational thinking, analysis, estimation and imagination. Moreover, he must be even shameless to make mistakes, from which he can get more valuable knowledge and experiences. When someone knows each road which leads to failure, he is not so far away from his final success.
 
-{{ 2013-03-01-leakage-current-testing-and-verification | backlink }}
+{{ "2013-03-01-leakage-current-testing-and-verification" | backlink }}

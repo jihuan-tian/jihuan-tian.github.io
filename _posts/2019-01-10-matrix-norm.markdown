@@ -134,4 +134,4 @@ Therefore, $$\frac{\norm{A\vect{x}}_{\infty}}{\norm{\vect{x}}_{\infty}} \leq \ma
 
 Assume when $$i = i_0$$, $$\sum_{j=1}^n \abs{a_{i_0 j}}$$ achieves the maximum. If this value is zero, $$A$$ is a zero matrix and the definition of matrix $$\infty$$-norm is trivially true. If this value is not zero, by letting $$\vect{x} = (\sgn(a_{i_0 1}), \cdots, \sgn(a_{i_0 n}))^{\rm T}$$, we have $$\norm{\vect{x}}_{\infty} = 1$$ and $$\norm{A\vect{x}}_{\infty} = \sum_{j=1}^n \abs{a_{i_0 j}} = \max_{1 \leq i \leq n} \sum_{j=1}^n \abs{a_{ij}}$$.  Hence, $$\frac{\norm{A\vect{x}}_{\infty}}{\norm{\vect{x}}_{\infty}} = \max_{1 \leq i \leq n} \sum_{j=1}^n \abs{a_{ij}}$$ and the definition of $$\infty$$-norm is valid.
 
-{{ 2019-01-10-matrix-norm | backlink }}
+{{ "2019-01-10-matrix-norm" | backlink }}

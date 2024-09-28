@@ -34,4 +34,4 @@ Gardiner, Maria, and Hugh Kearns. 2011. “Turbocharge Your Writing Today.” Na
 
 > If you refrain from writing because you worry that you write won't be good enough, try noting the adage that to write well, you first have to write.
 
-{{ 2021-01-16-“Turbocharge your writing today” 摘录 | backlink }}
+{{ "2021-01-16-“Turbocharge your writing today” 摘录" | backlink }}

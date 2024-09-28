@@ -21,4 +21,4 @@ To generate LaTeX fragment images with a transparent background, which will be c
 
 <p align="center"><img src="/figures/2022-05-27_18-00-12-latex-fragment-transparent-background-in-org.png" alt="" /></p>
 
-{{ 2022-06-05-latex-fragment-in-org-mode-with-transparent-background | backlink }}
+{{ "2022-06-05-latex-fragment-in-org-mode-with-transparent-background" | backlink }}

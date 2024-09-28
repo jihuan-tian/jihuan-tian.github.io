@@ -14,4 +14,4 @@ Anyway, no matter which of the above two cases a mathematics beginner has met, i
 
 ![](/figures/p53644619.jpg)
 
-{{ 2018-09-02-“Naive” problems are not trivial | backlink }}
+{{ "2018-09-02-“Naive” problems are not trivial" | backlink }}

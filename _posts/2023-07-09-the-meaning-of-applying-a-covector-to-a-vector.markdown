@@ -41,4 +41,4 @@ Lanham, Md: Cambridge University Press.
 
 </div>
 
-{{ 2023-07-09-the-meaning-of-applying-a-covector-to-a-vector | backlink }}
+{{ "2023-07-09-the-meaning-of-applying-a-covector-to-a-vector" | backlink }}

@@ -91,4 +91,4 @@ The following contents are my notes taken during reading the book &ldquo;What is
     -   Provide prompt for new molecular forms and material ingredients.
     -   Assist coding with Copilot: should still be careful with the automatic prompt.
 
-{{ 2024-02-25-notes-about-what-is-chatgpt-doing-and-why-does-it-work | backlink }}
+{{ "2024-02-25-notes-about-what-is-chatgpt-doing-and-why-does-it-work" | backlink }}

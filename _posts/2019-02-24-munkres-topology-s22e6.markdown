@@ -60,4 +60,4 @@ With the proved S17E13 and the obtained conclusion in part (a) that $$Y$$ is no 
 
 Finally, the following figure illustrates the original space $$\mathbb{R}_K$$ and the quotient space $$Y$$. The transformation from $$\mathbb{R}_K$$ to $$Y$$ can be considered as merging a countable number of knots on a rope.
 
-{{ 2019-02-24-munkres-topology-s22e6 | backlink }}
+{{ "2019-02-24-munkres-topology-s22e6" | backlink }}

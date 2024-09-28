@@ -25,4 +25,4 @@ Finally, according to this [post](https://www.reddit.com/r/kde/comments/slizni/c
 dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:Adwaita'
 ```
 
-{{ 2023-03-16-toolbar-icons-cannot-be-displayed-in-emacs27 | backlink }}
+{{ "2023-03-16-toolbar-icons-cannot-be-displayed-in-emacs27" | backlink }}

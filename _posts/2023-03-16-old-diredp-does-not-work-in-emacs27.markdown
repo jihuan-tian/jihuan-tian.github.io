@@ -61,4 +61,4 @@ Finally, I downloaded a new version of [dired+.el](https://www.emacswiki.org/ema
 2.  Starting an application without loading any extensions or modules is helpful to localize bug or exclude suspected causes.
 3.  Nowadays, a fully-fledged software program, such as Emacs, LibreOffice, Eclipse, etc. is already a complicated system or platform, which integrated a panoply of plugins and extensions. As the main software program upgrades with time, the complementary gadgetry should also be maintained alongside.
 
-{{ 2023-03-16-old-diredp-does-not-work-in-emacs27 | backlink }}
+{{ "2023-03-16-old-diredp-does-not-work-in-emacs27" | backlink }}

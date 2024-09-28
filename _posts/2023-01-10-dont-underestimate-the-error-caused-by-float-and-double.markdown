@@ -18,4 +18,4 @@ Actually, the 0.6% discrepancy is caused by error accumulation during the integr
 3.  When comparing algorithms of different implementations, the adopted input data and parameters should be exactly the same. This means the values of test parameters should not be manually copied from C++ debugger, Octave console or spreadsheet because some digits may be hidden, but should be exported with maximum accuracy using format controlled program, such as 15 digit long and 25 characters wide.
 4.  Rigorous derivation of mathematical theories and careful coding processes are mandatory and crucial for numerical software development. However, they are still not enough. Besides, we need to establish both quantitatively accurate (including exact values, identities, equations) and qualitatively correct (including inequalities, magnitude) intuitions. Such intuitions cannot be acquired from a flash of ideas, but can only be accumulated from our plentiful practices and continuous focus.
 
-{{ 2023-01-10-dont-underestimate-the-error-caused-by-float-and-double | backlink }}
+{{ "2023-01-10-dont-underestimate-the-error-caused-by-float-and-double" | backlink }}

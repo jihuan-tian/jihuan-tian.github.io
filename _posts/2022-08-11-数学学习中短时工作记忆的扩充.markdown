@@ -17,4 +17,4 @@ mathjax: false
 
 <p align="center"><img src="/figures/2022-08-10_13-17-54-papers-on-white-board.jpg" alt="" /></p>
 
-{{ 2022-08-11-数学学习中短时工作记忆的扩充 | backlink }}
+{{ "2022-08-11-数学学习中短时工作记忆的扩充" | backlink }}

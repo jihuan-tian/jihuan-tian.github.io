@@ -11,4 +11,4 @@ mathjax: false
 
 [^1]: Olstad, B., & Manne, F. (Nov./1995). Efficient partitioning of sequences, 44(11), 1322–1326. http://dx.doi.org/10.1109/12.475128
 
-{{ 2024-01-20-阅读文章OlstadEfficient1995的体会 | backlink }}
+{{ "2024-01-20-阅读文章OlstadEfficient1995的体会" | backlink }}

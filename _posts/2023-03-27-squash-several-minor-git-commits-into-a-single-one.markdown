@@ -26,4 +26,4 @@ After finishing the above edit, Git prompts us to write a new commit message. In
 <sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> squash v. to stop sth from
 continuing; to destroy sth because it is a problem for you
 
-{{ 2023-03-27-squash-several-minor-git-commits-into-a-single-one | backlink }}
+{{ "2023-03-27-squash-several-minor-git-commits-into-a-single-one" | backlink }}

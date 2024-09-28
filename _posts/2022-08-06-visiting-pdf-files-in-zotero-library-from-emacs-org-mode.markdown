@@ -105,4 +105,4 @@ does not exist, or if `bibtex-completion-pdf-field' is nil."
                 if result collect result)))))))))
 ```
 
-{{ 2022-08-06-visiting-pdf-files-in-zotero-library-from-emacs-org-mode | backlink }}
+{{ "2022-08-06-visiting-pdf-files-in-zotero-library-from-emacs-org-mode" | backlink }}

@@ -26,4 +26,4 @@ tags: [数学学习]
 
 ![](/figures/p37740850.jpg)
 
-{{ 2016-10-06-有感于交换图（Commutative diagram） | backlink }}
+{{ "2016-10-06-有感于交换图（Commutative diagram）" | backlink }}

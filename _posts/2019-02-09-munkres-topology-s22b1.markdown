@@ -44,4 +44,4 @@ According to Theorem 17.2, both $$C'\cap[0,1]$$ and $$C'\cap[2,3]$$ are closed i
 
 $$[0,1]$$ is open in $$X$$ but $$p([0,1])=[0,1]$$, which is closed in $$Y$$. Therefore, $$p$$ is not an open map.
 
-{{ 2019-02-09-munkres-topology-s22b1 | backlink }}
+{{ "2019-02-09-munkres-topology-s22b1" | backlink }}

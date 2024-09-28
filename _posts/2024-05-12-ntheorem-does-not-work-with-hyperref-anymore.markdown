@@ -54,4 +54,4 @@ After a morning of trial-and-error, the culprit is the `thref` option used with 
 
 *Lessons learned: for a beginner or even an experienced user (but not a developer), the error messages reported by LaTeX interpreter are even more esoteric than those from the C++ compiler.*
 
-{{ 2024-05-12-ntheorem-does-not-work-with-hyperref-anymore | backlink }}
+{{ "2024-05-12-ntheorem-does-not-work-with-hyperref-anymore" | backlink }}

@@ -29,4 +29,4 @@ This post summarises different ways of constructing continuous functions, which 
 
     N.B. The range space of these functions should have a metric.
 
-{{ 2018-12-19-constructing-continuous-functions | backlink }}
+{{ "2018-12-19-constructing-continuous-functions" | backlink }}

@@ -12,4 +12,4 @@ Therefore, it is necessary to keep a habit of learning and practicing mathematic
 
 Reference: [PhD Manifesto]({% post_url 2020-06-19-PhD Manifesto %})
 
-{{ 2019-05-18-Transition from a user to a maker | backlink }}
+{{ "2019-05-18-Transition from a user to a maker" | backlink }}

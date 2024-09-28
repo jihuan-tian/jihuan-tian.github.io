@@ -21,4 +21,4 @@ mathjax: false
 
 <sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> Hofstadter, Douglas R. 1999. Gödel, Escher, Bach: An Eternal Golden Braid. 20th Anniversary ed. edition, p37. New York: Basic Books.
 
-{{ 2022-12-31-十年 | backlink }}
+{{ "2022-12-31-十年" | backlink }}

@@ -21,4 +21,4 @@ From above I can see that even for the best luminary in the BEM research area, h
 
 The trick here is that the less I desire something, the quicker I get close to it.
 
-{{ 2023-06-25-dont-crave-quick-success | backlink }}
+{{ "2023-06-25-dont-crave-quick-success" | backlink }}

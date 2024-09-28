@@ -35,4 +35,4 @@ Run the script for all files in a folder:
 ls | xargs -I '{}' add-time-to-scanning.sh '{}'
 ```
 
-{{ 2024-03-10-add-exif-date-and-time-to-scanned-documents | backlink }}
+{{ "2024-03-10-add-exif-date-and-time-to-scanned-documents" | backlink }}

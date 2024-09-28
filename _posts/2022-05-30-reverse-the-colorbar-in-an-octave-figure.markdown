@@ -24,4 +24,4 @@ ans <span style="color: #859900;">=</span> img_name<span style="color: #859900;"
 
 <p align="center"><img src="/figures/2022-05-29-octave-reversed-colorbar.png" alt="" /></p>
 
-{{ 2022-05-30-reverse-the-colorbar-in-an-octave-figure | backlink }}
+{{ "2022-05-30-reverse-the-colorbar-in-an-octave-figure" | backlink }}

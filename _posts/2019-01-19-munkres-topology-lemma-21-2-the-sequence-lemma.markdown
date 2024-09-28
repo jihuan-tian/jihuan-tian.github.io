@@ -58,4 +58,4 @@ If $$X​$$ is assigned a metric, a collection of nested open balls $$\left\{B_n
 
    Up to now, the conditions in the proposition of this part of the remark have been met. Because $$\mathbb{R}$$ with the finite complement topology only satisfies the $$T_1$$ axiom, which is a weaker condition than the Hausdorff axiom, according to the contrapositive of the above lemma, $$\mathbb{R}$$ is not metrizable.
 
-{{ 2019-01-19-munkres-topology-lemma-21-2-the-sequence-lemma | backlink }}
+{{ "2019-01-19-munkres-topology-lemma-21-2-the-sequence-lemma" | backlink }}

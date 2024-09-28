@@ -13,4 +13,4 @@ Until recently, I've begun to recover the traditional reading again. Just take a
 
 Besides this, I still keep a habit of reading via RSS reader, because it can potentially reduce the reading speed compared to the new tools. In order to further slow down my pace, after a first scanning of the RSS item, I'll copy them into a document in LibreOffice Writer so that I can read it more carefully again. In this way, I can feel that I harvest more fun, enjoyment, enlightenment and inner peace. I think this is quite similar to the newspaper clippings which I often did when I was in elementary and middle school. It can be seen that the old ways still work today! And they work even better than the advanced tools!
 
-{{ 2013-10-15-harvest-more-from-slow-reading | backlink }}
+{{ "2013-10-15-harvest-more-from-slow-reading" | backlink }}

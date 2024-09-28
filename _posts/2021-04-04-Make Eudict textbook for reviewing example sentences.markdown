@@ -66,4 +66,4 @@ Meanwhile, borrowing the concepts of creating memory chunks and recalling them w
 
 Now, you can enjoy your repetitive study using Eudict flashcards according to the forgetting curve.
 
-{{ 2021-04-04-Make Eudict textbook for reviewing example sentences | backlink }}
+{{ "2021-04-04-Make Eudict textbook for reviewing example sentences" | backlink }}

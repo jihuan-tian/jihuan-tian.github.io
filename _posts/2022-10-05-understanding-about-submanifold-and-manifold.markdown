@@ -20,4 +20,4 @@ For the definition of a manifold $$M$$, the global Euclidean space is not mandat
 
 The definition of a submanifold $$M^r$$ in the manifold $$M^n$$ is similar to that for the submanifold in an Euclidean space. But now there is no **global** coordinate frame any more, but only a collection of **local** coordinate charts on $$M^n$$. For each point $$p$$ in $$M^r$$, it must be contained in an open set $$U$$ in the open covering of $$M^n$$, which is assigned a local coordinate chart. With respect to this chart, $$U \cap M^r$$ can be represented as a locus by a system of constraints, the Jacobian matrix of which has rank $$n-r$$. Or in another way, $$n-r$$ coordinate components can be locally and differentiably represented by the remaining $$r$$ coordinate components.
 
-{{ 2022-10-05-understanding-about-submanifold-and-manifold | backlink }}
+{{ "2022-10-05-understanding-about-submanifold-and-manifold" | backlink }}

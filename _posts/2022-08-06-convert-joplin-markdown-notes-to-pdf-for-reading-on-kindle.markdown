@@ -24,4 +24,4 @@ Here I let `pandoc` use the LaTeX package `extsizes` for enabling a larger font 
 \pagestyle{empty}
 ```
 
-{{ 2022-08-06-convert-joplin-markdown-notes-to-pdf-for-reading-on-kindle | backlink }}
+{{ "2022-08-06-convert-joplin-markdown-notes-to-pdf-for-reading-on-kindle" | backlink }}

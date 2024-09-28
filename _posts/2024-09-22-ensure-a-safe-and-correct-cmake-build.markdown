@@ -11,4 +11,4 @@ If configuration or Makefile generation has been executed in the build folder of
 
 However, for those automatically generated CMake variables, CMake configuration will not update their values. Therefore, to safely and correctly build our project, we had better firstly remove `CMakeCache.txt` and run `make clean` in the builder folder. Or we delete everything in this folder, then continue the configuration, generation and build trilogy.
 
-{{ 2024-09-22-ensure-a-safe-and-correct-cmake-build | backlink }}
+{{ "2024-09-22-ensure-a-safe-and-correct-cmake-build" | backlink }}

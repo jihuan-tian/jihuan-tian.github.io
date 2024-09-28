@@ -81,4 +81,4 @@ system.
 </p>
   </div>
 
-{{ 2024-06-21-understanding-about-energy-norm-in-galerkin-method | backlink }}
+{{ "2024-06-21-understanding-about-energy-norm-in-galerkin-method" | backlink }}

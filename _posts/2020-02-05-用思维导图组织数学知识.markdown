@@ -78,4 +78,4 @@ The commands to change the size of the font are available: \tiny, \small,...,\LA
 
 <p align="center"><img src="/figures/p69768160.jpg" alt="" /></p>
 
-{{ 2020-02-05-用思维导图组织数学知识 | backlink }}
+{{ "2020-02-05-用思维导图组织数学知识" | backlink }}

@@ -19,4 +19,4 @@ There are usually two implementations for returning a vector or matrix from a fu
 
    The vector or matrix object is passed by reference into the function, and its memory should be allocated before the function call. Hence, there is no internal dynamic memory allocation inside the function anymore. Even though we may not be so familiar with the calling convention here `function_name(..., returned_object)`, we can get used to it by practice and the advantage is obvious. If the memory for the fixed-size vector or matrix has been pre-allocated outside the function, it can be reused by the function and the time for dynamic memory allocation is saved. If the function is called many times, the performance improvement will be manifest. This also reminds us not to reinitialize the vector or matrix and reallocate memory for it inside the function.
 
-{{ 2022-04-29-return-a-vector-or-matrix-from-a-function | backlink }}
+{{ "2022-04-29-return-a-vector-or-matrix-from-a-function" | backlink }}

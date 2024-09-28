@@ -40,4 +40,4 @@ the geometric meaning of determinant.
 
 [^1]: The following display equation is wrapped around `\begin{equation*} ... \end{equation*}` for correct visualization in Emacs Org mode.
 
-{{ 2023-07-13-understanding-about-the-anti-symmetry-of-k-forms-and-geometric-meaning-of-determinant | backlink }}
+{{ "2023-07-13-understanding-about-the-anti-symmetry-of-k-forms-and-geometric-meaning-of-determinant" | backlink }}

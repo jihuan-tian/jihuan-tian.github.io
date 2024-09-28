@@ -38,4 +38,4 @@ From the above it can be seen that a tuple of elements, which are literally tang
 
 Considering these concepts in computer programming, a tuple of values or objects can be either stored in an ordered array as in procedural programming. Or the tuple can be stored within a function as in functional programming. Without loss of generality, this functional perspective can be further applied to matrix and tensor, which eliminates or mingles the boundary between data and operation.
 
-{{ 2018-12-23-a-tuple-is-defined-as-a-function | backlink }}
+{{ "2018-12-23-a-tuple-is-defined-as-a-function" | backlink }}

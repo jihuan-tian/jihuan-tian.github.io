@@ -12,4 +12,4 @@ On the second level, a direct application of theorems in books does not help. Th
 
 Coming to the third level, existing knowledge as well as ingenious transformations cannot solve the problem. Brand new ideas, structures and even a prodigious edifice should be constructed like the whole magic world created by J. K. Rowling. To achieve this level, it requires long time accumulation, observation, continuous hard work with high intensity as well as instincts and insights.
 
-{{ 2019-05-16-Three levels of mathematical proofs | backlink }}
+{{ "2019-05-16-Three levels of mathematical proofs" | backlink }}

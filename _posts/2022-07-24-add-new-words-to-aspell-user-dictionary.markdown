@@ -31,4 +31,4 @@ The option `-a` lets `aspell` enter a [pipe mode](http://aspell.net/man-html/Thr
 | %      | Exit terse mode                                                         |
 | ^      | Spell-check the rest of the line                                        |
 
-{{ 2022-07-24-add-new-words-to-aspell-user-dictionary | backlink }}
+{{ "2022-07-24-add-new-words-to-aspell-user-dictionary" | backlink }}

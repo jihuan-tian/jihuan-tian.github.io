@@ -19,4 +19,4 @@ When a mockup program written in Octave is implemented and verified, it is neces
 
 Following the above procedures, the performance of our mathematical algorithms can be improved significantly, for example, more than 100 times faster. If incorporating this methodology as a golden rule into our development activity, after several rounds of iteration, the C++ shared library will grow larger and larger, and more and more Octave scripts in the initial mockup program will be replaced by those compiled `*.oct` files. When most or all of the key working functions are replaced, we come to a stage that only a few configuration and/or caller scripts in Octave are left, which merely play a lesser role as testers for the C++ algorithms. But still, Octave’s good enough data processing and visualization capabilities are very helpful and convenient for us to verify the C++ code. Meanwhile, a caller function in C++ can also be written, which finally consummates the maintenance task for the Ship of Theseus.
 
-{{ 2022-05-02-ship-of-theseus-and-scientific-software-development | backlink }}
+{{ "2022-05-02-ship-of-theseus-and-scientific-software-development" | backlink }}

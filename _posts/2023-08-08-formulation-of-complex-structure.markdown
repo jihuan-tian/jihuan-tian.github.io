@@ -27,4 +27,4 @@ $$
  \mathcal{J} = \left( \mathcal{J}_f^T \mathcal{J}_f \right)^{-1} \left( \mathcal{J}_f^T \hat{N} \mathcal{J}_f \right). 
 $$
 
-{{ 2023-08-08-formulation-of-complex-structure | backlink }}
+{{ "2023-08-08-formulation-of-complex-structure" | backlink }}

@@ -40,4 +40,4 @@ I&rsquo;ve migrated my work journals to the `org-roam` root directory for buildi
              'tjh/org-export-latex-convert-href-relative-links)
 ```
 
-{{ 2024-07-25-export-org-contents-to-latex-file-containing-relative-links | backlink }}
+{{ "2024-07-25-export-org-contents-to-latex-file-containing-relative-links" | backlink }}

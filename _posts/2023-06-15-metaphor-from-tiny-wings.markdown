@@ -24,4 +24,4 @@ mathjax: false
 
 > 《论语·述而篇第七 7.15》冉有曰：「夫子为卫君乎？」子贡曰：「诺，吾将问之。」入曰：「伯夷、叔齐何人也？」曰：「古之贤人也。」曰：「怨乎？」曰：「求仁而得仁，又何怨？」出曰：「夫子不为也。」
 
-{{ 2023-06-15-metaphor-from-tiny-wings | backlink }}
+{{ "2023-06-15-metaphor-from-tiny-wings" | backlink }}

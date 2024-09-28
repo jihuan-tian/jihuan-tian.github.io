@@ -10,4 +10,4 @@ It is never true that the more data the better. Sticking to this idea may lead t
 
 Theory provides concepts and insights, while data bring phenomenological phantom.
 
-{{ 2016-12-03-Theory provides concepts and insights | backlink }}
+{{ "2016-12-03-Theory provides concepts and insights" | backlink }}

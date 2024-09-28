@@ -27,4 +27,4 @@ plane in which it lies, or of two intersecting lines to each other.
 From the German of Schubert, Kalkul der Abzähl. Geom. (1879) 25.
 
 
-{{ 2023-07-03-construct-topological-data-structures-from-a-mesh | backlink }}
+{{ "2023-07-03-construct-topological-data-structures-from-a-mesh" | backlink }}

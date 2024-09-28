@@ -16,4 +16,4 @@ At first glance, it seems some mathematical constructions and proofs are invente
 
 Realizing the above facts, the "sufferings" inflicted by mathematics can be relieved and turned into aesthetic enjoyment.
 
-{{ 2019-07-10-Mathematical camouflage | backlink }}
+{{ "2019-07-10-Mathematical camouflage" | backlink }}

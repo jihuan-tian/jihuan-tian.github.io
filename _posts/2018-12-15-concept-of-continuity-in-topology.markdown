@@ -47,4 +47,4 @@ Let $$V$$ be an open set in $$Y = \mathbb{R}$$ assigned with the metric topology
 
 Because $$y_0$$ is arbitrary in $$V$$ and $$x_0$$ is arbitrary in $$f^{-1}(y_0)$$, taking the union of all such open intervals $$(x_0 - \delta, x_0 + \delta)$$ will produce $$f^{-1}(V)$$, which is also an open set in $$X$$.
 
-{{ 2018-12-15-concept-of-continuity-in-topology | backlink }}
+{{ "2018-12-15-concept-of-continuity-in-topology" | backlink }}

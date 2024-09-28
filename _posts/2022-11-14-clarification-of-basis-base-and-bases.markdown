@@ -19,4 +19,4 @@ Therefore, when we talk about the basis of some space, such as an Euclidean spac
 
 [^1]: Nelson, David, ed. 2008. The Penguin Dictionary of Mathematics: Fourth Edition. 4th edition. London: Penguin Books.
 
-{{ 2022-11-14-clarification-of-basis-base-and-bases | backlink }}
+{{ "2022-11-14-clarification-of-basis-base-and-bases" | backlink }}

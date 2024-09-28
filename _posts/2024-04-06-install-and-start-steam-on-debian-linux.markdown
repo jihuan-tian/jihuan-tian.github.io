@@ -17,4 +17,4 @@ mathjax: false
     
     Using `kmenuedit`, the item for steam in the start menu can be modified accordingly.
 
-{{ 2024-04-06-install-and-start-steam-on-debian-linux | backlink }}
+{{ "2024-04-06-install-and-start-steam-on-debian-linux" | backlink }}

@@ -21,4 +21,4 @@ variables or dimensions of the submanifold**. Hence, the submanifold
 dimension is the co-dimension of $$r$$ in $$\mathbb{R}^{r+n}$$, i.e.
 $$n$$.
 
-{{ 2023-07-05-the-meaning-of-jacobian-matrix-having-a-rank | backlink }}
+{{ "2023-07-05-the-meaning-of-jacobian-matrix-having-a-rank" | backlink }}

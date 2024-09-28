@@ -12,4 +12,4 @@ In order to develop a product manageable from top to bottom, an infrastructure o
 
 Here, infrastructure building does not mean crafting everything from 0 and 1. It can still be started from a platform, but itself has to be both fundamental and generic enough so that you have the complete freedom to implement various concepts and add complex mechanisms layer by layer. This is a process like an artist refining his/her masterpiece, which ultimately promises industrial quality and efficiency.
 
-{{ 2021-10-24-Build your own infrastructure | backlink }}
+{{ "2021-10-24-Build your own infrastructure" | backlink }}

@@ -12,4 +12,4 @@ tags: [C++,generic-programming,programming,STL]
 
 <p align="center"><img src="/figures/p68569201.jpg" alt="" /></p>
 
-{{ 2019-12-22-泛型编程与C++ STL思维导图 | backlink }}
+{{ "2019-12-22-泛型编程与C++ STL思维导图" | backlink }}

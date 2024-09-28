@@ -14,4 +14,4 @@ tags: [工具]
 
 Some good examples that I recommend: Emacs, AUCTeX, Org mode, LaTeX.
 
-{{ 2021-12-29-Software augmenting human intellect | backlink }}
+{{ "2021-12-29-Software augmenting human intellect" | backlink }}

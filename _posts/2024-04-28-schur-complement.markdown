@@ -91,4 +91,4 @@ We can see that the Schur complement method is actually the Gauss-Seidel (Gauss 
 
 The benefit of this method is by decomposing the original large system matrix into two smaller problems, less memory is needed and the iterative solver usually converges faster.
 
-{{ 2024-04-28-schur-complement | backlink }}
+{{ "2024-04-28-schur-complement" | backlink }}

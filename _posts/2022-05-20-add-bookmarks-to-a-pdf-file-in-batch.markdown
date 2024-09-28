@@ -40,4 +40,4 @@ Under Linux, the tool [JPdfBookmarks](https://sourceforge.net/projects/jpdfbookm
 4.  Open the target PDF file in `JPdfBookmarks` and load the text file `bookmark_text.txt` by clicking the menu item `Load` in the `Tools` menu.
 5.  Check the validity of the PDF page targets associated with those bookmark items and finally save the PDF file.
 
-{{ 2022-05-20-add-bookmarks-to-a-pdf-file-in-batch | backlink }}
+{{ "2022-05-20-add-bookmarks-to-a-pdf-file-in-batch" | backlink }}

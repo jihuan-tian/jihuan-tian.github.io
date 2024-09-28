@@ -16,4 +16,4 @@ Another point to be noted is since the concept of metric has not come into play 
 
 ![](/figures/Throwing pebbles into a pond.png)
 
-{{ 2018-12-03-metaphor-of-topological-basis-and-open-set | backlink }}
+{{ "2018-12-03-metaphor-of-topological-basis-and-open-set" | backlink }}

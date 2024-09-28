@@ -23,4 +23,4 @@ tags: [工具,Kindle,ergonomics,eyes-protection]
 
 6\. 因为阅读速度的降低和对视力的影响很小，使用Kindle有利于实现深度的慢阅读。
 
-{{ 2018-03-06-Kindle上的阅读体验 | backlink }}
+{{ "2018-03-06-Kindle上的阅读体验" | backlink }}

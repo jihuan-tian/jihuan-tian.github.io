@@ -19,4 +19,4 @@ mathjax: false
 -   Do not specify deck in higher level heading in Org mode. Specify the deck for each note.
 -   Sometimes, `anki-editor-push-notes` need to run several times to take effect.
 
-{{ 2024-03-07-usage-of-anki-editor-in-emacs-org-mode | backlink }}
+{{ "2024-03-07-usage-of-anki-editor-in-emacs-org-mode" | backlink }}

@@ -13,4 +13,4 @@ Writing can help us calm down, keep focus, organize thoughts and get into the st
 
 For short, writing is an indispensable measure to push us towards a mature and logical thinking. When the thinking process culminates, an article naturally takes shape.
 
-{{ 2022-09-02-writing-and-thinking-are-symbiotic | backlink }}
+{{ "2022-09-02-writing-and-thinking-are-symbiotic" | backlink }}

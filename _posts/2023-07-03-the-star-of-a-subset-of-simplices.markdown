@@ -25,4 +25,4 @@ i.e. $$\left\{ v_1,v_2,v_3 \right\}$$.
 
 ![image](/figures/2023-07-03-star-of-simplices.png)
 
-{{ 2023-07-03-the-star-of-a-subset-of-simplices | backlink }}
+{{ "2023-07-03-the-star-of-a-subset-of-simplices" | backlink }}

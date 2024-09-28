@@ -35,4 +35,4 @@ The exported LaTeX code:
 \end{center}
 ```
 
-{{ 2023-01-15-insert-a-bunch-of-images-in-org-mode-for-latex-export | backlink }}
+{{ "2023-01-15-insert-a-bunch-of-images-in-org-mode-for-latex-export" | backlink }}

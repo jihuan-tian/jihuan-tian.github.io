@@ -54,4 +54,4 @@ In AUCTeX, a relative hyperlink is the first argument of the `\href` macro. Ther
     (insert relative-path)))
 ```
 
-{{ 2023-03-27-copy-and-paste-relative-links-across-different-files-in-emacs | backlink }}
+{{ "2023-03-27-copy-and-paste-relative-links-across-different-files-in-emacs" | backlink }}

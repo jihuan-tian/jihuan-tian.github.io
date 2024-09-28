@@ -24,4 +24,4 @@ Assume the test case name is `foo`, which is created inside the folder `tests/fo
 
 After each compilation of the test case, `${CMAKE\_CURRENT\_SOURCE\_DIR}/process.m` and `${CMAKE\_CURRENT\_SOURCE\_DIR}/draw.m` will be automatically copied into the folder of the test case binary file by CMake. Then, the test case can be manually run in this folder, then manually run `process.m` and `draw.m` therefore for checking and visualization.
 
-{{ 2024-03-07-general-work-flow-of-writing-a-test-case-for-the-galerkin-bem-project | backlink }}
+{{ "2024-03-07-general-work-flow-of-writing-a-test-case-for-the-galerkin-bem-project" | backlink }}

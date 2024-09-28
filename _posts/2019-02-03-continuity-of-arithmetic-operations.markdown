@@ -136,4 +136,4 @@ Define a function $$G: \mathbb{R} \times \mathbb{R} - \{0\} \rightarrow \mathbb{
 
 Similarly, we can prove $$f-g$$, $$f \cdot g$$ and $$f/g$$ with $$g(x) \neq 0$$ for all $$x$$ are continuous.
 
-{{ 2019-02-03-continuity-of-arithmetic-operations | backlink }}
+{{ "2019-02-03-continuity-of-arithmetic-operations" | backlink }}

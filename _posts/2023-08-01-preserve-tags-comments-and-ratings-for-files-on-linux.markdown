@@ -27,4 +27,4 @@ Unluckily, file copying and pasting within Dolphin does not preserve the above e
 -   [Guidelines for extended attributes](https://www.freedesktop.org/wiki/CommonExtendedAttributes/)
 -   <https://www.lesbonscomptes.com/pages/extattrs.html>
 
-{{ 2023-08-01-preserve-tags-comments-and-ratings-for-files-on-linux | backlink }}
+{{ "2023-08-01-preserve-tags-comments-and-ratings-for-files-on-linux" | backlink }}

@@ -28,4 +28,4 @@ mathjax: false
     \makeatother
     ```
 
-{{ 2023-10-21-problems-of-preview-latex | backlink }}
+{{ "2023-10-21-problems-of-preview-latex" | backlink }}

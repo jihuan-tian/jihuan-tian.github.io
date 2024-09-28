@@ -15,4 +15,4 @@ mathjax: false
 
 ![img](/figures/2024-05-31-lighthouse-and-dolphin.png)
 
-{{ 2024-05-31-潜入深海 | backlink }}
+{{ "2024-05-31-潜入深海" | backlink }}

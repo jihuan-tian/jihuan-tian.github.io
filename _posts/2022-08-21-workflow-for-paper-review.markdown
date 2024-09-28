@@ -25,4 +25,4 @@ Related posts:
 * [阅读学术文章需注意]({% post_url 2018-07-28-阅读学术文章需注意 %})
 * [如何阅读期刊文章与学术专著]({% post_url 2021-01-11-如何阅读期刊文章与学术专著 %})
 
-{{ 2022-08-21-workflow-for-paper-review | backlink }}
+{{ "2022-08-21-workflow-for-paper-review" | backlink }}

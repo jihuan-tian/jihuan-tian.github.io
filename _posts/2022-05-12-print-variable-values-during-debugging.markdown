@@ -41,4 +41,4 @@ In this function, I use `parseparams` to parse the list of arguments with a vari
 
 To evaluate the expression, I use the built-in function `evalin`. Being different from the commonly used `eval`, it can specify the context, either `caller` or `base`, in which the expression is executed. Here, I set the context to `caller`. This is mandatory because the evaluation takes place in the local scope of my function `printout_var`, while `printout_var` needs to print those variables defined outside its own environment. It is obvious that when `printout_var` is called from an interactive session of Octave, which is our usual working scenario for debugging, the `caller` context is actually the same as the `base` context. In addition, `mat2str` is used to convert the numerical result into string representation. It is suitable for both scalar and matrix values, which is better than `num2str`.
 
-{{ 2022-05-12-print-variable-values-during-debugging | backlink }}
+{{ "2022-05-12-print-variable-values-during-debugging" | backlink }}

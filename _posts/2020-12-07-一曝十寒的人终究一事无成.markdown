@@ -22,4 +22,4 @@ tags: [算法开发]
 
 Erichsen, Stefan, and Stefan A. Sauter. 1998. “Efficient Automatic Quadrature in 3-d Galerkin BEM.” Computer Methods in Applied Mechanics and Engineering, Papers presented at the Seventh Conference on Numerical Methods and Computational Mechanics in Science and Engineering, 157 (3): 215–24. [https://doi.org/10.1016/S0045-7825(97)00236-3](https://doi.org/10.1016/S0045-7825%2897%2900236-3).
 
-{{ 2020-12-07-一曝十寒的人终究一事无成 | backlink }}
+{{ "2020-12-07-一曝十寒的人终究一事无成" | backlink }}

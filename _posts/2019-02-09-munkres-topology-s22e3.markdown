@@ -33,4 +33,4 @@ Let $$U = \{(x,y) \vert xy = 1 \;\text{and}\; x > 0 \}$$ which is closed in $$\m
 
 **Comment** This exercise shows that a function being open or closed map is a sufficient but not a necessary condition for the function to be a quotient map.
 
-{{ 2019-02-09-munkres-topology-s22e3 | backlink }}
+{{ "2019-02-09-munkres-topology-s22e3" | backlink }}

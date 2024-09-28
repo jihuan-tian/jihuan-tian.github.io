@@ -30,4 +30,4 @@ tags: [阅读]
 
 12. 2018-12-28: The Man Who Knew Infinity / Robert Kanigel / Washington Square Press / 1992-6
 
-{{ 2018-12-28-2018读书列表 | backlink }}
+{{ "2018-12-28-2018读书列表" | backlink }}

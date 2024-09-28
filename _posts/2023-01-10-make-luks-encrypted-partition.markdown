@@ -131,4 +131,4 @@ I&rsquo;ve been using `veracrypt` on my Linux workstation to crypt all my data d
     sudo cryptsetup luksClose backup
     ```
 
-{{ 2023-01-10-make-luks-encrypted-partition | backlink }}
+{{ "2023-01-10-make-luks-encrypted-partition" | backlink }}

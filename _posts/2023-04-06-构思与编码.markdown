@@ -19,4 +19,4 @@ mathjax: false
 
 更多阅读：《[Writing and thinking are symbiotic]({% post_url 2022-09-02-writing-and-thinking-are-symbiotic %})》
 
-{{ 2023-04-06-构思与编码 | backlink }}
+{{ "2023-04-06-构思与编码" | backlink }}

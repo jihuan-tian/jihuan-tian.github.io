@@ -2005,4 +2005,4 @@ Epilogue
 > an advertising genius or a public relations officer." Here was the
 > evidence for it.
 
-{{ 2018-09-08-《The Man Who Knew Infinity》摘录与笔记 | backlink }}
+{{ "2018-09-08-《The Man Who Knew Infinity》摘录与笔记" | backlink }}

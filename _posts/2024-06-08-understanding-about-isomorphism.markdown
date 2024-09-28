@@ -19,4 +19,4 @@ An isomorphism is a bijective mapping between two spaces, which preserves the st
 
 With this concept, two spaces can be identified in the sense that operations on corresponding points in these two spaces lead to same effects, while we do not care the exact or numerical representation of a point in these spaces. Of course, there is no need to do this: once the features of one space have been studied and clarified, the other space is automatically known to us.
 
-{{ 2024-06-08-understanding-about-isomorphism | backlink }}
+{{ "2024-06-08-understanding-about-isomorphism" | backlink }}

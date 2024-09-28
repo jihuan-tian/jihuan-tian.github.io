@@ -12,4 +12,4 @@ Therefore, it is more appropriate to work on paper notebook for purposes such as
 
 In short, writing on paper notebook is still an indispensable way in present days for organizing information, summarizing study notes and mapping the mind when typing and handwriting on electronic devices are much more convenient and agreeable than ever before.
 
-{{ 2018-12-31-Writing on paper notebook | backlink }}
+{{ "2018-12-31-Writing on paper notebook" | backlink }}

@@ -23,4 +23,4 @@ Let the set $A$ represent all the people involved in the paradox. Let $a$ be any
 
 Although we have an unsolvable paradox here, there is no need to bear any qualms. In reality, the barbers in $B$ do not need a high-level **barber’s barber** or a barber from another city as the $a_0$. They can simply provide mutual help to each other.
 
-{{ 2018-12-12-barber-paradox | backlink }}
+{{ "2018-12-12-barber-paradox" | backlink }}

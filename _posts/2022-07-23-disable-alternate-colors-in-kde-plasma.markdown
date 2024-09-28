@@ -23,4 +23,4 @@ Finally, the visual effect of Dolphin becomes fresher than before.
 
 ![img](/figures/2022-07-23_09-49-48-uniform-color-in-dolphin.png "Uniform color in Dolphin")
 
-{{ 2022-07-23-disable-alternate-colors-in-kde-plasma | backlink }}
+{{ "2022-07-23-disable-alternate-colors-in-kde-plasma" | backlink }}

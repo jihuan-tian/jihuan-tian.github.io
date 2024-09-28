@@ -57,4 +57,4 @@ Or we can directly use `scp` to transfer files between the server and the client
 scp [-r] -P <port> <local-path> <username>@<server-ip>:<remote-path>
 ```
 
-{{ 2023-07-02-setup-ssh-server-using-public-key-authentication | backlink }}
+{{ "2023-07-02-setup-ssh-server-using-public-key-authentication" | backlink }}

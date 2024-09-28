@@ -14,4 +14,4 @@ tags: [科研,PhD]
 
 总的来说，对于我个人的博士研究我是持否定态度的。而所谓的PhD（doctor of philosophy）应当改作EnD（doctor of engineering）或是ArD（doctor of art）更为合适些。
 
-{{ 2021-10-30-自我批判与否定 | backlink }}
+{{ "2021-10-30-自我批判与否定" | backlink }}

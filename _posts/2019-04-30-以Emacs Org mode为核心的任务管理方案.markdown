@@ -101,4 +101,4 @@ tags: [管理提升,Org-mode,Emacs,论语]
 
 请继续阅读《[将Emacs Org mode用于GTD任务管理]({% post_url 2019-09-30-将Emacs Org mode用于GTD任务管理 %})》。
 
-{{ 2019-04-30-以Emacs Org mode为核心的任务管理方案 | backlink }}
+{{ "2019-04-30-以Emacs Org mode为核心的任务管理方案" | backlink }}

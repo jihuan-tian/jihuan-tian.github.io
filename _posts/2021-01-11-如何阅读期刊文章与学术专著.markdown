@@ -14,4 +14,4 @@ tags: [科研]
 
 更多阅读：《[Note for "How to read a paper" and my suggested paper survey workflow]({% post_url 2016-12-08-Note for How to read a paper and my suggested paper survey workflow %})》
 
-{{ 2021-01-11-如何阅读期刊文章与学术专著 | backlink }}
+{{ "2021-01-11-如何阅读期刊文章与学术专著" | backlink }}

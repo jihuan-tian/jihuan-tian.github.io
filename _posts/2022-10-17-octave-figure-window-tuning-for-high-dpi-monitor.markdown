@@ -52,4 +52,4 @@ Now the enlarged figure window is shown below.
 
 <p align="center"><img src="/figures/2022-10-17_14-20-28-octave-figure-window-enlarged-in-high-dpi.png" alt="" /></p>
 
-{{ 2022-10-17-octave-figure-window-tuning-for-high-dpi-monitor | backlink }}
+{{ "2022-10-17-octave-figure-window-tuning-for-high-dpi-monitor" | backlink }}

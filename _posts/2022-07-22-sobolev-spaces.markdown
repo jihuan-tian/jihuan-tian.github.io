@@ -79,4 +79,4 @@ Equivalent Sobolev spaces
         \frac{1}{2},\frac{3}{2},\frac{5}{2}, \cdots \right\}$$, when
     $$\Omega$$ is a Lipschitz domain
 
-{{ 2022-07-22-sobolev-spaces | backlink }}
+{{ "2022-07-22-sobolev-spaces" | backlink }}

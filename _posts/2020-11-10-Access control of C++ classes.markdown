@@ -10,4 +10,4 @@ The C++ public, protected and private keywords enable us to control the access t
 
 For class designers, to make the library simple and effective, and to meet the applied demands of class developers and clients, they should always keep in mind the concepts of “simplification by hiding implementation details”. Therefore, when a class hierarchy is built from bottom to top, the underlying infrastructure should usually be designed not accessible by both class developers and clients. During the course of going up in the class hierarchy, the functions of classes evolve from laying out foundation to real world application, so their access rights can be gradually released out. Some member data and methods are labeled as protected, which are reserved for class developers to add more functionality to the library. Some member data and methods are labeled as public, which are open to class clients for ease-of-use.
 
-{{ 2020-11-10-Access control of C++ classes | backlink }}
+{{ "2020-11-10-Access control of C++ classes" | backlink }}

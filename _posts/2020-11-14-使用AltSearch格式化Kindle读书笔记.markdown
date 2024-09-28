@@ -101,4 +101,4 @@ tags: [LibreOffice,Kindle]
 
 这时，在LibreOffice Writer选中所有需要处理的文本，在AltSearch对话框中选中需要执行的脚本功能，点击`Execute`，便可以完成自动化处理工作。最后，根据个人需要，可以再手动设置Kindle图书中各个章节的标题样式。至此，就可以得到一份漂亮的读书笔记了。
 
-{{ 2020-11-14-使用AltSearch格式化Kindle读书笔记 | backlink }}
+{{ "2020-11-14-使用AltSearch格式化Kindle读书笔记" | backlink }}

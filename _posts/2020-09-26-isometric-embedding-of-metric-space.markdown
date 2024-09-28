@@ -134,4 +134,4 @@ The proof of this theorem is divided into 5 steps as suggested by Exercise 17.
 
    Then we have $$H \circ G = {\rm id}_{\overline{X}}$$ and $$G \circ H = {\rm id}_{X^*}$$. Therefore, $$G$$ is the inverse of $$H$$ and vice versa. Because $$G$$ is uniformly continuous, $$G$$ is a homeomorphism. Then we need to prove $$G$$ is isometric. We already know that when $$G$$ constrained to $$X$$, $$G\vert_X = F$$ is isometric. Furthermore, for any $$x_1$$ and $$x_2$$ in $$\overline{X}$$, we should prove $$\rho(x_1, x_2) = \rho^*(\{a_n\}_{n \geq 1}, \{b_n\}_{n \geq 1})$$ where $$a_n \rightarrow x_1$$ and $$b_n \rightarrow x_2$$, which is quite obvious: $$\rho^*(\{a_n\}_{n \geq 1}, \{b_n\}_{n \geq 1}) = \lim_{n \rightarrow \infty} \rho(a_n, b_n) = \rho(x_1, x_2)$$. Hence, $$G$$ is an isometry between $$\overline{X}$$ and $$X^*$$.
 
-{{ 2020-09-26-isometric-embedding-of-metric-space | backlink }}
+{{ "2020-09-26-isometric-embedding-of-metric-space" | backlink }}

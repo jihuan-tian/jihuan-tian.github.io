@@ -52,4 +52,4 @@ Solution to the above problem: always use `\begin{equation*} ... \end{equation*}
 \end{equation*}
 ```
 
-{{ 2023-07-28-write-latex-display-equations-with-no-numbering-in-org-mode | backlink }}
+{{ "2023-07-28-write-latex-display-equations-with-no-numbering-in-org-mode" | backlink }}

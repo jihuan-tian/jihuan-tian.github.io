@@ -45,4 +45,4 @@ Solution: In the commit message of `084ffad14fa700ad1ba95d8cbfe4a8f6052e2408` of
 
 Reference: <https://github.com/louietan/anki-editor/issues/51#issuecomment-533876400>
 
-{{ 2024-03-07-solved-the-issue-of-anki-editor-not-working | backlink }}
+{{ "2024-03-07-solved-the-issue-of-anki-editor-not-working" | backlink }}

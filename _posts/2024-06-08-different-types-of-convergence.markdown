@@ -73,4 +73,4 @@ Their definitions and differences are summarized below.
     
     The weak-​\* convergence can be considered as a special case of pointwise convergence with the difference that the linear operators become linear functionals and the dual space $$X'$$ of $$X$$ is assigned with the strong topology.
 
-{{ 2024-06-08-different-types-of-convergence | backlink }}
+{{ "2024-06-08-different-types-of-convergence" | backlink }}

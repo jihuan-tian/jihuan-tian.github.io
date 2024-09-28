@@ -72,4 +72,4 @@ This is the preview of PDF and DjVu files in Dolphin.
 
 ![img](/figures/2024-06-11_10-07-18-djvu-preview-in-dolphin.png "Preview of DjVu files in Dolphin")
 
-{{ 2024-06-11-thumbnails-in-kde | backlink }}
+{{ "2024-06-11-thumbnails-in-kde" | backlink }}

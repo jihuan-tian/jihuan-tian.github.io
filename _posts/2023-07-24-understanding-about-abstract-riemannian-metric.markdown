@@ -25,4 +25,4 @@ and jokes into classes just to make the courses appealing to students.
 However, such “obsequious” style is weak and limited. I’m in favour of
 the abstract style.
 
-{{ 2023-07-24-understanding-about-abstract-riemannian-metric | backlink }}
+{{ "2023-07-24-understanding-about-abstract-riemannian-metric" | backlink }}
