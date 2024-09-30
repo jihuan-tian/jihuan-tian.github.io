@@ -3,7 +3,7 @@ layout: post
 title: 应将记笔记视为一个过程
 date: 2024-04-19
 categories: [thoughts]
-tags: [学习方法]
+tags: [学习方法,note-taking]
 mathjax: false
 ---
 
