@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2024-10-01T16:12:17+08:00</updated><id>https://jihuan-tian.github.io/feed.xml</id><title type="html">止于至善</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">《吴军阅读与写作讲义》摘录</title><link href="https://jihuan-tian.github.io/thoughts/2024/10/01/%E5%90%B4%E5%86%9B%E9%98%85%E8%AF%BB%E4%B8%8E%E5%86%99%E4%BD%9C%E8%AE%B2%E4%B9%89-%E6%91%98%E5%BD%95.html" rel="alternate" type="text/html" title="《吴军阅读与写作讲义》摘录" /><published>2024-10-01T00:00:00+08:00</published><updated>2024-10-01T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2024/10/01/%E3%80%8A%E5%90%B4%E5%86%9B%E9%98%85%E8%AF%BB%E4%B8%8E%E5%86%99%E4%BD%9C%E8%AE%B2%E4%B9%89%E3%80%8B%E6%91%98%E5%BD%95</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2024/10/01/%E5%90%B4%E5%86%9B%E9%98%85%E8%AF%BB%E4%B8%8E%E5%86%99%E4%BD%9C%E8%AE%B2%E4%B9%89-%E6%91%98%E5%BD%95.html"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2024-10-06T12:01:28+08:00</updated><id>https://jihuan-tian.github.io/feed.xml</id><title type="html">止于至善</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">《吴军阅读与写作讲义》摘录</title><link href="https://jihuan-tian.github.io/thoughts/2024/10/01/%E5%90%B4%E5%86%9B%E9%98%85%E8%AF%BB%E4%B8%8E%E5%86%99%E4%BD%9C%E8%AE%B2%E4%B9%89-%E6%91%98%E5%BD%95.html" rel="alternate" type="text/html" title="《吴军阅读与写作讲义》摘录" /><published>2024-10-01T00:00:00+08:00</published><updated>2024-10-01T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2024/10/01/%E3%80%8A%E5%90%B4%E5%86%9B%E9%98%85%E8%AF%BB%E4%B8%8E%E5%86%99%E4%BD%9C%E8%AE%B2%E4%B9%89%E3%80%8B%E6%91%98%E5%BD%95</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2024/10/01/%E5%90%B4%E5%86%9B%E9%98%85%E8%AF%BB%E4%B8%8E%E5%86%99%E4%BD%9C%E8%AE%B2%E4%B9%89-%E6%91%98%E5%BD%95.html"><![CDATA[<ul>
   <li><a href="#org2bad5b7">总序</a></li>
   <li><a href="#org4205332">前言</a></li>
   <li><a href="#org1bf9c2c">我们都生活在语文中</a></li>
@@ -105,7 +105,7 @@
 </blockquote>
 
 <blockquote>
-  <p>P60 民间科学家或民间高手和专业人士的差别，不在千他们过去所学的专业，甚至不在于他们是否供职于某个研究机构或专业机构，而在于他们是否经常和专业人士交流，能否融入专业人士的圈子，以及是否被专业人士认可。比如，能不能参加相应的会议和活动，有没有专业人士背书，等等。</p>
+  <p>P60 民间科学家或民间高手和专业人士的差别，不在于他们过去所学的专业，甚至不在于他们是否供职于某个研究机构或专业机构，而在于他们是否经常和专业人士交流，能否融入专业人士的圈子，以及是否被专业人士认可。比如，能不能参加相应的会议和活动，有没有专业人士背书，等等。</p>
 </blockquote>
 
 <p><a id="org5399e17"></a></p>
@@ -157,7 +157,7 @@
 </blockquote>
 
 <blockquote>
-  <p>P172 一个人水平很高，不等千他做事情的效果很好，有经验的公司都清楚这一点。当然，老板提拔部下时也是更看中效果。因此，简历中要强调自己做事情的结果，让对方由结果倒推出水平；要把自已包装成能带来效果的人，而不是只有光环的人。</p>
+  <p>P172 一个人水平很高，不等于他做事情的效果很好，有经验的公司都清楚这一点。当然，老板提拔部下时也是更看中效果。因此，简历中要强调自己做事情的结果，让对方由结果倒推出水平；要把自已包装成能带来效果的人，而不是只有光环的人。</p>
 </blockquote>
 
 <p><a id="org03077c0"></a></p>
@@ -177,14 +177,16 @@
 </blockquote>
 
 <blockquote>
-  <p>P204 中国学生和美国学生在听讲时的一个巨大差异就在提问上。虽然孔子说人该不耻下问，但是很多中国学生不仅耻于“下问＂，还不好意思”上问＂。一节课、一场讲座结束，很多人其实有不少疑问，但是都放在心里，默默地就离开了。美国学生则相反，不仅好问，而且不耻千问＂傻”问题。不仅年轻的学生喜欢问，大教授也不会碍于脸面不提问。</p>
+  <p>P204 中国学生和美国学生在听讲时的一个巨大差异就在提问上。虽然孔子说人该不耻下问，但是很多中国学生不仅耻于“下问＂，还不好意思”上问＂。一节课、一场讲座结束，很多人其实有不少疑问，但是都放在心里，默默地就离开了。美国学生则相反，不仅好问，而且不耻于问＂傻”问题。不仅年轻的学生喜欢问，大教授也不会碍于脸面不提问。</p>
 </blockquote>
 
 <blockquote>
   <p>P205 很多人觉得提问会让自己显得很傻，特别是问那些可能会显示自己没听懂的问题。实际上，你没听懂的地方，其他人可能也没听懂，大家不仅不会觉得你傻，还会觉得和你有同感。就算问了一个“傻”问题，那也只是＂傻＂一天，然后明自一辈子。如果有问题却不搞清楚，那虽然会显得聪明一时，最后却会糊涂一世。</p>
 </blockquote>
 
-<p>我在中学和大学时都发现了一个现象，经常向老师问问题的学生通常是成绩好的，反倒是成绩差的学生很少问问题。后来我给自已定了一个原则，叫作”问题不过夜”-–—如果环境容许，我会当场打断讲话者去提间；如果不容许，我会在下课或者演讲结束后提问；退一万步，如果没有机会提问，我也要回去在当天搞清楚，否则，似是而非的印象就会越积越多。</p>
+<blockquote>
+  <p>我在中学和大学时都发现了一个现象，经常向老师问问题的学生通常是成绩好的，反倒是成绩差的学生很少问问题。后来我给自已定了一个原则，叫作”问题不过夜”——如果环境容许，我会当场打断讲话者去提间；如果不容许，我会在下课或者演讲结束后提问；退一万步，如果没有机会提问，我也要回去在当天搞清楚，否则，似是而非的印象就会越积越多。</p>
+</blockquote>
 
 <blockquote>
   <p>P206 我刚到约翰·霍普金斯大学时，有一次学校请了日本一位著名的教授到CLSP做报告，他汇报的一些结果比大家想象得好。如果是你，听到这个结论会怎么办？是完全相信他的话吗？如果这样，你可能会在接下来的工作中用到他的方法，结果发现不管用，然后耽误半年的时间，这种情况很有可能发生。当时，贾里尼克教授就说出了他的怀疑，然后创根问底。最后，那位日本教授承认他的实验做了一些有利的假设。这种情况在学术界其实很常见，大家一般不会较真儿，但是作为听报告的人，我们心里一定要清楚。而在这种情况下发现问题，只有通过提问和交流来解决。在我到美国之前，中国科学院一位泰斗级的研究员给了我一个建议，就是私下里多和世界各地的学者交流，因为他们在台上讲的东西到底水平如何，你只有私下交流了才能准确判断。后来我发现这确实是经验之谈。</p>
@@ -235,7 +237,7 @@
 <h2 id="44-内容再呈现如何让表达效果最大化">4.4 内容再呈现:如何让表达效果最大化</h2>
 
 <blockquote>
-  <p>P225 PPT和讲稿应该是互补的，对千同一件事情，PPT从一个视角展示内容，讲话者的语言则从另一个角度来诠释。这样，就能让听众的眼睛和耳朵同时接收信息。</p>
+  <p>P225 PPT和讲稿应该是互补的，对于同一件事情，PPT从一个视角展示内容，讲话者的语言则从另一个角度来诠释。这样，就能让听众的眼睛和耳朵同时接收信息。</p>
 </blockquote>
 
 <blockquote>
@@ -10725,7 +10727,9 @@ osd
   <p>《论语·雍也篇第六 6.11》 子曰：「贤哉，回也！一箪食，一瓢饮，在陋巷，人不堪其忧，回也不改其乐。贤哉，回也！」</p>
 </blockquote>
 
-<p>将心思放在学习与德行的培养上，而不要在意吃喝是否种类丰富、做工精美。封控期间本来就物资调配困难，克制与收缩自己的欲望，不给他人增添麻烦。</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="疫情" /><category term="论语" /><summary type="html"><![CDATA[如今，新冠以燎原之势在上海肆虐，在实质上深刻影响与改变着每个人的生活、情绪、认知与思想。时过境迁，当我再翻看《论语》，发现依然能够找到一些语录，或许可以给处于封控下的我们带来思考、理解、接受、淡然。]]></summary></entry><entry><title type="html">聚合物绝缘空间电荷动力学的理论模型与数值仿真研究进展</title><link href="https://jihuan-tian.github.io/math/2022/04/21/%E8%81%9A%E5%90%88%E7%89%A9%E7%BB%9D%E7%BC%98%E7%A9%BA%E9%97%B4%E7%94%B5%E8%8D%B7%E5%8A%A8%E5%8A%9B%E5%AD%A6%E7%9A%84%E7%90%86%E8%AE%BA%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%95%B0%E5%80%BC%E4%BB%BF%E7%9C%9F%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95.html" rel="alternate" type="text/html" title="聚合物绝缘空间电荷动力学的理论模型与数值仿真研究进展" /><published>2022-04-21T00:00:00+08:00</published><updated>2022-04-21T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2022/04/21/%E8%81%9A%E5%90%88%E7%89%A9%E7%BB%9D%E7%BC%98%E7%A9%BA%E9%97%B4%E7%94%B5%E8%8D%B7%E5%8A%A8%E5%8A%9B%E5%AD%A6%E7%9A%84%E7%90%86%E8%AE%BA%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%95%B0%E5%80%BC%E4%BB%BF%E7%9C%9F%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2022/04/21/%E8%81%9A%E5%90%88%E7%89%A9%E7%BB%9D%E7%BC%98%E7%A9%BA%E9%97%B4%E7%94%B5%E8%8D%B7%E5%8A%A8%E5%8A%9B%E5%AD%A6%E7%9A%84%E7%90%86%E8%AE%BA%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%95%B0%E5%80%BC%E4%BB%BF%E7%9C%9F%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95.html"><![CDATA[<p>原文：<a href="http://e-press.dwjs.com.cn/pcsee/weixin/2022-42-8-3037.html">张灵, 陈健宁, 周远翔, 田冀焕. 聚合物绝缘空间电荷动力学的理论模型与数值仿真研究进展. 中国电机工程学报, 2022, 42(8): 3037-3054.</a></p>
+<p>将心思放在学习与德行的培养上，而不要在意吃喝是否种类丰富、做工精美。封控期间本来就物资调配困难，克制与收缩自己的欲望，不给他人增添麻烦。</p>
+
+<p>参考：<a href="/thoughts/2021/01/16/%E7%96%AB%E6%83%85%E4%B9%8B%E4%B8%8B-%E8%AE%BA%E8%AF%AD-%E5%B8%A6%E7%BB%99%E6%88%91%E4%BB%AC%E7%9A%84%E5%90%AF%E7%A4%BA-%E4%B8%80.html">疫情之下《论语》带给我们的启示（一）</a></p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="疫情" /><category term="论语" /><summary type="html"><![CDATA[如今，新冠以燎原之势在上海肆虐，在实质上深刻影响与改变着每个人的生活、情绪、认知与思想。时过境迁，当我再翻看《论语》，发现依然能够找到一些语录，或许可以给处于封控下的我们带来思考、理解、接受、淡然。]]></summary></entry><entry><title type="html">聚合物绝缘空间电荷动力学的理论模型与数值仿真研究进展</title><link href="https://jihuan-tian.github.io/math/2022/04/21/%E8%81%9A%E5%90%88%E7%89%A9%E7%BB%9D%E7%BC%98%E7%A9%BA%E9%97%B4%E7%94%B5%E8%8D%B7%E5%8A%A8%E5%8A%9B%E5%AD%A6%E7%9A%84%E7%90%86%E8%AE%BA%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%95%B0%E5%80%BC%E4%BB%BF%E7%9C%9F%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95.html" rel="alternate" type="text/html" title="聚合物绝缘空间电荷动力学的理论模型与数值仿真研究进展" /><published>2022-04-21T00:00:00+08:00</published><updated>2022-04-21T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2022/04/21/%E8%81%9A%E5%90%88%E7%89%A9%E7%BB%9D%E7%BC%98%E7%A9%BA%E9%97%B4%E7%94%B5%E8%8D%B7%E5%8A%A8%E5%8A%9B%E5%AD%A6%E7%9A%84%E7%90%86%E8%AE%BA%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%95%B0%E5%80%BC%E4%BB%BF%E7%9C%9F%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2022/04/21/%E8%81%9A%E5%90%88%E7%89%A9%E7%BB%9D%E7%BC%98%E7%A9%BA%E9%97%B4%E7%94%B5%E8%8D%B7%E5%8A%A8%E5%8A%9B%E5%AD%A6%E7%9A%84%E7%90%86%E8%AE%BA%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%95%B0%E5%80%BC%E4%BB%BF%E7%9C%9F%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95.html"><![CDATA[<p>原文：<a href="http://e-press.dwjs.com.cn/pcsee/weixin/2022-42-8-3037.html">张灵, 陈健宁, 周远翔, 田冀焕. 聚合物绝缘空间电荷动力学的理论模型与数值仿真研究进展. 中国电机工程学报, 2022, 42(8): 3037-3054.</a></p>
 
 <h1 id="摘要">摘要</h1>
 
@@ -12989,7 +12993,53 @@ Mathematica）这一巨著（以下简称《原理》），数学的必要性才
 
 <blockquote>
   <p>If you refrain from writing because you worry that you write won’t be good enough, try noting the adage that to write well, you first have to write.</p>
-</blockquote>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="阅读" /><category term="摘录" /><category term="科研" /><category term="写作" /><summary type="html"><![CDATA[Gardiner, Maria, and Hugh Kearns. 2011. “Turbocharge Your Writing Today.” Nature 475 (7354): 129–30.]]></summary></entry><entry><title type="html">Usage of the const keyword in C++</title><link href="https://jihuan-tian.github.io/thoughts/2021/01/15/usage-of-the-const-keyword-in-cpp.html" rel="alternate" type="text/html" title="Usage of the const keyword in C++" /><published>2021-01-15T00:00:00+08:00</published><updated>2021-01-15T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2021/01/15/usage-of-the-const-keyword-in-cpp</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2021/01/15/usage-of-the-const-keyword-in-cpp.html"><![CDATA[<p>The use of <code class="language-plaintext highlighter-rouge">const</code> keyword in C++ applies constraints to the program which will be statically checked by the compiler before program’s running. Therefore, it provides an additional layer of safety mechanism during our programming activity, such as preventing us from involuntarily modifying the value of a constant variable or getting its non-constant (mutable) reference. This will be extremely useful for us to develop and debug large scale numerical libraries in a defensive way, where mathematics and programming techniques are interwoven, which makes us more prone to error than traditional software containing only work flow of logics rather than mathematics. Therefore, it is meaningful to clarify and understand the key points of <code class="language-plaintext highlighter-rouge">const</code> usage, which will be the topic of this article.</p>
+</blockquote>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="阅读" /><category term="摘录" /><category term="科研" /><category term="写作" /><summary type="html"><![CDATA[Gardiner, Maria, and Hugh Kearns. 2011. “Turbocharge Your Writing Today.” Nature 475 (7354): 129–30.]]></summary></entry><entry><title type="html">疫情之下《论语》带给我们的启示（一）</title><link href="https://jihuan-tian.github.io/thoughts/2021/01/16/%E7%96%AB%E6%83%85%E4%B9%8B%E4%B8%8B-%E8%AE%BA%E8%AF%AD-%E5%B8%A6%E7%BB%99%E6%88%91%E4%BB%AC%E7%9A%84%E5%90%AF%E7%A4%BA-%E4%B8%80.html" rel="alternate" type="text/html" title="疫情之下《论语》带给我们的启示（一）" /><published>2021-01-16T00:00:00+08:00</published><updated>2021-01-16T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2021/01/16/%E7%96%AB%E6%83%85%E4%B9%8B%E4%B8%8B%E3%80%8A%E8%AE%BA%E8%AF%AD%E3%80%8B%E5%B8%A6%E7%BB%99%E6%88%91%E4%BB%AC%E7%9A%84%E5%90%AF%E7%A4%BA(%E4%B8%80)</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2021/01/16/%E7%96%AB%E6%83%85%E4%B9%8B%E4%B8%8B-%E8%AE%BA%E8%AF%AD-%E5%B8%A6%E7%BB%99%E6%88%91%E4%BB%AC%E7%9A%84%E5%90%AF%E7%A4%BA-%E4%B8%80.html"><![CDATA[<p>新冠疫情的肆虐令 2020 年成为整个人类历史上极其不平凡的一年。直至今日，我们仍难以准确预期人类彻底战胜疫情的那一天。在这段艰难的岁月里，我们依然可以从《论语》中汲取着营养，将其渗透到生活的点滴之中。在《论语·公冶长》一篇中，孔子将他的志向总结为“老者安之，朋友信之，少者怀之”。曾子也说过“慎终追远，民德归厚矣”。这就教导我们对每一个具体的生命无分男女老幼，均应无比敬重和珍视。</p>
+
+<blockquote>
+  <p>《论语·公冶长篇第五 5.26》 颜渊、季路侍。子曰：“盍各言尔志？”子路曰：“愿车马、衣轻裘，与朋友共，敝之而无憾。”颜渊曰：“愿无伐善，无施劳。”子路曰：“愿闻子之志。”子曰：“老者安之，朋友信之，少者怀之。”</p>
+
+  <p>《论语·学而篇第一 1.9》 曾子曰：“慎终追远，民德归厚矣。”</p>
+</blockquote>
+
+<p>从《论语》中我们还可以看到，孔子所慎重的三件事中，“疾病”便占了其中一端。</p>
+
+<blockquote>
+  <p>《论语·述而篇第七 7.13》 子之所慎：齐，战，疾。</p>
+</blockquote>
+
+<p>这是因为，生命的安全与身体的健康是一个人得以持续行仁，在成为君子、止于至善的道路上坚持学习、慎思笃行、不断提升，并为国家与社会贡献价值的大前提。所以，我们必须予以高度的重视。这个时候，要了解、相信科学，以科学事实为依据，不要妄信和转发网上不靠谱的防疫或治病偏方。对此，《论语·乡党篇第十 10.16》也记载到，</p>
+
+<blockquote>
+  <p>康子馈药，拜而受之，曰：“丘未达，不敢尝。”</p>
+</blockquote>
+
+<p>孔子说过“危邦不入，乱邦不居”。所以，当下我们要尽一切可能避免去高危地区。最好的做法就是待在自己当前生活与工作的地方，甚至是深居简出，自行居家隔离。这既是关照个人的健康，也是为他人的生命安全负责。当然，在固守一地的日子里，生活未免有些单调。然而，只有“不仁者，不可以久处约”。只要我们以“行仁”作为精神核心，约束我们的言语、限制出行范围，反倒能够利用这段时间做一些深入、长远的思考，开展系统、专注的学习，好好修炼思想、端正态度、完善知识、提升技能。</p>
+
+<blockquote>
+  <p>《论语·泰伯篇第八 8.13》 子曰：“笃信好学，守死善道。危邦不入，乱邦不居，天下有道则见，无道则隐。邦有道，贫且贱焉，耻也，邦无道，富且贵焉，耻也。”</p>
+
+  <p>《论语·里仁篇第四 4.2》 子曰：“不仁者，不可以久处约，不可以长处乐。仁者安仁，知者利仁。”</p>
+</blockquote>
+
+<p>若我们与父母在不同的地方居住生活，则要尽量让彼此的距离不要相隔太远，从而无论疫情有何突发的状况，都能够相对方便地彼此相互照应、扶持。如果我们实在没有办法做到“不远游”，则应与父母保持比平时更加频繁的联系，随时报平安，让父母放心。</p>
+
+<blockquote>
+  <p>《论语·里仁篇第四 4.19》 子曰：“父母在，不远游，游必有方。”</p>
+</blockquote>
+
+<p>疫情之下，经济萧条、就业形势亦不乐观，这很容易让我们产生强烈的危机感和对未来职业发展的迷茫。这里，《论语》对我们的教导则是“人无远虑、必有近忧”。所以，我们应当具备长远的眼光，围绕核心技术、基础理论持续发力、做足准备，最终一定能从危机中发现社会发展的必然趋势、找到蕴藏于其中能够自我实现、服务国家的机会。</p>
+
+<blockquote>
+  <p>《论语·卫灵公篇第十五 15.12》 子曰：“人无远虑，必有近忧。”</p>
+</blockquote>
+
+<p>总之，只要我们在这段特殊的时期里好好珍惜时光、把握当下、修心修行，相信等到最终人类走出疫情阴霾的时候，我们应当从内到外、从思想到言语再到行动都会是焕然一新，获得的将是一个更好的自己。届时，经济也度过了它的低迷期，面对迫切需要基础与核心技术、高端人才与工匠精神的市场，相信我们一定会大有所为。</p>
+
+<blockquote>
+  <p>《论语·子罕篇第九 9.13》 子贡曰：“有美玉于斯，韫而藏诸？求善贾而沽诸？”子曰：“沽之哉！沽之哉！我待贾者也！”</p>
+</blockquote>
+
+<p>Backlinks: <a href="/thoughts/2022/04/21/%E7%96%AB%E6%83%85%E4%B9%8B%E4%B8%8B-%E8%AE%BA%E8%AF%AD-%E5%B8%A6%E7%BB%99%E6%88%91%E4%BB%AC%E7%9A%84%E5%90%AF%E7%A4%BA-%E4%BA%8C.html">《疫情之下《论语》带给我们的启示（二）》</a></p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="疫情" /><category term="论语" /><summary type="html"><![CDATA[新冠疫情的肆虐令 2020 年成为整个人类历史上极其不平凡的一年。直至今日，我们仍难以准确预期人类彻底战胜疫情的那一天。在这段艰难的岁月里，我们依然可以从《论语》中汲取着营养，将其渗透到生活的点滴之中。在《论语·公冶长》一篇中，孔子将他的志向总结为“老者安之，朋友信之，少者怀之”。曾子也说过“慎终追远，民德归厚矣”。这就教导我们对每一个具体的生命无分男女老幼，均应无比敬重和珍视。]]></summary></entry><entry><title type="html">Usage of the const keyword in C++</title><link href="https://jihuan-tian.github.io/thoughts/2021/01/15/usage-of-the-const-keyword-in-cpp.html" rel="alternate" type="text/html" title="Usage of the const keyword in C++" /><published>2021-01-15T00:00:00+08:00</published><updated>2021-01-15T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2021/01/15/usage-of-the-const-keyword-in-cpp</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2021/01/15/usage-of-the-const-keyword-in-cpp.html"><![CDATA[<p>The use of <code class="language-plaintext highlighter-rouge">const</code> keyword in C++ applies constraints to the program which will be statically checked by the compiler before program’s running. Therefore, it provides an additional layer of safety mechanism during our programming activity, such as preventing us from involuntarily modifying the value of a constant variable or getting its non-constant (mutable) reference. This will be extremely useful for us to develop and debug large scale numerical libraries in a defensive way, where mathematics and programming techniques are interwoven, which makes us more prone to error than traditional software containing only work flow of logics rather than mathematics. Therefore, it is meaningful to clarify and understand the key points of <code class="language-plaintext highlighter-rouge">const</code> usage, which will be the topic of this article.</p>
 
 <h2 id="differentiate-between-internal-and-external-linkage-of-a-const-variable">Differentiate between internal and external linkage of a <code class="language-plaintext highlighter-rouge">const</code> variable</h2>
 
