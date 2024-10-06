@@ -3,29 +3,100 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 21 of 63 for 止于至善 | As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</title>
+<title>Riemannian metric for a submanifold within (\mathbb{R}^N) | 止于至善</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="止于至善" />
+<meta property="og:title" content="Riemannian metric for a submanifold within (\mathbb{R}^N)" />
 <meta name="author" content="Jihuan Tian" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts." />
-<meta property="og:description" content="As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts." />
-<link rel="canonical" href="https://jihuan-tian.github.io/page21/" />
-<meta property="og:url" content="https://jihuan-tian.github.io/page21/" />
+<meta name="description" content="Abstract The Riemannian metric for a submanifold embedded in a Cartesian space with a higher dimension can be induced from the Riemannian metric for the Cartesian space by pulling it back with respect to the corresponding inclusion map of the submanifold." />
+<meta property="og:description" content="Abstract The Riemannian metric for a submanifold embedded in a Cartesian space with a higher dimension can be induced from the Riemannian metric for the Cartesian space by pulling it back with respect to the corresponding inclusion map of the submanifold." />
+<link rel="canonical" href="https://jihuan-tian.github.io/math/2024/10/06/riemannian-metric-for-a-submanifold-within-rn.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/math/2024/10/06/riemannian-metric-for-a-submanifold-within-rn.html" />
 <meta property="og:site_name" content="止于至善" />
-<meta property="og:type" content="website" />
-<link rel="prev" href="https://jihuan-tian.github.io/page20" />
-<link rel="next" href="https://jihuan-tian.github.io/page22" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-10-06T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="止于至善" />
+<meta property="twitter:title" content="Riemannian metric for a submanifold within (\mathbb{R}^N)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Jihuan Tian"},"description":"As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.","headline":"止于至善","url":"https://jihuan-tian.github.io/page21/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2024-10-06T00:00:00+08:00","datePublished":"2024-10-06T00:00:00+08:00","description":"Abstract The Riemannian metric for a submanifold embedded in a Cartesian space with a higher dimension can be induced from the Riemannian metric for the Cartesian space by pulling it back with respect to the corresponding inclusion map of the submanifold.","headline":"Riemannian metric for a submanifold within (\\mathbb{R}^N)","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2024/10/06/riemannian-metric-for-a-submanifold-within-rn.html"},"url":"https://jihuan-tian.github.io/math/2024/10/06/riemannian-metric-for-a-submanifold-within-rn.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css">
   <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
   
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
   <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"></script>
+
+  
 </head>
 <body><header class="site-header" role="banner">
 
@@ -969,11 +1040,6 @@
           <!---->
           <!--      -->
           <!---->
-          <!---->
-          <!--      -->
-          <!---->
-          <!--      -->
-          <!---->
           
           <!-- Enforce a fixed order for my categories. -->
           <a class="page-link" href="/math/">Math</a>
@@ -986,71 +1052,73 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><h2 class="post-list-heading">Posts</h2>
-    <ul class="post-list"><li><span class="post-meta">Aug 11, 2022</span>
-        <h3>
-          <a class="post-link" href="/thoughts/2022/08/11/%E6%95%B0%E5%AD%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9F%AD%E6%97%B6%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BF%86%E7%9A%84%E6%89%A9%E5%85%85.html">
-            数学学习中短时工作记忆的扩充
-          </a>
-        </h3></li><li><span class="post-meta">Aug 8, 2022</span>
-        <h3>
-          <a class="post-link" href="/computer/2022/08/08/link-cpp-code-with-gnu-octave.html">
-            Link C++ code with GNU Octave
-          </a>
-        </h3></li><li><span class="post-meta">Aug 6, 2022</span>
-        <h3>
-          <a class="post-link" href="/computer/2022/08/06/visiting-pdf-files-in-zotero-library-from-emacs-org-mode.html">
-            Visiting PDF files in Zotero library from Emacs Org mode
-          </a>
-        </h3></li><li><span class="post-meta">Aug 6, 2022</span>
-        <h3>
-          <a class="post-link" href="/computer/2022/08/06/convert-joplin-markdown-notes-to-pdf-for-reading-on-kindle.html">
-            Convert Joplin Markdown notes to PDF for reading on Kindle
-          </a>
-        </h3></li><li><span class="post-meta">Aug 3, 2022</span>
-        <h3>
-          <a class="post-link" href="/computer/2022/08/03/redirect-program-output-to-log-files.html">
-            Redirect program output to log files
-          </a>
-        </h3></li><li><span class="post-meta">Jul 30, 2022</span>
-        <h3>
-          <a class="post-link" href="/computer/2022/07/30/open-hyperlink-to-joplin-note-from-pdf.html">
-            Open hyperlink to Joplin note from PDF
-          </a>
-        </h3></li><li><span class="post-meta">Jul 30, 2022</span>
-        <h3>
-          <a class="post-link" href="/computer/2022/07/30/create-link-to-joplin-notes-in-emacs-org-mode.html">
-            Create link to Joplin notes in Emacs Org mode
-          </a>
-        </h3></li><li><span class="post-meta">Jul 24, 2022</span>
-        <h3>
-          <a class="post-link" href="/computer/2022/07/24/add-new-words-to-aspell-user-dictionary.html">
-            Add new words to Aspell user dictionary
-          </a>
-        </h3></li><li><span class="post-meta">Jul 23, 2022</span>
-        <h3>
-          <a class="post-link" href="/computer/2022/07/23/disable-alternate-colors-in-kde-plasma.html">
-            Disable alternate colors in KDE Plasma
-          </a>
-        </h3></li><li><span class="post-meta">Jul 22, 2022</span>
-        <h3>
-          <a class="post-link" href="/math/2022/07/22/sobolev-spaces.html">
-            Summary of Sobolev spaces and their norms
-          </a>
-        </h3></li></ul>
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-    
-    <div class="pagination">
-      
-      <a href="/page20">&laquo; Prev</a>
-      
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Riemannian metric for a submanifold within \(\mathbb{R}^N\)</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-10-06T00:00:00+08:00" itemprop="datePublished">Oct 6, 2024 &nbsp;
 
-      
-      <a href="/page22">Next &raquo;</a>
-      
-    </div>
-    
-    <!-- <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p> --></div>
+        
+          Categories:
+          
+            <a href="/math">Math</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/differential-geometry">differential-geometry</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><strong>Abstract</strong> The Riemannian metric for a submanifold embedded in a Cartesian space with a higher dimension can be induced from the Riemannian metric for the Cartesian space by pulling it back with respect to the corresponding inclusion map of the submanifold.</p>
+
+<p>The Riemannian metric is defined as a second order covariant tensor, not a 2-form (which is a second order anti-symmetric covariant tensor). Taking \(\mathbb{R}^3\) as example, the Riemannian metric is</p>
+
+\[\begin{equation}
+  ds^2 = dx^2+dy^2+dz^2 = dx\otimes dx + dy\otimes dy + dz\otimes dz.
+\end{equation}\]
+
+<p>Even though the concept of pull back is initially introduced for differential forms in Frankel’s book “The Geometry of Physics”, its properties still apply to covariant tensors such as the Riemannian metric, because a covariant tensor merely loses the anti-symmetry of a differential form, while the coordinate transformation and other properties are still preserved. If we assign a local coordinate chart \((x,y)\) to a submanifold \(M^2\) embedded in \(\mathbb{R}^3\) and assume the coordinate \(z\) can be differentiably represented by \(x\) and \(y\) as \(z=z(x,y)\), an inclusion map \(i: M^2 \rightarrow \mathbb{R}^3\) can be defined as \((x,y) \rightarrow (x,y,z(x,y))\). Then we want to pull back the Riemannian metric from \(\mathbb{R}^3\) to \(M^2\) with respect to \(i\).</p>
+
+<p>Because the pull back operation is algebraically homeomorphic with respect to the wedge product \(\wedge\), it is also algebraically homeomorphic with respect to the tensor product \(\otimes\). Therefore,</p>
+
+\[\begin{equation}
+  i^{*}(dx^2) = i^{*}(dx\otimes dx) = i^{*}(dx)\otimes i^{*}(dx),
+\end{equation}\]
+
+<p>where \(i^{\ast}(dx) = \frac{\partial x}{\partial x} dx + \frac{\partial x}{\partial y} dy = dx\). Hence</p>
+
+\[\begin{equation}
+  i^{*}(dx^2) = dx^2.
+\end{equation}\]
+
+<p>Similarly, \(i^{\ast}(dy^2) = dy^2\). Because \(i^{\ast}(dz) = \frac{\partial z}{\partial x} dx + \frac{\partial z}{\partial y} dy\),</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    i^{\ast}(dz^2) &amp;= \left( \frac{\partial z}{\partial x} dx + \frac{\partial z}{\partial y} dy \right) \otimes \left( \frac{\partial z}{\partial x} dx + \frac{\partial z}{\partial y} dy \right) \\
+    &amp;= \left( \frac{\partial z}{\partial x} \right)^2 dx^2 + \left( \frac{\partial z}{\partial y} \right)^2 dy^2 + 2 \frac{\partial z}{\partial x} \frac{\partial z}{\partial y} dxdy.
+  \end{aligned}
+\end{equation}\]
+
+<p>Finally,</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    i^{\ast}(ds^2) &amp;= dx^2 + dy^2 + \left( \frac{\partial z}{\partial x} \right)^2 dx^2 +
+  \left( \frac{\partial z}{\partial y} \right)^2 dy^2 + 2 \frac{\partial z}{\partial x}
+  \frac{\partial z}{\partial y} dxdy \\
+    &amp;= \left( 1 + \left( \frac{\partial z}{\partial x} \right)^2 \right)dx^2 + \left( 1 + \left( \frac{\partial z}{\partial y} \right)^2 \right) dy^2 + 2 \frac{\partial z}{\partial x} \frac{\partial z}{\partial y} dxdy.
+  \end{aligned}
+\end{equation}\]
+
+  </div><a class="u-url" href="/math/2024/10/06/riemannian-metric-for-a-submanifold-within-rn.html" hidden></a>
+</article>
 
       </div>
     </main><footer class="site-footer h-card">
