@@ -3,29 +3,100 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 3 of 63 for 止于至善 | As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</title>
+<title>Two kinds of coordinate transformations in differential geometry | 止于至善</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="止于至善" />
+<meta property="og:title" content="Two kinds of coordinate transformations in differential geometry" />
 <meta name="author" content="Jihuan Tian" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts." />
-<meta property="og:description" content="As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts." />
-<link rel="canonical" href="https://jihuan-tian.github.io/page3/" />
-<meta property="og:url" content="https://jihuan-tian.github.io/page3/" />
+<meta name="description" content="In differential geometry, the coordinate transformation between different local charts is merged into an entity itself, such as tangent vector, tensor and differential form, instead of being explicitly written out. This makes the expression of physical laws concise and help reveal their invariant properties." />
+<meta property="og:description" content="In differential geometry, the coordinate transformation between different local charts is merged into an entity itself, such as tangent vector, tensor and differential form, instead of being explicitly written out. This makes the expression of physical laws concise and help reveal their invariant properties." />
+<link rel="canonical" href="https://jihuan-tian.github.io/math/2024/10/10/two-kinds-of-coordinate-transformations-in-differential-geometry.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/math/2024/10/10/two-kinds-of-coordinate-transformations-in-differential-geometry.html" />
 <meta property="og:site_name" content="止于至善" />
-<meta property="og:type" content="website" />
-<link rel="prev" href="https://jihuan-tian.github.io/page2" />
-<link rel="next" href="https://jihuan-tian.github.io/page4" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-10-10T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="止于至善" />
+<meta property="twitter:title" content="Two kinds of coordinate transformations in differential geometry" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Jihuan Tian"},"description":"As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.","headline":"止于至善","url":"https://jihuan-tian.github.io/page3/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2024-10-10T00:00:00+08:00","datePublished":"2024-10-10T00:00:00+08:00","description":"In differential geometry, the coordinate transformation between different local charts is merged into an entity itself, such as tangent vector, tensor and differential form, instead of being explicitly written out. This makes the expression of physical laws concise and help reveal their invariant properties.","headline":"Two kinds of coordinate transformations in differential geometry","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2024/10/10/two-kinds-of-coordinate-transformations-in-differential-geometry.html"},"url":"https://jihuan-tian.github.io/math/2024/10/10/two-kinds-of-coordinate-transformations-in-differential-geometry.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css">
   <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
   
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
   <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"></script>
+
+  
 </head>
 <body><header class="site-header" role="banner">
 
@@ -969,11 +1040,6 @@
           <!---->
           <!--      -->
           <!---->
-          <!---->
-          <!--      -->
-          <!---->
-          <!--      -->
-          <!---->
           
           <!-- Enforce a fixed order for my categories. -->
           <a class="page-link" href="/math/">Math</a>
@@ -986,71 +1052,120 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><h2 class="post-list-heading">Posts</h2>
-    <ul class="post-list"><li><span class="post-meta">Aug 16, 2024</span>
-        <h3>
-          <a class="post-link" href="/math/2024/08/16/concept-of-duality.html">
-            Concept of duality
-          </a>
-        </h3></li><li><span class="post-meta">Aug 7, 2024</span>
-        <h3>
-          <a class="post-link" href="/math/2024/08/07/shape-functions-and-basis-functions-in-fem.html">
-            Shape functions and basis functions in FEM
-          </a>
-        </h3></li><li><span class="post-meta">Aug 2, 2024</span>
-        <h3>
-          <a class="post-link" href="/math/2024/08/02/summary-of-green-identities.html">
-            Summary of Green&#39;s identities
-          </a>
-        </h3></li><li><span class="post-meta">Aug 1, 2024</span>
-        <h3>
-          <a class="post-link" href="/math/2024/08/01/first-order-circuit.html">
-            Rumination on first order electrical circuit
-          </a>
-        </h3></li><li><span class="post-meta">Jul 25, 2024</span>
-        <h3>
-          <a class="post-link" href="/computer/2024/07/25/export-org-contents-to-latex-file-containing-relative-links.html">
-            Export Org contents to LaTeX file containing relative links
-          </a>
-        </h3></li><li><span class="post-meta">Jul 24, 2024</span>
-        <h3>
-          <a class="post-link" href="/math/2024/07/24/understanding-about-operator-discretization.html">
-            Understanding about operator discretization
-          </a>
-        </h3></li><li><span class="post-meta">Jul 20, 2024</span>
-        <h3>
-          <a class="post-link" href="/thoughts/2024/07/20/%E7%9B%B8%E5%AF%B9%E4%B8%BB%E4%B9%89.html">
-            相对主义
-          </a>
-        </h3></li><li><span class="post-meta">Jul 19, 2024</span>
-        <h3>
-          <a class="post-link" href="/computer/2024/07/19/migrated-project-work-journals-to-org-roam-root-directory.html">
-            Migrated project work journals to org-roam root directory
-          </a>
-        </h3></li><li><span class="post-meta">Jul 19, 2024</span>
-        <h3>
-          <a class="post-link" href="/thoughts/2024/07/19/consideration-about-pedagogy.html">
-            Consideration about pedagogy
-          </a>
-        </h3></li><li><span class="post-meta">Jul 13, 2024</span>
-        <h3>
-          <a class="post-link" href="/math/2024/07/13/from-duality-pairing-to-operator-preconditioning.html">
-            From duality pairing to operator preconditioning
-          </a>
-        </h3></li></ul>
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-    
-    <div class="pagination">
-      
-      <a href="/page2">&laquo; Prev</a>
-      
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Two kinds of coordinate transformations in differential geometry</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-10-10T00:00:00+08:00" itemprop="datePublished">Oct 10, 2024 &nbsp;
 
-      
-      <a href="/page4">Next &raquo;</a>
-      
-    </div>
-    
-    <!-- <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p> --></div>
+        
+          Categories:
+          
+            <a href="/math">Math</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/differential-geometry">differential-geometry</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>In differential geometry, the coordinate transformation between different local charts is merged into an entity itself, such as tangent vector, tensor and differential form, instead of being explicitly written out. This makes the expression of physical laws concise and help reveal their invariant properties.</p>
+
+<p>Typically, there are two kinds of coordinate transformations:</p>
+
+<ol>
+  <li>
+    <p>For a physical entity, such as tangent vector, it has different coordinates or numerical representations in different coordinate charts. Then there is the rule of transformation between these representations.</p>
+
+    <p>For example, we have two coordinate charts \((U,x)\) and \((V,y)\). The transition map from \(U\) to \(V\) is \(\Phi_{VU}: (U,x) \rightarrow (V,y)\), which is actually</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    y^1 &amp;= y^1(x^1,\cdots,x^{m}) \\
+    &amp;\vdots \\
+    y^n &amp;= y^n(x^1,\cdots,x^m)
+  \end{aligned}.
+\end{equation}\]
+
+    <p>N.B. The number of coordinate components in \(v_x\) and \(v_y\) may not be the same. This is natural: \(p\) in \(\mathbb{R}^3\) has three coordinate components, while if \(p\) is on a surface with a local 2D coordinate chart, it has two components.</p>
+
+    <p>Let \(p\) be a point (as a physical entity) in the overlap of \(U\) and \(V\). Let \(v\) be a tangent vector rooted at \(p\). The numerical representations of \(v\) in these two coordinate charts are</p>
+
+\[\begin{equation}
+v_x = v_x^i \boldsymbol{\partial} x^i, \; v_y = v_y^i \boldsymbol{\partial} y^i.
+\end{equation}\]
+
+    <p>Then the transformation from \(v_x\) to \(v_y\) is the Jacobian map of \(\Phi_{VU}\):</p>
+
+\[\begin{equation}
+v_y^i = \frac{\partial y^i}{\partial x^j} v_x^j.
+\end{equation}\]
+  </li>
+  <li>
+    <p>For two physical entities, there is also a transformation between them, such as a basis vector in a coordinate chart expanded using the basis of another coordinate chart.</p>
+
+    <p>Assume we have two coordinate charts \((U,x)\) and \((V,y)\), both containing a point \(p\) in \(M^n\). For the tangent space \(M_p^n\) at \(p\), the bases of these two coordinate charts are \(\left\{ \boldsymbol{\partial}x^i \right\}_{i=1}^n\) and \(\left\{ \boldsymbol{\partial}y^j \right\}_{j=1}^{n'}\), where \(n'\) may not be equal to \(n\). In their respective chart, \(\boldsymbol{\partial}x^i\) or \(\boldsymbol{\partial}y^j\) is numerically the same as \(\boldsymbol{e}_i\) or \(\boldsymbol{e}_j\). The numerical representation of \(\boldsymbol{\partial}x^i\) in \((V,y)\) is</p>
+
+\[\begin{equation}
+  \boldsymbol{\partial}x^i = \sum_j \frac{\partial y^j}{\partial x^i} \boldsymbol{\partial}y^j.
+\end{equation}\]
+
+    <p>Another example is the transformation of a metric tensor \(g\), which is a covariant tensor of 2nd rank. Under the above two coordinate charts, it is expressed as</p>
+
+\[\begin{equation}
+  g_{rs}^U = \left\langle \boldsymbol{\partial}x_U^r, \boldsymbol{\partial}x_U^s \right\rangle
+\end{equation}\]
+
+    <p>and</p>
+
+\[\begin{equation}
+  g_{ij}^V = \left\langle \boldsymbol{\partial}y_V^i, \boldsymbol{\partial}y_V^j \right\rangle.
+\end{equation}\]
+
+    <p>The metric tensor comprises basis vectors in the tangent space, so the relationship between \(g\) in different coordinate charts follows the same transformation rule for a basis vector in the tangent space as above. Therefore, we have</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \boldsymbol{\partial}y_V^i &amp;= \sum_r \frac{\partial x_U^r}{\partial y_V^i}
+    \boldsymbol{\partial}x_U^r \\
+    \boldsymbol{\partial}y_V^j &amp;= \sum_s \frac{\partial x_U^s}{\partial y_V^j}
+    \boldsymbol{\partial}x_U^s
+  \end{aligned}.
+\end{equation}\]
+
+    <p>Then</p>
+
+\[\begin{equation}
+  g_{ij}^V = \left\langle \sum_r \frac{\partial x_U^r}{\partial y_V^i} \boldsymbol{\partial}x_U^r,
+    \sum_s \frac{\partial x_U^s}{\partial y_V^j} \boldsymbol{\partial}x_U^s \right\rangle =
+  \sum_r\sum_s \frac{\partial x_U^r}{\partial y_V^i} \frac{\partial x_U^s}{\partial y_V^j}
+  \left\langle \boldsymbol{\partial}x_U^r, \boldsymbol{\partial}x_U^s \right\rangle = \sum_r\sum_s
+  \frac{\partial x_U^r}{\partial y_V^i} \frac{\partial x_U^s}{\partial y_V^j} g_{rs}^U.
+\end{equation}\]
+
+    <p>Its matrix form is</p>
+
+\[\begin{equation}
+  G^V = \left[ \frac{\partial x_U}{\partial y_V} \right]^{\mathrm{T}} G^U \left[ \frac{\partial
+      x_U}{\partial y_V} \right] = J_{UV}^{\mathrm{T}} G^U J_{UV}.
+\end{equation}\]
+
+    <p>N.B. We should not directly substitute the numerical representation of a tangent space basis vector in its respective coordinate chart into the expression of the metric tensor. For example, in the expression of \(g_{rs}^U\), the numerical representations for \(\boldsymbol{\partial}x_U^r\) and \(\boldsymbol{\partial}x_U^s\) in their own coordinate chart \((U,x)\) are \(\boldsymbol{e}_r\) and \(\boldsymbol{e}_s\). If we use \(\boldsymbol{e}_r\) and \(\boldsymbol{e}_s\) to compute \(g_{rs}^U\), we’ll find out its matrix form is simply an identity matrix, which is obviously wrong if the coordinate chart is not orthonormal.</p>
+
+    <p>The correct way to compute \(g_{rs}^U\) is to start from the metric tensor for the Cartesian space \(\mathbb{R}^n\), which is already known as \(g_{pq} = \delta_{pq}\), where \(\delta_{pq}\) is the Kronecker delta. Because the coordinate transformation between the chart \((U,x)\) and the Cartesian space is known, we can compute \(g_{rs}^U\) from \(g_{pq}\) using the above transformation formula. With \(g_{rs}^U\) and the coordinate transformation between \((U,x)\) and \((V,y)\) at hand, we can further compute \(g_{ij}^V\) from \(g_{rs}^U\).</p>
+
+    <p>The above explanation indicates that the computation of a metric tensor for an arbitrary coordinate chart cannot <strong>bootstrap</strong>. It must start from the metric tensor for a Cartesian space \(\mathbb{R}^n\) and a coordinate transformation rule between this chart and \(\mathbb{R}^n\).</p>
+  </li>
+</ol>
+
+  </div><a class="u-url" href="/math/2024/10/10/two-kinds-of-coordinate-transformations-in-differential-geometry.html" hidden></a>
+</article>
 
       </div>
     </main><footer class="site-footer h-card">
