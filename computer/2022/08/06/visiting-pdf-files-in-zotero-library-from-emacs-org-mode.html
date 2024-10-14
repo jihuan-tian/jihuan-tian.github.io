@@ -1013,14 +1013,14 @@
 
 <div class="language-lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">;; The root folder, which is the reference for generating relative paths for</span>
 <span class="c1">;; those linked PDF files.</span>
-<span class="p">(</span><span class="k">setq</span> <span class="nv">zotero-base-directory</span> <span class="s">"~/Documents/academic/"</span><span class="p">)</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">zotero-base-directory-for-linked-pdf</span> <span class="s">"/home/jihuan/文档/Documents/academic/Papers/zotero/"</span><span class="p">)</span>
 <span class="c1">;; BibTeX file exported from Zotero.</span>
-<span class="p">(</span><span class="k">setq</span> <span class="nv">bibtex-completion-bibliography</span> <span class="s">"~/Documents/academic/Papers/zotero/zotero-library.bib"</span><span class="p">)</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">bibtex-completion-bibliography</span> <span class="s">"/home/jihuan/文档/Documents/academic/Papers/zotero/zotero-library.bib"</span><span class="p">)</span>
 <span class="c1">;; Folder for storing PDF files, which I set it to the root folder of Zotero</span>
 <span class="c1">;; library.</span>
-<span class="p">(</span><span class="k">setq</span> <span class="nv">bibtex-completion-library-path</span> <span class="s">"~/Documents/academic/Papers/zotero/"</span><span class="p">)</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">bibtex-completion-library-path</span> <span class="s">"/home/jihuan/文档/Documents/academic/Papers/zotero/"</span><span class="p">)</span>
 <span class="c1">;; Centralized note file.</span>
-<span class="p">(</span><span class="k">setq</span> <span class="nv">bibtex-completion-notes-path</span> <span class="s">"~/Documents/academic/Papers/zotero/notes.org"</span><span class="p">)</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">bibtex-completion-notes-path</span> <span class="s">"/home/jihuan/文档/Documents/academic/Papers/zotero/notes.org"</span><span class="p">)</span>
 <span class="c1">;; The name of the BibTeX field in which the path to PDF files is stored or</span>
 <span class="c1">;; ‘nil’ if no such field should be used.</span>
 <span class="p">(</span><span class="k">setq</span> <span class="nv">bibtex-completion-pdf-field</span> <span class="s">"file"</span><span class="p">)</span>
@@ -1037,70 +1037,69 @@
 
 <p>Moreover, because some of my PDF files are associated with their bibliography items in the Zotero library as relative links (relative to a root path, which is stored in the variable <code class="language-plaintext highlighter-rouge">zotero-base-library</code>) instead of being imported as copies, the function <code class="language-plaintext highlighter-rouge">bibtex-completion-find-pdf-in-field</code> should be modified as below and evaluated after loading the <code class="language-plaintext highlighter-rouge">bibtex-completion</code> package. Otherwise, the path to any of these <strong>linked</strong> PDF files that is returned from the default version will be merely a single <code class="language-plaintext highlighter-rouge">/</code> character, which is invalid.</p>
 
-<div class="language-lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">eval-after-load</span> <span class="s">"bibtex-completion"</span>
-  <span class="o">'</span><span class="p">(</span><span class="k">progn</span>
-     <span class="p">(</span><span class="nb">defun</span> <span class="nv">bibtex-completion-find-pdf-in-field</span> <span class="p">(</span><span class="nv">key-or-entry</span><span class="p">)</span>
-       <span class="s">"Return the path of the PDF specified in the field `bibtex-completion-pdf-field' if that file exists.
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">eval-after-load</span> <span class="s">"bibtex-completion"</span>
+  <span class="o">'</span><span class="p">(</span><span class="nb">defun</span> <span class="nv">bibtex-completion-find-pdf-in-field</span> <span class="p">(</span><span class="nv">key-or-entry</span><span class="p">)</span>
+     <span class="s">"Return the path of the PDF specified in the field `bibtex-completion-pdf-field' if that file exists.
 Returns nil if no file is specified, or if the specified file
 does not exist, or if `bibtex-completion-pdf-field' is nil."</span>
-       <span class="p">(</span><span class="nb">when</span> <span class="nv">bibtex-completion-pdf-field</span>
-         <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">entry</span> <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">stringp</span> <span class="nv">key-or-entry</span><span class="p">)</span>
-                           <span class="p">(</span><span class="nv">bibtex-completion-get-entry1</span> <span class="nv">key-or-entry</span> <span class="no">t</span><span class="p">)</span>
-                         <span class="nv">key-or-entry</span><span class="p">))</span>
-                <span class="p">(</span><span class="nv">value</span> <span class="p">(</span><span class="nv">bibtex-completion-get-value</span> <span class="nv">bibtex-completion-pdf-field</span> <span class="nv">entry</span><span class="p">)))</span>
-           <span class="p">(</span><span class="nb">cond</span>
-            <span class="p">((</span><span class="nb">not</span> <span class="nv">value</span><span class="p">)</span> <span class="no">nil</span><span class="p">)</span>         <span class="c1">; Field not defined.</span>
-            <span class="p">((</span><span class="nv">f-file?</span> <span class="nv">value</span><span class="p">)</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">value</span><span class="p">))</span>   <span class="c1">; A bare full path was found.</span>
-            <span class="p">((</span><span class="nv">-any</span> <span class="ss">'f-file?</span> <span class="p">(</span><span class="nv">--map</span> <span class="p">(</span><span class="nv">f-join</span> <span class="nv">it</span> <span class="p">(</span><span class="nv">f-filename</span> <span class="nv">value</span><span class="p">))</span> <span class="p">(</span><span class="nv">-flatten</span> <span class="nv">bibtex-completion-library-path</span><span class="p">)))</span> <span class="p">(</span><span class="nv">-filter</span> <span class="ss">'f-file?</span> <span class="p">(</span><span class="nv">--map</span> <span class="p">(</span><span class="nv">f-join</span> <span class="nv">it</span> <span class="p">(</span><span class="nv">f-filename</span> <span class="nv">value</span><span class="p">))</span> <span class="p">(</span><span class="nv">-flatten</span> <span class="nv">bibtex-completion-library-path</span><span class="p">))))</span>
-            <span class="p">(</span><span class="no">t</span>                               <span class="c1">; Zotero/Mendeley/JabRef/Calibre format:</span>
-             <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">value</span> <span class="p">(</span><span class="nv">replace-regexp-in-string</span> <span class="s">"\\([^\\]\\)[;,]"</span> <span class="s">"\\1\^^"</span> <span class="nv">value</span><span class="p">)))</span>
-               <span class="p">(</span><span class="nv">cl-loop</span>  <span class="c1">; Looping over the files:</span>
-                <span class="nv">for</span> <span class="nv">record</span> <span class="nv">in</span> <span class="p">(</span><span class="nv">s-split</span> <span class="s">"\^^"</span> <span class="nv">value</span><span class="p">)</span>
+     <span class="p">(</span><span class="nb">when</span> <span class="nv">bibtex-completion-pdf-field</span>
+       <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">entry</span> <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">stringp</span> <span class="nv">key-or-entry</span><span class="p">)</span>
+                         <span class="p">(</span><span class="nv">bibtex-completion-get-entry1</span> <span class="nv">key-or-entry</span> <span class="no">t</span><span class="p">)</span>
+                       <span class="nv">key-or-entry</span><span class="p">))</span>
+              <span class="p">(</span><span class="nv">value</span> <span class="p">(</span><span class="nv">bibtex-completion-get-value</span> <span class="nv">bibtex-completion-pdf-field</span> <span class="nv">entry</span><span class="p">)))</span>
+         <span class="p">(</span><span class="nb">cond</span>
+          <span class="p">((</span><span class="nb">not</span> <span class="nv">value</span><span class="p">)</span> <span class="no">nil</span><span class="p">)</span>         <span class="c1">; Field not defined.</span>
+          <span class="p">((</span><span class="nv">f-file?</span> <span class="nv">value</span><span class="p">)</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">value</span><span class="p">))</span>   <span class="c1">; A bare full path was found.</span>
+          <span class="p">((</span><span class="nv">-any</span> <span class="ss">'f-file?</span> <span class="p">(</span><span class="nv">--map</span> <span class="p">(</span><span class="nv">f-join</span> <span class="nv">it</span> <span class="p">(</span><span class="nv">f-filename</span> <span class="nv">value</span><span class="p">))</span> <span class="p">(</span><span class="nv">-flatten</span> <span class="nv">bibtex-completion-library-path</span><span class="p">)))</span> <span class="p">(</span><span class="nv">-filter</span> <span class="ss">'f-file?</span> <span class="p">(</span><span class="nv">--map</span> <span class="p">(</span><span class="nv">f-join</span> <span class="nv">it</span> <span class="p">(</span><span class="nv">f-filename</span> <span class="nv">value</span><span class="p">))</span> <span class="p">(</span><span class="nv">-flatten</span> <span class="nv">bibtex-completion-library-path</span><span class="p">))))</span>
+          <span class="p">(</span><span class="no">t</span>                               <span class="c1">; Zotero/Mendeley/JabRef/Calibre format:</span>
+           <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">value</span> <span class="p">(</span><span class="nv">replace-regexp-in-string</span> <span class="s">"\\([^\\]\\)[;,]"</span> <span class="s">"\\1\^^"</span> <span class="nv">value</span><span class="p">)))</span>
+             <span class="p">(</span><span class="nv">cl-loop</span>  <span class="c1">; Looping over the files:</span>
+              <span class="nv">for</span> <span class="nv">record</span> <span class="nv">in</span> <span class="p">(</span><span class="nv">s-split</span> <span class="s">"\^^"</span> <span class="nv">value</span><span class="p">)</span>
                                         <span class="c1">; Replace unescaped colons by field separator:</span>
-                <span class="nv">for</span> <span class="nv">record</span> <span class="nb">=</span> <span class="p">(</span><span class="nv">replace-regexp-in-string</span> <span class="s">"\\([^\\]\\|^\\):"</span> <span class="s">"\\1\^_"</span> <span class="nv">record</span><span class="p">)</span>
+              <span class="nv">for</span> <span class="nv">record</span> <span class="nb">=</span> <span class="p">(</span><span class="nv">replace-regexp-in-string</span> <span class="s">"\\([^\\]\\|^\\):"</span> <span class="s">"\\1\^_"</span> <span class="nv">record</span><span class="p">)</span>
                                         <span class="c1">; Unescape stuff:</span>
-                <span class="nv">for</span> <span class="nv">record</span> <span class="nb">=</span> <span class="p">(</span><span class="nv">replace-regexp-in-string</span> <span class="s">"\\\\\\(.\\)"</span> <span class="s">"\\1"</span> <span class="nv">record</span><span class="p">)</span>
+              <span class="nv">for</span> <span class="nv">record</span> <span class="nb">=</span> <span class="p">(</span><span class="nv">replace-regexp-in-string</span> <span class="s">"\\\\\\(.\\)"</span> <span class="s">"\\1"</span> <span class="nv">record</span><span class="p">)</span>
                                         <span class="c1">; Now we can safely split:</span>
-                <span class="nv">for</span> <span class="nv">record</span> <span class="nb">=</span> <span class="p">(</span><span class="nv">s-split</span> <span class="s">"\^_"</span> <span class="nv">record</span><span class="p">)</span>
-                <span class="nv">for</span> <span class="nv">file-name</span> <span class="nb">=</span> <span class="p">(</span><span class="nb">nth</span> <span class="mi">0</span> <span class="nv">record</span><span class="p">)</span>
-                <span class="nv">for</span> <span class="nv">path</span> <span class="nb">=</span> <span class="p">(</span><span class="nb">or</span> <span class="p">(</span><span class="nb">nth</span> <span class="mi">1</span> <span class="nv">record</span><span class="p">)</span> <span class="s">""</span><span class="p">)</span>
-                <span class="nv">for</span> <span class="nv">paths</span> <span class="nb">=</span> <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nv">s-match</span> <span class="s">"^[A-Z]:"</span> <span class="nv">path</span><span class="p">)</span>
-                                <span class="p">(</span><span class="nb">list</span> <span class="nv">path</span><span class="p">)</span>                 <span class="c1">; Absolute Windows path</span>
+              <span class="nv">for</span> <span class="nv">record</span> <span class="nb">=</span> <span class="p">(</span><span class="nv">s-split</span> <span class="s">"\^_"</span> <span class="nv">record</span><span class="p">)</span>
+              <span class="nv">for</span> <span class="nv">file-name</span> <span class="nb">=</span> <span class="p">(</span><span class="nb">nth</span> <span class="mi">0</span> <span class="nv">record</span><span class="p">)</span>
+              <span class="nv">for</span> <span class="nv">path</span> <span class="nb">=</span> <span class="p">(</span><span class="nb">or</span> <span class="p">(</span><span class="nb">nth</span> <span class="mi">1</span> <span class="nv">record</span><span class="p">)</span> <span class="s">""</span><span class="p">)</span>
+              <span class="nv">for</span> <span class="nv">paths</span> <span class="nb">=</span> <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nv">s-match</span> <span class="s">"^[A-Z]:"</span> <span class="nv">path</span><span class="p">)</span>
+                              <span class="p">(</span><span class="nb">list</span> <span class="nv">path</span><span class="p">)</span>                 <span class="c1">; Absolute Windows path</span>
                                         <span class="c1">; Something else:</span>
-                              <span class="p">(</span><span class="nb">append</span>
-                               <span class="p">(</span><span class="nb">list</span>
-                                <span class="nv">path</span>
-                                <span class="nv">file-name</span>
-                                <span class="c1">;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-                                <span class="c1">;; Comment the following two lines,</span>
-                                <span class="c1">;; because the root path returned by</span>
-                                <span class="c1">;; ~(f-root)~ will be considered as a valid</span>
-                                <span class="c1">;; path to the attached file.</span>
-                                <span class="c1">;; (f-join (f-root) path) ; Mendeley #105</span>
-                                <span class="c1">;; (f-join (f-root) path file-name)</span>
+                            <span class="p">(</span><span class="nb">append</span>
+                             <span class="p">(</span><span class="nb">list</span>
+                              <span class="nv">path</span>
+                              <span class="nv">file-name</span>
+                              <span class="c1">;; (f-join (f-root) path) ; Mendeley #105</span>
+                              <span class="c1">;; (f-join (f-root) path file-name) ; Mendeley #105</span>
+                              <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nv">string-match-p</span> <span class="s">"^\\.\\./"</span> <span class="nv">file-name</span><span class="p">)</span>
+                                  <span class="c1">;; If the ~file-name~ starts with</span>
+                                  <span class="c1">;; "../", it is a relative hyperlink to</span>
+                                  <span class="c1">;; the attachment, which has been</span>
+                                  <span class="c1">;; created in Zotero. The base</span>
+                                  <span class="c1">;; directory to which this relative</span>
+                                  <span class="c1">;; hyperlink is with respect is stored</span>
+                                  <span class="c1">;; in the variable</span>
+                                  <span class="c1">;; ~zotero-base-directory-for-linked-pdf~.</span>
+				                  <span class="p">(</span><span class="nv">expand-file-name</span> <span class="nv">file-name</span> <span class="nv">zotero-base-directory-for-linked-pdf</span><span class="p">)</span>
+                                <span class="p">(</span><span class="nv">f-join</span> <span class="nv">bibtex-completion-library-path</span> <span class="nv">file-name</span><span class="p">)))</span>
+                             <span class="p">(</span><span class="nv">--map</span> <span class="p">(</span><span class="nv">f-join</span> <span class="nv">it</span> <span class="nv">path</span><span class="p">)</span>
+                                    <span class="p">(</span><span class="nv">-flatten</span> <span class="nv">bibtex-completion-library-path</span><span class="p">))</span> <span class="c1">; Jabref #100</span>
+                             <span class="p">(</span><span class="nv">--map</span> <span class="p">(</span><span class="nv">f-join</span> <span class="nv">it</span> <span class="nv">path</span> <span class="nv">file-name</span><span class="p">)</span>
+                                    <span class="p">(</span><span class="nv">-flatten</span> <span class="nv">bibtex-completion-library-path</span><span class="p">))))</span> <span class="c1">; Jabref #100</span>
+              <span class="nv">for</span> <span class="nv">result</span> <span class="nb">=</span> <span class="p">(</span><span class="nv">-first</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nv">path</span><span class="p">)</span>
+                                     <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">and</span> <span class="p">(</span><span class="nb">not</span> <span class="p">(</span><span class="nv">s-blank-str?</span> <span class="nv">path</span><span class="p">))</span>
+                                              <span class="p">(</span><span class="nv">f-exists?</span> <span class="nv">path</span><span class="p">))</span>
+                                         <span class="nv">path</span> <span class="no">nil</span><span class="p">))</span> <span class="nv">paths</span><span class="p">)</span>
+              <span class="k">if</span> <span class="nv">result</span> <span class="nv">collect</span> <span class="nv">result</span><span class="p">))))))))</span>
+</code></pre></div></div>
 
-                                <span class="c1">;; Then we process the file name.</span>
-                                <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nv">string-match-p</span> <span class="s">"^\\.\\./"</span> <span class="nv">file-name</span><span class="p">)</span>
-                                    <span class="c1">;; If the ~file-name~ starts with</span>
-                                    <span class="c1">;; "../", it is a relative hyperlink to</span>
-                                    <span class="c1">;; the attachment, which has been</span>
-                                    <span class="c1">;; created in Zotero. The base</span>
-                                    <span class="c1">;; directory to which this relative</span>
-                                    <span class="c1">;; hyperlink is with respect is stored</span>
-                                    <span class="c1">;; in the variable</span>
-                                    <span class="c1">;; ~zotero-base-directory~.</span>
-                                    <span class="p">(</span><span class="nv">f-join</span> <span class="nv">zotero-base-directory</span> <span class="nv">file-name</span><span class="p">)</span>
-                                  <span class="p">(</span><span class="nv">f-join</span> <span class="nv">bibtex-completion-library-path</span> <span class="nv">file-name</span><span class="p">))</span>
-                                <span class="p">)</span>
-                               <span class="p">(</span><span class="nv">--map</span> <span class="p">(</span><span class="nv">f-join</span> <span class="nv">it</span> <span class="nv">path</span><span class="p">)</span>
-                                      <span class="p">(</span><span class="nv">-flatten</span> <span class="nv">bibtex-completion-library-path</span><span class="p">))</span> <span class="c1">; Jabref #100</span>
-                               <span class="p">(</span><span class="nv">--map</span> <span class="p">(</span><span class="nv">f-join</span> <span class="nv">it</span> <span class="nv">path</span> <span class="nv">file-name</span><span class="p">)</span>
-                                      <span class="p">(</span><span class="nv">-flatten</span> <span class="nv">bibtex-completion-library-path</span><span class="p">))))</span> <span class="c1">; Jabref #100</span>
-                <span class="nv">for</span> <span class="nv">result</span> <span class="nb">=</span> <span class="p">(</span><span class="nv">-first</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nv">path</span><span class="p">)</span>
-                                       <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">and</span> <span class="p">(</span><span class="nb">not</span> <span class="p">(</span><span class="nv">s-blank-str?</span> <span class="nv">path</span><span class="p">))</span>
-                                                <span class="p">(</span><span class="nv">f-exists?</span> <span class="nv">path</span><span class="p">))</span>
-                                           <span class="nv">path</span> <span class="no">nil</span><span class="p">))</span> <span class="nv">paths</span><span class="p">)</span>
-                <span class="k">if</span> <span class="nv">result</span> <span class="nv">collect</span> <span class="nv">result</span><span class="p">)))))))))</span>
+<p>Meanwhile, the variable <code class="language-plaintext highlighter-rouge">bibtex-completion-pdf-open-function</code> should be set as below. By default, it will use <code class="language-plaintext highlighter-rouge">xdg-open</code> to open the PDF file associated with a bibliography item. However, this does not work on my side, so I use <code class="language-plaintext highlighter-rouge">Okular</code> instead.</p>
+
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">;; Open pdf with Okular. xdg-open does not work here.</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">bibtex-completion-pdf-open-function</span>
+  <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nv">fpath</span><span class="p">)</span>
+    <span class="p">(</span><span class="nv">start-process</span> <span class="s">"okular"</span> <span class="s">"*okular*"</span> <span class="s">"okular"</span> <span class="nv">fpath</span><span class="p">)))</span>
 </code></pre></div></div>
 
 
