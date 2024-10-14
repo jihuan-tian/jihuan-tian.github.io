@@ -14,14 +14,14 @@ The following variables need to be configured for `org-ref`.
 ```lisp
 ;; The root folder, which is the reference for generating relative paths for
 ;; those linked PDF files.
-(setq zotero-base-directory "~/Documents/academic/")
+(setq zotero-base-directory-for-linked-pdf "/home/jihuan/文档/Documents/academic/Papers/zotero/")
 ;; BibTeX file exported from Zotero.
-(setq bibtex-completion-bibliography "~/Documents/academic/Papers/zotero/zotero-library.bib")
+(setq bibtex-completion-bibliography "/home/jihuan/文档/Documents/academic/Papers/zotero/zotero-library.bib")
 ;; Folder for storing PDF files, which I set it to the root folder of Zotero
 ;; library.
-(setq bibtex-completion-library-path "~/Documents/academic/Papers/zotero/")
+(setq bibtex-completion-library-path "/home/jihuan/文档/Documents/academic/Papers/zotero/")
 ;; Centralized note file.
-(setq bibtex-completion-notes-path "~/Documents/academic/Papers/zotero/notes.org")
+(setq bibtex-completion-notes-path "/home/jihuan/文档/Documents/academic/Papers/zotero/notes.org")
 ;; The name of the BibTeX field in which the path to PDF files is stored or
 ;; ‘nil’ if no such field should be used.
 (setq bibtex-completion-pdf-field "file")
@@ -38,71 +38,71 @@ For citing a bibliography item from the database, call the command `org-ref-inse
 
 Moreover, because some of my PDF files are associated with their bibliography items in the Zotero library as relative links (relative to a root path, which is stored in the variable `zotero-base-library`) instead of being imported as copies, the function `bibtex-completion-find-pdf-in-field` should be modified as below and evaluated after loading the `bibtex-completion` package. Otherwise, the path to any of these **linked** PDF files that is returned from the default version will be merely a single `/` character, which is invalid.
 
-```lisp
+```elisp
 (eval-after-load "bibtex-completion"
-  '(progn
-     (defun bibtex-completion-find-pdf-in-field (key-or-entry)
-       "Return the path of the PDF specified in the field `bibtex-completion-pdf-field' if that file exists.
+  '(defun bibtex-completion-find-pdf-in-field (key-or-entry)
+     "Return the path of the PDF specified in the field `bibtex-completion-pdf-field' if that file exists.
 Returns nil if no file is specified, or if the specified file
 does not exist, or if `bibtex-completion-pdf-field' is nil."
-       (when bibtex-completion-pdf-field
-         (let* ((entry (if (stringp key-or-entry)
-                           (bibtex-completion-get-entry1 key-or-entry t)
-                         key-or-entry))
-                (value (bibtex-completion-get-value bibtex-completion-pdf-field entry)))
-           (cond
-            ((not value) nil)         ; Field not defined.
-            ((f-file? value) (list value))   ; A bare full path was found.
-            ((-any 'f-file? (--map (f-join it (f-filename value)) (-flatten bibtex-completion-library-path))) (-filter 'f-file? (--map (f-join it (f-filename value)) (-flatten bibtex-completion-library-path))))
-            (t                               ; Zotero/Mendeley/JabRef/Calibre format:
-             (let ((value (replace-regexp-in-string "\\([^\\]\\)[;,]" "\\1\^^" value)))
-               (cl-loop  ; Looping over the files:
-                for record in (s-split "\^^" value)
+     (when bibtex-completion-pdf-field
+       (let* ((entry (if (stringp key-or-entry)
+                         (bibtex-completion-get-entry1 key-or-entry t)
+                       key-or-entry))
+              (value (bibtex-completion-get-value bibtex-completion-pdf-field entry)))
+         (cond
+          ((not value) nil)         ; Field not defined.
+          ((f-file? value) (list value))   ; A bare full path was found.
+          ((-any 'f-file? (--map (f-join it (f-filename value)) (-flatten bibtex-completion-library-path))) (-filter 'f-file? (--map (f-join it (f-filename value)) (-flatten bibtex-completion-library-path))))
+          (t                               ; Zotero/Mendeley/JabRef/Calibre format:
+           (let ((value (replace-regexp-in-string "\\([^\\]\\)[;,]" "\\1\^^" value)))
+             (cl-loop  ; Looping over the files:
+              for record in (s-split "\^^" value)
                                         ; Replace unescaped colons by field separator:
-                for record = (replace-regexp-in-string "\\([^\\]\\|^\\):" "\\1\^_" record)
+              for record = (replace-regexp-in-string "\\([^\\]\\|^\\):" "\\1\^_" record)
                                         ; Unescape stuff:
-                for record = (replace-regexp-in-string "\\\\\\(.\\)" "\\1" record)
+              for record = (replace-regexp-in-string "\\\\\\(.\\)" "\\1" record)
                                         ; Now we can safely split:
-                for record = (s-split "\^_" record)
-                for file-name = (nth 0 record)
-                for path = (or (nth 1 record) "")
-                for paths = (if (s-match "^[A-Z]:" path)
-                                (list path)                 ; Absolute Windows path
+              for record = (s-split "\^_" record)
+              for file-name = (nth 0 record)
+              for path = (or (nth 1 record) "")
+              for paths = (if (s-match "^[A-Z]:" path)
+                              (list path)                 ; Absolute Windows path
                                         ; Something else:
-                              (append
-                               (list
-                                path
-                                file-name
-                                ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-                                ;; Comment the following two lines,
-                                ;; because the root path returned by
-                                ;; ~(f-root)~ will be considered as a valid
-                                ;; path to the attached file.
-                                ;; (f-join (f-root) path) ; Mendeley #105
-                                ;; (f-join (f-root) path file-name)
+                            (append
+                             (list
+                              path
+                              file-name
+                              ;; (f-join (f-root) path) ; Mendeley #105
+                              ;; (f-join (f-root) path file-name) ; Mendeley #105
+                              (if (string-match-p "^\\.\\./" file-name)
+                                  ;; If the ~file-name~ starts with
+                                  ;; "../", it is a relative hyperlink to
+                                  ;; the attachment, which has been
+                                  ;; created in Zotero. The base
+                                  ;; directory to which this relative
+                                  ;; hyperlink is with respect is stored
+                                  ;; in the variable
+                                  ;; ~zotero-base-directory-for-linked-pdf~.
+				                  (expand-file-name file-name zotero-base-directory-for-linked-pdf)
+                                (f-join bibtex-completion-library-path file-name)))
+                             (--map (f-join it path)
+                                    (-flatten bibtex-completion-library-path)) ; Jabref #100
+                             (--map (f-join it path file-name)
+                                    (-flatten bibtex-completion-library-path)))) ; Jabref #100
+              for result = (-first (lambda (path)
+                                     (if (and (not (s-blank-str? path))
+                                              (f-exists? path))
+                                         path nil)) paths)
+              if result collect result))))))))
+```
 
-                                ;; Then we process the file name.
-                                (if (string-match-p "^\\.\\./" file-name)
-                                    ;; If the ~file-name~ starts with
-                                    ;; "../", it is a relative hyperlink to
-                                    ;; the attachment, which has been
-                                    ;; created in Zotero. The base
-                                    ;; directory to which this relative
-                                    ;; hyperlink is with respect is stored
-                                    ;; in the variable
-                                    ;; ~zotero-base-directory~.
-                                    (f-join zotero-base-directory file-name)
-                                  (f-join bibtex-completion-library-path file-name))
-                                )
-                               (--map (f-join it path)
-                                      (-flatten bibtex-completion-library-path)) ; Jabref #100
-                               (--map (f-join it path file-name)
-                                      (-flatten bibtex-completion-library-path)))) ; Jabref #100
-                for result = (-first (lambda (path)
-                                       (if (and (not (s-blank-str? path))
-                                                (f-exists? path))
-                                           path nil)) paths)
-                if result collect result)))))))))
+Meanwhile, the variable `bibtex-completion-pdf-open-function` should be set as below. By default, it will use `xdg-open` to open the PDF file associated with a bibliography item. However, this does not work on my side, so I use `Okular` instead.
+
+```elisp
+;; Open pdf with Okular. xdg-open does not work here.
+(setq bibtex-completion-pdf-open-function
+  (lambda (fpath)
+    (start-process "okular" "*okular*" "okular" fpath)))
 ```
 
 {{ "2022-08-06-visiting-pdf-files-in-zotero-library-from-emacs-org-mode" | backlink }}

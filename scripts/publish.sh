@@ -27,6 +27,7 @@ if [ -z "$is_need_push" ]; then
   http_proxy=192.168.0.100:1080 https_proxy=192.168.0.100:1080 git push
 
   # Go to the public folder and pull the latest modifications.
+  sleep 5
   cd "$blog-public"
   http_proxy=192.168.0.100:1080 https_proxy=192.168.0.100:1080 git pull
   
