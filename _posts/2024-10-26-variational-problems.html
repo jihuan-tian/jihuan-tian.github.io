@@ -1,0 +1,285 @@
+---
+layout: post
+title: Variational problems
+date: 2024-10-26
+categories: [math]
+tags: [PDE]
+mathjax: true
+custom_css: /assets/css/make4ht.css
+---
+
+   <h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
+   <div class='tableofcontents'>
+    <span class='sectionToc'>1 <a href='#x1-20001' id='QQ2-1-2'>Basic ideas</a></span>
+<br />    <span class='sectionToc'>2 <a href='#x1-30002' id='QQ2-1-3'>When there is no constraint</a></span>
+<br />     <span class='subsectionToc'>2.1 <a href='#x1-40002.1' id='QQ2-1-4'>Preconditions</a></span>
+<br />     <span class='subsectionToc'>2.2 <a href='#x1-50002.2' id='QQ2-1-5'>Problem definitions</a></span>
+<br />     <span class='subsectionToc'>2.3 <a href='#x1-60002.3' id='QQ2-1-6'>Unique solvability and stability</a></span>
+<br />    <span class='sectionToc'>3 <a href='#x1-70003' id='QQ2-1-7'>When there is a constraint \(Bu=g\)</a></span>
+<br />     <span class='subsectionToc'>3.1 <a href='#x1-80003.1' id='QQ2-1-8'>Preconditions</a></span>
+<br />     <span class='subsectionToc'>3.2 <a href='#x1-90003.2' id='QQ2-1-10'>Problem definitions</a></span>
+<br />     <span class='subsectionToc'>3.3 <a href='#x1-100003.3' id='QQ2-1-11'>Unique solvability and stability</a></span>
+   </div>
+<!-- l. 9 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>1    </span> <a id='x1-20001'></a>Basic ideas</h3>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 12 --><p class='noindent'>There are three types of problems: </p>
+         <ul class='itemize2'>
+         <li class='itemize'>
+         <!-- l. 14 --><p class='noindent'>The  original  operator  equation  \(Au=f\).  The  two  sides  of  this  equation  are  functions  and  should  be  equal
+         pointwise. This is the strong form problem.
+         </p></li>
+         <li class='itemize'>
+         <!-- l. 16 --><p class='noindent'>The variational problem is obtained by projecting the two sides of the operator equation to a test function
+         space \(V\). The “projection” here means multiply the two sides of the equation with an arbitrary function in
+         the test function space, then integrate them over the domain, i.e. \(\left \langle Au,v \right \rangle =\left \langle f,v \right \rangle \). Therefore, infinitely many equations
+         are established and we say the equality is in the sense of projection. This is the weak form problem.
+                                                                                               
+                                                                                               
+         </p><!-- l. 24 --><p class='noindent'>We can also understand the test function space \(V\) as a multidimensional ruler. The right hand side function
+         \(f\) of the operator equation and the output function returned from applying the partial differential operator
+         to the solution function, i.e. \(Au\), will be measured with this ruler.
+         </p></li>
+         <li class='itemize'>
+         <!-- l. 28 --><p class='noindent'>The problem of minimizing an energy functional, such as \(\mathcal {L}(v)=\frac {1}{2}\left \langle Av,v \right \rangle -\left \langle f,v \right \rangle \).</p></li></ul>
+     </li>
+     <li class='itemize'>
+     <!-- l. 32 --><p class='noindent'>The operator equation and the variational problem is equivalent due to the boundedness of the bilinear form
+     \(a(u,v):= \left \langle Au,v \right \rangle \).
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 34 --><p class='noindent'>The variation problem is further equivalent to the minimization problem, if the bilinear form \(a(u,v)\) is symmetric and
+     positive definite. This condition is equivalent to that the linear operator \(A\) associated with this bilinear form \(a(u,v)\) is self-dual
+     and elliptic. Of course, the boundedness of the bilinear form \(a(u,v)\) is equivalent to the boundedness of the linear operator
+     \(A\).</p></li></ul>
+<!-- l. 41 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>2    </span> <a id='x1-30002'></a>When there is no constraint</h3>
+<!-- l. 43 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>2.1    </span> <a id='x1-40002.1'></a>Preconditions</h4>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 46 --><p class='noindent'>\(X\) is a Hilbert space and \(X'\) is the dual space of \(X\).
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 47 --><p class='noindent'>\(\left \langle \cdot ,\cdot \right \rangle _X\) is the inner product in \(X\).
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 48 --><p class='noindent'>\(\left \langle \cdot ,\cdot \right \rangle \) is the duality pairing, which applies a linear functional \(f\in X'\) to an element \(u\in X\), i.e. \(\left \langle f,u \right \rangle =\left \langle u,f \right \rangle =f(u)\).
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 50 --><p class='noindent'>\(A: X \rightarrow X'\) is a bounded linear operator satisfying \begin{equation}  \norm {Av}_{X'}\leq c_2^A\norm {v}_X \quad \forall v \in X.  \end{equation}<a id='x1-4001r1'></a>
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 54 --><p class='noindent'>\(f\in X'\)</p></li></ul>
+                                                                                               
+                                                                                               
+<!-- l. 57 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>2.2    </span> <a id='x1-50002.2'></a>Problem definitions</h4>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 59 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Definition 1 (Operator equation with no constraint)</span> </span><a id='x1-5002'></a>Find \(u \in X\) satisfying <a id='x1-50011'></a>\begin{equation}  Au = f.  \end{equation}<a id='x1-5003r2'></a>
+</p>
+   </div>
+<!-- l. 65 --><p class='indent'>   </p></div>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 67 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Definition 2 (Variational problem with no constraint)</span> </span><a id='x1-5005'></a>Find \(u\in X\) such that <a id='x1-50042'></a>\begin{equation}  \left \langle Au,v \right \rangle = \left \langle f,v \right \rangle \quad \forall v\in X.  \end{equation}<a id='x1-5006r3'></a>
+</p>
+   </div>
+<!-- l. 73 --><p class='indent'>   </p></div>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 75 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Definition 3 (Minimization problem for no constraint case)</span> </span><a id='x1-5008'></a>Let \(F\) be the functional <a id='x1-50073'></a>\begin{equation}  F(v) := \frac {1}{2}\left \langle Av,v \right \rangle - \left \langle f,v \right \rangle \quad (v\in X).  \end{equation}<a id='x1-5009r4'></a> The minimization problem is defined
+as \begin{equation}  F(u) =\min _{v\in X} F(v).  \end{equation}<a id='x1-5010r5'></a>
+</p>
+   </div>
+<!-- l. 86 --><p class='indent'>   </p></div>
+<!-- l. 88 --><p class='noindent'>Relations between the above problems: </p>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 90 --><p class='noindent'>Operator equation (Definition <a href='#x1-50011'>1<!-- tex4ht:ref: def:op-eqn-no-constraint  --></a>) \(\Longleftrightarrow \) variational problem (Definition <a href='#x1-50042'>2<!-- tex4ht:ref: def:var-eqn-no-constraint  --></a>)
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 92 --><p class='noindent'>When \(A\) is further self-adjoint <span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-5011f1'></a>
+     and positive semi-definite, variational problem (Definition <a href='#x1-50042'>2<!-- tex4ht:ref: def:var-eqn-no-constraint  --></a>) \(\Longleftrightarrow \) minimization problem (Definition <a href='#x1-50073'>3<!-- tex4ht:ref: def:min-eqn-no-constraint  --></a>)</p></li></ul>
+<!-- l. 98 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>2.3    </span> <a id='x1-60002.3'></a>Unique solvability and stability</h4>
+<!-- l. 100 --><p class='noindent'>The unique solvability of the operator equation (Definition <a href='#x1-50011'>1<!-- tex4ht:ref: def:op-eqn-no-constraint  --></a>) (and thus the variational problem (Definition <a href='#x1-50042'>2<!-- tex4ht:ref: def:var-eqn-no-constraint  --></a>)) for any \(f\in X'\) is
+governed by the Lax-Milgram Lemma, which requires that \(A\) should be \(X\)-elliptic, i.e. \begin{equation}  \label {eq:ellipticity-condition} \left \langle Av,v \right \rangle \geq c_1^A\norm {v}_X^2 \quad \forall v\in X.  \end{equation}<a id='x1-6001r6'></a> It also prescribes a stability condition on
+the solution \(u\): \begin{equation}  \norm {u}_X\leq \frac {1}{c_1^A}\norm {f}_{X'}.  \end{equation}<a id='x1-6002r7'></a> It can be seen that the smaller the ellipticity constant \(c_1^A\), the less the stability for \(u\). <span id='textcolor1'>\(c_1^A\) is related to the
+smallest eigenvalue of the discretized matrix for the operator \(A\). A small \(c_1^A\) is caused by an increase in the number
+of DoFs and sharp corners in the geometry of the model. The error in the data for \(f\) will be amplified by
+\(\frac {1}{c_1^A}\).</span>
+</p>
+   <div class='remark'><div class='newtheorem'>
+<!-- l. 117 --><p class='noindent'><span class='head'>
+                                                                                               
+                                                                                               
+<span class='p1xb-'>Remark 1 (Understanding about ellipticity of operators)</span> </span><a id='x1-6004'></a>We are going to compare the ellipticity condition in Equation
+(<a href='#x1-6001r6'>6<!-- tex4ht:ref: eq:ellipticity-condition  --></a>) with its discrete counterpart. Let \(\mathscr {A}\) be the matrix in \(\mathbb {R}^{n\times n}\) corresponding to \(A\) which is discretized via the Galerkin method. Let \(x\)
+be the vector in \(\mathbb {R}^n\) related to \(v\). Assume \(\mathscr {A}\) has \(n\) eigenvalues \(\lambda _1,\cdots ,\lambda _n\) and \(n\) eigenvectors \(v_1,\cdots ,v_n\) (N.B. Even though the multiplicity of some of the
+eigenvalues may be larger than one, for the same number of eigenvectors spanning its eigenspace, we can still explicitly use
+different symbols to represent their same eigenvalue. Therefore, we allow duplicated values in the list \(\lambda _1,\cdots ,\lambda _n\). Because the sum of
+the multiplicity of all eigenvalues is \(n\) and all the eigenspaces are orthogonal to each other, we can choose those eigenvectors \(v_1,\cdots ,v_n\)
+to form an orthonormal set. Then any vector \(x\) in \(\mathbb {R}^n\) can be expanded by this basis: \begin{equation}  x = \sum _{i=1}^n c_i v_i.  \end{equation}<a id='x1-6005r8'></a> And the duality pairing
+can be represented as \begin{equation}  x^{\mathrm {T}} \mathscr {A} x = \left ( \sum _{i=1}^n c_iv_i^{\mathrm {T}} \right ) \mathscr {A} \left ( \sum _{j=1}^n c_jv_j \right ) = \sum _{i,j} c_ic_j v_i^{\mathrm {T}} \mathscr {A} v_j = \sum _{i,j} c_ic_j \lambda _j (v_i,v_j),  \end{equation}<a id='x1-6006r9'></a> where \((\cdot ,\cdot )\) is the inner product in \(\mathbb {R}^n\). Because \(v_1,\cdots ,v_n\) are orthonormal, we have \((v_i,v_j) =\delta _{ij}\). Hence, \begin{equation}  x^{\mathrm {T}} \mathscr {A} x = \sum _{i=1}^n \lambda _i c_i^2.  \end{equation}<a id='x1-6007r10'></a> If \(\mathscr {A}\) is
+positive definite, the solution to the linear system \(Ax = b\) exists and is unique. Since all eigenvalues of \(\mathscr {A}\) are larger
+than zero, we let \(\lambda _{\min }\) be the minimum and then have \begin{equation}  \left ( \mathscr {A}x, x \right ) = x^{\mathrm {T}} \mathscr {A} x \geq \lambda _{\min } \sum _{i=1}^n c_i^2 = \lambda _{\min } \lVert x \rVert _{\mathbb {R}^n}^2.  \end{equation}<a id='x1-6008r11'></a> We can see that this discrete formulation is consistent
+with the ellipticity condition. The ellipticity constant \(c_1^A\) of the bounded linear operator \(A\) corresponds to the
+minimum eigenvalue of the positive definite matrix \(\mathscr {A}\). That’s why the ellipticity condition is the key in the
+Lax-Milgram Lemma, which governs the existence and uniqueness of the solution for a PDE formed by
+\(A\).
+</p>
+   </div>
+<!-- l. 148 --><p class='indent'>   </p></div>
+<!-- l. 150 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>3    </span> <a id='x1-70003'></a>When there is a constraint \(Bu=g\)</h3>
+<!-- l. 152 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>3.1    </span> <a id='x1-80003.1'></a>Preconditions</h4>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 155 --><p class='noindent'>\(X\) and \(\Pi \) are Banach spaces <span class='footnote-mark'><a href='#fn2x0' id='fn2x0-bk'><sup class='textsuperscript'>2</sup></a></span><a id='x1-8001f2'></a>
+     with their dual spaces \(X'\) and \(\Pi '\).
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 160 --><p class='noindent'>\(A: X \rightarrow X'\) is a bounded linear operator satisfying \begin{equation}  \norm {Av}_{X'}\leq c_2^A\norm {v}_X \quad \forall v \in X.  \end{equation}<a id='x1-8003r12'></a>
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 164 --><p class='noindent'>\(B: X \rightarrow \Pi '\) is a bounded linear operator satisfying \begin{equation}  \norm {Bv}_{\Pi '} \leq c_2^B\norm {v}_X \quad \forall v\in X.  \end{equation}<a id='x1-8004r13'></a>
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 168 --><p class='noindent'>\(B': \Pi \rightarrow X'\) is the adjoint operator of \(B\) <span class='footnote-mark'><a href='#fn3x0' id='fn3x0-bk'><sup class='textsuperscript'>3</sup></a></span><a id='x1-8005f3'></a>.
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 170 --><p class='noindent'>\(f\in X'\) and \(g \in \Pi '\)</p></li></ul>
+                                                                                               
+                                                                                               
+<!-- l. 173 --><p class='noindent'>The relationship between various spaces is illustrated in Figure <a href='#x1-8009r1'>1<!-- tex4ht:ref: fig:space-relation-in-var-problems  --></a>, where \(J_X\) and \(J_{\Pi }\) are Riesz maps
+<span class='footnote-mark'><a href='#fn4x0' id='fn4x0-bk'><sup class='textsuperscript'>4</sup></a></span><a id='x1-8007f4'></a>.
+</p><figure class='figure'> 
+
+                                                                                               
+                                                                                               
+<a id='x1-8009r1'></a>
+                                                                                               
+                                                                                               
+<!-- l. 178 --><p class='noindent'><img alt='PIC'  src='/figures/2024-10-26-spaces-in-variational-problems.png'  />
+</p>
+<figcaption class='caption'><span class='id'>Figure 1: </span><span class='content'>Relationship between various spaces in the variational problem.</span></figcaption><!-- tex4ht:label?: x1-8009r1  -->
+                                                                                               
+                                                                                               
+   </figure>
+   <h4 class='subsectionHead'><span class='titlemark'>3.2    </span> <a id='x1-90003.2'></a>Problem definitions</h4>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 185 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Definition 4 (Operator equation with constraint</span> \(Bu=g\)<span class='p1xb-'>)</span> </span><a id='x1-9002'></a><a id='x1-90014'></a> Define the manifold \(V_g := \left \{ v\in X: Bv=g \right \}\) and the kernel space \(V_0 := \ker B\). Assume the solvability
+condition \(g\in \image _XB\) and \(f\in \image _{V_g}A\). Then find \(u\in V_g\) satisfying \begin{equation}  Au = f.  \end{equation}<a id='x1-9003r14'></a> N.B. If we require \(u\) to be within the space \(V_g\), the constraint \(Bu=g\) is automatically
+satisfied.
+</p>
+   </div>
+<!-- l. 194 --><p class='indent'>   </p></div>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 196 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Definition 5 (Variational problem with constraint</span> \(Bu=g\)<span class='p1xb-'>)</span> </span><a id='x1-9005'></a><a id='x1-90045'></a> Assume the solvability condition \(g\in \image _XB\) and \(f\in \image _{V_g}A\). Then find \(u\in V_g\) satisfying
+\begin{equation}  \left \langle Au,v \right \rangle = \left \langle f,v \right \rangle \quad \forall v\in V_0.  \end{equation}<a id='x1-9006r15'></a>
+</p>
+   </div>
+<!-- l. 203 --><p class='indent'>   </p></div>
+   <div class='remark'><div class='newtheorem'>
+<!-- l. 205 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Remark 2</span> </span><a id='x1-9008'></a>Such constraint \(Bu=g\) can be the essential boundary condition, i.e. Dirichlet boundary condition. Then the
+solution \(u\) is sought in the space \(V_g\) which explicitly satisfies the Dirichlet boundary condition, while the test function
+is chosen from the space \(V_0\) which satisfies the homogeneous Dirichlet boundary condition.
+</p>
+   </div>
+<!-- l. 210 --><p class='indent'>   </p></div>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 212 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Definition 6 (Extended variational problem using Lagrange multiplier)</span> </span><a id='x1-9010'></a><a id='x1-90096'></a> Introduce the Lagrange multiplier \(p\in \Pi \). Find \((u,p)\in X\times \Pi \) such
+that \begin{equation}  \begin {aligned} \left \langle Au,v \right \rangle + \left \langle Bv,p \right \rangle &amp;= \left \langle f,v \right \rangle \\ \left \langle Bu,q \right \rangle &amp;= \left \langle g,q \right \rangle \end {aligned} \quad \forall (v,q)\in X\times \Pi .  \end{equation}<a id='x1-9011r16'></a>
+</p>
+   </div>
+<!-- l. 223 --><p class='indent'>   </p></div>
+   <div class='remark'><div class='newtheorem'>
+<!-- l. 225 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Remark 3</span> </span><a id='x1-9013'></a>The solution \((u,p)\) is sought in the product space \(X \times \Pi \) but not \(V_g \times \Pi \).
+</p>
+   </div>
+<!-- l. 227 --><p class='indent'>   </p></div>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 229 --><p class='noindent'><span class='head'>
+                                                                                               
+                                                                                               
+<span class='p1xb-'>Definition 7 (Saddle point problem related to the variational problem with constraint in Definition </span><a href='#x1-90045'><span class='p1xb-'>5</span><!-- tex4ht:ref: def:var-eqn-with-constraint  --></a><span class='p1xb-'>)</span> </span><a id='x1-9015'></a><a id='x1-90147'></a> Let \(\mathcal {L}\) be the
+Lagrange functional \begin{equation}  \mathcal {L}(v,q) := \frac {1}{2}\left \langle Av,v \right \rangle - \left \langle f,v \right \rangle + \left \langle Bv,q \right \rangle - \left \langle g,q \right \rangle \quad (v,q)\in X\times \Pi .  \end{equation}<a id='x1-9016r17'></a> The saddle point problem is defined as: find \((u,p)\in X\times \Pi \) such that \begin{equation}  \mathcal {L}(u,q)\leq \mathcal {L}(u,p)\leq \mathcal {L}(v,p) \quad \forall (v,q)\in X\times \Pi .  \end{equation}<a id='x1-9017r18'></a>
+</p>
+   </div>
+<!-- l. 242 --><p class='indent'>   </p></div>
+<!-- l. 244 --><p class='noindent'>Relations between the above problems </p>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 246 --><p class='noindent'>Operator equation with constraint (Definition <a href='#x1-90014'>4<!-- tex4ht:ref: def:op-eqn-with-constraint  --></a>) \(\Longleftrightarrow \) variational problem with constraint (Definition <a href='#x1-90045'>5<!-- tex4ht:ref: def:var-eqn-with-constraint  --></a>)
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 248 --><p class='noindent'>Variation problem with constraint (Definition <a href='#x1-90045'>5<!-- tex4ht:ref: def:var-eqn-with-constraint  --></a>) \(\Longleftrightarrow \) extended variational problem using Lagrange multiplier
+     (Definition <a href='#x1-90096'>6<!-- tex4ht:ref: def:extended-var-eqn  --></a>)
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 251 --><p class='noindent'>When  \(A\)  is  further  self-adjoint  and  positive  semi-definite,  extended  variational  problem  using  Lagrange
+     multiplier (Definition <a href='#x1-90096'>6<!-- tex4ht:ref: def:extended-var-eqn  --></a>) \(\Longleftrightarrow \) saddle point problem (Definition <a href='#x1-90147'>7<!-- tex4ht:ref: def:saddle-point-eqn  --></a>)</p></li></ul>
+<!-- l. 256 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>3.3    </span> <a id='x1-100003.3'></a>Unique solvability and stability</h4>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 259 --><p class='noindent'>The unique solvability of the variational problem (Definition <a href='#x1-90045'>5<!-- tex4ht:ref: def:var-eqn-with-constraint  --></a>) (and thus the operator equation (Definition <a href='#x1-90014'>4<!-- tex4ht:ref: def:op-eqn-with-constraint  --></a>)) for any
+     \(f\in \image _{V_g}A\) and \(g\in \image _XB\) is ensured when \(A\) is \(V_0\)-elliptic, \begin{equation}  \left \langle Av,v \right \rangle \geq c_1^A\norm {v}_X^2 \quad \forall v\in V_0 := \kernel B.  \end{equation}<a id='x1-10001r19'></a> This can be considered as an extension of the Lax-Milgram Lemma. If
+     we further assume a condition on the constraint \(Bu=g\) relation: for any \(g\in \image _XB\), there exists a \(u_g\in V_g\) such that \begin{equation}  \label {eq:ug-norm-constraint} \norm {u_g}_X \leq c_B \norm {g}_{\Pi '},  \end{equation}<a id='x1-10002r20'></a> which
+     can be considered as a stability condition on \(u_g\) derived from the constraint relation only (or we say
+     the norm of the function \(u_g\) is controlled by the norm of the given data \(g\)), then the following stability
+     condition holds for the unique solution \(u\) of the variational problem (Definition <a href='#x1-90045'>5<!-- tex4ht:ref: def:var-eqn-with-constraint  --></a>) or the operator equation
+     (Definition <a href='#x1-90014'>4<!-- tex4ht:ref: def:op-eqn-with-constraint  --></a>): \begin{equation}  \norm {u}_X \leq \frac {1}{c_1^A}\norm {f}_{X'} + \left ( 1+\frac {c_2^A}{c_1^A} \right ) c_B \norm {g}_{\Pi '}.  \end{equation}<a id='x1-10003r21'></a> From this we can see that the stability of \(u\) is better when the \(V_0\)-ellipticity constant \(c_1^A\) is larger,
+     the boundedness constant \(c_2^A\) of \(A\) is smaller and the stability constant \(c_B\) for \(u_g\) is smaller. It is obvious that
+     when the operator \(A\) is unbounded, the solution \(u\) is unstable. Therefore, the boundedness of \(A\) is very
+     important.
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 283 --><p class='noindent'>The unique solvability of the extended variational problem using Lagrange multiplier (Definition <a href='#x1-90096'>6<!-- tex4ht:ref: def:extended-var-eqn  --></a>) can be achieved
+     for any \(f\in \image _{V_g}A\) and \(g\in \image _XB\), when \(V_0\)-ellipticity for \(A\), stability condition for \(u_g\in V_g\) as in (<a href='#x1-10002r20'>20<!-- tex4ht:ref: eq:ug-norm-constraint  --></a>) and the stability condition for \(q\in \Pi \) \begin{equation}  \label {eq:stability-for-q} c_S\norm {q}_{\Pi }\leq \sup _{0\neq v\in X}\frac {\abs {\left \langle Bv,q \right \rangle }}{\norm {v}_X} \quad (\forall q\in \Pi )  \end{equation}<a id='x1-10004r22'></a> are satisfied. Since \begin{equation}  \sup _{0\neq v\in X}\frac {\abs {\left \langle Bv,q \right \rangle }}{\norm {v}_X} = \sup _{0\neq v\in X}\frac {\abs {\left \langle v,B'q \right \rangle }}{\norm {v}_X} = \norm {B'q}_{X'}\leq \norm {B'}\norm {q}_{\Pi },  \end{equation}<a id='x1-10005r23'></a>
+     the stability condition for \(q\) in (<a href='#x1-10004r22'>22<!-- tex4ht:ref: eq:stability-for-q  --></a>) is equivalent to \begin{equation}  \norm {B'}\geq c_S,  \end{equation}<a id='x1-10006r24'></a> which means the norm of the adjoint operator \(B'\) should have a
+     non-zero lower bound.
+     </p><!-- l. 303 --><p class='noindent'>Then the stability conditions for the solution \((u,p)\in X\times \Pi \) are \begin{equation}  \norm {u}_X\leq \frac {1}{c_1^A}\norm {f}_{X'}+\left ( 1+\frac {c_2^A}{c_1^A} \right )c_B\norm {g}_{\Pi '}  \end{equation}<a id='x1-10007r25'></a> and \begin{equation}  \norm {p}_{\Pi }\leq \frac {1}{c_S} \left ( 1+\frac {c_2^A}{c_1^A} \right ) \left \{ \norm {f}_{X'}+c_Bc_2^A\norm {g}_{\Pi '} \right \}.  \end{equation}<a id='x1-10008r26'></a> It can be seen that the larger the lower bound \(c_S\) for \(\norm {B'}\), the larger
+     the stability for \(p\).
+                                                                                               
+                                                                                               
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 312 --><p class='noindent'>The unique solvability of the extended variational problem using Lagrange multiplier (Definition <a href='#x1-90096'>6<!-- tex4ht:ref: def:extended-var-eqn  --></a>) can
+     also be achieved for any \(f\in X'\) and \(g\in \Pi '\), when \(X\)-ellipticity for \(A\), i.e. \begin{equation}  \left \langle Av,v \right \rangle \geq c_1^A\norm {v}_X^2 \quad \forall v\in X,  \end{equation}<a id='x1-10009r27'></a> and the stability condition for \(q\in \Pi \) as in (<a href='#x1-10004r22'>22<!-- tex4ht:ref: eq:stability-for-q  --></a>) are
+     satisfied. The stability conditions for the solution \((u,p)\in X\times \Pi \) are \begin{equation}  \norm {u}_X\leq \frac {1}{c_1^A}\left ( 1+\frac {(c_2^B)^2}{c_1^Ac_1^S} \right )\norm {f}_{X'}+\frac {c_2^B}{c_1^Ac_1^S}\norm {g}_{\Pi '}  \end{equation}<a id='x1-10010r28'></a> and \begin{equation}  \norm {p}_{\Pi }\leq \frac {1}{c_1^S}\norm {BA^{-1}f-g}_{\Pi '}\leq \frac {1}{c_1^S}\left [ \frac {c_2^B}{c_1^A}\norm {f}_{X'}+\norm {g}_{\Pi '} \right ],  \end{equation}<a id='x1-10011r29'></a> where \(c_1^S\) is the coefficient for the \(\Pi \)-ellipticity of
+     the operator \(S := BA^{-1}B': \Pi \rightarrow \Pi '\), i.e. \begin{equation}  \left \langle Sq,q \right \rangle \geq c_1^S \norm {q}_{\Pi }^2 \quad \forall q\in \Pi .  \end{equation}<a id='x1-10012r30'></a> This \(\Pi \)-ellipticity depends on the \(V_0\)-ellipticity for \(A\) and the stability condition for \(q\) as in
+     (<a href='#x1-10004r22'>22<!-- tex4ht:ref: eq:stability-for-q  --></a>).</p></li></ul>
+<!-- l. 1 --><p class='noindent'>
+</p>
+   <h3 class='likesectionHead'><a id='x1-11000'></a>References</h3>
+<!-- l. 1 --><p class='noindent'>
+  </p><div class='thebibliography'>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XSteinbachNumerical2007'></a><span class='bibsp'>   </span></span>Olaf  Steinbach.    <span class='p1xi-'>Numerical  Approximation  Methods  for  Elliptic  Boundary  Value  Problems:  Finite  and  Boundary
+  </span><span class='p1xi-'>Elements</span>. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2.
+</p>
+  </div>
+   <div class='footnotes'><a id='x1-5012x2.2'></a>
+<!-- l. 93 --><p class='noindent'><span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-80'>In (</span><a href='#XSteinbachNumerical2007'><span class='p1xr-x-x-80'>Steinbach</span></a><span class='p1xr-x-x-80'>), self-adjoint is actually self-dual in functional analysis.</span></p><a id='x1-8002x3.1'></a>
+<!-- l. 158 --><p class='noindent'><span class='footnote-mark'><a href='#fn2x0-bk' id='fn2x0'><sup class='textsuperscript'>2</sup></a></span><span class='p1xr-x-x-80'>In Banach spaces, inner product is not defined, so according to functional analysis, the concept of adjointness is not available. This again
+</span><span class='p1xr-x-x-80'>verifies my understanding that in (</span><a href='#XSteinbachNumerical2007'><span class='p1xr-x-x-80'>Steinbach</span></a><span class='p1xr-x-x-80'>), self-adjoint is actually self-dual.</span></p><a id='x1-8006x3.1'></a>
+<!-- l. 169 --><p class='noindent'><span class='footnote-mark'><a href='#fn3x0-bk' id='fn3x0'><sup class='textsuperscript'>3</sup></a></span><span class='p1xr-x-x-80'>In functional analysis, this is actually the dual operator, not adjoint operator.</span></p><a id='x1-8008x3.1'></a>
+<!-- l. 175 --><p class='indent'>        <span class='footnote-mark'><a href='#fn4x0-bk' id='fn4x0'><sup class='textsuperscript'>4</sup></a></span><span class='p1xr-x-x-80'>N.B. A Riesz map maps from the dual space to the primal space.</span></p>                                                                                                                        </div>
