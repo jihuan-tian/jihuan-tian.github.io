@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Variational problems | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Variational problems" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Contents  1 Basic ideas  2 When there is no constraint   2.1 Preconditions   2.2 Problem definitions   2.3 Unique solvability and stability  3 When there is a constraint \(Bu=g\)   3.1 Preconditions   3.2 Problem definitions   3.3 Unique solvability and stability 1 Basic ideas &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 12 --&gt;&lt;p class=&#39;noindent&#39;&gt;There are three types of problems: &lt;/p&gt; &lt;ul class=&#39;itemize2&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 14 --&gt;&lt;p class=&#39;noindent&#39;&gt;The original operator equation \(Au=f\). The two sides of this equation are functions and should be equal pointwise. This is the strong form problem. &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 16 --&gt;&lt;p class=&#39;noindent&#39;&gt;The variational problem is obtained by projecting the two sides of the operator equation to a test function space \(V\). The “projection” here means multiply the two sides of the equation with an arbitrary function in the test function space, then integrate them over the domain, i.e. \(\left \langle Au,v \right \rangle =\left \langle f,v \right \rangle \). Therefore, infinitely many equations are established and we say the equality is in the sense of projection. This is the weak form problem. &lt;/p&gt;&lt;!-- l. 24 --&gt;&lt;p class=&#39;noindent&#39;&gt;We can also understand the test function space \(V\) as a multidimensional ruler. The right hand side function \(f\) of the operator equation and the output function returned from applying the partial differential operator to the solution function, i.e. \(Au\), will be measured with this ruler. &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 28 --&gt;&lt;p class=&#39;noindent&#39;&gt;The problem of minimizing an energy functional, such as \(\mathcal {L}(v)=\frac {1}{2}\left \langle Av,v \right \rangle -\left \langle f,v \right \rangle \).&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; &lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 32 --&gt;&lt;p class=&#39;noindent&#39;&gt;The operator equation and the variational problem is equivalent due to the boundedness of the bilinear form \(a(u,v):= \left \langle Au,v \right \rangle \). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 34 --&gt;&lt;p class=&#39;noindent&#39;&gt;The variation problem is further equivalent to the minimization problem, if the bilinear form \(a(u,v)\) is symmetric and positive definite. This condition is equivalent to that the linear operator \(A\) associated with this bilinear form \(a(u,v)\) is self-dual and elliptic. Of course, the boundedness of the bilinear form \(a(u,v)\) is equivalent to the boundedness of the linear operator \(A\).&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; &lt;!-- l. 41 --&gt;&lt;p class=&#39;noindent&#39;&gt; &lt;/p&gt; 2 When there is no constraint 2.1 Preconditions &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 46 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(X\) is a Hilbert space and \(X&#39;\) is the dual space of \(X\). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 47 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(\left \langle \cdot ,\cdot \right \rangle _X\) is the inner product in \(X\). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 48 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(\left \langle \cdot ,\cdot \right \rangle \) is the duality pairing, which applies a linear functional \(f\in X&#39;\) to an element \(u\in X\), i.e. \(\left \langle f,u \right \rangle =\left \langle u,f \right \rangle =f(u)\). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 50 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(A: X \rightarrow X&#39;\) is a bounded linear operator satisfying \begin{equation} \norm {Av}_{X&#39;}\leq c_2^A\norm {v}_X \quad \forall v \in X. \end{equation}&lt;a id=&#39;x1-4001r1&#39;&gt;&lt;/a&gt; &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 54 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(f\in X&#39;\)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; 2.2 Problem definitions Definition 1 (Operator equation with no constraint) Find \(u \in X\) satisfying \begin{equation} Au = f. \end{equation} Definition 2 (Variational problem with no constraint) Find \(u\in X\) such that \begin{equation} \left \langle Au,v \right \rangle = \left \langle f,v \right \rangle \quad \forall v\in X. \end{equation} Definition 3 (Minimization problem for no constraint case) Let \(F\) be the functional \begin{equation} F(v) := \frac {1}{2}\left \langle Av,v \right \rangle - \left \langle f,v \right \rangle \quad (v\in X). \end{equation} The minimization problem is defined as \begin{equation} F(u) =\min _{v\in X} F(v). \end{equation} Relations between the above problems: &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 90 --&gt;&lt;p class=&#39;noindent&#39;&gt;Operator equation (Definition &lt;a href=&#39;#x1-50011&#39;&gt;1&lt;!-- tex4ht:ref: def:op-eqn-no-constraint --&gt;&lt;/a&gt;) \(\Longleftrightarrow \) variational problem (Definition &lt;a href=&#39;#x1-50042&#39;&gt;2&lt;!-- tex4ht:ref: def:var-eqn-no-constraint --&gt;&lt;/a&gt;) &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 92 --&gt;&lt;p class=&#39;noindent&#39;&gt;When \(A\) is further self-adjoint &lt;span class=&#39;footnote-mark&#39;&gt;&lt;a href=&#39;#fn1x0&#39; id=&#39;fn1x0-bk&#39;&gt;&lt;sup class=&#39;textsuperscript&#39;&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/span&gt;&lt;a id=&#39;x1-5011f1&#39;&gt;&lt;/a&gt; and positive semi-definite, variational problem (Definition &lt;a href=&#39;#x1-50042&#39;&gt;2&lt;!-- tex4ht:ref: def:var-eqn-no-constraint --&gt;&lt;/a&gt;) \(\Longleftrightarrow \) minimization problem (Definition &lt;a href=&#39;#x1-50073&#39;&gt;3&lt;!-- tex4ht:ref: def:min-eqn-no-constraint --&gt;&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; &lt;!-- l. 98 --&gt;&lt;p class=&#39;noindent&#39;&gt; &lt;/p&gt; 2.3 Unique solvability and stability The unique solvability of the operator equation (Definition 1) (and thus the variational problem (Definition 2)) for any \(f\in X&#39;\) is governed by the Lax-Milgram Lemma, which requires that \(A\) should be \(X\)-elliptic, i.e. \begin{equation} \label {eq:ellipticity-condition} \left \langle Av,v \right \rangle \geq c_1^A\norm {v}_X^2 \quad \forall v\in X. \end{equation} It also prescribes a stability condition on the solution \(u\): \begin{equation} \norm {u}_X\leq \frac {1}{c_1^A}\norm {f}_{X&#39;}. \end{equation} It can be seen that the smaller the ellipticity constant \(c_1^A\), the less the stability for \(u\). \(c_1^A\) is related to the smallest eigenvalue of the discretized matrix for the operator \(A\). A small \(c_1^A\) is caused by an increase in the number of DoFs and sharp corners in the geometry of the model. The error in the data for \(f\) will be amplified by \(\frac {1}{c_1^A}\). Remark 1 (Understanding about ellipticity of operators) We are going to compare the ellipticity condition in Equation (6) with its discrete counterpart. Let \(\mathscr {A}\) be the matrix in \(\mathbb {R}^{n\times n}\) corresponding to \(A\) which is discretized via the Galerkin method. Let \(x\) be the vector in \(\mathbb {R}^n\) related to \(v\). Assume \(\mathscr {A}\) has \(n\) eigenvalues \(\lambda _1,\cdots ,\lambda _n\) and \(n\) eigenvectors \(v_1,\cdots ,v_n\) (N.B. Even though the multiplicity of some of the eigenvalues may be larger than one, for the same number of eigenvectors spanning its eigenspace, we can still explicitly use different symbols to represent their same eigenvalue. Therefore, we allow duplicated values in the list \(\lambda _1,\cdots ,\lambda _n\). Because the sum of the multiplicity of all eigenvalues is \(n\) and all the eigenspaces are orthogonal to each other, we can choose those eigenvectors \(v_1,\cdots ,v_n\) to form an orthonormal set. Then any vector \(x\) in \(\mathbb {R}^n\) can be expanded by this basis: \begin{equation} x = \sum _{i=1}^n c_i v_i. \end{equation} And the duality pairing can be represented as \begin{equation} x^{\mathrm {T}} \mathscr {A} x = \left ( \sum _{i=1}^n c_iv_i^{\mathrm {T}} \right ) \mathscr {A} \left ( \sum _{j=1}^n c_jv_j \right ) = \sum _{i,j} c_ic_j v_i^{\mathrm {T}} \mathscr {A} v_j = \sum _{i,j} c_ic_j \lambda _j (v_i,v_j), \end{equation} where \((\cdot ,\cdot )\) is the inner product in \(\mathbb {R}^n\). Because \(v_1,\cdots ,v_n\) are orthonormal, we have \((v_i,v_j) =\delta _{ij}\). Hence, \begin{equation} x^{\mathrm {T}} \mathscr {A} x = \sum _{i=1}^n \lambda _i c_i^2. \end{equation} If \(\mathscr {A}\) is positive definite, the solution to the linear system \(Ax = b\) exists and is unique. Since all eigenvalues of \(\mathscr {A}\) are larger than zero, we let \(\lambda _{\min }\) be the minimum and then have \begin{equation} \left ( \mathscr {A}x, x \right ) = x^{\mathrm {T}} \mathscr {A} x \geq \lambda _{\min } \sum _{i=1}^n c_i^2 = \lambda _{\min } \lVert x \rVert _{\mathbb {R}^n}^2. \end{equation} We can see that this discrete formulation is consistent with the ellipticity condition. The ellipticity constant \(c_1^A\) of the bounded linear operator \(A\) corresponds to the minimum eigenvalue of the positive definite matrix \(\mathscr {A}\). That’s why the ellipticity condition is the key in the Lax-Milgram Lemma, which governs the existence and uniqueness of the solution for a PDE formed by \(A\). 3 When there is a constraint \(Bu=g\) 3.1 Preconditions &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 155 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(X\) and \(\Pi \) are Banach spaces &lt;span class=&#39;footnote-mark&#39;&gt;&lt;a href=&#39;#fn2x0&#39; id=&#39;fn2x0-bk&#39;&gt;&lt;sup class=&#39;textsuperscript&#39;&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/span&gt;&lt;a id=&#39;x1-8001f2&#39;&gt;&lt;/a&gt; with their dual spaces \(X&#39;\) and \(\Pi &#39;\). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 160 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(A: X \rightarrow X&#39;\) is a bounded linear operator satisfying \begin{equation} \norm {Av}_{X&#39;}\leq c_2^A\norm {v}_X \quad \forall v \in X. \end{equation}&lt;a id=&#39;x1-8003r12&#39;&gt;&lt;/a&gt; &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 164 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(B: X \rightarrow \Pi &#39;\) is a bounded linear operator satisfying \begin{equation} \norm {Bv}_{\Pi &#39;} \leq c_2^B\norm {v}_X \quad \forall v\in X. \end{equation}&lt;a id=&#39;x1-8004r13&#39;&gt;&lt;/a&gt; &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 168 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(B&#39;: \Pi \rightarrow X&#39;\) is the adjoint operator of \(B\) &lt;span class=&#39;footnote-mark&#39;&gt;&lt;a href=&#39;#fn3x0&#39; id=&#39;fn3x0-bk&#39;&gt;&lt;sup class=&#39;textsuperscript&#39;&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/span&gt;&lt;a id=&#39;x1-8005f3&#39;&gt;&lt;/a&gt;. &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 170 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(f\in X&#39;\) and \(g \in \Pi &#39;\)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; The relationship between various spaces is illustrated in Figure 1, where \(J_X\) and \(J_{\Pi }\) are Riesz maps 4." />
+<meta property="og:description" content="Contents  1 Basic ideas  2 When there is no constraint   2.1 Preconditions   2.2 Problem definitions   2.3 Unique solvability and stability  3 When there is a constraint \(Bu=g\)   3.1 Preconditions   3.2 Problem definitions   3.3 Unique solvability and stability 1 Basic ideas &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 12 --&gt;&lt;p class=&#39;noindent&#39;&gt;There are three types of problems: &lt;/p&gt; &lt;ul class=&#39;itemize2&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 14 --&gt;&lt;p class=&#39;noindent&#39;&gt;The original operator equation \(Au=f\). The two sides of this equation are functions and should be equal pointwise. This is the strong form problem. &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 16 --&gt;&lt;p class=&#39;noindent&#39;&gt;The variational problem is obtained by projecting the two sides of the operator equation to a test function space \(V\). The “projection” here means multiply the two sides of the equation with an arbitrary function in the test function space, then integrate them over the domain, i.e. \(\left \langle Au,v \right \rangle =\left \langle f,v \right \rangle \). Therefore, infinitely many equations are established and we say the equality is in the sense of projection. This is the weak form problem. &lt;/p&gt;&lt;!-- l. 24 --&gt;&lt;p class=&#39;noindent&#39;&gt;We can also understand the test function space \(V\) as a multidimensional ruler. The right hand side function \(f\) of the operator equation and the output function returned from applying the partial differential operator to the solution function, i.e. \(Au\), will be measured with this ruler. &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 28 --&gt;&lt;p class=&#39;noindent&#39;&gt;The problem of minimizing an energy functional, such as \(\mathcal {L}(v)=\frac {1}{2}\left \langle Av,v \right \rangle -\left \langle f,v \right \rangle \).&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; &lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 32 --&gt;&lt;p class=&#39;noindent&#39;&gt;The operator equation and the variational problem is equivalent due to the boundedness of the bilinear form \(a(u,v):= \left \langle Au,v \right \rangle \). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 34 --&gt;&lt;p class=&#39;noindent&#39;&gt;The variation problem is further equivalent to the minimization problem, if the bilinear form \(a(u,v)\) is symmetric and positive definite. This condition is equivalent to that the linear operator \(A\) associated with this bilinear form \(a(u,v)\) is self-dual and elliptic. Of course, the boundedness of the bilinear form \(a(u,v)\) is equivalent to the boundedness of the linear operator \(A\).&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; &lt;!-- l. 41 --&gt;&lt;p class=&#39;noindent&#39;&gt; &lt;/p&gt; 2 When there is no constraint 2.1 Preconditions &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 46 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(X\) is a Hilbert space and \(X&#39;\) is the dual space of \(X\). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 47 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(\left \langle \cdot ,\cdot \right \rangle _X\) is the inner product in \(X\). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 48 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(\left \langle \cdot ,\cdot \right \rangle \) is the duality pairing, which applies a linear functional \(f\in X&#39;\) to an element \(u\in X\), i.e. \(\left \langle f,u \right \rangle =\left \langle u,f \right \rangle =f(u)\). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 50 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(A: X \rightarrow X&#39;\) is a bounded linear operator satisfying \begin{equation} \norm {Av}_{X&#39;}\leq c_2^A\norm {v}_X \quad \forall v \in X. \end{equation}&lt;a id=&#39;x1-4001r1&#39;&gt;&lt;/a&gt; &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 54 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(f\in X&#39;\)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; 2.2 Problem definitions Definition 1 (Operator equation with no constraint) Find \(u \in X\) satisfying \begin{equation} Au = f. \end{equation} Definition 2 (Variational problem with no constraint) Find \(u\in X\) such that \begin{equation} \left \langle Au,v \right \rangle = \left \langle f,v \right \rangle \quad \forall v\in X. \end{equation} Definition 3 (Minimization problem for no constraint case) Let \(F\) be the functional \begin{equation} F(v) := \frac {1}{2}\left \langle Av,v \right \rangle - \left \langle f,v \right \rangle \quad (v\in X). \end{equation} The minimization problem is defined as \begin{equation} F(u) =\min _{v\in X} F(v). \end{equation} Relations between the above problems: &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 90 --&gt;&lt;p class=&#39;noindent&#39;&gt;Operator equation (Definition &lt;a href=&#39;#x1-50011&#39;&gt;1&lt;!-- tex4ht:ref: def:op-eqn-no-constraint --&gt;&lt;/a&gt;) \(\Longleftrightarrow \) variational problem (Definition &lt;a href=&#39;#x1-50042&#39;&gt;2&lt;!-- tex4ht:ref: def:var-eqn-no-constraint --&gt;&lt;/a&gt;) &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 92 --&gt;&lt;p class=&#39;noindent&#39;&gt;When \(A\) is further self-adjoint &lt;span class=&#39;footnote-mark&#39;&gt;&lt;a href=&#39;#fn1x0&#39; id=&#39;fn1x0-bk&#39;&gt;&lt;sup class=&#39;textsuperscript&#39;&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/span&gt;&lt;a id=&#39;x1-5011f1&#39;&gt;&lt;/a&gt; and positive semi-definite, variational problem (Definition &lt;a href=&#39;#x1-50042&#39;&gt;2&lt;!-- tex4ht:ref: def:var-eqn-no-constraint --&gt;&lt;/a&gt;) \(\Longleftrightarrow \) minimization problem (Definition &lt;a href=&#39;#x1-50073&#39;&gt;3&lt;!-- tex4ht:ref: def:min-eqn-no-constraint --&gt;&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; &lt;!-- l. 98 --&gt;&lt;p class=&#39;noindent&#39;&gt; &lt;/p&gt; 2.3 Unique solvability and stability The unique solvability of the operator equation (Definition 1) (and thus the variational problem (Definition 2)) for any \(f\in X&#39;\) is governed by the Lax-Milgram Lemma, which requires that \(A\) should be \(X\)-elliptic, i.e. \begin{equation} \label {eq:ellipticity-condition} \left \langle Av,v \right \rangle \geq c_1^A\norm {v}_X^2 \quad \forall v\in X. \end{equation} It also prescribes a stability condition on the solution \(u\): \begin{equation} \norm {u}_X\leq \frac {1}{c_1^A}\norm {f}_{X&#39;}. \end{equation} It can be seen that the smaller the ellipticity constant \(c_1^A\), the less the stability for \(u\). \(c_1^A\) is related to the smallest eigenvalue of the discretized matrix for the operator \(A\). A small \(c_1^A\) is caused by an increase in the number of DoFs and sharp corners in the geometry of the model. The error in the data for \(f\) will be amplified by \(\frac {1}{c_1^A}\). Remark 1 (Understanding about ellipticity of operators) We are going to compare the ellipticity condition in Equation (6) with its discrete counterpart. Let \(\mathscr {A}\) be the matrix in \(\mathbb {R}^{n\times n}\) corresponding to \(A\) which is discretized via the Galerkin method. Let \(x\) be the vector in \(\mathbb {R}^n\) related to \(v\). Assume \(\mathscr {A}\) has \(n\) eigenvalues \(\lambda _1,\cdots ,\lambda _n\) and \(n\) eigenvectors \(v_1,\cdots ,v_n\) (N.B. Even though the multiplicity of some of the eigenvalues may be larger than one, for the same number of eigenvectors spanning its eigenspace, we can still explicitly use different symbols to represent their same eigenvalue. Therefore, we allow duplicated values in the list \(\lambda _1,\cdots ,\lambda _n\). Because the sum of the multiplicity of all eigenvalues is \(n\) and all the eigenspaces are orthogonal to each other, we can choose those eigenvectors \(v_1,\cdots ,v_n\) to form an orthonormal set. Then any vector \(x\) in \(\mathbb {R}^n\) can be expanded by this basis: \begin{equation} x = \sum _{i=1}^n c_i v_i. \end{equation} And the duality pairing can be represented as \begin{equation} x^{\mathrm {T}} \mathscr {A} x = \left ( \sum _{i=1}^n c_iv_i^{\mathrm {T}} \right ) \mathscr {A} \left ( \sum _{j=1}^n c_jv_j \right ) = \sum _{i,j} c_ic_j v_i^{\mathrm {T}} \mathscr {A} v_j = \sum _{i,j} c_ic_j \lambda _j (v_i,v_j), \end{equation} where \((\cdot ,\cdot )\) is the inner product in \(\mathbb {R}^n\). Because \(v_1,\cdots ,v_n\) are orthonormal, we have \((v_i,v_j) =\delta _{ij}\). Hence, \begin{equation} x^{\mathrm {T}} \mathscr {A} x = \sum _{i=1}^n \lambda _i c_i^2. \end{equation} If \(\mathscr {A}\) is positive definite, the solution to the linear system \(Ax = b\) exists and is unique. Since all eigenvalues of \(\mathscr {A}\) are larger than zero, we let \(\lambda _{\min }\) be the minimum and then have \begin{equation} \left ( \mathscr {A}x, x \right ) = x^{\mathrm {T}} \mathscr {A} x \geq \lambda _{\min } \sum _{i=1}^n c_i^2 = \lambda _{\min } \lVert x \rVert _{\mathbb {R}^n}^2. \end{equation} We can see that this discrete formulation is consistent with the ellipticity condition. The ellipticity constant \(c_1^A\) of the bounded linear operator \(A\) corresponds to the minimum eigenvalue of the positive definite matrix \(\mathscr {A}\). That’s why the ellipticity condition is the key in the Lax-Milgram Lemma, which governs the existence and uniqueness of the solution for a PDE formed by \(A\). 3 When there is a constraint \(Bu=g\) 3.1 Preconditions &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 155 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(X\) and \(\Pi \) are Banach spaces &lt;span class=&#39;footnote-mark&#39;&gt;&lt;a href=&#39;#fn2x0&#39; id=&#39;fn2x0-bk&#39;&gt;&lt;sup class=&#39;textsuperscript&#39;&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/span&gt;&lt;a id=&#39;x1-8001f2&#39;&gt;&lt;/a&gt; with their dual spaces \(X&#39;\) and \(\Pi &#39;\). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 160 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(A: X \rightarrow X&#39;\) is a bounded linear operator satisfying \begin{equation} \norm {Av}_{X&#39;}\leq c_2^A\norm {v}_X \quad \forall v \in X. \end{equation}&lt;a id=&#39;x1-8003r12&#39;&gt;&lt;/a&gt; &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 164 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(B: X \rightarrow \Pi &#39;\) is a bounded linear operator satisfying \begin{equation} \norm {Bv}_{\Pi &#39;} \leq c_2^B\norm {v}_X \quad \forall v\in X. \end{equation}&lt;a id=&#39;x1-8004r13&#39;&gt;&lt;/a&gt; &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 168 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(B&#39;: \Pi \rightarrow X&#39;\) is the adjoint operator of \(B\) &lt;span class=&#39;footnote-mark&#39;&gt;&lt;a href=&#39;#fn3x0&#39; id=&#39;fn3x0-bk&#39;&gt;&lt;sup class=&#39;textsuperscript&#39;&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/span&gt;&lt;a id=&#39;x1-8005f3&#39;&gt;&lt;/a&gt;. &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 170 --&gt;&lt;p class=&#39;noindent&#39;&gt;\(f\in X&#39;\) and \(g \in \Pi &#39;\)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; The relationship between various spaces is illustrated in Figure 1, where \(J_X\) and \(J_{\Pi }\) are Riesz maps 4." />
+<link rel="canonical" href="https://jihuan-tian.github.io/math/2024/10/26/variational-problems.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/math/2024/10/26/variational-problems.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-10-26T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Variational problems" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2024-10-26T00:00:00+08:00","datePublished":"2024-10-26T00:00:00+08:00","description":"Contents  1 Basic ideas  2 When there is no constraint   2.1 Preconditions   2.2 Problem definitions   2.3 Unique solvability and stability  3 When there is a constraint \\(Bu=g\\)   3.1 Preconditions   3.2 Problem definitions   3.3 Unique solvability and stability 1 Basic ideas &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 12 --&gt;&lt;p class=&#39;noindent&#39;&gt;There are three types of problems: &lt;/p&gt; &lt;ul class=&#39;itemize2&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 14 --&gt;&lt;p class=&#39;noindent&#39;&gt;The original operator equation \\(Au=f\\). The two sides of this equation are functions and should be equal pointwise. This is the strong form problem. &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 16 --&gt;&lt;p class=&#39;noindent&#39;&gt;The variational problem is obtained by projecting the two sides of the operator equation to a test function space \\(V\\). The “projection” here means multiply the two sides of the equation with an arbitrary function in the test function space, then integrate them over the domain, i.e. \\(\\left \\langle Au,v \\right \\rangle =\\left \\langle f,v \\right \\rangle \\). Therefore, infinitely many equations are established and we say the equality is in the sense of projection. This is the weak form problem. &lt;/p&gt;&lt;!-- l. 24 --&gt;&lt;p class=&#39;noindent&#39;&gt;We can also understand the test function space \\(V\\) as a multidimensional ruler. The right hand side function \\(f\\) of the operator equation and the output function returned from applying the partial differential operator to the solution function, i.e. \\(Au\\), will be measured with this ruler. &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 28 --&gt;&lt;p class=&#39;noindent&#39;&gt;The problem of minimizing an energy functional, such as \\(\\mathcal {L}(v)=\\frac {1}{2}\\left \\langle Av,v \\right \\rangle -\\left \\langle f,v \\right \\rangle \\).&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; &lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 32 --&gt;&lt;p class=&#39;noindent&#39;&gt;The operator equation and the variational problem is equivalent due to the boundedness of the bilinear form \\(a(u,v):= \\left \\langle Au,v \\right \\rangle \\). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 34 --&gt;&lt;p class=&#39;noindent&#39;&gt;The variation problem is further equivalent to the minimization problem, if the bilinear form \\(a(u,v)\\) is symmetric and positive definite. This condition is equivalent to that the linear operator \\(A\\) associated with this bilinear form \\(a(u,v)\\) is self-dual and elliptic. Of course, the boundedness of the bilinear form \\(a(u,v)\\) is equivalent to the boundedness of the linear operator \\(A\\).&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; &lt;!-- l. 41 --&gt;&lt;p class=&#39;noindent&#39;&gt; &lt;/p&gt; 2 When there is no constraint 2.1 Preconditions &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 46 --&gt;&lt;p class=&#39;noindent&#39;&gt;\\(X\\) is a Hilbert space and \\(X&#39;\\) is the dual space of \\(X\\). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 47 --&gt;&lt;p class=&#39;noindent&#39;&gt;\\(\\left \\langle \\cdot ,\\cdot \\right \\rangle _X\\) is the inner product in \\(X\\). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 48 --&gt;&lt;p class=&#39;noindent&#39;&gt;\\(\\left \\langle \\cdot ,\\cdot \\right \\rangle \\) is the duality pairing, which applies a linear functional \\(f\\in X&#39;\\) to an element \\(u\\in X\\), i.e. \\(\\left \\langle f,u \\right \\rangle =\\left \\langle u,f \\right \\rangle =f(u)\\). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 50 --&gt;&lt;p class=&#39;noindent&#39;&gt;\\(A: X \\rightarrow X&#39;\\) is a bounded linear operator satisfying \\begin{equation} \\norm {Av}_{X&#39;}\\leq c_2^A\\norm {v}_X \\quad \\forall v \\in X. \\end{equation}&lt;a id=&#39;x1-4001r1&#39;&gt;&lt;/a&gt; &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 54 --&gt;&lt;p class=&#39;noindent&#39;&gt;\\(f\\in X&#39;\\)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; 2.2 Problem definitions Definition 1 (Operator equation with no constraint) Find \\(u \\in X\\) satisfying \\begin{equation} Au = f. \\end{equation} Definition 2 (Variational problem with no constraint) Find \\(u\\in X\\) such that \\begin{equation} \\left \\langle Au,v \\right \\rangle = \\left \\langle f,v \\right \\rangle \\quad \\forall v\\in X. \\end{equation} Definition 3 (Minimization problem for no constraint case) Let \\(F\\) be the functional \\begin{equation} F(v) := \\frac {1}{2}\\left \\langle Av,v \\right \\rangle - \\left \\langle f,v \\right \\rangle \\quad (v\\in X). \\end{equation} The minimization problem is defined as \\begin{equation} F(u) =\\min _{v\\in X} F(v). \\end{equation} Relations between the above problems: &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 90 --&gt;&lt;p class=&#39;noindent&#39;&gt;Operator equation (Definition &lt;a href=&#39;#x1-50011&#39;&gt;1&lt;!-- tex4ht:ref: def:op-eqn-no-constraint --&gt;&lt;/a&gt;) \\(\\Longleftrightarrow \\) variational problem (Definition &lt;a href=&#39;#x1-50042&#39;&gt;2&lt;!-- tex4ht:ref: def:var-eqn-no-constraint --&gt;&lt;/a&gt;) &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 92 --&gt;&lt;p class=&#39;noindent&#39;&gt;When \\(A\\) is further self-adjoint &lt;span class=&#39;footnote-mark&#39;&gt;&lt;a href=&#39;#fn1x0&#39; id=&#39;fn1x0-bk&#39;&gt;&lt;sup class=&#39;textsuperscript&#39;&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/span&gt;&lt;a id=&#39;x1-5011f1&#39;&gt;&lt;/a&gt; and positive semi-definite, variational problem (Definition &lt;a href=&#39;#x1-50042&#39;&gt;2&lt;!-- tex4ht:ref: def:var-eqn-no-constraint --&gt;&lt;/a&gt;) \\(\\Longleftrightarrow \\) minimization problem (Definition &lt;a href=&#39;#x1-50073&#39;&gt;3&lt;!-- tex4ht:ref: def:min-eqn-no-constraint --&gt;&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; &lt;!-- l. 98 --&gt;&lt;p class=&#39;noindent&#39;&gt; &lt;/p&gt; 2.3 Unique solvability and stability The unique solvability of the operator equation (Definition 1) (and thus the variational problem (Definition 2)) for any \\(f\\in X&#39;\\) is governed by the Lax-Milgram Lemma, which requires that \\(A\\) should be \\(X\\)-elliptic, i.e. \\begin{equation} \\label {eq:ellipticity-condition} \\left \\langle Av,v \\right \\rangle \\geq c_1^A\\norm {v}_X^2 \\quad \\forall v\\in X. \\end{equation} It also prescribes a stability condition on the solution \\(u\\): \\begin{equation} \\norm {u}_X\\leq \\frac {1}{c_1^A}\\norm {f}_{X&#39;}. \\end{equation} It can be seen that the smaller the ellipticity constant \\(c_1^A\\), the less the stability for \\(u\\). \\(c_1^A\\) is related to the smallest eigenvalue of the discretized matrix for the operator \\(A\\). A small \\(c_1^A\\) is caused by an increase in the number of DoFs and sharp corners in the geometry of the model. The error in the data for \\(f\\) will be amplified by \\(\\frac {1}{c_1^A}\\). Remark 1 (Understanding about ellipticity of operators) We are going to compare the ellipticity condition in Equation (6) with its discrete counterpart. Let \\(\\mathscr {A}\\) be the matrix in \\(\\mathbb {R}^{n\\times n}\\) corresponding to \\(A\\) which is discretized via the Galerkin method. Let \\(x\\) be the vector in \\(\\mathbb {R}^n\\) related to \\(v\\). Assume \\(\\mathscr {A}\\) has \\(n\\) eigenvalues \\(\\lambda _1,\\cdots ,\\lambda _n\\) and \\(n\\) eigenvectors \\(v_1,\\cdots ,v_n\\) (N.B. Even though the multiplicity of some of the eigenvalues may be larger than one, for the same number of eigenvectors spanning its eigenspace, we can still explicitly use different symbols to represent their same eigenvalue. Therefore, we allow duplicated values in the list \\(\\lambda _1,\\cdots ,\\lambda _n\\). Because the sum of the multiplicity of all eigenvalues is \\(n\\) and all the eigenspaces are orthogonal to each other, we can choose those eigenvectors \\(v_1,\\cdots ,v_n\\) to form an orthonormal set. Then any vector \\(x\\) in \\(\\mathbb {R}^n\\) can be expanded by this basis: \\begin{equation} x = \\sum _{i=1}^n c_i v_i. \\end{equation} And the duality pairing can be represented as \\begin{equation} x^{\\mathrm {T}} \\mathscr {A} x = \\left ( \\sum _{i=1}^n c_iv_i^{\\mathrm {T}} \\right ) \\mathscr {A} \\left ( \\sum _{j=1}^n c_jv_j \\right ) = \\sum _{i,j} c_ic_j v_i^{\\mathrm {T}} \\mathscr {A} v_j = \\sum _{i,j} c_ic_j \\lambda _j (v_i,v_j), \\end{equation} where \\((\\cdot ,\\cdot )\\) is the inner product in \\(\\mathbb {R}^n\\). Because \\(v_1,\\cdots ,v_n\\) are orthonormal, we have \\((v_i,v_j) =\\delta _{ij}\\). Hence, \\begin{equation} x^{\\mathrm {T}} \\mathscr {A} x = \\sum _{i=1}^n \\lambda _i c_i^2. \\end{equation} If \\(\\mathscr {A}\\) is positive definite, the solution to the linear system \\(Ax = b\\) exists and is unique. Since all eigenvalues of \\(\\mathscr {A}\\) are larger than zero, we let \\(\\lambda _{\\min }\\) be the minimum and then have \\begin{equation} \\left ( \\mathscr {A}x, x \\right ) = x^{\\mathrm {T}} \\mathscr {A} x \\geq \\lambda _{\\min } \\sum _{i=1}^n c_i^2 = \\lambda _{\\min } \\lVert x \\rVert _{\\mathbb {R}^n}^2. \\end{equation} We can see that this discrete formulation is consistent with the ellipticity condition. The ellipticity constant \\(c_1^A\\) of the bounded linear operator \\(A\\) corresponds to the minimum eigenvalue of the positive definite matrix \\(\\mathscr {A}\\). That’s why the ellipticity condition is the key in the Lax-Milgram Lemma, which governs the existence and uniqueness of the solution for a PDE formed by \\(A\\). 3 When there is a constraint \\(Bu=g\\) 3.1 Preconditions &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 155 --&gt;&lt;p class=&#39;noindent&#39;&gt;\\(X\\) and \\(\\Pi \\) are Banach spaces &lt;span class=&#39;footnote-mark&#39;&gt;&lt;a href=&#39;#fn2x0&#39; id=&#39;fn2x0-bk&#39;&gt;&lt;sup class=&#39;textsuperscript&#39;&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/span&gt;&lt;a id=&#39;x1-8001f2&#39;&gt;&lt;/a&gt; with their dual spaces \\(X&#39;\\) and \\(\\Pi &#39;\\). &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 160 --&gt;&lt;p class=&#39;noindent&#39;&gt;\\(A: X \\rightarrow X&#39;\\) is a bounded linear operator satisfying \\begin{equation} \\norm {Av}_{X&#39;}\\leq c_2^A\\norm {v}_X \\quad \\forall v \\in X. \\end{equation}&lt;a id=&#39;x1-8003r12&#39;&gt;&lt;/a&gt; &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 164 --&gt;&lt;p class=&#39;noindent&#39;&gt;\\(B: X \\rightarrow \\Pi &#39;\\) is a bounded linear operator satisfying \\begin{equation} \\norm {Bv}_{\\Pi &#39;} \\leq c_2^B\\norm {v}_X \\quad \\forall v\\in X. \\end{equation}&lt;a id=&#39;x1-8004r13&#39;&gt;&lt;/a&gt; &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 168 --&gt;&lt;p class=&#39;noindent&#39;&gt;\\(B&#39;: \\Pi \\rightarrow X&#39;\\) is the adjoint operator of \\(B\\) &lt;span class=&#39;footnote-mark&#39;&gt;&lt;a href=&#39;#fn3x0&#39; id=&#39;fn3x0-bk&#39;&gt;&lt;sup class=&#39;textsuperscript&#39;&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/span&gt;&lt;a id=&#39;x1-8005f3&#39;&gt;&lt;/a&gt;. &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 170 --&gt;&lt;p class=&#39;noindent&#39;&gt;\\(f\\in X&#39;\\) and \\(g \\in \\Pi &#39;\\)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; The relationship between various spaces is illustrated in Figure 1, where \\(J_X\\) and \\(J_{\\Pi }\\) are Riesz maps 4.","headline":"Variational problems","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2024/10/26/variational-problems.html"},"url":"https://jihuan-tian.github.io/math/2024/10/26/variational-problems.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+    <link rel="stylesheet" href="/assets/css/make4ht.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"></script>
+
+  
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Comment out the default sorted categories. -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/about/">About</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/computer/">Computer</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/math/">Math</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/tags/">Tags</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--         <a class="page-link" href="/thoughts/">Thoughts</a> -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          <!---->
+          <!--      -->
+          <!---->
+          <!--      -->
+          <!---->
+          
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Variational problems</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-10-26T00:00:00+08:00" itemprop="datePublished">Oct 26, 2024 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/math">Math</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/PDE">PDE</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+       <h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
+   <div class='tableofcontents'>
+    <span class='sectionToc'>1 <a href='#x1-20001' id='QQ2-1-2'>Basic ideas</a></span>
+<br />    <span class='sectionToc'>2 <a href='#x1-30002' id='QQ2-1-3'>When there is no constraint</a></span>
+<br />     <span class='subsectionToc'>2.1 <a href='#x1-40002.1' id='QQ2-1-4'>Preconditions</a></span>
+<br />     <span class='subsectionToc'>2.2 <a href='#x1-50002.2' id='QQ2-1-5'>Problem definitions</a></span>
+<br />     <span class='subsectionToc'>2.3 <a href='#x1-60002.3' id='QQ2-1-6'>Unique solvability and stability</a></span>
+<br />    <span class='sectionToc'>3 <a href='#x1-70003' id='QQ2-1-7'>When there is a constraint \(Bu=g\)</a></span>
+<br />     <span class='subsectionToc'>3.1 <a href='#x1-80003.1' id='QQ2-1-8'>Preconditions</a></span>
+<br />     <span class='subsectionToc'>3.2 <a href='#x1-90003.2' id='QQ2-1-10'>Problem definitions</a></span>
+<br />     <span class='subsectionToc'>3.3 <a href='#x1-100003.3' id='QQ2-1-11'>Unique solvability and stability</a></span>
+   </div>
+<!-- l. 9 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>1    </span> <a id='x1-20001'></a>Basic ideas</h3>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 12 --><p class='noindent'>There are three types of problems: </p>
+         <ul class='itemize2'>
+         <li class='itemize'>
+         <!-- l. 14 --><p class='noindent'>The  original  operator  equation  \(Au=f\).  The  two  sides  of  this  equation  are  functions  and  should  be  equal
+         pointwise. This is the strong form problem.
+         </p></li>
+         <li class='itemize'>
+         <!-- l. 16 --><p class='noindent'>The variational problem is obtained by projecting the two sides of the operator equation to a test function
+         space \(V\). The “projection” here means multiply the two sides of the equation with an arbitrary function in
+         the test function space, then integrate them over the domain, i.e. \(\left \langle Au,v \right \rangle =\left \langle f,v \right \rangle \). Therefore, infinitely many equations
+         are established and we say the equality is in the sense of projection. This is the weak form problem.
+                                                                                               
+                                                                                               
+         </p><!-- l. 24 --><p class='noindent'>We can also understand the test function space \(V\) as a multidimensional ruler. The right hand side function
+         \(f\) of the operator equation and the output function returned from applying the partial differential operator
+         to the solution function, i.e. \(Au\), will be measured with this ruler.
+         </p></li>
+         <li class='itemize'>
+         <!-- l. 28 --><p class='noindent'>The problem of minimizing an energy functional, such as \(\mathcal {L}(v)=\frac {1}{2}\left \langle Av,v \right \rangle -\left \langle f,v \right \rangle \).</p></li></ul>
+     </li>
+     <li class='itemize'>
+     <!-- l. 32 --><p class='noindent'>The operator equation and the variational problem is equivalent due to the boundedness of the bilinear form
+     \(a(u,v):= \left \langle Au,v \right \rangle \).
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 34 --><p class='noindent'>The variation problem is further equivalent to the minimization problem, if the bilinear form \(a(u,v)\) is symmetric and
+     positive definite. This condition is equivalent to that the linear operator \(A\) associated with this bilinear form \(a(u,v)\) is self-dual
+     and elliptic. Of course, the boundedness of the bilinear form \(a(u,v)\) is equivalent to the boundedness of the linear operator
+     \(A\).</p></li></ul>
+<!-- l. 41 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>2    </span> <a id='x1-30002'></a>When there is no constraint</h3>
+<!-- l. 43 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>2.1    </span> <a id='x1-40002.1'></a>Preconditions</h4>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 46 --><p class='noindent'>\(X\) is a Hilbert space and \(X'\) is the dual space of \(X\).
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 47 --><p class='noindent'>\(\left \langle \cdot ,\cdot \right \rangle _X\) is the inner product in \(X\).
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 48 --><p class='noindent'>\(\left \langle \cdot ,\cdot \right \rangle \) is the duality pairing, which applies a linear functional \(f\in X'\) to an element \(u\in X\), i.e. \(\left \langle f,u \right \rangle =\left \langle u,f \right \rangle =f(u)\).
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 50 --><p class='noindent'>\(A: X \rightarrow X'\) is a bounded linear operator satisfying \begin{equation}  \norm {Av}_{X'}\leq c_2^A\norm {v}_X \quad \forall v \in X.  \end{equation}<a id='x1-4001r1'></a>
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 54 --><p class='noindent'>\(f\in X'\)</p></li></ul>
+                                                                                               
+                                                                                               
+<!-- l. 57 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>2.2    </span> <a id='x1-50002.2'></a>Problem definitions</h4>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 59 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Definition 1 (Operator equation with no constraint)</span> </span><a id='x1-5002'></a>Find \(u \in X\) satisfying <a id='x1-50011'></a>\begin{equation}  Au = f.  \end{equation}<a id='x1-5003r2'></a>
+</p>
+   </div>
+<!-- l. 65 --><p class='indent'>   </p></div>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 67 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Definition 2 (Variational problem with no constraint)</span> </span><a id='x1-5005'></a>Find \(u\in X\) such that <a id='x1-50042'></a>\begin{equation}  \left \langle Au,v \right \rangle = \left \langle f,v \right \rangle \quad \forall v\in X.  \end{equation}<a id='x1-5006r3'></a>
+</p>
+   </div>
+<!-- l. 73 --><p class='indent'>   </p></div>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 75 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Definition 3 (Minimization problem for no constraint case)</span> </span><a id='x1-5008'></a>Let \(F\) be the functional <a id='x1-50073'></a>\begin{equation}  F(v) := \frac {1}{2}\left \langle Av,v \right \rangle - \left \langle f,v \right \rangle \quad (v\in X).  \end{equation}<a id='x1-5009r4'></a> The minimization problem is defined
+as \begin{equation}  F(u) =\min _{v\in X} F(v).  \end{equation}<a id='x1-5010r5'></a>
+</p>
+   </div>
+<!-- l. 86 --><p class='indent'>   </p></div>
+<!-- l. 88 --><p class='noindent'>Relations between the above problems: </p>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 90 --><p class='noindent'>Operator equation (Definition <a href='#x1-50011'>1<!-- tex4ht:ref: def:op-eqn-no-constraint  --></a>) \(\Longleftrightarrow \) variational problem (Definition <a href='#x1-50042'>2<!-- tex4ht:ref: def:var-eqn-no-constraint  --></a>)
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 92 --><p class='noindent'>When \(A\) is further self-adjoint <span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-5011f1'></a>
+     and positive semi-definite, variational problem (Definition <a href='#x1-50042'>2<!-- tex4ht:ref: def:var-eqn-no-constraint  --></a>) \(\Longleftrightarrow \) minimization problem (Definition <a href='#x1-50073'>3<!-- tex4ht:ref: def:min-eqn-no-constraint  --></a>)</p></li></ul>
+<!-- l. 98 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>2.3    </span> <a id='x1-60002.3'></a>Unique solvability and stability</h4>
+<!-- l. 100 --><p class='noindent'>The unique solvability of the operator equation (Definition <a href='#x1-50011'>1<!-- tex4ht:ref: def:op-eqn-no-constraint  --></a>) (and thus the variational problem (Definition <a href='#x1-50042'>2<!-- tex4ht:ref: def:var-eqn-no-constraint  --></a>)) for any \(f\in X'\) is
+governed by the Lax-Milgram Lemma, which requires that \(A\) should be \(X\)-elliptic, i.e. \begin{equation}  \label {eq:ellipticity-condition} \left \langle Av,v \right \rangle \geq c_1^A\norm {v}_X^2 \quad \forall v\in X.  \end{equation}<a id='x1-6001r6'></a> It also prescribes a stability condition on
+the solution \(u\): \begin{equation}  \norm {u}_X\leq \frac {1}{c_1^A}\norm {f}_{X'}.  \end{equation}<a id='x1-6002r7'></a> It can be seen that the smaller the ellipticity constant \(c_1^A\), the less the stability for \(u\). <span id='textcolor1'>\(c_1^A\) is related to the
+smallest eigenvalue of the discretized matrix for the operator \(A\). A small \(c_1^A\) is caused by an increase in the number
+of DoFs and sharp corners in the geometry of the model. The error in the data for \(f\) will be amplified by
+\(\frac {1}{c_1^A}\).</span>
+</p>
+   <div class='remark'><div class='newtheorem'>
+<!-- l. 117 --><p class='noindent'><span class='head'>
+                                                                                               
+                                                                                               
+<span class='p1xb-'>Remark 1 (Understanding about ellipticity of operators)</span> </span><a id='x1-6004'></a>We are going to compare the ellipticity condition in Equation
+(<a href='#x1-6001r6'>6<!-- tex4ht:ref: eq:ellipticity-condition  --></a>) with its discrete counterpart. Let \(\mathscr {A}\) be the matrix in \(\mathbb {R}^{n\times n}\) corresponding to \(A\) which is discretized via the Galerkin method. Let \(x\)
+be the vector in \(\mathbb {R}^n\) related to \(v\). Assume \(\mathscr {A}\) has \(n\) eigenvalues \(\lambda _1,\cdots ,\lambda _n\) and \(n\) eigenvectors \(v_1,\cdots ,v_n\) (N.B. Even though the multiplicity of some of the
+eigenvalues may be larger than one, for the same number of eigenvectors spanning its eigenspace, we can still explicitly use
+different symbols to represent their same eigenvalue. Therefore, we allow duplicated values in the list \(\lambda _1,\cdots ,\lambda _n\). Because the sum of
+the multiplicity of all eigenvalues is \(n\) and all the eigenspaces are orthogonal to each other, we can choose those eigenvectors \(v_1,\cdots ,v_n\)
+to form an orthonormal set. Then any vector \(x\) in \(\mathbb {R}^n\) can be expanded by this basis: \begin{equation}  x = \sum _{i=1}^n c_i v_i.  \end{equation}<a id='x1-6005r8'></a> And the duality pairing
+can be represented as \begin{equation}  x^{\mathrm {T}} \mathscr {A} x = \left ( \sum _{i=1}^n c_iv_i^{\mathrm {T}} \right ) \mathscr {A} \left ( \sum _{j=1}^n c_jv_j \right ) = \sum _{i,j} c_ic_j v_i^{\mathrm {T}} \mathscr {A} v_j = \sum _{i,j} c_ic_j \lambda _j (v_i,v_j),  \end{equation}<a id='x1-6006r9'></a> where \((\cdot ,\cdot )\) is the inner product in \(\mathbb {R}^n\). Because \(v_1,\cdots ,v_n\) are orthonormal, we have \((v_i,v_j) =\delta _{ij}\). Hence, \begin{equation}  x^{\mathrm {T}} \mathscr {A} x = \sum _{i=1}^n \lambda _i c_i^2.  \end{equation}<a id='x1-6007r10'></a> If \(\mathscr {A}\) is
+positive definite, the solution to the linear system \(Ax = b\) exists and is unique. Since all eigenvalues of \(\mathscr {A}\) are larger
+than zero, we let \(\lambda _{\min }\) be the minimum and then have \begin{equation}  \left ( \mathscr {A}x, x \right ) = x^{\mathrm {T}} \mathscr {A} x \geq \lambda _{\min } \sum _{i=1}^n c_i^2 = \lambda _{\min } \lVert x \rVert _{\mathbb {R}^n}^2.  \end{equation}<a id='x1-6008r11'></a> We can see that this discrete formulation is consistent
+with the ellipticity condition. The ellipticity constant \(c_1^A\) of the bounded linear operator \(A\) corresponds to the
+minimum eigenvalue of the positive definite matrix \(\mathscr {A}\). That’s why the ellipticity condition is the key in the
+Lax-Milgram Lemma, which governs the existence and uniqueness of the solution for a PDE formed by
+\(A\).
+</p>
+   </div>
+<!-- l. 148 --><p class='indent'>   </p></div>
+<!-- l. 150 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>3    </span> <a id='x1-70003'></a>When there is a constraint \(Bu=g\)</h3>
+<!-- l. 152 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>3.1    </span> <a id='x1-80003.1'></a>Preconditions</h4>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 155 --><p class='noindent'>\(X\) and \(\Pi \) are Banach spaces <span class='footnote-mark'><a href='#fn2x0' id='fn2x0-bk'><sup class='textsuperscript'>2</sup></a></span><a id='x1-8001f2'></a>
+     with their dual spaces \(X'\) and \(\Pi '\).
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 160 --><p class='noindent'>\(A: X \rightarrow X'\) is a bounded linear operator satisfying \begin{equation}  \norm {Av}_{X'}\leq c_2^A\norm {v}_X \quad \forall v \in X.  \end{equation}<a id='x1-8003r12'></a>
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 164 --><p class='noindent'>\(B: X \rightarrow \Pi '\) is a bounded linear operator satisfying \begin{equation}  \norm {Bv}_{\Pi '} \leq c_2^B\norm {v}_X \quad \forall v\in X.  \end{equation}<a id='x1-8004r13'></a>
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 168 --><p class='noindent'>\(B': \Pi \rightarrow X'\) is the adjoint operator of \(B\) <span class='footnote-mark'><a href='#fn3x0' id='fn3x0-bk'><sup class='textsuperscript'>3</sup></a></span><a id='x1-8005f3'></a>.
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 170 --><p class='noindent'>\(f\in X'\) and \(g \in \Pi '\)</p></li></ul>
+                                                                                               
+                                                                                               
+<!-- l. 173 --><p class='noindent'>The relationship between various spaces is illustrated in Figure <a href='#x1-8009r1'>1<!-- tex4ht:ref: fig:space-relation-in-var-problems  --></a>, where \(J_X\) and \(J_{\Pi }\) are Riesz maps
+<span class='footnote-mark'><a href='#fn4x0' id='fn4x0-bk'><sup class='textsuperscript'>4</sup></a></span><a id='x1-8007f4'></a>.
+</p><figure class='figure'> 
+
+                                                                                               
+                                                                                               
+<a id='x1-8009r1'></a>
+                                                                                               
+                                                                                               
+<!-- l. 178 --><p class='noindent'><img alt='PIC'  src='/figures/2024-10-26-spaces-in-variational-problems.png'  />
+</p>
+<figcaption class='caption'><span class='id'>Figure 1: </span><span class='content'>Relationship between various spaces in the variational problem.</span></figcaption><!-- tex4ht:label?: x1-8009r1  -->
+                                                                                               
+                                                                                               
+   </figure>
+   <h4 class='subsectionHead'><span class='titlemark'>3.2    </span> <a id='x1-90003.2'></a>Problem definitions</h4>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 185 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Definition 4 (Operator equation with constraint</span> \(Bu=g\)<span class='p1xb-'>)</span> </span><a id='x1-9002'></a><a id='x1-90014'></a> Define the manifold \(V_g := \left \{ v\in X: Bv=g \right \}\) and the kernel space \(V_0 := \ker B\). Assume the solvability
+condition \(g\in \image _XB\) and \(f\in \image _{V_g}A\). Then find \(u\in V_g\) satisfying \begin{equation}  Au = f.  \end{equation}<a id='x1-9003r14'></a> N.B. If we require \(u\) to be within the space \(V_g\), the constraint \(Bu=g\) is automatically
+satisfied.
+</p>
+   </div>
+<!-- l. 194 --><p class='indent'>   </p></div>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 196 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Definition 5 (Variational problem with constraint</span> \(Bu=g\)<span class='p1xb-'>)</span> </span><a id='x1-9005'></a><a id='x1-90045'></a> Assume the solvability condition \(g\in \image _XB\) and \(f\in \image _{V_g}A\). Then find \(u\in V_g\) satisfying
+\begin{equation}  \left \langle Au,v \right \rangle = \left \langle f,v \right \rangle \quad \forall v\in V_0.  \end{equation}<a id='x1-9006r15'></a>
+</p>
+   </div>
+<!-- l. 203 --><p class='indent'>   </p></div>
+   <div class='remark'><div class='newtheorem'>
+<!-- l. 205 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Remark 2</span> </span><a id='x1-9008'></a>Such constraint \(Bu=g\) can be the essential boundary condition, i.e. Dirichlet boundary condition. Then the
+solution \(u\) is sought in the space \(V_g\) which explicitly satisfies the Dirichlet boundary condition, while the test function
+is chosen from the space \(V_0\) which satisfies the homogeneous Dirichlet boundary condition.
+</p>
+   </div>
+<!-- l. 210 --><p class='indent'>   </p></div>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 212 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Definition 6 (Extended variational problem using Lagrange multiplier)</span> </span><a id='x1-9010'></a><a id='x1-90096'></a> Introduce the Lagrange multiplier \(p\in \Pi \). Find \((u,p)\in X\times \Pi \) such
+that \begin{equation}  \begin {aligned} \left \langle Au,v \right \rangle + \left \langle Bv,p \right \rangle &amp;= \left \langle f,v \right \rangle \\ \left \langle Bu,q \right \rangle &amp;= \left \langle g,q \right \rangle \end {aligned} \quad \forall (v,q)\in X\times \Pi .  \end{equation}<a id='x1-9011r16'></a>
+</p>
+   </div>
+<!-- l. 223 --><p class='indent'>   </p></div>
+   <div class='remark'><div class='newtheorem'>
+<!-- l. 225 --><p class='noindent'><span class='head'>
+<span class='p1xb-'>Remark 3</span> </span><a id='x1-9013'></a>The solution \((u,p)\) is sought in the product space \(X \times \Pi \) but not \(V_g \times \Pi \).
+</p>
+   </div>
+<!-- l. 227 --><p class='indent'>   </p></div>
+   <div class='Definition'><div class='newtheorem'>
+<!-- l. 229 --><p class='noindent'><span class='head'>
+                                                                                               
+                                                                                               
+<span class='p1xb-'>Definition 7 (Saddle point problem related to the variational problem with constraint in Definition </span><a href='#x1-90045'><span class='p1xb-'>5</span><!-- tex4ht:ref: def:var-eqn-with-constraint  --></a><span class='p1xb-'>)</span> </span><a id='x1-9015'></a><a id='x1-90147'></a> Let \(\mathcal {L}\) be the
+Lagrange functional \begin{equation}  \mathcal {L}(v,q) := \frac {1}{2}\left \langle Av,v \right \rangle - \left \langle f,v \right \rangle + \left \langle Bv,q \right \rangle - \left \langle g,q \right \rangle \quad (v,q)\in X\times \Pi .  \end{equation}<a id='x1-9016r17'></a> The saddle point problem is defined as: find \((u,p)\in X\times \Pi \) such that \begin{equation}  \mathcal {L}(u,q)\leq \mathcal {L}(u,p)\leq \mathcal {L}(v,p) \quad \forall (v,q)\in X\times \Pi .  \end{equation}<a id='x1-9017r18'></a>
+</p>
+   </div>
+<!-- l. 242 --><p class='indent'>   </p></div>
+<!-- l. 244 --><p class='noindent'>Relations between the above problems </p>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 246 --><p class='noindent'>Operator equation with constraint (Definition <a href='#x1-90014'>4<!-- tex4ht:ref: def:op-eqn-with-constraint  --></a>) \(\Longleftrightarrow \) variational problem with constraint (Definition <a href='#x1-90045'>5<!-- tex4ht:ref: def:var-eqn-with-constraint  --></a>)
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 248 --><p class='noindent'>Variation problem with constraint (Definition <a href='#x1-90045'>5<!-- tex4ht:ref: def:var-eqn-with-constraint  --></a>) \(\Longleftrightarrow \) extended variational problem using Lagrange multiplier
+     (Definition <a href='#x1-90096'>6<!-- tex4ht:ref: def:extended-var-eqn  --></a>)
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 251 --><p class='noindent'>When  \(A\)  is  further  self-adjoint  and  positive  semi-definite,  extended  variational  problem  using  Lagrange
+     multiplier (Definition <a href='#x1-90096'>6<!-- tex4ht:ref: def:extended-var-eqn  --></a>) \(\Longleftrightarrow \) saddle point problem (Definition <a href='#x1-90147'>7<!-- tex4ht:ref: def:saddle-point-eqn  --></a>)</p></li></ul>
+<!-- l. 256 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>3.3    </span> <a id='x1-100003.3'></a>Unique solvability and stability</h4>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 259 --><p class='noindent'>The unique solvability of the variational problem (Definition <a href='#x1-90045'>5<!-- tex4ht:ref: def:var-eqn-with-constraint  --></a>) (and thus the operator equation (Definition <a href='#x1-90014'>4<!-- tex4ht:ref: def:op-eqn-with-constraint  --></a>)) for any
+     \(f\in \image _{V_g}A\) and \(g\in \image _XB\) is ensured when \(A\) is \(V_0\)-elliptic, \begin{equation}  \left \langle Av,v \right \rangle \geq c_1^A\norm {v}_X^2 \quad \forall v\in V_0 := \kernel B.  \end{equation}<a id='x1-10001r19'></a> This can be considered as an extension of the Lax-Milgram Lemma. If
+     we further assume a condition on the constraint \(Bu=g\) relation: for any \(g\in \image _XB\), there exists a \(u_g\in V_g\) such that \begin{equation}  \label {eq:ug-norm-constraint} \norm {u_g}_X \leq c_B \norm {g}_{\Pi '},  \end{equation}<a id='x1-10002r20'></a> which
+     can be considered as a stability condition on \(u_g\) derived from the constraint relation only (or we say
+     the norm of the function \(u_g\) is controlled by the norm of the given data \(g\)), then the following stability
+     condition holds for the unique solution \(u\) of the variational problem (Definition <a href='#x1-90045'>5<!-- tex4ht:ref: def:var-eqn-with-constraint  --></a>) or the operator equation
+     (Definition <a href='#x1-90014'>4<!-- tex4ht:ref: def:op-eqn-with-constraint  --></a>): \begin{equation}  \norm {u}_X \leq \frac {1}{c_1^A}\norm {f}_{X'} + \left ( 1+\frac {c_2^A}{c_1^A} \right ) c_B \norm {g}_{\Pi '}.  \end{equation}<a id='x1-10003r21'></a> From this we can see that the stability of \(u\) is better when the \(V_0\)-ellipticity constant \(c_1^A\) is larger,
+     the boundedness constant \(c_2^A\) of \(A\) is smaller and the stability constant \(c_B\) for \(u_g\) is smaller. It is obvious that
+     when the operator \(A\) is unbounded, the solution \(u\) is unstable. Therefore, the boundedness of \(A\) is very
+     important.
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 283 --><p class='noindent'>The unique solvability of the extended variational problem using Lagrange multiplier (Definition <a href='#x1-90096'>6<!-- tex4ht:ref: def:extended-var-eqn  --></a>) can be achieved
+     for any \(f\in \image _{V_g}A\) and \(g\in \image _XB\), when \(V_0\)-ellipticity for \(A\), stability condition for \(u_g\in V_g\) as in (<a href='#x1-10002r20'>20<!-- tex4ht:ref: eq:ug-norm-constraint  --></a>) and the stability condition for \(q\in \Pi \) \begin{equation}  \label {eq:stability-for-q} c_S\norm {q}_{\Pi }\leq \sup _{0\neq v\in X}\frac {\abs {\left \langle Bv,q \right \rangle }}{\norm {v}_X} \quad (\forall q\in \Pi )  \end{equation}<a id='x1-10004r22'></a> are satisfied. Since \begin{equation}  \sup _{0\neq v\in X}\frac {\abs {\left \langle Bv,q \right \rangle }}{\norm {v}_X} = \sup _{0\neq v\in X}\frac {\abs {\left \langle v,B'q \right \rangle }}{\norm {v}_X} = \norm {B'q}_{X'}\leq \norm {B'}\norm {q}_{\Pi },  \end{equation}<a id='x1-10005r23'></a>
+     the stability condition for \(q\) in (<a href='#x1-10004r22'>22<!-- tex4ht:ref: eq:stability-for-q  --></a>) is equivalent to \begin{equation}  \norm {B'}\geq c_S,  \end{equation}<a id='x1-10006r24'></a> which means the norm of the adjoint operator \(B'\) should have a
+     non-zero lower bound.
+     </p><!-- l. 303 --><p class='noindent'>Then the stability conditions for the solution \((u,p)\in X\times \Pi \) are \begin{equation}  \norm {u}_X\leq \frac {1}{c_1^A}\norm {f}_{X'}+\left ( 1+\frac {c_2^A}{c_1^A} \right )c_B\norm {g}_{\Pi '}  \end{equation}<a id='x1-10007r25'></a> and \begin{equation}  \norm {p}_{\Pi }\leq \frac {1}{c_S} \left ( 1+\frac {c_2^A}{c_1^A} \right ) \left \{ \norm {f}_{X'}+c_Bc_2^A\norm {g}_{\Pi '} \right \}.  \end{equation}<a id='x1-10008r26'></a> It can be seen that the larger the lower bound \(c_S\) for \(\norm {B'}\), the larger
+     the stability for \(p\).
+                                                                                               
+                                                                                               
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 312 --><p class='noindent'>The unique solvability of the extended variational problem using Lagrange multiplier (Definition <a href='#x1-90096'>6<!-- tex4ht:ref: def:extended-var-eqn  --></a>) can
+     also be achieved for any \(f\in X'\) and \(g\in \Pi '\), when \(X\)-ellipticity for \(A\), i.e. \begin{equation}  \left \langle Av,v \right \rangle \geq c_1^A\norm {v}_X^2 \quad \forall v\in X,  \end{equation}<a id='x1-10009r27'></a> and the stability condition for \(q\in \Pi \) as in (<a href='#x1-10004r22'>22<!-- tex4ht:ref: eq:stability-for-q  --></a>) are
+     satisfied. The stability conditions for the solution \((u,p)\in X\times \Pi \) are \begin{equation}  \norm {u}_X\leq \frac {1}{c_1^A}\left ( 1+\frac {(c_2^B)^2}{c_1^Ac_1^S} \right )\norm {f}_{X'}+\frac {c_2^B}{c_1^Ac_1^S}\norm {g}_{\Pi '}  \end{equation}<a id='x1-10010r28'></a> and \begin{equation}  \norm {p}_{\Pi }\leq \frac {1}{c_1^S}\norm {BA^{-1}f-g}_{\Pi '}\leq \frac {1}{c_1^S}\left [ \frac {c_2^B}{c_1^A}\norm {f}_{X'}+\norm {g}_{\Pi '} \right ],  \end{equation}<a id='x1-10011r29'></a> where \(c_1^S\) is the coefficient for the \(\Pi \)-ellipticity of
+     the operator \(S := BA^{-1}B': \Pi \rightarrow \Pi '\), i.e. \begin{equation}  \left \langle Sq,q \right \rangle \geq c_1^S \norm {q}_{\Pi }^2 \quad \forall q\in \Pi .  \end{equation}<a id='x1-10012r30'></a> This \(\Pi \)-ellipticity depends on the \(V_0\)-ellipticity for \(A\) and the stability condition for \(q\) as in
+     (<a href='#x1-10004r22'>22<!-- tex4ht:ref: eq:stability-for-q  --></a>).</p></li></ul>
+<!-- l. 1 --><p class='noindent'>
+</p>
+   <h3 class='likesectionHead'><a id='x1-11000'></a>References</h3>
+<!-- l. 1 --><p class='noindent'>
+  </p><div class='thebibliography'>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XSteinbachNumerical2007'></a><span class='bibsp'>   </span></span>Olaf  Steinbach.    <span class='p1xi-'>Numerical  Approximation  Methods  for  Elliptic  Boundary  Value  Problems:  Finite  and  Boundary
+  </span><span class='p1xi-'>Elements</span>. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2.
+</p>
+  </div>
+   <div class='footnotes'><a id='x1-5012x2.2'></a>
+<!-- l. 93 --><p class='noindent'><span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-80'>In (</span><a href='#XSteinbachNumerical2007'><span class='p1xr-x-x-80'>Steinbach</span></a><span class='p1xr-x-x-80'>), self-adjoint is actually self-dual in functional analysis.</span></p><a id='x1-8002x3.1'></a>
+<!-- l. 158 --><p class='noindent'><span class='footnote-mark'><a href='#fn2x0-bk' id='fn2x0'><sup class='textsuperscript'>2</sup></a></span><span class='p1xr-x-x-80'>In Banach spaces, inner product is not defined, so according to functional analysis, the concept of adjointness is not available. This again
+</span><span class='p1xr-x-x-80'>verifies my understanding that in (</span><a href='#XSteinbachNumerical2007'><span class='p1xr-x-x-80'>Steinbach</span></a><span class='p1xr-x-x-80'>), self-adjoint is actually self-dual.</span></p><a id='x1-8006x3.1'></a>
+<!-- l. 169 --><p class='noindent'><span class='footnote-mark'><a href='#fn3x0-bk' id='fn3x0'><sup class='textsuperscript'>3</sup></a></span><span class='p1xr-x-x-80'>In functional analysis, this is actually the dual operator, not adjoint operator.</span></p><a id='x1-8008x3.1'></a>
+<!-- l. 175 --><p class='indent'>        <span class='footnote-mark'><a href='#fn4x0-bk' id='fn4x0'><sup class='textsuperscript'>4</sup></a></span><span class='p1xr-x-x-80'>N.B. A Riesz map maps from the dual space to the primal space.</span></p>                                                                                                                        </div>
+
+  </div><a class="u-url" href="/math/2024/10/26/variational-problems.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
