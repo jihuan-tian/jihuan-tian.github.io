@@ -2529,6 +2529,14 @@
 <lastmod>2024-10-26T00:00:00+08:00</lastmod>
 </url>
 <url>
+<loc>https://jihuan-tian.github.io/computer/2024/10/27/automatically-generate-a-relative-link-to-a-blog-post.html</loc>
+<lastmod>2024-10-27T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>https://jihuan-tian.github.io/computer/2024/10/27/org-roam-bibtex-slows-down-emacs-when-saving-org-files.html</loc>
+<lastmod>2024-10-27T00:00:00+08:00</lastmod>
+</url>
+<url>
 <loc>https://jihuan-tian.github.io/tags/AUCTeX.html</loc>
 </url>
 <url>
@@ -2680,6 +2688,9 @@
 </url>
 <url>
 <loc>https://jihuan-tian.github.io/tags/Org-mode.html</loc>
+</url>
+<url>
+<loc>https://jihuan-tian.github.io/tags/Org-roam.html</loc>
 </url>
 <url>
 <loc>https://jihuan-tian.github.io/tags/PDE.html</loc>
