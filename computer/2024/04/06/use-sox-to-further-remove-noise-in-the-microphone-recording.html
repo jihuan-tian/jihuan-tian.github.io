@@ -20,7 +20,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2024-04-06T00:00:00+08:00","datePublished":"2024-04-06T00:00:00+08:00","description":"Install Debian package sox. Load the kernel module snd_aloop to create an ALSA loopback device. sudo modprobe snd_aloop Record a noise and generate noise profile using sox. sox noise-from-headset.wav -n noiseprof noise-from-headset.prof Use pacmd to get the device name of the newly created loopback device for output, which should be alsa_output.platform-snd_aloop.0.analog-stereo. pactl list | grep -E -A2 &#39;(Source|Sink) #&#39; | grep &#39;Name: &#39; | grep -v monitor | cut -d&quot; &quot; -f2 | grep output.*aloop","headline":"Use sox to further remove noise in the microphone recording","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2024/04/06/use-sox-to-further-remove-noise-in-the-microphone-recording.html"},"url":"https://jihuan-tian.github.io/computer/2024/04/06/use-sox-to-further-remove-noise-in-the-microphone-recording.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css">
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
   <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
   
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">

@@ -1,0 +1,14 @@
+@font-face {
+    font-family: kai;
+    src: url("../fonts/UKaiCN.woff2") format("TrueType");
+}
+
+@font-face {
+    font-family: song;
+    src: url("../fonts/UMingCN.woff2") format("TrueType");
+}
+
+@font-face {
+    font-family: hei;
+    src: url("../fonts/WenQuanYiZenHei.woff2") format("TrueType");
+}
