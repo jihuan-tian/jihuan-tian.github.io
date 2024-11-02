@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2024-10-28T17:28:22+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Automatically generate a relative link to a blog post</title><link href="https://jihuan-tian.github.io/computer/2024/10/27/automatically-generate-a-relative-link-to-a-blog-post.html" rel="alternate" type="text/html" title="Automatically generate a relative link to a blog post" /><published>2024-10-27T00:00:00+08:00</published><updated>2024-10-27T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2024/10/27/automatically-generate-a-relative-link-to-a-blog-post</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2024/10/27/automatically-generate-a-relative-link-to-a-blog-post.html"><![CDATA[<p>I use Org mode for taking notes, which are organized in different levels of headings. I use Jekyll as my blog system and its articles are exported from related headings in my Org mode files. I use the following Elisp function <code class="language-plaintext highlighter-rouge">tjh/org-blog-default-link</code> to automatically generate a file name for a blog post and also create a <code class="language-plaintext highlighter-rouge">BLOG</code> property associated with the heading, which contains a relative link to the blog post file.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2024-11-02T18:05:05+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Conflict between YASnippet and cdlatex</title><link href="https://jihuan-tian.github.io/computer/2024/11/02/conflict-between-yasnippet-and-cdlatex.html" rel="alternate" type="text/html" title="Conflict between YASnippet and cdlatex" /><published>2024-11-02T00:00:00+08:00</published><updated>2024-11-02T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2024/11/02/conflict-between-yasnippet-and-cdlatex</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2024/11/02/conflict-between-yasnippet-and-cdlatex.html"><![CDATA[<p>Today, when I edited the LaTeX document for my personal project, the <code class="language-plaintext highlighter-rouge">cdlatex</code> expansion took precedence over the YASnippet expansion, which made the latter not function properly. Such a phenomenon has not appeared before.</p>
+
+<p><strong>Solution</strong></p>
+
+<ol>
+  <li>
+    <p>Create the following Elisp function <code class="language-plaintext highlighter-rouge">tjh/cdlatex-yas-expand</code>, in which the YASnippet expansion will be tried first. If successful, this function returns <code class="language-plaintext highlighter-rouge">t</code> and the default <code class="language-plaintext highlighter-rouge">cdlatex</code> expansion will be ignored. Otherwise, the <code class="language-plaintext highlighter-rouge">cdlatex</code> expansion will be used.</p>
+
+    <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/cdlatex-yas-expand</span> <span class="p">()</span>
+  <span class="s">"Resolve the conflict between cdlatex and yasnippet. When this
+function returns true, the default `cdlatex-tab` will not be
+executed. The effect of function is to first try yasnippet
+expansion, then cdlatex expansion."</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">or</span> <span class="p">(</span><span class="nv">bound-and-true-p</span> <span class="nv">yas-minor-mode</span><span class="p">)</span>
+          <span class="p">(</span><span class="nv">bound-and-true-p</span> <span class="nv">yas-global-mode</span><span class="p">))</span>
+      <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nv">yas-expand</span><span class="p">)</span>
+          <span class="no">t</span>
+        <span class="no">nil</span><span class="p">)</span>
+    <span class="no">nil</span><span class="p">))</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Add <code class="language-plaintext highlighter-rouge">tjh/cdlatex-yas-expand</code> to <code class="language-plaintext highlighter-rouge">cdlatex-tab-hook</code>.</p>
+
+    <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'cdlatex-tab-hook</span> <span class="ss">'tjh/cdlatex-yas-expand</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ol>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Emacs" /><summary type="html"><![CDATA[Today, when I edited the LaTeX document for my personal project, the cdlatex expansion took precedence over the YASnippet expansion, which made the latter not function properly. Such a phenomenon has not appeared before.]]></summary></entry><entry><title type="html">Enabled org-roam-bibtex in my note-taking work flow</title><link href="https://jihuan-tian.github.io/computer/2024/11/02/enabled-org-roam-bibtex-in-my-note-taking-work-flow.html" rel="alternate" type="text/html" title="Enabled org-roam-bibtex in my note-taking work flow" /><published>2024-11-02T00:00:00+08:00</published><updated>2024-11-02T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2024/11/02/enabled-org-roam-bibtex-in-my-note-taking-work-flow</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2024/11/02/enabled-org-roam-bibtex-in-my-note-taking-work-flow.html"><![CDATA[<p><strong>Why do I need the org-roam-bibtex package?</strong></p>
+
+<p>Previously, I rely on the <code class="language-plaintext highlighter-rouge">org-ref</code> package to insert citations into my Org notes. By clicking on a citation key, I can directly open associated PDF file and bibliography notes which are stored in an independent file, e.g. <code class="language-plaintext highlighter-rouge">bib-notes.org</code>. Even though <code class="language-plaintext highlighter-rouge">org-roam</code> recognizes the citation keys inserted via <code class="language-plaintext highlighter-rouge">org-ref</code>, bibliography notes are incompatible with <code class="language-plaintext highlighter-rouge">org-roam</code> and cannot be visualized in <code class="language-plaintext highlighter-rouge">org-roam-ui</code>. Then I need <code class="language-plaintext highlighter-rouge">org-roam-bibtex</code> to solve this problem by storing the notes for each bibliography item into an independent Org file.</p>
+
+<p><strong>Problems met</strong></p>
+
+<p>When saving an Org file, <code class="language-plaintext highlighter-rouge">org-roam-bibtex</code> will check the attached documents for each bibliography item. When there are more than one PDF files associated with an item, there will be an prompt in the mini buffer to let me choose which one is to be used. When there are a bunch of bibliography items containing multiple PDF files, and they usually are duplicated files, confirming each prompt will be unbearable.</p>
+
+<p><strong>Solution</strong></p>
+
+<ol>
+  <li>Remove all duplicated PDF files in Zotero and export the Bibtex file used by <code class="language-plaintext highlighter-rouge">org-ref</code> via the “Better Bibtex” plugin. N.B. The cache generated by “Better Bibtex” should be deleted before the export, otherwise, the <code class="language-plaintext highlighter-rouge">file</code> field in the exported Bibtex file will not be updated.</li>
+  <li>
+    <p><strong>org-roam-bibtex-mode</strong> should not be added to <code class="language-plaintext highlighter-rouge">org-mode-hook</code>, otherwise, when editing or creating a bibliography note, there will be an error like this:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>orb-edit-note caught an error during capture: Lisp nesting exceeds ‘max-lisp-eval-depth’
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>I’ve also written an Elisp function <code class="language-plaintext highlighter-rouge">tjh/orb-edit-note</code> to create or edit a note, which does not require the cursor to be on a citation key.</p>
+
+    <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/orb-edit-note</span><span class="p">()</span>
+  <span class="s">"Edit an existing or creating a new note for a bibliography item
+for the user input bibtex key."</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">key</span> <span class="p">(</span><span class="nv">org-ref-read-key</span><span class="p">)))</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">&gt;</span> <span class="p">(</span><span class="nb">length</span> <span class="nv">key</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">(</span><span class="nv">orb-edit-note</span> <span class="nv">key</span><span class="p">))))</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Now the bibliography notes can be visualized in <code class="language-plaintext highlighter-rouge">org-roam-ui</code>.</p>
+
+<p><img src="/figures/2024-10-25_16-05-09-bibliography-in-org-roam.png" alt="img" /></p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Emacs" /><category term="Org-roam" /><summary type="html"><![CDATA[Why do I need the org-roam-bibtex package?]]></summary></entry><entry><title type="html">org-roam-ui cannot visualize all nodes</title><link href="https://jihuan-tian.github.io/computer/2024/11/02/org-roam-ui-cannot-visualize-all-nodes.html" rel="alternate" type="text/html" title="org-roam-ui cannot visualize all nodes" /><published>2024-11-02T00:00:00+08:00</published><updated>2024-11-02T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2024/11/02/org-roam-ui-cannot-visualize-all-nodes</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2024/11/02/org-roam-ui-cannot-visualize-all-nodes.html"><![CDATA[<p>Recently, when I started <code class="language-plaintext highlighter-rouge">org-roam-ui</code>, Firefox reported an error in a blank page:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Application error: a client-side exception has occurred (see the browser console for more information).
+</code></pre></div></div>
+
+<p>At the beginning, I temporarily solved the problem by sifting out “Orphan” nodes. This manual operation must be quick enough before the above error appears.</p>
+
+<p><img src="/figures/2024-09-12_12-10-24-enable-org-roam-ui-orphans-filter.png" alt="img" /></p>
+
+<p>Or an easier way is to open the Firefox developer tool, then go to “Storage → Local Storage → <a href="http://localhost:35901">http://localhost:35901</a>”, and modify the value of the key <code class="language-plaintext highlighter-rouge">filter</code> as below.</p>
+
+<p><img src="/figures/2024-09-22_10-10-51-org-roam-ui-filter-orphans.png" alt="img" /></p>
+
+<p>To find the real cause of the above problem, today I cleaned the <code class="language-plaintext highlighter-rouge">org-roam</code> folder first, then added my Org files back one-by-one and finally found the culprit came from a file named <code class="language-plaintext highlighter-rouge">cpp.org</code>. But still, the exact error location was not known. Further, I deleted each note in this file one-by-one until I found out the problem was caused by a note with a tag <code class="language-plaintext highlighter-rouge">constructor</code>. Unfortunately, <code class="language-plaintext highlighter-rouge">constructor</code> is a special method of a Javascript class for creating and initializing an instance of that class. So <code class="language-plaintext highlighter-rouge">org-roam-ui</code> must have treated this note tag as a function to execute.</p>
+
+<p><strong>Solution</strong></p>
+
+<p>Do not add <code class="language-plaintext highlighter-rouge">constructor</code> tag to any <code class="language-plaintext highlighter-rouge">org-roam</code> note.</p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Emacs" /><category term="Org-roam" /><summary type="html"><![CDATA[Recently, when I started org-roam-ui, Firefox reported an error in a blank page:]]></summary></entry><entry><title type="html">Automatically generate a relative link to a blog post</title><link href="https://jihuan-tian.github.io/computer/2024/10/27/automatically-generate-a-relative-link-to-a-blog-post.html" rel="alternate" type="text/html" title="Automatically generate a relative link to a blog post" /><published>2024-10-27T00:00:00+08:00</published><updated>2024-10-27T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2024/10/27/automatically-generate-a-relative-link-to-a-blog-post</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2024/10/27/automatically-generate-a-relative-link-to-a-blog-post.html"><![CDATA[<p>I use Org mode for taking notes, which are organized in different levels of headings. I use Jekyll as my blog system and its articles are exported from related headings in my Org mode files. I use the following Elisp function <code class="language-plaintext highlighter-rouge">tjh/org-blog-default-link</code> to automatically generate a file name for a blog post and also create a <code class="language-plaintext highlighter-rouge">BLOG</code> property associated with the heading, which contains a relative link to the blog post file.</p>
 
 <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/org-blog-default-link</span> <span class="p">(</span><span class="nv">filename-ext</span><span class="p">)</span>
   <span class="s">"Create BLOG property and add the relative link to the blog post associated with the current heading."</span>
