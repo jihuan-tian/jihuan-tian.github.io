@@ -58,3 +58,5 @@ $$
   \end{aligned}
 \end{equation}
 $$
+
+{{ "2024-10-06-riemannian-metric-for-a-submanifold-within-rn" | backlink }}

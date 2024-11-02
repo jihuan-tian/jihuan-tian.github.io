@@ -108,3 +108,5 @@ Typically, there are two kinds of coordinate transformations:
     The correct way to compute $$g_{rs}^U $$ is to start from the metric tensor for the Cartesian space $$\mathbb{R}^n $$, which is already known as $$g_{pq} = \delta_{pq} $$, where $$\delta_{pq} $$ is the Kronecker delta. Because the coordinate transformation between the chart $$(U,x) $$ and the Cartesian space is known, we can compute $$g_{rs}^U $$ from $$g_{pq} $$ using the above transformation formula. With $$g_{rs}^U $$ and the coordinate transformation between $$(U,x) $$ and $$(V,y) $$ at hand, we can further compute $$g_{ij}^V $$ from $$g_{rs}^U $$.
     
     The above explanation indicates that the computation of a metric tensor for an arbitrary coordinate chart cannot **bootstrap**. It must start from the metric tensor for a Cartesian space $$\mathbb{R}^n $$ and a coordinate transformation rule between this chart and $$\mathbb{R}^n $$.
+
+{{ "2024-10-10-two-kinds-of-coordinate-transformations-in-differential-geometry" | backlink }}

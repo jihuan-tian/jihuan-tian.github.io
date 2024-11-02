@@ -53,3 +53,5 @@ After installing the package `org-roam-bibtex`, when I save a modified Org mode 
 ```
 
 **Advice** When editing Org roam files during intensive study or research work, do not enable `org-roam-ui-mode`. Only enable it when we wan to visualize the node relationships.
+
+{{ "2024-10-27-org-roam-bibtex-slows-down-emacs-when-saving-org-files" | backlink }}

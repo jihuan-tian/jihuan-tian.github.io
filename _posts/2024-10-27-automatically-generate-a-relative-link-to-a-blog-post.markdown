@@ -49,3 +49,5 @@ Then I use the function `tjh/org-blog-open` to open the blog post file, when the
 ```
 
 With these two functions, my Org notes and Jekyll blog are intimately connected.
+
+{{ "2024-10-27-automatically-generate-a-relative-link-to-a-blog-post" | backlink }}
