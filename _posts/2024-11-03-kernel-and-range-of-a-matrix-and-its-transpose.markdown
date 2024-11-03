@@ -17,20 +17,20 @@ Let $$A $$ be a matrix in $$\mathbb{K}^{m\times n} $$ mapping from the vector sp
 
 Then we have the following conclusions:
 
--   The row space of $$A $$ is the column space of $$A^{\mathrm{T}} $$ and the column space of $$A $$ is the row space of $$A^{\mathrm{T}} $$.
+-   The row space of $$A $$ is the column space of $$A^{\ast} $$ and the column space of $$A $$ is the row space of $$A^{\ast} $$.
 -   If a linear map is injective, it has a left inverse operator. If it is surjective, it has a right inverse operator.
 -   When a matrix $$A $$ has full row rank $$r=m $$:
     
     -   The column rank of $$A $$ is also $$r $$ and $$n\geq r $$. For any vector $$y\in \mathbb{R}^m=\mathbb{R}^r $$, it can be linearly represented by the $$n $$ column vectors of $$A $$. If $$n=r $$, such a representation is unique. If $$n>r $$, the $$n $$ column vectors of $$A $$ are not linearly independent and the representation is not unique. In both cases, the representation is achievable and the linear map defined by $$A $$ must be surjective.
-    -   $$A^{\mathrm{T}} $$ has full column rank and the linear map defined by $$A^{\mathrm{T}} $$ is injective.
-    -   $$A $$ has a right inverse and $$A^{\mathrm{T}} $$ has a left inverse.
+    -   $$A^{\ast} $$ has full column rank and the linear map defined by $$A^{\ast} $$ is injective.
+    -   $$A $$ has a right inverse and $$A^{\ast} $$ has a left inverse.
     
     ![img](/figures/2024-11-02_18-48-43-matrix-has-full-row-rank.png)
 -   When a matrix $$A $$ has full column rank $$r=n $$:
     
     -   The linear map represented by $$A $$ is injective.
-    -   The linear map represented by $$A^{\mathrm{T}} $$ is surjective.
-    -   $$A $$ has a left inverse and $$A^{\mathrm{T}} $$ has a right inverse.
+    -   The linear map represented by $$A^{\ast} $$ is surjective.
+    -   $$A $$ has a left inverse and $$A^{\ast} $$ has a right inverse.
     
     ![img](/figures/2024-11-02_18-49-10-matrix-has-full-column-rank.png)
 -   General case
