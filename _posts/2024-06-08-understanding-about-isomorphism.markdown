@@ -7,7 +7,7 @@ tags: [functional-analysis]
 mathjax: false
 ---
 
-An isomorphism is a bijective mapping between two spaces, which preserves the structure of the space. Under different scenarios, the said structure can be different, for example:
+An isomorphism is a bijective mapping between two spaces, which preserves the structure of and allowed operations in the space. Under different scenarios, the said structure can be different, for example:
 
 -   Metric space: the metric, i.e. distance → isometry
 -   Group: multiplication → bijective group homomorphism
