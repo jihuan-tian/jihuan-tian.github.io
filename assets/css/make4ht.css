@@ -21,7 +21,7 @@ td center { margin-top:0em; margin-bottom:0em; }
 .Canvas { position:relative; }
 img.math{vertical-align:middle;}
 div.par-math-display, div.math-display{text-align:center;}
-h1,h2,h3,h4,h5 { line-height:1.2; }
+h1,h2,h3,h4,h5 { /* line-height:1.2; */ }
 .partHead, likepartHead { font-size: 2em; }
 .chapterHead, likechapterHead { font-size: 1.7411em; }
 .sectionHead, likesectionHead { font-size: 1.5157em; }
