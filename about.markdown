@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /about/
+mathjax: true
 ---
 
 <p align="center"><img width="300px" src="/assets/tjh-avatar.png" alt="tjh-avatar" /></p>

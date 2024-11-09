@@ -5,6 +5,7 @@ template=$(cat <<EOF
 layout: page
 title: "Tag: $1"
 exclude: true
+mathjax: true
 ---
 
 <div id="archives">
