@@ -1,4 +1,143 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/math.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2024-11-10T07:32:13+08:00</updated><id>https://jihuan-tian.github.io/feed/math.xml</id><title type="html">止于至善 | Math</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Spectral equivalence</title><link href="https://jihuan-tian.github.io/math/2024/11/06/spectral-equivalence.html" rel="alternate" type="text/html" title="Spectral equivalence" /><published>2024-11-06T00:00:00+08:00</published><updated>2024-11-06T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2024/11/06/spectral-equivalence</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2024/11/06/spectral-equivalence.html"><![CDATA[<!-- l. 24 --><p class='indent'>   For a bounded bilinear form \(a ( \cdot ,\cdot ): X\times X \rightarrow \mathbb {R}\) where \(X\) is a Hilbert space, it has an associated bounded linear operator \(A: X \rightarrow X'\) which
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/math.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2024-11-10T22:26:17+08:00</updated><id>https://jihuan-tian.github.io/feed/math.xml</id><title type="html">止于至善 | Math</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Adjoint operators in functional analysis</title><link href="https://jihuan-tian.github.io/math/2024/11/10/adjoint-operators-in-functional-analysis.html" rel="alternate" type="text/html" title="Adjoint operators in functional analysis" /><published>2024-11-10T00:00:00+08:00</published><updated>2024-11-10T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2024/11/10/adjoint-operators-in-functional-analysis</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2024/11/10/adjoint-operators-in-functional-analysis.html"><![CDATA[<h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
+   <div class='tableofcontents'>
+    <span class='sectionToc'>1 <a href='#x1-20001' id='QQ2-1-2'>Basic definitions of adjoint operators</a></span>
+<br />    <span class='sectionToc'>2 <a href='#x1-30002' id='QQ2-1-3'>Relationship between adjoint and Hilbert-adjoint in Hilbert spaces</a></span>
+<br />    <span class='sectionToc'>3 <a href='#x1-40003' id='QQ2-1-5'>Self-adjointness</a></span>
+<br />    <span class='sectionToc'>4 <a href='#x1-50004' id='QQ2-1-6'>Adjoint operators in discrete case</a></span>
+<br />    <span class='sectionToc'>5 <a href='#x1-60005' id='QQ2-1-7'>Clarification</a></span>
+   </div>
+<!-- l. 24 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>1    </span> <a id='x1-20001'></a>Basic definitions of adjoint operators</h3>
+<!-- l. 26 --><p class='noindent'>There are two types of adjoint operators in functional analysis.
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-2002x1'>
+     <!-- l. 28 --><p class='noindent'>Adjoint operator in normed spaces
+     </p><!-- l. 30 --><p class='noindent'>Let \(X\) and \(Y\) be two normed spaces. \(X'\) and \(Y'\) are their dual spaces respectively. Let \(A: X \rightarrow Y\) be a bounded linear operator.
+     Then for all \(x\in X\) and \(y\in Y'\), the adjoint operator \(A': Y' \rightarrow X'\) of \(A\) should satisfy \begin{equation}  \langle Ax,y \rangle _{Y,Y'} = \langle x,A'y \rangle _{X,X'},  \end{equation}<a id='x1-2003r1'></a> where \(\langle \cdot ,\cdot \rangle _{Y,Y'}\) is the duality pairing between \(Y\)
+     and \(Y'\) and \(\langle \cdot ,\cdot \rangle _{X,X'}\) is the duality pairing between \(X\) and \(X'\). Usually, the subscript can be omitted \begin{equation}  \label {eq:dual-adjoint} \langle Ax,y \rangle = \langle x,A'y \rangle  \end{equation}<a id='x1-2004r2'></a> and
+     the order of the two operands in \(\langle \cdot ,\cdot \rangle \) does not matter. In (<a href='#XYosidaFunctional1995'>Yosida</a>, page 193), \(A'\) is also called dual
+     operator.
+     </p><!-- l. 41 --><p class='noindent'>A duality pairing means applying a linear functional to a function and producing a scalar value. Therefore,
+     the above equation can be written as \begin{equation}  (Ax)(y) = y(Ax) = x(A'y) = (A'y)(x).  \end{equation}<a id='x1-2005r3'></a> Whether we apply for example \(Ax\) to \(y\) or apply \(y\) to \(Ax\) does not matter. In
+     analogy with C/C++ programming, we consider an object in the primal space \(X\) or \(Y\) as the data to be
+     manipulated and an object in the dual space \(X'\) or \(Y'\) as a function. The behavior of the duality pairing depends
+                                                                                               
+                                                                                               
+     on how such a function in the dual space is defined. A typical example is the boundary integral operator.
+     Let \(V\) be the boundary integral operator related to the single layer potential. We usually consider its input
+     function \(u(y)\) to be in the primal space and \(V\) itself in the dual space. The output of \(Vu\) is another
+     function: \begin{equation}  ( Vu(y) )(x) = \int _{\Gamma } k(x,y) u(y) ds_y.  \end{equation}<a id='x1-2006r4'></a> Therefore, as a function or operation, \(V(\cdot ) = \int _{\Gamma } k(x,y) (\cdot ) ds_y\), which can be considered as a function object in
+     C++. Its behavior is fully determined by the kernel function \(k(x,y)\) and the definite integration
+     operation.
+     </p></li>
+<li class='enumerate' id='x1-2008x2'>
+     <!-- l. 51 --><p class='noindent'>Adjoint operator in Hilbert spaces (<a href='#XKreyszigIntroductory1978'>Kreyszig</a>, page 196)
+     </p><!-- l. 53 --><p class='noindent'>Let \(X\) and \(Y\) be two Hilbert spaces and \(A: X \rightarrow Y\) be a bounded linear operator. For all \(x\in X\) and \(y\in Y\), the Hilbert-adjoint operator
+     \(A^{\ast }: Y \rightarrow X\) of \(A\) should satisfy \begin{equation}  \label {eq:hilbert-adjoint} \langle Ax,y \rangle _Y = \langle x,A^{\ast }y \rangle _X,  \end{equation}<a id='x1-2009r5'></a> where \(\langle \cdot ,\cdot \rangle _X\) is the inner product in \(X\) and \(\langle \cdot ,\cdot \rangle _Y\) is the inner product in \(Y\). Usually, the above
+     condition is simply written as \begin{equation}  \langle Ax,y \rangle = \langle x,A^{\ast }y \rangle .  \end{equation}<a id='x1-2010r6'></a> Such Hilbert-adjoint operator \(A^{\ast }\) uniquely exists and satisfies
+     \(\lVert A^{\ast } \rVert = \lVert A \rVert \).
+     </p><!-- l. 64 --><p class='noindent'>We should also note that even though \(A^{\ast }\) maps from \(Y\) to \(X\), it is not the inverse operator \(A^{-1}: Y \rightarrow X\) of \(A\).</p></li></ol>
+<!-- l. 67 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>2    </span> <a id='x1-30002'></a>Relationship between adjoint and Hilbert-adjoint in Hilbert spaces</h3>
+<!-- l. 69 --><p class='noindent'>Because a Hilbert space is also a normed space, when \(X\) and \(Y\) are both Hilbert spaces, the operator \(A: X \rightarrow Y\) has both adjoint
+operator \(A'\) and Hilbert-adjoint operator \(A^{\ast }\). Their relationship can be visualized in the following diagram.
+</p><figure class='figure'> 
+
+                                                                                               
+                                                                                               
+<a id='x1-3001r1'></a>
+                                                                                               
+                                                                                               
+<!-- l. 75 --><p class='noindent'><img alt='PIC' src='/figures/2024-11-10_21-32-51-adjoint-and-hilbert-adjoint.png'  />
+</p>
+<figcaption class='caption'><span class='id'>Figure 1: </span><span class='content'>Diagram for adjoint and Hilbert adjoint operators</span></figcaption><!-- tex4ht:label?: x1-3001r1  -->
+                                                                                               
+                                                                                               
+   </figure>
+<!-- l. 78 --><p class='indent'>   According to Riesz representation theorem (see <a href='/math/2024/06/19/fundamental-theorems-in-pde-theory.html#org60d4829'>Riesz representation theorem</a> and <a href='/math/2024/07/11/understanding-about-riesz-map.html#x1-20001'>Riesz representation
+theorem (Brezis)</a>), \(J_X\) is the Riesz map from \(X'\) and \(X\) and \(J_Y\) is the Riesz map from \(Y'\) to \(Y\) (see
+<a href='/math/2024/07/11/understanding-about-riesz-map.html#x1-60003'>Construction of the Riesz map as a space adaptor</a>). Then we have \begin{equation}  A^{\ast } = J_X A' J_Y^{-1}.  \end{equation}<a id='x1-3002r7'></a>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>3    </span> <a id='x1-40003'></a>Self-adjointness</h3>
+<!-- l. 84 --><p class='noindent'>When in the context of normed spaces, the operator \(A: X \rightarrow Y\) is self-adjoint, if \(A': Y' \rightarrow X'\) is equal to \(A\). This requires \(X = Y'\) and \(Y = X'\), which
+indicates \(X\) and \(Y\) are dual to each other.
+</p><!-- l. 86 --><p class='indent'>   When in the context of Hilbert spaces, the operator \(A: X \rightarrow Y\) is self-adjoint, if \(A^{\ast }: Y \rightarrow X\) is equal to \(A\). This requires \(X\) and \(Y\) to be a
+same Hilbert space.
+</p><!-- l. 88 --><p class='indent'>   <span class='p1xb-x-x-109'>Example </span>In (<a href='#XSteinbachNumerical2007'>Steinbach</a>) and (<a href='#XSteinbachConstruction1998'>Steinbach and Wendland</a>), the boundary integral operators \(V: H^{-1/2}(\Gamma ) \rightarrow H^{1/2}(\Gamma )\) and \(D: H^{1/2}(\Gamma ) \rightarrow H^{-1/2}(\Gamma )\) are self-adjoint.
+Because the Sobolev spaces \(H^{-1/2}(\Gamma )\) and \(H^{1/2}(\Gamma )\) are dual to each other, such self-adjointness is in the sense of normed spaces.
+Meanwhile, even though both \(H^{-1/2}(\Gamma )\) and \(H^{1/2}(\Gamma )\) are Hilbert spaces, they are not a same space. Therefore, the said
+self-adjointness is not in the sense of Hilbert spaces.
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>4    </span> <a id='x1-50004'></a>Adjoint operators in discrete case</h3>
+<!-- l. 91 --><p class='noindent'>Let \(X\) be \(\mathbb {K}^{n}\) and \(Y\) be \(\mathbb {K}^m\), where \(\mathbb {K}\) can be \(\mathbb {R}\) or \(\mathcal {C}\). Let \(x\in X\), \(y\in Y\) and \(\tilde {y}\in Y'\). \(\tilde {y}\) is the dual vector associated with \(y\). In the language
+of differential geometry, \(y\) is a tangent vector and \(\tlide {y}\) is the corresponding cotangent vector. When \(\mathbb {K}=\mathbb {R}\), \begin{equation}  \tilde {y}_i = g_{ij} y^j,  \end{equation}<a id='x1-5001r8'></a>
+where \(g_{ij}\) is the metric tensor. Because \(X\) and \(Y\) are Cartesian spaces with orthonormal bases, \(g_{ij}=\delta _{ij}\). Hence
+\(\tilde {y}_i = y^i\).
+</p><!-- l. 97 --><p class='indent'>   When \(\mathbb {K}=\mathbb {C}\), there is an additional complex conjugate: \begin{equation}  \tilde {y}_i = \overline {g_{ij} y^j} = \overline {y^i}.  \end{equation}<a id='x1-5002r9'></a> As a convention, in the discrete form, we use a column
+vector to represent a tangent vector and a row vector to represent a cotangent vector. Therefore, \begin{equation}  \tilde {y} = y^{\mathrm {H}},  \end{equation}<a id='x1-5003r10'></a> where \((\cdot )^{\mathrm {H}}\) is the
+Hermitian transpose.
+</p><!-- l. 107 --><p class='indent'>   If we treat \(X\) and \(Y\) as normed spaces, the left hand side of the adjoint condition in Equation <a href='#x1-2004r2'>2<!-- tex4ht:ref: eq:dual-adjoint  --></a> is a duality pairing
+between a tangent vector and a cotangent vector. This operation is just taking the sum of the coefficient-wise
+product of the two vectors, i.e. \begin{equation}  \langle Ax,\tilde {y} \rangle = \sum _i \left ( \sum _j \overline {g_{ij}y^j} \right ) (Ax)^i = \sum _i \overline {y^i} (Ax)^i = y^{\mathrm {H}} A x.  \end{equation}<a id='x1-5004r11'></a> The right hand side is \begin{equation}  \langle x,A'\tilde {y} \rangle = \sum _i \left ( A' \tilde {y}^{\mathrm {T}} \right ) x^i = \sum _i \left ( A' \overline {y} \right ) x^i = (A' \overline {y})^{\mathrm {T}} x = y^{\mathrm {H}} A'^{\mathrm {T}} x.  \end{equation}<a id='x1-5005r12'></a> Therefore the adjoint operator is the transpose of the
+original operator, i.e. \(A' = A^{\mathrm {T}}\).
+</p><!-- l. 121 --><p class='indent'>   If we treat \(X\) and \(Y\) as Hilbert spaces, the left hand side of the adjoint condition in Equation <a href='#x1-2009r5'>5<!-- tex4ht:ref: eq:hilbert-adjoint  --></a> is \begin{equation}  \langle Ax,y \rangle = \sum _{i,j} g_{ij} ( Ax )^i \overline {y^j} = y^{\mathrm {H}} Ax.  \end{equation}<a id='x1-5006r13'></a> Here we
+remember that in differential geometry, the inner product of two vectors in a same space involves the metric
+tensor. When \(\mathbb {K}=\mathbb {C}\), there should also be a complex conjugate on the second operand.
+</p><!-- l. 128 --><p class='indent'>   The right hand side of the adjoint condition is \begin{equation}  \langle x,A^{\ast }y \rangle = \sum _{i,j} g_{ij} x^i \overline {( A^{\ast }y )^j} = \sum _i x^i \overline {(A^{\ast }y)^i} = y^{\mathrm {H}} (A^{\ast })^{\mathrm {H}} x.  \end{equation}<a id='x1-5007r14'></a> Therefore, the Hilbert-adjoint operator is the Hermitian
+transpose of the original operator, i.e. \(A^{\ast } = A^{\mathrm {H}}\).
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>5    </span> <a id='x1-60005'></a>Clarification</h3>
+<!-- l. 136 --><p class='noindent'>From above, we can see the phenomenon of terminology abuse (e.g. adjoint, self-adjoint) or symbol abuse (e.g. \(\langle \cdot ,\cdot \rangle \))
+in mathematics. Therefore, we clarify or recapitulate the following points. </p>
+     <ul class='itemize1'>
+     <li class='itemize'>
+                                                                                               
+                                                                                               
+     <!-- l. 138 --><p class='noindent'>When the duality pairing between two different spaces are concerned in the context, adjoint operator
+     in normed spaces is used.
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 139 --><p class='noindent'>When  we  see  Hilbert  spaces  <span class='p1xb-x-x-109'>and  </span>their  inner  product  definitions  are  involved  in  the  context,
+     Hilbert-adjoint operator is used.
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 140 --><p class='noindent'>The actually meaning of \(\langle \cdot ,\cdot \rangle \) should be determined based on the spaces to which its two operands belong.
+     </p>
+          <ul class='itemize2'>
+          <li class='itemize'>
+          <!-- l. 142 --><p class='noindent'>If the two operands are in two different spaces, one space must be the dual space of the other
+          and \(\langle \cdot ,\cdot \rangle \) is the duality pairing. Then adjoint operator will be discussed in this context.
+          </p></li>
+          <li class='itemize'>
+          <!-- l. 143 --><p class='noindent'>If the two operands are in a same space, \(\langle \cdot ,\cdot \rangle \) is the inner product in this space. Then Hilbert-adjoint
+          operator will be discussed in this context.</p></li></ul>
+     </li></ul>
+<!-- l. 1 --><p class='noindent'>
+</p>
+   <h3 class='likesectionHead'><a id='x1-7000'></a>References</h3>
+<!-- l. 1 --><p class='noindent'>
+  </p><div class='thebibliography'>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XKreyszigIntroductory1978'></a><span class='bibsp'>   </span></span>Erwin Kreyszig. <span class='p1xi-x-x-109'>Introductory Functional Analysis with Applications</span>. Wiley. ISBN 978-0-471-50731-4.
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XSteinbachNumerical2007'></a><span class='bibsp'>   </span></span>Olaf  Steinbach.    <span class='p1xi-x-x-109'>Numerical  Approximation  Methods  for  Elliptic  Boundary  Value  Problems:  Finite  and
+  </span><span class='p1xi-x-x-109'>Boundary Elements</span>. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2.
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XSteinbachConstruction1998'></a><span class='bibsp'>   </span></span>Olaf               Steinbach               and               Wolfgang L.               Wendland.                                      The
+  construction of some efficient preconditioners in the boundary element method.  9(1-2):191–216.  URL
+  <a class='url' href='http://link.springer.com/article/10.1023/A:1018937506719'><span class='t1xtt-x-x-109'>http://link.springer.com/article/10.1023/A:1018937506719</span></a>.
+  </p>
+                                                                                               
+                                                                                               
+  <p class='bibitem'><span class='biblabel'>
+<a id='XYosidaFunctional1995'></a><span class='bibsp'>   </span></span>Kôsaku  Yosida.    <span class='p1xi-x-x-109'>Functional  Analysis</span>,  volume  123  of  <span class='p1xi-x-x-109'>Classics  in  Mathematics</span>.    Springer.    ISBN
+  978-3-540-58654-8 978-3-642-61859-8. doi: 10.1007/978-3-642-61859-8.
+</p>
+  </div>]]></content><author><name>Jihuan Tian</name></author><category term="math" /><category term="functional-analysis" /><summary type="html"><![CDATA[Contents  1 Basic definitions of adjoint operators  2 Relationship between adjoint and Hilbert-adjoint in Hilbert spaces  3 Self-adjointness  4 Adjoint operators in discrete case  5 Clarification 1 Basic definitions of adjoint operators There are two types of adjoint operators in functional analysis. Adjoint operator in normed spaces Let \(X\) and \(Y\) be two normed spaces. \(X'\) and \(Y'\) are their dual spaces respectively. Let \(A: X \rightarrow Y\) be a bounded linear operator. Then for all \(x\in X\) and \(y\in Y'\), the adjoint operator \(A': Y' \rightarrow X'\) of \(A\) should satisfy \begin{equation} \langle Ax,y \rangle _{Y,Y'} = \langle x,A'y \rangle _{X,X'}, \end{equation} where \(\langle \cdot ,\cdot \rangle _{Y,Y'}\) is the duality pairing between \(Y\) and \(Y'\) and \(\langle \cdot ,\cdot \rangle _{X,X'}\) is the duality pairing between \(X\) and \(X'\). Usually, the subscript can be omitted \begin{equation} \label {eq:dual-adjoint} \langle Ax,y \rangle = \langle x,A'y \rangle \end{equation} and the order of the two operands in \(\langle \cdot ,\cdot \rangle \) does not matter. In (Yosida, page 193), \(A'\) is also called dual operator. A duality pairing means applying a linear functional to a function and producing a scalar value. Therefore, the above equation can be written as \begin{equation} (Ax)(y) = y(Ax) = x(A'y) = (A'y)(x). \end{equation} Whether we apply for example \(Ax\) to \(y\) or apply \(y\) to \(Ax\) does not matter. In analogy with C/C++ programming, we consider an object in the primal space \(X\) or \(Y\) as the data to be manipulated and an object in the dual space \(X'\) or \(Y'\) as a function. The behavior of the duality pairing depends on how such a function in the dual space is defined. A typical example is the boundary integral operator. Let \(V\) be the boundary integral operator related to the single layer potential. We usually consider its input function \(u(y)\) to be in the primal space and \(V\) itself in the dual space. The output of \(Vu\) is another function: \begin{equation} ( Vu(y) )(x) = \int _{\Gamma } k(x,y) u(y) ds_y. \end{equation} Therefore, as a function or operation, \(V(\cdot ) = \int _{\Gamma } k(x,y) (\cdot ) ds_y\), which can be considered as a function object in C++. Its behavior is fully determined by the kernel function \(k(x,y)\) and the definite integration operation. Adjoint operator in Hilbert spaces (Kreyszig, page 196) Let \(X\) and \(Y\) be two Hilbert spaces and \(A: X \rightarrow Y\) be a bounded linear operator. For all \(x\in X\) and \(y\in Y\), the Hilbert-adjoint operator \(A^{\ast }: Y \rightarrow X\) of \(A\) should satisfy \begin{equation} \label {eq:hilbert-adjoint} \langle Ax,y \rangle _Y = \langle x,A^{\ast }y \rangle _X, \end{equation} where \(\langle \cdot ,\cdot \rangle _X\) is the inner product in \(X\) and \(\langle \cdot ,\cdot \rangle _Y\) is the inner product in \(Y\). Usually, the above condition is simply written as \begin{equation} \langle Ax,y \rangle = \langle x,A^{\ast }y \rangle . \end{equation} Such Hilbert-adjoint operator \(A^{\ast }\) uniquely exists and satisfies \(\lVert A^{\ast } \rVert = \lVert A \rVert \). We should also note that even though \(A^{\ast }\) maps from \(Y\) to \(X\), it is not the inverse operator \(A^{-1}: Y \rightarrow X\) of \(A\). 2 Relationship between adjoint and Hilbert-adjoint in Hilbert spaces Because a Hilbert space is also a normed space, when \(X\) and \(Y\) are both Hilbert spaces, the operator \(A: X \rightarrow Y\) has both adjoint operator \(A'\) and Hilbert-adjoint operator \(A^{\ast }\). Their relationship can be visualized in the following diagram.]]></summary></entry><entry><title type="html">Spectral equivalence</title><link href="https://jihuan-tian.github.io/math/2024/11/06/spectral-equivalence.html" rel="alternate" type="text/html" title="Spectral equivalence" /><published>2024-11-06T00:00:00+08:00</published><updated>2024-11-06T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2024/11/06/spectral-equivalence</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2024/11/06/spectral-equivalence.html"><![CDATA[<!-- l. 24 --><p class='indent'>   For a bounded bilinear form \(a ( \cdot ,\cdot ): X\times X \rightarrow \mathbb {R}\) where \(X\) is a Hilbert space, it has an associated bounded linear operator \(A: X \rightarrow X'\) which
 satisfies \(a(u,v)=\langle Au,v \rangle \) for all \(u\) and \(v\) in \(X\). In other words, the behavior of the bilinear form \(a(\cdot ,\cdot )\) as a binary function (usually the operand is
 also a function) can be fully determined by the linear operator \(A\) as a unary function plus a definition of the duality
 pairing <span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-1001f1'></a>.
@@ -2926,7 +3065,7 @@ space \(\mathcal {H}_{B}^{\mathrm {ran}}\): \begin{equation}  \mathcal {M}_B^{-1
    <div class='footnotes'><a id='x1-5004x1'></a>
 <!-- l. 139 --><p class='indent'>      <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-90'>Here we write the row space in front of the column space for a matrix as the Galerkin discretization of an operator.</span></p>    </div>
 
-<p></p>]]></content><author><name>Jihuan Tian</name></author><category term="math" /><category term="FEM" /><category term="BEM" /><category term="PDE" /><category term="functional-analysis" /><summary type="html"><![CDATA[Contents  1 Riesz representation theorem (Brezis)  2 Construction of the Riesz map as a preconditioner   2.1 Riesz map to be used as a preconditioner depends on the definition of inner product   2.2 Riesz map as a baseline preconditioner  3 Construction of the Riesz map as a space adaptor   3.1 Issue of implicit range spaces in BEM   3.2 Mass matrix as space projection   3.3 Riesz map for transforming a function from dual space to range space]]></summary></entry><entry><title type="html">Domain, range and dual spaces in BEM</title><link href="https://jihuan-tian.github.io/math/2024/07/04/domain-range-and-dual-spaces-in-bem.html" rel="alternate" type="text/html" title="Domain, range and dual spaces in BEM" /><published>2024-07-04T00:00:00+08:00</published><updated>2024-07-04T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2024/07/04/domain-range-and-dual-spaces-in-bem</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2024/07/04/domain-range-and-dual-spaces-in-bem.html"><![CDATA[<p>In Galerkin FEM, we are dealing with two function spaces, the trial space \(X\) and the test space \(Y\). The test function \(v\in Y\) is directly applied to the two sides of the operator equation. If we take the Laplace problem as example, we’ll then apply the Green identity to obtain the variational form or weak form. The weak form contains an integration term \(\left( \nabla u,\nabla v \right)\), which is product of the differentials of \(v\) and \(u\). If \(u\) and \(v\) belong to \(H_0^1(\Omega)\), which means both of them as well as their first order partial derivatives are square integrable, the integration term is the \(L_2\)-inner product of the gradient of \(v\) and \(u\) in the Cartesian product space \(\left[ L_2(\Omega) \right]^d\), where \(d\) is the spatial dimension.</p>
+<p>Backlinks: <a href="/math/2024/11/10/adjoint-operators-in-functional-analysis.html">《Adjoint operators in functional analysis》</a></p>]]></content><author><name>Jihuan Tian</name></author><category term="math" /><category term="FEM" /><category term="BEM" /><category term="PDE" /><category term="functional-analysis" /><summary type="html"><![CDATA[Contents  1 Riesz representation theorem (Brezis)  2 Construction of the Riesz map as a preconditioner   2.1 Riesz map to be used as a preconditioner depends on the definition of inner product   2.2 Riesz map as a baseline preconditioner  3 Construction of the Riesz map as a space adaptor   3.1 Issue of implicit range spaces in BEM   3.2 Mass matrix as space projection   3.3 Riesz map for transforming a function from dual space to range space]]></summary></entry><entry><title type="html">Domain, range and dual spaces in BEM</title><link href="https://jihuan-tian.github.io/math/2024/07/04/domain-range-and-dual-spaces-in-bem.html" rel="alternate" type="text/html" title="Domain, range and dual spaces in BEM" /><published>2024-07-04T00:00:00+08:00</published><updated>2024-07-04T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2024/07/04/domain-range-and-dual-spaces-in-bem</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2024/07/04/domain-range-and-dual-spaces-in-bem.html"><![CDATA[<p>In Galerkin FEM, we are dealing with two function spaces, the trial space \(X\) and the test space \(Y\). The test function \(v\in Y\) is directly applied to the two sides of the operator equation. If we take the Laplace problem as example, we’ll then apply the Green identity to obtain the variational form or weak form. The weak form contains an integration term \(\left( \nabla u,\nabla v \right)\), which is product of the differentials of \(v\) and \(u\). If \(u\) and \(v\) belong to \(H_0^1(\Omega)\), which means both of them as well as their first order partial derivatives are square integrable, the integration term is the \(L_2\)-inner product of the gradient of \(v\) and \(u\) in the Cartesian product space \(\left[ L_2(\Omega) \right]^d\), where \(d\) is the spatial dimension.</p>
 
 <p>In Galerkin BEM, a boundary integral equation will be considered, which is equivalent to the original PDE. An integral operator, such as the single layer potential (SLP) integral operator \(V\), operates on the solution function \(u\) in the PDE</p>
 
@@ -3115,7 +3254,9 @@ a(u,v) = \left\langle Au,v \right\rangle = \left\langle f,v \right\rangle \quad 
 
 <h1 id="strang-lemma">Strang Lemma</h1>
 
-<p>Not only the trial and test function spaces (usually Sobolev spaces) can be approximated by finite dimensional spaces via the Galerkin-Bubnov method, the linear form on the right hand side of the variational problem in Equation \ref{eq:variational-problem-finite-dim} can also be approximated. For example, if the linear functional \(f\in X'\) on the right hand side is represented as \(Bg\), where \(B: Y \rightarrow X'\) is a bounded linear operator and \(g\in Y\), the finite dimensional approximation \(g_N\) of \(g\) leads to another source of perturbation to the PDE. Strang Lemma then characterizes the quasi-optimal error estimate in this case, i.e. the new solution error is controlled by a scaled sum of the space approximation error \(\inf_{v_M\in X_M} \lVert u - v_M \rVert_X\) and the right hand side data error \(\lVert g - g_N \rVert_Y\).</p>]]></content><author><name>Jihuan Tian</name></author><category term="math" /><category term="PDE" /><summary type="html"><![CDATA[Riesz representation theorem Lax-Milgram Lemma Cea’s Lemma Strang Lemma]]></summary></entry><entry><title type="html">Different types of convergence</title><link href="https://jihuan-tian.github.io/math/2024/06/08/different-types-of-convergence.html" rel="alternate" type="text/html" title="Different types of convergence" /><published>2024-06-08T00:00:00+08:00</published><updated>2024-06-08T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2024/06/08/different-types-of-convergence</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2024/06/08/different-types-of-convergence.html"><![CDATA[<p><img src="/figures/2024-06-08-10-24-different-types-of-convergence.png" alt="Summary of different types of convergence in functional analysis" /></p>
+<p>Not only the trial and test function spaces (usually Sobolev spaces) can be approximated by finite dimensional spaces via the Galerkin-Bubnov method, the linear form on the right hand side of the variational problem in Equation \ref{eq:variational-problem-finite-dim} can also be approximated. For example, if the linear functional \(f\in X'\) on the right hand side is represented as \(Bg\), where \(B: Y \rightarrow X'\) is a bounded linear operator and \(g\in Y\), the finite dimensional approximation \(g_N\) of \(g\) leads to another source of perturbation to the PDE. Strang Lemma then characterizes the quasi-optimal error estimate in this case, i.e. the new solution error is controlled by a scaled sum of the space approximation error \(\inf_{v_M\in X_M} \lVert u - v_M \rVert_X\) and the right hand side data error \(\lVert g - g_N \rVert_Y\).</p>
+
+<p>Backlinks: <a href="/math/2024/11/10/adjoint-operators-in-functional-analysis.html">《Adjoint operators in functional analysis》</a></p>]]></content><author><name>Jihuan Tian</name></author><category term="math" /><category term="PDE" /><summary type="html"><![CDATA[Riesz representation theorem Lax-Milgram Lemma Cea’s Lemma Strang Lemma]]></summary></entry><entry><title type="html">Different types of convergence</title><link href="https://jihuan-tian.github.io/math/2024/06/08/different-types-of-convergence.html" rel="alternate" type="text/html" title="Different types of convergence" /><published>2024-06-08T00:00:00+08:00</published><updated>2024-06-08T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2024/06/08/different-types-of-convergence</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2024/06/08/different-types-of-convergence.html"><![CDATA[<p><img src="/figures/2024-06-08-10-24-different-types-of-convergence.png" alt="Summary of different types of convergence in functional analysis" /></p>
 
 <p>In functional analysis, several types of convergence are defined, namely,</p>
 
