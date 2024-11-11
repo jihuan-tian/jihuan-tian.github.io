@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Ellipticity of boundary integral operators | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Ellipticity of boundary integral operators" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Contents  1 Ellipticity and solution uniqueness  2 Boundary integral operator related to the single layer potential  3 Natural density and capacity  4 Hypersingular boundary integral operator  5 Steklov-Poincaré operator 1 Ellipticity and solution uniqueness Lax-Milgram Lemma is an existence and uniqueness theorem for the solution of an operator equation as well as its equivalent variational formulation, whose key feature is governed by the operator \(A: X \rightarrow X&#39;\) or the corresponding bilinear form \(a(\cdot ,\cdot )\). The operator equation is \begin{equation} Au = f \end{equation} and its variational formulation is \begin{equation} a(u,v) = \left \langle Au,v \right \rangle = \left \langle f,v \right \rangle \quad \forall v\in X. \end{equation} The boundedness and \(X\)-ellipticity of \(A\) ensures the existence and uniqueness of the solution \(u\). N.B. Ellipticity of an operator is defined with respect to with its domain. Analogy &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 40 --&gt;&lt;p class=&#39;noindent&#39;&gt;For a matrix equation \(Ax=b\), the ellipticity condition is equivalent to that the minimum eigenvalue of \(A\) is larger than 0 (see &lt;a href=&#39;/math/2024/06/07/understanding-about-ellipticity-of-operators.html&#39;&gt;here&lt;/a&gt;). Therefore, the matrix is invertible and the solution exists and is unique. &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 41 --&gt;&lt;p class=&#39;noindent&#39;&gt;For the simple division in elementary arithmetic, the ellipticity is equivalent to that the denominator is not zero.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; &lt;!-- l. 43 --&gt;&lt;p class=&#39;noindent&#39;&gt; &lt;/p&gt; 2 Boundary integral operator related to the single layer potential When the spatial dimension \(d=3\), \(V: H^{-1/2}(\Gamma ) \rightarrow H^{1/2}(\Gamma )\) is \(H^{-1/2}(\Gamma )\)-elliptic, i.e. it is elliptic on its whole domain. However, when \(d=2\), \(V\) is only \(H_{\ast }^{-1/2}(\Gamma )\)-elliptic, i.e. it is elliptic on a subspace of its domain, where \begin{equation} H_{\ast }^{-1/2}(\Gamma ) := \left \{ v\in H^{-1/2}(\Gamma ): \left \langle v,1 \right \rangle _{\Gamma }=0 \right \}. \end{equation} The functions in this space are orthogonal to constant functions, or we say the kernel of \(V\) when \(d=2\) is \(\mathrm {span}\{u_0\}\) where \(u_0 \equiv 1\). 3 Natural density and capacity By introducing a natural density \(w_{\mathrm {eq}}\) and capacity \(\lambda \), it can be proved that when \(\mathrm {diam}(\Omega )&lt; 1\) and \(d=2\), \(V\) is \(H^{-1/2}(\Gamma )\)-elliptic (Steinbach, Theorem 6.23 on P143). The variational equation for \(w_{\mathrm {eq}}\) is \begin{equation} \label {eq:weq-var-eq} \begin{aligned} \left \langle V w_{\mathrm {eq}},\tau \right \rangle _{\Gamma } - \lambda \left \langle 1,\tau \right \rangle _{\Gamma } &amp;= 0 \\ \left \langle w_{\mathrm {eq}}, 1 \right \rangle _{\Gamma } &amp;= 1 \end{aligned} \quad \forall \tau \in H^{-1/2}(\Gamma ), \end{equation} where \(\lambda \) is the Lagrange multiplier to restrict the test function \(\tau \) within the subspace \(H_{\ast }^{-1/2}(\Gamma )\). This variational equation is equivalent to the following operator equation: \begin{equation} \label {eq:weq-op-eq} \begin{aligned} (V w_{\mathrm {eq}})(x) &amp;= \lambda \\ \left \langle w_{\mathrm {eq}}, 1 \right \rangle _{\Gamma } &amp;= 1 \end{aligned} \quad x\in \Gamma . \end{equation} From the variational equation, we have \(\langle Vw_{\mathrm {eq}},w_{\mathrm {eq}} \rangle _{\Gamma }=\lambda \). We can also derive a normalized version of \(w_{\mathrm {eq}}\): \begin{equation} \tilde {w}_{\mathrm {eq}} := \frac {w_{\mathrm {eq}}}{\lambda }, \end{equation} which satisfies \begin{equation} (V\tilde {w}_{\mathrm {eq}})(x) = 1, \; \langle \tilde {w}_{\mathrm {eq}},1 \rangle _{\Gamma }=\frac {1}{\lambda }. \end{equation} 4 Hypersingular boundary integral operator Unlike the single layer potential boundary integral operator \(V\), the hypersingular boundary integral operator \(D: H^{1/2}(\Gamma ) \rightarrow H^{-1/2}(\Gamma )\) has a non-trivial kernel \(\mathrm {ker}(D)=\mathrm {span} \{ u_0 \}\), so the ellipticity is not available on the whole space \(H^{1/2}(\Gamma )\) but is only valid in some subspace, which is the orthogonal space of \(\mathrm {ker}(D)\). The concept of orthogonality requires an inner product structure assigned to the space. Because \(H^{1/2}(\Gamma )\) is a Hilbert space, the inner product is available. Different definitions of the inner product for \(H^{1/2}(\Gamma )\) lead to different definitions of orthogonality. Hence, different orthogonal subspaces with respect to \(\mathrm {ker}(D)\) will be obtained. Here we have three choices. The inner product is \begin{equation} ( u,v )_{H_{\ast }^{1/2}(\Gamma )} := \langle u,w_{\mathrm {eq}} \rangle _{\Gamma } \cdot \langle v,w_{\mathrm {eq}} \rangle _{\Gamma } + \lvert u \rvert _{H^{1/2}(\Gamma )}\cdot \lvert v \rvert _{H^{1/2}(\Gamma )}, \end{equation} where \(\lvert \cdot \rvert _{H^{1/2}(\Gamma )}\) is the Sobolev-Slobodeckii semi-norm. The corresponding norm is \begin{equation} \lVert v \rVert _{H_{\ast }^{1/2}(\Gamma )} := \left \{ \langle v,w_{\mathrm {eq}} \rangle _{\Gamma }^{2} + \lvert v \rvert _{H^{1/2}(\Gamma )}^{2} \right \}^{1/2}. \end{equation} This norm is equivalent to the Sobolev norm for \(H^{1/2}(\Gamma )\). Define the following space \begin{equation} H_{\ast }^{1/2}(\Gamma ) := \{ v\in H^{1/2}(\Gamma ): \langle v,w_{\mathrm {eq}} \rangle _{\Gamma }=0 \}. \end{equation} It can be proved that using the above definition of inner product, \(H_{\ast }^{1/2}(\Gamma )\) is orthogonal to \(\mathrm {ker}(D)\). Therefore, \(D\) is \(H_{\ast }^{1/2}(\Gamma )\)-elliptic. The inner product is \begin{equation} ( u,v )_{H_{\ast \ast }^{1/2}(\Gamma )} := \langle u,1 \rangle _{\Gamma }\cdot \langle v,1 \rangle _{\Gamma } + \lvert u \rvert _{H^{1/2}(\Gamma )}\cdot \lvert v \rvert _{H^{1/2}(\Gamma )}. \end{equation} The corresponding norm is \begin{equation} \lVert v \rVert _{H_{\ast \ast }^{1/2}(\Gamma )} := \left \{ \langle v,1 \rangle _{\Gamma }^2 + \lvert v \rvert _{H^{1/2}(\Gamma )}^2 \right \}^{1/2}. \end{equation} This norm is equivalent to the Sobolev norm for \(H^{1/2}(\Gamma )\). Define the following space \begin{equation} H_{\ast \ast }^{1/2}(\Gamma ) := \{ v\in H^{1/2}(\Gamma ): \langle v,1 \rangle _{\Gamma }=0 \}. \end{equation} This space is orthogonal to \(\mathrm {ker}(D)\) and \(D\) is also \(H_{\ast \ast }^{1/2}(\Gamma )\)-elliptic. Let \(\Gamma _0\) be an open set contained in \(\Gamma \) and we consider functions on \(\Gamma _0\) instead of on the whole boundary, i.e. the function space is \(\tilde {H}^{1/2}(\Gamma _0)\). The inner product is \begin{equation} ( u,v )_{H^{1/2}(\Gamma ),\Gamma _0} := \lVert u \rVert _{L_2(\Gamma \backslash \Gamma _0)} \cdot \lVert v \rVert _{L_2(\Gamma \backslash \Gamma _0)} + \lvert u \rvert _{H^{1/2}(\Gamma )}\cdot \lvert v \rvert _{H^{1/2}(\Gamma )}. \end{equation} Here \(u\) and \(v\) belongs to \(H^{1/2}(\Gamma )\). When they are only defined on \(\Gamma _0\) and belong to \(\tilde {H}^{1/2}(\Gamma _0)\), we need to apply the canonical extension to them, i.e. extension by zero while preserving the resulted function within the space \(H^{1/2}(\Gamma )\). \begin{equation} \tilde {v} = \begin {cases} v(x) &amp; x\in \Gamma _0 \\ 0 &amp; x\in \Gamma \backslash \Gamma _0 \end {cases}. \end{equation} Then we define the inner product of \(u\) and \(v\) to be equal to \(( \tilde {u},\tilde {v} )_{H^{1/2}(\Gamma ),\Gamma _0}\). The corresponding norm is \begin{equation} \lVert v \rVert _{H^{1/2}(\Gamma ),\Gamma _0} := \left \{ \lVert v \rVert _{L_2(\Gamma \backslash \Gamma _0)}^2 + \lvert v \rvert _{H^{1/2}(\Gamma )}^2 \right \}^{1/2}. \end{equation} This norm is equivalent to the Sobolev norm for \(\tilde {H}^{1/2}(\Gamma _0)\). The space \(\tilde {H}^{1/2}(\Gamma _0)\) is orthogonal to \(\mathrm {ker}(D)\) and \(D\) is \(\tilde {H}^{1/2}(\Gamma _0)\)-elliptic. To prove the ellipticity of \(D\) either on the whole space or a subspace, the Sobolev norm should be used. The above definitions of norm play the role of scaffold during such a proof. Orthogonality defined based on different definitions of inner product lead to ellipticity of \(D\) with respect to different subspaces which are orthogonal to \(\mathrm {ker}(D)\) 5 Steklov-Poincaré operator The symmetric form of the Steklov-Poincaré operator is \begin{equation} S := D + (\sigma I + K&#39;) V^{-1} (\sigma I + K). \end{equation} \(V^{-1}\) is \(H^{1/2}(\Gamma )\)-elliptic and the ellipticity of \(S\) is the same as \(D\). References    Olaf Steinbach. Numerical Approximation Methods for Elliptic Boundary Value Problems: Finite and Boundary Elements. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2." />
+<meta property="og:description" content="Contents  1 Ellipticity and solution uniqueness  2 Boundary integral operator related to the single layer potential  3 Natural density and capacity  4 Hypersingular boundary integral operator  5 Steklov-Poincaré operator 1 Ellipticity and solution uniqueness Lax-Milgram Lemma is an existence and uniqueness theorem for the solution of an operator equation as well as its equivalent variational formulation, whose key feature is governed by the operator \(A: X \rightarrow X&#39;\) or the corresponding bilinear form \(a(\cdot ,\cdot )\). The operator equation is \begin{equation} Au = f \end{equation} and its variational formulation is \begin{equation} a(u,v) = \left \langle Au,v \right \rangle = \left \langle f,v \right \rangle \quad \forall v\in X. \end{equation} The boundedness and \(X\)-ellipticity of \(A\) ensures the existence and uniqueness of the solution \(u\). N.B. Ellipticity of an operator is defined with respect to with its domain. Analogy &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 40 --&gt;&lt;p class=&#39;noindent&#39;&gt;For a matrix equation \(Ax=b\), the ellipticity condition is equivalent to that the minimum eigenvalue of \(A\) is larger than 0 (see &lt;a href=&#39;/math/2024/06/07/understanding-about-ellipticity-of-operators.html&#39;&gt;here&lt;/a&gt;). Therefore, the matrix is invertible and the solution exists and is unique. &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 41 --&gt;&lt;p class=&#39;noindent&#39;&gt;For the simple division in elementary arithmetic, the ellipticity is equivalent to that the denominator is not zero.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; &lt;!-- l. 43 --&gt;&lt;p class=&#39;noindent&#39;&gt; &lt;/p&gt; 2 Boundary integral operator related to the single layer potential When the spatial dimension \(d=3\), \(V: H^{-1/2}(\Gamma ) \rightarrow H^{1/2}(\Gamma )\) is \(H^{-1/2}(\Gamma )\)-elliptic, i.e. it is elliptic on its whole domain. However, when \(d=2\), \(V\) is only \(H_{\ast }^{-1/2}(\Gamma )\)-elliptic, i.e. it is elliptic on a subspace of its domain, where \begin{equation} H_{\ast }^{-1/2}(\Gamma ) := \left \{ v\in H^{-1/2}(\Gamma ): \left \langle v,1 \right \rangle _{\Gamma }=0 \right \}. \end{equation} The functions in this space are orthogonal to constant functions, or we say the kernel of \(V\) when \(d=2\) is \(\mathrm {span}\{u_0\}\) where \(u_0 \equiv 1\). 3 Natural density and capacity By introducing a natural density \(w_{\mathrm {eq}}\) and capacity \(\lambda \), it can be proved that when \(\mathrm {diam}(\Omega )&lt; 1\) and \(d=2\), \(V\) is \(H^{-1/2}(\Gamma )\)-elliptic (Steinbach, Theorem 6.23 on P143). The variational equation for \(w_{\mathrm {eq}}\) is \begin{equation} \label {eq:weq-var-eq} \begin{aligned} \left \langle V w_{\mathrm {eq}},\tau \right \rangle _{\Gamma } - \lambda \left \langle 1,\tau \right \rangle _{\Gamma } &amp;= 0 \\ \left \langle w_{\mathrm {eq}}, 1 \right \rangle _{\Gamma } &amp;= 1 \end{aligned} \quad \forall \tau \in H^{-1/2}(\Gamma ), \end{equation} where \(\lambda \) is the Lagrange multiplier to restrict the test function \(\tau \) within the subspace \(H_{\ast }^{-1/2}(\Gamma )\). This variational equation is equivalent to the following operator equation: \begin{equation} \label {eq:weq-op-eq} \begin{aligned} (V w_{\mathrm {eq}})(x) &amp;= \lambda \\ \left \langle w_{\mathrm {eq}}, 1 \right \rangle _{\Gamma } &amp;= 1 \end{aligned} \quad x\in \Gamma . \end{equation} From the variational equation, we have \(\langle Vw_{\mathrm {eq}},w_{\mathrm {eq}} \rangle _{\Gamma }=\lambda \). We can also derive a normalized version of \(w_{\mathrm {eq}}\): \begin{equation} \tilde {w}_{\mathrm {eq}} := \frac {w_{\mathrm {eq}}}{\lambda }, \end{equation} which satisfies \begin{equation} (V\tilde {w}_{\mathrm {eq}})(x) = 1, \; \langle \tilde {w}_{\mathrm {eq}},1 \rangle _{\Gamma }=\frac {1}{\lambda }. \end{equation} 4 Hypersingular boundary integral operator Unlike the single layer potential boundary integral operator \(V\), the hypersingular boundary integral operator \(D: H^{1/2}(\Gamma ) \rightarrow H^{-1/2}(\Gamma )\) has a non-trivial kernel \(\mathrm {ker}(D)=\mathrm {span} \{ u_0 \}\), so the ellipticity is not available on the whole space \(H^{1/2}(\Gamma )\) but is only valid in some subspace, which is the orthogonal space of \(\mathrm {ker}(D)\). The concept of orthogonality requires an inner product structure assigned to the space. Because \(H^{1/2}(\Gamma )\) is a Hilbert space, the inner product is available. Different definitions of the inner product for \(H^{1/2}(\Gamma )\) lead to different definitions of orthogonality. Hence, different orthogonal subspaces with respect to \(\mathrm {ker}(D)\) will be obtained. Here we have three choices. The inner product is \begin{equation} ( u,v )_{H_{\ast }^{1/2}(\Gamma )} := \langle u,w_{\mathrm {eq}} \rangle _{\Gamma } \cdot \langle v,w_{\mathrm {eq}} \rangle _{\Gamma } + \lvert u \rvert _{H^{1/2}(\Gamma )}\cdot \lvert v \rvert _{H^{1/2}(\Gamma )}, \end{equation} where \(\lvert \cdot \rvert _{H^{1/2}(\Gamma )}\) is the Sobolev-Slobodeckii semi-norm. The corresponding norm is \begin{equation} \lVert v \rVert _{H_{\ast }^{1/2}(\Gamma )} := \left \{ \langle v,w_{\mathrm {eq}} \rangle _{\Gamma }^{2} + \lvert v \rvert _{H^{1/2}(\Gamma )}^{2} \right \}^{1/2}. \end{equation} This norm is equivalent to the Sobolev norm for \(H^{1/2}(\Gamma )\). Define the following space \begin{equation} H_{\ast }^{1/2}(\Gamma ) := \{ v\in H^{1/2}(\Gamma ): \langle v,w_{\mathrm {eq}} \rangle _{\Gamma }=0 \}. \end{equation} It can be proved that using the above definition of inner product, \(H_{\ast }^{1/2}(\Gamma )\) is orthogonal to \(\mathrm {ker}(D)\). Therefore, \(D\) is \(H_{\ast }^{1/2}(\Gamma )\)-elliptic. The inner product is \begin{equation} ( u,v )_{H_{\ast \ast }^{1/2}(\Gamma )} := \langle u,1 \rangle _{\Gamma }\cdot \langle v,1 \rangle _{\Gamma } + \lvert u \rvert _{H^{1/2}(\Gamma )}\cdot \lvert v \rvert _{H^{1/2}(\Gamma )}. \end{equation} The corresponding norm is \begin{equation} \lVert v \rVert _{H_{\ast \ast }^{1/2}(\Gamma )} := \left \{ \langle v,1 \rangle _{\Gamma }^2 + \lvert v \rvert _{H^{1/2}(\Gamma )}^2 \right \}^{1/2}. \end{equation} This norm is equivalent to the Sobolev norm for \(H^{1/2}(\Gamma )\). Define the following space \begin{equation} H_{\ast \ast }^{1/2}(\Gamma ) := \{ v\in H^{1/2}(\Gamma ): \langle v,1 \rangle _{\Gamma }=0 \}. \end{equation} This space is orthogonal to \(\mathrm {ker}(D)\) and \(D\) is also \(H_{\ast \ast }^{1/2}(\Gamma )\)-elliptic. Let \(\Gamma _0\) be an open set contained in \(\Gamma \) and we consider functions on \(\Gamma _0\) instead of on the whole boundary, i.e. the function space is \(\tilde {H}^{1/2}(\Gamma _0)\). The inner product is \begin{equation} ( u,v )_{H^{1/2}(\Gamma ),\Gamma _0} := \lVert u \rVert _{L_2(\Gamma \backslash \Gamma _0)} \cdot \lVert v \rVert _{L_2(\Gamma \backslash \Gamma _0)} + \lvert u \rvert _{H^{1/2}(\Gamma )}\cdot \lvert v \rvert _{H^{1/2}(\Gamma )}. \end{equation} Here \(u\) and \(v\) belongs to \(H^{1/2}(\Gamma )\). When they are only defined on \(\Gamma _0\) and belong to \(\tilde {H}^{1/2}(\Gamma _0)\), we need to apply the canonical extension to them, i.e. extension by zero while preserving the resulted function within the space \(H^{1/2}(\Gamma )\). \begin{equation} \tilde {v} = \begin {cases} v(x) &amp; x\in \Gamma _0 \\ 0 &amp; x\in \Gamma \backslash \Gamma _0 \end {cases}. \end{equation} Then we define the inner product of \(u\) and \(v\) to be equal to \(( \tilde {u},\tilde {v} )_{H^{1/2}(\Gamma ),\Gamma _0}\). The corresponding norm is \begin{equation} \lVert v \rVert _{H^{1/2}(\Gamma ),\Gamma _0} := \left \{ \lVert v \rVert _{L_2(\Gamma \backslash \Gamma _0)}^2 + \lvert v \rvert _{H^{1/2}(\Gamma )}^2 \right \}^{1/2}. \end{equation} This norm is equivalent to the Sobolev norm for \(\tilde {H}^{1/2}(\Gamma _0)\). The space \(\tilde {H}^{1/2}(\Gamma _0)\) is orthogonal to \(\mathrm {ker}(D)\) and \(D\) is \(\tilde {H}^{1/2}(\Gamma _0)\)-elliptic. To prove the ellipticity of \(D\) either on the whole space or a subspace, the Sobolev norm should be used. The above definitions of norm play the role of scaffold during such a proof. Orthogonality defined based on different definitions of inner product lead to ellipticity of \(D\) with respect to different subspaces which are orthogonal to \(\mathrm {ker}(D)\) 5 Steklov-Poincaré operator The symmetric form of the Steklov-Poincaré operator is \begin{equation} S := D + (\sigma I + K&#39;) V^{-1} (\sigma I + K). \end{equation} \(V^{-1}\) is \(H^{1/2}(\Gamma )\)-elliptic and the ellipticity of \(S\) is the same as \(D\). References    Olaf Steinbach. Numerical Approximation Methods for Elliptic Boundary Value Problems: Finite and Boundary Elements. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2." />
+<link rel="canonical" href="https://jihuan-tian.github.io/math/2024/11/11/ellipticity-of-boundary-integral-operators.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/math/2024/11/11/ellipticity-of-boundary-integral-operators.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-11-11T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Ellipticity of boundary integral operators" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2024-11-11T00:00:00+08:00","datePublished":"2024-11-11T00:00:00+08:00","description":"Contents  1 Ellipticity and solution uniqueness  2 Boundary integral operator related to the single layer potential  3 Natural density and capacity  4 Hypersingular boundary integral operator  5 Steklov-Poincaré operator 1 Ellipticity and solution uniqueness Lax-Milgram Lemma is an existence and uniqueness theorem for the solution of an operator equation as well as its equivalent variational formulation, whose key feature is governed by the operator \\(A: X \\rightarrow X&#39;\\) or the corresponding bilinear form \\(a(\\cdot ,\\cdot )\\). The operator equation is \\begin{equation} Au = f \\end{equation} and its variational formulation is \\begin{equation} a(u,v) = \\left \\langle Au,v \\right \\rangle = \\left \\langle f,v \\right \\rangle \\quad \\forall v\\in X. \\end{equation} The boundedness and \\(X\\)-ellipticity of \\(A\\) ensures the existence and uniqueness of the solution \\(u\\). N.B. Ellipticity of an operator is defined with respect to with its domain. Analogy &lt;ul class=&#39;itemize1&#39;&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 40 --&gt;&lt;p class=&#39;noindent&#39;&gt;For a matrix equation \\(Ax=b\\), the ellipticity condition is equivalent to that the minimum eigenvalue of \\(A\\) is larger than 0 (see &lt;a href=&#39;/math/2024/06/07/understanding-about-ellipticity-of-operators.html&#39;&gt;here&lt;/a&gt;). Therefore, the matrix is invertible and the solution exists and is unique. &lt;/p&gt;&lt;/li&gt; &lt;li class=&#39;itemize&#39;&gt; &lt;!-- l. 41 --&gt;&lt;p class=&#39;noindent&#39;&gt;For the simple division in elementary arithmetic, the ellipticity is equivalent to that the denominator is not zero.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; &lt;!-- l. 43 --&gt;&lt;p class=&#39;noindent&#39;&gt; &lt;/p&gt; 2 Boundary integral operator related to the single layer potential When the spatial dimension \\(d=3\\), \\(V: H^{-1/2}(\\Gamma ) \\rightarrow H^{1/2}(\\Gamma )\\) is \\(H^{-1/2}(\\Gamma )\\)-elliptic, i.e. it is elliptic on its whole domain. However, when \\(d=2\\), \\(V\\) is only \\(H_{\\ast }^{-1/2}(\\Gamma )\\)-elliptic, i.e. it is elliptic on a subspace of its domain, where \\begin{equation} H_{\\ast }^{-1/2}(\\Gamma ) := \\left \\{ v\\in H^{-1/2}(\\Gamma ): \\left \\langle v,1 \\right \\rangle _{\\Gamma }=0 \\right \\}. \\end{equation} The functions in this space are orthogonal to constant functions, or we say the kernel of \\(V\\) when \\(d=2\\) is \\(\\mathrm {span}\\{u_0\\}\\) where \\(u_0 \\equiv 1\\). 3 Natural density and capacity By introducing a natural density \\(w_{\\mathrm {eq}}\\) and capacity \\(\\lambda \\), it can be proved that when \\(\\mathrm {diam}(\\Omega )&lt; 1\\) and \\(d=2\\), \\(V\\) is \\(H^{-1/2}(\\Gamma )\\)-elliptic (Steinbach, Theorem 6.23 on P143). The variational equation for \\(w_{\\mathrm {eq}}\\) is \\begin{equation} \\label {eq:weq-var-eq} \\begin{aligned} \\left \\langle V w_{\\mathrm {eq}},\\tau \\right \\rangle _{\\Gamma } - \\lambda \\left \\langle 1,\\tau \\right \\rangle _{\\Gamma } &amp;= 0 \\\\ \\left \\langle w_{\\mathrm {eq}}, 1 \\right \\rangle _{\\Gamma } &amp;= 1 \\end{aligned} \\quad \\forall \\tau \\in H^{-1/2}(\\Gamma ), \\end{equation} where \\(\\lambda \\) is the Lagrange multiplier to restrict the test function \\(\\tau \\) within the subspace \\(H_{\\ast }^{-1/2}(\\Gamma )\\). This variational equation is equivalent to the following operator equation: \\begin{equation} \\label {eq:weq-op-eq} \\begin{aligned} (V w_{\\mathrm {eq}})(x) &amp;= \\lambda \\\\ \\left \\langle w_{\\mathrm {eq}}, 1 \\right \\rangle _{\\Gamma } &amp;= 1 \\end{aligned} \\quad x\\in \\Gamma . \\end{equation} From the variational equation, we have \\(\\langle Vw_{\\mathrm {eq}},w_{\\mathrm {eq}} \\rangle _{\\Gamma }=\\lambda \\). We can also derive a normalized version of \\(w_{\\mathrm {eq}}\\): \\begin{equation} \\tilde {w}_{\\mathrm {eq}} := \\frac {w_{\\mathrm {eq}}}{\\lambda }, \\end{equation} which satisfies \\begin{equation} (V\\tilde {w}_{\\mathrm {eq}})(x) = 1, \\; \\langle \\tilde {w}_{\\mathrm {eq}},1 \\rangle _{\\Gamma }=\\frac {1}{\\lambda }. \\end{equation} 4 Hypersingular boundary integral operator Unlike the single layer potential boundary integral operator \\(V\\), the hypersingular boundary integral operator \\(D: H^{1/2}(\\Gamma ) \\rightarrow H^{-1/2}(\\Gamma )\\) has a non-trivial kernel \\(\\mathrm {ker}(D)=\\mathrm {span} \\{ u_0 \\}\\), so the ellipticity is not available on the whole space \\(H^{1/2}(\\Gamma )\\) but is only valid in some subspace, which is the orthogonal space of \\(\\mathrm {ker}(D)\\). The concept of orthogonality requires an inner product structure assigned to the space. Because \\(H^{1/2}(\\Gamma )\\) is a Hilbert space, the inner product is available. Different definitions of the inner product for \\(H^{1/2}(\\Gamma )\\) lead to different definitions of orthogonality. Hence, different orthogonal subspaces with respect to \\(\\mathrm {ker}(D)\\) will be obtained. Here we have three choices. The inner product is \\begin{equation} ( u,v )_{H_{\\ast }^{1/2}(\\Gamma )} := \\langle u,w_{\\mathrm {eq}} \\rangle _{\\Gamma } \\cdot \\langle v,w_{\\mathrm {eq}} \\rangle _{\\Gamma } + \\lvert u \\rvert _{H^{1/2}(\\Gamma )}\\cdot \\lvert v \\rvert _{H^{1/2}(\\Gamma )}, \\end{equation} where \\(\\lvert \\cdot \\rvert _{H^{1/2}(\\Gamma )}\\) is the Sobolev-Slobodeckii semi-norm. The corresponding norm is \\begin{equation} \\lVert v \\rVert _{H_{\\ast }^{1/2}(\\Gamma )} := \\left \\{ \\langle v,w_{\\mathrm {eq}} \\rangle _{\\Gamma }^{2} + \\lvert v \\rvert _{H^{1/2}(\\Gamma )}^{2} \\right \\}^{1/2}. \\end{equation} This norm is equivalent to the Sobolev norm for \\(H^{1/2}(\\Gamma )\\). Define the following space \\begin{equation} H_{\\ast }^{1/2}(\\Gamma ) := \\{ v\\in H^{1/2}(\\Gamma ): \\langle v,w_{\\mathrm {eq}} \\rangle _{\\Gamma }=0 \\}. \\end{equation} It can be proved that using the above definition of inner product, \\(H_{\\ast }^{1/2}(\\Gamma )\\) is orthogonal to \\(\\mathrm {ker}(D)\\). Therefore, \\(D\\) is \\(H_{\\ast }^{1/2}(\\Gamma )\\)-elliptic. The inner product is \\begin{equation} ( u,v )_{H_{\\ast \\ast }^{1/2}(\\Gamma )} := \\langle u,1 \\rangle _{\\Gamma }\\cdot \\langle v,1 \\rangle _{\\Gamma } + \\lvert u \\rvert _{H^{1/2}(\\Gamma )}\\cdot \\lvert v \\rvert _{H^{1/2}(\\Gamma )}. \\end{equation} The corresponding norm is \\begin{equation} \\lVert v \\rVert _{H_{\\ast \\ast }^{1/2}(\\Gamma )} := \\left \\{ \\langle v,1 \\rangle _{\\Gamma }^2 + \\lvert v \\rvert _{H^{1/2}(\\Gamma )}^2 \\right \\}^{1/2}. \\end{equation} This norm is equivalent to the Sobolev norm for \\(H^{1/2}(\\Gamma )\\). Define the following space \\begin{equation} H_{\\ast \\ast }^{1/2}(\\Gamma ) := \\{ v\\in H^{1/2}(\\Gamma ): \\langle v,1 \\rangle _{\\Gamma }=0 \\}. \\end{equation} This space is orthogonal to \\(\\mathrm {ker}(D)\\) and \\(D\\) is also \\(H_{\\ast \\ast }^{1/2}(\\Gamma )\\)-elliptic. Let \\(\\Gamma _0\\) be an open set contained in \\(\\Gamma \\) and we consider functions on \\(\\Gamma _0\\) instead of on the whole boundary, i.e. the function space is \\(\\tilde {H}^{1/2}(\\Gamma _0)\\). The inner product is \\begin{equation} ( u,v )_{H^{1/2}(\\Gamma ),\\Gamma _0} := \\lVert u \\rVert _{L_2(\\Gamma \\backslash \\Gamma _0)} \\cdot \\lVert v \\rVert _{L_2(\\Gamma \\backslash \\Gamma _0)} + \\lvert u \\rvert _{H^{1/2}(\\Gamma )}\\cdot \\lvert v \\rvert _{H^{1/2}(\\Gamma )}. \\end{equation} Here \\(u\\) and \\(v\\) belongs to \\(H^{1/2}(\\Gamma )\\). When they are only defined on \\(\\Gamma _0\\) and belong to \\(\\tilde {H}^{1/2}(\\Gamma _0)\\), we need to apply the canonical extension to them, i.e. extension by zero while preserving the resulted function within the space \\(H^{1/2}(\\Gamma )\\). \\begin{equation} \\tilde {v} = \\begin {cases} v(x) &amp; x\\in \\Gamma _0 \\\\ 0 &amp; x\\in \\Gamma \\backslash \\Gamma _0 \\end {cases}. \\end{equation} Then we define the inner product of \\(u\\) and \\(v\\) to be equal to \\(( \\tilde {u},\\tilde {v} )_{H^{1/2}(\\Gamma ),\\Gamma _0}\\). The corresponding norm is \\begin{equation} \\lVert v \\rVert _{H^{1/2}(\\Gamma ),\\Gamma _0} := \\left \\{ \\lVert v \\rVert _{L_2(\\Gamma \\backslash \\Gamma _0)}^2 + \\lvert v \\rvert _{H^{1/2}(\\Gamma )}^2 \\right \\}^{1/2}. \\end{equation} This norm is equivalent to the Sobolev norm for \\(\\tilde {H}^{1/2}(\\Gamma _0)\\). The space \\(\\tilde {H}^{1/2}(\\Gamma _0)\\) is orthogonal to \\(\\mathrm {ker}(D)\\) and \\(D\\) is \\(\\tilde {H}^{1/2}(\\Gamma _0)\\)-elliptic. To prove the ellipticity of \\(D\\) either on the whole space or a subspace, the Sobolev norm should be used. The above definitions of norm play the role of scaffold during such a proof. Orthogonality defined based on different definitions of inner product lead to ellipticity of \\(D\\) with respect to different subspaces which are orthogonal to \\(\\mathrm {ker}(D)\\) 5 Steklov-Poincaré operator The symmetric form of the Steklov-Poincaré operator is \\begin{equation} S := D + (\\sigma I + K&#39;) V^{-1} (\\sigma I + K). \\end{equation} \\(V^{-1}\\) is \\(H^{1/2}(\\Gamma )\\)-elliptic and the ellipticity of \\(S\\) is the same as \\(D\\). References    Olaf Steinbach. Numerical Approximation Methods for Elliptic Boundary Value Problems: Finite and Boundary Elements. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2.","headline":"Ellipticity of boundary integral operators","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2024/11/11/ellipticity-of-boundary-integral-operators.html"},"url":"https://jihuan-tian.github.io/math/2024/11/11/ellipticity-of-boundary-integral-operators.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+    <link rel="stylesheet" href="/assets/css/make4ht.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"></script>
+
+  
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Ellipticity of boundary integral operators</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-11-11T00:00:00+08:00" itemprop="datePublished">Nov 11, 2024 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/math">Math</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/BEM">BEM</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
+   <div class='tableofcontents'>
+    <span class='sectionToc'>1 <a href='#x1-20001' id='QQ2-1-2'>Ellipticity and solution uniqueness</a></span>
+<br />    <span class='sectionToc'>2 <a href='#x1-30002' id='QQ2-1-3'>Boundary integral operator related to the single layer potential</a></span>
+<br />    <span class='sectionToc'>3 <a href='#x1-40003' id='QQ2-1-4'>Natural density and capacity</a></span>
+<br />    <span class='sectionToc'>4 <a href='#x1-50004' id='QQ2-1-5'>Hypersingular boundary integral operator</a></span>
+<br />    <span class='sectionToc'>5 <a href='#x1-60005' id='QQ2-1-6'>Steklov-Poincaré operator</a></span>
+   </div>
+<!-- l. 24 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>1    </span> <a id='x1-20001'></a>Ellipticity and solution uniqueness</h3>
+<!-- l. 26 --><p class='noindent'><a href='/math/2024/06/19/fundamental-theorems-in-pde-theory.html#org650a387'>Lax-Milgram Lemma</a> is an existence and uniqueness theorem for the solution of an operator equation as well as
+its equivalent variational formulation, whose key feature is governed by the operator \(A: X \rightarrow X'\) or the corresponding
+bilinear form \(a(\cdot ,\cdot )\).
+</p><!-- l. 28 --><p class='indent'>   The operator equation is \begin{equation}  Au = f  \end{equation}<a id='x1-2001r1'></a> and its variational formulation is \begin{equation}  a(u,v) = \left \langle Au,v \right \rangle = \left \langle f,v \right \rangle \quad \forall v\in X.  \end{equation}<a id='x1-2002r2'></a> The boundedness and \(X\)-ellipticity of \(A\) ensures the
+existence and uniqueness of the solution \(u\). N.B. Ellipticity of an operator is defined with respect to with its
+domain.
+</p><!-- l. 38 --><p class='indent'>   <span class='p1xb-x-x-109'>Analogy</span> </p>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 40 --><p class='noindent'>For a matrix equation \(Ax=b\), the ellipticity condition is equivalent to that the minimum eigenvalue of \(A\) is
+     larger than 0 (see <a href='/math/2024/06/07/understanding-about-ellipticity-of-operators.html'>here</a>). Therefore, the matrix is invertible and the solution exists and is unique.
+     </p></li>
+     <li class='itemize'>
+                                                                                               
+                                                                                               
+     <!-- l. 41 --><p class='noindent'>For the simple division in elementary arithmetic, the ellipticity is equivalent to that the denominator
+     is not zero.</p></li></ul>
+<!-- l. 43 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>2    </span> <a id='x1-30002'></a>Boundary integral operator related to the single layer potential</h3>
+<!-- l. 45 --><p class='noindent'>When the spatial dimension \(d=3\), \(V: H^{-1/2}(\Gamma ) \rightarrow H^{1/2}(\Gamma )\) is \(H^{-1/2}(\Gamma )\)-elliptic, i.e. it is elliptic on its whole domain. However, when \(d=2\), \(V\) is only \(H_{\ast }^{-1/2}(\Gamma )\)-elliptic,
+i.e. it is elliptic on a subspace of its domain, where \begin{equation}  H_{\ast }^{-1/2}(\Gamma ) := \left \{ v\in H^{-1/2}(\Gamma ): \left \langle v,1 \right \rangle _{\Gamma }=0 \right \}.  \end{equation}<a id='x1-3001r3'></a> The functions in this space are orthogonal to constant
+functions, or we say the kernel of \(V\) when \(d=2\) is \(\mathrm {span}\{u_0\}\) where \(u_0 \equiv 1\).
+</p><!-- l. 51 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>3    </span> <a id='x1-40003'></a>Natural density and capacity</h3>
+<!-- l. 53 --><p class='noindent'>By introducing a natural density \(w_{\mathrm {eq}}\) and capacity \(\lambda \), it can be proved that when \(\mathrm {diam}(\Omega )&lt; 1\) and \(d=2\), \(V\) is \(H^{-1/2}(\Gamma )\)-elliptic (<a href='#XSteinbachNumerical2007'>Steinbach</a>, Theorem
+6.23 on P143).
+</p><!-- l. 55 --><p class='indent'>   The variational equation for \(w_{\mathrm {eq}}\) is \begin{equation}  \label {eq:weq-var-eq} \begin{aligned} \left \langle V w_{\mathrm {eq}},\tau \right \rangle _{\Gamma } - \lambda \left \langle 1,\tau \right \rangle _{\Gamma } &amp;= 0 \\ \left \langle w_{\mathrm {eq}}, 1 \right \rangle _{\Gamma } &amp;= 1 \end{aligned} \quad \forall \tau \in H^{-1/2}(\Gamma ),  \end{equation}<a id='x1-4001r4'></a> where \(\lambda \) is the Lagrange multiplier to restrict the test function \(\tau \) within
+the subspace \(H_{\ast }^{-1/2}(\Gamma )\). This variational equation is equivalent to the following operator equation: \begin{equation}  \label {eq:weq-op-eq} \begin{aligned} (V w_{\mathrm {eq}})(x) &amp;= \lambda \\ \left \langle w_{\mathrm {eq}}, 1 \right \rangle _{\Gamma } &amp;= 1 \end{aligned} \quad x\in \Gamma .  \end{equation}<a id='x1-4002r5'></a> From
+the variational equation, we have \(\langle Vw_{\mathrm {eq}},w_{\mathrm {eq}} \rangle _{\Gamma }=\lambda \). We can also derive a normalized version of \(w_{\mathrm {eq}}\): \begin{equation}  \tilde {w}_{\mathrm {eq}} := \frac {w_{\mathrm {eq}}}{\lambda },  \end{equation}<a id='x1-4003r6'></a> which satisfies
+\begin{equation}  (V\tilde {w}_{\mathrm {eq}})(x) = 1, \; \langle \tilde {w}_{\mathrm {eq}},1 \rangle _{\Gamma }=\frac {1}{\lambda }.  \end{equation}<a id='x1-4004r7'></a>
+</p><!-- l. 81 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>4    </span> <a id='x1-50004'></a>Hypersingular boundary integral operator</h3>
+<!-- l. 83 --><p class='noindent'>Unlike the single layer potential boundary integral operator \(V\), the hypersingular boundary integral operator \(D: H^{1/2}(\Gamma ) \rightarrow H^{-1/2}(\Gamma )\) has
+a non-trivial kernel \(\mathrm {ker}(D)=\mathrm {span} \{ u_0 \}\), so the ellipticity is not available on the whole space \(H^{1/2}(\Gamma )\) but is only valid in some subspace,
+which is the orthogonal space of \(\mathrm {ker}(D)\). The concept of orthogonality requires an inner product structure assigned to
+the space. Because \(H^{1/2}(\Gamma )\) is a Hilbert space, the inner product is available. Different definitions of the inner product for \(H^{1/2}(\Gamma )\)
+lead to different definitions of orthogonality. Hence, different orthogonal subspaces with respect to \(\mathrm {ker}(D)\) will be
+obtained. Here we have three choices.
+</p><!-- l. 85 --><p class='indent'>
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-5002x1'>
+     <!-- l. 86 --><p class='noindent'>The inner product is \begin{equation}  ( u,v )_{H_{\ast }^{1/2}(\Gamma )} := \langle u,w_{\mathrm {eq}} \rangle _{\Gamma } \cdot \langle v,w_{\mathrm {eq}} \rangle _{\Gamma } + \lvert u \rvert _{H^{1/2}(\Gamma )}\cdot \lvert v \rvert _{H^{1/2}(\Gamma )},  \end{equation}<a id='x1-5003r8'></a> where \(\lvert \cdot \rvert _{H^{1/2}(\Gamma )}\) is the Sobolev-Slobodeckii semi-norm.
+     </p><!-- l. 94 --><p class='noindent'>The corresponding norm is \begin{equation}  \lVert v \rVert _{H_{\ast }^{1/2}(\Gamma )} := \left \{ \langle v,w_{\mathrm {eq}} \rangle _{\Gamma }^{2} + \lvert v \rvert _{H^{1/2}(\Gamma )}^{2} \right \}^{1/2}.  \end{equation}<a id='x1-5004r9'></a> This norm is equivalent to the Sobolev norm for \(H^{1/2}(\Gamma )\).
+     </p><!-- l. 100 --><p class='noindent'>Define the following space \begin{equation}  H_{\ast }^{1/2}(\Gamma ) := \{ v\in H^{1/2}(\Gamma ): \langle v,w_{\mathrm {eq}} \rangle _{\Gamma }=0 \}.  \end{equation}<a id='x1-5005r10'></a> It can be proved that using the above definition of inner product, \(H_{\ast }^{1/2}(\Gamma )\) is orthogonal
+     to \(\mathrm {ker}(D)\). Therefore, \(D\) is \(H_{\ast }^{1/2}(\Gamma )\)-elliptic.
+     </p></li>
+                                                                                               
+                                                                                               
+<li class='enumerate' id='x1-5007x2'>
+     <!-- l. 106 --><p class='noindent'>The inner product is \begin{equation}  ( u,v )_{H_{\ast \ast }^{1/2}(\Gamma )} := \langle u,1 \rangle _{\Gamma }\cdot \langle v,1 \rangle _{\Gamma } + \lvert u \rvert _{H^{1/2}(\Gamma )}\cdot \lvert v \rvert _{H^{1/2}(\Gamma )}.  \end{equation}<a id='x1-5008r11'></a> The corresponding norm is \begin{equation}  \lVert v \rVert _{H_{\ast \ast }^{1/2}(\Gamma )} := \left \{ \langle v,1 \rangle _{\Gamma }^2 + \lvert v \rvert _{H^{1/2}(\Gamma )}^2 \right \}^{1/2}.  \end{equation}<a id='x1-5009r12'></a> This norm is equivalent to the Sobolev norm for
+     \(H^{1/2}(\Gamma )\).
+     </p><!-- l. 116 --><p class='noindent'>Define the following space \begin{equation}  H_{\ast \ast }^{1/2}(\Gamma ) := \{ v\in H^{1/2}(\Gamma ): \langle v,1 \rangle _{\Gamma }=0 \}.  \end{equation}<a id='x1-5010r13'></a> This space is orthogonal to \(\mathrm {ker}(D)\) and \(D\) is also \(H_{\ast \ast }^{1/2}(\Gamma )\)-elliptic.
+     </p></li>
+<li class='enumerate' id='x1-5012x3'>
+     <!-- l. 122 --><p class='noindent'>Let \(\Gamma _0\) be an open set contained in \(\Gamma \) and we consider functions on \(\Gamma _0\) instead of on the whole boundary, i.e. the
+     function space is \(\tilde {H}^{1/2}(\Gamma _0)\).
+     </p><!-- l. 124 --><p class='noindent'>The inner product is \begin{equation}  ( u,v )_{H^{1/2}(\Gamma ),\Gamma _0} := \lVert u \rVert _{L_2(\Gamma \backslash \Gamma _0)} \cdot \lVert v \rVert _{L_2(\Gamma \backslash \Gamma _0)} + \lvert u \rvert _{H^{1/2}(\Gamma )}\cdot \lvert v \rvert _{H^{1/2}(\Gamma )}.  \end{equation}<a id='x1-5013r14'></a> Here \(u\) and \(v\) belongs to \(H^{1/2}(\Gamma )\). When they are only defined on \(\Gamma _0\) and belong to \(\tilde {H}^{1/2}(\Gamma _0)\), we
+     need to apply the canonical extension to them, i.e. extension by zero while preserving the
+     resulted function within the space \(H^{1/2}(\Gamma )\). \begin{equation}  \tilde {v} = \begin {cases} v(x) &amp; x\in \Gamma _0 \\ 0 &amp; x\in \Gamma \backslash \Gamma _0 \end {cases}.  \end{equation}<a id='x1-5014r15'></a> Then we define the inner product of \(u\) and \(v\) to be equal to
+     \(( \tilde {u},\tilde {v} )_{H^{1/2}(\Gamma ),\Gamma _0}\).
+     </p><!-- l. 141 --><p class='noindent'>The corresponding norm is \begin{equation}  \lVert v \rVert _{H^{1/2}(\Gamma ),\Gamma _0} := \left \{ \lVert v \rVert _{L_2(\Gamma \backslash \Gamma _0)}^2 + \lvert v \rvert _{H^{1/2}(\Gamma )}^2 \right \}^{1/2}.  \end{equation}<a id='x1-5015r16'></a> This norm is equivalent to the Sobolev norm for \(\tilde {H}^{1/2}(\Gamma _0)\).
+     </p><!-- l. 147 --><p class='noindent'>The space \(\tilde {H}^{1/2}(\Gamma _0)\) is orthogonal to \(\mathrm {ker}(D)\) and \(D\) is \(\tilde {H}^{1/2}(\Gamma _0)\)-elliptic.</p></li></ol>
+<!-- l. 150 --><p class='indent'>   To prove the ellipticity of \(D\) either on the whole space or a subspace, the Sobolev norm should be used. The
+above definitions of norm play the role of scaffold during such a proof.
+</p><!-- l. 152 --><p class='indent'>   <span class='p1xb-x-x-109'>Orthogonality defined based on different definitions of inner product lead to ellipticity of </span>\(D\) <span class='p1xb-x-x-109'>with respect to
+</span><span class='p1xb-x-x-109'>different subspaces which are orthogonal to </span>\(\mathrm {ker}(D)\)
+</p><!-- l. 154 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>5    </span> <a id='x1-60005'></a>Steklov-Poincaré operator</h3>
+<!-- l. 156 --><p class='noindent'>The symmetric form of the Steklov-Poincaré operator is \begin{equation}  S := D + (\sigma I + K') V^{-1} (\sigma I + K).  \end{equation}<a id='x1-6001r17'></a> \(V^{-1}\) is \(H^{1/2}(\Gamma )\)-elliptic and the ellipticity of \(S\) is the same as
+\(D\).
+</p><!-- l. 1 --><p class='noindent'>
+</p>
+   <h3 class='likesectionHead'><a id='x1-7000'></a>References</h3>
+<!-- l. 1 --><p class='noindent'>
+  </p><div class='thebibliography'>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XSteinbachNumerical2007'></a><span class='bibsp'>   </span></span>Olaf  Steinbach.    <span class='p1xi-x-x-109'>Numerical  Approximation  Methods  for  Elliptic  Boundary  Value  Problems:  Finite  and
+  </span><span class='p1xi-x-x-109'>Boundary Elements</span>. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2.
+</p>
+  </div>
+
+
+
+  </div><a class="u-url" href="/math/2024/11/11/ellipticity-of-boundary-integral-operators.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
