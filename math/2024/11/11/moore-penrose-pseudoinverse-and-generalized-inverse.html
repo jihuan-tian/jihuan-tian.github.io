@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Moore-Penrose pseudoinverse and generalized inverse | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Moore-Penrose pseudoinverse and generalized inverse" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="When a boundary integral operator \(B\) in BEM to be used as a preconditioner is not elliptic on its whole domain, such as the hypersingular operator \(D\), generalized inverse operator \(\dot {B}^{-1}\) is needed (at least theoretically), which is spectrally equivalent to the original operator \(A\). In (Steinbach and Wendland), the preconditioning operator 1 is \(B: H^{s-2\alpha }(\Gamma ) \rightarrow H^s(\Gamma )\). Its generalized inverse is \begin{equation} \dot {B}^{-1}: V^{s,0}(\Gamma ,B) \rightarrow V^{s-2\alpha ,0}(\Gamma ,B). \end{equation} Because the generalized inverse is an extension of the Moore-Penrose pseudoinverse, we’ll first introduce the latter concept. We’ve already met pseudoinverse matrices in linear algebra. For a matrix equation \(Ax=b\), when \(A\) has full column rank, it has a unique Moore-Penrose pseudoinverse matrix \begin{equation} A^{\dagger } = (A^{\ast }A)^{-1}A^{\ast }, \end{equation} where \(A^{\ast }\) is the Hermite transpose of \(A\). \(A^{\dagger }\) satisfies the four Penrose conditions (Wang et al.): \(AA^{\dagger }A=A\) \(A^{\dagger }AA^{\dagger }=A^{\dagger }\) \((AA^{\dagger })^{\ast }=AA^{\dagger }\) \((A^{\dagger }A)^{\ast }=A^{\dagger }A\) From these conditions, we know that \(A^{\dagger }\) is just the left inverse of \(A\). According to our previous knowledge about the kernel and range spaces of a matrix, when the matrix has full column rank, it is an injective map which should have a left inverse. The basic idea behind Moore-Penrose pseudoinverse is simple. Assume \(A\) maps from \(V\) to \(W\). Let \(y\) belongs to \(W\) and we want to find its pre-image \(x\) in \(V\) in the sense of pseudoinverse. When \(\mathrm {ker}(A)\) is not \(\{ 0 \}\), \(A\) is not surjective. So we first apply \(A^{\ast }\) to \(y\), which maps \(y\) back into \(( \mathrm {ker}(A) )^{\perp }\). In this smaller subspace of \(V\), \(A^{\ast }A\) is bijective and the pre-image of \(A^{\ast }y\) can be found by applying its inverse. Before the study on matrix pseudoinverse by Penrose, there had been research on the generalized inverse of integral or differential operators by Hilbert, Fredholm et al. Let \(A\) be a bounded linear operator from Hilbert space \(V\) to \(W\). The operator equation is \(Ax=b\), where \(x\in V\) and \(b\in W\). If the range \(\mathrm {Im}(A)\) of \(A\) is closed in \(W\), the following generalized solutions are equivalent (Wang et al.), which are called the least square solution: \(Ax=Pb\), where \(P\) is the projection operator maps onto \(\mathrm {Im}(A)\). \(\argmin _{x\in V} \lVert Ax-b \rVert _{W}\). \(A^{\ast }Ax=A^{\ast }b\). If we loosen the condition by assuming \(V\) and \(W\) are Banach spaces instead of Hilbert spaces, according to the closed range theorem in (Steinbach, page 48), when \(A\) has a closed range, \(\mathrm {Im}(A)\) is the annihilator of the kernel of the adjoint operator \(A&#39;: W&#39; \rightarrow V&#39;\), i.e. \begin{equation} \mathrm {Im}(A)=(\mathrm {ker}(A&#39;))^{\circ }, \end{equation} and for any \(y\in \mathrm {Im}(A)\) and \(x\in \mathrm {ker}(A&#39;)\), the duality pairing \(\langle y,x \rangle \) is zero. Because there are no inner product structures on \(V\) and \(W\), we do not have the concepts of orthogonal complement space and Hilbert-adjoint anymore. Then the above Moore-Penrose pseudoinverse cannot be used. But still the domain \(V\) of \(A\) can be decomposed as \begin{equation} V = \mathrm {ker}(A) \oplus Z, \end{equation} where \(Z\) is a closed subspace of \(V\) such that \(\mathrm {ker}(A) \cap Z = \{ 0 \}\). If we restrict the domain of \(A\) to \(Z\), the map \(A\big \vert _Z: Z \rightarrow \mathrm {Im}(A)\) is bijective, which of course has an inverse. If the range space \(W\) of \(A\) is decomposed as \begin{equation} W = \mathrm {Im}(A) \oplus Y = (\mathrm {ker}(A&#39;))^{\circ } \oplus Y, \end{equation} the generalized inverse \(A^+\) of \(A\) can be defined as \begin{equation} A^{+}(y) = \begin {cases} A\big \vert _Z^{-1}(y) &amp; y\in \mathrm {Im}(A) = (\mathrm {ker}(A&#39;))^{\circ } \\ 0 &amp; y\in W \end {cases}. \end{equation} It is easy to know that such generalized pseudoinverse only satisfies the first two Moore-Penrose conditions: \(AA^{+}A=A\) \(A^{+}AA^{+}=A^{+}\) References    Olaf Steinbach. Numerical Approximation Methods for Elliptic Boundary Value Problems: Finite and Boundary Elements. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2.    Olaf Steinbach and Wolfgang L. Wendland. The construction of some efficient preconditioners in the boundary element method. 9(1-2):191–216. URL http://link.springer.com/article/10.1023/A:1018937506719.    Wang, Yimin Wei, and Sanzheng Qiao. Generalized Inverses: Theory and Computations, volume 53 of Developments in Mathematics. Springer. ISBN 9789811301452 9789811301469. doi: 10.1007/ 978-981-13-0146-9. 1Here we explicitly say “preconditioning operator” not simply “preconditioner”, because we want to distinguish it from “preconditioning matrix”. While a preconditioning operator such as \(B\) is an approximate inverse of the original operator \(A\), a preconditioning matrix is the discretized Galerkin matrix associated with \(\dot {B}^{-1}\), not \(B\). To apply a preconditioning matrix to a discretized linear system, we need to multiply its approximate inverse matrix to both sides of the equation. For simplicity, we will say “preconditioner” instead of “preconditioning operator” from now on." />
+<meta property="og:description" content="When a boundary integral operator \(B\) in BEM to be used as a preconditioner is not elliptic on its whole domain, such as the hypersingular operator \(D\), generalized inverse operator \(\dot {B}^{-1}\) is needed (at least theoretically), which is spectrally equivalent to the original operator \(A\). In (Steinbach and Wendland), the preconditioning operator 1 is \(B: H^{s-2\alpha }(\Gamma ) \rightarrow H^s(\Gamma )\). Its generalized inverse is \begin{equation} \dot {B}^{-1}: V^{s,0}(\Gamma ,B) \rightarrow V^{s-2\alpha ,0}(\Gamma ,B). \end{equation} Because the generalized inverse is an extension of the Moore-Penrose pseudoinverse, we’ll first introduce the latter concept. We’ve already met pseudoinverse matrices in linear algebra. For a matrix equation \(Ax=b\), when \(A\) has full column rank, it has a unique Moore-Penrose pseudoinverse matrix \begin{equation} A^{\dagger } = (A^{\ast }A)^{-1}A^{\ast }, \end{equation} where \(A^{\ast }\) is the Hermite transpose of \(A\). \(A^{\dagger }\) satisfies the four Penrose conditions (Wang et al.): \(AA^{\dagger }A=A\) \(A^{\dagger }AA^{\dagger }=A^{\dagger }\) \((AA^{\dagger })^{\ast }=AA^{\dagger }\) \((A^{\dagger }A)^{\ast }=A^{\dagger }A\) From these conditions, we know that \(A^{\dagger }\) is just the left inverse of \(A\). According to our previous knowledge about the kernel and range spaces of a matrix, when the matrix has full column rank, it is an injective map which should have a left inverse. The basic idea behind Moore-Penrose pseudoinverse is simple. Assume \(A\) maps from \(V\) to \(W\). Let \(y\) belongs to \(W\) and we want to find its pre-image \(x\) in \(V\) in the sense of pseudoinverse. When \(\mathrm {ker}(A)\) is not \(\{ 0 \}\), \(A\) is not surjective. So we first apply \(A^{\ast }\) to \(y\), which maps \(y\) back into \(( \mathrm {ker}(A) )^{\perp }\). In this smaller subspace of \(V\), \(A^{\ast }A\) is bijective and the pre-image of \(A^{\ast }y\) can be found by applying its inverse. Before the study on matrix pseudoinverse by Penrose, there had been research on the generalized inverse of integral or differential operators by Hilbert, Fredholm et al. Let \(A\) be a bounded linear operator from Hilbert space \(V\) to \(W\). The operator equation is \(Ax=b\), where \(x\in V\) and \(b\in W\). If the range \(\mathrm {Im}(A)\) of \(A\) is closed in \(W\), the following generalized solutions are equivalent (Wang et al.), which are called the least square solution: \(Ax=Pb\), where \(P\) is the projection operator maps onto \(\mathrm {Im}(A)\). \(\argmin _{x\in V} \lVert Ax-b \rVert _{W}\). \(A^{\ast }Ax=A^{\ast }b\). If we loosen the condition by assuming \(V\) and \(W\) are Banach spaces instead of Hilbert spaces, according to the closed range theorem in (Steinbach, page 48), when \(A\) has a closed range, \(\mathrm {Im}(A)\) is the annihilator of the kernel of the adjoint operator \(A&#39;: W&#39; \rightarrow V&#39;\), i.e. \begin{equation} \mathrm {Im}(A)=(\mathrm {ker}(A&#39;))^{\circ }, \end{equation} and for any \(y\in \mathrm {Im}(A)\) and \(x\in \mathrm {ker}(A&#39;)\), the duality pairing \(\langle y,x \rangle \) is zero. Because there are no inner product structures on \(V\) and \(W\), we do not have the concepts of orthogonal complement space and Hilbert-adjoint anymore. Then the above Moore-Penrose pseudoinverse cannot be used. But still the domain \(V\) of \(A\) can be decomposed as \begin{equation} V = \mathrm {ker}(A) \oplus Z, \end{equation} where \(Z\) is a closed subspace of \(V\) such that \(\mathrm {ker}(A) \cap Z = \{ 0 \}\). If we restrict the domain of \(A\) to \(Z\), the map \(A\big \vert _Z: Z \rightarrow \mathrm {Im}(A)\) is bijective, which of course has an inverse. If the range space \(W\) of \(A\) is decomposed as \begin{equation} W = \mathrm {Im}(A) \oplus Y = (\mathrm {ker}(A&#39;))^{\circ } \oplus Y, \end{equation} the generalized inverse \(A^+\) of \(A\) can be defined as \begin{equation} A^{+}(y) = \begin {cases} A\big \vert _Z^{-1}(y) &amp; y\in \mathrm {Im}(A) = (\mathrm {ker}(A&#39;))^{\circ } \\ 0 &amp; y\in W \end {cases}. \end{equation} It is easy to know that such generalized pseudoinverse only satisfies the first two Moore-Penrose conditions: \(AA^{+}A=A\) \(A^{+}AA^{+}=A^{+}\) References    Olaf Steinbach. Numerical Approximation Methods for Elliptic Boundary Value Problems: Finite and Boundary Elements. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2.    Olaf Steinbach and Wolfgang L. Wendland. The construction of some efficient preconditioners in the boundary element method. 9(1-2):191–216. URL http://link.springer.com/article/10.1023/A:1018937506719.    Wang, Yimin Wei, and Sanzheng Qiao. Generalized Inverses: Theory and Computations, volume 53 of Developments in Mathematics. Springer. ISBN 9789811301452 9789811301469. doi: 10.1007/ 978-981-13-0146-9. 1Here we explicitly say “preconditioning operator” not simply “preconditioner”, because we want to distinguish it from “preconditioning matrix”. While a preconditioning operator such as \(B\) is an approximate inverse of the original operator \(A\), a preconditioning matrix is the discretized Galerkin matrix associated with \(\dot {B}^{-1}\), not \(B\). To apply a preconditioning matrix to a discretized linear system, we need to multiply its approximate inverse matrix to both sides of the equation. For simplicity, we will say “preconditioner” instead of “preconditioning operator” from now on." />
+<link rel="canonical" href="https://jihuan-tian.github.io/math/2024/11/11/moore-penrose-pseudoinverse-and-generalized-inverse.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/math/2024/11/11/moore-penrose-pseudoinverse-and-generalized-inverse.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-11-11T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Moore-Penrose pseudoinverse and generalized inverse" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2024-11-11T00:00:00+08:00","datePublished":"2024-11-11T00:00:00+08:00","description":"When a boundary integral operator \\(B\\) in BEM to be used as a preconditioner is not elliptic on its whole domain, such as the hypersingular operator \\(D\\), generalized inverse operator \\(\\dot {B}^{-1}\\) is needed (at least theoretically), which is spectrally equivalent to the original operator \\(A\\). In (Steinbach and Wendland), the preconditioning operator 1 is \\(B: H^{s-2\\alpha }(\\Gamma ) \\rightarrow H^s(\\Gamma )\\). Its generalized inverse is \\begin{equation} \\dot {B}^{-1}: V^{s,0}(\\Gamma ,B) \\rightarrow V^{s-2\\alpha ,0}(\\Gamma ,B). \\end{equation} Because the generalized inverse is an extension of the Moore-Penrose pseudoinverse, we’ll first introduce the latter concept. We’ve already met pseudoinverse matrices in linear algebra. For a matrix equation \\(Ax=b\\), when \\(A\\) has full column rank, it has a unique Moore-Penrose pseudoinverse matrix \\begin{equation} A^{\\dagger } = (A^{\\ast }A)^{-1}A^{\\ast }, \\end{equation} where \\(A^{\\ast }\\) is the Hermite transpose of \\(A\\). \\(A^{\\dagger }\\) satisfies the four Penrose conditions (Wang et al.): \\(AA^{\\dagger }A=A\\) \\(A^{\\dagger }AA^{\\dagger }=A^{\\dagger }\\) \\((AA^{\\dagger })^{\\ast }=AA^{\\dagger }\\) \\((A^{\\dagger }A)^{\\ast }=A^{\\dagger }A\\) From these conditions, we know that \\(A^{\\dagger }\\) is just the left inverse of \\(A\\). According to our previous knowledge about the kernel and range spaces of a matrix, when the matrix has full column rank, it is an injective map which should have a left inverse. The basic idea behind Moore-Penrose pseudoinverse is simple. Assume \\(A\\) maps from \\(V\\) to \\(W\\). Let \\(y\\) belongs to \\(W\\) and we want to find its pre-image \\(x\\) in \\(V\\) in the sense of pseudoinverse. When \\(\\mathrm {ker}(A)\\) is not \\(\\{ 0 \\}\\), \\(A\\) is not surjective. So we first apply \\(A^{\\ast }\\) to \\(y\\), which maps \\(y\\) back into \\(( \\mathrm {ker}(A) )^{\\perp }\\). In this smaller subspace of \\(V\\), \\(A^{\\ast }A\\) is bijective and the pre-image of \\(A^{\\ast }y\\) can be found by applying its inverse. Before the study on matrix pseudoinverse by Penrose, there had been research on the generalized inverse of integral or differential operators by Hilbert, Fredholm et al. Let \\(A\\) be a bounded linear operator from Hilbert space \\(V\\) to \\(W\\). The operator equation is \\(Ax=b\\), where \\(x\\in V\\) and \\(b\\in W\\). If the range \\(\\mathrm {Im}(A)\\) of \\(A\\) is closed in \\(W\\), the following generalized solutions are equivalent (Wang et al.), which are called the least square solution: \\(Ax=Pb\\), where \\(P\\) is the projection operator maps onto \\(\\mathrm {Im}(A)\\). \\(\\argmin _{x\\in V} \\lVert Ax-b \\rVert _{W}\\). \\(A^{\\ast }Ax=A^{\\ast }b\\). If we loosen the condition by assuming \\(V\\) and \\(W\\) are Banach spaces instead of Hilbert spaces, according to the closed range theorem in (Steinbach, page 48), when \\(A\\) has a closed range, \\(\\mathrm {Im}(A)\\) is the annihilator of the kernel of the adjoint operator \\(A&#39;: W&#39; \\rightarrow V&#39;\\), i.e. \\begin{equation} \\mathrm {Im}(A)=(\\mathrm {ker}(A&#39;))^{\\circ }, \\end{equation} and for any \\(y\\in \\mathrm {Im}(A)\\) and \\(x\\in \\mathrm {ker}(A&#39;)\\), the duality pairing \\(\\langle y,x \\rangle \\) is zero. Because there are no inner product structures on \\(V\\) and \\(W\\), we do not have the concepts of orthogonal complement space and Hilbert-adjoint anymore. Then the above Moore-Penrose pseudoinverse cannot be used. But still the domain \\(V\\) of \\(A\\) can be decomposed as \\begin{equation} V = \\mathrm {ker}(A) \\oplus Z, \\end{equation} where \\(Z\\) is a closed subspace of \\(V\\) such that \\(\\mathrm {ker}(A) \\cap Z = \\{ 0 \\}\\). If we restrict the domain of \\(A\\) to \\(Z\\), the map \\(A\\big \\vert _Z: Z \\rightarrow \\mathrm {Im}(A)\\) is bijective, which of course has an inverse. If the range space \\(W\\) of \\(A\\) is decomposed as \\begin{equation} W = \\mathrm {Im}(A) \\oplus Y = (\\mathrm {ker}(A&#39;))^{\\circ } \\oplus Y, \\end{equation} the generalized inverse \\(A^+\\) of \\(A\\) can be defined as \\begin{equation} A^{+}(y) = \\begin {cases} A\\big \\vert _Z^{-1}(y) &amp; y\\in \\mathrm {Im}(A) = (\\mathrm {ker}(A&#39;))^{\\circ } \\\\ 0 &amp; y\\in W \\end {cases}. \\end{equation} It is easy to know that such generalized pseudoinverse only satisfies the first two Moore-Penrose conditions: \\(AA^{+}A=A\\) \\(A^{+}AA^{+}=A^{+}\\) References    Olaf Steinbach. Numerical Approximation Methods for Elliptic Boundary Value Problems: Finite and Boundary Elements. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2.    Olaf Steinbach and Wolfgang L. Wendland. The construction of some efficient preconditioners in the boundary element method. 9(1-2):191–216. URL http://link.springer.com/article/10.1023/A:1018937506719.    Wang, Yimin Wei, and Sanzheng Qiao. Generalized Inverses: Theory and Computations, volume 53 of Developments in Mathematics. Springer. ISBN 9789811301452 9789811301469. doi: 10.1007/ 978-981-13-0146-9. 1Here we explicitly say “preconditioning operator” not simply “preconditioner”, because we want to distinguish it from “preconditioning matrix”. While a preconditioning operator such as \\(B\\) is an approximate inverse of the original operator \\(A\\), a preconditioning matrix is the discretized Galerkin matrix associated with \\(\\dot {B}^{-1}\\), not \\(B\\). To apply a preconditioning matrix to a discretized linear system, we need to multiply its approximate inverse matrix to both sides of the equation. For simplicity, we will say “preconditioner” instead of “preconditioning operator” from now on.","headline":"Moore-Penrose pseudoinverse and generalized inverse","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2024/11/11/moore-penrose-pseudoinverse-and-generalized-inverse.html"},"url":"https://jihuan-tian.github.io/math/2024/11/11/moore-penrose-pseudoinverse-and-generalized-inverse.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+    <link rel="stylesheet" href="/assets/css/make4ht.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"></script>
+
+  
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Moore-Penrose pseudoinverse and generalized inverse</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-11-11T00:00:00+08:00" itemprop="datePublished">Nov 11, 2024 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/math">Math</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/BEM">BEM</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!-- l. 20 --><p class='noindent'>When a boundary integral operator \(B\) in BEM to be used as a preconditioner is not elliptic on its <span class='p1xb-x-x-109'>whole </span>domain,
+such as the hypersingular operator \(D\), generalized inverse operator \(\dot {B}^{-1}\) is needed (at least theoretically), which is
+spectrally equivalent to the original operator \(A\). In (<a href='#XSteinbachConstruction1998'>Steinbach and Wendland</a>), the preconditioning operator
+<span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-2f1'></a> is \(B: H^{s-2\alpha }(\Gamma ) \rightarrow H^s(\Gamma )\). Its
+generalized inverse is \begin{equation}  \dot {B}^{-1}: V^{s,0}(\Gamma ,B) \rightarrow V^{s-2\alpha ,0}(\Gamma ,B).  \end{equation}<a id='x1-4r1'></a>
+</p><!-- l. 25 --><p class='indent'>   Because the generalized inverse is an extension of the Moore-Penrose pseudoinverse, we’ll first introduce the
+latter concept. We’ve already met pseudoinverse matrices in linear algebra. For a matrix equation \(Ax=b\), when \(A\) has full
+column rank, it has a unique Moore-Penrose pseudoinverse matrix \begin{equation}  A^{\dagger } = (A^{\ast }A)^{-1}A^{\ast },  \end{equation}<a id='x1-5r2'></a> where \(A^{\ast }\) is the Hermite transpose of \(A\). \(A^{\dagger }\) satisfies
+the four Penrose conditions (<a href='#XWangGeneralized2018'>Wang et al.</a>):
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-7x1'>
+     <!-- l. 31 --><p class='noindent'>\(AA^{\dagger }A=A\)
+     </p></li>
+<li class='enumerate' id='x1-9x2'>
+     <!-- l. 32 --><p class='noindent'>\(A^{\dagger }AA^{\dagger }=A^{\dagger }\)
+     </p></li>
+<li class='enumerate' id='x1-11x3'>
+     <!-- l. 33 --><p class='noindent'>\((AA^{\dagger })^{\ast }=AA^{\dagger }\)
+     </p></li>
+<li class='enumerate' id='x1-13x4'>
+     <!-- l. 34 --><p class='noindent'>\((A^{\dagger }A)^{\ast }=A^{\dagger }A\)</p></li></ol>
+<!-- l. 36 --><p class='noindent'>From these conditions, we know that \(A^{\dagger }\) is just the left inverse of \(A\). According to our previous knowledge about the
+<a href='/math/2024/11/03/kernel-and-range-of-a-matrix-and-its-transpose.html'>kernel and range spaces of a matrix</a>, when the matrix has full column rank, it is an injective map which should
+have a left inverse.
+</p><!-- l. 38 --><p class='indent'>   The basic idea behind Moore-Penrose pseudoinverse is simple. Assume \(A\) maps from \(V\) to \(W\). Let \(y\) belongs to \(W\) and
+we want to find its pre-image \(x\) in \(V\) in the sense of pseudoinverse. When \(\mathrm {ker}(A)\) is not \(\{ 0 \}\), \(A\) is not surjective. So we first apply \(A^{\ast }\)
+to \(y\), which maps \(y\) back into \(( \mathrm {ker}(A) )^{\perp }\). In this smaller subspace of \(V\), \(A^{\ast }A\) is bijective and the pre-image of \(A^{\ast }y\) can be found by
+applying its inverse.
+</p><!-- l. 40 --><p class='indent'>   Before the study on matrix pseudoinverse by Penrose, there had been research on the generalized inverse
+of integral or differential operators by Hilbert, Fredholm et al. Let \(A\) be a bounded linear operator
+from Hilbert space \(V\) to \(W\). The operator equation is \(Ax=b\), where \(x\in V\) and \(b\in W\). If the range \(\mathrm {Im}(A)\) of \(A\) is closed in \(W\), the
+following generalized solutions are equivalent (<a href='#XWangGeneralized2018'>Wang et al.</a>), which are called the least square
+solution:
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-15x1'>
+                                                                                               
+                                                                                               
+     <!-- l. 42 --><p class='noindent'>\(Ax=Pb\), where \(P\) is the projection operator maps onto \(\mathrm {Im}(A)\).
+     </p></li>
+<li class='enumerate' id='x1-17x2'>
+     <!-- l. 43 --><p class='noindent'>\(\argmin _{x\in V} \lVert Ax-b \rVert _{W}\).
+     </p></li>
+<li class='enumerate' id='x1-19x3'>
+     <!-- l. 44 --><p class='noindent'>\(A^{\ast }Ax=A^{\ast }b\).</p></li></ol>
+<!-- l. 47 --><p class='indent'>   If we loosen the condition by assuming \(V\) and \(W\) are Banach spaces instead of Hilbert spaces, according to the
+closed range theorem in (<a href='#XSteinbachNumerical2007'>Steinbach</a>, page 48), when \(A\) has a closed range, \(\mathrm {Im}(A)\) is the annihilator of the kernel of the
+adjoint operator \(A': W' \rightarrow V'\), i.e. \begin{equation}  \mathrm {Im}(A)=(\mathrm {ker}(A'))^{\circ },  \end{equation}<a id='x1-20r3'></a> and for any \(y\in \mathrm {Im}(A)\) and \(x\in \mathrm {ker}(A')\), the duality pairing \(\langle y,x \rangle \) is zero. Because there are no inner product structures
+on \(V\) and \(W\), we do not have the concepts of orthogonal complement space and Hilbert-adjoint anymore. Then the
+above Moore-Penrose pseudoinverse cannot be used. But still the domain \(V\) of \(A\) can be decomposed as \begin{equation}  V = \mathrm {ker}(A) \oplus Z,  \end{equation}<a id='x1-21r4'></a> where \(Z\) is a
+closed subspace of \(V\) such that \(\mathrm {ker}(A) \cap Z = \{ 0 \}\). If we restrict the domain of \(A\) to \(Z\), the map \(A\big \vert _Z: Z \rightarrow \mathrm {Im}(A)\) is bijective, which of course has an
+inverse. If the range space \(W\) of \(A\) is decomposed as \begin{equation}  W = \mathrm {Im}(A) \oplus Y = (\mathrm {ker}(A'))^{\circ } \oplus Y,  \end{equation}<a id='x1-22r5'></a> the generalized inverse \(A^+\) of \(A\) can be defined as \begin{equation}  A^{+}(y) = \begin {cases} A\big \vert _Z^{-1}(y) &amp; y\in \mathrm {Im}(A) = (\mathrm {ker}(A'))^{\circ } \\ 0 &amp; y\in W \end {cases}.  \end{equation}<a id='x1-23r6'></a> It
+is easy to know that such generalized pseudoinverse only satisfies the first two Moore-Penrose
+conditions:
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-25x1'>
+     <!-- l. 69 --><p class='noindent'>\(AA^{+}A=A\)
+     </p></li>
+<li class='enumerate' id='x1-27x2'>
+     <!-- l. 70 --><p class='noindent'>\(A^{+}AA^{+}=A^{+}\)</p></li></ol>
+   <h3 class='likesectionHead'><a id='x1-1000'></a>References</h3>
+<!-- l. 1 --><p class='noindent'>
+  </p><div class='thebibliography'>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XSteinbachNumerical2007'></a><span class='bibsp'>   </span></span>Olaf  Steinbach.    <span class='p1xi-x-x-109'>Numerical  Approximation  Methods  for  Elliptic  Boundary  Value  Problems:  Finite  and
+  </span><span class='p1xi-x-x-109'>Boundary Elements</span>. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2.
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XSteinbachConstruction1998'></a><span class='bibsp'>   </span></span>Olaf               Steinbach               and               Wolfgang L.               Wendland.                                      The
+  construction of some efficient preconditioners in the boundary element method.  9(1-2):191–216.  URL
+  <a class='url' href='http://link.springer.com/article/10.1023/A:1018937506719'><span class='t1xtt-x-x-109'>http://link.springer.com/article/10.1023/A:1018937506719</span></a>.
+                                                                                               
+                                                                                               
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XWangGeneralized2018'></a><span class='bibsp'>   </span></span>Wang,  Yimin  Wei,  and  Sanzheng  Qiao.   <span class='p1xi-x-x-109'>Generalized  Inverses:  Theory  and  Computations</span>,  volume 53
+  of  <span class='p1xi-x-x-109'>Developments  in  Mathematics</span>.     Springer.     ISBN  9789811301452  9789811301469.     doi:  10.1007/
+  978-981-13-0146-9.
+</p>
+  </div>
+   <div class='footnotes'><a id='x1-3x'></a>
+<!-- l. 20 --><p class='indent'>      <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-90'>Here we explicitly say “preconditioning operator” not simply “preconditioner”, because we want to distinguish it from
+</span><span class='p1xr-x-x-90'>“preconditioning matrix”. While a preconditioning operator such as </span>\(B\) <span class='p1xr-x-x-90'>is an approximate inverse of the original operator </span>\(A\)<span class='p1xr-x-x-90'>, a
+</span><span class='p1xr-x-x-90'>preconditioning matrix is the discretized Galerkin matrix associated with </span>\(\dot {B}^{-1}\)<span class='p1xr-x-x-90'>, not </span>\(B\)<span class='p1xr-x-x-90'>. To apply a preconditioning matrix to a discretized linear
+</span><span class='p1xr-x-x-90'>system, we need to multiply its approximate inverse matrix to both sides of the equation. For simplicity, we will say “preconditioner”
+</span><span class='p1xr-x-x-90'>instead of “preconditioning operator” from now on.</span></p>                                                                                                                                  </div>
+
+
+
+  </div><a class="u-url" href="/math/2024/11/11/moore-penrose-pseudoinverse-and-generalized-inverse.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
