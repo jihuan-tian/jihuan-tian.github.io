@@ -213,7 +213,7 @@ the duality pairing from \(V'\) to \(V\) is just the Galerkin matrix of \(B\). T
 \(D\) has an opposite order with respect to \(V\), which is naturally the preconditioner for this equation.
                                                                                                
                                                                                                
-However, according to Section <span class='p1xb-x-x-109'>??</span>, \(D\) is not \(H^{1/2}(\Gamma )\)-elliptic, but only \(H_{\ast }^{1/2}(\Gamma )\)-elliptic or \(H_{\ast \ast }^{1/2}(\Gamma )\)-elliptic depending on which kind
+However, according to <a href='{% post_url 2024-11-11-ellipticity-of-boundary-integral-operators %}#x1-50004'>here</a>, \(D\) is not \(H^{1/2}(\Gamma )\)-elliptic, but only \(H_{\ast }^{1/2}(\Gamma )\)-elliptic or \(H_{\ast \ast }^{1/2}(\Gamma )\)-elliptic depending on which kind
 of inner product is desired. To avoid the complex of computing the natural density \(w_{\mathrm {eq}}\), we choose
 \(H_{\ast \ast }^{1/2}(\Gamma )\)-ellipticity. Then the bilinear form associated with the regularized or gauged operator \(\tilde {D}\) is \begin{equation}  \langle \tilde {D}u,w \rangle = \langle Du,w \rangle + \langle u,1 \rangle _{\Gamma } \langle w,1 \rangle _{\Gamma } \quad \forall u,w\in H^{1/2}(\Gamma ).  \end{equation}<a id='x1-6002r31'></a> Then the
 inverse of the preconditioning matrix is \begin{equation}  \mathcal {M}_{\tilde {D}}^{-1} \tilde {\mathcal {D}} \mathcal {M}_{\tilde {D}}^{-\mathrm {T}},  \end{equation}<a id='x1-6003r32'></a> where \(\mathcal {M}_{\tilde {D}}\) is the mass matrix for the duality pairing from \(H^{-1/2}(\Gamma )\) to
