@@ -12,3 +12,8 @@
     font-family: hei;
     src: url("../fonts/WenQuanYiZenHei.woff2") format("TrueType");
 }
+
+@font-face {
+    font-family: jinkai;
+    src: url("../fonts/jinkai.woff2") format("TrueType");
+}
