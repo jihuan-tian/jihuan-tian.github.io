@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2024-11-16T18:15:32+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">永远保持谦卑与不自满的态度</title><link href="https://jihuan-tian.github.io/thoughts/2024/10/17/%E6%B0%B8%E8%BF%9C%E4%BF%9D%E6%8C%81%E8%B0%A6%E5%8D%91%E4%B8%8E%E4%B8%8D%E8%87%AA%E6%BB%A1%E7%9A%84%E6%80%81%E5%BA%A6.html" rel="alternate" type="text/html" title="永远保持谦卑与不自满的态度" /><published>2024-10-17T00:00:00+08:00</published><updated>2024-10-17T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2024/10/17/%E6%B0%B8%E8%BF%9C%E4%BF%9D%E6%8C%81%E8%B0%A6%E5%8D%91%E4%B8%8E%E4%B8%8D%E8%87%AA%E6%BB%A1%E7%9A%84%E6%80%81%E5%BA%A6</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2024/10/17/%E6%B0%B8%E8%BF%9C%E4%BF%9D%E6%8C%81%E8%B0%A6%E5%8D%91%E4%B8%8E%E4%B8%8D%E8%87%AA%E6%BB%A1%E7%9A%84%E6%80%81%E5%BA%A6.html"><![CDATA[<p>根据我的经验与体会，曾经笃信的想法、判断、自我评价、决策并不一定总是正确的，尽管在当初毫不自知，自我感觉良好。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2024-11-16T22:17:29+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">在不同的数学知识之间构建关联</title><link href="https://jihuan-tian.github.io/thoughts/2024/11/16/%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B9%8B%E9%97%B4%E6%9E%84%E5%BB%BA%E5%85%B3%E8%81%94.html" rel="alternate" type="text/html" title="在不同的数学知识之间构建关联" /><published>2024-11-16T00:00:00+08:00</published><updated>2024-11-16T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2024/11/16/%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B9%8B%E9%97%B4%E6%9E%84%E5%BB%BA%E5%85%B3%E8%81%94</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2024/11/16/%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B9%8B%E9%97%B4%E6%9E%84%E5%BB%BA%E5%85%B3%E8%81%94.html"><![CDATA[<blockquote>
+  <p>《<a href="/thoughts/2008/08/07/%E8%B4%B9%E9%A9%AC%E5%A4%A7%E5%AE%9A%E7%90%86-%E6%91%98%E5%BD%95.html">费马大定理－一个困惑了世间智者358年的迷</a>》</p>
+
+  <p>突然间，完全出乎意料，我有了一个难以置信的发现。我意识到，虽然科利瓦金─弗莱切方法现在不能完全行得通，但是我只需要它就可以使我原先采用的伊娃沙娃理论奏效。我认识到科瓦利金-弗莱切方法中有足够的东西使我原先的3年前的工作中对这个问题的处理方法取得成功。所以，对这个问题的正确答案似乎就在科利瓦金-弗莱切的废墟之中。”</p>
+
+  <p>单靠伊娃沙娃理论不足以解决问题，单靠科利瓦金-弗莱切方法也不足以解决问题，它们结合在一起却可以完美地互相补足。</p>
+</blockquote>
+
+<p>近期花了一个月左右的时间，完成了边界元算法中的算符预处理理论的整理，对于构建预处理算符的基本思想与原则有了较为全面的理解和确切的把握。在这个过程中，需要将不同文献资料中的有关内容关联起来，形成属于自己的一套逻辑。这包括：</p>
+
+<ul>
+  <li>伪微分算符</li>
+  <li>基于分布理论的傅立叶变换</li>
+  <li>贝赛尔势算符与索伯列夫空间</li>
+  <li>线性算子的空间结构</li>
+  <li>伴随算符</li>
+  <li>Penrose 伪逆与广义逆算符</li>
+  <li>算符的乘积代数</li>
+</ul>
+
+<p>将不同文献资料放在一起加以对照、研究，是因为它们的撰写方式对初学者很不友好。若在某个单一资料的阅读理解上用蛮力，往往是“思而不学则殆”。例如，大多数文献都不会讲解理论提出的背景、作者的思路、证明的动机与一般原则，内容的编排也不一定遵循正常的思考顺序，而仅仅呈现一个逻辑自洽的结果。这样一来，阅读文章就非常像阅读没有详细文档的代码，虽然能够一步步跟踪代码的执行过程，但是要想理解其中的设计思想则实属不易。</p>
+
+<p>同时，不同数学文章里对于同一个概念所用的符号与术语会有差异。基于不同的上下文环境，同一个符号的具体含义也会有变化。而这些差异和变化有时是非常细微的。还有一种情况是，虽然数学对象拥有良好的性质和完整的数学结构，但作者为了使文章中部分定理的适用性最大化，会在推理过程中不作声明地仅使用其部分属性，从而令定理中对于数学对象需满足的前提条件的规定显得冗余。这些都是需要我们加以仔细辨别的。</p>
+
+<p><strong>收获的体会</strong></p>
+
+<ul>
+  <li>虽然涉及的资料较多，但是严谨细致的工作态度不能变。不能因为手头需要处理的材料繁杂，整个人就变得毛躁。越是这个时候，越要用比平时高出几倍的耐心来对待。</li>
+  <li>综合各种理论，最终要形成自己的思路与知识的讲述方式。</li>
+  <li>在学习与做事间反复迭代，不只是为了求得个事成的结果，更是为了获得理解。因此，百思不得其解的时候，依旧不能放弃。采用“发散”模式只是一种战术调整，是为了能够以某种新视角切入问题并重新审视。或者即便没有新视角，也能够重新积蓄力量，以同样的方式再次尝试理解，勤能补拙。</li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="科研" /><summary type="html"><![CDATA[《费马大定理－一个困惑了世间智者358年的迷》 突然间，完全出乎意料，我有了一个难以置信的发现。我意识到，虽然科利瓦金─弗莱切方法现在不能完全行得通，但是我只需要它就可以使我原先采用的伊娃沙娃理论奏效。我认识到科瓦利金-弗莱切方法中有足够的东西使我原先的3年前的工作中对这个问题的处理方法取得成功。所以，对这个问题的正确答案似乎就在科利瓦金-弗莱切的废墟之中。” 单靠伊娃沙娃理论不足以解决问题，单靠科利瓦金-弗莱切方法也不足以解决问题，它们结合在一起却可以完美地互相补足。]]></summary></entry><entry><title type="html">永远保持谦卑与不自满的态度</title><link href="https://jihuan-tian.github.io/thoughts/2024/10/17/%E6%B0%B8%E8%BF%9C%E4%BF%9D%E6%8C%81%E8%B0%A6%E5%8D%91%E4%B8%8E%E4%B8%8D%E8%87%AA%E6%BB%A1%E7%9A%84%E6%80%81%E5%BA%A6.html" rel="alternate" type="text/html" title="永远保持谦卑与不自满的态度" /><published>2024-10-17T00:00:00+08:00</published><updated>2024-10-17T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2024/10/17/%E6%B0%B8%E8%BF%9C%E4%BF%9D%E6%8C%81%E8%B0%A6%E5%8D%91%E4%B8%8E%E4%B8%8D%E8%87%AA%E6%BB%A1%E7%9A%84%E6%80%81%E5%BA%A6</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2024/10/17/%E6%B0%B8%E8%BF%9C%E4%BF%9D%E6%8C%81%E8%B0%A6%E5%8D%91%E4%B8%8E%E4%B8%8D%E8%87%AA%E6%BB%A1%E7%9A%84%E6%80%81%E5%BA%A6.html"><![CDATA[<p>根据我的经验与体会，曾经笃信的想法、判断、自我评价、决策并不一定总是正确的，尽管在当初毫不自知，自我感觉良好。</p>
 
 <p>例如，在高考后选择本科专业方向时，对于自己的志趣、偏好、做学问的风格以及专业方向的具体研究内容我其实都是不清楚的，但依旧选择了电气工程专业，并天真地以为这个专业虽然比不上当时热门的计算机与自动化专业，但今后的就业应该是比较容易的。谁想时至今日，我才发现真正应该关心的并不是就业问题，而是从事的研究方向能不能充分发挥自己的潜力与理性，研究课题是否有足够的智力难度与挑战。这样看来，我当初若选择数学或者物理专业也许更合适。不过，时间无法倒流，选择也不可重来。我上面的这些理解与认识，若不经过自己这些年独自地摸索、体会与反思，也是不可能获得的。相反，若当初真的选择了数学与物理专业，后来恐怕也不会像现在这样清楚地认识自己——归根结底，这一切也都是假设与猜想。但不管怎样，这个例子能够充分体现我自身认知的局限性是毫无疑问的（<a href="/thoughts/2010/12/10/%E7%94%9F%E5%91%BD%E6%98%AF%E4%B8%80%E7%A7%8D%E9%95%BF%E6%9C%9F%E8%80%8C%E6%8C%81%E7%BB%AD%E7%9A%84%E7%B4%AF%E7%A7%AF%E8%BF%87%E7%A8%8B-%E6%89%80%E6%83%B3%E5%88%B0%E7%9A%84.html">《生命是一种长期而持续的累积过程》所想到的</a>）。</p>
 
@@ -25817,7 +25847,7 @@ bagatelles），它表示出一种细腻的感情，但它却是与崇高背道�
   <li>站在别人的肩膀之上。从怀尔斯的工作可以看到，如果没有他对于历史上与费马定理相关的各种证明方法、猜想的研究、学习与了解，并专门花出时间来熟悉、练习以至掌握这些方法，那么最终他是不可能获得成功的。</li>
 </ul>
 
-<p>Backlinks: <a href="/thoughts/2023/01/31/%E8%8E%AB%E8%A6%81%E8%87%AA%E6%AF%81%E5%AD%A6%E6%9C%AF%E7%94%9F%E5%91%BD.html">《莫要自毁学术生命》</a></p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="阅读" /><category term="摘录" /><summary type="html"><![CDATA[摘录]]></summary></entry><entry><title type="html">电脑起死回生</title><link href="https://jihuan-tian.github.io/thoughts/2006/12/04/%E7%94%B5%E8%84%91%E8%B5%B7%E6%AD%BB%E5%9B%9E%E7%94%9F.html" rel="alternate" type="text/html" title="电脑起死回生" /><published>2006-12-04T00:00:00+08:00</published><updated>2006-12-04T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2006/12/04/%E7%94%B5%E8%84%91%E8%B5%B7%E6%AD%BB%E5%9B%9E%E7%94%9F</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2006/12/04/%E7%94%B5%E8%84%91%E8%B5%B7%E6%AD%BB%E5%9B%9E%E7%94%9F.html"><![CDATA[<blockquote>
+<p>Backlinks: <a href="/thoughts/2023/01/31/%E8%8E%AB%E8%A6%81%E8%87%AA%E6%AF%81%E5%AD%A6%E6%9C%AF%E7%94%9F%E5%91%BD.html">《莫要自毁学术生命》</a>, <a href="/thoughts/2024/11/16/%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B9%8B%E9%97%B4%E6%9E%84%E5%BB%BA%E5%85%B3%E8%81%94.html">《在不同的数学知识之间构建关联》</a></p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="阅读" /><category term="摘录" /><summary type="html"><![CDATA[摘录]]></summary></entry><entry><title type="html">电脑起死回生</title><link href="https://jihuan-tian.github.io/thoughts/2006/12/04/%E7%94%B5%E8%84%91%E8%B5%B7%E6%AD%BB%E5%9B%9E%E7%94%9F.html" rel="alternate" type="text/html" title="电脑起死回生" /><published>2006-12-04T00:00:00+08:00</published><updated>2006-12-04T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2006/12/04/%E7%94%B5%E8%84%91%E8%B5%B7%E6%AD%BB%E5%9B%9E%E7%94%9F</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2006/12/04/%E7%94%B5%E8%84%91%E8%B5%B7%E6%AD%BB%E5%9B%9E%E7%94%9F.html"><![CDATA[<blockquote>
   <p>一个声音把我唤醒了，这是“嘀――”的一声，虽然短暂，但我能从噩梦世界的杂音中将它区分出来，清楚地意识它来自睡梦之外的现实。我睁开眼睛，看到房间笼罩在一片诡异的蓝光中，这光很暗，不时闪动一下，天花板在这蓝光中显得幽暗阴冷，仿佛墓穴的顶部。</p>
 
   <p>我半支起身，发现蓝光是从我放在桌上的笔记本电脑的液晶屏上发出的。下午，收拾从基地带回来后多日懒得打开的一个行李包时，发现了这台电脑，就给它接上网线准备上网，但按了开关后，屏幕上仍一片黑色，只出现了几行 ROM 自检的错误信息。我这才想起来，这就是那台我曾带到球状闪电武器演示场去的电脑，在那里它的 CPU 和内存条都被球状闪电释放的能量烧毁了，都变成了白色的细灰，于是我就把它扔在那里不管了。</p>
