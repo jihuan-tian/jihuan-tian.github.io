@@ -260,32 +260,4 @@
       @include relative-font-size(1.125);
     }
   }
-
-  p {
-    font-size: 18px;
-  }
-
-  ul {
-    font-size: 18px;
-  }
-
-  ol {
-    font-size: 18px;
-  }
-
-  blockquote {
-    font-size: 20px;
-      
-    p {
-      font-size: 20px;
-    }
-
-    ul {
-      font-size: 20px;
-    }
-
-    ol {
-      font-size: 20px;
-    }
-  }
 }
