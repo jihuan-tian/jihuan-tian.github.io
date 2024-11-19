@@ -3,7 +3,7 @@ layout: post
 title: org-roam-ui cannot visualize all nodes
 date: 2024-11-02
 categories: [computer]
-tags: [Emacs,Org-roam]
+tags: [Emacs,Org-roam,bug]
 mathjax: false
 ---
 
