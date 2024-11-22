@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2024-11-21T05:47:19+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">在不同的数学知识之间构建关联</title><link href="https://jihuan-tian.github.io/thoughts/2024/11/16/%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B9%8B%E9%97%B4%E6%9E%84%E5%BB%BA%E5%85%B3%E8%81%94.html" rel="alternate" type="text/html" title="在不同的数学知识之间构建关联" /><published>2024-11-16T00:00:00+08:00</published><updated>2024-11-16T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2024/11/16/%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B9%8B%E9%97%B4%E6%9E%84%E5%BB%BA%E5%85%B3%E8%81%94</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2024/11/16/%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B9%8B%E9%97%B4%E6%9E%84%E5%BB%BA%E5%85%B3%E8%81%94.html"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2024-11-22T11:26:37+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">在不同的数学知识之间构建关联</title><link href="https://jihuan-tian.github.io/thoughts/2024/11/16/%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B9%8B%E9%97%B4%E6%9E%84%E5%BB%BA%E5%85%B3%E8%81%94.html" rel="alternate" type="text/html" title="在不同的数学知识之间构建关联" /><published>2024-11-16T00:00:00+08:00</published><updated>2024-11-16T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2024/11/16/%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B9%8B%E9%97%B4%E6%9E%84%E5%BB%BA%E5%85%B3%E8%81%94</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2024/11/16/%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E4%B9%8B%E9%97%B4%E6%9E%84%E5%BB%BA%E5%85%B3%E8%81%94.html"><![CDATA[<blockquote>
   <p>《<a href="/thoughts/2008/08/07/%E8%B4%B9%E9%A9%AC%E5%A4%A7%E5%AE%9A%E7%90%86-%E6%91%98%E5%BD%95.html">费马大定理－一个困惑了世间智者358年的迷</a>》</p>
 
   <p>突然间，完全出乎意料，我有了一个难以置信的发现。我意识到，虽然科利瓦金─弗莱切方法现在不能完全行得通，但是我只需要它就可以使我原先采用的伊娃沙娃理论奏效。我认识到科瓦利金-弗莱切方法中有足够的东西使我原先的3年前的工作中对这个问题的处理方法取得成功。所以，对这个问题的正确答案似乎就在科利瓦金-弗莱切的废墟之中。”</p>
@@ -17355,7 +17355,80 @@ F调淫荡。亚理斯多德最推重 C调，因为它最宜于陶冶青年。</
 
 <p>当然，对于上述原则亦不要教条和拘泥。毕竟，并不是所有书本习题和现实问题的解决都要如同参加考试一般地不依赖于任何已有的知识与方法，也绝不应当视学习为功利性的事务，只求立竿见影的效果而丝毫不关心蕴藏于思维与技术中的美和艺术。如果你的目的只是观摩他人解决问题的技巧和聪明才智，那么就不妨直接找到现成的解决方案，仔细分析体会，虚心学习；或者，如果你的目的仅仅是完成一项事务性的工作，那么就直接用现成的甚至是简单粗暴的方式将其搞定即可。反之，如果你的目的是为了自我提升，以精神影响他人，或者通过做事而达到悟道、审美的层次，那么就不要操之过急，还是尽量发挥个人的主观能动性，自己动手、丰衣足食吧！</p>
 
-<p>参考《<a href="/thoughts/2016/12/29/%E8%A2%AB%E5%B0%81%E7%9A%84%E8%B0%B7%E6%AD%8C%E4%B8%8E%E5%A4%A7%E5%B8%88%E4%B9%8B%E8%B7%AF.html">被封的谷歌与大师之路</a>》。</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="论语" /><category term="思想" /><summary type="html"><![CDATA[子曰：“知之者不如好之者，好之者不如乐之者。”（《论语·雍也篇 6.20》）学习固然是一件乐事，但也绝不是坐在那里下苦功那么简单。其中需要遵循的一个基本原则便是区别对待知识与智慧。]]></summary></entry><entry><title type="html">文字与音乐</title><link href="https://jihuan-tian.github.io/thoughts/2018/01/27/%E6%96%87%E5%AD%97%E4%B8%8E%E9%9F%B3%E4%B9%90.html" rel="alternate" type="text/html" title="文字与音乐" /><published>2018-01-27T00:00:00+08:00</published><updated>2018-01-27T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2018/01/27/%E6%96%87%E5%AD%97%E4%B8%8E%E9%9F%B3%E4%B9%90</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2018/01/27/%E6%96%87%E5%AD%97%E4%B8%8E%E9%9F%B3%E4%B9%90.html"><![CDATA[<p><img src="/figures/p48221381.jpg" alt="" /></p>
+<p>参考《<a href="/thoughts/2016/12/29/%E8%A2%AB%E5%B0%81%E7%9A%84%E8%B0%B7%E6%AD%8C%E4%B8%8E%E5%A4%A7%E5%B8%88%E4%B9%8B%E8%B7%AF.html">被封的谷歌与大师之路</a>》。</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="论语" /><category term="思想" /><summary type="html"><![CDATA[子曰：“知之者不如好之者，好之者不如乐之者。”（《论语·雍也篇 6.20》）学习固然是一件乐事，但也绝不是坐在那里下苦功那么简单。其中需要遵循的一个基本原则便是区别对待知识与智慧。]]></summary></entry><entry><title type="html">土博与政府的周旋</title><link href="https://jihuan-tian.github.io/thoughts/2018/01/27/%E5%9C%9F%E5%8D%9A%E4%B8%8E%E6%94%BF%E5%BA%9C%E7%9A%84%E5%91%A8%E6%97%8B.html" rel="alternate" type="text/html" title="土博与政府的周旋" /><published>2018-01-27T00:00:00+08:00</published><updated>2018-01-27T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2018/01/27/%E5%9C%9F%E5%8D%9A%E4%B8%8E%E6%94%BF%E5%BA%9C%E7%9A%84%E5%91%A8%E6%97%8B</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2018/01/27/%E5%9C%9F%E5%8D%9A%E4%B8%8E%E6%94%BF%E5%BA%9C%E7%9A%84%E5%91%A8%E6%97%8B.html"><![CDATA[<p>昨天完成了落上海社区公共户手续的办理。前后历时4年，大致流程如下：</p>
+
+<ul>
+  <li>2014
+    <ol>
+      <li>了解上海人才引进落户政策。</li>
+      <li>提交人才引进落户申请，被告知公司没有人事权，从而无法提交上海人才引进落户申请。</li>
+    </ol>
+  </li>
+  <li>2015-04-27：重新查询与落实上海人才引进落户办理相关手续。</li>
+  <li>2015-05-13：将工作关系转至新公司，其具有享受上海人才引进落户政策的人事权。随后向上海人才中心提交人才引进申请，被告知必须要在该公司入职满半年以上才可以申请。而这一规定并未见诸人才引进政策。</li>
+  <li>2015-11~12
+    <ol>
+      <li>入职满半年后，再次尝试申请人才引进落户，被上海人才中心告知，必须上海这边同意接受档案才可以申请。而这一要求未见诸人才引进政策相关文件。</li>
+      <li>去北京咨询档案转出手续，得知北京外企服务公司没有人事权，无法直接将档案转至外地人才中心。而北京人才中心对于社保不在那里上缴者亦不予以接收档案。经过与上海人才中心的确认，档案若不转出，便无法申请上海人才引进落户——虽然，这一信息也未见诸人才引进的明文政策。至此，人才引进申请与办理陷入死节。</li>
+    </ol>
+  </li>
+  <li>2016-12-22：时隔一年后，抱着侥幸的心理，重新启动人才引进申请，看看有没有什么新动态。于是到上海居住地所在居委会咨询人才引进事宜。</li>
+  <li>2017-02
+    <ol>
+      <li>2017-02-27：由于档案一直无法从北京外企服务公司转出，只好查询档案第三方托管相关政策。看能否先放到北京其他具有人事权的单位，再从北京转到上海。</li>
+      <li>在档案政策调研的过程中发现，国家人力资源社会保障部于2016年6月7日推出了75号《关于简化优化流动人员人事档案管理服务的通知》文件，其中提到人事档案保管与社保和户口不能绑定。至此，之前档案无法转出的死节得以破解。</li>
+      <li>去上海居住地所在居委会申请同意落户与申请书。</li>
+    </ol>
+  </li>
+  <li>2017-03-13~14：去北京办理相关手续
+    <ol>
+      <li>找HR开据离职证明。</li>
+      <li>去北京人才中心开具商调函、开计生证明。</li>
+      <li>去北京街道办事处给计生证明盖章。颇为有意思的是，这么一个“小衙门”的“小吏”对于资料审核的认真与严格程度是我在整个人才引进办理过程中所遇到的最高者。看来计划生育真的是中国的一项基本国策啊！</li>
+      <li>拿商调函去北京外企服务公司提取个人档案。</li>
+      <li>将档案送回至北京人才中心。</li>
+    </ol>
+  </li>
+  <li>2017-03-17：去上海派出所和社区服务中心申请同意落户证明。</li>
+  <li>2017-04-18：准备人才引进相关材料与提交。这个过程中经过了三次的材料修改与提交，最终才成功审核通过。填写材料的过程中，公司名称、落户地址等信息如同计算机程序字符串的比较一般一个字都不能错。</li>
+  <li>2017-10-17：去21世纪人才网查询上海人才引进落户10月的公示名单。</li>
+  <li>2017-11-08：上海人才中心领取户口迁移通知书。</li>
+  <li>2017-11-14：上海派出所申请落社区公共户。</li>
+  <li>2017-11-18：上海社区服务中心办理租房合同备案。</li>
+  <li>2017-11-29：上海派出所询问人才引进落社区公共户的时间。</li>
+  <li>2017-12-05：上海派出所提交落社区公共户材料。</li>
+  <li>2017-12-20：上海派出领取落户准迁证。</li>
+  <li>2017-12-22：上海工业园党委咨询转党组织事宜。</li>
+  <li>2018-01-10
+    <ol>
+      <li>北京外企服务公司开离职证明。</li>
+      <li>北京派出所办理户口迁移证。</li>
+      <li>北京人才中心调档案。</li>
+    </ol>
+  </li>
+  <li>2018-01-25：上海市人才中心开《申报户口证明信》。</li>
+  <li>2018-01-26：上海派出所办理落户。</li>
+</ul>
+
+<p>将以上办理过程中的体会总结一下。从政府方面来说：</p>
+
+<ol>
+  <li>政府政策不是统一、一致与完善的，而是漏洞百出、修修补补的。根本不具有逻辑上的严密性。不同地域的部门甚至是同一地区不同部门与机构之间的政策不乏自相矛盾之处，容易导致待办手续陷入死节，而且无处反映、无处申诉，即便有地方申诉，也不知何年何月能够得到解决。能够从这个死节中跳出来，就只能靠运气和国家不知什么时候能够出台的“好”政策。</li>
+  <li>政府政策由于不够严密和彻底地公开，导致不少办事流程和所需材料的相关要求仅存储于办事人员的记忆中或相关部门的内部规定中，而未见诸于明文的政策或者网上的公开信息。这就导致办手续的过程中几乎一定会有某些必要的条件是在办事之前无从知晓的。所以，为了办一个手续而去某个或者几家部门来回跑个几趟甚至是异地长途跋涉是很正常的。然而，这对于那些直接对其上级领导负责而不是对前来办事群众负责的工作人员来说固然算不得是什么大事，但对于办事者个人来说，确实要花费不少时间和精力。</li>
+  <li>政府办事人员的素质、态度很差，效率很低。在这个基本情况的前提下，上海还要比北京好一些。</li>
+</ol>
+
+<p>面对如此现状，与之相抗衡没有用，和它斗气那便是跟自己过不去。应该像是《庄子 养生主》说的那样，顺着这些机构和政策的机理和脉络淡然而又勤勉地一点一点办，正所谓“游刃有余”。为此，从个人角度来讲，就需要注意以下几个方面：</p>
+
+<ol>
+  <li>顺应局势，静观其变。既要静——不要影响到个人的学习、工作、生活，又要观——定期跟踪政策变化，及时利用转机与便利。</li>
+  <li>事前一定要制定缜密计划，慎思笃行、有备无患。不能想当然和怕麻烦，也不能像鸵鸟那样回避。否则，最终因为没有把办事流程、所需条件与材料打听清楚，还是会给个人带来更多的麻烦。</li>
+  <li>凡事要有备选方案。这样一个方案失效后还有另外的路可以走。而且，在资源允许的情况下，可以几种方案并行。要对最坏结果有估计，从而有应对措施和心理准备。应对措施是可以“化险为夷”的办法，而心理准备则是在“无可挽回”的情况下以积极的心态接受。</li>
+  <li>随时根据变化的情况进行策略与方案的调整，所谓灵活变通，从心而不逾矩。</li>
+  <li>既然从一开始就没有在体制内，就不要羡慕体制内的种种便利。这种便利虽然能带来甜头，但却是有限度的，是以在某些方面束缚个人为代价的。相反地，体制外则有着更广阔的天地。与其为了享受体制内的便利而削足适履，不如奔着个人精神、学术、财富的自由而不懈努力。</li>
+</ol>
+
+<p>此外可以看出，由于在政府部门办理手续需要极度的细致，每个环节都不能有差错，还要面对很多未知的“内幕”，想必没有一定的学历与素质，搞定这些事情也是颇费周折的。也许这就是为什么人才引进政策对博士以及成功人士开放的原因之一吧！而土博们的聪明才智也就浪费到了这些无意义和低级的事情上。</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="社会经历" /><summary type="html"><![CDATA[昨天完成了落上海社区公共户手续的办理。前后历时4年，大致流程如下：]]></summary></entry><entry><title type="html">文字与音乐</title><link href="https://jihuan-tian.github.io/thoughts/2018/01/27/%E6%96%87%E5%AD%97%E4%B8%8E%E9%9F%B3%E4%B9%90.html" rel="alternate" type="text/html" title="文字与音乐" /><published>2018-01-27T00:00:00+08:00</published><updated>2018-01-27T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2018/01/27/%E6%96%87%E5%AD%97%E4%B8%8E%E9%9F%B3%E4%B9%90</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2018/01/27/%E6%96%87%E5%AD%97%E4%B8%8E%E9%9F%B3%E4%B9%90.html"><![CDATA[<p><img src="/figures/p48221381.jpg" alt="" /></p>
 
 <p>宋徽宗瘦金体</p>
 
