@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>2024 伽辽金边界元数学库开发总结 | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="2024 伽辽金边界元数学库开发总结" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="首先感谢老同学 chaoslawful 在部分算法开发和软件工程方面给予的指点和帮助！同时，定期的讨论交流也使想法和技术方案得以逐渐清晰、稳固。" />
+<meta property="og:description" content="首先感谢老同学 chaoslawful 在部分算法开发和软件工程方面给予的指点和帮助！同时，定期的讨论交流也使想法和技术方案得以逐渐清晰、稳固。" />
+<link rel="canonical" href="https://jihuan-tian.github.io/thoughts/2025/01/01/2024-%E4%BC%BD%E8%BE%BD%E9%87%91%E8%BE%B9%E7%95%8C%E5%85%83%E6%95%B0%E5%AD%A6%E5%BA%93%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/thoughts/2025/01/01/2024-%E4%BC%BD%E8%BE%BD%E9%87%91%E8%BE%B9%E7%95%8C%E5%85%83%E6%95%B0%E5%AD%A6%E5%BA%93%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-01-01T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="2024 伽辽金边界元数学库开发总结" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-01-01T00:00:00+08:00","datePublished":"2025-01-01T00:00:00+08:00","description":"首先感谢老同学 chaoslawful 在部分算法开发和软件工程方面给予的指点和帮助！同时，定期的讨论交流也使想法和技术方案得以逐渐清晰、稳固。","headline":"2024 伽辽金边界元数学库开发总结","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/thoughts/2025/01/01/2024-%E4%BC%BD%E8%BE%BD%E9%87%91%E8%BE%B9%E7%95%8C%E5%85%83%E6%95%B0%E5%AD%A6%E5%BA%93%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93.html"},"url":"https://jihuan-tian.github.io/thoughts/2025/01/01/2024-%E4%BC%BD%E8%BE%BD%E9%87%91%E8%BE%B9%E7%95%8C%E5%85%83%E6%95%B0%E5%AD%A6%E5%BA%93%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">2024 伽辽金边界元数学库开发总结</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-01-01T00:00:00+08:00" itemprop="datePublished">Jan 1, 2025 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/thoughts">Thoughts</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/算法开发">算法开发</a>
+          
+            <a href="/tags/BEM">BEM</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>首先感谢老同学 chaoslawful 在部分算法开发和软件工程方面给予的指点和帮助！同时，定期的讨论交流也使想法和技术方案得以逐渐清晰、稳固。</p>
+
+<ul>
+  <li>理论与算法
+    <ul>
+      <li>解决了基于任务并行的 H-矩阵分解算法的线程死锁问题，从而完成了该算法的编码实现与测试。</li>
+      <li>实现了序列分块算法，可将一组计算任务以最优的负载均衡方式分配于多个线程或计算核心，有效提高了算法的并行性能。</li>
+      <li>实现了任务并行的 H-矩阵与向量乘法。其中，基于希尔伯特曲线的矩阵块遍历是关键。</li>
+      <li>实现了基于高阶单元映射的弯曲单元上的数值积分，从而可让边界元离散数值模型更好地贴合具有复杂弯曲表面的三维实体。</li>
+      <li>
+        <p>完成了多子域伽辽金边界元问题的理论学习与推导，设计并初步实现了基础数据结构。</p>
+
+        <p>普通的边界元算法只能处理具有单一、均匀、线性介质的场域，而多数现实仿真问题往往是多种线性介质并存。因此，相关理论能够大大拓展纯边界元算法的工程应用范围。</p>
+      </li>
+      <li>
+        <p>完成了算符预处理的理论学习与推导，并以狄利克雷问题作为案例验证了该方法的有效性，即，预处理后的系统矩阵条件数以及相应的方程求解迭代次数不随网格加密而增加的理想效果。</p>
+
+        <p>预处理器是实现高效、稳定、精确求解大规模线性代数方程组的关键技术。基于伪微分算符理论的算符预处理，我们可以直接构建出经过伽辽金边界元离散后的大型线性代数方程组的预处理器，从而解决了构建基于矩阵分解的预处理器算法耗时且不易并行化的问题。</p>
+      </li>
+      <li>通过给索伯列夫空间赋予不同的范数定义，可以控制诺依曼问题的解收敛于算符核空间的不同正交补空间中。</li>
+    </ul>
+  </li>
+  <li>软件工程
+    <ul>
+      <li>完成了 C++ 模板代码接口与实现的分离，CUDA 相关代码与普通代码的分离。使得代码结构更为合理、清晰，编译性能大幅提高。</li>
+      <li>设计并部分完成了基于模板元编程的配置参数的存取和校验。</li>
+      <li>从 CUDA 11 升级至 CUDA 12，解决了稀疏矩阵算法调用接口不兼容的问题。</li>
+      <li>引入包管理工具，使得第三方软件包的下载、编译、安装、引用更为方便。</li>
+    </ul>
+  </li>
+  <li>经验体会
+    <ul>
+      <li>对于学习数学理论过程中的百思不得其解，要靠细致的理性思考与分析，要结合多种知识与信息资源（包括专著、文章、搜索、人工智能辅助）、彼此对照佐证方能解决。数学理论问题的最终澄清靠的不是灵感和好运气，而是黑暗中的不懈摸索。</li>
+      <li>对于调试过程中出现的各种错误，要耐心细致地展开内部细节，输出内部数据才能找到问题的根源。算法与程序的正确运行靠的不是好运气，而是细致、清晰的把握。</li>
+      <li>永不自满，保持开放心态，持续学习各种新工具、新方法，并勇于舍弃老工具、旧思想。我们在大学期间学习并在之后一直使用的工具虽然顺手，但很有可能已落后于时代。因此，需要不时地了解当下的优秀编程语言和软件项目，更新自己的工具箱。</li>
+    </ul>
+  </li>
+</ul>
+
+
+  </div><a class="u-url" href="/thoughts/2025/01/01/2024-%E4%BC%BD%E8%BE%BD%E9%87%91%E8%BE%B9%E7%95%8C%E5%85%83%E6%95%B0%E5%AD%A6%E5%BA%93%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2025 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2024-12-18T09:47:30+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">不要建议、推荐、宣传、布道</title><link href="https://jihuan-tian.github.io/thoughts/2024/12/18/%E4%B8%8D%E8%A6%81%E5%BB%BA%E8%AE%AE-%E6%8E%A8%E8%8D%90-%E5%AE%A3%E4%BC%A0-%E5%B8%83%E9%81%93.html" rel="alternate" type="text/html" title="不要建议、推荐、宣传、布道" /><published>2024-12-18T00:00:00+08:00</published><updated>2024-12-18T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2024/12/18/%E4%B8%8D%E8%A6%81%E5%BB%BA%E8%AE%AE%E3%80%81%E6%8E%A8%E8%8D%90%E3%80%81%E5%AE%A3%E4%BC%A0%E3%80%81%E5%B8%83%E9%81%93</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2024/12/18/%E4%B8%8D%E8%A6%81%E5%BB%BA%E8%AE%AE-%E6%8E%A8%E8%8D%90-%E5%AE%A3%E4%BC%A0-%E5%B8%83%E9%81%93.html"><![CDATA[<p>不要轻易给他人提供建议（包括人生方向、职业发展、学习方法等）、推荐资源（包括书籍、视频）、宣传或布道某条理论多么深刻、某项技术多么强大、某个软件功能多么丰富。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-01-01T18:06:48+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">2024 伽辽金边界元数学库开发总结</title><link href="https://jihuan-tian.github.io/thoughts/2025/01/01/2024-%E4%BC%BD%E8%BE%BD%E9%87%91%E8%BE%B9%E7%95%8C%E5%85%83%E6%95%B0%E5%AD%A6%E5%BA%93%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93.html" rel="alternate" type="text/html" title="2024 伽辽金边界元数学库开发总结" /><published>2025-01-01T00:00:00+08:00</published><updated>2025-01-01T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/01/01/2024-%E4%BC%BD%E8%BE%BD%E9%87%91%E8%BE%B9%E7%95%8C%E5%85%83%E6%95%B0%E5%AD%A6%E5%BA%93%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/01/01/2024-%E4%BC%BD%E8%BE%BD%E9%87%91%E8%BE%B9%E7%95%8C%E5%85%83%E6%95%B0%E5%AD%A6%E5%BA%93%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93.html"><![CDATA[<p>首先感谢老同学 chaoslawful 在部分算法开发和软件工程方面给予的指点和帮助！同时，定期的讨论交流也使想法和技术方案得以逐渐清晰、稳固。</p>
+
+<ul>
+  <li>理论与算法
+    <ul>
+      <li>解决了基于任务并行的 H-矩阵分解算法的线程死锁问题，从而完成了该算法的编码实现与测试。</li>
+      <li>实现了序列分块算法，可将一组计算任务以最优的负载均衡方式分配于多个线程或计算核心，有效提高了算法的并行性能。</li>
+      <li>实现了任务并行的 H-矩阵与向量乘法。其中，基于希尔伯特曲线的矩阵块遍历是关键。</li>
+      <li>实现了基于高阶单元映射的弯曲单元上的数值积分，从而可让边界元离散数值模型更好地贴合具有复杂弯曲表面的三维实体。</li>
+      <li>
+        <p>完成了多子域伽辽金边界元问题的理论学习与推导，设计并初步实现了基础数据结构。</p>
+
+        <p>普通的边界元算法只能处理具有单一、均匀、线性介质的场域，而多数现实仿真问题往往是多种线性介质并存。因此，相关理论能够大大拓展纯边界元算法的工程应用范围。</p>
+      </li>
+      <li>
+        <p>完成了算符预处理的理论学习与推导，并以狄利克雷问题作为案例验证了该方法的有效性，即，预处理后的系统矩阵条件数以及相应的方程求解迭代次数不随网格加密而增加的理想效果。</p>
+
+        <p>预处理器是实现高效、稳定、精确求解大规模线性代数方程组的关键技术。基于伪微分算符理论的算符预处理，我们可以直接构建出经过伽辽金边界元离散后的大型线性代数方程组的预处理器，从而解决了构建基于矩阵分解的预处理器算法耗时且不易并行化的问题。</p>
+      </li>
+      <li>通过给索伯列夫空间赋予不同的范数定义，可以控制诺依曼问题的解收敛于算符核空间的不同正交补空间中。</li>
+    </ul>
+  </li>
+  <li>软件工程
+    <ul>
+      <li>完成了 C++ 模板代码接口与实现的分离，CUDA 相关代码与普通代码的分离。使得代码结构更为合理、清晰，编译性能大幅提高。</li>
+      <li>设计并部分完成了基于模板元编程的配置参数的存取和校验。</li>
+      <li>从 CUDA 11 升级至 CUDA 12，解决了稀疏矩阵算法调用接口不兼容的问题。</li>
+      <li>引入包管理工具，使得第三方软件包的下载、编译、安装、引用更为方便。</li>
+    </ul>
+  </li>
+  <li>经验体会
+    <ul>
+      <li>对于学习数学理论过程中的百思不得其解，要靠细致的理性思考与分析，要结合多种知识与信息资源（包括专著、文章、搜索、人工智能辅助）、彼此对照佐证方能解决。数学理论问题的最终澄清靠的不是灵感和好运气，而是黑暗中的不懈摸索。</li>
+      <li>对于调试过程中出现的各种错误，要耐心细致地展开内部细节，输出内部数据才能找到问题的根源。算法与程序的正确运行靠的不是好运气，而是细致、清晰的把握。</li>
+      <li>永不自满，保持开放心态，持续学习各种新工具、新方法，并勇于舍弃老工具、旧思想。我们在大学期间学习并在之后一直使用的工具虽然顺手，但很有可能已落后于时代。因此，需要不时地了解当下的优秀编程语言和软件项目，更新自己的工具箱。</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="算法开发" /><category term="BEM" /><summary type="html"><![CDATA[首先感谢老同学 chaoslawful 在部分算法开发和软件工程方面给予的指点和帮助！同时，定期的讨论交流也使想法和技术方案得以逐渐清晰、稳固。]]></summary></entry><entry><title type="html">不要建议、推荐、宣传、布道</title><link href="https://jihuan-tian.github.io/thoughts/2024/12/18/%E4%B8%8D%E8%A6%81%E5%BB%BA%E8%AE%AE-%E6%8E%A8%E8%8D%90-%E5%AE%A3%E4%BC%A0-%E5%B8%83%E9%81%93.html" rel="alternate" type="text/html" title="不要建议、推荐、宣传、布道" /><published>2024-12-18T00:00:00+08:00</published><updated>2024-12-18T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2024/12/18/%E4%B8%8D%E8%A6%81%E5%BB%BA%E8%AE%AE%E3%80%81%E6%8E%A8%E8%8D%90%E3%80%81%E5%AE%A3%E4%BC%A0%E3%80%81%E5%B8%83%E9%81%93</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2024/12/18/%E4%B8%8D%E8%A6%81%E5%BB%BA%E8%AE%AE-%E6%8E%A8%E8%8D%90-%E5%AE%A3%E4%BC%A0-%E5%B8%83%E9%81%93.html"><![CDATA[<p>不要轻易给他人提供建议（包括人生方向、职业发展、学习方法等）、推荐资源（包括书籍、视频）、宣传或布道某条理论多么深刻、某项技术多么强大、某个软件功能多么丰富。</p>
 
 <p>这是因为：</p>
 

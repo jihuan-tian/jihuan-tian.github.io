@@ -95,6 +95,12 @@
   <li>Because Anki and Org mode now share a common system of tags, tag names should follow the stricter rules required by Org mode. For example, dash “-” and plus “+” are not allowed in a tag.</li>
   <li>Do not specify deck in higher level heading in Org mode. Specify the deck for each note.</li>
   <li>Sometimes, <code class="language-plaintext highlighter-rouge">anki-editor-push-notes</code> need to run several times to take effect.</li>
+  <li>I’ve started using org-roam as my interconnected note system, so I will also add a link to related org-roam notes in an Anki note. These links should be placed before the “Front” heading and should not be placed within a “Reference” heading as I usually do. Otherwise, when the anki note is being pushed, there will be an error coming from <code class="language-plaintext highlighter-rouge">anki-editor--map-fields</code>, which says “Failed to map all named fields”. This is because the added “Reference” heading breaks the Anki note template.</li>
+  <li>Not supported latex macros
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">\coloneq</code></li>
+    </ul>
+  </li>
 </ul>
 
 
@@ -122,7 +128,7 @@
         <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
       </div>
       <div class="footer-col">
-        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2024 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2025 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
       </div>
     </div>
   </div>
