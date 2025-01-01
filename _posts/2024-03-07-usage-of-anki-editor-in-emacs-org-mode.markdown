@@ -18,5 +18,8 @@ mathjax: false
 -   Because Anki and Org mode now share a common system of tags, tag names should follow the stricter rules required by Org mode. For example, dash &ldquo;-&rdquo; and plus &ldquo;+&rdquo; are not allowed in a tag.
 -   Do not specify deck in higher level heading in Org mode. Specify the deck for each note.
 -   Sometimes, `anki-editor-push-notes` need to run several times to take effect.
+-   I&rsquo;ve started using org-roam as my interconnected note system, so I will also add a link to related org-roam notes in an Anki note. These links should be placed before the &ldquo;Front&rdquo; heading and should not be placed within a &ldquo;Reference&rdquo; heading as I usually do. Otherwise, when the anki note is being pushed, there will be an error coming from `anki-editor--map-fields`, which says &ldquo;Failed to map all named fields&rdquo;. This is because the added &ldquo;Reference&rdquo; heading breaks the Anki note template.
+-   Not supported latex macros
+    -   `\coloneq`
 
 {{ "2024-03-07-usage-of-anki-editor-in-emacs-org-mode" | backlink }}
