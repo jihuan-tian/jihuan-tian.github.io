@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-01-14T10:19:50+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Configure Chinese font in Emacs</title><link href="https://jihuan-tian.github.io/computer/2025/01/14/configure-chinese-font-in-emacs.html" rel="alternate" type="text/html" title="Configure Chinese font in Emacs" /><published>2025-01-14T00:00:00+08:00</published><updated>2025-01-14T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/01/14/configure-chinese-font-in-emacs</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/01/14/configure-chinese-font-in-emacs.html"><![CDATA[<p>Several concepts in Emacs should be clarified first.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-01-16T10:19:20+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Migrate from Emacs 28.2 to 29.4</title><link href="https://jihuan-tian.github.io/computer/2025/01/16/migrate-from-emacs-28.2-to-29.4.html" rel="alternate" type="text/html" title="Migrate from Emacs 28.2 to 29.4" /><published>2025-01-16T00:00:00+08:00</published><updated>2025-01-16T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/01/16/migrate-from-emacs-28.2-to-29.4</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/01/16/migrate-from-emacs-28.2-to-29.4.html"><![CDATA[<ul>
+  <li>Refer to <a href="https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Emacs.html">Install Emacs</a> and download Emacs from <a href="http://ftpmirror.gnu.org/emacs/">here</a>.</li>
+  <li>
+    <p>Configure and compile</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure --with-native-compilation --with-x-toolkit=lucid --with-tree-sitter --with-wide-int --with-json --with-modules --without-dbus --with-gnutls --with-mailutils --without-pop --with-cairo --with-imagemagick CFLAGS="-O2 -pipe -mtune=native -march=native -fomit-frame-pointer"
+</code></pre></div>    </div>
+
+    <p>Initially, I used the option <code class="language-plaintext highlighter-rouge">--with-pgtk --with-x-toolkit=gtk3</code>. However, the compiled Emacs intermittently crashed with the following error. Therefore, I finally resorted to the option <code class="language-plaintext highlighter-rouge">--with-x-toolkit=lucid</code>.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The program 'emacs' received an X Window System error.
+This probably reflects a bug in the program.
+The error was 'BadMatch (invalid parameter attributes)'.
+  (Details: serial 23499 error_code 8 request_code 18 (core protocol) minor_code 0)
+  (Note to programmers: normally, X errors are reported asynchronously;
+   that is, you will receive the error a while after causing it.
+   To debug your program, run it with the GDK_SYNCHRONIZE environment
+   variable to change this behavior. You can then get a meaningful
+   backtrace from your debugger if you break on the gdk_x_error() function.)
+</code></pre></div>    </div>
+  </li>
+  <li>Because I’m migrating from Emacs 28.2 in Debian Bookworm to Emacs 29.4, after the installation, some packages need to be manually reinstalled or required.
+    <ul>
+      <li>Add <code class="language-plaintext highlighter-rouge">(require 'recentf)</code> to <code class="language-plaintext highlighter-rouge">.emacs</code>.</li>
+      <li><code class="language-plaintext highlighter-rouge">helm-recentf</code> was previously bound to <code class="language-plaintext highlighter-rouge">C-x C-r</code>. In Emacs 29.4, <code class="language-plaintext highlighter-rouge">helm</code> is not installed, so I replace <code class="language-plaintext highlighter-rouge">helm-recentf</code> with <code class="language-plaintext highlighter-rouge">recentf-open</code>.</li>
+      <li>Install the <code class="language-plaintext highlighter-rouge">session</code> package from ELPA, then the previous configuration <code class="language-plaintext highlighter-rouge">(add-hook 'after-init-hook 'session-initialize)</code> in <code class="language-plaintext highlighter-rouge">.emacs</code> will work.</li>
+      <li>
+        <p>Add the path of previously installed ELPA packages <code class="language-plaintext highlighter-rouge">pyim</code> and <code class="language-plaintext highlighter-rouge">pyim-wbdict</code> to <code class="language-plaintext highlighter-rouge">load-path</code>:</p>
+
+        <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">'load-path</span> <span class="s">"~/.emacs.d/elpa/pyim-wbdict-20220604.1340"</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">'load-path</span> <span class="s">"~/.emacs.d/elpa/pyim-20240508.256"</span><span class="p">)</span>
+</code></pre></div>        </div>
+      </li>
+      <li>Remove <code class="language-plaintext highlighter-rouge">(require 'org-install)</code>, <code class="language-plaintext highlighter-rouge">(require 'ox-freemind)</code>, <code class="language-plaintext highlighter-rouge">(require 'ox-taskjuggler)</code> from <code class="language-plaintext highlighter-rouge">tjh-org.el</code>. They are not available in the <code class="language-plaintext highlighter-rouge">org</code> packaged with Emacs 29.4.</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Emacs" /><summary type="html"><![CDATA[Refer to Install Emacs and download Emacs from here. Configure and compile ./configure --with-native-compilation --with-x-toolkit=lucid --with-tree-sitter --with-wide-int --with-json --with-modules --without-dbus --with-gnutls --with-mailutils --without-pop --with-cairo --with-imagemagick CFLAGS="-O2 -pipe -mtune=native -march=native -fomit-frame-pointer" Initially, I used the option --with-pgtk --with-x-toolkit=gtk3. However, the compiled Emacs intermittently crashed with the following error. Therefore, I finally resorted to the option --with-x-toolkit=lucid. The program 'emacs' received an X Window System error. This probably reflects a bug in the program. The error was 'BadMatch (invalid parameter attributes)'. (Details: serial 23499 error_code 8 request_code 18 (core protocol) minor_code 0) (Note to programmers: normally, X errors are reported asynchronously; that is, you will receive the error a while after causing it. To debug your program, run it with the GDK_SYNCHRONIZE environment variable to change this behavior. You can then get a meaningful backtrace from your debugger if you break on the gdk_x_error() function.)]]></summary></entry><entry><title type="html">Navigate to the first or last same level heading</title><link href="https://jihuan-tian.github.io/computer/2025/01/16/navigate-to-the-first-or-last-same-level-heading.html" rel="alternate" type="text/html" title="Navigate to the first or last same level heading" /><published>2025-01-16T00:00:00+08:00</published><updated>2025-01-16T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/01/16/navigate-to-the-first-or-last-same-level-heading</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/01/16/navigate-to-the-first-or-last-same-level-heading.html"><![CDATA[<p>I use Org mode and Org Roam to realize the concept of Zettelkasten note system. Usually, a new note belonging to some topic or category will be appended to other notes at the same heading level. As days pass by, the notes accumulate and those lists of same level headings may be very long, which is inconvenient to navigate.</p>
+
+<p>I wrote the following two Elisp functions to help me quickly go to the first and last same level heading.</p>
+
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/org-first-same-level-heading</span> <span class="p">()</span>
+  <span class="s">"Move to the first heading at the same level in the current Org buffer."</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">current-line-number</span> <span class="p">(</span><span class="nv">line-number-at-pos</span><span class="p">))</span>
+         <span class="p">(</span><span class="nv">previous-line-number</span> <span class="mi">-1</span><span class="p">))</span>
+    <span class="c1">;; Ensure we are not before the first heading.</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nv">org-current-level</span><span class="p">)</span>
+        <span class="p">(</span><span class="nv">while</span> <span class="p">(</span><span class="nb">not</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">current-line-number</span> <span class="nv">previous-line-number</span><span class="p">))</span>
+          <span class="c1">;; If the current line number is different from previous one, it means</span>
+          <span class="c1">;; previous movement is effective. Otherwise, it means we've already</span>
+          <span class="c1">;; reached the last subheading.</span>
+          <span class="p">(</span><span class="nv">org-backward-heading-same-level</span> <span class="mi">1</span><span class="p">)</span>
+          <span class="p">(</span><span class="k">setq</span> <span class="nv">previous-line-number</span> <span class="nv">current-line-number</span><span class="p">)</span>
+          <span class="p">(</span><span class="k">setq</span> <span class="nv">current-line-number</span> <span class="p">(</span><span class="nv">line-number-at-pos</span><span class="p">))))</span>
+    <span class="p">(</span><span class="nv">message</span> <span class="s">"You're already before any headings, do nothing!"</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/org-last-same-level-heading</span> <span class="p">()</span>
+  <span class="s">"Move to the last heading at the same level in the current Org buffer."</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">current-line-number</span> <span class="p">(</span><span class="nv">line-number-at-pos</span><span class="p">))</span>
+         <span class="p">(</span><span class="nv">previous-line-number</span> <span class="mi">-1</span><span class="p">))</span>
+    <span class="c1">;; Ensure we are not before the first heading.</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nv">org-current-level</span><span class="p">)</span>
+        <span class="p">(</span><span class="nv">while</span> <span class="p">(</span><span class="nb">not</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">current-line-number</span> <span class="nv">previous-line-number</span><span class="p">))</span>
+          <span class="c1">;; If the current line number is different from previous one, it means</span>
+          <span class="c1">;; previous movement is effective. Otherwise, it means we've already</span>
+          <span class="c1">;; reached the last subheading.</span>
+          <span class="p">(</span><span class="nv">org-forward-heading-same-level</span> <span class="mi">1</span><span class="p">)</span>
+          <span class="p">(</span><span class="k">setq</span> <span class="nv">previous-line-number</span> <span class="nv">current-line-number</span><span class="p">)</span>
+          <span class="p">(</span><span class="k">setq</span> <span class="nv">current-line-number</span> <span class="p">(</span><span class="nv">line-number-at-pos</span><span class="p">)))</span>
+      <span class="p">(</span><span class="nv">message</span> <span class="s">"You're already before any headings, do nothing!"</span><span class="p">))))</span>
+</code></pre></div></div>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Emacs" /><category term="Org-mode" /><summary type="html"><![CDATA[I use Org mode and Org Roam to realize the concept of Zettelkasten note system. Usually, a new note belonging to some topic or category will be appended to other notes at the same heading level. As days pass by, the notes accumulate and those lists of same level headings may be very long, which is inconvenient to navigate.]]></summary></entry><entry><title type="html">Configure Chinese font in Emacs</title><link href="https://jihuan-tian.github.io/computer/2025/01/14/configure-chinese-font-in-emacs.html" rel="alternate" type="text/html" title="Configure Chinese font in Emacs" /><published>2025-01-14T00:00:00+08:00</published><updated>2025-01-14T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/01/14/configure-chinese-font-in-emacs</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/01/14/configure-chinese-font-in-emacs.html"><![CDATA[<p>Several concepts in Emacs should be clarified first.</p>
 
 <ul>
   <li>
