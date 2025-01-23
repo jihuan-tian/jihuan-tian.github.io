@@ -1,0 +1,20 @@
+---
+layout: post
+title: 知天命
+date: 2025-01-22
+categories: [thoughts]
+tags: [随想]
+mathjax: false
+---
+
+Even though I&rsquo;m not as old as 50s, I&rsquo;ve realized that I was born to do things which require great carefulness and rigorousness. This makes me reminiscent of the feeling of taking so many semester and Olympic exams during elementary school and middle school. In these exams, repeated checking every step of the solution, ensuring the correctness of every number and keeping the neatness of the calligraphy were all mandatory. Luckily, I had already got used to such kind of monotonous labor.
+
+For years, I&rsquo;ve never been satisfied with coarse and inexact derivations, which lack perfection and beauty. That&rsquo;s why I initially started my college study in electrical engineering, but after years of perplexity and hard graft in darkness, I finally deviate from this area and devote my self in the field of mathematical analysis and numerical simulation.
+
+Now, old habits, feelings and experiences from my youth just hit the spot of developing my mathematical software written in static language C++. Yes, both the mathematical theorem and programming language are of rigorous type, which just form my niche vocation.
+
+*References*
+-   [《不忘初心》]({% post_url 2022-05-10-不忘初心 %})
+
+
+{{ "2025-01-22-知天命" | backlink }}
