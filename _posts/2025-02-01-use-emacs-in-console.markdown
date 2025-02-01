@@ -16,7 +16,7 @@ When I travel outside, the slow network speed does not allow me to connect to my
 
 **Phenomenon** I&rsquo;m using the solarized light color theme in Emacs. When I run Emacs in Konsole on my laptop, the color theme looks comfortable. When I run Emacs on the remote server via SSH from Konsole on my laptop, some colors look too dark, while some look too light to be identifiable. Initially, I thought this may be caused by inappropriate colors in the color scheme in Konsole. However, this is not the cause.
 
-![img](figures/2025-02-01_14-24-46-different-colors-in-local-and-remote-emacs.png "Different colors shown in local and remote Emacs.")
+![img](/figures/2025-02-01_14-24-46-different-colors-in-local-and-remote-emacs.png "Different colors shown in local and remote Emacs.")
 
 **Analysis** Execute `display-color-cells` in the two Emacs to check the number of colors supported. Emacs on my laptop returns 16777216, which is 24 bit true color, while Emacs on the remote server via SSH returns 256. In addition, if Emacs is started within a screen window, 24 bit color is not supported.
 
