@@ -76,7 +76,7 @@
   <div class="post-content e-content" itemprop="articleBody">
     <h1 id="purpose">Purpose</h1>
 
-<p>When I travel outside, the slow network speed does not allow me to connect to my home server with X11 forwarding. Therefore, using Emacs on the server should be in a console via SSH. Therefore, consistent operational habits should be formed.</p>
+<p>When I travel outside, the slow network speed does not allow me to connect to my home server with X11 forwarding. Therefore, using Emacs on the server should be in a console via SSH and consistent operational habits should be formed.</p>
 
 <h1 id="color-theme-tuning">Color theme tuning</h1>
 
@@ -89,8 +89,8 @@
 <p><strong>Solution</strong></p>
 
 <ul>
-  <li>Add <code class="language-plaintext highlighter-rouge">export COLORTERM=truecolor</code> to <code class="language-plaintext highlighter-rouge">.bashrc</code>.</li>
-  <li>Use <code class="language-plaintext highlighter-rouge">tmux</code> instead of <code class="language-plaintext highlighter-rouge">screen</code>.</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">export TERM=xtern-256color</code> and <code class="language-plaintext highlighter-rouge">export COLORTERM=truecolor</code> to <code class="language-plaintext highlighter-rouge">.bashrc</code>.</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">tmux</code> instead of <code class="language-plaintext highlighter-rouge">screen</code> to have 24 bit color support.</li>
 </ul>
 
 <h1 id="general-operations">General operations</h1>

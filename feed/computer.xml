@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-02-02T06:30:07+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Use Emacs in console</title><link href="https://jihuan-tian.github.io/computer/2025/02/01/use-emacs-in-console.html" rel="alternate" type="text/html" title="Use Emacs in console" /><published>2025-02-01T00:00:00+08:00</published><updated>2025-02-01T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/02/01/use-emacs-in-console</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/02/01/use-emacs-in-console.html"><![CDATA[<h1 id="purpose">Purpose</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-02-03T11:25:44+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Use Emacs in console</title><link href="https://jihuan-tian.github.io/computer/2025/02/01/use-emacs-in-console.html" rel="alternate" type="text/html" title="Use Emacs in console" /><published>2025-02-01T00:00:00+08:00</published><updated>2025-02-01T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/02/01/use-emacs-in-console</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/02/01/use-emacs-in-console.html"><![CDATA[<h1 id="purpose">Purpose</h1>
 
-<p>When I travel outside, the slow network speed does not allow me to connect to my home server with X11 forwarding. Therefore, using Emacs on the server should be in a console via SSH. Therefore, consistent operational habits should be formed.</p>
+<p>When I travel outside, the slow network speed does not allow me to connect to my home server with X11 forwarding. Therefore, using Emacs on the server should be in a console via SSH and consistent operational habits should be formed.</p>
 
 <h1 id="color-theme-tuning">Color theme tuning</h1>
 
@@ -13,8 +13,8 @@
 <p><strong>Solution</strong></p>
 
 <ul>
-  <li>Add <code class="language-plaintext highlighter-rouge">export COLORTERM=truecolor</code> to <code class="language-plaintext highlighter-rouge">.bashrc</code>.</li>
-  <li>Use <code class="language-plaintext highlighter-rouge">tmux</code> instead of <code class="language-plaintext highlighter-rouge">screen</code>.</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">export TERM=xtern-256color</code> and <code class="language-plaintext highlighter-rouge">export COLORTERM=truecolor</code> to <code class="language-plaintext highlighter-rouge">.bashrc</code>.</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">tmux</code> instead of <code class="language-plaintext highlighter-rouge">screen</code> to have 24 bit color support.</li>
 </ul>
 
 <h1 id="general-operations">General operations</h1>
