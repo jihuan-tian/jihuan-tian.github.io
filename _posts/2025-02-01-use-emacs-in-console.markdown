@@ -9,7 +9,7 @@ mathjax: false
 
 # Purpose
 
-When I travel outside, the slow network speed does not allow me to connect to my home server with X11 forwarding. Therefore, using Emacs on the server should be in a console via SSH. Therefore, consistent operational habits should be formed.
+When I travel outside, the slow network speed does not allow me to connect to my home server with X11 forwarding. Therefore, using Emacs on the server should be in a console via SSH and consistent operational habits should be formed.
 
 
 # Color theme tuning
@@ -22,8 +22,8 @@ When I travel outside, the slow network speed does not allow me to connect to my
 
 **Solution**
 
--   Add `export COLORTERM=truecolor` to `.bashrc`.
--   Use `tmux` instead of `screen`.
+-   Add `export TERM=xtern-256color` and `export COLORTERM=truecolor` to `.bashrc`.
+-   Use `tmux` instead of `screen` to have 24 bit color support.
 
 
 # General operations
