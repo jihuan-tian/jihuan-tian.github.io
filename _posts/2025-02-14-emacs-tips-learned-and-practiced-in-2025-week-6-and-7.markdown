@@ -8,7 +8,7 @@ mathjax: false
 ---
 
 -   Use `ibuffer-mode` to manage many opened buffers in batch, since they can be marked using regular expressions.
--   Started to migrate large work journals from Org subtree to an independent org-roam notes using the function `org-roam-extract-subtree`. This will reduce the file size and heading levels in the Org file. After a work journal has been migrated, a link to it should be created as a heading below a related category in the original Org file. This is to realize the concept of **note index** in the Zettelkasten method.
+-   Started to migrate large work journals from Org subtrees to independent org-roam notes using the function `org-roam-extract-subtree`. This will reduce the file size and heading levels in the Org file. After a work journal has been migrated, a link to it should be created as a heading below a related category in the original Org file. This is to realize the concept of **note index** in the Zettelkasten method.
     
     Meanwhile, a timestamp should be attached to this link, so that this note will appear in the Org agenda. Because independent org-roam notes have their file names prefixed with timestamps, we can also review notes taken each day or each week in the file explorer.
 -   Installed the `highlight-indent-guides` package to visualize the hierarchy of Org items. Sometimes the items are deeply nested, which is difficult to navigate.
