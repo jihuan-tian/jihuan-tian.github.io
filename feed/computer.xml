@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-02-14T06:30:03+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Emacs tips learned and practiced in 2025 Week 6 and 7</title><link href="https://jihuan-tian.github.io/computer/2025/02/14/emacs-tips-learned-and-practiced-in-2025-week-6-and-7.html" rel="alternate" type="text/html" title="Emacs tips learned and practiced in 2025 Week 6 and 7" /><published>2025-02-14T00:00:00+08:00</published><updated>2025-02-14T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/02/14/emacs-tips-learned-and-practiced-in-2025-week-6-and-7</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/02/14/emacs-tips-learned-and-practiced-in-2025-week-6-and-7.html"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-02-15T14:37:57+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Keep home network reachable for remote working</title><link href="https://jihuan-tian.github.io/computer/2025/02/15/keep-home-network-reachable-for-remote-working.html" rel="alternate" type="text/html" title="Keep home network reachable for remote working" /><published>2025-02-15T00:00:00+08:00</published><updated>2025-02-15T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/02/15/keep-home-network-reachable-for-remote-working</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/02/15/keep-home-network-reachable-for-remote-working.html"><![CDATA[<p>I’m using China Telecom’s network with dynamic IP, through which I can provide my family several services, such as WebDAV based Joplin note system, music library that can be accessed from the Foobar music player on iOS, HTTPS based Calibre Ebooks, etc. However, the network is unstable due to three factors:</p>
+
+<ol>
+  <li>If the fiber optical modem keeps on working without being shut down for more than one week, it tends to freeze sporadically.</li>
+  <li>Sometimes, especially in the early morning around 4 or 5 am, the public IP for my home is lost and the modem does not try to acquire a new one.</li>
+  <li>The dynamic IP will also change irregularly, which requires to change the dynamic DNS configuration.</li>
+</ol>
+
+<p>Therefore, I’ve created a bash script and scheduled its execution in crontab on my home Debian server. It periodically checks if the public network is reachable by pinging a web server:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping -c 3 -w 3 www.baidu.com &gt; /dev/null 2&gt;&amp;1
+</code></pre></div></div>
+
+<p>If there is no error, I’ll use <code class="language-plaintext highlighter-rouge">curl -s ifconfig.me</code> to get the current public IP and compare it with the old one. If the IP has changed, I’ll reconnect VPN and update this new public IP to the dynamic DNS configuration.</p>
+
+<p>If <code class="language-plaintext highlighter-rouge">www.baidu.com</code> is not reachable, I can use <code class="language-plaintext highlighter-rouge">python-miio</code> to switch off then turn on my Xiaomi smart WIFI plug which powers the modem. The model type of this plug is <code class="language-plaintext highlighter-rouge">cuco.plug.v3</code>, which should be controlled via the <code class="language-plaintext highlighter-rouge">genericmiot</code> command provided by <code class="language-plaintext highlighter-rouge">python-miio</code>. This solution is much easier than Home Assistant, without bothering to install a new operating system. In case there might be unexpected frequent plug switching, I’ll only enable this operation when I travel outside.</p>
+
+<p><strong>Installation and usage of <code class="language-plaintext highlighter-rouge">python-miio</code></strong></p>
+
+<ul>
+  <li>
+    <p>Install the Git version of <code class="language-plaintext highlighter-rouge">python-miio</code> instead of the default one.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install git+https://github.com/rytilahti/python-miio.git
+</code></pre></div>    </div>
+  </li>
+  <li>Execute the command <code class="language-plaintext highlighter-rouge">miiocli cloud</code>, then type in the user name and password registered for Xiaomi APP. From the output, we will get the token and MAC address of the plug.</li>
+  <li>Bind the MAC address with a fixed IP in the WIFI router.</li>
+  <li>
+    <p>Get the plug device status:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>miiocli genericmiot --ip &lt;IP&gt; --token &lt;token&gt; status
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>List available actions provided by the plug:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>miiocli genericmiot --ip &lt;IP&gt; --token &lt;token&gt; actions
+</code></pre></div>    </div>
+
+    <p>Only one action <code class="language-plaintext highlighter-rouge">toggle</code> is supported.</p>
+  </li>
+  <li>
+    <p>Execute an action:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>miiocli genericmiot --ip &lt;IP&gt; --token &lt;token&gt; call &lt;action-name&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Set on/off of the plug:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>miiocli genericmiot --ip &lt;IP&gt; --token &lt;token&gt; set switch_on_2_1 True|False
+</code></pre></div>    </div>
+
+    <p><code class="language-plaintext highlighter-rouge">switch_on_2_1</code> is the property name.</p>
+  </li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="network" /><summary type="html"><![CDATA[I’m using China Telecom’s network with dynamic IP, through which I can provide my family several services, such as WebDAV based Joplin note system, music library that can be accessed from the Foobar music player on iOS, HTTPS based Calibre Ebooks, etc. However, the network is unstable due to three factors:]]></summary></entry><entry><title type="html">Emacs tips learned and practiced in 2025 Week 6 and 7</title><link href="https://jihuan-tian.github.io/computer/2025/02/14/emacs-tips-learned-and-practiced-in-2025-week-6-and-7.html" rel="alternate" type="text/html" title="Emacs tips learned and practiced in 2025 Week 6 and 7" /><published>2025-02-14T00:00:00+08:00</published><updated>2025-02-14T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/02/14/emacs-tips-learned-and-practiced-in-2025-week-6-and-7</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/02/14/emacs-tips-learned-and-practiced-in-2025-week-6-and-7.html"><![CDATA[<ul>
   <li>Use <code class="language-plaintext highlighter-rouge">ibuffer-mode</code> to manage many opened buffers in batch, since they can be marked using regular expressions.</li>
   <li>
     <p>Started to migrate large work journals from Org subtrees to independent org-roam notes using the function <code class="language-plaintext highlighter-rouge">org-roam-extract-subtree</code>. This will reduce the file size and heading levels in the Org file. After a work journal has been migrated, a link to it should be created as a heading below a related category in the original Org file. This is to realize the concept of <strong>note index</strong> in the Zettelkasten method.</p>
