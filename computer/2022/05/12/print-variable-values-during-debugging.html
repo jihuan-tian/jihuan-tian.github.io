@@ -112,7 +112,15 @@
 <p>To evaluate the expression, I use the built-in function <code class="language-plaintext highlighter-rouge">evalin</code>. Being different from the commonly used <code class="language-plaintext highlighter-rouge">eval</code>, it can specify the context, either <code class="language-plaintext highlighter-rouge">caller</code> or <code class="language-plaintext highlighter-rouge">base</code>, in which the expression is executed. Here, I set the context to <code class="language-plaintext highlighter-rouge">caller</code>. This is mandatory because the evaluation takes place in the local scope of my function <code class="language-plaintext highlighter-rouge">printout_var</code>, while <code class="language-plaintext highlighter-rouge">printout_var</code> needs to print those variables defined outside its own environment. It is obvious that when <code class="language-plaintext highlighter-rouge">printout_var</code> is called from an interactive session of Octave, which is our usual working scenario for debugging, the <code class="language-plaintext highlighter-rouge">caller</code> context is actually the same as the <code class="language-plaintext highlighter-rouge">base</code> context. In addition, <code class="language-plaintext highlighter-rouge">mat2str</code> is used to convert the numerical result into string representation. It is suitable for both scalar and matrix values, which is better than <code class="language-plaintext highlighter-rouge">num2str</code>.</p>
 
 
-  </div><a class="u-url" href="/computer/2022/05/12/print-variable-values-during-debugging.html" hidden></a>
+  </div><script src="https://utteranc.es/client.js"
+          repo="jihuan-tian/jihuan-tian.github.io"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <a class="u-url" href="/computer/2022/05/12/print-variable-values-during-debugging.html" hidden></a>
 </article>
 
       </div>
