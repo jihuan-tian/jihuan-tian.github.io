@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-02-21T07:52:38+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Caveats for moving an Org subtree to an org-roam node file</title><link href="https://jihuan-tian.github.io/computer/2025/02/17/caveats-for-moving-an-org-subtree-to-an-org-roam-node-file.html" rel="alternate" type="text/html" title="Caveats for moving an Org subtree to an org-roam node file" /><published>2025-02-17T00:00:00+08:00</published><updated>2025-02-17T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/02/17/caveats-for-moving-an-org-subtree-to-an-org-roam-node-file</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/02/17/caveats-for-moving-an-org-subtree-to-an-org-roam-node-file.html"><![CDATA[<p>When an Org file containing org-roam notes is too large, it is necessary to move a subtree to an independent org-roam node file via the command <code class="language-plaintext highlighter-rouge">org-roam-extract-subtree</code>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-02-21T07:54:06+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Debian system could not start when fsckd failed for a LUKS partition</title><link href="https://jihuan-tian.github.io/computer/2025/02/21/debian-system-could-not-start-when-fsckd-failed-for-a-luks-partition.html" rel="alternate" type="text/html" title="Debian system could not start when fsckd failed for a LUKS partition" /><published>2025-02-21T00:00:00+08:00</published><updated>2025-02-21T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/02/21/debian-system-could-not-start-when-fsckd-failed-for-a-luks-partition</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/02/21/debian-system-could-not-start-when-fsckd-failed-for-a-luks-partition.html"><![CDATA[<p><strong>Phenomenon</strong></p>
+
+<p>My LUKS partition used for system live backup couldn’t pass disk checking during system booting.</p>
+
+<p><img src="/figures/2025-02-18-fsck-failed-for-luks2.JPG" alt="img" /></p>
+
+<p><img src="/figures/2025-02-18-fsck-failed-for-luks1.JPG" alt="img" /></p>
+
+<p><strong>Cause</strong></p>
+
+<p>When fsck detects an error during system boot, it seems it will not try to correct the error. A manual check is needed.</p>
+
+<p><strong>Solution</strong></p>
+
+<ol>
+  <li>Enter the maintenance mode.</li>
+  <li>
+    <p>Disable the automatic disk check in <code class="language-plaintext highlighter-rouge">/etc/fstab</code> by changing the last field below from the original 2 to 0<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>. Then the system can start without disk checking. <em>Maybe this step can be omitted and execute the following steps directly in the maintenance model.</em></p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/dev/mapper/live-backup /media/backup ext4 rw,relatime 0 0
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>After system reboot, backup all LUKS partition headers, in case they are broken someday in the future.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksHeaderBackup /dev/sda4 --header-backup-file home.img
+sudo cryptsetup luksHeaderBackup /dev/sdb1 --header-backup-file live-backup.img
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Umount <code class="language-plaintext highlighter-rouge">/dev/mapper/live-backup</code> and manually perform disk checking and repairing.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo fsck -y /dev/mapper/live-backup
+</code></pre></div>    </div>
+  </li>
+  <li>Restore the last field for <code class="language-plaintext highlighter-rouge">/dev/mapper/live-backup</code> in <code class="language-plaintext highlighter-rouge">/etc/fstab</code> to 2 in <code class="language-plaintext highlighter-rouge">/etc/fstab</code>, then restart the system.</li>
+</ol>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<p><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> The value 2 means the disk check will be checked after the root file system and 0 means disable this checking.</p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Linux" /><category term="hard-disk" /><summary type="html"><![CDATA[Phenomenon]]></summary></entry><entry><title type="html">Caveats for moving an Org subtree to an org-roam node file</title><link href="https://jihuan-tian.github.io/computer/2025/02/17/caveats-for-moving-an-org-subtree-to-an-org-roam-node-file.html" rel="alternate" type="text/html" title="Caveats for moving an Org subtree to an org-roam node file" /><published>2025-02-17T00:00:00+08:00</published><updated>2025-02-17T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/02/17/caveats-for-moving-an-org-subtree-to-an-org-roam-node-file</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/02/17/caveats-for-moving-an-org-subtree-to-an-org-roam-node-file.html"><![CDATA[<p>When an Org file containing org-roam notes is too large, it is necessary to move a subtree to an independent org-roam node file via the command <code class="language-plaintext highlighter-rouge">org-roam-extract-subtree</code>.</p>
 
 <p><strong>Caveats</strong></p>
 
