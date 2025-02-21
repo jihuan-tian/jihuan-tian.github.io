@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Make iPad as an extension screen for Linux | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Make iPad as an extension screen for Linux" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Solution" />
+<meta property="og:description" content="Solution" />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-02-21T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Make iPad as an extension screen for Linux" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-02-21T00:00:00+08:00","datePublished":"2025-02-21T00:00:00+08:00","description":"Solution","headline":"Make iPad as an extension screen for Linux","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux.html"},"url":"https://jihuan-tian.github.io/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Make iPad as an extension screen for Linux</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-02-21T00:00:00+08:00" itemprop="datePublished">Feb 21, 2025 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/Linux">Linux</a>
+          
+            <a href="/tags/X-Window">X-Window</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><strong>Solution</strong></p>
+
+<p>Create a virtual screen beside the primary monitor. Then share it via <code class="language-plaintext highlighter-rouge">x11vnc</code> on display <code class="language-plaintext highlighter-rouge">:0</code> <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>. Finally, access from iPad using the RealVNC viewer.</p>
+
+<p><strong>Procedures</strong></p>
+
+<ol>
+  <li>
+    <p>Check existing monitors.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xrandr <span class="nt">--listmonitors</span>
+</code></pre></div>    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Monitors: 2
+ 0: +*DP-4 3840/597x2160/336+0+0  DP-4
+ 1: +DP-6 1080/476x1920/268+3840+0  DP-6
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Let the Linux system recognize the monitor DP-1, even though it is not physically connected, by adding the following two lines to the <strong>Screen</strong> section in <code class="language-plaintext highlighter-rouge">/etc/X11/xorg.conf</code>.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Section "Screen"
+    Option         "ConnectedMonitor" "DP-4,DP-6,DP-1"
+    Option         "ModeValidation" "NoDFPNativeResolutionCheck,NoVirtualSizeCheck,NoMaxPClkCheck,NoHorizSyncCheck,NoVertRefreshCheck,NoWidthAlignmentCheck"
+EndSection
+</code></pre></div>    </div>
+  </li>
+  <li>Restart the display manager <code class="language-plaintext highlighter-rouge">sudo systemctl restart lightdm.service</code>.</li>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">xrandr</code> to check the list of modes supported by DP-1 and select the maximum one that matches my iPad.</p>
+
+    <p>Originally, I wanted to use the following command to generate a new mode, which matches the resolution of my iPad, and apply it to DP-1.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cvt 2048 1536 60
+</code></pre></div>    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 2048x1536 59.95 Hz (CVT 3.15M3) hsync: 95.45 kHz; pclk: 267.25 MHz
+Modeline "2048x1536_60.00"  267.25  2048 2208 2424 2800  1536 1539 1543 1592 -hsync +vsync
+</code></pre></div>    </div>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xrandr --newmode "2048x1536_60" 267.25  2048 2208 2424 2800  1536 1539 1543 1592 -hsync +vsync
+xrandr --addmode DP-1 2048x1536_60
+</code></pre></div>    </div>
+
+    <p><em>However, the last command failed and it seems only existing modes of DP-1 can be used.</em></p>
+  </li>
+  <li>
+    <p>Make DP-1 on the left of the primary monitor. Both of them are on the default display <code class="language-plaintext highlighter-rouge">:0</code>.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xrandr --output DP-1 --mode 2048x1536_60 --left-of DP-4
+</code></pre></div>    </div>
+  </li>
+  <li>In KDE display settings, we can actually select the desired mode 2048x1536 for DP-1 with 60 Hz refresh rate, even though the previous command <code class="language-plaintext highlighter-rouge">xrandr --addmode DP-1 2048x1536_60</code> failed.</li>
+  <li>
+    <p>Set a password for the VNC server.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x11vnc -storepasswd
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Start the VNC server <code class="language-plaintext highlighter-rouge">x11vnc</code>.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x11vnc -clip 2048x1536+0+0 -multiptr -nevershared -forever -nopw -rfbport 5901 -rfbauth ~/.vnc/passwd -display :0 &amp;
+</code></pre></div>    </div>
+
+    <p>N.B. <code class="language-plaintext highlighter-rouge">-multiptr</code> is mandatory because I want to move the mouse cursor on Linux and view its motion on iPad.</p>
+  </li>
+  <li>Remember to enable port 5901 in iptable rules.</li>
+</ol>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<p><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <code class="language-plaintext highlighter-rouge">x11vnc</code> is a VNC server to allow remote access to an existing X session. <code class="language-plaintext highlighter-rouge">tightvncserver</code> cannot be used, because it only supports creating a new X11 display, so that the virtual screen cannot be integrated the current desktop.</p>
+
+
+  </div><script src="https://utteranc.es/client.js"
+          repo="jihuan-tian/jihuan-tian.github.io"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <a class="u-url" href="/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2025 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,4 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-02-21T14:19:49+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Debian system could not start when fsckd failed for a LUKS partition</title><link href="https://jihuan-tian.github.io/computer/2025/02/21/debian-system-could-not-start-when-fsckd-failed-for-a-luks-partition.html" rel="alternate" type="text/html" title="Debian system could not start when fsckd failed for a LUKS partition" /><published>2025-02-21T00:00:00+08:00</published><updated>2025-02-21T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/02/21/debian-system-could-not-start-when-fsckd-failed-for-a-luks-partition</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/02/21/debian-system-could-not-start-when-fsckd-failed-for-a-luks-partition.html"><![CDATA[<p><strong>Phenomenon</strong></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-02-21T14:20:42+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Make iPad as an extension screen for Linux</title><link href="https://jihuan-tian.github.io/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux.html" rel="alternate" type="text/html" title="Make iPad as an extension screen for Linux" /><published>2025-02-21T00:00:00+08:00</published><updated>2025-02-21T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux.html"><![CDATA[<p><strong>Solution</strong></p>
+
+<p>Create a virtual screen beside the primary monitor. Then share it via <code class="language-plaintext highlighter-rouge">x11vnc</code> on display <code class="language-plaintext highlighter-rouge">:0</code> <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>. Finally, access from iPad using the RealVNC viewer.</p>
+
+<p><strong>Procedures</strong></p>
+
+<ol>
+  <li>
+    <p>Check existing monitors.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xrandr <span class="nt">--listmonitors</span>
+</code></pre></div>    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Monitors: 2
+ 0: +*DP-4 3840/597x2160/336+0+0  DP-4
+ 1: +DP-6 1080/476x1920/268+3840+0  DP-6
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Let the Linux system recognize the monitor DP-1, even though it is not physically connected, by adding the following two lines to the <strong>Screen</strong> section in <code class="language-plaintext highlighter-rouge">/etc/X11/xorg.conf</code>.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Section "Screen"
+    Option         "ConnectedMonitor" "DP-4,DP-6,DP-1"
+    Option         "ModeValidation" "NoDFPNativeResolutionCheck,NoVirtualSizeCheck,NoMaxPClkCheck,NoHorizSyncCheck,NoVertRefreshCheck,NoWidthAlignmentCheck"
+EndSection
+</code></pre></div>    </div>
+  </li>
+  <li>Restart the display manager <code class="language-plaintext highlighter-rouge">sudo systemctl restart lightdm.service</code>.</li>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">xrandr</code> to check the list of modes supported by DP-1 and select the maximum one that matches my iPad.</p>
+
+    <p>Originally, I wanted to use the following command to generate a new mode, which matches the resolution of my iPad, and apply it to DP-1.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cvt 2048 1536 60
+</code></pre></div>    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 2048x1536 59.95 Hz (CVT 3.15M3) hsync: 95.45 kHz; pclk: 267.25 MHz
+Modeline "2048x1536_60.00"  267.25  2048 2208 2424 2800  1536 1539 1543 1592 -hsync +vsync
+</code></pre></div>    </div>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xrandr --newmode "2048x1536_60" 267.25  2048 2208 2424 2800  1536 1539 1543 1592 -hsync +vsync
+xrandr --addmode DP-1 2048x1536_60
+</code></pre></div>    </div>
+
+    <p><em>However, the last command failed and it seems only existing modes of DP-1 can be used.</em></p>
+  </li>
+  <li>
+    <p>Make DP-1 on the left of the primary monitor. Both of them are on the default display <code class="language-plaintext highlighter-rouge">:0</code>.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xrandr --output DP-1 --mode 2048x1536_60 --left-of DP-4
+</code></pre></div>    </div>
+  </li>
+  <li>In KDE display settings, we can actually select the desired mode 2048x1536 for DP-1 with 60 Hz refresh rate, even though the previous command <code class="language-plaintext highlighter-rouge">xrandr --addmode DP-1 2048x1536_60</code> failed.</li>
+  <li>
+    <p>Set a password for the VNC server.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x11vnc -storepasswd
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Start the VNC server <code class="language-plaintext highlighter-rouge">x11vnc</code>.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x11vnc -clip 2048x1536+0+0 -multiptr -nevershared -forever -nopw -rfbport 5901 -rfbauth ~/.vnc/passwd -display :0 &amp;
+</code></pre></div>    </div>
+
+    <p>N.B. <code class="language-plaintext highlighter-rouge">-multiptr</code> is mandatory because I want to move the mouse cursor on Linux and view its motion on iPad.</p>
+  </li>
+  <li>Remember to enable port 5901 in iptable rules.</li>
+</ol>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<p><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <code class="language-plaintext highlighter-rouge">x11vnc</code> is a VNC server to allow remote access to an existing X session. <code class="language-plaintext highlighter-rouge">tightvncserver</code> cannot be used, because it only supports creating a new X11 display, so that the virtual screen cannot be integrated the current desktop.</p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Linux" /><category term="X-Window" /><summary type="html"><![CDATA[Solution]]></summary></entry><entry><title type="html">Debian system could not start when fsckd failed for a LUKS partition</title><link href="https://jihuan-tian.github.io/computer/2025/02/21/debian-system-could-not-start-when-fsckd-failed-for-a-luks-partition.html" rel="alternate" type="text/html" title="Debian system could not start when fsckd failed for a LUKS partition" /><published>2025-02-21T00:00:00+08:00</published><updated>2025-02-21T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/02/21/debian-system-could-not-start-when-fsckd-failed-for-a-luks-partition</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/02/21/debian-system-could-not-start-when-fsckd-failed-for-a-luks-partition.html"><![CDATA[<p><strong>Phenomenon</strong></p>
 
 <p>My LUKS partition used for system live backup couldn’t pass disk checking during system booting.</p>
 
