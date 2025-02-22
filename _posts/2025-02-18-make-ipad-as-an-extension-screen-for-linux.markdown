@@ -68,6 +68,8 @@ Create a virtual screen beside the primary monitor. Then share it via `x11vnc` o
     N.B. `-multiptr` is mandatory because I want to move the mouse cursor on Linux and view its motion on iPad.
 9.  Remember to enable port 5901 in iptable rules.
 
+![img](figures/2025-02-22-ipad-as-extension-screen-via-vnc.png "iPad as an extension screen for Linux via x11vnc")
+
 ## Footnotes
 
 <sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> `x11vnc` is a VNC server to allow remote access to an existing X session. `tightvncserver` cannot be used, because it only supports creating a new X11 display, so that the virtual screen cannot be integrated the current desktop.
