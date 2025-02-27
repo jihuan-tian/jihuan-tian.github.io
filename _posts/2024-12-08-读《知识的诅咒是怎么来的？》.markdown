@@ -3,7 +3,7 @@ layout: post
 title: 读《知识的诅咒是怎么来的？》
 date: 2025-02-27
 categories: [thoughts]
-tags: [methodology,note-taking,数学学习]
+tags: [note-taking,数学学习]
 mathjax: false
 ---
 
