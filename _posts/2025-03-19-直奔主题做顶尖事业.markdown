@@ -1,0 +1,12 @@
+---
+layout: post
+title: 直奔主题做顶尖事业
+date: 2025-03-19
+categories: [thoughts]
+tags: [随想]
+mathjax: false
+---
+
+只有成为百万、千万里挑一的少数天才与卓越者，才有资格和现成的机会直奔主题，做科技领域的顶尖事业，像是数值计算领域的著名学者 Ralf Hiptmair、Wolfgang Hackbusch、Mario Bebendorf，计算机软件行业中 Linux 内核与软件版本管理工具 Git 之父 Linus Tovalds，GCC 编译器、gdb 调试器、GNU Emacs 文本编辑器的作者 Richard Stallman，苹果公司的创立者 Wozniak……其余的人则不得不在完成很多外围工作、应付差事与各项考核之后，才能以强弩之末的精力做一些属于个人终极目标的积累。然而，这种积累往往呈碎片化且断断续续，在上述天才与卓越者长期专注的工作面前不值一提。因此，想要真正在个人方向上持续投入的道路往往是曲折的。但这也并非全无益处，从中获得的是体验是非常宝贵的，甚至最终的结果也只是其副产品。
+
+{{ "2025-03-19-直奔主题做顶尖事业" | backlink }}
