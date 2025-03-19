@@ -1,4 +1,157 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-03-19T21:28:33+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Make iPad as an extension screen for Linux</title><link href="https://jihuan-tian.github.io/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux.html" rel="alternate" type="text/html" title="Make iPad as an extension screen for Linux" /><published>2025-02-21T00:00:00+08:00</published><updated>2025-02-21T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux.html"><![CDATA[<p><strong>Solution</strong></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-03-19T22:22:44+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Manage scanned notes and sketches with LibreOffice Impress</title><link href="https://jihuan-tian.github.io/computer/2025/03/19/manage-scanned-notes-and-sketches-with-libreoffice-impress.html" rel="alternate" type="text/html" title="Manage scanned notes and sketches with LibreOffice Impress" /><published>2025-03-19T00:00:00+08:00</published><updated>2025-03-19T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/03/19/manage-scanned-notes-and-sketches-with-libreoffice-impress</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/03/19/manage-scanned-notes-and-sketches-with-libreoffice-impress.html"><![CDATA[<p>Just realized I can use LibreOffice Impress to collect my scattered scanned images for mathematical derivations on paper work journal and notebook as well as white board. Compared to LibreOffice Draw, the pages in Impress can be easily shifted and reorganized.</p>
+
+<ul>
+  <li>
+    <p>A VBA script has been written for inserting, positioning and resizing the images automatically in LibreOffice Impress.</p>
+
+    <pre><code class="language-vba">' Multiple images can be selected and inserted into Impress in batch, one image
+' per page.
+Sub InsertImagesFromSelectedFolder()
+    ' Get the current document (LibreOffice Draw)
+    Dim oDoc As Object
+    oDoc = ThisComponent
+    
+    ' Open the folder and check if it's a directory
+    Dim files as Object
+    files = SelectMultipleImages()
+    
+    ' Loop through each file in the folder
+    Dim i As Integer
+    For i = LBound(files) To UBound(files)
+        Dim sFile as String
+        sFile = files(i)
+        ' Check if the file is an image (you can modify this to include more formats)
+        If (InStr(LCase(sFile), ".png") &gt; 0 Or InStr(LCase(sFile), ".jpg") &gt; 0 Or InStr(LCase(sFile), ".jpeg") &gt; 0) Then
+            ' Create a new page for each image by inserting into DrawPages
+            Dim oPages As Object
+            oPages = oDoc.getDrawPages()
+            Dim oPage As Object
+            oPage = oPages.insertNewByIndex(oPages.getCount())
+            oPage.setName(ConvertFromURL(sFile))
+    
+            ' Create the image shape
+            Dim oGraph As Object
+            oGraph = oDoc.createInstance("com.sun.star.drawing.GraphicObjectShape")
+            oGraph.GraphicURL = sFile
+    
+            ' Get the image size by callign a Bash script, because they cannot
+            ' be acquired from LibreOffice VBA directly.
+            CallBashScript("/usr/local/bin/scripts/call_get_img_size.sh", ConvertFromURL(sFile))
+            Dim oInputFile as Object
+            oInputFile = CreateUnoService("com.sun.star.ucb.SimpleFileAccess")
+            Dim oInputStream as Object
+            oInputStream = oInputFile.openFileRead("/tmp/libreoffice/img-size.txt")
+            Dim sFileContent as String
+            sFileContent = ReadInputStream(oInputStream)
+            oInputStream.closeInput()
+            Dim aSizeParts() as String
+            aSizeParts = Split(sFileContent, "x")
+    
+	    ' Sclae the image with respect to the page size. N.B. The size unit
+	    ' adopted by LibreOffice is 1/100 mm.
+            Dim dpi As Integer
+            dpi = 168
+            Dim oBitmapSize As New com.sun.star.awt.Size
+            oBitmapSize.Width = Val(Trim(aSizeParts(0))) / dpi * 25.4 * 100
+            oBitmapSize.Height = Val(Trim(aSizeParts(1))) / dpi * 25.4 * 100
+    
+            Dim oNewSize As New com.sun.star.awt.Size    'New Image size     
+            Dim dImageRatio As Double     'Ratio of the height to width
+            Dim dPageRatio As Double      'Ratio of the height to width
+    
+            dImageRatio = CDbl(oBitmapSize.Height) / CDbl(oBitmapSize.Width)
+            dPageRatio = CDbl(oPage.Height) / CDbl(oPage.Width)
+    
+            ' Compare the ratios to see which is wider, relatively speaking
+            If oBitmapSize.Width &gt; oPage.Width OR oBitmapSize.Height &gt; oPage.Height Then
+		If dPageRatio &gt; dImageRatio Then
+                    oNewSize.Width  = oPage.Width
+                    oNewSize.Height = CLng(CDbl(oPage.Width) * dImageRatio)
+		Else
+                    oNewSize.Width  = CLng(CDbl(oPage.Height) / dImageRatio)
+                    oNewSize.Height = oPage.Height
+		End If
+            Else
+		oNewSize = oBitmapSize
+            End If
+    
+            ' Add the image to the current page.
+            oGraph.SetSize(oNewSize)
+    
+            ' Center the image on the page.
+            Dim oPosition as new com.sun.star.awt.Point
+            oPosition.X = (oPage.Width - oNewSize.Width)/2
+            oPosition.Y = (oPage.Height - oNewSize.Height)/2
+            oGraph.SetPosition(oPosition)
+    
+            oPage.add(oGraph)
+        End If
+    Next i
+End Sub
+    
+' Function to display the file picker dialog and return the selected folder
+Function SelectMultipleImages() As Object
+    Dim oFilePicker As Object
+    Dim folderPath As String
+    
+    ' Create the file picker service
+    oFilePicker = CreateUnoService("com.sun.star.ui.dialogs.FilePicker")
+    
+    ' Set dialog properties
+    oFilePicker.setMultiSelectionMode (True)
+    oFilePicker.setTitle("Select Folder with Images")
+    oFilePicker.execute()
+    
+    SelectMultipleImages = oFilePicker.getSelectedFiles()
+End Function
+    
+' Call a Bash script. LibreOffice VBA can only start a asynchronous process, so
+' we need to wait for 1000 ms to let the script finish. Also note the argument
+' list in the string passed to the Bash script does not need to be escaped.
+Sub CallBashScript(sScriptPath As String, sArgs As String)
+    Dim oShell As Object
+    
+    ' Create a Shell object and execute the command
+    oShell = CreateUnoService("com.sun.star.system.SystemShellExecute")
+    oShell.execute(sScriptPath, sArgs, 0)  ' The second parameter "0" is to run in the background
+    Wait 1000
+End Sub
+    
+' Read the content as a string from an input stream.
+Function ReadInputStream(oInputStream As Object) As String
+    Dim sContent As String
+    Dim oTextStream As Object
+    Dim aBytes() As Byte
+    Dim nBytes As Integer
+    
+    ' Read data from input stream
+    oTextStream = CreateUnoService("com.sun.star.io.TextInputStream")
+    oTextStream.setInputStream(oInputStream)
+    oTextStream.setEncoding("UTF-8") ' Adjust encoding if necessary
+    
+    ' Read the full content
+    sContent = oTextStream.readLine()
+    
+    ' Return content as a string
+    ReadInputStream = sContent
+End Function
+</code></pre>
+
+    <p>The Bash script <code class="language-plaintext highlighter-rouge">call_get_img_size.sh</code> is as below. It calls <code class="language-plaintext highlighter-rouge">identify</code> to get the image information, from which we write the image size into a temporary file.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="si">$(</span>identify <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> | gawk <span class="s1">'{if(match($0, /([[:digit:]]+)x([[:digit:]]+)/, res) != 0) print res[0];}'</span><span class="si">)</span> <span class="o">&gt;</span> /tmp/libreoffice/img-size.txt
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>For eye-protection, the white background of each image is converted to light yellow, i.e. RGB 246, 240, 222, with the command line image editing tool ImageMagick.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+mogrify <span class="nt">-fuzz</span> 10% <span class="nt">-fill</span> <span class="s1">'rgb(246,240,222)'</span> <span class="nt">-opaque</span> white <span class="s2">"</span><span class="nv">$file</span><span class="s2">"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>The handwriting in each inserted image can be further edited with Wacom+Krita.</li>
+  <li>The whole Impress document or its internal bookmarks can be further linked into Org mode, so that they can be categorized and tagged in the Zettlekasten note system.</li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="LibreOffice" /><category term="Bash" /><category term="note-taking" /><summary type="html"><![CDATA[Just realized I can use LibreOffice Impress to collect my scattered scanned images for mathematical derivations on paper work journal and notebook as well as white board. Compared to LibreOffice Draw, the pages in Impress can be easily shifted and reorganized.]]></summary></entry><entry><title type="html">Make iPad as an extension screen for Linux</title><link href="https://jihuan-tian.github.io/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux.html" rel="alternate" type="text/html" title="Make iPad as an extension screen for Linux" /><published>2025-02-21T00:00:00+08:00</published><updated>2025-02-21T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/02/21/make-ipad-as-an-extension-screen-for-linux.html"><![CDATA[<p><strong>Solution</strong></p>
 
 <p>Create a virtual screen beside the primary monitor. Then share it via <code class="language-plaintext highlighter-rouge">x11vnc</code> on display <code class="language-plaintext highlighter-rouge">:0</code> <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>. Finally, access from iPad using the RealVNC viewer.</p>
 
