@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Emacs tips learned and practiced in 2025 Week 12 | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Emacs tips learned and practiced in 2025 Week 12" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Frequent switching between different buffers is inconvenient, so I’ve started to use multiple frames to maintain different working scenarios, such as taking work journal, programming in C++, navigating folders in Dired mode, processing data with Julia. To prevent sporadic lag or delay while I key in characters within Emacs, I restrict the maximum font-lock level for Org mode. (setq font-lock-maximum-decoration &#39;((org-mode . 1) (t . t))) Directly change the background color of a linked image in Org mode or editing it in Krita. This is very useful for integrating my scanned notes and sketches into Org Roam. (defun tjh/org-open-link-with-named-app (app) &quot;Open the Org link at point with the given app.&quot; (let* ((link (org-element-property :path (org-element-context)))) (start-process-shell-command &quot;org-open-link&quot; nil (format &quot;%s &#39;%s&#39;&quot; app link)))) (defun tjh/org-edit-image-with-krita () &quot;Edit a linked handwriting image using Krita.&quot; (interactive) (tjh/org-open-link-with-named-app &quot;krita&quot;)) (defun tjh/solarize-scanning () &quot;Edit a linked handwriting image using Krita.&quot; (interactive) (tjh/org-open-link-with-named-app &quot;solarize-scanning.sh&quot;))" />
+<meta property="og:description" content="Frequent switching between different buffers is inconvenient, so I’ve started to use multiple frames to maintain different working scenarios, such as taking work journal, programming in C++, navigating folders in Dired mode, processing data with Julia. To prevent sporadic lag or delay while I key in characters within Emacs, I restrict the maximum font-lock level for Org mode. (setq font-lock-maximum-decoration &#39;((org-mode . 1) (t . t))) Directly change the background color of a linked image in Org mode or editing it in Krita. This is very useful for integrating my scanned notes and sketches into Org Roam. (defun tjh/org-open-link-with-named-app (app) &quot;Open the Org link at point with the given app.&quot; (let* ((link (org-element-property :path (org-element-context)))) (start-process-shell-command &quot;org-open-link&quot; nil (format &quot;%s &#39;%s&#39;&quot; app link)))) (defun tjh/org-edit-image-with-krita () &quot;Edit a linked handwriting image using Krita.&quot; (interactive) (tjh/org-open-link-with-named-app &quot;krita&quot;)) (defun tjh/solarize-scanning () &quot;Edit a linked handwriting image using Krita.&quot; (interactive) (tjh/org-open-link-with-named-app &quot;solarize-scanning.sh&quot;))" />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2025/03/23/emacs-tips-learned-and-practiced-in-2025-week-12.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2025/03/23/emacs-tips-learned-and-practiced-in-2025-week-12.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-03-23T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Emacs tips learned and practiced in 2025 Week 12" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-03-23T00:00:00+08:00","datePublished":"2025-03-23T00:00:00+08:00","description":"Frequent switching between different buffers is inconvenient, so I’ve started to use multiple frames to maintain different working scenarios, such as taking work journal, programming in C++, navigating folders in Dired mode, processing data with Julia. To prevent sporadic lag or delay while I key in characters within Emacs, I restrict the maximum font-lock level for Org mode. (setq font-lock-maximum-decoration &#39;((org-mode . 1) (t . t))) Directly change the background color of a linked image in Org mode or editing it in Krita. This is very useful for integrating my scanned notes and sketches into Org Roam. (defun tjh/org-open-link-with-named-app (app) &quot;Open the Org link at point with the given app.&quot; (let* ((link (org-element-property :path (org-element-context)))) (start-process-shell-command &quot;org-open-link&quot; nil (format &quot;%s &#39;%s&#39;&quot; app link)))) (defun tjh/org-edit-image-with-krita () &quot;Edit a linked handwriting image using Krita.&quot; (interactive) (tjh/org-open-link-with-named-app &quot;krita&quot;)) (defun tjh/solarize-scanning () &quot;Edit a linked handwriting image using Krita.&quot; (interactive) (tjh/org-open-link-with-named-app &quot;solarize-scanning.sh&quot;))","headline":"Emacs tips learned and practiced in 2025 Week 12","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2025/03/23/emacs-tips-learned-and-practiced-in-2025-week-12.html"},"url":"https://jihuan-tian.github.io/computer/2025/03/23/emacs-tips-learned-and-practiced-in-2025-week-12.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet">
+  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=67ba859acde8790019eafb38&product=inline-share-buttons' async='async'></script><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/search/">Search</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Emacs tips learned and practiced in 2025 Week 12</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-03-23T00:00:00+08:00" itemprop="datePublished">Mar 23, 2025 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/Emacs">Emacs</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li>Frequent switching between different buffers is inconvenient, so I’ve started to use multiple frames to maintain different working scenarios, such as taking work journal, programming in C++, navigating folders in Dired mode, processing data with Julia.</li>
+  <li>
+    <p>To prevent sporadic lag or delay while I key in characters within Emacs, I restrict the maximum font-lock level for Org mode.</p>
+
+    <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="k">setq</span> <span class="nv">font-lock-maximum-decoration</span> <span class="o">'</span><span class="p">((</span><span class="nv">org-mode</span> <span class="o">.</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="no">t</span> <span class="o">.</span> <span class="no">t</span><span class="p">)))</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Directly change the background color of a linked image in Org mode or editing it in Krita. This is very useful for integrating my scanned notes and sketches into Org Roam.</p>
+
+    <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/org-open-link-with-named-app</span> <span class="p">(</span><span class="nv">app</span><span class="p">)</span>
+  <span class="s">"Open the Org link at point with the given app."</span>
+  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">link</span> <span class="p">(</span><span class="nv">org-element-property</span> <span class="ss">:path</span> <span class="p">(</span><span class="nv">org-element-context</span><span class="p">))))</span>
+    <span class="p">(</span><span class="nv">start-process-shell-command</span> <span class="s">"org-open-link"</span> <span class="no">nil</span> <span class="p">(</span><span class="nb">format</span> <span class="s">"%s '%s'"</span> <span class="nv">app</span> <span class="nv">link</span><span class="p">))))</span>
+    
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/org-edit-image-with-krita</span> <span class="p">()</span>
+  <span class="s">"Edit a linked handwriting image using Krita."</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">tjh/org-open-link-with-named-app</span> <span class="s">"krita"</span><span class="p">))</span>
+    
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/solarize-scanning</span> <span class="p">()</span>
+  <span class="s">"Edit a linked handwriting image using Krita."</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">tjh/org-open-link-with-named-app</span> <span class="s">"solarize-scanning.sh"</span><span class="p">))</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+
+  </div><div class="sharethis-inline-share-buttons"></div>
+
+  <script src="https://utteranc.es/client.js"
+          repo="jihuan-tian/jihuan-tian.github.io"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <a class="u-url" href="/computer/2025/03/23/emacs-tips-learned-and-practiced-in-2025-week-12.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2025 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
