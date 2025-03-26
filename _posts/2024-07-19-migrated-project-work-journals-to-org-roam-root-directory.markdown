@@ -88,7 +88,7 @@ After that, I assigned a unique id to each headings in all Org files under a spe
 
 Before using `org-roam`, I inserted internal links between different Org notes via the default mechanism provided by Org `org-store-link`. However, if the heading text is changed, all links to it will fail. Now with the above assigned indices, heading text changing will not invalid the links, which is much more robust. Setting the variable `org-id-link-to-org-use-id` to `t`, calling `org-store-link` will generate a id link.
 
-I do not like the Zettelkasten concept. It would produce a lot of scattered small Org files, which are difficult to manage and browse. And they cannot be directly displayed in Org agenda. Therefore, I still put my notes belong to a same category into a same Org file.
+I do not like the [Zettelkasten]({% post_url 2024-10-01-基于卡片笔记写作法的个人笔记改进 %}) concept. It would produce a lot of scattered small Org files, which are difficult to manage and browse. And they cannot be directly displayed in Org agenda. Therefore, I still put my notes belong to a same category into a same Org file.
 
 The topology among my notes and journals can be visualized via `org-roam-ui`.
 

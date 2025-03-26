@@ -7,7 +7,7 @@ tags: [Emacs,Org-mode]
 mathjax: false
 ---
 
-I use Org mode and Org Roam to realize the concept of Zettelkasten note system. Usually, a new note belonging to some topic or category will be appended to other notes at the same heading level. As days pass by, the notes accumulate and those lists of same level headings may be very long, which is inconvenient to navigate.
+I use Org mode and Org Roam to realize the concept of [Zettelkasten]({% post_url 2024-10-01-基于卡片笔记写作法的个人笔记改进 %}) note system. Usually, a new note belonging to some topic or category will be appended to other notes at the same heading level. As days pass by, the notes accumulate and those lists of same level headings may be very long, which is inconvenient to navigate.
 
 I wrote the following two Elisp functions to help me quickly go to the first and last same level heading.
 

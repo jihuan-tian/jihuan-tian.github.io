@@ -158,6 +158,6 @@ Just realized I can use LibreOffice Impress to collect my scattered scanned imag
     mogrify -fuzz 10% -fill 'rgb(246,240,222)' -opaque white "$file"
     ```
 -   The handwriting in each inserted image can be further edited with Wacom+Krita.
--   The whole Impress document or its internal bookmarks can be further linked into Org mode, so that they can be categorized and tagged in the Zettlekasten note system.
+-   The whole Impress document or its internal bookmarks can be further linked into Org mode, so that they can be categorized and tagged in the [Zettelkasten]({% post_url 2024-10-01-基于卡片笔记写作法的个人笔记改进 %}) note system.
 
 {{ "2025-03-18-manage-scanned-notes-and-sketches-with-libreoffice-impress" | backlink }}
