@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-04-06T10:04:51+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Emacs tips learned and practiced in 2025 Week 15</title><link href="https://jihuan-tian.github.io/computer/2025/04/06/emacs-tips-learned-and-practiced-in-2025-week-15.html" rel="alternate" type="text/html" title="Emacs tips learned and practiced in 2025 Week 15" /><published>2025-04-06T00:00:00+08:00</published><updated>2025-04-06T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/04/06/emacs-tips-learned-and-practiced-in-2025-week-15</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/04/06/emacs-tips-learned-and-practiced-in-2025-week-15.html"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-04-12T07:25:44+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Emacs tips learned and practiced in 2025 Week 15</title><link href="https://jihuan-tian.github.io/computer/2025/04/06/emacs-tips-learned-and-practiced-in-2025-week-15.html" rel="alternate" type="text/html" title="Emacs tips learned and practiced in 2025 Week 15" /><published>2025-04-06T00:00:00+08:00</published><updated>2025-04-06T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/04/06/emacs-tips-learned-and-practiced-in-2025-week-15</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/04/06/emacs-tips-learned-and-practiced-in-2025-week-15.html"><![CDATA[<ul>
   <li>
     <p>Swap the buffers of two windows, which is very useful for side-by-side coding, e.g. the left window for reference and the right window for modification.</p>
 
@@ -1101,33 +1101,33 @@ kf.kio.workers.thumbnail.djvu: QProcess::FailedToStart ""
 
 <p>Obviously, the thumbnail process couldn’t be started by Dolphin and the keyword <code class="language-plaintext highlighter-rouge">kf.kio.workers.thumbnail.djvu</code> seemed a clue. So I searched it on Google and found this source code from <a href="https://github.com/KDE/kio-extras/blob/master/thumbnail/djvucreator.cpp">here</a>:</p>
 
-<pre><code class="language-C++">KIO::ThumbnailResult DjVuCreator::create(const KIO::ThumbnailRequest &amp;request)
-{
-  QProcess ddjvu;
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">KIO</span><span class="o">::</span><span class="n">ThumbnailResult</span> <span class="n">DjVuCreator</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="k">const</span> <span class="n">KIO</span><span class="o">::</span><span class="n">ThumbnailRequest</span> <span class="o">&amp;</span><span class="n">request</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">QProcess</span> <span class="n">ddjvu</span><span class="p">;</span>
 
-  const QStringList args{QStringLiteral("-page=1"),
-                         QStringLiteral("-size=") + QString::number(request.targetSize().width()) + QChar('x')
-                         + QString::number(request.targetSize().height()),
-                         QStringLiteral("-format=ppm"),
-                         request.url().toLocalFile()};
+  <span class="k">const</span> <span class="n">QStringList</span> <span class="n">args</span><span class="p">{</span><span class="n">QStringLiteral</span><span class="p">(</span><span class="s">"-page=1"</span><span class="p">),</span>
+                         <span class="n">QStringLiteral</span><span class="p">(</span><span class="s">"-size="</span><span class="p">)</span> <span class="o">+</span> <span class="n">QString</span><span class="o">::</span><span class="n">number</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">targetSize</span><span class="p">().</span><span class="n">width</span><span class="p">())</span> <span class="o">+</span> <span class="n">QChar</span><span class="p">(</span><span class="sc">'x'</span><span class="p">)</span>
+                         <span class="o">+</span> <span class="n">QString</span><span class="o">::</span><span class="n">number</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">targetSize</span><span class="p">().</span><span class="n">height</span><span class="p">()),</span>
+                         <span class="n">QStringLiteral</span><span class="p">(</span><span class="s">"-format=ppm"</span><span class="p">),</span>
+                         <span class="n">request</span><span class="p">.</span><span class="n">url</span><span class="p">().</span><span class="n">toLocalFile</span><span class="p">()};</span>
 
-  ddjvu.start(QStringLiteral("ddjvu"), args);
-  ddjvu.waitForFinished();
+  <span class="n">ddjvu</span><span class="p">.</span><span class="n">start</span><span class="p">(</span><span class="n">QStringLiteral</span><span class="p">(</span><span class="s">"ddjvu"</span><span class="p">),</span> <span class="n">args</span><span class="p">);</span>
+  <span class="n">ddjvu</span><span class="p">.</span><span class="n">waitForFinished</span><span class="p">();</span>
 
-  static bool warnOnce = true;
-  if (ddjvu.exitCode() != 0) {
-    if (warnOnce) {
-      qCWarning(KIO_THUMBNAIL_DJVU_LOG) &lt;&lt; ddjvu.error() &lt;&lt; ddjvu.readAllStandardError();
-      warnOnce = false;
-    }
-    return KIO::ThumbnailResult::fail();
-  }
+  <span class="k">static</span> <span class="kt">bool</span> <span class="n">warnOnce</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">ddjvu</span><span class="p">.</span><span class="n">exitCode</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">warnOnce</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">qCWarning</span><span class="p">(</span><span class="n">KIO_THUMBNAIL_DJVU_LOG</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">ddjvu</span><span class="p">.</span><span class="n">error</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">ddjvu</span><span class="p">.</span><span class="n">readAllStandardError</span><span class="p">();</span>
+      <span class="n">warnOnce</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">KIO</span><span class="o">::</span><span class="n">ThumbnailResult</span><span class="o">::</span><span class="n">fail</span><span class="p">();</span>
+  <span class="p">}</span>
 
-  QImage img;
-  bool okay = img.load(&amp;ddjvu, "ppm");
-  return okay ? KIO::ThumbnailResult::pass(img) : KIO::ThumbnailResult::fail();
-}
-</code></pre>
+  <span class="n">QImage</span> <span class="n">img</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">okay</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ddjvu</span><span class="p">,</span> <span class="s">"ppm"</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">okay</span> <span class="o">?</span> <span class="n">KIO</span><span class="o">::</span><span class="n">ThumbnailResult</span><span class="o">::</span><span class="n">pass</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> <span class="o">:</span> <span class="n">KIO</span><span class="o">::</span><span class="n">ThumbnailResult</span><span class="o">::</span><span class="n">fail</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>It can be seen that the command <code class="language-plaintext highlighter-rouge">ddjvu</code> is to be called. However, it was not available on my Debian system (it is strange that why <code class="language-plaintext highlighter-rouge">ddjvu</code> has not been included as one of the dependencies of the <code class="language-plaintext highlighter-rouge">dolphin</code> package). Actually, <code class="language-plaintext highlighter-rouge">ddjvu</code> is contained in the Debian package <code class="language-plaintext highlighter-rouge">djvulibre-bin</code>, which should be manually installed. This just solves the problem.</p>
 
@@ -1886,45 +1886,45 @@ anki-editor--anki-connect-invoke: Wrong number of arguments: (3 . 3), 2
 
 <p>Convert a data pointer to an array to <code class="language-plaintext highlighter-rouge">Eigen::Map</code></p>
 
-<pre><code class="language-C++">#include &lt;Eigen/Core&gt;
-#include &lt;Eigen/Dense&gt;
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;Eigen/Core&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;Eigen/Dense&gt;</span><span class="cp">
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Eigen</span><span class="p">;</span>
 
-using namespace Eigen;
-
-// @p mat is a pointer to an array created in LabView, which is wrapped in an
-// @p Eigen::Map object @p mat_out.
-void
-read_matrix_labview(const char        *filename,
-                    double            *mat,
-                    const unsigned int n_rows,
-                    const unsigned int n_cols,
-                    const char        *comment_symbol)
-{
-  Map&lt;MatrixXd, Unaligned&gt; mat_out(mat, n_rows, n_cols);
-  TSC::read_matrix(std::string(filename),
-                   mat_out,
-                   n_rows,
-                   n_cols,
-                   std::string(comment_symbol));
-}
-</code></pre>
+<span class="c1">// @p mat is a pointer to an array created in LabView, which is wrapped in an</span>
+<span class="c1">// @p Eigen::Map object @p mat_out.</span>
+<span class="kt">void</span>
+<span class="nf">read_matrix_labview</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span>        <span class="o">*</span><span class="n">filename</span><span class="p">,</span>
+                    <span class="kt">double</span>            <span class="o">*</span><span class="n">mat</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n_rows</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n_cols</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">char</span>        <span class="o">*</span><span class="n">comment_symbol</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Map</span><span class="o">&lt;</span><span class="n">MatrixXd</span><span class="p">,</span> <span class="n">Unaligned</span><span class="o">&gt;</span> <span class="n">mat_out</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span><span class="p">);</span>
+  <span class="n">TSC</span><span class="o">::</span><span class="n">read_matrix</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span>
+                   <span class="n">mat_out</span><span class="p">,</span>
+                   <span class="n">n_rows</span><span class="p">,</span>
+                   <span class="n">n_cols</span><span class="p">,</span>
+                   <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">comment_symbol</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>In the following function declaration, <code class="language-plaintext highlighter-rouge">Ref&lt;VectorXd&gt;</code> can either accept a mutable <code class="language-plaintext highlighter-rouge">VectorXd</code> object or a <code class="language-plaintext highlighter-rouge">Map&lt;VectorXd&gt;</code> object. If the argument is read-only, we should use <code class="language-plaintext highlighter-rouge">const Ref&lt;const VectorXd&gt;&amp;</code>.</p>
 
-<pre><code class="language-C++">void
-tsc_electronic_trap(Ref&lt;VectorXd&gt;              trap_energies,
-                    Ref&lt;VectorXd&gt;              trap_densities,
-                    const Ref&lt;const VectorXd&gt; &amp;temperatures,
-                    const Ref&lt;const VectorXd&gt; &amp;currents,
-                    const double               temperature_ramp_rate,
-                    const double               electrode_diameter,
-                    const double               sample_thickness,
-                    const double               attemp_to_jump_frequency,
-                    const double               carrier_penetration_depth,
-                    const double               valence_band_depth,
-                    const unsigned int         energy_level_num,
-                    const bool                 is_near_measurement_electrode);
-</code></pre>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span>
+<span class="nf">tsc_electronic_trap</span><span class="p">(</span><span class="n">Ref</span><span class="o">&lt;</span><span class="n">VectorXd</span><span class="o">&gt;</span>              <span class="n">trap_energies</span><span class="p">,</span>
+                    <span class="n">Ref</span><span class="o">&lt;</span><span class="n">VectorXd</span><span class="o">&gt;</span>              <span class="n">trap_densities</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">Ref</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">VectorXd</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">temperatures</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">Ref</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">VectorXd</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">currents</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">double</span>               <span class="n">temperature_ramp_rate</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">double</span>               <span class="n">electrode_diameter</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">double</span>               <span class="n">sample_thickness</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">double</span>               <span class="n">attemp_to_jump_frequency</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">double</span>               <span class="n">carrier_penetration_depth</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">double</span>               <span class="n">valence_band_depth</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>         <span class="n">energy_level_num</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">bool</span>                 <span class="n">is_near_measurement_electrode</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>The reason for the difference between mutable and const is described as follows.</p>
 

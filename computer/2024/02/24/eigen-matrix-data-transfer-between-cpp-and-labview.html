@@ -86,45 +86,45 @@
 
 <p>Convert a data pointer to an array to <code class="language-plaintext highlighter-rouge">Eigen::Map</code></p>
 
-<pre><code class="language-C++">#include &lt;Eigen/Core&gt;
-#include &lt;Eigen/Dense&gt;
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;Eigen/Core&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;Eigen/Dense&gt;</span><span class="cp">
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Eigen</span><span class="p">;</span>
 
-using namespace Eigen;
-
-// @p mat is a pointer to an array created in LabView, which is wrapped in an
-// @p Eigen::Map object @p mat_out.
-void
-read_matrix_labview(const char        *filename,
-                    double            *mat,
-                    const unsigned int n_rows,
-                    const unsigned int n_cols,
-                    const char        *comment_symbol)
-{
-  Map&lt;MatrixXd, Unaligned&gt; mat_out(mat, n_rows, n_cols);
-  TSC::read_matrix(std::string(filename),
-                   mat_out,
-                   n_rows,
-                   n_cols,
-                   std::string(comment_symbol));
-}
-</code></pre>
+<span class="c1">// @p mat is a pointer to an array created in LabView, which is wrapped in an</span>
+<span class="c1">// @p Eigen::Map object @p mat_out.</span>
+<span class="kt">void</span>
+<span class="nf">read_matrix_labview</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span>        <span class="o">*</span><span class="n">filename</span><span class="p">,</span>
+                    <span class="kt">double</span>            <span class="o">*</span><span class="n">mat</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n_rows</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n_cols</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">char</span>        <span class="o">*</span><span class="n">comment_symbol</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Map</span><span class="o">&lt;</span><span class="n">MatrixXd</span><span class="p">,</span> <span class="n">Unaligned</span><span class="o">&gt;</span> <span class="n">mat_out</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span><span class="p">);</span>
+  <span class="n">TSC</span><span class="o">::</span><span class="n">read_matrix</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span>
+                   <span class="n">mat_out</span><span class="p">,</span>
+                   <span class="n">n_rows</span><span class="p">,</span>
+                   <span class="n">n_cols</span><span class="p">,</span>
+                   <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">comment_symbol</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>In the following function declaration, <code class="language-plaintext highlighter-rouge">Ref&lt;VectorXd&gt;</code> can either accept a mutable <code class="language-plaintext highlighter-rouge">VectorXd</code> object or a <code class="language-plaintext highlighter-rouge">Map&lt;VectorXd&gt;</code> object. If the argument is read-only, we should use <code class="language-plaintext highlighter-rouge">const Ref&lt;const VectorXd&gt;&amp;</code>.</p>
 
-<pre><code class="language-C++">void
-tsc_electronic_trap(Ref&lt;VectorXd&gt;              trap_energies,
-                    Ref&lt;VectorXd&gt;              trap_densities,
-                    const Ref&lt;const VectorXd&gt; &amp;temperatures,
-                    const Ref&lt;const VectorXd&gt; &amp;currents,
-                    const double               temperature_ramp_rate,
-                    const double               electrode_diameter,
-                    const double               sample_thickness,
-                    const double               attemp_to_jump_frequency,
-                    const double               carrier_penetration_depth,
-                    const double               valence_band_depth,
-                    const unsigned int         energy_level_num,
-                    const bool                 is_near_measurement_electrode);
-</code></pre>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span>
+<span class="nf">tsc_electronic_trap</span><span class="p">(</span><span class="n">Ref</span><span class="o">&lt;</span><span class="n">VectorXd</span><span class="o">&gt;</span>              <span class="n">trap_energies</span><span class="p">,</span>
+                    <span class="n">Ref</span><span class="o">&lt;</span><span class="n">VectorXd</span><span class="o">&gt;</span>              <span class="n">trap_densities</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">Ref</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">VectorXd</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">temperatures</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">Ref</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">VectorXd</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">currents</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">double</span>               <span class="n">temperature_ramp_rate</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">double</span>               <span class="n">electrode_diameter</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">double</span>               <span class="n">sample_thickness</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">double</span>               <span class="n">attemp_to_jump_frequency</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">double</span>               <span class="n">carrier_penetration_depth</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">double</span>               <span class="n">valence_band_depth</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>         <span class="n">energy_level_num</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">bool</span>                 <span class="n">is_near_measurement_electrode</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>The reason for the difference between mutable and const is described as follows.</p>
 

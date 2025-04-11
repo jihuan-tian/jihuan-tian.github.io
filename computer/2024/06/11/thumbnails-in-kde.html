@@ -104,33 +104,33 @@ kf.kio.workers.thumbnail.djvu: QProcess::FailedToStart ""
 
 <p>Obviously, the thumbnail process couldn’t be started by Dolphin and the keyword <code class="language-plaintext highlighter-rouge">kf.kio.workers.thumbnail.djvu</code> seemed a clue. So I searched it on Google and found this source code from <a href="https://github.com/KDE/kio-extras/blob/master/thumbnail/djvucreator.cpp">here</a>:</p>
 
-<pre><code class="language-C++">KIO::ThumbnailResult DjVuCreator::create(const KIO::ThumbnailRequest &amp;request)
-{
-  QProcess ddjvu;
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">KIO</span><span class="o">::</span><span class="n">ThumbnailResult</span> <span class="n">DjVuCreator</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="k">const</span> <span class="n">KIO</span><span class="o">::</span><span class="n">ThumbnailRequest</span> <span class="o">&amp;</span><span class="n">request</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">QProcess</span> <span class="n">ddjvu</span><span class="p">;</span>
 
-  const QStringList args{QStringLiteral("-page=1"),
-                         QStringLiteral("-size=") + QString::number(request.targetSize().width()) + QChar('x')
-                         + QString::number(request.targetSize().height()),
-                         QStringLiteral("-format=ppm"),
-                         request.url().toLocalFile()};
+  <span class="k">const</span> <span class="n">QStringList</span> <span class="n">args</span><span class="p">{</span><span class="n">QStringLiteral</span><span class="p">(</span><span class="s">"-page=1"</span><span class="p">),</span>
+                         <span class="n">QStringLiteral</span><span class="p">(</span><span class="s">"-size="</span><span class="p">)</span> <span class="o">+</span> <span class="n">QString</span><span class="o">::</span><span class="n">number</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">targetSize</span><span class="p">().</span><span class="n">width</span><span class="p">())</span> <span class="o">+</span> <span class="n">QChar</span><span class="p">(</span><span class="sc">'x'</span><span class="p">)</span>
+                         <span class="o">+</span> <span class="n">QString</span><span class="o">::</span><span class="n">number</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">targetSize</span><span class="p">().</span><span class="n">height</span><span class="p">()),</span>
+                         <span class="n">QStringLiteral</span><span class="p">(</span><span class="s">"-format=ppm"</span><span class="p">),</span>
+                         <span class="n">request</span><span class="p">.</span><span class="n">url</span><span class="p">().</span><span class="n">toLocalFile</span><span class="p">()};</span>
 
-  ddjvu.start(QStringLiteral("ddjvu"), args);
-  ddjvu.waitForFinished();
+  <span class="n">ddjvu</span><span class="p">.</span><span class="n">start</span><span class="p">(</span><span class="n">QStringLiteral</span><span class="p">(</span><span class="s">"ddjvu"</span><span class="p">),</span> <span class="n">args</span><span class="p">);</span>
+  <span class="n">ddjvu</span><span class="p">.</span><span class="n">waitForFinished</span><span class="p">();</span>
 
-  static bool warnOnce = true;
-  if (ddjvu.exitCode() != 0) {
-    if (warnOnce) {
-      qCWarning(KIO_THUMBNAIL_DJVU_LOG) &lt;&lt; ddjvu.error() &lt;&lt; ddjvu.readAllStandardError();
-      warnOnce = false;
-    }
-    return KIO::ThumbnailResult::fail();
-  }
+  <span class="k">static</span> <span class="kt">bool</span> <span class="n">warnOnce</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">ddjvu</span><span class="p">.</span><span class="n">exitCode</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">warnOnce</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">qCWarning</span><span class="p">(</span><span class="n">KIO_THUMBNAIL_DJVU_LOG</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">ddjvu</span><span class="p">.</span><span class="n">error</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">ddjvu</span><span class="p">.</span><span class="n">readAllStandardError</span><span class="p">();</span>
+      <span class="n">warnOnce</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">KIO</span><span class="o">::</span><span class="n">ThumbnailResult</span><span class="o">::</span><span class="n">fail</span><span class="p">();</span>
+  <span class="p">}</span>
 
-  QImage img;
-  bool okay = img.load(&amp;ddjvu, "ppm");
-  return okay ? KIO::ThumbnailResult::pass(img) : KIO::ThumbnailResult::fail();
-}
-</code></pre>
+  <span class="n">QImage</span> <span class="n">img</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">okay</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ddjvu</span><span class="p">,</span> <span class="s">"ppm"</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">okay</span> <span class="o">?</span> <span class="n">KIO</span><span class="o">::</span><span class="n">ThumbnailResult</span><span class="o">::</span><span class="n">pass</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> <span class="o">:</span> <span class="n">KIO</span><span class="o">::</span><span class="n">ThumbnailResult</span><span class="o">::</span><span class="n">fail</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>It can be seen that the command <code class="language-plaintext highlighter-rouge">ddjvu</code> is to be called. However, it was not available on my Debian system (it is strange that why <code class="language-plaintext highlighter-rouge">ddjvu</code> has not been included as one of the dependencies of the <code class="language-plaintext highlighter-rouge">dolphin</code> package). Actually, <code class="language-plaintext highlighter-rouge">ddjvu</code> is contained in the Debian package <code class="language-plaintext highlighter-rouge">djvulibre-bin</code>, which should be manually installed. This just solves the problem.</p>
 
