@@ -13,7 +13,7 @@ On the other hand, before integrating C++ with LabView, I need to test algorithm
 
 Convert a data pointer to an array to `Eigen::Map`
 
-```C++
+```c++
 #include <Eigen/Core>
 #include <Eigen/Dense>
 
@@ -39,7 +39,7 @@ read_matrix_labview(const char        *filename,
 
 In the following function declaration, `Ref<VectorXd>` can either accept a mutable `VectorXd` object or a `Map<VectorXd>` object. If the argument is read-only, we should use `const Ref<const VectorXd>&`.
 
-```C++
+```c++
 void
 tsc_electronic_trap(Ref<VectorXd>              trap_energies,
                     Ref<VectorXd>              trap_densities,

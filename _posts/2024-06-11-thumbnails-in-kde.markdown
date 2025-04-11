@@ -31,7 +31,7 @@ kf.kio.workers.thumbnail.djvu: QProcess::FailedToStart ""
 
 Obviously, the thumbnail process couldn&rsquo;t be started by Dolphin and the keyword `kf.kio.workers.thumbnail.djvu` seemed a clue. So I searched it on Google and found this source code from [here](https://github.com/KDE/kio-extras/blob/master/thumbnail/djvucreator.cpp):
 
-```C++
+```c++
 KIO::ThumbnailResult DjVuCreator::create(const KIO::ThumbnailRequest &request)
 {
   QProcess ddjvu;
