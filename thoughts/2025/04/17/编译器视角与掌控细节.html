@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>编译器视角与掌控细节 | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="编译器视角与掌控细节" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="邓晓芒在其《康德哲学》课程中曾提到，康德的著作晦涩难懂，把话说得绕来绕去。有些地方从表面上看来，可能还会与其他表述相抵触。然而，这都是表象。康德的内在逻辑是严谨的、自洽的。因此，对于这些难懂与看似自相矛盾的地方，我们要通过自己的理解，替康德把话说圆，而不是对细节上的瑕疵揪住不放。那样一来，相当于自我限制、固执己见，无法从他人的思想中获益。与之类似， C++ 编译器在编译包含大量模板代码时，其出错信息较一般代码更加难以理解，如同天书。这个时候，我们也要从编译器的视角出发，替它把话说圆，这样才能找到错误的根源。一般来说，错误的原因往往与编译器的直接提示相去甚远。出错的位置也常常远离编译器给出的位置（参考：调试数组越界问题）。" />
+<meta property="og:description" content="邓晓芒在其《康德哲学》课程中曾提到，康德的著作晦涩难懂，把话说得绕来绕去。有些地方从表面上看来，可能还会与其他表述相抵触。然而，这都是表象。康德的内在逻辑是严谨的、自洽的。因此，对于这些难懂与看似自相矛盾的地方，我们要通过自己的理解，替康德把话说圆，而不是对细节上的瑕疵揪住不放。那样一来，相当于自我限制、固执己见，无法从他人的思想中获益。与之类似， C++ 编译器在编译包含大量模板代码时，其出错信息较一般代码更加难以理解，如同天书。这个时候，我们也要从编译器的视角出发，替它把话说圆，这样才能找到错误的根源。一般来说，错误的原因往往与编译器的直接提示相去甚远。出错的位置也常常远离编译器给出的位置（参考：调试数组越界问题）。" />
+<link rel="canonical" href="https://jihuan-tian.github.io/thoughts/2025/04/17/%E7%BC%96%E8%AF%91%E5%99%A8%E8%A7%86%E8%A7%92%E4%B8%8E%E6%8E%8C%E6%8E%A7%E7%BB%86%E8%8A%82.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/thoughts/2025/04/17/%E7%BC%96%E8%AF%91%E5%99%A8%E8%A7%86%E8%A7%92%E4%B8%8E%E6%8E%8C%E6%8E%A7%E7%BB%86%E8%8A%82.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-04-17T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="编译器视角与掌控细节" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-04-17T00:00:00+08:00","datePublished":"2025-04-17T00:00:00+08:00","description":"邓晓芒在其《康德哲学》课程中曾提到，康德的著作晦涩难懂，把话说得绕来绕去。有些地方从表面上看来，可能还会与其他表述相抵触。然而，这都是表象。康德的内在逻辑是严谨的、自洽的。因此，对于这些难懂与看似自相矛盾的地方，我们要通过自己的理解，替康德把话说圆，而不是对细节上的瑕疵揪住不放。那样一来，相当于自我限制、固执己见，无法从他人的思想中获益。与之类似， C++ 编译器在编译包含大量模板代码时，其出错信息较一般代码更加难以理解，如同天书。这个时候，我们也要从编译器的视角出发，替它把话说圆，这样才能找到错误的根源。一般来说，错误的原因往往与编译器的直接提示相去甚远。出错的位置也常常远离编译器给出的位置（参考：调试数组越界问题）。","headline":"编译器视角与掌控细节","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/thoughts/2025/04/17/%E7%BC%96%E8%AF%91%E5%99%A8%E8%A7%86%E8%A7%92%E4%B8%8E%E6%8E%8C%E6%8E%A7%E7%BB%86%E8%8A%82.html"},"url":"https://jihuan-tian.github.io/thoughts/2025/04/17/%E7%BC%96%E8%AF%91%E5%99%A8%E8%A7%86%E8%A7%92%E4%B8%8E%E6%8E%8C%E6%8E%A7%E7%BB%86%E8%8A%82.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet">
+  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=67ba859acde8790019eafb38&product=inline-share-buttons' async='async'></script><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/search/">Search</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">编译器视角与掌控细节</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-04-17T00:00:00+08:00" itemprop="datePublished">Apr 17, 2025 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/thoughts">Thoughts</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/随想">随想</a>
+          
+            <a href="/tags/算法开发">算法开发</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>邓晓芒在其《康德哲学》课程中曾提到，康德的著作晦涩难懂，把话说得绕来绕去。有些地方从表面上看来，可能还会与其他表述相抵触。然而，这都是表象。康德的内在逻辑是严谨的、自洽的。因此，对于这些难懂与看似自相矛盾的地方，我们要通过自己的理解，替康德把话说圆，而不是对细节上的瑕疵揪住不放。那样一来，相当于自我限制、固执己见，无法从他人的思想中获益。与之类似， C++ 编译器在编译包含大量模板代码时，其出错信息较一般代码更加难以理解，如同天书。这个时候，我们也要从编译器的视角出发，替它把话说圆，这样才能找到错误的根源。一般来说，错误的原因往往与编译器的直接提示相去甚远。出错的位置也常常远离编译器给出的位置（参考：<a href="/computer/2025/01/16/%E8%B0%83%E8%AF%95%E6%95%B0%E7%BB%84%E8%B6%8A%E7%95%8C%E9%97%AE%E9%A2%98.html">调试数组越界问题</a>）。</p>
+
+<p>当把工作做到非常细致的时候，每个任务所依赖的条件就只剩下屈指可数的那么几个。于是，一切都变得非常清晰、可控，从而产生一种踏实感——当然，这一切都应当以大方向的确定与整体架构的存在作为前提，否则细节再多也只不过是一盘散沙，根本立不起来。想必大多数人都向往这种深入细节之中的控制感与踏实感：科学家与开发者想要控制的是客观对象，而管理者想要控制的是人。前者大多进入纯粹与唯美的境地，后者则不免暴露人性的丑恶。与深入细节、掌控细节相对，我们亦渴望看到自己亲手搭建起来的宏伟架构，不论它们是抽象的理论，还是可以真实触及的软件、硬件。以上两点便是从事科学与技术工作的乐趣所在。一端是精微，一端是宏大，两极达成了和谐、统一。孔子所说的“叩其两端而竭焉”正好可以套用于此。</p>
+
+
+  </div><div class="sharethis-inline-share-buttons"></div>
+
+  <script src="https://utteranc.es/client.js"
+          repo="jihuan-tian/jihuan-tian.github.io"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <a class="u-url" href="/thoughts/2025/04/17/%E7%BC%96%E8%AF%91%E5%99%A8%E8%A7%86%E8%A7%92%E4%B8%8E%E6%8E%8C%E6%8E%A7%E7%BB%86%E8%8A%82.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2025 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
