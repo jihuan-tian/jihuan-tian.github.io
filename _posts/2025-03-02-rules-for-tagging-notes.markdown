@@ -14,7 +14,7 @@ mathjax: false
     For short, a tag can be considered as an atomic feature which are shared by a number of notes.
 
 -   Define tags from different dimensions or perspectives
-    -   Activities during project development and mathematical exploration: `optimization`, `test_report`, `debug`, `design`, `failure`, `trial`, `idea`, `toolbox`, etc.
+    -   Activities during project development and mathematical exploration: `principle`, `optimization`, `test_report`, `debug`, `design`, `failure`, `trial`, `idea`, `toolbox`, etc.
     -   Task status: `milestone`, `published`, etc.
     -   Content keywords
     -   Physical properties of the notes: `scan`, `mindmap`, `sketch`, etc.
