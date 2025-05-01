@@ -2,7 +2,7 @@
 layout: post
 title: 在不完美的环境下工作并持续改进
 date: 2024-09-16
-categories: [thoughts]
+categories: [thoughts,remote-working]
 tags: [管理提升]
 mathjax: false
 ---
