@@ -1,4 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-05-03T18:24:12+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Use console for remote working</title><link href="https://jihuan-tian.github.io/computer/2025/04/30/use-console-for-remote-working.html" rel="alternate" type="text/html" title="Use console for remote working" /><published>2025-04-30T00:00:00+08:00</published><updated>2025-04-30T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/04/30/use-console-for-remote-working</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/04/30/use-console-for-remote-working.html"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-05-03T18:34:44+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Use GNU Linux in Virtualbox on Windows</title><link href="https://jihuan-tian.github.io/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows.html" rel="alternate" type="text/html" title="Use GNU Linux in Virtualbox on Windows" /><published>2025-05-03T00:00:00+08:00</published><updated>2025-05-03T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows.html"><![CDATA[<p><strong>Use X11 instead of Wayland</strong></p>
+
+<ul>
+  <li>Input method: <code class="language-plaintext highlighter-rouge">fcitx5</code> can start in Wayland but not in X11, while <code class="language-plaintext highlighter-rouge">ibus</code> can start in X11.</li>
+  <li>Wacom tablet does not work in Wayland and only works in X11, because there is only the package <code class="language-plaintext highlighter-rouge">xserver-xorg-input-wacom</code>.</li>
+  <li>Bi-directional clipboard function provided by Virtualbox does not work in Wayland but only in X11.</li>
+</ul>
+
+<p><strong>Some part of the desktop area is not clickable</strong></p>
+
+<p>Solution: in display settings, use the VBoxVGA graphics controller instead of VMSVGA. Also disable 3D acceleration.</p>
+
+<p><strong>Network</strong></p>
+
+<ul>
+  <li>Make the virtual network adaptor attached to NAT.</li>
+  <li>
+    <p>The network of the host machine as well as the host machine itself is visible to the virtual machine, hence the host machine can be directly accessed using the physical IP of the host machine.</p>
+
+    <p>Therefore, VPN (shadowsocks) setup on the host can also be accessed from the virtual machine.</p>
+  </li>
+  <li>
+    <p>Access the virtual machine from the host using port mapping</p>
+
+    <p>For example, we map SSH port 22 in the virtual machine to 127.0.0.1:2222 in the host. Then we can use <code class="language-plaintext highlighter-rouge">scp</code> to copy files from host to the virtual machine.</p>
+  </li>
+  <li>In the shared folder setting, we can also map the user folder on Windows to a directory in the virtual machine.</li>
+</ul>
+
+<p><strong>Sound configuration in GNU/Linux</strong></p>
+
+<ul>
+  <li>Playback devices: 内置音频 模拟立体声</li>
+  <li>Device profiles: 模拟立体声 输出</li>
+</ul>
+
+<p><strong>USB</strong></p>
+
+<ul>
+  <li>Add a new USB device filter with all fields set to empty strings, so that any external USB device can be matched.</li>
+  <li>When starting the virtual OS, do not connect the USB disk.</li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Linux" /><summary type="html"><![CDATA[Use X11 instead of Wayland]]></summary></entry><entry><title type="html">Use console for remote working</title><link href="https://jihuan-tian.github.io/computer/2025/04/30/use-console-for-remote-working.html" rel="alternate" type="text/html" title="Use console for remote working" /><published>2025-04-30T00:00:00+08:00</published><updated>2025-04-30T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/04/30/use-console-for-remote-working</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/04/30/use-console-for-remote-working.html"><![CDATA[<ul>
   <li>
     <p>Misaligned Chinese characters</p>
 

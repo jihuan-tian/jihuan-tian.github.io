@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Use GNU Linux in Virtualbox on Windows | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Use GNU Linux in Virtualbox on Windows" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Use X11 instead of Wayland" />
+<meta property="og:description" content="Use X11 instead of Wayland" />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-05-03T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Use GNU Linux in Virtualbox on Windows" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-05-03T00:00:00+08:00","datePublished":"2025-05-03T00:00:00+08:00","description":"Use X11 instead of Wayland","headline":"Use GNU Linux in Virtualbox on Windows","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows.html"},"url":"https://jihuan-tian.github.io/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet">
+  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=67ba859acde8790019eafb38&product=inline-share-buttons' async='async'></script><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/search/">Search</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Use GNU Linux in Virtualbox on Windows</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-05-03T00:00:00+08:00" itemprop="datePublished">May 3, 2025 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/Linux">Linux</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><strong>Use X11 instead of Wayland</strong></p>
+
+<ul>
+  <li>Input method: <code class="language-plaintext highlighter-rouge">fcitx5</code> can start in Wayland but not in X11, while <code class="language-plaintext highlighter-rouge">ibus</code> can start in X11.</li>
+  <li>Wacom tablet does not work in Wayland and only works in X11, because there is only the package <code class="language-plaintext highlighter-rouge">xserver-xorg-input-wacom</code>.</li>
+  <li>Bi-directional clipboard function provided by Virtualbox does not work in Wayland but only in X11.</li>
+</ul>
+
+<p><strong>Some part of the desktop area is not clickable</strong></p>
+
+<p>Solution: in display settings, use the VBoxVGA graphics controller instead of VMSVGA. Also disable 3D acceleration.</p>
+
+<p><strong>Network</strong></p>
+
+<ul>
+  <li>Make the virtual network adaptor attached to NAT.</li>
+  <li>
+    <p>The network of the host machine as well as the host machine itself is visible to the virtual machine, hence the host machine can be directly accessed using the physical IP of the host machine.</p>
+
+    <p>Therefore, VPN (shadowsocks) setup on the host can also be accessed from the virtual machine.</p>
+  </li>
+  <li>
+    <p>Access the virtual machine from the host using port mapping</p>
+
+    <p>For example, we map SSH port 22 in the virtual machine to 127.0.0.1:2222 in the host. Then we can use <code class="language-plaintext highlighter-rouge">scp</code> to copy files from host to the virtual machine.</p>
+  </li>
+  <li>In the shared folder setting, we can also map the user folder on Windows to a directory in the virtual machine.</li>
+</ul>
+
+<p><strong>Sound configuration in GNU/Linux</strong></p>
+
+<ul>
+  <li>Playback devices: 内置音频 模拟立体声</li>
+  <li>Device profiles: 模拟立体声 输出</li>
+</ul>
+
+<p><strong>USB</strong></p>
+
+<ul>
+  <li>Add a new USB device filter with all fields set to empty strings, so that any external USB device can be matched.</li>
+  <li>When starting the virtual OS, do not connect the USB disk.</li>
+</ul>
+
+
+  </div><div class="sharethis-inline-share-buttons"></div>
+
+  <script src="https://utteranc.es/client.js"
+          repo="jihuan-tian/jihuan-tian.github.io"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <a class="u-url" href="/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2025 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
