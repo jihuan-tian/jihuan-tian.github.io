@@ -87,7 +87,10 @@
 <p>解决方法：</p>
 
 <ol>
-  <li>在 Linux 电脑上使用域名访问服务器时，直接在 <code class="language-plaintext highlighter-rouge">/etc/hosts</code> 中添加一条服务器局域网 IP 地址与域名的映射关系即可。</li>
+  <li>在 Linux 电脑上使用域名访问服务器时，直接在 <code class="language-plaintext highlighter-rouge">/etc/hosts</code> 中添加一条服务器局域网 IP 地址与域名的映射关系即可。
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;ip&gt; &lt;domain-name&gt;
+</code></pre></div>    </div>
+  </li>
   <li>
     <p>从 iPhone 与 iPad 访问服务器时，由于不存在 <code class="language-plaintext highlighter-rouge">/etc/hosts</code> 文件可以直接配置。需要在在服务器上安装 DNS 服务器 <code class="language-plaintext highlighter-rouge">dnsmasq</code> ，防火墙打开 TCP 与 UDP 的 53 号端口，</p>
 
@@ -99,7 +102,7 @@
 
     <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server=223.5.5.5
 server=223.6.6.6
-address=/afflatus.theworkpc.com/192.168.0.100
+address=/&lt;domain-name&gt;/&lt;ip&gt;
 </code></pre></div>    </div>
 
     <p>然后在 iPhone 与 iPad 上将 DNS 设置为家里的服务器地址即可。</p>
