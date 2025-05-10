@@ -18,6 +18,9 @@ mathjax: false
 解决方法：
 
 1.  在 Linux 电脑上使用域名访问服务器时，直接在 `/etc/hosts` 中添加一条服务器局域网 IP 地址与域名的映射关系即可。
+    ```text
+    <ip> <domain-name>
+    ```
 2.  从 iPhone 与 iPad 访问服务器时，由于不存在 `/etc/hosts` 文件可以直接配置。需要在在服务器上安装 DNS 服务器 `dnsmasq` ，防火墙打开 TCP 与 UDP 的 53 号端口，
     
     ```text
@@ -30,7 +33,7 @@ mathjax: false
     ```text
     server=223.5.5.5
     server=223.6.6.6
-    address=/afflatus.theworkpc.com/192.168.0.100
+    address=/<domain-name>/<ip>
     ```
     
     然后在 iPhone 与 iPad 上将 DNS 设置为家里的服务器地址即可。
