@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-05-03T18:37:14+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Use GNU Linux in Virtualbox on Windows</title><link href="https://jihuan-tian.github.io/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows.html" rel="alternate" type="text/html" title="Use GNU Linux in Virtualbox on Windows" /><published>2025-05-03T00:00:00+08:00</published><updated>2025-05-03T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows.html"><![CDATA[<p><strong>Use X11 instead of Wayland</strong></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-05-10T22:18:48+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">更换电信 SDN 光猫</title><link href="https://jihuan-tian.github.io/computer/2025/05/10/%E6%9B%B4%E6%8D%A2%E7%94%B5%E4%BF%A1-sdn-%E5%85%89%E7%8C%AB.html" rel="alternate" type="text/html" title="更换电信 SDN 光猫" /><published>2025-05-10T00:00:00+08:00</published><updated>2025-05-10T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/05/10/%E6%9B%B4%E6%8D%A2%E7%94%B5%E4%BF%A1-sdn-%E5%85%89%E7%8C%AB</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/05/10/%E6%9B%B4%E6%8D%A2%E7%94%B5%E4%BF%A1-sdn-%E5%85%89%E7%8C%AB.html"><![CDATA[<p>五一假期结束前，我在从九江回上海的高铁上远程工作时，就发网络非常不好， SSH 连接时断时续。一开始还以为是手机移动网络信号不好。到家以后第二天发现整个屋里访问外网都是时好时坏。具体情况是 WAN 网络大约每 10 分钟中断一次，中断时长大约 1~2 分钟。中断期间，登录网关管理界面，没有响应。</p>
+
+<p>请了电信的维修人员上门查看，也没有找出原因，只是更换了光猫。新换的是 SDN 光猫，其配置只能通过电信的手机 APP “网络管家”来操作。从家里局域网访问光猫的管理界面，只是显示基本信息，而无法做任何配置工作。幸运的是，在电信的光猫管理 APP 中还是可以配置 DMZ 与虚拟主机端口映射的。不过，初步试了一下发现，家里服务器上打开的端口均无法访问。</p>
+
+<p>上述网络中断的原因最终我发现是用于控制光猫重启的小米智能插头坏了，里面的继电器不停地咔哒作响，但是无法通电。</p>
+
+<p>服务器无法访问则是由于电信的 SDN 光猫不再支持 NAT loopback 。当从家里的局域网内部访问光猫的公网动态 IP 或是与之绑定的域名时，光猫并不会将访问请求传递（forward）给局域网中的服务器。</p>
+
+<p>解决方法：</p>
+
+<ol>
+  <li>在 Linux 电脑上使用域名访问服务器时，直接在 <code class="language-plaintext highlighter-rouge">/etc/hosts</code> 中添加一条服务器局域网 IP 地址与域名的映射关系即可。</li>
+  <li>
+    <p>从 iPhone 与 iPad 访问服务器时，由于不存在 <code class="language-plaintext highlighter-rouge">/etc/hosts</code> 文件可以直接配置。需要在在服务器上安装 DNS 服务器 <code class="language-plaintext highlighter-rouge">dnsmasq</code> ，防火墙打开 TCP 与 UDP 的 53 号端口，</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-A INPUT -p udp --dport 53 -j ACCEPT
+-A INPUT -p tcp --dport 53 -j ACCEPT
+</code></pre></div>    </div>
+
+    <p>并在 <code class="language-plaintext highlighter-rouge">/etc/dnsmasq.conf</code> 中配置如下：</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server=223.5.5.5
+server=223.6.6.6
+address=/afflatus.theworkpc.com/192.168.0.100
+</code></pre></div>    </div>
+
+    <p>然后在 iPhone 与 iPad 上将 DNS 设置为家里的服务器地址即可。</p>
+  </li>
+</ol>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="network" /><summary type="html"><![CDATA[五一假期结束前，我在从九江回上海的高铁上远程工作时，就发网络非常不好， SSH 连接时断时续。一开始还以为是手机移动网络信号不好。到家以后第二天发现整个屋里访问外网都是时好时坏。具体情况是 WAN 网络大约每 10 分钟中断一次，中断时长大约 1~2 分钟。中断期间，登录网关管理界面，没有响应。]]></summary></entry><entry><title type="html">Use GNU Linux in Virtualbox on Windows</title><link href="https://jihuan-tian.github.io/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows.html" rel="alternate" type="text/html" title="Use GNU Linux in Virtualbox on Windows" /><published>2025-05-03T00:00:00+08:00</published><updated>2025-05-03T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/05/03/use-gnu-linux-in-virtualbox-on-windows.html"><![CDATA[<p><strong>Use X11 instead of Wayland</strong></p>
 
 <ul>
   <li>Input method: <code class="language-plaintext highlighter-rouge">fcitx5</code> can start in Wayland but not in X11, while <code class="language-plaintext highlighter-rouge">ibus</code> can start in X11.</li>
