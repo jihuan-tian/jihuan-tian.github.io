@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>开源软件的发布也不应随意 | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="开源软件的发布也不应随意" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="昨天试用了视频编辑软件 Kdenlive 的语音识别功能。该项功能并非 Kdenlive 自己拥有，而是依赖于 Python 的 vosk 包。由此也可以体现出 Linux 下各种工具协同配合的操作模式。" />
+<meta property="og:description" content="昨天试用了视频编辑软件 Kdenlive 的语音识别功能。该项功能并非 Kdenlive 自己拥有，而是依赖于 Python 的 vosk 包。由此也可以体现出 Linux 下各种工具协同配合的操作模式。" />
+<link rel="canonical" href="https://jihuan-tian.github.io/thoughts/2025/05/12/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B8%83%E4%B9%9F%E4%B8%8D%E5%BA%94%E9%9A%8F%E6%84%8F.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/thoughts/2025/05/12/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B8%83%E4%B9%9F%E4%B8%8D%E5%BA%94%E9%9A%8F%E6%84%8F.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-05-12T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="开源软件的发布也不应随意" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-05-12T00:00:00+08:00","datePublished":"2025-05-12T00:00:00+08:00","description":"昨天试用了视频编辑软件 Kdenlive 的语音识别功能。该项功能并非 Kdenlive 自己拥有，而是依赖于 Python 的 vosk 包。由此也可以体现出 Linux 下各种工具协同配合的操作模式。","headline":"开源软件的发布也不应随意","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/thoughts/2025/05/12/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B8%83%E4%B9%9F%E4%B8%8D%E5%BA%94%E9%9A%8F%E6%84%8F.html"},"url":"https://jihuan-tian.github.io/thoughts/2025/05/12/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B8%83%E4%B9%9F%E4%B8%8D%E5%BA%94%E9%9A%8F%E6%84%8F.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet">
+  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=67ba859acde8790019eafb38&product=inline-share-buttons' async='async'></script><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/search/">Search</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">开源软件的发布也不应随意</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-05-12T00:00:00+08:00" itemprop="datePublished">May 12, 2025 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/thoughts">Thoughts</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/开源软件">开源软件</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>昨天试用了视频编辑软件 Kdenlive 的语音识别功能。该项功能并非 Kdenlive 自己拥有，而是依赖于 Python 的 vosk 包。由此也可以体现出 Linux 下各种工具协同配合的操作模式。</p>
+
+<p>在 Debian Bookworm 自带的 Kdenlive 中使用该插件是没有问题的。 但是如果使用 Kdenlive 最新版的 AppImage 或是 flatpak ，则各有各的问题。其中，前者不支持输入中文，后者由于使用的是随其一起打包的 Python ，而不是 Debian 系统自带的，所以无法（至少我目前还不知道该如何）安装 vosk 包。同时，若使用最新版的 Kdenlive 打开并保存原有版本创建的项目文件，则无法再用老版本的 Kdenlive 打开。再者，新版 Kdenlive 会将所有的 HEIC 格式的照片均裁剪为 512x512 的。</p>
+
+<p>由此可以看出，有相当多的开源软件在软件质量与用户体验上存在很大的问题。作为用户，我只不过是想在已有的商业或闭源软件之外找到一个能够稳定运行、快速搞定任务的开源工具，倒也并奢求功能有多么丰富、复杂，只要能够保持开放并提供最基本的功能也就够了。但是很多时候，开源软件连将这些最基本的功能正确地实现并完整地跑完都做不到。所以，就只剩下那些爱折腾的用户不断地试错，然后逐渐习惯这种模式，把其中的所谓经验与技巧总结下来，并误以为是自己的知识与技术储备。</p>
+
+<p>事实上，在这个试错的过程中，用户固然能学到一些知识，收获一些经验，但无疑也浪费了大量时间，且工作效果与质量差强人意——这些都是巨大的时间与精力成本。对于开源软件的开发者而言，不能仅满足于通过开源项目来给自己练手，而不考虑用户的体验，软件的发布也不应很随意：明知软件存在严重的问题，结果还是发布了出来，并打着“敏捷”与“迭代”开发的旗号。让这样的“作品”公之于众，其实既是开发者自己的耻辱，也是对用户体验的无视与不尊重。</p>
+
+<p>所以，Linux 发展这么多年，到如今依然不能占领电脑桌面市场。无论其布道者再怎么吹嘘 Linux 系统及其应用软件的高性、安全、一切皆是文件、用管道灵活串接程序、内容与样式分离等优点，它依然仅适合程序员作项目开发用。个人生产力工具需要的是专业与稳定的产品，但很显然，Linux 的应用软件还无法提供全套的工具链。当然，那些经过了长期打磨与验证的开源软件另当别论（如 GNU Emacs ）。</p>
+
+
+  </div><div class="sharethis-inline-share-buttons"></div>
+
+  <script src="https://utteranc.es/client.js"
+          repo="jihuan-tian/jihuan-tian.github.io"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <a class="u-url" href="/thoughts/2025/05/12/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B8%83%E4%B9%9F%E4%B8%8D%E5%BA%94%E9%9A%8F%E6%84%8F.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2025 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
