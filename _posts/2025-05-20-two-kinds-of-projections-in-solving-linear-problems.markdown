@@ -4,10 +4,10 @@ title: Two kinds of projections in solving linear problems
 date: 2025-05-20
 categories: [math]
 tags: [linear-algebra,PDE]
-mathjax: false
+mathjax: true
 ---
 
-There are two kinds of projection when we solve a linear problem, either finite dimensional or infinite dimensional, which are used for **solution representation** and **error measurement**. They are important in the Petrov-Galerkin method.
+There are two kinds of projections when we solve a linear problem, either finite dimensional or infinite dimensional, which are used for **solution representation** and **error measurement**. They are important in the Petrov-Galerkin method.
 
 Projecting the solution vector or function to a **trial space** (also called ansatz space) is a very important concept. In this way, we can search the solution in a smaller finite dimensional space than the original larger finite dimensional space (e.g. linear algebra, and in this case the trial space is actually an affine space rooted at the initial guess $$x_0 $$ of the solution) or even infinite dimensional space (e.g. PDE). Such a projection is actually a linear expansion or **representation** of the solution vector, therefore a basis should be selected.
 
