@@ -8,8 +8,8 @@
 <meta property="og:title" content="Two kinds of projections in solving linear problems" />
 <meta name="author" content="Jihuan Tian" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="There are two kinds of projection when we solve a linear problem, either finite dimensional or infinite dimensional, which are used for solution representation and error measurement. They are important in the Petrov-Galerkin method." />
-<meta property="og:description" content="There are two kinds of projection when we solve a linear problem, either finite dimensional or infinite dimensional, which are used for solution representation and error measurement. They are important in the Petrov-Galerkin method." />
+<meta name="description" content="There are two kinds of projections when we solve a linear problem, either finite dimensional or infinite dimensional, which are used for solution representation and error measurement. They are important in the Petrov-Galerkin method." />
+<meta property="og:description" content="There are two kinds of projections when we solve a linear problem, either finite dimensional or infinite dimensional, which are used for solution representation and error measurement. They are important in the Petrov-Galerkin method." />
 <link rel="canonical" href="https://jihuan-tian.github.io/math/2025/05/20/two-kinds-of-projections-in-solving-linear-problems.html" />
 <meta property="og:url" content="https://jihuan-tian.github.io/math/2025/05/20/two-kinds-of-projections-in-solving-linear-problems.html" />
 <meta property="og:site_name" content="止于至善" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Two kinds of projections in solving linear problems" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-05-20T00:00:00+08:00","datePublished":"2025-05-20T00:00:00+08:00","description":"There are two kinds of projection when we solve a linear problem, either finite dimensional or infinite dimensional, which are used for solution representation and error measurement. They are important in the Petrov-Galerkin method.","headline":"Two kinds of projections in solving linear problems","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2025/05/20/two-kinds-of-projections-in-solving-linear-problems.html"},"url":"https://jihuan-tian.github.io/math/2025/05/20/two-kinds-of-projections-in-solving-linear-problems.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-05-20T00:00:00+08:00","datePublished":"2025-05-20T00:00:00+08:00","description":"There are two kinds of projections when we solve a linear problem, either finite dimensional or infinite dimensional, which are used for solution representation and error measurement. They are important in the Petrov-Galerkin method.","headline":"Two kinds of projections in solving linear problems","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2025/05/20/two-kinds-of-projections-in-solving-linear-problems.html"},"url":"https://jihuan-tian.github.io/math/2025/05/20/two-kinds-of-projections-in-solving-linear-problems.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/font.css">
   <link rel="stylesheet" href="/assets/main.css">
@@ -27,6 +27,78 @@
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
   <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet">
   <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=67ba859acde8790019eafb38&product=inline-share-buttons' async='async'></script><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"></script>
+
+  
 </head>
 <body><header class="site-header" role="banner">
 
@@ -78,7 +150,7 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>There are two kinds of projection when we solve a linear problem, either finite dimensional or infinite dimensional, which are used for <strong>solution representation</strong> and <strong>error measurement</strong>. They are important in the Petrov-Galerkin method.</p>
+    <p>There are two kinds of projections when we solve a linear problem, either finite dimensional or infinite dimensional, which are used for <strong>solution representation</strong> and <strong>error measurement</strong>. They are important in the Petrov-Galerkin method.</p>
 
 <p>Projecting the solution vector or function to a <strong>trial space</strong> (also called ansatz space) is a very important concept. In this way, we can search the solution in a smaller finite dimensional space than the original larger finite dimensional space (e.g. linear algebra, and in this case the trial space is actually an affine space rooted at the initial guess \(x_0\) of the solution) or even infinite dimensional space (e.g. PDE). Such a projection is actually a linear expansion or <strong>representation</strong> of the solution vector, therefore a basis should be selected.</p>
 
