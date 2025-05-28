@@ -1,0 +1,164 @@
+---
+layout: post
+title: Understanding about the Lagrange multiplier method and its application in PDEs
+date: 2025-05-28
+categories: [math]
+tags: [PDE,differetial-geometry]
+mathjax: true
+custom_css: /assets/css/make4ht.css
+---
+
+<h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
+   <div class='tableofcontents'>
+    <span class='sectionToc'>1 <a href='#x1-20001' id='QQ2-1-2'>Lagrange multiplier method understood from differential geometry</a></span>
+<br />    <span class='sectionToc'>2 <a href='#x1-30002' id='QQ2-1-3'>Application of Lagrange multiplier method in PDEs</a></span>
+<br />    <span class='sectionToc'>3 <a href='#x1-40003' id='QQ2-1-5'>Summary</a></span>
+   </div>
+<!-- l. 24 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>1    </span> <a id='x1-20001'></a>Lagrange multiplier method understood from differential geometry</h3>
+<!-- l. 26 --><p class='noindent'>The method of Lagrange multiplier is used to find the extremal or saddle points of an objective function \(f(x^1, \cdots , x^n)\) with a
+set of \(m\) constraints \begin{equation}  \begin{aligned} \varphi _1(x^1,\cdots ,x^n) &amp;= 0 \\ &amp;\vdots \\ \varphi _m(x^1,\cdots ,x^n) &amp;= 0 \end{aligned}.  \end{equation}<a id='x1-2001r1'></a> In this article, we will understand this method from a differential geometry point of
+view.
+</p><!-- l. 36 --><p class='indent'>   For the objective function \(f(x^1,\cdots ,x^n) = c\) with a specific output value \(c\), we assume the Jacobian matrix \(Jf\) of the function \(f\) with
+respect to the coordinate chart \((x)= (x^1,\cdots ,x^n)\) has a full rank. Obviously, \(Jf\) has only one row, which is not a zero vector.
+Therefore, \(Jf\) is a surjective map. According to the implicit function theorem <a href='#x1-20021'>1<!-- tex4ht:ref: theo:implicit-func  --></a>, where \(r=1\), \(f(x^1,\cdots ,x^n)=c\) describes a \((n-1)\)-dimensional
+submanifold in \(\mathbb {R}^n\).
+</p>
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 38 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 1 (Implicit function)</span> </span><a id='x1-2003'></a><span class='p1xi-x-x-109'>Let </span>\(A\) <span class='p1xi-x-x-109'>be an open set in </span>\(\mathbb {R}^{n+r}\) <span class='p1xi-x-x-109'>and </span>\(f: A \rightarrow \mathbb {R}^r\) <span class='p1xi-x-x-109'>be </span>\(\mathbb {C}^r\)<span class='p1xi-x-x-109'>, </span>\(f(x) = t \; \forall x \in A\)<span class='p1xi-x-x-109'>, </span>\(t\) <span class='p1xi-x-x-109'>is a constant in </span>\(\mathbb {R}^r\)<span class='p1xi-x-x-109'>. Then if </span>\(\exists x_0 \in A\) <span class='p1xi-x-x-109'>such that </span>\(\rank \left ( \left [ \frac {\partial f}{\partial x} \right ] \bigg \vert _{x=x_0} \right )=r\)<span class='p1xi-x-x-109'>, then </span>\(\exists \)
+<span class='p1xi-x-x-109'>neighborhood </span>\(B\) <span class='p1xi-x-x-109'>of </span>\(x_0\) <span class='p1xi-x-x-109'>in </span>\(\mathbb {R}^{n+r}\) <span class='p1xi-x-x-109'>such that </span>\(\forall x \in B\)<span class='p1xi-x-x-109'>, its </span>\(r\) <span class='p1xi-x-x-109'>components can be uniquely represented by a </span>\(\mathbb {C}^r\) <span class='p1xi-x-x-109'>function </span>\(g\) <span class='p1xi-x-x-109'>in terms of the other </span>\(n\)
+<span class='p1xi-x-x-109'>components. If </span>\(\forall x_0 \in A\) <span class='p1xi-x-x-109'>satisfies the above condition, </span>\(A\) <span class='p1xi-x-x-109'>is a </span>\(n\)<span class='p1xi-x-x-109'>-dimensional submanifold in </span>\(\mathbb {R}^{n+r}\)<span class='p1xi-x-x-109'>. Its codimension is </span>\(r\)<span class='p1xi-x-x-109'>.</span> <a id='x1-20021'></a>
+                                                                                               
+                                                                                               
+</p>
+   </div>
+<!-- l. 41 --><p class='indent'>   </p></div>
+<!-- l. 43 --><p class='indent'>   The implicit function theorem is also equivalent to the main submanifold theorem <a href='#x1-20042'>2<!-- tex4ht:ref: theo:main-submanifold  --></a>.
+</p>
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 45 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 2 (Main submanifold)</span> </span><a id='x1-2005'></a><span class='p1xi-x-x-109'>Let </span>\(F: \mathbb {R}^{n+r} \rightarrow \mathbb {R}^r\) <span class='p1xi-x-x-109'>and </span>\(F^{-1}(y_0) = \{x \in \mathbb {R}^{n+r} \vert F(x) = y_0\}\) <span class='p1xi-x-x-109'>is not empty. If </span>\(\forall x_0 \in F^{-1}(y_0)\) <span class='p1xi-x-x-109'>the Jacobian map </span>\(F_{*}: \mathbb {R}_{x_0}^{n+r} \rightarrow \mathbb {R}_{y_0}^r\) <span class='p1xi-x-x-109'>is surjective, then </span>\(F^{-1}(y_0)\) <span class='p1xi-x-x-109'>is a </span>\(n\)<span class='p1xi-x-x-109'>-dimensional
+</span><span class='p1xi-x-x-109'>submanifold of </span>\(\mathbb {R}^{n+r}\)<span class='p1xi-x-x-109'>.</span> <a id='x1-20042'></a>
+</p>
+   </div>
+<!-- l. 48 --><p class='indent'>   </p></div>
+<!-- l. 50 --><p class='indent'>   Here \(F^{-1}(y_0)\) is called the level set of \(F\) with respect to \(y_0\). Therefore, the objective function \(f(x^1,\cdots ,x^n)=c\) with a specific output value \(c\)
+<span class='p1xb-x-x-109'>implicitly </span>defines the level set of \(f\) with respect to \(c\). Here we write it as \(M_{\mathrm {o}}^{n-1}\).
+</p><!-- l. 52 --><p class='indent'>   Similarly, for the set of \(m\) constraints, we assume the Jacobian matrix \(J\varphi \) with respect to the chart \((x)\) has a full rank \(m\).
+And these constraints define an \((n-m)\)-dimensional submanifold, which also <span class='p1xb-x-x-109'>implicitly </span>defines the level set of \(\varphi =\left \{ \varphi _1,\cdots ,\varphi _m \right \}\) with
+respect to \(\mathbf {0}\) in \(\mathbb {R}^m\). Here we write it as \(M_{\mathrm {c}}^{n-m}\).
+</p><!-- l. 54 --><p class='indent'>   For each constraint function \(\varphi _i(x)=0\), it <span class='p1xb-x-x-109'>implicitly </span>defines a \((n-1)\)-dimensional submanifold, which is the level set of \(\varphi _i\) with
+respect to 0 in \(\mathbb {R}\). We write it as \(M_{\mathrm {c}_i}^{n-1}\). Therefore, the level set of \(\varphi \) is the intersection of all level sets for \(\left \{ \varphi _i \right \}_{i=1}^m\):
+\begin{equation}  M_{\mathrm {c}}^{n-m} = \bigcap _{i=1}^m M_{\mathrm {c}_i}^{n-1}.  \end{equation}<a id='x1-2006r2'></a>
+</p><!-- l. 59 --><p class='indent'>   To find the extremal or saddle points of the objective function \(f\) satisfying the constraints \(\varphi \) is equivalent to find
+the points at which the level set \(M_{\mathrm {o}}^{n-1}\) of the objective function and the level of set \(M_{\mathrm {c}}^{n-m}\) of the constraints meet tangentially,
+i.e. they share a common tangent plane or tangent space. If two submanifolds or level sets share a
+common tangent space, they must also have a common normal space, which is the orthogonal
+complement of the tangent space. <span class='p1xb-x-x-109'>The Lagrange multiplier method is based on the normal space
+</span><span class='p1xb-x-x-109'>formulation.</span>
+</p><!-- l. 61 --><p class='indent'>   The normal space can be derived from the differential 1-form of the implicit map used for describing the level
+set as below.
+</p><!-- l. 63 --><p class='indent'>   For the objective function \(f\), apply the 1-form \(df\) to a tangent vector \(\frac {\mathrm {d} x}{\mathrm {d} t}\), where \(x(t)\) is an arbitrary curve which is
+contained in \(M_{\mathrm {o}}^{n-1}\) and passes through a point \(p\) in \(M_{\mathrm {o}}^{n-1}\). Because \(M_{\mathrm {o}}^{n-1}\) is a level set of \(f\) with respect to \(0\), \(f(x(t))\) is \(0\) for all \(t\). Therefore, \begin{equation}  df \left ( \frac {\diff x}{\diff t} \right ) = \sum _{i=1}^n \frac {\diff x^{i}}{\diff t} \frac {\partial f}{\partial x^i} = \frac {\partial f}{\partial t} = 0.  \end{equation}<a id='x1-2007r3'></a> This
+is equivalent to \begin{equation}  \left \langle \nabla f, \frac {\diff x}{\diff t} \right \rangle = 0,  \end{equation}<a id='x1-2008r4'></a> i.e. the gradient vector \(\nabla f\) is orthogonal to the tangent vector \(\frac {\diff x}{\diff t}\). Because this tangent
+vector is arbitrary, \(\nabla f\) is orthogonal to the tangent space \(T_p M_{\mathrm {o}}^{n-1}\) at \(p\) and \(\mathrm {span}\left \{ \nabla f \right \}\) is the normal space \(N_p M_{\mathrm {o}}^{n-1}\), which is the
+orthogonal complement of \(T_p M_{\mathrm {o}}^{n-1}\). Similarly, for the constraint function \(\varphi _i\), \(\mathrm {span} \left \{ \nabla \varphi _i \right \}\) is the normal space \(N_p M_{\mathrm {c}_i}^{n-1}\), which
+is the orthogonal complement of \(T_p M_{\mathrm {c}_i}^{n-1}\). Then \(\mathrm {span} \left \{ \nabla \varphi _1,\cdots ,\nabla \varphi _m \right \}\) is the normal space \(N_p M_{\mathrm {c}}^{n-m}\) of \(M_{\mathrm {c}}^{n-m}\). This can be simply verified as
+below.
+</p><!-- l. 73 --><p class='indent'>   Let \(u=\sum _{i=1}^m \lambda _i \nabla \varphi _i\) be any vector in this normal space. For any vector \(v\) in the tangent space \(T_p M_{\mathrm {c}}^{n-m}\) of \(M_{\mathrm {c}}^{n-m}\), because \(v\) is orthogonal to any
+\(\nabla \varphi _i\), we have \(\langle u,v \rangle = 0\), i.e. \(u\) is orthogonal to \(v\). Therefore, \(\mathrm {span} \left \{ \nabla \varphi _1,\cdots ,\nabla \varphi _m \right \}\) is a normal space.
+</p><!-- l. 75 --><p class='indent'>   Now, let’s check the new objective function after applying the method of Lagrange multiplier, which is \begin{equation}  L(x^1,\cdots ,x^n,\lambda _1,\cdots ,\lambda _m) = f(x^1,\cdots ,x^n) + \sum _{i=1}^m \lambda _i \varphi _i(x^1,\cdots ,x^n).  \end{equation}<a id='x1-2009r5'></a> To
+find critical points of \(L\), we need to enforce two conditions \begin{equation}  \frac {\partial L}{\partial x^{i}} = 0, \quad i=1,\cdots ,n,  \end{equation}<a id='x1-2010r6'></a> and \begin{equation}  \frac {\partial L}{\partial \lambda _j} = 0, \quad j=1,\cdots ,m.  \end{equation}<a id='x1-2011r7'></a> From the first condition, we have \begin{equation}  \frac {\partial f}{\partial x^{i}} + \sum _{k=1}^m \lambda _k \frac {\partial \varphi _{k}}{\partial x^{i}} = 0, \quad i=1,\cdots ,n.  \end{equation}<a id='x1-2012r8'></a> This is
+equivalent to \begin{equation}  \nabla f + \sum _{k=1}^m \lambda _k \nabla \varphi _k = 0,  \end{equation}<a id='x1-2013r9'></a> which means the two level sets \(M_{\mathrm {o}}^{n-1}\) and \(M_{\mathrm {c}}^{n-m}\) have a same normal space. The second condition \(\frac {\partial L}{\partial \lambda _{j}} = 0\) is simply
+enforcing the original constraint \(\varphi _j = 0\).
+</p><!-- l. 97 --><p class='indent'>   In summary, the first condition in the Lagrange multiplier method is the normal space condition, while the
+second is the constraint condition.
+                                                                                               
+                                                                                               
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>2    </span> <a id='x1-30002'></a>Application of Lagrange multiplier method in PDEs</h3>
+<!-- l. 100 --><p class='noindent'>Let \(X\) be a Hilbert space and \(X'\) be its dual space. \(\left \langle \cdot ,\cdot \right \rangle _X\) is the inner product in \(X\) and \(\left \langle \cdot ,\cdot \right \rangle \) is the duality pairing, which applies a
+linear functional \(f\in X'\) to an element \(u\in X\), i.e. \(\left \langle f,u \right \rangle =\left \langle u,f \right \rangle =f(u)\). \(A: X \rightarrow X'\) is a bounded linear operator satisfying \begin{equation}  \norm {Av}_{X'}\leq c_2^A\norm {v}_X \quad \forall v \in X.  \end{equation}<a id='x1-3001r10'></a> We also assume \(A\) is self-adjoint in
+the sense of normed space (see <a href='{% post_url 2024-11-10-adjoint-operators-in-functional-analysis %}#x1-40003'>Self-adjointness</a>).
+</p><!-- l. 106 --><p class='indent'>   For the operator equation \(Au=f\), where \(f\in X'\), we already know that it is equivalent to the variational equation \(\langle Au,v \rangle = \langle f,v \rangle \) for all \(v\in X\)
+due to the boundedness of \(A\). If we further assume \(A\) is positive semi-definite, i.e. \begin{equation}  \langle Av,v \rangle \geq 0 \quad \forall v\in X,  \end{equation}<a id='x1-3002r11'></a> this variational equation is
+equivalent to a minimization of a functional without constraint: \begin{equation}  u = \underset {v\in X}{\argmin }\; F(v) = \underset {v\in X}{\argmin }\; \frac {1}{2} \langle Av,v \rangle - \langle f,v \rangle .  \end{equation}<a id='x1-3003r12'></a> This can be proved by perturbing \(u\) with \(tw\), where \(w\in X\)
+and \(t\) is a small scalar value. By letting \(\frac {\diff F(u+tw)}{\diff t} = 0\) at \(t=0\), we can obtain the variational formulation \(\langle Au,w \rangle = \langle f,w \rangle \) and also show that \(F(u)\) is a
+minimum value.
+</p>
+   <div class='proof'><div class='newtheorem'>
+<!-- l. 116 --><p class='noindent'><span class='head'>
+<span class='p1xsc-x-x-109'>P<span class='small-caps'>roof</span></span> </span><a id='x1-3005'></a>\begin{equation}  \begin{aligned} F(u+tw) &amp;= \frac {1}{2} \langle A(u+tw),u+tw \rangle - \langle f,u+tw \rangle \\ &amp;= \frac {1}{2} \langle Au,u \rangle - \langle f,u \rangle + \frac {1}{2} \langle Au,tw \rangle + \frac {1}{2} \langle A(tw), u \rangle + \\ &amp;\quad \frac {1}{2} \langle A(tw),tw \rangle - \langle f,tw \rangle \end{aligned}  \end{equation}<a id='x1-3006r13'></a>
+</p><!-- l. 126 --><p class='indent'>   Because \(A\) is self-adjoint, the fourth term above \(\langle A(tw),u \rangle = \langle tw,Au \rangle \) and we have \begin{equation}  \begin{aligned} F(u+tw) &amp;= F(u) + t\langle Au,w \rangle + \frac {1}{2} t^2 \langle Aw,w \rangle - t\langle f,w \rangle \\ &amp;= F(u) + t \left ( \langle Au,w \rangle - \langle f,w \rangle \right ) + \frac {1}{2} t^2 \langle Aw,w \rangle \end{aligned}.  \end{equation}<a id='x1-3007r14'></a> Let the derivative of \(F(u+tw)\) at \(t=0\) be 0: \begin{equation}  \frac {\diff F(u+tw)}{\diff t} \Big \vert _{t=0} = \langle Au,w \rangle - \langle f,w \rangle = 0,  \end{equation}<a id='x1-3008r15'></a> which is the
+variational equation.
+</p><!-- l. 141 --><p class='indent'>   We can also directly compute the variation \(\delta F(v)\) of the functional \(F(v)\) to derive the variational equation. The variation
+\(\delta F(v)\) is the linear part of the changes in \(F(v)\) when there is a perturbation \(\delta v\) added to \(v\), i.e. \begin{equation}  F(v+\delta v) - F(v) = \delta F(v) \delta v + O(\delta v^2) + \cdots ,  \end{equation}<a id='x1-3009r16'></a> where \(O(\delta v^2)\) and more subsequent
+terms are the high order changes with respect to \(\delta v\). The variation operator \(\delta \) commutes with differential
+and integral operators. It also satisfies the chain rule for the normal differential operator. Then
+we have \begin{equation}  \begin{aligned} \delta F(v) &amp;= \frac {1}{2} \langle A\delta v,v \rangle + \frac {1}{2} \langle Av,\delta v \rangle - \langle f,\delta v \rangle \\ &amp;= \langle Av,\delta v \rangle - \langle f,\delta v \rangle \end{aligned}.  \end{equation}<a id='x1-3010r17'></a> Let \(\delta F(v) = 0\), we obtain the variational formulation \(\langle Av, \delta v \rangle = \langle f,\delta v \rangle \). \(\delta v\) is arbitrary and can be replaced with any
+\(w\in X\).
+</p><!-- l. 155 --><p class='indent'>   Next, we will show that \(F(v)\) achieves the minimum value when \(v\) is the solution \(u\) of the variational equation. In
+the above, we already have \begin{equation}  F(u+tw) = F(u) + t \left ( \langle Au,w \rangle - \langle f,w \rangle \right ) + \frac {1}{2} t^2 \langle Aw,w \rangle .  \end{equation}<a id='x1-3011r18'></a> Because \(u\) is the solution of the variational equation, the second term is zero.
+Meanwhile, considering the assumption that \(A\) is positive semi-definite, we have \(\frac {1}{2} t^2 \langle Aw,w \rangle \geq 0\) and \(F(u) \leq F(u+tw)\), which means \(u\) is a local
+minima of the functional \(F(v)\).
+</p>
+<p style="text-align: right;">&#9632;</p>
+   </div>
+<!-- l. 160 --><p class='indent'>   </p></div>
+<!-- l. 162 --><p class='indent'>   If there is a constraint \(Bu=g\), where \(B: X \rightarrow \Pi '\) is a bounded linear operator and \(g\in \Pi '\), \(\Pi \) is a Banach space and \(\Pi '\) is its dual space,
+using the Lagrange multiplier method, we can obtain a new functional \begin{equation}  \begin{aligned} L(v,p) &amp;:= \frac {1}{2} \langle Av,v \rangle - \langle f,v \rangle + \langle Bv-g,p \rangle \\ &amp;= \frac {1}{2} \langle Av,v \rangle - \langle f,v \rangle + \langle Bv,p \rangle - \langle g,p \rangle \end{aligned},  \end{equation}<a id='x1-3012r19'></a> where \(p\in \Pi \) is the Lagrange multiplier. Note
+that a Lagrange multiplier introduced in a PDE is not a scalar value anymore, but a function in the test function
+space. The constraint \(Bv=g\) is also weakly enforced, i.e. \(Bv-g\) is multiplied with \(p\) and then integrated on the whole
+domain.
+</p><!-- l. 173 --><p class='indent'>   In this new functional \(L(v,p)\), there is only one variable and one Lagrange multiplier, both of which are functions.
+To find the critical points of \(L(v,p)\), we first perturb \(v\) with \(tw\) where \(w\in X\), then \begin{equation}  \begin{aligned} L(v+tw,p) &amp;= \frac {1}{2} \langle Av,v \rangle - \langle f,v \rangle + t \left ( \langle Av,w \rangle - \langle f,w \rangle \right ) + \\ &amp;\quad \frac {1}{2} t^2\langle Aw,w \rangle + \langle Bv,p \rangle + \langle B(tw),p \rangle - \langle g,p \rangle \end{aligned}.  \end{equation}<a id='x1-3013r20'></a> Let \begin{equation}  \frac {\diff L(v+tw,p)}{\diff t} \Big \vert _{t=0} = 0,  \end{equation}<a id='x1-3014r21'></a> we have \begin{equation}  \langle Av,w \rangle + \langle Bw,p \rangle = \langle f,w \rangle .  \end{equation}<a id='x1-3015r22'></a>
+</p><!-- l. 191 --><p class='indent'>   Then we perturb \(p\) with \(tq\) where \(q\in \Pi \), then \begin{equation}  L(v,p+tq) = \frac {1}{2} \langle Av,v \rangle - \langle f,v \rangle + \langle Bv,p \rangle + \langle Bv,tq \rangle - \langle g,p \rangle - \langle g,tq \rangle .  \end{equation}<a id='x1-3016r23'></a> Let \begin{equation}  \frac {\diff L(v,p+tq)}{\diff t} \Big \vert _{t=0} = 0,  \end{equation}<a id='x1-3017r24'></a> we have \begin{equation}  \langle Bv,q \rangle = \langle g,q \rangle .  \end{equation}<a id='x1-3018r25'></a> Combine the above two equations and replace \(v\) with \(u\), \(w\)
+with \(v\) symbolically, the familiar mixed variational formulation can be obtained: \begin{equation}  \begin{aligned} \langle Au,v \rangle + \langle Bv,p \rangle &amp;= \langle f,v \rangle \\ \langle Bu,q \rangle &amp;= \langle g,q \rangle \end{aligned},  \end{equation}<a id='x1-3019r26'></a> where \((u,p)\in X\times \Pi \) is the solution to be
+found and \((v,q)\in X\times \Pi \) is the test function. It can be proved that the critical point of the functional \(L(v,p)\) found by the Lagrange
+multiplier method is neither a maximum or minimum, but a saddle point (see Figure <a href='#x1-3020r1'>1<!-- tex4ht:ref: fig:saddle-point-of-functional  --></a>). Hence, the mixed
+variational formulation is also a saddle point problem. When it is discretized into a block matrix system,
+it should be solved with an iterative solver like BiCGStab, but not the conjugate gradient (CG)
+method.
+                                                                                               
+                                                                                               
+</p>
+   <figure class='figure'> 
+
+                                                                                               
+                                                                                               
+<a id='x1-3020r1'></a>
+                                                                                               
+                                                                                               
+<!-- l. 214 --><p class='noindent'><img alt='PIC'  src='/figures/2024-06-07-18-41-lagrangian-multiplier-for-constraint-pde.png'  />
+</p>
+<figcaption class='caption'><span class='id'>Figure 1: </span><span class='content'>Saddle point of the functional \(L(v,p)\).</span></figcaption><!-- tex4ht:label?: x1-3020r1  -->
+                                                                                               
+                                                                                               
+   </figure>
+   <h3 class='sectionHead'><span class='titlemark'>3    </span> <a id='x1-40003'></a>Summary</h3>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 220 --><p class='noindent'>The essence of the general Lagrange multiplier method is looking for the common tangent or normal
+     space  between  two  high  dimensional  submanifolds  or  level  sets  associated  with  the  objective
+     function and multiple constraints. This method can be used to find critical points of the objective
+     function. Whether they are minimum, maximum or saddle points need further inspection or proof.
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 221 --><p class='noindent'>The critical points can be found by equating the partial derivatives of the modified objective function
+     to zeros. The partial derivatives with respect to independent variables enforce the common normal
+     space  condition,  while  the  partial  derivatives  with  respect  to  Lagrange  multipliers  enforce  the
+     constraints.
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 222 --><p class='noindent'>In a PDE, a Lagrange multiplier is a function instead of a scalar value. It is multiplied with the
+     constraint and then integrated on the whole domain. Therefore, the constraint is weakly enforced
+     and the Lagrange multiplier can be considered as a test function.
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 223 --><p class='noindent'>Due to the boundedness, self-adjointness and positive semi-definiteness of the partial differential
+     operator \(A\) as well as the boundedness of the constraint operator \(B\), the critical point of the functional \(L(v,p)\)
+     is a saddle point.</p></li></ul>
+
+<p>{{ "2025-05-28-understanding-about-the-lagrange-multiplier-method" | backlink }}</p>
