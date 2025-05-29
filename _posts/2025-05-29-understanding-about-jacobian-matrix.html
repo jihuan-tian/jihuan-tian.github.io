@@ -27,14 +27,14 @@ it.
      </p></li>
 <li class='enumerate' id='x1-7x3'>
      <!-- l. 27 --><p class='noindent'>For a fixed tangent vector at \(p\), the Jacobian matrix \(J_{UV}\) can transform its coordinates in \((V)\) to \((U)\).
-     </p><!-- l. 29 --><p class='noindent'>Coordiante  transformation  in  robotics  is  just  a  special  case,  where  both  \((U)\)  and  \((V)\)  are  flat  frames.
+     </p><!-- l. 29 --><p class='noindent'>Coordinate transformation  in  robotics  is  just  a  special  case,  where  both  \((U)\)  and  \((V)\)  are  flat  frames.
      If all frames have a common origin, i.e. there is only rotation but no translation between them,
      the transition map \(\Phi _{UV}\) is a rotation matrix, which is also the Jacobian matrix \(J_{UV}\). The rotation matrix
      from  chart  \((U)\)  to  \((V)\)  can  be  constructed  by  representing  each  basis  vector  of  chart  \((V)\)  in  chart  \((U)\).  Each
      numerical representation of the basis vector is a column vector and all such column vectors are
      placed horizontally as a rotation matrix \(R\). This rotation matrix \(R\) is just the Jacobian matrix \(J_{UV}\) from \((V)\) to \((U)\)
      <span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-8f1'></a>.
-     Then for a fixed poitn \(p\), its coordiantes in the two charts are related as \(P^U = RP^V\), which is consistent with \(P^U = J_{UV} P^{V}\).
+     Then for a fixed poitn \(p\), its coordinates in the two charts are related as \(P^U = RP^V\), which is consistent with \(P^U = J_{UV} P^{V}\).
                                                                                                
                                                                                                
      </p></li>
@@ -43,6 +43,6 @@ it.
      the tangent space, i.e. \begin{equation}  (J^{\mathrm {T}}J)_{ij} = \langle \boldsymbol {\partial }x_i^V, \boldsymbol {\partial }x_j^V \rangle .  \end{equation}<a id='x1-12r1'></a></p></li></ol>
    <div class='footnotes'><a id='x1-9x1'></a>
 <!-- l. 29 --><p class='noindent'><span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-90'>N.B. Different conventions are used in robotics and differential geometry. In the former, the rotation matrix is from chart </span>\((U)\)
-<span class='p1xr-x-x-90'>to </span>\((V)\)<span class='p1xr-x-x-90'>, while in the latter, the Jacobian matrix from from </span>\((V)\) <span class='p1xr-x-x-90'>to </span>\((U)\)<span class='p1xr-x-x-90'>. They are actually a same thing.</span></p>                                                                  </div>
+<span class='p1xr-x-x-90'>to </span>\((V)\)<span class='p1xr-x-x-90'>, while in the latter, the Jacobian matrix is from </span>\((V)\) <span class='p1xr-x-x-90'>to </span>\((U)\)<span class='p1xr-x-x-90'>. They are actually a same thing.</span></p>                                                                  </div>
 
 <p>{{ "2025-05-29-understanding-about-jacobian-matrix" | backlink }}</p>
