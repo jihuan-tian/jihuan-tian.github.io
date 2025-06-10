@@ -1,4 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-06-07T21:28:32+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">When I get lost among the hierarchical headings in Org mode</title><link href="https://jihuan-tian.github.io/computer/2025/06/07/when-i-get-lost-among-the-hierarchical-headings-in-org-mode.html" rel="alternate" type="text/html" title="When I get lost among the hierarchical headings in Org mode" /><published>2025-06-07T00:00:00+08:00</published><updated>2025-06-07T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/06/07/when-i-get-lost-among-the-hierarchical-headings-in-org-mode</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/06/07/when-i-get-lost-among-the-hierarchical-headings-in-org-mode.html"><![CDATA[<p>When I’m editing my notes in Org mode, I may get lost among the hierarchical headings. Then I use the follow measures to localize my position, check its surrounding environment and get an overview.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-06-10T12:52:55+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Directly open an Org roam node by id from other programs</title><link href="https://jihuan-tian.github.io/computer/2025/06/10/directly-open-an-org-roam-node-by-id-from-other-programs.html" rel="alternate" type="text/html" title="Directly open an Org roam node by id from other programs" /><published>2025-06-10T00:00:00+08:00</published><updated>2025-06-10T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/06/10/directly-open-an-org-roam-node-by-id-from-other-programs</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/06/10/directly-open-an-org-roam-node-by-id-from-other-programs.html"><![CDATA[<p>Since I want to interconnect Org Roam notes with my Anki cards and Freeplane mindmaps, I need to create a customized link type like this <code class="language-plaintext highlighter-rouge">roam://&lt;org-roam-node-id&gt;</code>, which can be directly opened from other programs.</p>
+
+<ol>
+  <li>
+    <p>Create an Elisp function for opening the Org Roam node by id:</p>
+
+    <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/org-roam-open-node-by-id</span> <span class="p">(</span><span class="nv">id</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">interactive</span> <span class="s">"sNode id:"</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">node</span> <span class="p">(</span><span class="nv">org-roam-node-from-id</span> <span class="nv">id</span><span class="p">)))</span>
+    <span class="p">(</span><span class="k">if</span> <span class="nv">node</span> <span class="p">(</span><span class="nv">org-roam-node-visit</span> <span class="nv">node</span><span class="p">))))</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Create a Bash script <code class="language-plaintext highlighter-rouge">open-org-roam-node-link.sh</code>, which uses <code class="language-plaintext highlighter-rouge">emacsclient</code> to evaluate the elisp code to open the node:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+emacsclient <span class="nt">--eval</span> <span class="s2">"(let ((node (org-roam-node-from-id (substring </span><span class="se">\"</span><span class="nv">$1</span><span class="se">\"</span><span class="s2"> 7 nil)))) (if node (org-roam-node-visit node) (message </span><span class="se">\"</span><span class="s2">Node not found!</span><span class="se">\"</span><span class="s2">)))"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Create a new <code class="language-plaintext highlighter-rouge">desktop</code> file <code class="language-plaintext highlighter-rouge">~/.local/share/applications/roam-url-handler.desktop</code>:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Desktop Entry]
+Name=Roam URL Handler
+Exec=/usr/local/bin/scripts/open-org-roam-node-link.sh %u
+Terminal=false
+Type=Application
+NoDisplay=true
+MimeType=x-scheme-handler/roam;
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Register the above <code class="language-plaintext highlighter-rouge">desktop</code> file:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xdg-mime default roam-url-handler.desktop x-scheme-handler/roam
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Insert <code class="language-plaintext highlighter-rouge">roam://&lt;org-roam-node-id&gt;</code> links in other programs, such as Anki:</p>
+
+    <p><img src="/figures/2025-06-03_11-56-55-anki-card-with-org-roam-node-link.png" alt="img" /></p>
+
+    <p><img src="/figures/2025-06-03_11-56-00-anki-card-with-org-roam-node-link.png" alt="img" /></p>
+  </li>
+</ol>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Org-roam" /><summary type="html"><![CDATA[Since I want to interconnect Org Roam notes with my Anki cards and Freeplane mindmaps, I need to create a customized link type like this roam://&lt;org-roam-node-id&gt;, which can be directly opened from other programs.]]></summary></entry><entry><title type="html">Tips for using Wacom tablet</title><link href="https://jihuan-tian.github.io/computer/2025/06/10/tips-for-using-wacom-tablet.html" rel="alternate" type="text/html" title="Tips for using Wacom tablet" /><published>2025-06-10T00:00:00+08:00</published><updated>2025-06-10T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/06/10/tips-for-using-wacom-tablet</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/06/10/tips-for-using-wacom-tablet.html"><![CDATA[<ul>
+  <li>When drawing long lines on the tablet, we should not press our palm too hard on the tablet, otherwise, the friction hinders a smooth motion of the palm and the resultant stroke will be discontinuous or have wiggles.</li>
+  <li>While the fingers should hold the pen steady, but should not be too tight to be flexible for fine control of the strokes.</li>
+  <li>Do not use cursive handwriting, which is difficult to recognize and looks messy. Use the print handwriting style.</li>
+  <li>Don’t be meticulous about strokes and calligraphy, just concentrate on the contents. Remember that the purpose of sketching and handwriting is not to show off but to assist our thinking process and take snapshots of our mind.</li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="wacom" /><summary type="html"><![CDATA[When drawing long lines on the tablet, we should not press our palm too hard on the tablet, otherwise, the friction hinders a smooth motion of the palm and the resultant stroke will be discontinuous or have wiggles. While the fingers should hold the pen steady, but should not be too tight to be flexible for fine control of the strokes. Do not use cursive handwriting, which is difficult to recognize and looks messy. Use the print handwriting style. Don’t be meticulous about strokes and calligraphy, just concentrate on the contents. Remember that the purpose of sketching and handwriting is not to show off but to assist our thinking process and take snapshots of our mind.]]></summary></entry><entry><title type="html">When I get lost among the hierarchical headings in Org mode</title><link href="https://jihuan-tian.github.io/computer/2025/06/07/when-i-get-lost-among-the-hierarchical-headings-in-org-mode.html" rel="alternate" type="text/html" title="When I get lost among the hierarchical headings in Org mode" /><published>2025-06-07T00:00:00+08:00</published><updated>2025-06-07T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/06/07/when-i-get-lost-among-the-hierarchical-headings-in-org-mode</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/06/07/when-i-get-lost-among-the-hierarchical-headings-in-org-mode.html"><![CDATA[<p>When I’m editing my notes in Org mode, I may get lost among the hierarchical headings. Then I use the follow measures to localize my position, check its surrounding environment and get an overview.</p>
 
 <ul>
   <li>Use <code class="language-plaintext highlighter-rouge">org-previous-visible-heading</code> (bound to <code class="language-plaintext highlighter-rouge">C-c C-p</code>) to go to the heading of the current contents.</li>
