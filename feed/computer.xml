@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-06-12T15:43:33+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Directly open an Org roam node by id from other programs</title><link href="https://jihuan-tian.github.io/computer/2025/06/10/directly-open-an-org-roam-node-by-id-from-other-programs.html" rel="alternate" type="text/html" title="Directly open an Org roam node by id from other programs" /><published>2025-06-10T00:00:00+08:00</published><updated>2025-06-10T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/06/10/directly-open-an-org-roam-node-by-id-from-other-programs</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/06/10/directly-open-an-org-roam-node-by-id-from-other-programs.html"><![CDATA[<p>Since I want to interconnect Org Roam notes with my Anki cards and Freeplane mindmaps, I need to create a customized link type like this <code class="language-plaintext highlighter-rouge">roam://&lt;org-roam-node-id&gt;</code>, which can be directly opened from other programs.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-06-17T16:40:14+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Kindle jailbreak with an installation of MRPI, KUAL and KoReader</title><link href="https://jihuan-tian.github.io/computer/2025/06/17/kindle-jailbreak-with-an-installation-of-mrpi,-kual-and-koreader.html" rel="alternate" type="text/html" title="Kindle jailbreak with an installation of MRPI, KUAL and KoReader" /><published>2025-06-17T00:00:00+08:00</published><updated>2025-06-17T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/06/17/kindle-jailbreak-with-an-installation-of-mrpi,-kual-and-koreader</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/06/17/kindle-jailbreak-with-an-installation-of-mrpi,-kual-and-koreader.html"><![CDATA[<p>According to the instructions <a href="https://kindlemodding.org/">here</a>, I followed these procedures:</p>
+
+<ul>
+  <li>Identify the model type of my Kindle device.</li>
+  <li>Install WinterBreak, which is a jailbreak released on New Year’s Day 2025 by HackerDude.</li>
+  <li>Install a hotfix which prevents Kindle from firmware update in the future.</li>
+  <li>Install MobileRead Package Installer (MRPI).</li>
+  <li>
+    <p>Install Kindle Unified Application Launcher (KUAL).</p>
+
+    <p>Copy the file <code class="language-plaintext highlighter-rouge">Update_KUALBooklet_ALLDEVICES_KS2_install.bin</code> to the root directory of Kindle, then update the device. Run <code class="language-plaintext highlighter-rouge">;log mrpi</code> in the search bar does not work.</p>
+  </li>
+  <li>Install KoReader.
+    <ul>
+      <li>Copy images into the file system as wallpapers.</li>
+      <li>
+        <p>Install Stardict dictionaries, such as Oxford Advanced Learners and OED, into KoReader’s folder <code class="language-plaintext highlighter-rouge">koreader/data/dict</code>.</p>
+
+        <p>Convert Goldendict format dictionaries to Stardict format using Python package <code class="language-plaintext highlighter-rouge">pyglossary</code>:</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install pyglossary
+pyglossary &lt;dictionary&gt;.mdx &lt;dictionary&gt;.ifo
+</code></pre></div>        </div>
+      </li>
+      <li>KoReader only has a simple Pinyin input method, no Wubi.</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Kindle" /><summary type="html"><![CDATA[According to the instructions here, I followed these procedures:]]></summary></entry><entry><title type="html">Directly open an Org roam node by id from other programs</title><link href="https://jihuan-tian.github.io/computer/2025/06/10/directly-open-an-org-roam-node-by-id-from-other-programs.html" rel="alternate" type="text/html" title="Directly open an Org roam node by id from other programs" /><published>2025-06-10T00:00:00+08:00</published><updated>2025-06-10T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/06/10/directly-open-an-org-roam-node-by-id-from-other-programs</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/06/10/directly-open-an-org-roam-node-by-id-from-other-programs.html"><![CDATA[<p>Since I want to interconnect Org Roam notes with my Anki cards and Freeplane mindmaps, I need to create a customized link type like this <code class="language-plaintext highlighter-rouge">roam://&lt;org-roam-node-id&gt;</code>, which can be directly opened from other programs.</p>
 
 <ol>
   <li>
