@@ -27,5 +27,12 @@ According to the instructions [here](https://kindlemodding.org/), I followed the
         pyglossary <dictionary>.mdx <dictionary>.ifo
         ```
     -   KoReader only has a simple Pinyin input method, no Wubi.
+    -   Connect to Kindle SSH server
+        
+        -   Copy the public key, which is generated on the client machine with the command `ssh-keygen`, into the file `/mnt/us/koreader/settings/SSH/authorized_keys` on Kindle.
+        -   Logon the SSH server with user name `root` and do not use password.
+        -   Make root file system writable: `mntroot rw`.
+        
+        Then files can be transferred between my Linux and Kindle via `scp` or `rsync`.
 
 {{ "2025-06-17-kindle-jailbreak-with-an-installation-of-mrpi,-kual-and-koreader" | backlink }}
