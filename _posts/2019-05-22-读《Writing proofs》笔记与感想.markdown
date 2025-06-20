@@ -3,7 +3,7 @@ layout: post
 title: 读《Writing proofs》笔记与感想
 date: 2019-05-22
 categories: [thoughts]
-tags: [阅读,数学学习]
+tags: [阅读,数学学习,三张纸]
 ---
 
 [Christopher Heil](http://people.math.gatech.edu/%7Eheil)在《[Writing proofs](http://people.math.gatech.edu/%7Eheil/handouts/proofs.pdf)》这篇文章中介绍了数学证明的基本思路与方法，包括：
