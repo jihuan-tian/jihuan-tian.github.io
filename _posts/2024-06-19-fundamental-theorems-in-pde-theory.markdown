@@ -17,7 +17,7 @@ mathjax: true
 
 # Riesz representation theorem
 
-Let $$X $$ be a Hilbert space and $$X' $$ be its dual space with respect to the duality pairing $$\left\langle \cdot,\cdot \right\rangle $$. Let b$$\left\langle \cdot,\cdot \right\rangle_X $$ be the inner product on $$X $$. The dual space $$X' $$ is the set of all linear and bounded functionals on $$X $$. For any $$f\in X' $$, there exists an unique $$u\in X$$ such that applying $$f $$ to any $$v\in X $$, i.e. its duality pairing with $$v $$, is equal to the inner product of $$u $$ and $$v $$, i.e.
+Let $$X $$ be a Hilbert space and $$X' $$ be its dual space with respect to the duality pairing $$\left\langle \cdot,\cdot \right\rangle $$. Let $$\left\langle \cdot,\cdot \right\rangle_X $$ be the inner product on $$X $$. The dual space $$X' $$ is the set of all linear and bounded functionals on $$X $$. For any $$f\in X' $$, there exists an unique $$u\in X$$ such that applying $$f $$ to any $$v\in X $$, i.e. its duality pairing with $$v $$, is equal to the inner product of $$u $$ and $$v $$, i.e.
 
 $$
 \begin{equation}
