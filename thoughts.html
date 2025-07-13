@@ -7,8 +7,7 @@ permalink: /thoughts/
 <ul class="post-list">
   {% for post in site.categories.thoughts %}
   <li>
-    {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-    <span class="post-meta">{{ post.date | date: date_format }}</span>
+    <span class="post-meta">{{ post.date | date: '%a, %b %-d, W%W, %Y' }}</span>
     <h3>
       <a class="post-link" href="{{ post.url | relative_url }}">
         {{ post.title }}
