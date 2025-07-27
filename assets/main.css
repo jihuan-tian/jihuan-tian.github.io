@@ -47,7 +47,7 @@ a:hover { color: #111; text-decoration: underline; }
 .social-media-list a:hover .username { text-decoration: underline; }
 
 /** Blockquotes */
-blockquote { color: #111; border-left: 4px solid #e8e8e8; padding-left: 15px; /* @include relative-font-size(1.0); */ font-family: 'EB Garamond', Georgia, 'Times New Roman', kai, serif; letter-spacing: -1px; }
+blockquote { color: #111; border-left: 4px solid #828282; padding-left: 15px; /* @include relative-font-size(1.0); */ font-family: 'EB Garamond', Georgia, 'Times New Roman', kai, serif; letter-spacing: -1px; }
 
 blockquote > :last-child { margin-bottom: 0; }
 

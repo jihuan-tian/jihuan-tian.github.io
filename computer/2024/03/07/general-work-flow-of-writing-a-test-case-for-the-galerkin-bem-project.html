@@ -87,14 +87,19 @@
 
 <ul>
   <li>
-    <p>Call <code class="language-plaintext highlighter-rouge">${CMAKE\_CURRENT\_SOURCE\_DIR}/gen_data.m</code> Octave script from C++ to produce the input data of the test case in the file <code class="language-plaintext highlighter-rouge">${CMAKE\_CURRENT\_SOURCE\_DIR}/foo.input</code>. This is optional.</p>
+    <p>Call <code class="language-plaintext highlighter-rouge">${CMAKE​_CURRENT​_SOURCE​_DIR}/gen_data.m</code> Octave script from C++ to produce the input data of the test case in the file <code class="language-plaintext highlighter-rouge">${CMAKE​_CURRENT​_SOURCE​_DIR}/foo.input</code>. This is optional.</p>
 
-    <p>N.B. The value of <code class="language-plaintext highlighter-rouge">${CMAKE\_CURRENT\_SOURCE\_DIR}</code> can be accessed from C++ via the constant <code class="language-plaintext highlighter-rouge">SOURCE_DIR</code>. This is setup in the <code class="language-plaintext highlighter-rouge">CMakeLists.txt</code> file of the test case <code class="language-plaintext highlighter-rouge">foo</code>. Then C++ can locate the Octave script <code class="language-plaintext highlighter-rouge">gen_data.m</code> and execute it.</p>
+    <p>N.B. The value of <code class="language-plaintext highlighter-rouge">${CMAKE​_CURRENT​_SOURCE​_DIR}</code> can be accessed from C++ via the constant <code class="language-plaintext highlighter-rouge">SOURCE_DIR</code>. This is setup in the <code class="language-plaintext highlighter-rouge">CMakeLists.txt</code> file of the test case <code class="language-plaintext highlighter-rouge">foo</code> as a definition associated with the target. Then C++ can locate the Octave script <code class="language-plaintext highlighter-rouge">gen_data.m</code> and execute it.</p>
+
+    <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span><span class="p">(</span>_target test-foo<span class="p">)</span>
+<span class="nb">target_compile_definitions</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span>
+  PUBLIC SOURCE_DIR=<span class="s2">"</span><span class="si">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>    </div>
   </li>
-  <li>Test case generate results into the file <code class="language-plaintext highlighter-rouge">${CMAKE\_CURRENT\_SOURCE\_DIR}/foo.output</code> in the format which can be loaded by Octave.</li>
-  <li>Call <code class="language-plaintext highlighter-rouge">${CMAKE\_CURRENT\_SOURCE\_DIR}/process.m</code> Octave script from C++. In <code class="language-plaintext highlighter-rouge">process.m</code>,
+  <li>Test case generate results into the file <code class="language-plaintext highlighter-rouge">${CMAKE​_CURRENT​_SOURCE​_DIR}/foo.output</code> in the format which can be loaded by Octave.</li>
+  <li>Call <code class="language-plaintext highlighter-rouge">${CMAKE​_CURRENT​_SOURCE​_DIR}/process.m</code> Octave script from C++. In <code class="language-plaintext highlighter-rouge">process.m</code>,
     <ul>
-      <li>Load the result file <code class="language-plaintext highlighter-rouge">${CMAKE\_CURRENT\_SOURCE\_DIR}/foo.output</code>.</li>
+      <li>Load the result file <code class="language-plaintext highlighter-rouge">${CMAKE​_CURRENT​_SOURCE​_DIR}/foo.output</code>.</li>
       <li>Run the Octave implementation of the C++ algorithm.</li>
       <li>Compare the C++ and Octave results. Usually, relative error is computed.</li>
     </ul>
@@ -102,7 +107,22 @@
   <li>C++ check the relative error computed by <code class="language-plaintext highlighter-rouge">process.m</code> via <code class="language-plaintext highlighter-rouge">Catch2</code>.</li>
 </ul>
 
-<p>After each compilation of the test case, <code class="language-plaintext highlighter-rouge">${CMAKE\_CURRENT\_SOURCE\_DIR}/process.m</code> and <code class="language-plaintext highlighter-rouge">${CMAKE\_CURRENT\_SOURCE\_DIR}/draw.m</code> will be automatically copied into the folder of the test case binary file by CMake. Then, the test case can be manually run in this folder, then manually run <code class="language-plaintext highlighter-rouge">process.m</code> and <code class="language-plaintext highlighter-rouge">draw.m</code> therefore for checking and visualization.</p>
+<p>After each compilation of the test case, <code class="language-plaintext highlighter-rouge">${CMAKE​_CURRENT​_SOURCE​_DIR}/process.m</code> and <code class="language-plaintext highlighter-rouge">${CMAKE​_CURRENT​_SOURCE​_DIR}/draw.m</code> will be automatically copied into the folder of the test case binary file by CMake.</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_custom_command</span><span class="p">(</span>
+  TARGET <span class="si">${</span><span class="nv">_target</span><span class="si">}</span>
+  POST_BUILD
+  COMMAND <span class="si">${</span><span class="nv">CMAKE_COMMAND</span><span class="si">}</span> -E copy <span class="si">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="si">}</span>/process.m
+          <span class="si">${</span><span class="nv">CMAKE_CURRENT_BINARY_DIR</span><span class="si">}</span>/process.m<span class="p">)</span>
+
+<span class="nb">add_custom_command</span><span class="p">(</span>
+  TARGET <span class="si">${</span><span class="nv">_target</span><span class="si">}</span>
+  POST_BUILD
+  COMMAND <span class="si">${</span><span class="nv">CMAKE_COMMAND</span><span class="si">}</span> -E copy <span class="si">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="si">}</span>/draw.m
+          <span class="si">${</span><span class="nv">CMAKE_CURRENT_BINARY_DIR</span><span class="si">}</span>/draw.m<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Then, the test case can be manually run in this folder and the Octave scripts <code class="language-plaintext highlighter-rouge">process.m</code> and <code class="language-plaintext highlighter-rouge">draw.m</code> can be executed for validation and visualization.</p>
 
 
   </div><a class="u-url" href="/computer/2024/03/07/general-work-flow-of-writing-a-test-case-for-the-galerkin-bem-project.html" hidden></a>
