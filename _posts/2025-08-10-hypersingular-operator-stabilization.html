@@ -1,0 +1,284 @@
+---
+layout: post
+title: Stabilization of the hypersingular operator for the Laplace Neumann problem
+date: 2025-08-10
+categories: [math]
+tags: [PDE,BEM]
+mathjax: true
+custom_css: /assets/css/make4ht.css
+---
+
+<h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
+   <div class='tableofcontents'>
+    <span class='sectionToc'>1 <a href='#x1-20001' id='QQ2-1-2'>Introduction</a></span>
+<br />    <span class='sectionToc'>2 <a href='#x1-30002' id='QQ2-1-3'>Boundary integral equation for the Laplace problem with the
+Neumann boundary condition</a></span>
+<br />    <span class='sectionToc'>3 <a href='#x1-40003' id='QQ2-1-4'>Solution space of Neumann problems</a></span>
+<br />     <span class='subsectionToc'>3.1 <a href='#x1-50003.1' id='QQ2-1-5'>Homogeneous Neumann problem</a></span>
+<br />     <span class='subsectionToc'>3.2 <a href='#x1-60003.2' id='QQ2-1-6'>Inhomogeneous Neumann problem</a></span>
+<br />    <span class='sectionToc'>4 <a href='#x1-70004' id='QQ2-1-7'>Kernel of the hypersingular operator \(D\)</a></span>
+<br />    <span class='sectionToc'>5 <a href='#x1-80005' id='QQ2-1-8'>Select an orthogonal subspace in which the ellipticity of \(D\) holds</a></span>
+<br />     <span class='subsectionToc'>5.1 <a href='#x1-90005.1' id='QQ2-1-9'>Choice 1: select a subspace \(L_2\)-orthogonal to natural densities</a></span>
+<br />     <span class='subsectionToc'>5.2 <a href='#x1-100005.2' id='QQ2-1-10'>Choice 2: select a subspace \(L_2\)-orthogonal to \(\ker D\)</a></span>
+<br />    <span class='sectionToc'>6 <a href='#x1-110006' id='QQ2-1-11'>Incorporate the subspace constraint into the BIE</a></span>
+   </div>
+<!-- l. 23 --><p class='indent'>   <span class='p1xb-x-x-109'>Abstract </span>The hypersingular operator \(D\) appears in the boundary integral equation for the Laplace Neumann
+problem, which is obtained from the equation for the Neumann trace in the Caldrón system. Because \(D\) has a
+non-trivial kernel and lacks ellipticity on its whole domain, the solution cannot be uniquely found. Stabilization
+or gauging is therefore needed to modify the hypersingular operator so that the ellipticity and
+solution uniqueness can be restored in a <span class='p1xb-x-x-109'>subspace </span>of \(D\)’s domain, which is orthogonal to the kernel of \(D\).
+Different norm or inner product definitions can be adopted to realize the said orthogonality, which
+lead to different solution subspaces. The final stabilized or gauged boundary integral variational
+equation can be obtained by enforcing the solution subspace constraint with the Lagrange multiplier
+method.
+</p>
+                                                                                               
+                                                                                               
+   <h3 class='sectionHead'><span class='titlemark'>1    </span> <a id='x1-20001'></a>Introduction</h3>
+<!-- l. 26 --><p class='noindent'>A linear partial differential equation (PDE) or a boundary integral equation (BIE), \(Au=f\), can be analyzed in a same
+framework, where the solvability and stability of the equation depend on the property of the underlying linear
+operator \(A: X \rightarrow X'\) which maps from a Hilbert space \(X\) to its dual space \(X'\). According to the <a href='{% post_url 2024-06-19-fundamental-theorems-in-pde-theory %}#org650a387'>Lax-Milgram Lemma</a>, if the linear
+operator is both bounded and elliptic, the solution is unique and stable. If the linear operator is
+not elliptic but only coercive, i.e. it satisfies a Gårdings inequality, \begin{equation}  \langle (A+C)v,v \rangle \geq c_1^A \lVert v \rVert _X^2 \quad \forall v\in X,  \end{equation}<a id='x1-2001r1'></a> where \(C: X \rightarrow X'\) is a compact operator,
+then according to the theorem of Fredholm alternative, the solution uniqueness depends on if \(A\) is
+injective.
+</p><!-- l. 32 --><p class='indent'>   In this article, we only consider the first case above, where the Lax-Milgram Lemma and the operator’s
+ellipticity govern the solution property. This case is often met in both PDEs and BIEs for the Laplace problem. It
+is possible that the linear operator \(A\) may not be elliptic on the whole domain, such as the hypersingular boundary
+integral operator. Then the operator \(A\) is not invertible. Even though we can still discretize the bilinear
+form (in the real valued case) or sesquilinear form (in the complex valued case) \(b_A\) for \(A\), the resulted
+matrix \(\mathcal {A}\) will be singular and not solvable. Therefore, \(A\) should be stabilized (<a href='#XSteinbachNumerical2007'>Steinbach</a>) or gauged
+(<a href='#XSmirnovaDual2012'>Smirnova</a>, <a href='#XSmirnovaDual2012'>b</a>,<a href='#XSmirnovaCalderon2013'>a</a>). Apparently, the stabilization appends additional terms to the bilinear form \(b_A\), which makes the
+system matrix non-singular. <span class='p1xb-x-x-109'>In essence, applying the stabilization is equivalent to searching
+</span><span class='p1xb-x-x-109'>the solution in a subspace of the operator’s domain, which is orthogonal to the kernel of the
+</span><span class='p1xb-x-x-109'>operator.</span>
+</p><!-- l. 34 --><p class='indent'>   In the following, we use the BIE for the Laplace problem with the Neumann boundary condition as an
+example to show the mechanism of operator stabilization.
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>2    </span> <a id='x1-30002'></a>Boundary integral equation for the Laplace problem with the Neumann boundary condition</h3>
+<!-- l. 37 --><p class='noindent'>We usually construct a boundary integral equation by starting from the Caldrón system. If we consider an
+interior problem in a bounded domain \(\Omega \) in \(\mathbb {R}^d\), the Caldrón system is \begin{equation}  \begin {pmatrix} \gamma _0^{\rm int} u \\ \gamma _1^{\rm int} u \end {pmatrix} = \begin {pmatrix} (1-\sigma )I-K &amp; V \\ D &amp; \sigma I + K' \end {pmatrix} \begin {pmatrix} \gamma _0^{\rm int} u \\ \gamma _1^{\rm int} u \end {pmatrix}.  \end{equation}<a id='x1-3001r2'></a> We organize the second row
+of the Caldrón system, which characterizes the Neumann trace of \(u\), and obtain the BIE for the
+Laplace problem with the Neumann boundary condition \(\gamma _1^{\mathrm {int}} u = g\): \begin{equation}  \label {eq:op-bie-laplace-neumann} D(\gamma _0^{\mathrm {int}} u) = \left [ (1-\sigma )I-K' \right ] g.  \end{equation}<a id='x1-3002r3'></a> \(D: H^{1/2}(\Gamma ) \rightarrow H^{-1/2}(\Gamma )\) is the hypersingular boundary integral
+operator, which is the minus Neumann trace, i.e. conormal derivative, of the double layer potential \(Wv\), \begin{equation}  (Dv)(x) = -\gamma _1^{\mathrm {int}}(Wv)(x) \quad (x\in \Gamma ),  \end{equation}<a id='x1-3003r4'></a>
+where \(v\) is the double layer charge density and \(v\in H^{1/2}(\Gamma )\). In the above BIE, \(v\) is just \(\gamma _0^{\mathrm {int}}u\). The integral operator \(W\) is
+defined as \begin{equation}  \label {eq:double-layer-potential} u(x) = (Wv)(x) = \int _{\Gamma } \left ( \gamma _{1,y}^{\mathrm {int}} U^{\ast }(x,y) \right ) v(y) ds_y \quad x\in \Omega \cup \Omega ^{\mathrm {c}},  \end{equation}<a id='x1-3004r5'></a> where \(\Omega ^{\mathrm {c}}=\mathbb {R}^d \backslash \overline {\Omega }\) and \(U^{\ast }(x,y)\) is the fundamental solution of the Laplace operator: \begin{equation}  U^{\ast }(x,y) = \begin {cases} -\frac {1}{2\pi }\log \lvert x-y \rvert &amp; \quad (d=2) \\ \frac {1}{4\pi } \frac {1}{\lvert x-y \rvert } &amp; \quad (d=3) \end {cases}.  \end{equation}<a id='x1-3005r6'></a> \(D\) is not \(H^{1/2}(\Gamma )\)-elliptic, but
+only \(H^{1/2}(\Gamma )\)semi-elliptic: \begin{equation}  \label {eq:hypersingular-semi-elliptic} \langle Dv,v \rangle _{\Gamma } \geq \bar {c}_1^D \lvert v \rvert _{H^{1/2}(\Gamma )}^2 \quad \forall v\in H^{1/2}(\Gamma ).  \end{equation}<a id='x1-3006r7'></a> This means the kernel of \(D\) is not trivial and the solution of the BIE in \(H^{1/2}(\Gamma )\) is not
+unique.
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>3    </span> <a id='x1-40003'></a>Solution space of Neumann problems</h3>
+<!-- l. 80 --><p class='noindent'>Before we examine the kernel of \(D\), we need several theorems about the solution space of Neumann problems
+from (<a href='#XMcLeanStrongly2000'>McLean</a>).
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>3.1    </span> <a id='x1-50003.1'></a>Homogeneous Neumann problem</h4>
+   <div class='theorem'><div class='newtheorem'>
+                                                                                               
+                                                                                               
+<!-- l. 83 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 1 (Solution for the interior homogeneous Neumann problem)</span> </span><a id='x1-5002'></a><a id='x1-50011'></a> <span class='p1xi-x-x-109'>For the interior Laplace problem with a
+</span><span class='p1xi-x-x-109'>homogeneous Neumann boundary condition </span>\begin{equation}  \begin {cases} -\Delta u = 0 &amp; (x\in \Omega ) \\ \gamma _1^{\rm int} u = 0 &amp; (x\in \Gamma ) \end {cases},  \end{equation}<a id='x1-5003r8'></a> \(u\in H^1(\Omega )\) <span class='p1xi-x-x-109'>is a solution if and only if </span>\(u\) <span class='p1xi-x-x-109'>is constant on each disjoint component of</span>
+\(\Omega \)<span class='p1xi-x-x-109'>.</span>
+</p><!-- l. 93 --><p class='indent'>   <span class='p1xi-x-x-109'>Assume </span>\(\Omega \) <span class='p1xi-x-x-109'>comprises </span>\(p\) <span class='p1xi-x-x-109'>components, </span>\(\Omega _1, \cdots , \Omega _p\)<span class='p1xi-x-x-109'>. Let </span>\(v_i\) <span class='p1xi-x-x-109'>be the indicator function of </span>\(\Omega _i\)<span class='p1xi-x-x-109'>, i.e </span>\begin{equation}  v_i(x) = \begin {cases} 1 &amp; \quad x\in \Omega _i \\ 0 &amp; \quad x\in \Omega \backslash \Omega _i \end {cases}.  \end{equation}<a id='x1-5004r9'></a> <span class='p1xi-x-x-109'>Then </span>\(\mathrm {span} \{ v_1,\cdots ,v_p \}\) <span class='p1xi-x-x-109'>is the solution space of the interior
+</span><span class='p1xi-x-x-109'>homogeneous Neumann problem.</span>
+</p>
+   </div>
+<!-- l. 102 --><p class='indent'>   </p></div>
+   <div class='newtheorem'>
+<!-- l. 104 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Comment 1</span> </span><a id='x1-5006'></a><span class='p1xi-x-x-109'>According to the following figure, when </span>\(\Omega =\bigcup _{i=1}^p \Omega _i\) <span class='p1xi-x-x-109'>has multiple components, we actually have </span>\(p\) <span class='p1xi-x-x-109'>independent Neumann
+</span><span class='p1xi-x-x-109'>problems on the subdomains.</span> </p>
+<div class='center'>
+<!-- l. 106 --><p class='noindent'>
+</p><!-- l. 107 --><p class='noindent'><img alt='PIC'  src='/figures/2025-08-10-05-42-26-domain-in-interior-laplace-neumann_export.png'  /></p></div>
+</div>
+<!-- l. 109 --><p class='indent'>
+</p>
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 111 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 2 (Solution for the exterior homogeneous Neumann problem)</span> </span><a id='x1-5008'></a><a id='x1-50072'></a> <span class='p1xi-x-x-109'>For the exterior Laplace
+</span><span class='p1xi-x-x-109'>problem with a homogeneous Neumann boundary condition </span>\begin{equation}  \begin {cases} -\Delta u = 0 &amp; \quad (x\in \Omega ^\mathrm {c}) \\ \gamma _1^{\rm ext} u = 0 &amp; \quad (x\in \Gamma ) \\ u(x) = O(\lvert x \rvert ^{2-d}) &amp; \quad (\lvert x \rvert \rightarrow \infty ) \end {cases},  \end{equation}<a id='x1-5009r10'></a> \(u\in H_{\mathrm {loc}}^1(\Omega ^{\mathrm {c}})\) <span class='p1xi-x-x-109'>is a solution if and only if it is constant on each
+</span><span class='p1xi-x-x-109'>disjoint component of </span>\(\Omega ^{\mathrm {c}}\)<span class='p1xi-x-x-109'>. When </span>\(d\geq 3\)<span class='p1xi-x-x-109'>, </span>\(u\) <span class='p1xi-x-x-109'>attenuates to zero when </span>\(\lvert x \rvert \rightarrow \infty \)<span class='p1xi-x-x-109'>, then </span>\(u\) <span class='p1xi-x-x-109'>is zero on the unbounded component in</span>
+\(\Omega ^{\mathrm {c}}\)<span class='p1xi-x-x-109'>.</span>
+</p><!-- l. 122 --><p class='indent'>   <span class='p1xi-x-x-109'>Assume there are </span>\(q\) <span class='p1xi-x-x-109'>components </span>\(\Omega _1^{\mathrm {c}},\cdots ,\Omega _q^{\mathrm {c}}\) <span class='p1xi-x-x-109'>in </span>\(\Omega ^{\mathrm {c}}\)<span class='p1xi-x-x-109'>, where </span>\(\Omega _q^{\mathrm {c}}\) <span class='p1xi-x-x-109'>is the unbounded domain. Let </span>\(v_i^{\mathrm {c}}\) <span class='p1xi-x-x-109'>be the indicator function of </span>\(\Omega _i^{\mathrm {c}}\)<span class='p1xi-x-x-109'>. Then </span>\(\mathrm {span}\{ v_1^{\mathrm {c}},\cdots ,v_{q-1}^{\mathrm {c}} \}\) <span class='p1xi-x-x-109'>is the
+</span><span class='p1xi-x-x-109'>solution space of the exterior homogeneous Neumann problem.</span>
+</p>
+   </div>
+<!-- l. 123 --><p class='indent'>   </p></div>
+   <div class='newtheorem'>
+<!-- l. 125 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Comment 2</span> </span><a id='x1-5011'></a><span class='p1xi-x-x-109'>There is only one unbounded component in </span>\(\Omega ^{\mathrm {c}}\)<span class='p1xi-x-x-109'>, since if there are two such components, they intersect
+</span><span class='p1xi-x-x-109'>at the infinity, which contradicts that the components should be disjoint.</span>
+                                                                                               
+                                                                                               
+</p>
+   </div>
+<!-- l. 127 --><p class='indent'>
+</p>
+   <div class='newtheorem'>
+<!-- l. 129 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Comment 3</span> </span><a id='x1-5013'></a><span class='p1xi-x-x-109'>If the interior domain </span>\(\Omega \) <span class='p1xi-x-x-109'>is multiply connected, the exterior domain </span>\(\Omega ^{\mathrm {c}}\) <span class='p1xi-x-x-109'>has multiple components.</span>
+</p>
+<div class='center'>
+<!-- l. 131 --><p class='noindent'>
+</p><!-- l. 132 --><p class='noindent'><img alt='PIC'  src='/figures/2025-08-10-05-42-26-domain-in-exterior-laplace-neumann_export.png'  /></p></div>
+</div>
+<!-- l. 134 --><p class='indent'>
+</p>
+   <div class='newtheorem'>
+<!-- l. 136 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Comment 4</span> </span><a id='x1-5015'></a><span class='p1xi-x-x-109'>When  the  exterior  domain  </span>\(\Omega ^{\mathrm {c}}\)  <span class='p1xi-x-x-109'>has  only  one  unbounded  component,  the  solution  of  the  exterior
+</span><span class='p1xi-x-x-109'>homogeneous Neumann problem is unique.</span>
+</p>
+   </div>
+<!-- l. 138 --><p class='indent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>3.2    </span> <a id='x1-60003.2'></a>Inhomogeneous Neumann problem</h4>
+<!-- l. 141 --><p class='noindent'>The interior inhomogeneous Neumann problem is \begin{equation}  \begin {cases} -\Delta u = f &amp;\quad (x\in \Omega ) \\ \gamma _1^{\rm int} u=g &amp;\quad (x\in \Gamma ) \end {cases},  \end{equation}<a id='x1-6001r11'></a> where \(f\in \tilde {H}^{-1}(\Omega )\), \(g\in H^{-1/2}(\Gamma )\) and \(\Omega \) has \(p\) components. \(u\in H^1(\Omega )\) is a solution if and only if the
+solvability condition for each component \(\Omega _i\) of \(\Omega \) is satisfied \begin{equation}  \int _{\Omega _i} f dx + \int _{\partial \Omega _i} g ds_x = 0 \quad 1 \leq i \leq p.  \end{equation}<a id='x1-6002r12'></a>
+</p>
+   <div class='newtheorem'>
+<!-- l. 153 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Comment 5</span> </span><a id='x1-6004'></a><span class='p1xi-x-x-109'>The solvability condition can be obtained from the Green’s 2nd identity, </span>\begin{equation}  \langle Lu,v \rangle _{\Omega } + \langle \gamma _1^{\mathrm {int}} u, \gamma _0^{\mathrm {int}} v \rangle _{\Gamma } = \langle Lv,u \rangle _{\Omega } + \langle \gamma _1^{\mathrm {int}} v, \gamma _0^{\mathrm {int}} u \rangle _{\Gamma },  \end{equation}<a id='x1-6005r13'></a> <span class='p1xi-x-x-109'>by setting the test function as</span>
+\(v \equiv 1\)<span class='p1xi-x-x-109'>.</span>
+</p><!-- l. 160 --><p class='indent'>   <span class='p1xbi-x-x-109'>This indicates that if the Neumann problem can be solved with a physical meaning, the input data </span>\(f\) <span class='p1xbi-x-x-109'>and </span>\(g\) <span class='p1xbi-x-x-109'>are
+</span><span class='p1xbi-x-x-109'>not independent and should not be arbitrarily given.</span>
+</p>
+   </div>
+                                                                                               
+                                                                                               
+<!-- l. 161 --><p class='indent'>
+</p><!-- l. 163 --><p class='indent'>   The solution \(u\) of the inhomogeneous Neumann problem is unique modulo the subspace \(\mathrm {span} \{ v_1,\cdots ,v_p \}\), i.e. if \(u_0\) is a solution, \(u_0 + u_1\)
+with \(u_1\in \mathrm {span} \{ v_1,\cdots ,v_p \}\) is also a solution. We also say the solution \(u\) is in the quotient space \(H^1(\Omega )_{/ \mathrm {span}\{ v_1,\cdots ,v_p \}}\), where all functions that have a
+difference within \(\mathrm {span}\{ v_1,\cdots ,v_p \}\) are considered in a same equivalence class, i.e. a solution of the inhomogeneous Neumann
+problem is not a single function, but a function set.
+</p><!-- l. 165 --><p class='indent'>   The above solution structure \(u=u_0+u_1\) is consistent with our experience acquired in the ordinary differential equation
+(ODE) theory, where the total solution is the sum of a particular solution for the inhomogeneous problem and a
+general solution for the homogeneous problem. In an ODE, the general solution is a parametric function, while
+in a PDE, the general solution is a function space. This also reminds us of the same solution structure for a matrix
+equation \(Ax=b\) in linear algebra. Such a similarity between linear algebra, ODE and PDE theories comes from the
+abstract linear operator theory.
+</p><!-- l. 167 --><p class='indent'>   The above conclusion also holds for the exterior Neumann problem.
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>4    </span> <a id='x1-70004'></a>Kernel of the hypersingular operator \(D\)</h3>
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 170 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 3</span> </span><a id='x1-7002'></a><span class='p1xi-x-x-109'>Let </span>\(v\in H^{1/2}(\Gamma )\) <span class='p1xi-x-x-109'>and </span>\(Dv = 0\)<span class='p1xi-x-x-109'>, then </span>\(v\) <span class='p1xi-x-x-109'>is constant on each boundary component of </span>\(\Gamma \)<span class='p1xi-x-x-109'>. Assume </span>\(\Gamma \) <span class='p1xi-x-x-109'>has </span>\(r\) <span class='p1xi-x-x-109'>components, i.e. </span>\(\Gamma = \bigcup _{i=1}^r \Gamma _i\)<span class='p1xi-x-x-109'>. Let </span>\(\chi _i\) <span class='p1xi-x-x-109'>be
+</span><span class='p1xi-x-x-109'>the indicator function for </span>\(\Gamma _i\)<span class='p1xi-x-x-109'>, then </span>\(\mathrm {span} \{ \chi _1,\cdots ,\chi _r \}\) <span class='p1xi-x-x-109'>is the kernel of </span>\(D\)<span class='p1xi-x-x-109'>.</span>
+</p>
+   </div>
+<!-- l. 172 --><p class='indent'>   </p></div>
+   <div class='proof'><div class='newtheorem'>
+<!-- l. 174 --><p class='noindent'><span class='head'>
+<span class='p1xsc-x-x-109'>P<span class='small-caps'>roof</span></span> </span><a id='x1-7004'></a>If \(v\in H^{1/2}(\Gamma )\) is considered as the double layer charge density, the double layer potential is \begin{equation}  u(x) = (Wv)(x) = \int _{\Gamma } \gamma _{1,y}^{\mathrm {int}} U^{\ast }(x,y) v(y) ds_y \quad x\in \Omega \cup \Omega ^{\mathrm {c}}.  \end{equation}<a id='x1-7005r14'></a> Because \(y\in \Gamma \) and \(x\in \Omega \cup \Omega ^\mathrm {c}\), \(x\neq y\) and there
+is no singularity in the above boundary integral.
+</p><!-- l. 181 --><p class='indent'>   Apply the Laplacian operator to the double layer potential, during which the Laplacian operator \(\Delta _x\) can be
+swapped with the integral operator \(\int _{\Gamma }\) since there is no singularity. \begin{equation}  \begin{aligned} -\Delta _x u(x) &amp;= -\Delta _x \int _{\Gamma } \left ( \gamma _{1,y}^{\mathrm {int}} U^{\ast }(x,y) \right ) v(y) ds_y \\ &amp;= -\int _{\Gamma }\Delta _x \left ( \gamma _{1,y}^{\rm int} U^{\ast }(x,y) \right ) v(y) ds_y \\ &amp;= -\int _{\Gamma } \gamma _{1,y}^{\rm int} \left ( \Delta _x U^{\ast }(x,y) \right ) v(y) ds_y \end{aligned}.  \end{equation}<a id='x1-7006r15'></a> The fundamental solution \(U^{\ast }(x,y)\) satisfies the Laplace
+equation with a unit Dirac source \(\delta (x-y)\): \begin{equation}  -\Delta _x U^{\ast }(x,y) = \delta (x-y).  \end{equation}<a id='x1-7007r16'></a> Because \(x\neq y\), \(\delta (x-y)=0\) and \(-\Delta _x U^{\ast }(x,y) = 0\) on \(\Omega \cup \Omega ^{\mathrm {c}}\). Hence, the double layer potential \(u(x)\) is harmonic in
+\(\Omega \cup \Omega ^{\mathrm {c}}\).
+</p><!-- l. 197 --><p class='indent'>   The given condition \((Dv)(x)=0\) actually means both the interior and exterior Neumann traces of the double layer
+potential are zero: \begin{equation}  \gamma _1^{\mathrm {int}} u = 0, \gamma _1^{\mathrm {ext}} u = 0.  \end{equation}<a id='x1-7008r17'></a> Combining these two boundary conditions with the harmonic condition \(-\Delta u = 0\) in \(\Omega \cup \Omega ^{\mathrm {c}}\), we obtain
+both interior and exterior homogeneous Neumann problems. According to Theorem <a href='#x1-50011'>1<!-- tex4ht:ref: theo:sol-int-homo-neumann  --></a> and <a href='#x1-50072'>2<!-- tex4ht:ref: theo:sol-ext-homo-neumann  --></a>, the
+double layer potential \(u\) must be constant on each component in \(\Omega \) <span class='p1xb-x-x-109'>and </span>\(\Omega ^{\mathrm {c}}\). The jumping property of the
+double layer potential across the boundary \(\Gamma \) is \begin{equation}  v(x) = [u]_{\Gamma } = \gamma _0^{\mathrm {ext}}u - \gamma _0^{\mathrm {int}}u = \lim _{\Omega ^{\mathrm {c}} \ni \tilde {x} \rightarrow x} u(\tilde {x}) - \lim _{\Omega \ni \tilde {x} \rightarrow x} u(\tilde {x}) \quad x\in \Gamma .  \end{equation}<a id='x1-7009r18'></a> <span class='p1xb-x-x-109'>This expression means the double layer charge
+</span><span class='p1xb-x-x-109'>density </span>\(v\) <span class='p1xb-x-x-109'>at a point </span>\(x\) <span class='p1xb-x-x-109'>on the boundary </span>\(\Gamma \) <span class='p1xb-x-x-109'>is equal to the variation of the double layer potential </span>\(u\)<span class='p1xb-x-x-109'>, when
+</span><span class='p1xb-x-x-109'>the target point </span>\(\tilde {x}\)<span class='p1xb-x-x-109'>, which is infinitely close to </span>\(x\)<span class='p1xb-x-x-109'>, jumps across the boundary </span>\(\Gamma \) <span class='p1xb-x-x-109'>from the interior to
+</span><span class='p1xb-x-x-109'>exterior.</span>
+</p><!-- l. 209 --><p class='indent'>   Assume \(\Gamma \) has \(r\) components, \(\Gamma _1,\cdots ,\Gamma _r\). Each component \(\Gamma _i\) is shared by two components in \(\Omega \) and \(\Omega ^{\mathrm {c}}\) respectively. Then \(v\) on \(\Gamma _i\)
+must be constant. Therefore, the kernel of \(D\) is the span of the indicator functions of the boundary
+                                                                                               
+                                                                                               
+components, i.e. \(\mathrm {span} \{ \chi _1,\cdots ,\chi _r \}\). The solution of the boundary integral equation <a href='#x1-3002r3'>3<!-- tex4ht:ref: eq:op-bie-laplace-neumann  --></a> is unique modulo this kernel
+space.
+</p><p style="text-align: right;">&#9632;</p>
+   </div>
+<!-- l. 210 --><p class='indent'>   </p></div>
+   <h3 class='sectionHead'><span class='titlemark'>5    </span> <a id='x1-80005'></a>Select an orthogonal subspace in which the ellipticity of \(D\) holds</h3>
+<!-- l. 213 --><p class='noindent'>We already know that the hypersingular operator \(D\) in the BIE for the Laplace Neumann problem is not elliptic on
+its whole domain \(H^{1/2}(\Gamma )\), but only semi-elliptic (see Equation <a href='#x1-3006r7'>7<!-- tex4ht:ref: eq:hypersingular-semi-elliptic  --></a>). This corresponds to the fact that the kernel of \(D\) is \(\mathrm {span} \{ \chi _1,\cdots ,\chi _r \}\) and
+the solution is unique only in the sense that it is an element in the quotient space \(H^{1/2}(\Gamma )_{/ \mathrm {span}\{ \chi _1,\cdots ,\chi _r \}}\). In order to make the solution
+authentically unique, which is mandatory for the discretized system matrix \(\mathcal {D}\) to be numerically
+solvable, we need to stabilize or gauge \(D\), so that it is elliptic in a <span class='p1xb-x-x-109'>subspace </span>of \(H^{1/2}(\Gamma )\), which is <span class='p1xb-x-x-109'>orthogonal </span>to
+\(\ker D\). It is in this smaller subspace that we are going to search the unique solution of the Neumann
+problem.
+</p><!-- l. 215 --><p class='indent'>   Note that the concept of orthogonality is involved here, which depends on how the inner product is defined
+for the Hilbert space \(H^{1/2}(\Gamma )\). Actually, we have different choices of the definitions of the inner product, which are
+further induced from different choices of norm definitions. If these norms are equivalent to the standard Sobolev
+norm of \(H^{1/2}(\Gamma )\), \(D\) must be elliptic on the subspace in which the condition of being orthogonal to \(\ker D\) holds. Therefore, the
+general idea to stabilize a non-elliptic operator is to select a subspace and define an equivalent norm,
+so that the operator is elliptic in this subspace and the subspace is orthogonal to the operator’s
+kernel.
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>5.1    </span> <a id='x1-90005.1'></a>Choice 1: select a subspace \(L_2\)-orthogonal to natural densities</h4>
+<!-- l. 218 --><p class='noindent'>For a boundary component \(\Gamma _i\) in \(\Gamma \) (\(i=1,\cdots ,r\)), the associated natural density \(w_{\mathrm {eq},i}\) is defined as the pre-image of the boundary
+indicator function \(\chi _i\) under the map of the single layer potential operator \(V\) \begin{equation}  V w_{\mathrm {eq},i} = \chi _i \quad x\in \Gamma .  \end{equation}<a id='x1-9001r19'></a>
+</p><!-- l. 223 --><p class='indent'>   Using the standard \(L_2\) inner product<span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-9002f1'></a>,
+let a subspace of \(H^{1/2}(\Gamma )\) orthogonal to these \(r\) natural densities be defined as \begin{equation}  H_{\ast }^{1/2}(\Gamma ) := \{ v\in H^{1/2}(\Gamma ): \langle v,w_{\mathrm {eq},i} \rangle _{\Gamma } = 0, i=1,\cdots ,r \}.  \end{equation}<a id='x1-9004r20'></a> According to the <a href='{% post_url 2025-07-11-solution-uniqueness-and-stability-for-elliptic-pdes %}#x1-3014'>norm equivalence of
+Sobolev theorem</a>, if a norm for \(H^{1/2}(\Gamma )\) is defined as \begin{equation}  \lVert v \rVert _{H_{\ast }^{1/2}(\Gamma )} := \left \{ \sum _{i=1}^r \langle v,w_{\mathrm {eq},i} \rangle _{\Gamma }^2 + \lvert v \rvert _{H^{1/2}(\Gamma )}^2 \right \}^{1/2},  \end{equation}<a id='x1-9005r21'></a> where \(\lvert v \rvert _{H^{1/2}(\Gamma )}\) is the semi-norm of \(v\), this norm is equivalent to the Sobolev
+norm \(\lVert v \rVert _{H^{1/2}(\Gamma )}\) and it can be proved that \(D\) is \(H_{\ast }^{1/2}(\Gamma )\)-elliptic.
+</p><!-- l. 233 --><p class='indent'>   The inner product induced from this norm is \begin{equation}  \langle u,v \rangle _{H_{\ast }^{1/2}(\Gamma )} := \sum _{i=1}^r \langle u,w_{\mathrm {eq},i} \rangle _{\Gamma } \langle v, w_{\mathrm {eq},i} \rangle _{\Gamma } + \lvert u \rvert _{H^{1/2}(\Gamma )} \lvert v \rvert _{H^{1/2}(\Gamma )}.  \end{equation}<a id='x1-9006r22'></a> We can verify that for any function \(v\in H_{\ast }^{1/2}(\Gamma )\), it is orthogonal to all
+boundary indicator functions \(\{ \chi _i \}_{i=1}^r\) using this inner product definition. \begin{equation}  \langle v,\chi _i \rangle _{H_{\ast }^{1/2}(\Gamma )} = \sum _{j=1}^r \langle v,w_{\mathrm {eq},j} \rangle _{\Gamma } \langle \chi _i,w_{\mathrm {eq},j} \rangle _{\Gamma } + \lvert v \rvert _{H^{1/2}(\Gamma )} \lvert \chi _i \rvert _{H^{1/2}(\Gamma )},  \end{equation}<a id='x1-9007r23'></a> where the sum in the above
+equation is zero since \(\langle v,w_{\mathrm {eq},j} \rangle _{\Gamma } = 0\) for all \(j=1,\cdots ,r\) and \(\lvert \chi _i \rvert _{H^{1/2}(\Gamma )}\) is also zero because \(\chi _i\) is constant 1 on \(\Gamma _i\) and constant 0 on other
+boundary components. Therefore, \(\langle v,\chi _i \rangle _{H_{\ast }^{1/2}(\Gamma )} = 0\) for all \(i=1,\cdots ,r\). Hence, \(H_{\ast }^{1/2}(\Gamma )\) is orthogonal to \(\ker D\) using the above inner product
+definition.
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>5.2    </span> <a id='x1-100005.2'></a>Choice 2: select a subspace \(L_2\)-orthogonal to \(\ker D\)</h4>
+<!-- l. 244 --><p class='noindent'>Using the standard \(L_2\) inner product, let a subspace of \(H^{1/2}(\Gamma )\) orthogonal to \(\ker D\), i.e. orthogonal to all boundary
+indicator functions \(\{ \chi _i \}_{i=1}^r\), be defined as \begin{equation}  H_{\ast \ast }^{1/2}(\Gamma ) := \{ v\in H^{1/2}(\Gamma ): \langle v,\chi _i \rangle _{\Gamma } = 0, i=1,\cdots ,r \}.  \end{equation}<a id='x1-10001r24'></a> The equivalent norm for \(H^{1/2}(\Gamma )\) is defined as \begin{equation}  \lVert v \rVert _{H_{\ast \ast }^{1/2}(\Gamma )} := \left \{ \sum _{i=1}^r \langle v,\chi _i \rangle _{\Gamma }^2 + \lvert v \rvert _{H^{1/2}(\Gamma )}^2 \right \}^{1/2}.  \end{equation}<a id='x1-10002r25'></a> It can be proved that \(D\) is
+\(H_{\ast \ast }^{1/2}(\Gamma )\)-elliptic.
+                                                                                               
+                                                                                               
+</p><!-- l. 254 --><p class='indent'>   The inner product induced from this norm is \begin{equation}  \langle u,v \rangle _{H_{\ast \ast }^{1/2}(\Gamma )} := \sum _{i=1}^r \langle u,\chi _i \rangle _{\Gamma } \langle v,\chi _i \rangle _{\Gamma } + \lvert u \rvert _{H^{1/2}(\Gamma )} \lvert v \rvert _{H^{1/2}(\Gamma )}.  \end{equation}<a id='x1-10003r26'></a> For any function \(v\in H_{\ast \ast }^{1/2}(\Gamma )\), it is orthogonal to all boundary indicator
+functions \(\{ \chi _i \}_{i=1}^r\) using this inner product, i.e. for any \(i=1,\cdots ,r\), \begin{equation}  \langle u,\chi _i \rangle _{H_{\ast \ast }^{1/2}(\Gamma )} = \sum _{j=1}^r \langle u,\chi _j \rangle _{\Gamma } \langle \chi _i,\chi _j \rangle _{\Gamma } + \lvert u \rvert _{H^{1/2}(\Gamma )} \lvert \chi _i \rvert _{H^{1/2}(\Gamma )} = 0.  \end{equation}<a id='x1-10004r27'></a> Therefore, \(H_{\ast \ast }^{1/2}(\Gamma )\) is orthogonal to \(\ker D\) using this new inner product
+definition.
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>6    </span> <a id='x1-110006'></a>Incorporate the subspace constraint into the BIE</h3>
+<!-- l. 265 --><p class='noindent'>In the previous section, two subspaces are constructed in which \(D\) is elliptic and the solution of the Neumann
+problem can be made authentically unique. So we need to incorporate these subspace constraints into the BIE for
+the Neumann problem. The variational formulation of the operator equation in <a href='#x1-3002r3'>3<!-- tex4ht:ref: eq:op-bie-laplace-neumann  --></a> is \begin{equation}  \langle D \gamma _0^{\mathrm {int}}, v \rangle _{\Gamma } = \langle [(1-\sigma )I-K']g, v \rangle _{\Gamma } \quad \forall v\in H^{1/2}(\Gamma ).  \end{equation}<a id='x1-11001r28'></a> If we restrict the solution
+space to \(H_{\ast }^{1/2}(\Gamma )\), we have the constrained variational formulation: for all \(v\in H_{\ast }^{1/2}(\Gamma )\), find \(\gamma _0^{\mathrm {int}}u\in H_{\ast }^{1/2}(\Gamma )\), such that \begin{equation}  \begin{aligned} \langle D \gamma _0^{\mathrm {int}}u,v \rangle _{\Gamma } &amp;= \langle [(1-\sigma )I-K']g, v \rangle _{\Gamma } \\ \langle \gamma _0^{\rm int}u, w_{\mathrm {eq},i} \rangle _{\Gamma } &amp;= 0 \quad i=1,\cdots ,r \end{aligned}.  \end{equation}<a id='x1-11002r29'></a> Using the <a href='{% post_url 2025-05-28-understanding-about-the-lagrange-multiplier-method %}'>Lagrange
+multiplier method</a>, we obtain a saddle point problem: for all \(v\in H^{1/2}(\Gamma )\), find \(\gamma _0^{\mathrm {int}}u \in H^{1/2}(\Gamma )\), such that \begin{equation}  \begin{aligned} \langle D \gamma _0^{\rm int}u,v \rangle _{\Gamma } + \sum _{i=1}^r \lambda _i \langle v,w_{\mathrm {eq},i} \rangle _{\Gamma } &amp;= \langle [(1-\sigma )I-K']g, v \rangle _{\Gamma } \\ \langle \gamma _0^{\rm int}u, w_{\mathrm {eq},i} \rangle _{\Gamma } &amp;= 0 \quad i=1,\cdots ,r \end{aligned},  \end{equation}<a id='x1-11003r30'></a> where \(\lambda _1,\cdots ,\lambda _r\) are Lagrange
+multipliers<span class='footnote-mark'><a href='#fn2x0' id='fn2x0-bk'><sup class='textsuperscript'>2</sup></a></span><a id='x1-11004f2'></a>.
+</p><!-- l. 287 --><p class='indent'>   Because the above test function \(v\) is arbitrary in \(H^{1/2}(\Gamma )\), we can select \(v\) as a boundary indicator function \(\chi _i\). Because \(D\) is
+self-adjoint and \(\chi _i\) belongs to \(\ker D\), we have \begin{equation}  \langle D \gamma _0^{\mathrm {int}}u,v \rangle _{\Gamma } = \langle D \gamma _0^{\mathrm {int}}u,\chi _i \rangle _{\Gamma } = \langle \gamma _0^{\mathrm {int}}u, D\chi _i \rangle _{\Gamma } = 0.  \end{equation}<a id='x1-11006r31'></a> Meanwhile, according to the closed range theorem, \(\mathrm {Im} D = ( \ker D' )^{\circ } = ( \ker D )^{\circ }\), where \(( \ker D )^{\circ }\) is the
+annihilator of \(\ker D\). Because \([(1-\sigma )I-K']g\) in the right hand side term belongs to the image of \(D\), it also belongs to \(( \ker D )^{\circ }\), so we have \begin{equation}  \langle [(1-\sigma )I-K']g,\chi _i \rangle _{\Gamma } = 0.  \end{equation}<a id='x1-11007r32'></a>
+Therefore, the first equation in the above saddle point problem becomes \begin{equation}  \sum _{j=1}^r \lambda _j \langle \chi _i, w_{\mathrm {eq},j} \rangle _{\Gamma } = 0.  \end{equation}<a id='x1-11008r33'></a> Because \(\langle \chi _i, w_{\mathrm {eq},j} \rangle _{\Gamma }\) cannot be ensured to be zero,
+all the Lagrange multipliers \(\lambda _1,\cdots ,\lambda _r\) must be zero. Then we can introduce a factor \(\alpha \in \mathbb {R}^+\) to obtain an equivalent saddle point
+problem as below. \begin{equation}  \begin{aligned} \langle D \gamma _0^{\rm int}u,v \rangle _{\Gamma } + \sum _{i=1}^r \lambda _i \langle v,w_{\mathrm {eq},i} \rangle _{\Gamma } &amp;= \langle [(1-\sigma )I-K']g, v \rangle _{\Gamma } \\ \langle \gamma _0^{\rm int}u, w_{\mathrm {eq},i} \rangle _{\Gamma } - \frac {\lambda _i}{\alpha } &amp;= 0 \quad i=1,\cdots ,r \end{aligned}.  \end{equation}<a id='x1-11009r34'></a> The Lagrange multiplier can be represented as \begin{equation}  \lambda _i = \alpha \langle \gamma _0^{\mathrm {int}}u, w_{\mathrm {eq},i} \rangle _{\Gamma }.  \end{equation}<a id='x1-11010r35'></a> Substitute this expression into the first
+equation, we obtain the stabilized variational equation for the Neumann problem: for all \(v\in H^{1/2}(\Gamma )\), find \(\gamma _0^{\mathrm {int}}u\in H^{1/2}(\Gamma )\), such
+that \begin{equation}  \langle D \gamma _0^{\mathrm {int}}u,v \rangle _{\Gamma } + \alpha \sum _{i=1}^r \langle \gamma _0^{\mathrm {int}}u, w_{\mathrm {eq},i} \rangle _{\Gamma } \langle v,w_{\mathrm {eq},i} \rangle _{\Gamma } = \langle [(1-\sigma )I-K']g,v \rangle _{\Gamma }.  \end{equation}<a id='x1-11011r36'></a> The left hand side of this equation can be considered as a stabilized bilinear form \(\langle \tilde {D}\gamma _0^{\mathrm {int}}u, v \rangle _{\Gamma }\), which is
+\(H^{1/2}(\Gamma )\)-elliptic. Therefore, the solution of this equation is unique and is ensured to be in the subspace
+\(H_{\ast }^{1/2}(\Gamma )\).
+</p><!-- l. 317 --><p class='indent'>   If we restrict the solution to the subspace \(H_{\ast \ast }^{1/2}(\Gamma )\), using the <a href='{% post_url 2025-05-28-understanding-about-the-lagrange-multiplier-method %}'>Lagrange multiplier method</a>, we obtain a new saddle
+point problem: for all \(v\in H^{1/2}(\Gamma )\), find \(\gamma _0^{\mathrm {int}}u \in H^{1/2}(\Gamma )\), such that \begin{equation}  \begin{aligned} \langle D \gamma _0^{\rm int}u,v \rangle _{\Gamma } + \sum _{i=1}^r \lambda _i \langle v,\chi _i \rangle _{\Gamma } &amp;= \langle [(1-\sigma )I-K']g, v \rangle _{\Gamma } \\ \langle \gamma _0^{\rm int}u, \chi _i \rangle _{\Gamma } &amp;= 0 \quad i=1,\cdots ,r \end{aligned}.  \end{equation}<a id='x1-11012r37'></a> Again, that all Lagrange multipliers \(\lambda _1,\cdots ,\lambda _r\) are zero can be deduced from the
+first equation. Introducing another factor \(\bar {\alpha }\in \mathbb {R}^+\), we obtain the second formulation of the stabilized variational
+equation for the Neumann problem: for all \(v\in H^{1/2}(\Gamma )\), find \(\gamma _0^{\mathrm {int}}u\in H^{1/2}(\Gamma )\), such that \begin{equation}  \langle D \gamma _0^{\mathrm {int}}u,v \rangle _{\Gamma } + \alpha \sum _{i=1}^r \langle \gamma _0^{\mathrm {int}}u, \chi _i \rangle _{\Gamma } \langle v,\chi _i \rangle _{\Gamma } = \langle [(1-\sigma )I-K']g,v \rangle _{\Gamma }.  \end{equation}<a id='x1-11013r38'></a> The left hand side of this equation is a stabilized
+bilinear form \(\langle \hat {D}\gamma _0^{\mathrm {int}}u, v \rangle _{\Gamma }\), which is also \(H^{1/2}(\Gamma )\)-elliptic. The solution of this equation is unique and is ensured to be in the subspace
+\(H_{\ast \ast }^{1/2}(\Gamma )\).
+</p><!-- l. 1 --><p class='noindent'>
+</p>
+   <h3 class='likesectionHead'><a id='x1-12000'></a>References</h3>
+<!-- l. 1 --><p class='noindent'>
+  </p><div class='thebibliography'>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XMcLeanStrongly2000'></a><span class='bibsp'>   </span></span>William Charles Hector McLean. <span class='p1xi-x-x-109'>Strongly Elliptic Systems and Boundary Integral Equations</span>. Cambridge
+  University Press. ISBN 978-0-521-66375-5.
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XSmirnovaCalderon2013'></a><span class='bibsp'>   </span></span>Yulia Smirnova. Calderon preconditioning for higher order boundary element method, a.
+                                                                                               
+                                                                                               
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XSmirnovaDual2012'></a><span class='bibsp'>   </span></span>Yulia Smirnova. Dual mesh calderon preconditioning for single layer boundary integral operator, b.
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XSteinbachNumerical2007'></a><span class='bibsp'>   </span></span>Olaf  Steinbach.    <span class='p1xi-x-x-109'>Numerical  Approximation  Methods  for  Elliptic  Boundary  Value  Problems:  Finite  and
+  </span><span class='p1xi-x-x-109'>Boundary Elements</span>. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2.
+</p>
+  </div>
+   <div class='footnotes'><a id='x1-9003x5.1'></a>
+<!-- l. 223 --><p class='indent'>      <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-90'>Actually, because </span>\(v\) <span class='p1xr-x-x-90'>and </span>\(w_{\mathrm {eq},i}\) <span class='p1xr-x-x-90'>belong to two spaces dual to each other, the </span>\(L_2\) <span class='p1xr-x-x-90'>inner product used here is actually duality
+</span><span class='p1xr-x-x-90'>pairing.</span></p><a id='x1-11005x6'></a>
+<!-- l. 285 --><p class='indent'>        <span class='footnote-mark'><a href='#fn2x0-bk' id='fn2x0'><sup class='textsuperscript'>2</sup></a></span><span class='p1xr-x-x-90'>We should be careful here: while </span>\(\gamma _0^{\mathrm {int}}u\) <span class='p1xr-x-x-90'>appears in the subspace constraint </span>\(\langle \gamma _0^{\mathrm {int}}u, w_{\mathrm {eq},i} \rangle _{\Gamma } = 0\)<span class='p1xr-x-x-90'>, </span>\(v\) <span class='p1xr-x-x-90'>instead of </span>\(\gamma _0^{\mathrm {int}}u\) <span class='p1xr-x-x-90'>appears in the Lagrange multiplier term </span>\(\lambda _i\langle v,w_{\mathrm {eq},i} \rangle _{\Gamma }\) <span class='p1xr-x-x-90'>in the
+</span><span class='p1xr-x-x-90'>first equation, even though it is related to the constraint for </span>\(\gamma _0^{\mathrm {int}}u\)<span class='p1xr-x-x-90'>.</span></p>                                                                                                                    </div>
+<p>{{ "2025-08-10-hypersingular-operator-stabilization" | backlink }}</p>
