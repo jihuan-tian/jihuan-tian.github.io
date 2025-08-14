@@ -1,0 +1,78 @@
+---
+layout: post
+title: Evaluation of the stabilization term for the hypersingular operator
+date: 2025-08-14
+categories: [math]
+tags: [BEM]
+mathjax: true
+custom_css: /assets/css/make4ht.css
+---
+
+In our <a href='{% post_url 2025-08-10-hypersingular-operator-stabilization %}'>previous article</a>, we obtained two formulations of the stabilized hypersingular bilinear or sesquilinear
+forms. When the solution subspace is \(H_{\ast }^{1/2}(\Gamma )\), the stabilization term added to \(\langle Du,v \rangle _{\Gamma }\) is \begin{equation}  \alpha \sum _{k=1}^r \langle \gamma _0^{\mathrm {int}}u,w_{\mathrm {eq},k} \rangle _{\Gamma } \langle v,w_{\mathrm {eq},k} \rangle _{\Gamma }.  \end{equation}<p><a id='x1-2r1'></a></p> When the solution subspace is \(H_{\ast \ast }^{1/2}(\Gamma )\), the
+added stabilization term is \begin{equation}  \bar {\alpha }\sum _{k=1}^r \langle \gamma _0^{\mathrm {int}}u,\chi _k \rangle _{\Gamma } \langle v,\chi _k \rangle _{\Gamma }.  \end{equation}<p><a id='x1-3r2'></a></p> To compute the above stabilization terms, we need to evaluate the duality pairing
+thereof in either real or complex valued cases.
+<!-- l. 31 --><p class='indent'>   We usually understand a duality pairing as directly applying a functional \(v\) in the dual space to a function \(u\) in
+the primal space, i.e. \(v(u) = \langle u,v \rangle \). In principle, in the complex valued case, there should be no complex conjugation on \(v\), since
+\(v\) itself already includes conjugation, just like the left vector or ket in quantum mechanics. Then the duality
+pairing of \(u\) and \(v\) is just their linear combination, which is bilinear instead of sesquilinear. On the other hand,
+when \(u\) and \(v\) are in a same space, their inner product is sesquilinear and the complex conjugation is needed for
+\(v\).
+</p><!-- l. 33 --><p class='indent'>   In the boundary element method, according to (<a href='#XRjasanowFast2007'>Rjasanow and Steinbach</a>, page 46) and (<a href='#XSteinbachNumerical2007'>Steinbach</a>, page 170),
+the duality pairing \(\langle u,v \rangle _{\Gamma }\) is defined as a surface integral which explicitly requires complex conjugation on the second
+operand \(v\), \begin{equation}  \langle u,v \rangle _{\Gamma } := \int _{\Gamma } u(x) \overline {v(x)} ds_x.  \end{equation}<a id='x1-4r3'></a> Then such a duality pairing is sesquilinear instead of bilinear. This is reasonable and should be
+understood like this. For example, in the stabilization term \(\alpha \sum _{k=1}^r\langle \gamma _0^{\mathrm {int}}u,w_{\mathrm {eq},k} \rangle _{\Gamma } \langle v,w_{\mathrm {eq},k} \rangle _{\Gamma }\) used for the hypersingular operator \(D\), the boundary \(\Gamma \)
+on which \(D\) is defined has \(r\) disjoint components, \(\gamma _0^{\mathrm {int}}u\) and \(v\) are in the primal space \(H^{1/2}(\Gamma )\), while the natural
+density \(w_{\mathrm {eq},k}\) is in the dual space \(H^{-1/2}(\Gamma )\). \(w_{\mathrm {eq},k}\) is computed by solving the single layer operator equation \(Vw_{\mathrm {eq},k}=\chi _k\) with \(\chi _k\)
+being the indicator function of \(\Gamma _k\). Because \(w_{\mathrm {eq},k}\) is a physical single layer charge distribution, it does not
+include a complex conjugation in itself. Therefore, to make \(w_{\mathrm {eq},k}\) a function in the dual space which is
+applied to \(u\) linearly without complex conjugation, we need to explicitly <span class='p1xb-x-x-109'>merge </span>conjugation into
+\(w_{\mathrm {eq},k}\).
+</p><!-- l. 39 --><p class='indent'>   In this way, the duality pairing is almost the same as the \(L_2\)-inner product, except that \(u\) and \(v\) belong to
+two different spaces, such as the pair of dual spaces \(H^{1/2}(\Gamma )\) and \(H^{-1/2}(\Gamma )\). Therefore, the duality pairing can be
+considered as an extension of the \(L_2\)-inner product. In a BEM implementation, finite dimensional
+conforming function spaces, such as Lagrangian polynomial spaces of different orders, can be adopted to
+approximate the primal space \(H^{1/2}(\Gamma )\) and the dual space \(H^{-1/2}(\Gamma )\) respectively. Such a polynomial space is a subspace of \(L_2(\Gamma )\).
+Therefore, \(u\) and \(v\) are in a same large space \(L_2(\Gamma )\) and the duality pairing in reality is just the same as the \(L_2\)-inner
+product.
+</p><!-- l. 41 --><p class='indent'>   Now we can use the language of differential geometry to describe the duality pairing. The bases
+adopted for the finite dimensional approximations of \(H^{1/2}(\Gamma )\) and \(H^{-1/2}(\Gamma )\) are usually different, even with different
+dimensions. For example, we can select \(\{ \phi _i \}_{i=1}^n\) as the basis for \(H_h^{1/2}(\Gamma )\) and \(\{ \psi _j \}_{j=1}^m\) as the basis for \(H_h^{-1/2}(\Gamma )\). Then \(u\) and \(v\) can be
+approximated as \(u_h=\sum _{i=1}^n u^i\phi _i\) and \(v_h=\sum _{j=1}^m v^j\psi _j\). Their duality pairing or \(L_2\)-inner product is \begin{equation}  \langle u,v \rangle _{\Gamma } \approx \langle u_h,v_h \rangle _{\Gamma } = \sum _{i=1}^n\sum _{j=1}^m \langle \phi _i,\psi _j \rangle _{\Gamma } u^i \overline {v^j}.  \end{equation}<a id='x1-5r4'></a> The discrete vector for \(u_h\) is a tangent vector
+\(u^i\)<span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-6f1'></a>. The discrete
+                                                                                               
+                                                                                               
+vector for \(v_h\) is a tangent vector \(v^j\). The mass matrix \(\mathcal {M}\) mapping from \(H_h^{-1/2}(\Gamma )\) to \(H_h^{1/2}(\Gamma )\) is actually the matrix form of the metric tensor \(g_{ij} = \langle \phi _i,\psi _j \rangle _{\Gamma }\).
+By merging the metric tensor \(g_{ij}\), complex conjugation and the tangent vector \(v^j\), we can get the corresponding cotangent
+vector \(\tilde {v}_i = g_{ij}\overline {v^j}\)<span class='footnote-mark'><a href='#fn2x0' id='fn2x0-bk'><sup class='textsuperscript'>2</sup></a></span><a id='x1-8f2'></a>.
+Then the standard duality pairing whose definition does not involve complex conjugation is equivalent to
+applying the cotangent vector \(\tilde {v}_i\) to the tangent vector \(u^i\). The matrix formulation of duality pairing is \begin{equation}  \langle u,v \rangle _{\Gamma } \approx \langle u_h,v_h \rangle _{\Gamma } = (\mathcal {M} [\overline {v}])^{\mathrm {T}} [u],  \end{equation}<a id='x1-10r5'></a> where \begin{equation}  [\overline {v}] = \begin {pmatrix} \overline {v^1} \\ \vdots \\ \overline {v^m}, \end {pmatrix} [u] = \begin {pmatrix} u^1 \\ \vdots \\ u^n \end {pmatrix}.  \end{equation}<a id='x1-11r6'></a> If we
+use the language of quantum mechanics, \((\mathcal {M}[\overline {v}])^{\mathrm {T}}\) is a ket and \([u]\) is a bra.
+</p><!-- l. 60 --><p class='indent'>   Now the stabilization term can be computed below by letting \(v=\psi _1,\cdots ,\psi _m\) respectively. We obtain \(m\) scalar values, which
+are organized into a column vector. Note that with the basis \(\{ \psi _j \}_{j=1}^{m}\), the discrete vector for \(\psi _j\) is \(\boldsymbol {e}_j\). \begin{equation}  \begin{aligned} \alpha \sum _{k=1}^r \langle \gamma _0^{\rm int}u,w_{\mathrm {eq},k} \rangle _{\Gamma } \langle v,w_{\mathrm {eq},k} \rangle _{\Gamma } &amp;= \alpha \sum _{k=1}^r \begin {pmatrix} (\mathcal {M} [\overline {w}_{\mathrm {eq},k}])^{\mathrm {T}} [\gamma _0^{\mathrm {int}} u] (\mathcal {M} [\overline {w}_{\mathrm {eq},k}])^{\mathrm {T}} \boldsymbol {e}_1 \\ \vdots \\ (\mathcal {M} [\overline {w}_{\mathrm {eq},k}])^{\mathrm {T}} [\gamma _0^{\mathrm {int}} u] (\mathcal {M} [\overline {w}_{\mathrm {eq},k}])^{\mathrm {T}} \boldsymbol {e}_m \end {pmatrix} \end{aligned}.  \end{equation}<a id='x1-12r7'></a> Because \((\mathcal {M} [\overline {w}_{\mathrm {eq},k}])^{\mathrm {T}} [\gamma _0^{\mathrm {int}} u]\) is a scalar value
+and \((\mathcal {M} [\overline {w}_{\mathrm {eq},k}])^{\mathrm {T}} \boldsymbol {e}_j\) extracts the \(j\)-th component of the row vector \((\mathcal {M} [\overline {w}_{\mathrm {eq},k}])^{\mathrm {T}}\), the stabilization terms organized into a column vector are \begin{equation}  \alpha \sum _{k=1}^r (\mathcal {M}[\overline {w}_{\mathrm {eq},k}]) (\mathcal {M}[\overline {w}_{\mathrm {eq},k}])^{\mathrm {T}}[\gamma _0^{\rm int} u].  \end{equation}<a id='x1-13r8'></a> By
+extracting out the vector \([\gamma _0^{\mathrm {int}} u]\) outside the summation, we obtain a sum of matrices \(\alpha \sum _{k=1}^r (\mathcal {M}[\overline {w}_{\mathrm {eq},k}]) (\mathcal {M}[\overline {w}_{\mathrm {eq},k}])^{\mathrm {T}}\), each of which is a
+<span class='p1xb-x-x-109'>formal </span>(without complex conjugation) outer product of the vector \(\mathcal {M}[\overline {w}_{\mathrm {eq},k}]\). These matrices can be added
+into the Galerkin matrix \(\mathcal {D}\), which is the final system matrix to be solved in the Neumann problem.
+\begin{equation}  \tilde {\mathcal {D}} := \mathcal {D} + \alpha \sum _{k=1}^r (\mathcal {M}[\overline {w}_{\mathrm {eq},k}]) (\mathcal {M}[\overline {w}_{\mathrm {eq},k}])^{\mathrm {T}}.  \end{equation}<a id='x1-14r9'></a>
+</p><!-- l. 85 --><p class='indent'>   For the second choice of the stabilization term, \begin{equation}  \bar {\alpha }\sum _{k=1}^r \langle \gamma _0^{\mathrm {int}}u,\chi _k \rangle _{\Gamma } \langle v,\chi _k \rangle _{\Gamma },  \end{equation}<a id='x1-15r10'></a> its computation is similar to that for the solution space \(H_{\ast }^{1/2}(\Gamma )\): \begin{equation}  \bar {\alpha } \sum _{k=1}^r (\mathcal {M}[\chi _k]) (\mathcal {M}[\chi _k])^{\mathrm {T}}[\gamma _0^{\rm int} u].  \end{equation}<a id='x1-16r11'></a> The
+system matrix now becomes: \begin{equation}  \hat {\mathcal {D}} := \mathcal {D} + \bar {\alpha } \sum _{k=1}^r (\mathcal {M}[\chi _k]) (\mathcal {M}[\chi _k])^{\mathrm {T}}.  \end{equation}<a id='x1-17r12'></a>
+</p>
+   <h3 class='likesectionHead'><a id='x1-1000'></a>References</h3>
+<!-- l. 1 --><p class='noindent'>
+  </p><div class='thebibliography'>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XRjasanowFast2007'></a><span class='bibsp'>   </span></span>Sergej Rjasanow and Olaf Steinbach. <span class='p1xi-x-x-109'>The Fast Solution of Boundary Integral Equations</span>. Springer Science
+  &amp; Business Media. ISBN 978-0-387-34042-5.
+  </p>
+  <p class='bibitem'><span class='biblabel'>
+<a id='XSteinbachNumerical2007'></a><span class='bibsp'>   </span></span>Olaf  Steinbach.    <span class='p1xi-x-x-109'>Numerical  Approximation  Methods  for  Elliptic  Boundary  Value  Problems:  Finite  and
+  </span><span class='p1xi-x-x-109'>Boundary Elements</span>. Springer Science &amp; Business Media. ISBN 978-0-387-31312-2.
+</p>
+  </div>
+   <div class='footnotes'><a id='x1-7x'></a>
+<!-- l. 45 --><p class='indent'>      <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-90'>As a convention in differential geometry, we use superscript to represent a tangent vector and subscript to represent a cotangent
+</span><span class='p1xr-x-x-90'>vector.</span></p><a id='x1-9x'></a>
+<!-- l. 45 --><p class='indent'>        <span class='footnote-mark'><a href='#fn2x0-bk' id='fn2x0'><sup class='textsuperscript'>2</sup></a></span><span class='p1xr-x-x-90'>The operator for transforming a tangent vector to a cotangent vector is the flat operator </span>\(\flat \)<span class='p1xr-x-x-90'>.</span></p>                                                  </div>
+
+<p>{{ "2025-08-14-evaluation-of-stabilization-term" | backlink }}</p>
