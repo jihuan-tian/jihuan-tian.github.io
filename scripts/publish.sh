@@ -24,12 +24,12 @@ fi
 is_need_push=`git status | grep "Your branch is up to date with 'origin/main'."`
 if [ -z "$is_need_push" ]; then
   echo "=== Start to push source to remote branch!"
-  http_proxy=192.168.0.100:1080 https_proxy=192.168.0.100:1080 git push
+  http_proxy=192.168.0.100:32750 https_proxy=192.168.0.100:32750 git push
 
   # Go to the public folder and pull the latest modifications.
   sleep 5
   cd "$blog-public"
-  http_proxy=192.168.0.100:1080 https_proxy=192.168.0.100:1080 git pull
+  http_proxy=192.168.0.100:32750 https_proxy=192.168.0.100:32750 git pull
   
   # Build for public.
   bundle exec jekyll build --destination "$blog-public-build"
@@ -49,7 +49,7 @@ if [ -z "$is_need_push" ]; then
   fi
 
   echo "=== Start to push generated pages to remote branch for public!"
-  http_proxy=192.168.0.100:1080 https_proxy=192.168.0.100:1080 git push
+  http_proxy=192.168.0.100:32750 https_proxy=192.168.0.100:32750 git push
 
   # Go back to blog directory.
   cd "$blog"
