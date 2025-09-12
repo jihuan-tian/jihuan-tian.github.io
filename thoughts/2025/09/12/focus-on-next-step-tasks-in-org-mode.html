@@ -8,8 +8,8 @@
 <meta property="og:title" content="Focus on next step tasks in Org mode" />
 <meta name="author" content="Jihuan Tian" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Due to procrastination and the unavoidable too many tasks in my HierBEM project, there are lots of tasks accumulated in my Org mode’s inbox, which is actually the agenda view of all headings marked as TODO." />
-<meta property="og:description" content="Due to procrastination and the unavoidable too many tasks in my HierBEM project, there are lots of tasks accumulated in my Org mode’s inbox, which is actually the agenda view of all headings marked as TODO." />
+<meta name="description" content="Due to procrastination and unavoidable too many tasks in my HierBEM project, there are lots of tasks having been accumulated in my GTD inbox, which is actually the Org agenda view of all headings marked as TODO." />
+<meta property="og:description" content="Due to procrastination and unavoidable too many tasks in my HierBEM project, there are lots of tasks having been accumulated in my GTD inbox, which is actually the Org agenda view of all headings marked as TODO." />
 <link rel="canonical" href="https://jihuan-tian.github.io/thoughts/2025/09/12/focus-on-next-step-tasks-in-org-mode.html" />
 <meta property="og:url" content="https://jihuan-tian.github.io/thoughts/2025/09/12/focus-on-next-step-tasks-in-org-mode.html" />
 <meta property="og:site_name" content="止于至善" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Focus on next step tasks in Org mode" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-09-12T00:00:00+08:00","datePublished":"2025-09-12T00:00:00+08:00","description":"Due to procrastination and the unavoidable too many tasks in my HierBEM project, there are lots of tasks accumulated in my Org mode’s inbox, which is actually the agenda view of all headings marked as TODO.","headline":"Focus on next step tasks in Org mode","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/thoughts/2025/09/12/focus-on-next-step-tasks-in-org-mode.html"},"url":"https://jihuan-tian.github.io/thoughts/2025/09/12/focus-on-next-step-tasks-in-org-mode.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-09-12T00:00:00+08:00","datePublished":"2025-09-12T00:00:00+08:00","description":"Due to procrastination and unavoidable too many tasks in my HierBEM project, there are lots of tasks having been accumulated in my GTD inbox, which is actually the Org agenda view of all headings marked as TODO.","headline":"Focus on next step tasks in Org mode","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/thoughts/2025/09/12/focus-on-next-step-tasks-in-org-mode.html"},"url":"https://jihuan-tian.github.io/thoughts/2025/09/12/focus-on-next-step-tasks-in-org-mode.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/font.css">
   <link rel="stylesheet" href="/assets/main.css">
@@ -77,11 +77,11 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Due to procrastination and the unavoidable too many tasks in my HierBEM project, there are lots of tasks accumulated in my Org mode’s inbox, which is actually the agenda view of all headings marked as <code class="language-plaintext highlighter-rouge">TODO</code>.</p>
+    <p>Due to procrastination and unavoidable too many tasks in my HierBEM project, there are lots of tasks having been accumulated in my GTD inbox, which is actually the Org agenda view of all headings marked as <code class="language-plaintext highlighter-rouge">TODO</code>.</p>
 
-<p>Then scanning them each time for schedule what to do next becomes unbearable. So I assign a <code class="language-plaintext highlighter-rouge">next</code> tag to only a few tasks to be dealt with which are related to my current focus. This can be considered as my new inbox, which plays a role of buffering the original TODO list.</p>
+<p>Then scanning tasks in the inbox each time for scheduling what to do next become a headache. So I assign a <code class="language-plaintext highlighter-rouge">next</code> tag to only a few tasks (limited within 20) to be dealt with which are related to my current focus. This smaller task collection is my lean GTD inbox, which plays a role of buffering the original TODO list.</p>
 
-<p>These next step tasks are further be grouped into several categories, which are marked with labels</p>
+<p>These next step tasks are further grouped into several categories, which are marked with these labels:</p>
 
 <ul>
   <li>Theory (<code class="language-plaintext highlighter-rouge">theory</code>): theoretical and mathematical derivation.</li>
@@ -91,7 +91,9 @@
   <li>Management and maintenance (<code class="language-plaintext highlighter-rouge">management</code>): project management and maintenance of project repositories, both source code and website.</li>
 </ul>
 
-<p>A new agenda view is created to display the above next step tasks:</p>
+<p>Among these categories, “Theory”, “Design” and “Development” correspond to my <a href="/thoughts/2021/10/12/%E6%95%B0%E5%80%BC%E7%AE%97%E6%B3%95%E4%BB%8E%E7%90%86%E8%AE%BA%E5%88%B0%E5%AE%9E%E8%B7%B5%E7%9A%84%E4%B8%89%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F.html">three working modes</a> during HierBEM development.</p>
+
+<p>A new customized Org agenda view is also created to display the above next step tasks:</p>
 
 <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">set</span> <span class="nv">org-agenda-custom-commands</span>
      <span class="o">'</span><span class="p">(</span>
