@@ -7,11 +7,11 @@ tags: [Org-mode,管理提升]
 mathjax: false
 ---
 
-Due to procrastination and the unavoidable too many tasks in my HierBEM project, there are lots of tasks accumulated in my Org mode&rsquo;s inbox, which is actually the agenda view of all headings marked as `TODO`.
+Due to procrastination and unavoidable too many tasks in my HierBEM project, there are lots of tasks having been accumulated in my GTD inbox, which is actually the Org agenda view of all headings marked as `TODO`.
 
-Then scanning them each time for schedule what to do next becomes unbearable. So I assign a `next` tag to only a few tasks to be dealt with which are related to my current focus. This can be considered as my new inbox, which plays a role of buffering the original TODO list.
+Then scanning tasks in the inbox each time for scheduling what to do next become a headache. So I assign a `next` tag to only a few tasks (limited within 20) to be dealt with which are related to my current focus. This smaller task collection is my lean GTD inbox, which plays a role of buffering the original TODO list.
 
-These next step tasks are further be grouped into several categories, which are marked with labels
+These next step tasks are further grouped into several categories, which are marked with these labels:
 
 -   Theory (`theory`): theoretical and mathematical derivation.
 -   Design (`design`): architecture and data structure design, refactoring.
@@ -19,7 +19,9 @@ These next step tasks are further be grouped into several categories, which are 
 -   Documentation (`documentation`): write source code documentation, theoretical summary, test report, etc.
 -   Management and maintenance (`management`): project management and maintenance of project repositories, both source code and website.
 
-A new agenda view is created to display the above next step tasks:
+Among these categories, &ldquo;Theory&rdquo;, &ldquo;Design&rdquo; and &ldquo;Development&rdquo; correspond to my [three working modes]({% post_url 2021-10-12-数值算法从理论到实践的三种工作模式 %}) during HierBEM development.
+
+A new customized Org agenda view is also created to display the above next step tasks:
 
 ```elisp
 (set org-agenda-custom-commands
