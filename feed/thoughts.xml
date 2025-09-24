@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-09-24T12:38:06+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">数学笔记是否要将书上的内容都写下来？</title><link href="https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5.html" rel="alternate" type="text/html" title="数学笔记是否要将书上的内容都写下来？" /><published>2025-09-24T00:00:00+08:00</published><updated>2025-09-24T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5%3F</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5.html"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-09-24T12:44:55+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">数学笔记是否要将书上的内容都写下来？</title><link href="https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5.html" rel="alternate" type="text/html" title="数学笔记是否要将书上的内容都写下来？" /><published>2025-09-24T00:00:00+08:00</published><updated>2025-09-24T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5%3F</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5.html"><![CDATA[<ul>
   <li><a href="#org0f0c1d3">产生该问题的初衷</a></li>
   <li><a href="#org90ef9ab">基本想法</a></li>
   <li><a href="#org4199f13">解决方法：层级式笔记</a></li>
@@ -10,7 +10,7 @@
 
 <ul>
   <li>数学书上的每一步推导我都可以看懂，自己曾经也因循这些步骤亲手推导了一遍，并认真写在了笔记中。不过，我前学后忘的情况依然比较严重。</li>
-  <li>当想起一个概念或者公式但又记得不确切的时候，就需要去查阅相关资料。这些资料涉及不同的专著与文献，较为分散，且并不是都有详尽的批注。这样一来，重载加载相关内容到自己的工作记忆中就会比较耗时。这样一来，很容易就会想到，能否将所有资料内容与推导的细节都统一记录在一个笔记系统中，这样在回顾与查阅的时候就只需要到一个数据源里找就可以了。</li>
+  <li>当想起一个概念或者公式但又记得不确切的时候，就需要去查阅相关资料。这些资料涉及不同的专著与文献，较为分散，且并不是都有详尽的批注。这样一来，重载加载相关内容到自己的工作记忆中就会比较耗时。由此容易想到，能否将所有资料内容与推导的细节都统一记录在一个笔记系统中，这样在回顾与查阅的时候只需要到一个数据源里找就可以了。</li>
 </ul>
 
 <p><a id="org90ef9ab"></a></p>
@@ -38,7 +38,7 @@
     <ul>
       <li>媒介：纸制笔记本</li>
       <li>完整与细节的推导要在纸制笔记本中进行，一是为了思想的自由，二是为了书写效率。</li>
-      <li>这些笔记是实践“<a href="../blogs/jihuan-tian.github.io/_posts/2025-06-20-手写正式笔记的目的.markdown">数学证明的三张纸</a>”方法的成果。</li>
+      <li>这些笔记是实践“<a href="/thoughts/2025/06/20/%E6%89%8B%E5%86%99%E6%AD%A3%E5%BC%8F%E7%AC%94%E8%AE%B0%E7%9A%84%E7%9B%AE%E7%9A%84.html">数学证明的三张纸</a>”方法的成果。</li>
       <li>笔记要有时间戳、页码、目录、关键公式的编号，从而可以被 Org roam 中的笔记引用。</li>
       <li>不必将这些纸制笔记记得太工整漂亮或是将其当成宝贝，它们是需要经常涂抹修改、不断完善、调整重写的。它们是我们可以 get our hands dirty 的施工现场，不是一尘不染、一成不变的展览馆。</li>
     </ul>
