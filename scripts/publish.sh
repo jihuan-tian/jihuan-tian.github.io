@@ -35,7 +35,7 @@ if [ -z "$is_need_push" ]; then
   bundle exec jekyll build --destination "$blog-public-build"
 
   # Synchronize the new build to the local branch for submit.
-  rsync -rtlvz --update "$blog-public-build/" "$blog-public-build-for-submit/"
+  rsync -rtlvz --update --delete --exclude="/.git" "$blog-public-build/" "$blog-public-build-for-submit/"
 
   cd "$blog-public-build-for-submit"
   echo "=== Commit the changes of generated pages for public!"
