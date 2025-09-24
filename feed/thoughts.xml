@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-09-15T16:22:59+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Focus on next step tasks in Org mode</title><link href="https://jihuan-tian.github.io/thoughts/2025/09/12/focus-on-next-step-tasks-in-org-mode.html" rel="alternate" type="text/html" title="Focus on next step tasks in Org mode" /><published>2025-09-12T00:00:00+08:00</published><updated>2025-09-12T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/09/12/focus-on-next-step-tasks-in-org-mode</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/09/12/focus-on-next-step-tasks-in-org-mode.html"><![CDATA[<p>Due to procrastination and unavoidable too many tasks in my HierBEM project, there are lots of tasks having been accumulated in my GTD inbox, which is actually the Org agenda view of all headings marked as <code class="language-plaintext highlighter-rouge">TODO</code>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-09-24T12:38:06+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">数学笔记是否要将书上的内容都写下来？</title><link href="https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5.html" rel="alternate" type="text/html" title="数学笔记是否要将书上的内容都写下来？" /><published>2025-09-24T00:00:00+08:00</published><updated>2025-09-24T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5%3F</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5.html"><![CDATA[<ul>
+  <li><a href="#org0f0c1d3">产生该问题的初衷</a></li>
+  <li><a href="#org90ef9ab">基本想法</a></li>
+  <li><a href="#org4199f13">解决方法：层级式笔记</a></li>
+</ul>
+
+<p><a id="org0f0c1d3"></a></p>
+
+<h1 id="产生该问题的初衷">产生该问题的初衷</h1>
+
+<ul>
+  <li>数学书上的每一步推导我都可以看懂，自己曾经也因循这些步骤亲手推导了一遍，并认真写在了笔记中。不过，我前学后忘的情况依然比较严重。</li>
+  <li>当想起一个概念或者公式但又记得不确切的时候，就需要去查阅相关资料。这些资料涉及不同的专著与文献，较为分散，且并不是都有详尽的批注。这样一来，重载加载相关内容到自己的工作记忆中就会比较耗时。这样一来，很容易就会想到，能否将所有资料内容与推导的细节都统一记录在一个笔记系统中，这样在回顾与查阅的时候就只需要到一个数据源里找就可以了。</li>
+</ul>
+
+<p><a id="org90ef9ab"></a></p>
+
+<h1 id="基本想法">基本想法</h1>
+
+<ul>
+  <li>
+    <p>我们肯定是需要通过反复地重复训练，使自己具备独立推导、写出定理与公式的能力。不可能所有内容都游离于自己的内心或思想，以至于当需要的时候都得现查书。这种情况只能说明数学知识尚未被我们掌握。试想，虽然能看得懂书上的每一个步骤，但把书合上后既写不出来也不会做题，这是否算得上是懂得数学？</p>
+  </li>
+  <li>
+    <p>将书中所有内容与推导细节都记到笔记中根本不现实。那将意味着不光要收录原书所有的内容，还要包含自己的理解与推导步骤，如此一来，笔记异常庞大，失去了重点，搜索查阅也不方便。因此，数学笔记肯定是要挑那些具有思想性、涉及问题提出与证明的动机等重点内容来记。</p>
+  </li>
+  <li>
+    <p>虽然不应将数学推导的细节全部放入笔记系统，但亲手照着书去推导每一步肯定是必要的，尤其在我们初学的时候——毕竟学习不可能一步登天，有一个从照猫画虎到独立思考与创作的过程。所以，我们不必完全否定或杜绝这种“抄书”式的方法，而是说只有“抄书”还远远不够。</p>
+  </li>
+</ul>
+
+<p><a id="org4199f13"></a></p>
+
+<h1 id="解决方法层级式笔记">解决方法：层级式笔记</h1>
+
+<ul>
+  <li>练习笔记
+    <ul>
+      <li>媒介：纸制笔记本</li>
+      <li>完整与细节的推导要在纸制笔记本中进行，一是为了思想的自由，二是为了书写效率。</li>
+      <li>这些笔记是实践“<a href="../blogs/jihuan-tian.github.io/_posts/2025-06-20-手写正式笔记的目的.markdown">数学证明的三张纸</a>”方法的成果。</li>
+      <li>笔记要有时间戳、页码、目录、关键公式的编号，从而可以被 Org roam 中的笔记引用。</li>
+      <li>不必将这些纸制笔记记得太工整漂亮或是将其当成宝贝，它们是需要经常涂抹修改、不断完善、调整重写的。它们是我们可以 get our hands dirty 的施工现场，不是一尘不染、一成不变的展览馆。</li>
+    </ul>
+  </li>
+  <li>知识笔记
+    <ul>
+      <li>媒介：Org roam</li>
+      <li>分类记录、整理常用的公式、定理，方便查阅。</li>
+      <li>模板
+        <ul>
+          <li>定义、概念、公式、方程、结论</li>
+          <li>细节推导 (Derivation)：链接至练习笔记</li>
+          <li>要点说明 (Key points)</li>
+          <li>卡片 (Anki)</li>
+          <li>相关内容 (References)</li>
+        </ul>
+      </li>
+      <li>需要反复复习的内容放入 Anki 卡片中。</li>
+    </ul>
+  </li>
+  <li>思想笔记
+    <ul>
+      <li>媒介：Org roam</li>
+      <li>通过写作的方式，讲述自己对于理论知识的理解。我之前整理出的一系列博客文章就是比较好的例子。</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="数学学习" /><summary type="html"><![CDATA[产生该问题的初衷 基本想法 解决方法：层级式笔记]]></summary></entry><entry><title type="html">Focus on next step tasks in Org mode</title><link href="https://jihuan-tian.github.io/thoughts/2025/09/12/focus-on-next-step-tasks-in-org-mode.html" rel="alternate" type="text/html" title="Focus on next step tasks in Org mode" /><published>2025-09-12T00:00:00+08:00</published><updated>2025-09-12T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/09/12/focus-on-next-step-tasks-in-org-mode</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/09/12/focus-on-next-step-tasks-in-org-mode.html"><![CDATA[<p>Due to procrastination and unavoidable too many tasks in my HierBEM project, there are lots of tasks having been accumulated in my GTD inbox, which is actually the Org agenda view of all headings marked as <code class="language-plaintext highlighter-rouge">TODO</code>.</p>
 
 <p>Then scanning tasks in the inbox each time for scheduling what to do next become a headache. So I assign a <code class="language-plaintext highlighter-rouge">next</code> tag to only a few tasks (limited within 20) to be dealt with which are related to my current focus. This smaller task collection is my lean GTD inbox, which plays a role of buffering the original TODO list.</p>
 
@@ -510,7 +577,9 @@
   <li>在完成正式手写笔记后，如果相关内容已经整理得比较清晰与规整了，或者公式推导繁琐而细微，且这些内容仅供自己阅读，那么出于研究效率的考量，将其扫描后链入 Org Roam 笔记更为合适。当然，不要忘了在 Org Roam 写出摘要、主要结论与重要思想，并添加合适的标签、放入相应的索引并与已有笔记条目建立关联。</li>
 </ul>
 
-<p>参考：《<a href="/thoughts/2019/05/22/%E8%AF%BB-Writing-proofs-%E7%AC%94%E8%AE%B0%E4%B8%8E%E6%84%9F%E6%83%B3.html">读《Writing proofs》笔记与感想</a>》、《<a href="/thoughts/2019/07/08/%E6%95%B0%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E6%95%B4%E7%90%86.html">数学学习方法整理</a>》</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="数学学习" /><category term="三张纸" /><summary type="html"><![CDATA[若直接根据草稿或者 workbook 上的内容来撰写 summary 或 report 于 Org Roam 中，其实仍有很多细节内容需要进一步细化与确定，这样一来，直接在 Org Roam 中写 LaTeX 代码的效率其实很低。因此，应该在整理 Org Roam 笔记之前，先在（相对而言）正式手写笔记上再理一遍、写一遍，这样就会顺畅很多。也就是说，“数学证明的三张纸”方法基本上是用纸笔完成的。当然，任何学习或笔记方法及其工具的使用都不是绝对的、僵化的，要根据具体的情况有所变通。但终究是以服务自己的思想、记忆、把握要点与思想、内化知识为根本目的。例如， 虽然“三张纸”方法基本上是用纸笔完成，这也并不意味在这个过程不能有思维导图、 Anki 卡片、示意图等电脑工具的介入。 如果课题的细节内容相对较少或者理论推导较为简单，则可以直接在 Org Roam 中写而跳过正式手写笔记这个环节。 在完成正式手写笔记后，如果相关内容已经整理得比较清晰与规整了，或者公式推导繁琐而细微，且这些内容仅供自己阅读，那么出于研究效率的考量，将其扫描后链入 Org Roam 笔记更为合适。当然，不要忘了在 Org Roam 写出摘要、主要结论与重要思想，并添加合适的标签、放入相应的索引并与已有笔记条目建立关联。]]></summary></entry><entry><title type="html">Org Roam 的局限</title><link href="https://jihuan-tian.github.io/thoughts/2025/05/21/org-roam-%E7%9A%84%E5%B1%80%E9%99%90.html" rel="alternate" type="text/html" title="Org Roam 的局限" /><published>2025-05-21T00:00:00+08:00</published><updated>2025-05-21T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/05/21/org-roam-%E7%9A%84%E5%B1%80%E9%99%90</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/05/21/org-roam-%E7%9A%84%E5%B1%80%E9%99%90.html"><![CDATA[<p>无论 Org mode 或 Org Roam 笔记系统再怎么强大，都比不上纸笔系统在与思考的衔接上来得直接、自然、自由。就算是有多个屏幕、同时可以打开多个 Emacs buffers 浏览编辑，也比不上当多张纸制页面同时呈现在我们的眼前并可以立即切换、书写涂鸦的工作效率。纸笔系统唯一的弱势便是内容不易重排调整与分类搜索。当然，这一点可以通过将其扫描后放入 Org Roam 中管理来予以弥补。例如，尽管中文的手写体不易被 OCR 工具 tesseract 识别，但是可以通过层级 headline 标题与标签来做大致的分类，并为扫描笔记撰写简短摘要。这样一来，当我们的脑海中浮现出某个话题与想法时，就可以较快地在 Org Roam 中定位到相关的笔记。实再不行，用 grep 搜索关键词，花一点工夫也总是可以找到的。</p>
+<p>参考：《<a href="/thoughts/2019/05/22/%E8%AF%BB-Writing-proofs-%E7%AC%94%E8%AE%B0%E4%B8%8E%E6%84%9F%E6%83%B3.html">读《Writing proofs》笔记与感想</a>》、《<a href="/thoughts/2019/07/08/%E6%95%B0%E5%AD%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E6%95%B4%E7%90%86.html">数学学习方法整理</a>》</p>
+
+<p>Backlinks: <a href="/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5.html">《数学笔记是否要将书上的内容都写下来？》</a></p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="数学学习" /><category term="三张纸" /><summary type="html"><![CDATA[若直接根据草稿或者 workbook 上的内容来撰写 summary 或 report 于 Org Roam 中，其实仍有很多细节内容需要进一步细化与确定，这样一来，直接在 Org Roam 中写 LaTeX 代码的效率其实很低。因此，应该在整理 Org Roam 笔记之前，先在（相对而言）正式手写笔记上再理一遍、写一遍，这样就会顺畅很多。也就是说，“数学证明的三张纸”方法基本上是用纸笔完成的。当然，任何学习或笔记方法及其工具的使用都不是绝对的、僵化的，要根据具体的情况有所变通。但终究是以服务自己的思想、记忆、把握要点与思想、内化知识为根本目的。例如， 虽然“三张纸”方法基本上是用纸笔完成，这也并不意味在这个过程不能有思维导图、 Anki 卡片、示意图等电脑工具的介入。 如果课题的细节内容相对较少或者理论推导较为简单，则可以直接在 Org Roam 中写而跳过正式手写笔记这个环节。 在完成正式手写笔记后，如果相关内容已经整理得比较清晰与规整了，或者公式推导繁琐而细微，且这些内容仅供自己阅读，那么出于研究效率的考量，将其扫描后链入 Org Roam 笔记更为合适。当然，不要忘了在 Org Roam 写出摘要、主要结论与重要思想，并添加合适的标签、放入相应的索引并与已有笔记条目建立关联。]]></summary></entry><entry><title type="html">Org Roam 的局限</title><link href="https://jihuan-tian.github.io/thoughts/2025/05/21/org-roam-%E7%9A%84%E5%B1%80%E9%99%90.html" rel="alternate" type="text/html" title="Org Roam 的局限" /><published>2025-05-21T00:00:00+08:00</published><updated>2025-05-21T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/05/21/org-roam-%E7%9A%84%E5%B1%80%E9%99%90</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/05/21/org-roam-%E7%9A%84%E5%B1%80%E9%99%90.html"><![CDATA[<p>无论 Org mode 或 Org Roam 笔记系统再怎么强大，都比不上纸笔系统在与思考的衔接上来得直接、自然、自由。就算是有多个屏幕、同时可以打开多个 Emacs buffers 浏览编辑，也比不上当多张纸制页面同时呈现在我们的眼前并可以立即切换、书写涂鸦的工作效率。纸笔系统唯一的弱势便是内容不易重排调整与分类搜索。当然，这一点可以通过将其扫描后放入 Org Roam 中管理来予以弥补。例如，尽管中文的手写体不易被 OCR 工具 tesseract 识别，但是可以通过层级 headline 标题与标签来做大致的分类，并为扫描笔记撰写简短摘要。这样一来，当我们的脑海中浮现出某个话题与想法时，就可以较快地在 Org Roam 中定位到相关的笔记。实再不行，用 grep 搜索关键词，花一点工夫也总是可以找到的。</p>
 
 <p>需要注意的是，无论工具有多么强大，都无法代替“温故知新”与知识的内化。当涉及思想性、理解性时，它们就爱莫能助。因为这靠的是我们自己的主观能动性，而不是技术。当然，像是 Emacs Org 、Zotero 这些处于“术”的层面的基础设施还是必要的，毕竟能给我们带来不少便利。</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="Org-roam" /><category term="note-taking" /><summary type="html"><![CDATA[无论 Org mode 或 Org Roam 笔记系统再怎么强大，都比不上纸笔系统在与思考的衔接上来得直接、自然、自由。就算是有多个屏幕、同时可以打开多个 Emacs buffers 浏览编辑，也比不上当多张纸制页面同时呈现在我们的眼前并可以立即切换、书写涂鸦的工作效率。纸笔系统唯一的弱势便是内容不易重排调整与分类搜索。当然，这一点可以通过将其扫描后放入 Org Roam 中管理来予以弥补。例如，尽管中文的手写体不易被 OCR 工具 tesseract 识别，但是可以通过层级 headline 标题与标签来做大致的分类，并为扫描笔记撰写简短摘要。这样一来，当我们的脑海中浮现出某个话题与想法时，就可以较快地在 Org Roam 中定位到相关的笔记。实再不行，用 grep 搜索关键词，花一点工夫也总是可以找到的。]]></summary></entry><entry><title type="html">开源软件的发布也不应随意</title><link href="https://jihuan-tian.github.io/thoughts/2025/05/12/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B8%83%E4%B9%9F%E4%B8%8D%E5%BA%94%E9%9A%8F%E6%84%8F.html" rel="alternate" type="text/html" title="开源软件的发布也不应随意" /><published>2025-05-12T00:00:00+08:00</published><updated>2025-05-12T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/05/12/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B8%83%E4%B9%9F%E4%B8%8D%E5%BA%94%E9%9A%8F%E6%84%8F</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/05/12/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B8%83%E4%B9%9F%E4%B8%8D%E5%BA%94%E9%9A%8F%E6%84%8F.html"><![CDATA[<p>昨天试用了视频编辑软件 Kdenlive 的语音识别功能。该项功能并非 Kdenlive 自己拥有，而是依赖于 Python 的 vosk 包。由此也可以体现出 Linux 下各种工具协同配合的操作模式。</p>
 
