@@ -25,5 +25,6 @@ When an Org file containing org-roam notes is too large, it is necessary to move
     ```
     
     The cause is probably that the Org timestamp contains the special characters `<` and `>`, which need to be escaped. Solution: simply wrap the timestamp with double quotes.
+3.  Reserve an empty line between properties and the title line.
 
 {{ "2025-02-06-caveats-for-moving-an-org-subtree-to-an-org-roam-node-file" | backlink }}
