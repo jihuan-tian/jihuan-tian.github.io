@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-09-24T12:44:55+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">数学笔记是否要将书上的内容都写下来？</title><link href="https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5.html" rel="alternate" type="text/html" title="数学笔记是否要将书上的内容都写下来？" /><published>2025-09-24T00:00:00+08:00</published><updated>2025-09-24T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5%3F</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5.html"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-09-27T13:02:11+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">关于复习电子版数学笔记不易保持专注的问题</title><link href="https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98.html" rel="alternate" type="text/html" title="关于复习电子版数学笔记不易保持专注的问题" /><published>2025-09-26T00:00:00+08:00</published><updated>2025-09-26T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98.html"><![CDATA[<p>我在复习 Org roam 数学笔记时，存在不容易进入心流状态并保持专注的问题。通过与 ChatGPT 的交谈，得到如下结论：</p>
+
+<ul>
+  <li>信息载体
+    <ul>
+      <li>电子笔记往往在电脑、平板或手机上查看，这些设备同时也是娱乐和消息的入口，很容易被潜意识关联为“非专注环境”。</li>
+      <li>屏幕阅读的质感和纸笔不同。电子文档缺少自然的空间标记，包括翻页、边注、框线，没有版面感和“写的痕迹”，不易形成空间记忆，因而不容易带来沉浸感。</li>
+    </ul>
+  </li>
+  <li>记笔记时与回顾笔记时的思维与工作状态不同
+    <ul>
+      <li>笔记在记录时逻辑清晰，但在复习时只是“浏览文字”，缺少思考和加工。大脑会把它当作被动阅读，而不是需要专注解决的问题。</li>
+      <li>数学不是单纯的信息输入，而是需要“跟着推一遍”。如果只是用眼睛浏览电子笔记，就像被动看别人做题，很快会分心。 <em>学数学的过程需要“跟着推一遍”！这一点非常重要。它不止是一个被动接受信息的过程（甚至再加上理解都还不够），而是一个主动参与、积极思考、动手解决问题的过程。如果主动性、积极性不足，解决问题的意识不强，学习或者复习的效果就会很差。</em></li>
+    </ul>
+  </li>
+  <li>笔记的形式
+    <ul>
+      <li>电子笔记的格式（比如条目、列表、复制的内容）可能过于“完美”，缺少涂鸦、边注、结构化思考的痕迹，这降低了“在场感”。 <em>这一点我自己在之前也模糊地意识到了：如果笔记在形式上过于完美，则不易于随意“把玩”、自由改动与调整。但究竟为何如此，并没有想得很清楚。 ChatGPT 对此回答则非常清晰，切中了要害，即“思考的痕迹”与“在场感”。</em></li>
+    </ul>
+  </li>
+  <li>认知负荷问题
+    <ul>
+      <li>如果笔记内容本身抽象、跨度大或过于密集，打开时就会产生心理负担，大脑自然逃避。</li>
+      <li>相比纸质笔记，电子笔记缺少空间线索（翻页位置、书写痕迹），复习时需要更多认知资源来定位和串联。</li>
+    </ul>
+  </li>
+  <li>个人习惯的影响
+    <ul>
+      <li>在用电子设备时形成了“碎片化阅读”的习惯，难以长时间进入深度专注。</li>
+    </ul>
+  </li>
+</ul>
+
+<p><a id="org77e0785"></a></p>
+
+<h1 id="整改措施">整改措施</h1>
+
+<ul>
+  <li>让阅读变成“再推导”：不是直接看，而是边看边在纸上或平板（比如 Xournal、GoodNotes）把关键公式再写一遍。</li>
+  <li>在电子笔记里增加“引导”：在关键公式或定义前加上提示问题：例如“这里为什么要引入算子 T？”、“下一步推导需要用到什么定理？”</li>
+  <li>减少视觉负担：对重要结论、关键公式加颜色或标签，帮助你快速定位。</li>
+  <li>真正复习和思考时，手写摘录/重写是关键步骤，这样既能锻炼推导能力，也能增加记忆痕迹。</li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="数学学习" /><summary type="html"><![CDATA[我在复习 Org roam 数学笔记时，存在不容易进入心流状态并保持专注的问题。通过与 ChatGPT 的交谈，得到如下结论：]]></summary></entry><entry><title type="html">数学笔记是否要将书上的内容都写下来？</title><link href="https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5.html" rel="alternate" type="text/html" title="数学笔记是否要将书上的内容都写下来？" /><published>2025-09-24T00:00:00+08:00</published><updated>2025-09-24T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5%3F</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/09/24/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E6%98%AF%E5%90%A6%E8%A6%81%E5%B0%86%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E5%86%99%E4%B8%8B%E6%9D%A5.html"><![CDATA[<ul>
   <li><a href="#org0f0c1d3">产生该问题的初衷</a></li>
   <li><a href="#org90ef9ab">基本想法</a></li>
   <li><a href="#org4199f13">解决方法：层级式笔记</a></li>
