@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-10-12T07:56:24+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">关于复习电子版数学笔记不易保持专注的问题</title><link href="https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98.html" rel="alternate" type="text/html" title="关于复习电子版数学笔记不易保持专注的问题" /><published>2025-09-26T00:00:00+08:00</published><updated>2025-09-26T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98.html"><![CDATA[<p>我在复习 Org roam 数学笔记时，存在不容易进入心流状态并保持专注的问题。通过与 ChatGPT 的交谈，得到如下结论：</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-10-14T06:28:00+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">关于复习电子版数学笔记不易保持专注的问题</title><link href="https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98.html" rel="alternate" type="text/html" title="关于复习电子版数学笔记不易保持专注的问题" /><published>2025-09-26T00:00:00+08:00</published><updated>2025-09-26T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98.html"><![CDATA[<p>我在复习 Org roam 数学笔记时，存在不容易进入心流状态并保持专注的问题。通过与 ChatGPT 的交谈，得到如下结论：</p>
 
 <ul>
   <li>信息载体
@@ -137,7 +137,47 @@
 	 <span class="p">(</span><span class="nv">tags</span> <span class="s">"next+development"</span> <span class="p">((</span><span class="nv">org-agenda-overriding-header</span> <span class="s">"💻 Development"</span><span class="p">)))</span>
 	 <span class="p">(</span><span class="nv">tags</span> <span class="s">"next+documentation"</span> <span class="p">((</span><span class="nv">org-agenda-overriding-header</span> <span class="s">"📄 Documentation"</span><span class="p">)))</span>
          <span class="p">(</span><span class="nv">tags</span> <span class="s">"next+management"</span> <span class="p">((</span><span class="nv">org-agenda-overriding-header</span> <span class="s">"🛠 Management and maintenance"</span><span class="p">)))))))</span>
-</code></pre></div></div>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="Org-mode" /><category term="管理提升" /><summary type="html"><![CDATA[Due to procrastination and unavoidable too many tasks in my HierBEM project, there are lots of tasks having been accumulated in my GTD inbox, which is actually the Org agenda view of all headings marked as TODO.]]></summary></entry><entry><title type="html">《被讨厌的勇气》摘录</title><link href="https://jihuan-tian.github.io/thoughts/2025/07/25/%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94-%E6%91%98%E5%BD%95.html" rel="alternate" type="text/html" title="《被讨厌的勇气》摘录" /><published>2025-07-25T00:00:00+08:00</published><updated>2025-07-25T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/07/25/%E3%80%8A%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94%E3%80%8B%E6%91%98%E5%BD%95</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/07/25/%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94-%E6%91%98%E5%BD%95.html"><![CDATA[<ul>
+</code></pre></div></div>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="Org-mode" /><category term="管理提升" /><summary type="html"><![CDATA[Due to procrastination and unavoidable too many tasks in my HierBEM project, there are lots of tasks having been accumulated in my GTD inbox, which is actually the Org agenda view of all headings marked as TODO.]]></summary></entry><entry><title type="html">如何学习新的编程语言或软件工具</title><link href="https://jihuan-tian.github.io/thoughts/2025/08/13/%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E6%96%B0%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E6%88%96%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7.html" rel="alternate" type="text/html" title="如何学习新的编程语言或软件工具" /><published>2025-08-13T00:00:00+08:00</published><updated>2025-08-13T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/08/13/%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E6%96%B0%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E6%88%96%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/08/13/%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E6%96%B0%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E6%88%96%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7.html"><![CDATA[<p><a id="org5087e24"></a></p>
+
+<h1 id="入门阶段">入门阶段</h1>
+
+<ul>
+  <li>
+    <p>改变对社交媒体、视频应用的使用方式，包括 Youtube 、B 站、小红书，从漫无目的地浏览与被动接受系统推荐转为把它们当作搜索引擎来使用。根据我们的学习主题与具体问题，将搜索到的优秀资源放入“稍后观看”，浏览以快速入门。毕竟，这些资源比阅读说明手册要更为形象。</p>
+
+    <p>从中应获得初步的认识与理解。这包括编程语言、软件工具的基本用法、原理、工作机制。 <em>有这么一个基本的认知是非常重要的。我自己以前存在问题就是只知道工具的几个常见用法，但对于工作制不清楚或者比较模糊，例如， Git 的 merge 、 rebase 、 cherry-pick 的区别。</em></p>
+  </li>
+  <li>让 AI 总结用法、原理、机制。 <em>AI 作为一个新的知识的获取渠道，也是不能忽略的。</em></li>
+  <li>阅读手册的 tutorial 、 introduction 以及基础部分。以编程语言为例，这里所说的基础部分包括：
+    <ul>
+      <li>基本数据类型及其转换</li>
+      <li>运算符</li>
+      <li>变量的作用域</li>
+      <li>函数的定义</li>
+      <li>逻辑控制结构</li>
+      <li>语言的特性
+        <ul>
+          <li>Julia: 参数的传递方式为绑定内存，不同维度的数据混合计算时采用的广播机制等。</li>
+          <li>C++: 面向对象、泛型编程、现代语法。</li>
+        </ul>
+      </li>
+      <li>常用功能函数</li>
+    </ul>
+  </li>
+  <li>自己动手配置、使用。</li>
+</ul>
+
+<p><a id="org329b824"></a></p>
+
+<h1 id="积累与提高阶段">积累与提高阶段</h1>
+
+<p>积累与提高是一个持续迭代的过程。 <strong>根据我们的研究与项目需要</strong> ，系统阅读手册的相关章节，例如 Org mode 、 Emacs lisp 的文档。然后将其用于我们的开发工作中，要么解决实际问题，要么改进已有的工作流。总之，要在项目实践中学。我自己以前就存在这样的问题：没有明确的项目需求，把手册当成了教科书按部就班地来读。最终前学后忘，没有动手实践，学习效果很差。</p>
+
+<p><a id="orgc78cd37"></a></p>
+
+<h1 id="输出阶段">输出阶段</h1>
+
+<p>当我们有了心得体会、技术积累，就可以 <strong>授人以渔</strong> ，将自己的经验、思想、方法整理为博客文章，或者将各种功能函数打包发布。这也是对我们日积月累的成果的汇总、整理。相比之下， <strong>授人以渔</strong> 倒未见得真得能对他人有多少实质性的帮助与启发，更多地是督促自己勤于整理、总结与反思。</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="methodology" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">《被讨厌的勇气》摘录</title><link href="https://jihuan-tian.github.io/thoughts/2025/07/25/%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94-%E6%91%98%E5%BD%95.html" rel="alternate" type="text/html" title="《被讨厌的勇气》摘录" /><published>2025-07-25T00:00:00+08:00</published><updated>2025-07-25T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/07/25/%E3%80%8A%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94%E3%80%8B%E6%91%98%E5%BD%95</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/07/25/%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94-%E6%91%98%E5%BD%95.html"><![CDATA[<ul>
   <li><a href="#阿德勒心理学要点整理">阿德勒心理学要点整理</a></li>
   <li><a href="#不为人知的心理学第三巨头">不为人知的心理学“第三巨头”</a></li>
   <li><a href="#心理创伤并不存在">心理创伤并不存在</a></li>
