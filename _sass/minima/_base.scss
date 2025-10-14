@@ -148,7 +148,7 @@ blockquote {
   border-left: 4px solid $grey-color;
   padding-left: $spacing-unit / 2;
   /* @include relative-font-size(1.0); */
-  font-family: 'EB Garamond', Georgia, 'Times New Roman', kai, serif;
+  font-family: Georgia, 'Times New Roman', kai, serif;
   letter-spacing: -1px;
 
   > :last-child {
