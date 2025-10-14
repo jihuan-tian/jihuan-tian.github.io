@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-10-14T06:28:00+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">关于复习电子版数学笔记不易保持专注的问题</title><link href="https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98.html" rel="alternate" type="text/html" title="关于复习电子版数学笔记不易保持专注的问题" /><published>2025-09-26T00:00:00+08:00</published><updated>2025-09-26T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98.html"><![CDATA[<p>我在复习 Org roam 数学笔记时，存在不容易进入心流状态并保持专注的问题。通过与 ChatGPT 的交谈，得到如下结论：</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-10-14T11:01:52+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">《Just for Fun》摘录</title><link href="https://jihuan-tian.github.io/thoughts/2025/10/14/just-for-fun-%E6%91%98%E5%BD%95.html" rel="alternate" type="text/html" title="《Just for Fun》摘录" /><published>2025-10-14T00:00:00+08:00</published><updated>2025-10-14T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/10/14/%E3%80%8Ajust-for-fun%E3%80%8B%E6%91%98%E5%BD%95</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/10/14/just-for-fun-%E6%91%98%E5%BD%95.html"><![CDATA[<ul>
+  <li><a href="#org3395553">因对技术的专注而忽略物与人</a></li>
+  <li><a href="#org4881519">不必证明自己有多优秀，不要宣传与布道</a></li>
+  <li><a href="#orgba47897">以平常心做事</a></li>
+  <li><a href="#org1089536">对底层机制、技术细节的研究与探寻</a></li>
+  <li><a href="#org0017066">通过项目实践来提升技术能力与软件质量</a></li>
+  <li><a href="#orgf6f9bb3">站在巨人的肩上，做出自己的贡献</a></li>
+  <li><a href="#orgcb51497">管理的最高境界：无为之治</a></li>
+  <li><a href="#org8644d53">关于开源软件的心态与想法</a></li>
+  <li><a href="#org75b9898">处世之道</a></li>
+  <li><a href="#org63e7c0e">成功的商业领䄂其实为优秀技术人的反例</a></li>
+  <li><a href="#orgbdc880d">知识产权与创造力</a></li>
+  <li><a href="#org7e09e62">教育</a></li>
+</ul>
+
+<p>重新读了 Linus Torvalds 的自传《只是为了好玩》的英文版《Just for Fun》。摘录分类整理如下。</p>
+
+<p><a id="org3395553"></a></p>
+
+<h1 id="因对技术的专注而忽略物与人">因对技术的专注而忽略物与人</h1>
+
+<p><a id="org4881519"></a></p>
+
+<h1 id="不必证明自己有多优秀不要宣传与布道">不必证明自己有多优秀，不要宣传与布道</h1>
+
+<p><a id="orgba47897"></a></p>
+
+<h1 id="以平常心做事">以平常心做事</h1>
+
+<p><a id="org1089536"></a></p>
+
+<h1 id="对底层机制技术细节的研究与探寻">对底层机制、技术细节的研究与探寻</h1>
+
+<p><a id="org0017066"></a></p>
+
+<h1 id="通过项目实践来提升技术能力与软件质量">通过项目实践来提升技术能力与软件质量</h1>
+
+<p><a id="orgf6f9bb3"></a></p>
+
+<h1 id="站在巨人的肩上做出自己的贡献">站在巨人的肩上，做出自己的贡献</h1>
+
+<p><a id="orgcb51497"></a></p>
+
+<h1 id="管理的最高境界无为之治">管理的最高境界：无为之治</h1>
+
+<p><a id="org8644d53"></a></p>
+
+<h1 id="关于开源软件的心态与想法">关于开源软件的心态与想法</h1>
+
+<p><a id="org75b9898"></a></p>
+
+<h1 id="处世之道">处世之道</h1>
+
+<p><a id="org63e7c0e"></a></p>
+
+<h1 id="成功的商业领䄂其实为优秀技术人的反例">成功的商业领䄂其实为优秀技术人的反例</h1>
+
+<p><a id="orgbdc880d"></a></p>
+
+<h1 id="知识产权与创造力">知识产权与创造力</h1>
+
+<p><a id="org7e09e62"></a></p>
+
+<h1 id="教育">教育</h1>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="摘录" /><summary type="html"><![CDATA[因对技术的专注而忽略物与人 不必证明自己有多优秀，不要宣传与布道 以平常心做事 对底层机制、技术细节的研究与探寻 通过项目实践来提升技术能力与软件质量 站在巨人的肩上，做出自己的贡献 管理的最高境界：无为之治 关于开源软件的心态与想法 处世之道 成功的商业领䄂其实为优秀技术人的反例 知识产权与创造力 教育]]></summary></entry><entry><title type="html">关于复习电子版数学笔记不易保持专注的问题</title><link href="https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98.html" rel="alternate" type="text/html" title="关于复习电子版数学笔记不易保持专注的问题" /><published>2025-09-26T00:00:00+08:00</published><updated>2025-09-26T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/09/26/%E5%85%B3%E4%BA%8E%E5%A4%8D%E4%B9%A0%E7%94%B5%E5%AD%90%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B8%8D%E6%98%93%E4%BF%9D%E6%8C%81%E4%B8%93%E6%B3%A8%E7%9A%84%E9%97%AE%E9%A2%98.html"><![CDATA[<p>我在复习 Org roam 数学笔记时，存在不容易进入心流状态并保持专注的问题。通过与 ChatGPT 的交谈，得到如下结论：</p>
 
 <ul>
   <li>信息载体
