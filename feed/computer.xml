@@ -1,4 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-10-17T16:01:48+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Understanding about Git merge, rebase and cherry-pick</title><link href="https://jihuan-tian.github.io/computer/2025/10/17/understanding-about-git-merge-rebase-and-cherry-pick.html" rel="alternate" type="text/html" title="Understanding about Git merge, rebase and cherry-pick" /><published>2025-10-17T00:00:00+08:00</published><updated>2025-10-17T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/10/17/understanding-about-git-merge-rebase-and-cherry-pick</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/10/17/understanding-about-git-merge-rebase-and-cherry-pick.html"><![CDATA[<p>To understand the differences between Git merge, rebase and cherry-pick, we need to know these points:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-10-18T07:20:31+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Functions for string and regular expression matching in Elisp</title><link href="https://jihuan-tian.github.io/computer/2025/10/18/functions-for-string-and-regular-expression-matching-in-elisp.html" rel="alternate" type="text/html" title="Functions for string and regular expression matching in Elisp" /><published>2025-10-18T00:00:00+08:00</published><updated>2025-10-18T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/10/18/functions-for-string-and-regular-expression-matching-in-elisp</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/10/18/functions-for-string-and-regular-expression-matching-in-elisp.html"><![CDATA[<p>N.B. When the operation is in a buffer, the function is interactive. When it is in a string, it is non-interactive.</p>
+
+<ul>
+  <li>String pattern related operations
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">search-forward</code>: search string in a buffer.</li>
+      <li><code class="language-plaintext highlighter-rouge">replace-string</code>: string replacement in a buffer.</li>
+      <li><code class="language-plaintext highlighter-rouge">string-replace</code>: string replacement in a string.</li>
+    </ul>
+  </li>
+  <li>Regular expression related operations
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">re-search-forward</code>: search regular expression in a buffer.</li>
+      <li><code class="language-plaintext highlighter-rouge">string-match</code>: regular expression match in a string.</li>
+      <li><code class="language-plaintext highlighter-rouge">replace-regexp</code>: regular expression replacement in a buffer.</li>
+      <li><code class="language-plaintext highlighter-rouge">replace-regexp-in-string</code>: regular expression replacement in a string.</li>
+    </ul>
+  </li>
+  <li>Operations after the current match (either string match or regular expression match)
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">replace-match</code>: performs a replacement on the current match in the current buffer or a string, i.e. it acts on the result of a previous search, such as one done with <code class="language-plaintext highlighter-rouge">search-forward</code>, <code class="language-plaintext highlighter-rouge">re-search-forward</code>, or <code class="language-plaintext highlighter-rouge">string-match</code>.</li>
+    </ul>
+  </li>
+  <li>Operations after the current match (regular expression match only)
+    <ul>
+      <li>Get the matched text: whole matched string or parenthesized sub-expression in the match
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">match-string</code></li>
+          <li><code class="language-plaintext highlighter-rouge">match-string-no-properties</code></li>
+        </ul>
+      </li>
+      <li>Get the position of matched text
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">match-beginning</code></li>
+          <li><code class="language-plaintext highlighter-rouge">match-end</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Emacs" /><summary type="html"><![CDATA[N.B. When the operation is in a buffer, the function is interactive. When it is in a string, it is non-interactive.]]></summary></entry><entry><title type="html">Understanding about Git merge, rebase and cherry-pick</title><link href="https://jihuan-tian.github.io/computer/2025/10/17/understanding-about-git-merge-rebase-and-cherry-pick.html" rel="alternate" type="text/html" title="Understanding about Git merge, rebase and cherry-pick" /><published>2025-10-17T00:00:00+08:00</published><updated>2025-10-17T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/10/17/understanding-about-git-merge-rebase-and-cherry-pick</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/10/17/understanding-about-git-merge-rebase-and-cherry-pick.html"><![CDATA[<p>To understand the differences between Git merge, rebase and cherry-pick, we need to know these points:</p>
 
 <ol>
   <li>How does Git generally merge two commits into a new commit?</li>
