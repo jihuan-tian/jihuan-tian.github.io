@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Understanding about Git merge, rebase and cherry-pick | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Understanding about Git merge, rebase and cherry-pick" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="To understand the differences between Git merge, rebase and cherry-pick, we need to know these points:" />
+<meta property="og:description" content="To understand the differences between Git merge, rebase and cherry-pick, we need to know these points:" />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2025/10/17/understanding-about-git-merge-rebase-and-cherry-pick.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2025/10/17/understanding-about-git-merge-rebase-and-cherry-pick.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-10-17T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Understanding about Git merge, rebase and cherry-pick" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-10-17T00:00:00+08:00","datePublished":"2025-10-17T00:00:00+08:00","description":"To understand the differences between Git merge, rebase and cherry-pick, we need to know these points:","headline":"Understanding about Git merge, rebase and cherry-pick","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2025/10/17/understanding-about-git-merge-rebase-and-cherry-pick.html"},"url":"https://jihuan-tian.github.io/computer/2025/10/17/understanding-about-git-merge-rebase-and-cherry-pick.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Understanding about Git merge, rebase and cherry-pick</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-10-17T00:00:00+08:00" itemprop="datePublished">
+        Fri, Oct 17, W41, 2025 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/Git">Git</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>To understand the differences between Git merge, rebase and cherry-pick, we need to know these points:</p>
+
+<ol>
+  <li>How does Git generally merge two commits into a new commit?</li>
+  <li>How is a new commit created during the three types of operations?</li>
+  <li>How is the new commit linked into the existing commit history?</li>
+  <li>How does a branch tip move after the operation?</li>
+</ol>
+
+<h1 id="merge-two-commits-into-a-new-commit">Merge two commits into a new commit</h1>
+
+<p>After first, we need to know how Git creates a new commit by merging two existing commits. There are two cases:</p>
+
+<ul>
+  <li>Fast-forward merge
+    <ul>
+      <li>If one of the commit is the ancestor of the other commit and we are merging the descendant commit into the ancestor commit, a fast-forward merge will be performed.</li>
+      <li>If we are merging the ancestor commit into the descendant commit, Git will do nothing and return a message “Already up to date.”.</li>
+      <li>When a fast-forward merge happens, no new commit will be created.</li>
+    </ul>
+  </li>
+  <li>Three-way merge
+    <ul>
+      <li>It happens when the two input commits are not on a same history chain, i.e. no commit is the ancestor of the other one.</li>
+      <li>A three-way merge will create a new commit, which involves the two input commits and their most recent common ancestor.</li>
+      <li>
+        <p>During a three-way merge, commit diference is produced in this way:</p>
+
+        <p>Let <code class="language-plaintext highlighter-rouge">B</code> be the first commit, <code class="language-plaintext highlighter-rouge">C</code> be the second commit and <code class="language-plaintext highlighter-rouge">A</code> be their most recent common ancestor. Git first computes changes from <code class="language-plaintext highlighter-rouge">A</code> to <code class="language-plaintext highlighter-rouge">B</code> (written as <code class="language-plaintext highlighter-rouge">diff1</code>) and from <code class="language-plaintext highlighter-rouge">A</code> to <code class="language-plaintext highlighter-rouge">C</code> (written as <code class="language-plaintext highlighter-rouge">diff2</code>). Next, Git creates a new commit by applying <code class="language-plaintext highlighter-rouge">diff1</code> and <code class="language-plaintext highlighter-rouge">diff2</code> to <code class="language-plaintext highlighter-rouge">A</code>. A three-way merge is line-based, which means if changes made in <code class="language-plaintext highlighter-rouge">diff1</code> and <code class="language-plaintext highlighter-rouge">diff2</code> are about different lines, there will be no merge conflicts, otherwise, if <code class="language-plaintext highlighter-rouge">diff1</code> and <code class="language-plaintext highlighter-rouge">diff2</code> contain changes on a same line, there will be a conflict and needs to be manually resolved.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="merge">Merge</h1>
+
+<ul>
+  <li>The target branch is the current branch and the source branch is the other branch.</li>
+  <li>Git creates a a new commit by merging tip commits in the two input branches.</li>
+  <li>If a fast-forward merge happens:
+    <ul>
+      <li>There is no new commit created.</li>
+      <li>The tip of the target branch moves to the same commit to which the tip of the source branch also points, i.e. the two tips overlap.</li>
+    </ul>
+  </li>
+  <li>When a three-way merge happens:
+    <ul>
+      <li>A new commit is created.</li>
+      <li>The tip of the target branch moves to this new commit, while the tip of the source branch does not change.</li>
+      <li>The input two commits are the ancestors of this new commit.</li>
+    </ul>
+  </li>
+  <li>We use merge when we want to keep the working history in a topic branch, even though divergent and merging branches will make the repository graph look messy.</li>
+</ul>
+
+<p><img src="/figures/2025-10-17-15-38-40-git-merge_export.png" alt="img" /></p>
+
+<h1 id="rebase">Rebase</h1>
+
+<ul>
+  <li>The source branch is the current branch and the target branch is the other branch.</li>
+  <li>A range of commits are rebased from the source branch onto the target branch. For each of them, Git creates a new commit by merging this source commit with the tip commit in the target branch.</li>
+  <li>These newly created commits preserve the same chain relation as their corresponding commits in the source branch.</li>
+  <li>This chain of new commits is appended to the tip of the target branch, while the range of commits in the source branch before rebasing are deleted.</li>
+  <li>The tip of the current (source) branch moves to the last commit in this new commit chain and the tip of the target branch does not move.</li>
+  <li>We use rebase to keep a almost linear project history, which looks cleaner than Git merge. However, the original work in the topic branch is modified.</li>
+  <li>Handling conflicts
+    <ul>
+      <li>Resolve conflicts manually, then add or remove modified files and run <code class="language-plaintext highlighter-rouge">git rebase --continue</code>.</li>
+      <li>Skip the conflicting commit: <code class="language-plaintext highlighter-rouge">git rebase --skip</code>.</li>
+      <li>Use <code class="language-plaintext highlighter-rouge">git rebase --abort</code> to return to the state before rebasing.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Possible operation after rebase</p>
+
+    <p>Since the tip of the target branch is now an ancestor of the source branch, we can fast-forward merge the target branch into the source branch, then delete the source branch.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout &lt;target-branch&gt;
+git merge &lt;source-branch&gt;
+git branch -d &lt;source-branch&gt;
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><img src="/figures/2025-10-17-15-40-14-git-rebase_export.png" alt="img" /></p>
+
+<h1 id="cherry-pick">Cherry-pick</h1>
+
+<ul>
+  <li>Same as merge, the target branch is the current branch and the source branch is the other branch.</li>
+  <li>One or several commits from the source branch can be cherry-picked into the target branch. For each cherry commit, Git creates a new commit by merging it with the tip commit of the current branch.</li>
+  <li>This sequence of new commits are put into a chain in the same order as their counterparts in the source branch. This new chain is appended to the tip of the target branch.</li>
+  <li>The cherry commits in the source branch are not changed or deleted.</li>
+  <li>The tip of the current branch moves to the last commit in the new commit chain, while the tip of the source branch does not move.</li>
+  <li>We use cherry-pick to acquire interested contributions from a topic branch into our working branch, while the commits in the topic branch are preserved.</li>
+  <li>Handling conflicts
+    <ul>
+      <li>Manually resolve conflicts, then add or remove files and run <code class="language-plaintext highlighter-rouge">git cherry-pick --continue</code>.</li>
+      <li>Skip the conflicting commit: <code class="language-plaintext highlighter-rouge">git cherry-pick --skip</code>.</li>
+      <li>Abort the cherry-pick and return to the state before: <code class="language-plaintext highlighter-rouge">git cherry-pick --abort</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>Possible operation after cherry-pick</p>
+
+    <p>After we cherry-pick interested commits from a topic branch, we may want to delete the topic branch by running <code class="language-plaintext highlighter-rouge">git branch -D &lt;topic-branch&gt;</code>. Do not use <code class="language-plaintext highlighter-rouge">-d</code>, otherwise there will be an error:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: The branch '&lt;topic-branch&gt;' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D dev'.
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><img src="/figures/2025-10-17-15-49-13-git-cherry-pick_export.png" alt="img" /></p>
+
+
+  </div><a class="u-url" href="/computer/2025/10/17/understanding-about-git-merge-rebase-and-cherry-pick.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2025 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
