@@ -46,6 +46,7 @@ After first, we need to know how Git creates a new commit by merging two existin
 
 ![img](/figures/2025-10-17-15-38-40-git-merge_export.png)
 
+N.B. If we use Gitlab for our software development, by default, every merge creates a merge commit, which makes the commit history look messy. We need to configure the merge method as "fast-forward merge" in Gitlab's "Merge requests" setting.
 
 # Rebase
 
