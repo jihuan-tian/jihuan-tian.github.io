@@ -21,7 +21,8 @@ My current focus is C++ implementation of Galerkin boundary element method (BEM)
 
 ## Contact
 
-* Email: [jihuan_tian@hotmail.com](mailto:jihuan_tian@hotmail.com)
+* Email: [jihuan_tian@hotmail.com](mailto:jihuan_tian@hotmail.com). My PGP key fingerprint is `6F69 DE18 0603 EBFF 94D4  0E95 A5FA C1BB 06AA 8C9C`. The full public key can be found on key servers, such as [https://keys.openpgp.org/](https://keys.openpgp.org/).
 * GitHub: [jihuan-tian](https://github.com/jihuan-tian)
 * LinkedIn: [in/jihuan-tian](https://www.linkedin.com/in/jihuan-tian/)
+* X: [@hypersingularis](https://x.com/hypersingularis)
 * Mastodon: [@hypersingular@mathstodon.xyz](https://mathstodon.xyz/@hypersingular)
