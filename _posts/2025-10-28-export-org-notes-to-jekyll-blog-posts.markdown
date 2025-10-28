@@ -57,7 +57,7 @@ Creates DEST-DIR if it doesn’t exist."
 I execute `tjh/org-export-org-to-md-as-new-blog` to copy images and create the markdown file via `with-temp-file`. In the markdown file, I first generate a preamble, where the value of the `date` field is acquired from the `CREATED` property of the note. Then insert the markdown text returned from `org-export-as`. At the end of the markdown file, a backlink is generated which can be processed by Jekyll (see [Enable backlinks in Jekyll blog]({% post_url 2024-09-28-enable-backlinks-in-jekyll-blog %})). Finally, a `BLOG` property is created in the original note whose value is a link to the markdown file.
 
 ```elisp
-(defun tjh/org-export-org-to-md-as-new-blog (scope)
+{% raw %}(defun tjh/org-export-org-to-md-as-new-blog (scope)
   "Export the current Org subtree or whole buffer to a new markdown blog post. Create a BLOG property which contains a link to the blog post. Front matter and backlink are automatically inserted int the blog post."
   (interactive
    (list
@@ -104,7 +104,7 @@ I execute `tjh/org-export-org-to-md-as-new-blog` to copy images and create the m
 	;; Modify the path to figures.
 	(goto-char (point-min))
 	(replace-string "![img](/figures/" "![img](/figures/"))
-      (org-open-file blog-post-fullname))))
+      (org-open-file blog-post-fullname)))){% endraw %}
 ```
 
 {{ "2025-10-28-export-org-notes-to-jekyll-blog-posts" | backlink }}

@@ -7,7 +7,7 @@ tags: [Jekyll]
 mathjax: false
 ---
 
-Enable backlinks by creating a Jekyll filter as below written in Ruby. It should be placed in `\$blog/\_plugins`.
+Enable backlinks by creating a Jekyll filter as below written in Ruby. It should be placed in `$blog/_plugins`.
 
 ```ruby
 module Jekyll
@@ -46,6 +46,6 @@ Liquid::Template.register_filter(Jekyll::Backlinks)
 
 -   The URL link passed to the filter function `backlink` is in the original Liquid grammar, not in the HTML format.
 -   We should prevent a blog post backlinks to itself.
--   The post URL should be placed between double quotes: `{{ "<post-file-name-without-extension>" | backlink }}`
+-   The post URL should be placed between double quotes: {% raw %}`{{ "<post-file-name-without-extension>" | backlink }}`{% endraw %}
 
 {{ "2024-09-28-enable-backlinks-in-jekyll-blog" | backlink }}
