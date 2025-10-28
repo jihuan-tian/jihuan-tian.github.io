@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Export Org notes to Jekyll blog posts | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Export Org notes to Jekyll blog posts" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I write notes in Org Roam. I use the following Elisp functions to export my notes to a blog post in Jekyll." />
+<meta property="og:description" content="I write notes in Org Roam. I use the following Elisp functions to export my notes to a blog post in Jekyll." />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2025/10/28/export-org-notes-to-jekyll-blog-posts.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2025/10/28/export-org-notes-to-jekyll-blog-posts.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-10-28T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Export Org notes to Jekyll blog posts" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-10-28T00:00:00+08:00","datePublished":"2025-10-28T00:00:00+08:00","description":"I write notes in Org Roam. I use the following Elisp functions to export my notes to a blog post in Jekyll.","headline":"Export Org notes to Jekyll blog posts","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2025/10/28/export-org-notes-to-jekyll-blog-posts.html"},"url":"https://jihuan-tian.github.io/computer/2025/10/28/export-org-notes-to-jekyll-blog-posts.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Export Org notes to Jekyll blog posts</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-10-28T00:00:00+08:00" itemprop="datePublished">
+        Tue, Oct 28, W43, 2025 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/Org-mode">Org-mode</a>
+          
+            <a href="/tags/Jekyll">Jekyll</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>I write notes in Org Roam. I use the following Elisp functions to export my notes to a blog post in Jekyll.</p>
+
+<p><code class="language-plaintext highlighter-rouge">tjh/org-copy-images-in-org-to-folder</code> is used to copy linked images in a note to the <code class="language-plaintext highlighter-rouge">figures</code> folder in my blog.</p>
+
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/org-copy-images-in-org-to-folder</span> <span class="p">(</span><span class="nv">scope</span> <span class="nv">dest-dir</span><span class="p">)</span>
+  <span class="s">"Copy all image files referenced by links in the current Org subtree or the whole buffer to DEST-DIR.
+Creates DEST-DIR if it doesn’t exist."</span>
+  <span class="p">(</span><span class="nv">interactive</span>
+   <span class="p">(</span><span class="nb">list</span>
+    <span class="c1">;; Org scope selection</span>
+    <span class="p">(</span><span class="nb">intern</span> <span class="p">(</span><span class="nv">completing-read</span> <span class="s">"Scope: "</span> <span class="o">'</span><span class="p">(</span><span class="s">"subtree"</span> <span class="s">"buffer"</span><span class="p">)</span> <span class="no">nil</span> <span class="no">t</span><span class="p">))</span>
+    <span class="c1">;; Export directory</span>
+    <span class="p">(</span><span class="nv">read-directory-name</span> <span class="s">"Destination directory: "</span><span class="p">)))</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">case-fold-search</span> <span class="no">t</span><span class="p">)</span>
+        <span class="p">(</span><span class="nv">image-extensions</span> <span class="o">'</span><span class="p">(</span><span class="s">"png"</span> <span class="s">"jpg"</span> <span class="s">"jpeg"</span> <span class="s">"gif"</span> <span class="s">"svg"</span> <span class="s">"tiff"</span> <span class="s">"bmp"</span> <span class="s">"webp"</span><span class="p">))</span>
+        <span class="nv">files</span>
+	<span class="nv">end</span><span class="p">)</span>
+    <span class="c1">;; Find all links in the current Org subtree or whole buffer.</span>
+    <span class="p">(</span><span class="nv">save-excursion</span>
+      <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">eq</span> <span class="nv">scope</span> <span class="ss">'subtree</span><span class="p">)</span>
+	  <span class="p">(</span><span class="nv">org-back-to-heading</span> <span class="no">t</span><span class="p">)</span>
+	<span class="p">(</span><span class="nv">goto-char</span> <span class="p">(</span><span class="nv">point-min</span><span class="p">)))</span>
+      <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">eq</span> <span class="nv">scope</span> <span class="ss">'subtree</span><span class="p">)</span>
+	  <span class="p">(</span><span class="k">setq</span> <span class="nv">end</span> <span class="p">(</span><span class="nv">save-excursion</span> <span class="p">(</span><span class="nv">org-end-of-subtree</span> <span class="no">t</span> <span class="no">t</span><span class="p">)))</span>
+	<span class="p">(</span><span class="k">setq</span> <span class="nv">end</span> <span class="p">(</span><span class="nv">point-max</span><span class="p">)))</span>
+      <span class="p">(</span><span class="nv">while</span> <span class="p">(</span><span class="nv">re-search-forward</span> <span class="nv">org-link-bracket-re</span> <span class="nv">end</span> <span class="no">t</span><span class="p">)</span>
+        <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">link</span> <span class="p">(</span><span class="nv">org-element-context</span><span class="p">)))</span>
+          <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">eq</span> <span class="p">(</span><span class="nv">org-element-type</span> <span class="nv">link</span><span class="p">)</span> <span class="ss">'link</span><span class="p">)</span>
+            <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="k">type</span> <span class="p">(</span><span class="nv">org-element-property</span> <span class="ss">:type</span> <span class="nv">link</span><span class="p">))</span>
+                   <span class="p">(</span><span class="nv">path</span> <span class="p">(</span><span class="nv">org-element-property</span> <span class="ss">:path</span> <span class="nv">link</span><span class="p">))</span>
+		   <span class="p">(</span><span class="nv">ext</span><span class="p">))</span>
+	      <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">member</span> <span class="k">type</span> <span class="o">'</span><span class="p">(</span><span class="s">"file"</span> <span class="s">"attachment"</span><span class="p">))</span>
+		<span class="p">(</span><span class="k">setq</span> <span class="nv">ext</span> <span class="p">(</span><span class="nv">downcase</span> <span class="p">(</span><span class="nv">file-name-extension</span> <span class="nv">path</span><span class="p">)))</span>
+                <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">member</span> <span class="nv">ext</span> <span class="nv">image-extensions</span><span class="p">)</span>
+                  <span class="p">(</span><span class="nb">push</span> <span class="p">(</span><span class="nv">expand-file-name</span> <span class="nv">path</span><span class="p">)</span> <span class="nv">files</span><span class="p">))))))))</span>
+    
+    <span class="c1">;; Copy them to the destination</span>
+    <span class="p">(</span><span class="nb">when</span> <span class="nv">files</span>
+      <span class="p">(</span><span class="nb">unless</span> <span class="p">(</span><span class="nv">file-exists-p</span> <span class="nv">dest-dir</span><span class="p">)</span>
+        <span class="p">(</span><span class="nv">make-directory</span> <span class="nv">dest-dir</span> <span class="no">t</span><span class="p">))</span>
+      <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">f</span> <span class="nv">files</span><span class="p">)</span>
+        <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nv">file-exists-p</span> <span class="nv">f</span><span class="p">)</span>
+          <span class="p">(</span><span class="nv">copy-file</span> <span class="nv">f</span> <span class="p">(</span><span class="nv">expand-file-name</span> <span class="p">(</span><span class="nv">file-name-nondirectory</span> <span class="nv">f</span><span class="p">)</span> <span class="nv">dest-dir</span><span class="p">)</span> <span class="no">t</span><span class="p">)))</span>
+      <span class="p">(</span><span class="nv">message</span> <span class="s">"Copied %d image(s) to %s"</span> <span class="p">(</span><span class="nb">length</span> <span class="nv">files</span><span class="p">)</span> <span class="nv">dest-dir</span><span class="p">))))</span>
+</code></pre></div></div>
+
+<p>I execute <code class="language-plaintext highlighter-rouge">tjh/org-export-org-to-md-as-new-blog</code> to copy images and create the markdown file via <code class="language-plaintext highlighter-rouge">with-temp-file</code>. In the markdown file, I first generate a preamble, where the value of the <code class="language-plaintext highlighter-rouge">date</code> field is acquired from the <code class="language-plaintext highlighter-rouge">CREATED</code> property of the note. Then insert the markdown text returned from <code class="language-plaintext highlighter-rouge">org-export-as</code>. At the end of the markdown file, a backlink is generated which can be processed by Jekyll (see <a href="/computer/2024/09/28/enable-backlinks-in-jekyll-blog.html">Enable backlinks in Jekyll blog</a>). Finally, a <code class="language-plaintext highlighter-rouge">BLOG</code> property is created in the original note whose value is a link to the markdown file.</p>
+
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/org-export-org-to-md-as-new-blog</span> <span class="p">(</span><span class="nv">scope</span><span class="p">)</span>
+  <span class="s">"Export the current Org subtree or whole buffer to a new markdown blog post. Create a BLOG property which contains a link to the blog post. Front matter and backlink are automatically inserted int the blog post."</span>
+  <span class="p">(</span><span class="nv">interactive</span>
+   <span class="p">(</span><span class="nb">list</span>
+    <span class="c1">;; Org scope selection</span>
+    <span class="p">(</span><span class="nb">intern</span> <span class="p">(</span><span class="nv">completing-read</span> <span class="s">"Scope: "</span> <span class="o">'</span><span class="p">(</span><span class="s">"subtree"</span> <span class="s">"buffer"</span><span class="p">)</span> <span class="no">nil</span> <span class="no">t</span><span class="p">))))</span>
+  <span class="c1">;; Before export the subtree to markdown, we copy all linked figures in the</span>
+  <span class="c1">;; subtree to the "figures" folder in the blog.</span>
+  <span class="p">(</span><span class="nv">tjh/org-copy-images-in-org-to-folder</span> <span class="nv">scope</span>
+   <span class="p">(</span><span class="nv">concat</span> <span class="p">(</span><span class="nv">concat</span> <span class="p">(</span><span class="nv">getenv</span> <span class="s">"blog"</span><span class="p">)</span> <span class="p">(</span><span class="nv">f-path-separator</span><span class="p">)</span> <span class="s">"figures"</span><span class="p">)))</span>
+  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">filename-ext</span> <span class="s">"markdown"</span><span class="p">)</span>
+	 <span class="c1">;; Markdown contents as a string.</span>
+	 <span class="p">(</span><span class="nv">exported-md</span> <span class="p">(</span><span class="nv">org-export-as</span> <span class="ss">'gfm</span> <span class="p">(</span><span class="nb">eq</span> <span class="nv">scope</span> <span class="ss">'subtree</span><span class="p">)</span> <span class="no">t</span><span class="p">))</span>
+	 <span class="p">(</span><span class="nv">time-string</span> <span class="p">(</span><span class="nv">org-entry-get</span> <span class="p">(</span><span class="nv">point</span><span class="p">)</span> <span class="s">"CREATED"</span><span class="p">))</span>
+	 <span class="p">(</span><span class="nv">heading-text</span>
+	  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">eq</span> <span class="nv">scope</span> <span class="ss">'subtree</span><span class="p">)</span>
+	      <span class="p">(</span><span class="nv">substring-no-properties</span>
+	       <span class="p">(</span><span class="nv">org-get-heading</span> <span class="no">t</span> <span class="no">t</span> <span class="no">t</span> <span class="no">t</span><span class="p">))</span>
+	    <span class="p">(</span><span class="nv">org-get-title</span><span class="p">))))</span>
+    <span class="p">(</span><span class="nb">unless</span> <span class="nv">time-string</span>
+      <span class="p">(</span><span class="nv">user-error</span> <span class="s">"CREATE property of the subtree is missing!"</span><span class="p">))</span>
+    <span class="p">(</span><span class="nv">string-match</span> <span class="s">"&lt;\\([0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\).*&gt;"</span> <span class="nv">time-string</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">created-time</span> <span class="p">(</span><span class="nv">match-string</span> <span class="mi">1</span> <span class="nv">time-string</span><span class="p">))</span>
+	   <span class="c1">;; Generate blog post base name.</span>
+	   <span class="p">(</span><span class="nv">blog-post-basename</span>
+	    <span class="p">(</span><span class="nv">concat</span> <span class="nv">created-time</span> <span class="s">"-"</span>
+		    <span class="p">(</span><span class="nv">replace-regexp-in-string</span> <span class="s">","</span> <span class="s">""</span>
+					      <span class="p">(</span><span class="nv">replace-regexp-in-string</span> <span class="s">" +"</span> <span class="s">"-"</span>
+									<span class="p">(</span><span class="nv">downcase</span> <span class="nv">heading-text</span><span class="p">)))))</span>
+	   <span class="p">(</span><span class="nv">blog-post-filename</span> <span class="p">(</span><span class="nv">concat</span> <span class="nv">blog-post-basename</span> <span class="s">"."</span> <span class="nv">filename-ext</span><span class="p">))</span>
+	   <span class="p">(</span><span class="nv">blog-post-fullname</span> <span class="p">(</span><span class="nv">file-relative-name</span>
+				<span class="p">(</span><span class="nv">concat</span> <span class="p">(</span><span class="nv">getenv</span> <span class="s">"blog"</span><span class="p">)</span> <span class="p">(</span><span class="nv">f-path-separator</span><span class="p">)</span>
+					<span class="s">"_posts"</span> <span class="p">(</span><span class="nv">f-path-separator</span><span class="p">)</span>
+					<span class="nv">blog-post-basename</span> <span class="s">"."</span> <span class="nv">filename-ext</span><span class="p">)))</span>
+	   <span class="p">(</span><span class="nv">blog-post-relative-link</span> <span class="p">(</span><span class="nb">format</span> <span class="s">"[[file:%s]]"</span> <span class="nv">blog-post-fullname</span><span class="p">)))</span>
+      <span class="p">(</span><span class="nv">org-set-property</span> <span class="s">"BLOG"</span> <span class="nv">blog-post-relative-link</span><span class="p">)</span>
+      <span class="c1">;; Generate the blog post contents.</span>
+      <span class="p">(</span><span class="nv">with-temp-file</span>
+	  <span class="nv">blog-post-fullname</span>
+	<span class="p">(</span><span class="nv">insert</span>
+	 <span class="p">(</span><span class="nb">format</span> <span class="s">"---\nlayout: post\ntitle: \"%s\"\ndate: %s\ncategories: []\ntags: []\nmathjax: false\n---\n\n"</span> <span class="nv">heading-text</span> <span class="nv">created-time</span><span class="p">))</span>
+	<span class="p">(</span><span class="nv">insert</span> <span class="nv">exported-md</span><span class="p">)</span>
+	<span class="p">(</span><span class="nv">insert</span>
+	 <span class="p">(</span><span class="nb">format</span> <span class="s">"\n\n{{ \"%s\" | backlink }}"</span> <span class="nv">blog-post-basename</span><span class="p">))</span>
+	<span class="c1">;; Modify the path to figures.</span>
+	<span class="p">(</span><span class="nv">goto-char</span> <span class="p">(</span><span class="nv">point-min</span><span class="p">))</span>
+	<span class="p">(</span><span class="nv">replace-string</span> <span class="s">"![img](/figures/"</span> <span class="s">"![img](/figures/"</span><span class="p">))</span>
+      <span class="p">(</span><span class="nv">org-open-file</span> <span class="nv">blog-post-fullname</span><span class="p">))))</span>
+</code></pre></div></div>
+
+
+  </div><a class="u-url" href="/computer/2025/10/28/export-org-notes-to-jekyll-blog-posts.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2025 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

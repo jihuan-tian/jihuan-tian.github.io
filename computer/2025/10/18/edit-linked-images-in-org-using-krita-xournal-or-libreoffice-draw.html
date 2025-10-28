@@ -89,10 +89,10 @@
        <span class="s">"org-open-link"</span> <span class="no">nil</span> <span class="p">(</span><span class="nb">format</span> <span class="s">"%s '%s'"</span> <span class="s">"krita"</span> <span class="nv">link</span><span class="p">)))))</span>
 
 <span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/org-edit-image-with-draw</span> <span class="p">()</span>
-  <span class="s">"Edit the original odg file in LibreOffice Draw associated with the current image. If there is only one image exported from the odg file, their base names are the same. Multiple images can be exported from a single odg file. If the odg file name is foo.odg, the image file names are assumed to be foo#&lt;image-name&gt;.png."</span>
+  <span class="s">"Edit the original odg file in LibreOffice Draw associated with the current image. If there is only one image exported from the odg file, their base names are the same. Multiple images can be exported from a single odg file. If the odg file name is foo.odg, the image file names are assumed to be foo_&lt;image-name&gt;.png."</span>
   <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
   <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">link</span> <span class="p">(</span><span class="nv">org-element-property</span> <span class="ss">:path</span> <span class="p">(</span><span class="nv">org-element-context</span><span class="p">)))</span>
-	 <span class="p">(</span><span class="nv">odg-file</span> <span class="p">(</span><span class="nv">replace-regexp-in-string</span> <span class="s">"\\(#.*\\)*\\.png$"</span> <span class="s">".odg"</span> <span class="nv">link</span><span class="p">)))</span>
+	 <span class="p">(</span><span class="nv">odg-file</span> <span class="p">(</span><span class="nv">replace-regexp-in-string</span> <span class="s">"\\(_.*\\)*\\.png$"</span> <span class="s">".odg"</span> <span class="nv">link</span><span class="p">)))</span>
     <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nv">file-exists-p</span> <span class="nv">odg-file</span><span class="p">)</span>
 	<span class="p">(</span><span class="nv">start-process-shell-command</span>
 	 <span class="s">"org-open-link"</span> <span class="no">nil</span> <span class="p">(</span><span class="nb">format</span> <span class="s">"%s '%s'"</span> <span class="s">"libreoffice"</span> <span class="nv">odg-file</span><span class="p">))</span>
