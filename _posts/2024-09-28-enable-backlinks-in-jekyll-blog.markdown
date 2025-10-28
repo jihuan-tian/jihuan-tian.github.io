@@ -12,10 +12,6 @@ Enable backlinks by creating a Jekyll filter as below written in Ruby. It should
 ```ruby
 module Jekyll
   module Backlinks
-    # Generate backlinks which point to the URL in @p input. N.B. The URL is
-    # inserted in a Jekyll post with the Liquid grammar i.e. {% post_url
-    # <input> }, where @p input is the file name (without extension) for the
-    # target post.
     def backlink(input)
       backlinks = []
       site = @context.registers[:site]
