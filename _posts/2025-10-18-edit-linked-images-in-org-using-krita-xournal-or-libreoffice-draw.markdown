@@ -22,10 +22,10 @@ I often use Krita, Xournal and LibreOffice Draw to make illustrations. They are 
        "org-open-link" nil (format "%s '%s'" "krita" link)))))
 
 (defun tjh/org-edit-image-with-draw ()
-  "Edit the original odg file in LibreOffice Draw associated with the current image. If there is only one image exported from the odg file, their base names are the same. Multiple images can be exported from a single odg file. If the odg file name is foo.odg, the image file names are assumed to be foo#<image-name>.png."
+  "Edit the original odg file in LibreOffice Draw associated with the current image. If there is only one image exported from the odg file, their base names are the same. Multiple images can be exported from a single odg file. If the odg file name is foo.odg, the image file names are assumed to be foo_<image-name>.png."
   (interactive)
   (let* ((link (org-element-property :path (org-element-context)))
-	 (odg-file (replace-regexp-in-string "\\(#.*\\)*\\.png$" ".odg" link)))
+	 (odg-file (replace-regexp-in-string "\\(_.*\\)*\\.png$" ".odg" link)))
     (if (file-exists-p odg-file)
 	(start-process-shell-command
 	 "org-open-link" nil (format "%s '%s'" "libreoffice" odg-file))
