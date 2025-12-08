@@ -8,8 +8,8 @@
 <meta property="og:title" content="Factor (\sigma ) before the identity operator is always 0.5" />
 <meta name="author" content="Jihuan Tian" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="In boundray integral equations, such as the Calderón system," />
-<meta property="og:description" content="In boundray integral equations, such as the Calderón system," />
+<meta name="description" content="In boundary integral equations, such as the Calderón system," />
+<meta property="og:description" content="In boundary integral equations, such as the Calderón system," />
 <link rel="canonical" href="https://jihuan-tian.github.io/math/2025/12/05/factor-sigma-before-the-identity-operator.html" />
 <meta property="og:url" content="https://jihuan-tian.github.io/math/2025/12/05/factor-sigma-before-the-identity-operator.html" />
 <meta property="og:site_name" content="止于至善" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Factor (\sigma ) before the identity operator is always 0.5" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-12-05T00:00:00+08:00","datePublished":"2025-12-05T00:00:00+08:00","description":"In boundray integral equations, such as the Calderón system,","headline":"Factor (\\sigma ) before the identity operator is always 0.5","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2025/12/05/factor-sigma-before-the-identity-operator.html"},"url":"https://jihuan-tian.github.io/math/2025/12/05/factor-sigma-before-the-identity-operator.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-12-05T00:00:00+08:00","datePublished":"2025-12-05T00:00:00+08:00","description":"In boundary integral equations, such as the Calderón system,","headline":"Factor (\\sigma ) before the identity operator is always 0.5","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/math/2025/12/05/factor-sigma-before-the-identity-operator.html"},"url":"https://jihuan-tian.github.io/math/2025/12/05/factor-sigma-before-the-identity-operator.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/font.css">
   <link rel="stylesheet" href="/assets/main.css">
@@ -149,7 +149,7 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>In boundray integral equations, such as the Calderón system,</p>
+    <p>In boundary integral equations, such as the Calderón system,</p>
 
 \[\begin{equation}
   \label{eq:bies-in-matrix-form}
@@ -166,7 +166,7 @@
   \end{pmatrix}
   \begin{pmatrix}
     \tilde{g}_{\mathrm{D}} \\ \tilde{g}_{\mathrm{N}}
-  \end{pmatrix}.
+  \end{pmatrix},
 \end{equation}\]
 
 <p>the factor \(\sigma(x)\) is defined as the solid angle of the part within \(\Omega\) of a sphere with respect to the field point \(x\in\Gamma\) divided by \(4\pi\), while the sphere is centered at \(x\):</p>
@@ -228,7 +228,7 @@
     <p>Its interior conormal trace is</p>
 
 \[\begin{equation}
-  \gamma_1^{\mathrm{int}}(\tilde{V}w)(x) = \sigma(x) w(x) (K'w)(x) \quad x\in\Gamma.
+  \gamma_1^{\mathrm{int}}(\tilde{V}w)(x) = \sigma(x) w(x) + (K'w)(x) \quad x\in\Gamma.
 \end{equation}\]
 
     <p>Its exterior conormal trace is</p>
@@ -241,7 +241,7 @@
 
 \[\begin{equation}
   [\gamma_1(\tilde{V}w)]_{\Gamma} = \gamma_1^{\mathrm{ext}}(\tilde{V}w)(x) -
-  \gamma_1^{\mathrm{int}}(\tilde{V}w)(x) = -w(x) + (K'w)(x) \quad x\in\Gamma.
+  \gamma_1^{\mathrm{int}}(\tilde{V}w)(x) = -w(x) \quad x\in\Gamma.
 \end{equation}\]
   </li>
 </ol>
