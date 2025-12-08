@@ -7,7 +7,7 @@ tags: [BEM]
 mathjax: true
 ---
 
-In boundray integral equations, such as the Calderón system,
+In boundary integral equations, such as the Calderón system,
 
 $$
 \begin{equation}
@@ -25,7 +25,7 @@ $$
   \end{pmatrix}
   \begin{pmatrix}
     \tilde{g}_{\mathrm{D}} \\ \tilde{g}_{\mathrm{N}}
-  \end{pmatrix}.
+  \end{pmatrix},
 \end{equation}
 $$
 
@@ -100,7 +100,7 @@ $$\sigma(x) $$ appears in the following two cases:
     
     $$
     \begin{equation}
-      \gamma_1^{\mathrm{int}}(\tilde{V}w)(x) = \sigma(x) w(x) (K'w)(x) \quad x\in\Gamma.
+      \gamma_1^{\mathrm{int}}(\tilde{V}w)(x) = \sigma(x) w(x) + (K'w)(x) \quad x\in\Gamma.
     \end{equation}
     $$
     
@@ -117,7 +117,7 @@ $$\sigma(x) $$ appears in the following two cases:
     $$
     \begin{equation}
       [\gamma_1(\tilde{V}w)]_{\Gamma} = \gamma_1^{\mathrm{ext}}(\tilde{V}w)(x) -
-      \gamma_1^{\mathrm{int}}(\tilde{V}w)(x) = -w(x) + (K'w)(x) \quad x\in\Gamma.
+      \gamma_1^{\mathrm{int}}(\tilde{V}w)(x) = -w(x) \quad x\in\Gamma.
     \end{equation}
     $$
 
