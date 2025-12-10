@@ -1,4 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-12-08T11:33:48+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Change Emacs color theme according to the time of a day</title><link href="https://jihuan-tian.github.io/computer/2025/11/25/change-emacs-color-theme-according-to-the-time-of-a-day.html" rel="alternate" type="text/html" title="Change Emacs color theme according to the time of a day" /><published>2025-11-25T00:00:00+08:00</published><updated>2025-11-25T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/11/25/change-emacs-color-theme-according-to-the-time-of-a-day</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/11/25/change-emacs-color-theme-according-to-the-time-of-a-day.html"><![CDATA[<p>I’ve defined the following functions to load different Emacs color themes. The two packages <code class="language-plaintext highlighter-rouge">solarized-theme</code> and <code class="language-plaintext highlighter-rouge">gruvbox-theme</code> should be installed. N.B. Before loading a new color theme, all previously loaded themes should be disabled.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-12-11T06:06:46+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Cannot open citation key via with org-ref</title><link href="https://jihuan-tian.github.io/computer/2025/12/06/cannot-open-citation-key-via-with-org-ref.html" rel="alternate" type="text/html" title="Cannot open citation key via with org-ref" /><published>2025-12-06T00:00:00+08:00</published><updated>2025-12-06T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/12/06/cannot-open-citation-key-via-with-org-ref</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/12/06/cannot-open-citation-key-via-with-org-ref.html"><![CDATA[<p><a id="org4caf092"></a></p>
+
+<h1 id="phenomenon">Phenomenon</h1>
+
+<p>After I upgraded <code class="language-plaintext highlighter-rouge">org-ref-20250828.2122</code> to <code class="language-plaintext highlighter-rouge">org-ref-20251123.1710</code>, I cannot open a BibTeX citation key any more in Org mode with the following message.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transient-setup: Symbol’s value as variable is void: $
+</code></pre></div></div>
+
+<p><a id="org92c03c6"></a></p>
+
+<h1 id="analysis">Analysis</h1>
+
+<p>Enabling <code class="language-plaintext highlighter-rouge">debug-on-error</code>, I can see <code class="language-plaintext highlighter-rouge">org-ref</code> has migrated from <code class="language-plaintext highlighter-rouge">hydra</code> to <code class="language-plaintext highlighter-rouge">transient</code> for creating popup menus and it is the <code class="language-plaintext highlighter-rouge">transient</code> package that causes this problem.</p>
+
+<p><a id="org6560e82"></a></p>
+
+<h1 id="solution">Solution</h1>
+
+<p>Delete <code class="language-plaintext highlighter-rouge">transient.elc</code> in the folder <code class="language-plaintext highlighter-rouge">elpa/transient-20251129.1551</code> and restart Emacs. Or reinstall this package via <code class="language-plaintext highlighter-rouge">package-reinstall</code>.</p>
+
+<p><a id="org19ed7bf"></a></p>
+
+<h1 id="lessons-learnt">Lessons learnt</h1>
+
+<p>Do not update Emacs or its packages so often. If the current Emacs can work smoothly, just stick to it. Otherwise, fiddling with Emacs diverts our original focus on more important works.</p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Org-mode" /><category term="bug" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Change Emacs color theme according to the time of a day</title><link href="https://jihuan-tian.github.io/computer/2025/11/25/change-emacs-color-theme-according-to-the-time-of-a-day.html" rel="alternate" type="text/html" title="Change Emacs color theme according to the time of a day" /><published>2025-11-25T00:00:00+08:00</published><updated>2025-11-25T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/11/25/change-emacs-color-theme-according-to-the-time-of-a-day</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/11/25/change-emacs-color-theme-according-to-the-time-of-a-day.html"><![CDATA[<p>I’ve defined the following functions to load different Emacs color themes. The two packages <code class="language-plaintext highlighter-rouge">solarized-theme</code> and <code class="language-plaintext highlighter-rouge">gruvbox-theme</code> should be installed. N.B. Before loading a new color theme, all previously loaded themes should be disabled.</p>
 
 <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/load-day-color-theme</span> <span class="p">()</span>
   <span class="s">"Color theme for a sunny daytime."</span>
