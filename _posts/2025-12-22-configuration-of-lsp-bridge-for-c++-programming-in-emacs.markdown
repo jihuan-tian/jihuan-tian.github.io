@@ -1,0 +1,74 @@
+---
+layout: post
+title: Configuration of lsp-bridge for C++ programming in Emacs
+date: 2025-12-22
+categories: [computer]
+tags: [Emacs]
+mathjax: false
+---
+
+After installing the Emacs package `lsp-bridge` ([GitHub repository](https://github.com/manateelazycat/lsp-bridge)) and the Debian package `clangd` server, I can jump to definitions of C++ functions, classes and variables in Emacs use these functions `lsp-bridge-find-def`, `lsp-bridge-find-def-return`, `lsp-bridge-find-def-other-window`, `lsp-bridge-find-references`, etc. Now the experience of developing large and template based C++ projects in Emacs is really smooth and enjoyable.
+
+My configuration is below.
+
+```elisp
+;; C++ mode
+(require 'cc-mode)
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.hcu\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
+(defun cpp-local-set-keys ()
+  (interactive)
+  (local-set-key [(f5)] #'gdb)
+  (local-set-key [(f7)] #'compile)
+  (local-set-key (kbd "<f11>") #'lsp-bridge-find-def-return)
+  (local-set-key (kbd "<f12>") #'lsp-bridge-find-def)
+  (local-set-key (kbd "C-<f12>") #'lsp-bridge-find-def-other-window)
+  (local-set-key (kbd "<S-f12>") #'lsp-bridge-find-references))
+
+(add-hook 'c++-mode-hook
+          '(lambda ()
+             (setq indent-tabs-mode nil)
+             (cpp-local-set-keys)
+             (flyspell-prog-mode)
+             (setq comment-start "//")))
+
+(add-to-list 'flyspell-prog-text-faces 'font-lock-doc-string-face)
+
+;; Format C++ code using clang-format
+(load "/usr/share/emacs/site-lisp/clang-format-13/clang-format.el")
+(define-key c++-mode-map [C-M-tab] 'clang-format-buffer)
+
+;; Run clang-format when saving a C/C++ buffer.
+(defun clang-format-save-hook-for-this-buffer ()
+  "Create a buffer local save hook."
+  (add-hook 'before-save-hook
+            (lambda ()
+              (when (locate-dominating-file "." ".clang-format")
+                (clang-format-buffer))
+              ;; Continue to save.
+              nil)
+            nil
+            ;; Buffer local hook.
+            t))
+
+(add-hook 'c-mode-hook (lambda () (clang-format-save-hook-for-this-buffer)))
+(add-hook 'c++-mode-hook (lambda () (clang-format-save-hook-for-this-buffer)))
+
+(require 'cmake-format)
+(add-hook 'cmake-mode-hook '(lambda ()
+                              (cmake-format-mode 1)))
+
+;; lsp-bridge
+(add-to-list 'load-path "/home/jihuan/.emacs.d/lsp-bridge")
+(require 'lsp-bridge)
+(setq lsp-bridge-complete-manually nil)
+(setq acm-enable-search-file-words nil)
+
+;; Enable auto revert mode, so that I can edit source code in both Emacs and VS
+;; Code at the same time.
+(global-auto-revert-mode)
+```
+
+{{ "2025-12-22-configuration-of-lsp-bridge-for-c++-programming-in-emacs" | backlink }}
