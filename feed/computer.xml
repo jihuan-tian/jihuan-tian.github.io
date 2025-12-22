@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-12-15T10:29:45+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Cannot open citation key via with org-ref</title><link href="https://jihuan-tian.github.io/computer/2025/12/06/cannot-open-citation-key-via-with-org-ref.html" rel="alternate" type="text/html" title="Cannot open citation key via with org-ref" /><published>2025-12-06T00:00:00+08:00</published><updated>2025-12-06T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/12/06/cannot-open-citation-key-via-with-org-ref</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/12/06/cannot-open-citation-key-via-with-org-ref.html"><![CDATA[<p><a id="org4caf092"></a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-12-22T18:06:43+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Configuration of lsp-bridge for C++ programming in Emacs</title><link href="https://jihuan-tian.github.io/computer/2025/12/22/configuration-of-lsp-bridge-for-c++-programming-in-emacs.html" rel="alternate" type="text/html" title="Configuration of lsp-bridge for C++ programming in Emacs" /><published>2025-12-22T00:00:00+08:00</published><updated>2025-12-22T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/12/22/configuration-of-lsp-bridge-for-c++-programming-in-emacs</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/12/22/configuration-of-lsp-bridge-for-c++-programming-in-emacs.html"><![CDATA[<p>After installing the Emacs package <code class="language-plaintext highlighter-rouge">lsp-bridge</code> (<a href="https://github.com/manateelazycat/lsp-bridge">GitHub repository</a>) and the Debian package <code class="language-plaintext highlighter-rouge">clangd</code> server, I can jump to definitions of C++ functions, classes and variables in Emacs use these functions <code class="language-plaintext highlighter-rouge">lsp-bridge-find-def</code>, <code class="language-plaintext highlighter-rouge">lsp-bridge-find-def-return</code>, <code class="language-plaintext highlighter-rouge">lsp-bridge-find-def-other-window</code>, <code class="language-plaintext highlighter-rouge">lsp-bridge-find-references</code>, etc. Now the experience of developing large and template based C++ projects in Emacs is really smooth and enjoyable.</p>
+
+<p>My configuration is below.</p>
+
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">;; C++ mode</span>
+<span class="p">(</span><span class="nb">require</span> <span class="ss">'cc-mode</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">'auto-mode-alist</span> <span class="o">'</span><span class="p">(</span><span class="s">"\\.cu\\'"</span> <span class="o">.</span> <span class="nv">c++-mode</span><span class="p">))</span>
+<span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">'auto-mode-alist</span> <span class="o">'</span><span class="p">(</span><span class="s">"\\.hcu\\'"</span> <span class="o">.</span> <span class="nv">c++-mode</span><span class="p">))</span>
+<span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">'auto-mode-alist</span> <span class="o">'</span><span class="p">(</span><span class="s">"\\.h\\'"</span> <span class="o">.</span> <span class="nv">c++-mode</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">cpp-local-set-keys</span> <span class="p">()</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">local-set-key</span> <span class="nv">[</span><span class="p">(</span><span class="nv">f5</span><span class="p">)</span><span class="nv">]</span> <span class="nf">#'</span><span class="nv">gdb</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">local-set-key</span> <span class="nv">[</span><span class="p">(</span><span class="nv">f7</span><span class="p">)</span><span class="nv">]</span> <span class="nf">#'</span><span class="nb">compile</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">local-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">"&lt;f11&gt;"</span><span class="p">)</span> <span class="nf">#'</span><span class="nv">lsp-bridge-find-def-return</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">local-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">"&lt;f12&gt;"</span><span class="p">)</span> <span class="nf">#'</span><span class="nv">lsp-bridge-find-def</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">local-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">"C-&lt;f12&gt;"</span><span class="p">)</span> <span class="nf">#'</span><span class="nv">lsp-bridge-find-def-other-window</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">local-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">"&lt;S-f12&gt;"</span><span class="p">)</span> <span class="nf">#'</span><span class="nv">lsp-bridge-find-references</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'c++-mode-hook</span>
+          <span class="o">'</span><span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
+             <span class="p">(</span><span class="k">setq</span> <span class="nv">indent-tabs-mode</span> <span class="no">nil</span><span class="p">)</span>
+             <span class="p">(</span><span class="nv">cpp-local-set-keys</span><span class="p">)</span>
+             <span class="p">(</span><span class="nv">flyspell-prog-mode</span><span class="p">)</span>
+             <span class="p">(</span><span class="k">setq</span> <span class="nv">comment-start</span> <span class="s">"//"</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">'flyspell-prog-text-faces</span> <span class="ss">'font-lock-doc-string-face</span><span class="p">)</span>
+
+<span class="c1">;; Format C++ code using clang-format</span>
+<span class="p">(</span><span class="nb">load</span> <span class="s">"/usr/share/emacs/site-lisp/clang-format-13/clang-format.el"</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">define-key</span> <span class="nv">c++-mode-map</span> <span class="nv">[C-M-tab]</span> <span class="ss">'clang-format-buffer</span><span class="p">)</span>
+
+<span class="c1">;; Run clang-format when saving a C/C++ buffer.</span>
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">clang-format-save-hook-for-this-buffer</span> <span class="p">()</span>
+  <span class="s">"Create a buffer local save hook."</span>
+  <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'before-save-hook</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
+              <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nv">locate-dominating-file</span> <span class="s">"."</span> <span class="s">".clang-format"</span><span class="p">)</span>
+                <span class="p">(</span><span class="nv">clang-format-buffer</span><span class="p">))</span>
+              <span class="c1">;; Continue to save.</span>
+              <span class="no">nil</span><span class="p">)</span>
+            <span class="no">nil</span>
+            <span class="c1">;; Buffer local hook.</span>
+            <span class="no">t</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'c-mode-hook</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">clang-format-save-hook-for-this-buffer</span><span class="p">)))</span>
+<span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'c++-mode-hook</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">clang-format-save-hook-for-this-buffer</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="nb">require</span> <span class="ss">'cmake-format</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'cmake-mode-hook</span> <span class="o">'</span><span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
+                              <span class="p">(</span><span class="nv">cmake-format-mode</span> <span class="mi">1</span><span class="p">)))</span>
+
+<span class="c1">;; lsp-bridge</span>
+<span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">'load-path</span> <span class="s">"/home/jihuan/.emacs.d/lsp-bridge"</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">require</span> <span class="ss">'lsp-bridge</span><span class="p">)</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">lsp-bridge-complete-manually</span> <span class="no">nil</span><span class="p">)</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">acm-enable-search-file-words</span> <span class="no">nil</span><span class="p">)</span>
+
+<span class="c1">;; Enable auto revert mode, so that I can edit source code in both Emacs and VS</span>
+<span class="c1">;; Code at the same time.</span>
+<span class="p">(</span><span class="nv">global-auto-revert-mode</span><span class="p">)</span>
+</code></pre></div></div>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Emacs" /><summary type="html"><![CDATA[After installing the Emacs package lsp-bridge (GitHub repository) and the Debian package clangd server, I can jump to definitions of C++ functions, classes and variables in Emacs use these functions lsp-bridge-find-def, lsp-bridge-find-def-return, lsp-bridge-find-def-other-window, lsp-bridge-find-references, etc. Now the experience of developing large and template based C++ projects in Emacs is really smooth and enjoyable.]]></summary></entry><entry><title type="html">Cannot open citation key via with org-ref</title><link href="https://jihuan-tian.github.io/computer/2025/12/06/cannot-open-citation-key-via-with-org-ref.html" rel="alternate" type="text/html" title="Cannot open citation key via with org-ref" /><published>2025-12-06T00:00:00+08:00</published><updated>2025-12-06T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/12/06/cannot-open-citation-key-via-with-org-ref</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/12/06/cannot-open-citation-key-via-with-org-ref.html"><![CDATA[<p><a id="org4caf092"></a></p>
 
 <h1 id="phenomenon">Phenomenon</h1>
 
