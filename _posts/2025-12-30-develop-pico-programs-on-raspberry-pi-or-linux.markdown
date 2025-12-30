@@ -8,13 +8,13 @@ mathjax: false
 ---
 
 - [Development environment setup](#orge42112d)
-    - [Use CMake to manage and build projects](#org89515ee)
-    - [Use picotool to download binaries to Pico](#org3a958ec)
-    - [Use minicom to acquire printf messages from Pico](#orgd566b96)
-    - [Debug Pico programs](#org9984ce7)
-      - [Hardware and software preparation for debugging Pico programs](#orgdf5cdab)
-      - [Procedures for debugging Pico programs](#org415dd57)
-      - [Usage of GDB](#orga35a7d4)
+- [Use CMake to manage and build projects](#org89515ee)
+- [Use picotool to download binaries to Pico](#org3a958ec)
+- [Use minicom to acquire printf messages from Pico](#orgd566b96)
+- [Debug Pico programs](#org9984ce7)
+  - [Hardware and software preparation for debugging Pico programs](#orgdf5cdab)
+  - [Procedures for debugging Pico programs](#org415dd57)
+  - [Usage of GDB](#orga35a7d4)
 
 
 <a id="orge42112d"></a>
