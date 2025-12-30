@@ -7,21 +7,44 @@ tags: [Raspberry-Pi,CMake,GDB]
 mathjax: false
 ---
 
-- [Development environment setup](#org856d370)
-- [Use CMake to manage and build projects](#org46ed944)
-- [Use picotool to download binaries to Pico](#org1cafdc3)
-- [Use minicom to acquire printf messages from Pico](#org6c84aad)
-- [Debug Pico programs](#orgff66dc8)
-  - [Hardware and software preparation for debugging Pico programs](#org7a34115)
-  - [Procedures for debugging Pico programs](#orgbca18b0)
-  - [Usage of GDB](#org26d6aa2)
+- [Development environment setup](#orge42112d)
+    - [Use CMake to manage and build projects](#org89515ee)
+    - [Use picotool to download binaries to Pico](#org3a958ec)
+    - [Use minicom to acquire printf messages from Pico](#orgd566b96)
+    - [Debug Pico programs](#org9984ce7)
+      - [Hardware and software preparation for debugging Pico programs](#orgdf5cdab)
+      - [Procedures for debugging Pico programs](#org415dd57)
+      - [Usage of GDB](#orga35a7d4)
 
-<a id="org856d370"></a>
+
+<a id="orge42112d"></a>
 
 # Development environment setup
 
+-   Download `pico_setup.sh`
+    
+    ```bash
+    sudo apt install wget
+    wget https://raw.githubusercontent.com/raspberrypi/pico-setup/master/pico_setup.sh
+    ```
+-   Directly run `pico_setup.sh`. N.B. The absolute path of the current directory should not contain white spaces.
 
-<a id="org46ed944"></a>
+During the the setup, the following dependencies will be installed
+
+-   `gcc-arm-none-eabi`: C/C++ compiler for embedded ARM chips using Cortex-M and Cortex-R processors.
+-   `gdb-multiarch`: GDB that supports multiple target architectures
+-   `libftdi-dev`: header files and static libraries for using `libftdi`, which is responsible for communication with EEPROM chips.
+-   `libusb-1.0-0-dev`: for programming USB applications.
+-   `libjim-dev`: Jim is an implementation of the Tcl language.
+-   `libgpiod-dev`: encapsulation of ioctl calls and data structures.
+
+And the following tools provided by Pico SDK will also be built and installed:
+
+-   `picotools`: Tools for interacting with RP2040/RP2350 devices in BOOTSEL mode and with binaries, such as uploading binaries to Pico.
+-   `openocd` ([Open On-Chip Debugger](https://openocd.org/)): Used for starting a debugging session, to which the debugger GDB can connect.
+
+
+<a id="org89515ee"></a>
 
 # Use CMake to manage and build projects
 
@@ -52,7 +75,7 @@ make -j4 all
 ```
 
 
-<a id="org1cafdc3"></a>
+<a id="org3a958ec"></a>
 
 # Use picotool to download binaries to Pico
 
@@ -81,7 +104,7 @@ make -j4 all
 -   Reboot the device into BOOTSEL mode: `sudo picotool reboot -u`
 
 
-<a id="org6c84aad"></a>
+<a id="orgd566b96"></a>
 
 # Use minicom to acquire printf messages from Pico
 
@@ -92,17 +115,37 @@ sudo minicom -b 115200 -D /dev/ttyACM0
 ```
 
 
-<a id="orgff66dc8"></a>
+<a id="org9984ce7"></a>
 
 # Debug Pico programs
 
 
-<a id="org7a34115"></a>
+<a id="orgdf5cdab"></a>
 
 ## Hardware and software preparation for debugging Pico programs
 
+-   Two alternatives of the mandatory hardware for debugging Pico on platforms, such as Linux, Windows, macOS, which do not have GPIOs to connect directly to UART or SWD (Serial Wire Debug).
+    1.  **Use Raspberry Pi Debug Probe**, which includes an RP2040 chip.
+    2.  Use another Pico or Pico 2 which runs the firmware `debugprobe`.
+-   Serial Wire Debug brings fully capable **debug** and **trace** facilities to MCUs such as ARM Cortex-M3 processors while keeping chip and tool costs low, yet leaving the greatest number of pins available for system I/O.
+-   Comparison with SWD and the old JTAG debug interface.
+    
+    ![img](/figures/2025-11-24-11-15-17-screenshot.png)
+-   Hardware connection for debugging Pico
+    
+    -   RX on the debug probe connects to TX on Pico (Pin 1)
+    -   TX on the debug probe connects to RX on Pico (Pin 2)
+    -   GND on the debug probe connects to GND on Pico (Pin 3)
+    -   Two USBs connect to PC.
+    
+    ![img](/figures/2025-11-24-11-19-36-screenshot.png)
+    
+    ![img](/figures/2025-11-24-11-20-03-screenshot.png)
+-   Install `openocd`, which will be automatically installed when running `pico_setup.sh`.
+-   Install `gdb-multiarch` on Linux or `gdb` on Raspberry Pi OS.
 
-<a id="orgbca18b0"></a>
+
+<a id="org415dd57"></a>
 
 ## Procedures for debugging Pico programs
 
@@ -279,7 +322,7 @@ sudo minicom -b 115200 -D /dev/ttyACM0
         Note: automatically using hardware breakpoints for read-only addresses.
         ```
         
-        ![img](/figures/Raspberry_Pi_Pico_development/2025-12-28-12-54-48-screenshot.png)
+        ![img](/figures/2025-12-28-12-54-48-screenshot.png)
 -   When stepping over the command `bl stdio_init_all`, GDB gets stuck and `openocd` server repeatedly reports:
     
     ```text
@@ -294,8 +337,57 @@ sudo minicom -b 115200 -D /dev/ttyACM0
 -   After debugging is finished and exiting from `gdb`, to let the program run normally, remove and reinsert the USB plug.
 
 
-<a id="org26d6aa2"></a>
+<a id="orga35a7d4"></a>
 
 ## Usage of GDB
+
+-   Load a binary file: `load <target>.elf`
+-   After loading a binary file, we can run it until it stops at a breakpoint: `c`
+-   Single step the program: `s`
+-   Set a breakpoint at a function: `b <function-name>`
+-   Set a breakpoint at a line in a source file: `b <source-file>:<line-no>`
+-   List breakpoint information: `i b`
+-   Delete a break point: `d <breakpoint-no>`
+-   Display program source code: `l`
+-   Disassemble a function: `disassemble <function-name>`
+-   Examine memory contents: `x /<N>u<unit size>f<format> <address>`, where
+    -   `<N>` is the number of objects to display.
+    -   `u` is used to specify the unit size and `<unit size>` can be
+        -   `b`: byte
+        -   `h`: half-word, i.e. 2 bytes
+        -   `w`: word, i.e. 4 bytes
+        -   `g`: giant word, i.e. 8 bytes
+    -   `f` is used to specify the display format and `<format>` can be
+        -   `t`: binary
+        -   `x`: hexidecimal
+        -   `d`: decimal
+        -   `i`: instruction
+        -   `s`: string
+    -   `<address>` is the starting memory address.
+-   List register contents: `i r`
+    
+    ```text
+    r0             0xe000e434          -536812492
+    r1             0x10000275          268436085
+    r2             0x80808080          -2139062144
+    r3             0x100031a4          268448164
+    r4             0x100001d0          268435920
+    r5             0x88526891          -2007865199
+    r6             0x4f54710           83183376
+    r7             0x400e0014          1074659348
+    r8             0x43280035          1126694965
+    r9             0x0                 0
+    r10            0x10000000          268435456
+    r11            0x62707361          1651536737
+    r12            0x4a6dc800          1248708608
+    sp             0x20082000          0x20082000
+    lr             0x1000018f          268435855
+    pc             0x10000274          0x10000274 <main>
+    xpsr           0x69000000          1761607680
+    ```
+-   Display help for a command: `h <command-name>`
+-   Interrupting the running program: `Control-c`
+-   Reset `gdb`: `mon reset init`
+-   Quit `gdb`: `q`
 
 {{ "2025-12-30-develop-pico-programs-on-raspberry-pi-or-linux" | backlink }}
