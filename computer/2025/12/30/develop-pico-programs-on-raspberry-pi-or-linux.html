@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Develop Pico programs on Raspberry Pi or Linux | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Develop Pico programs on Raspberry Pi or Linux" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Development environment setup Use CMake to manage and build projects Use picotool to download binaries to Pico Use minicom to acquire printf messages from Pico Debug Pico programs Hardware and software preparation for debugging Pico programs Procedures for debugging Pico programs Usage of GDB" />
+<meta property="og:description" content="Development environment setup Use CMake to manage and build projects Use picotool to download binaries to Pico Use minicom to acquire printf messages from Pico Debug Pico programs Hardware and software preparation for debugging Pico programs Procedures for debugging Pico programs Usage of GDB" />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2025/12/30/develop-pico-programs-on-raspberry-pi-or-linux.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2025/12/30/develop-pico-programs-on-raspberry-pi-or-linux.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-12-30T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Develop Pico programs on Raspberry Pi or Linux" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-12-30T00:00:00+08:00","datePublished":"2025-12-30T00:00:00+08:00","description":"Development environment setup Use CMake to manage and build projects Use picotool to download binaries to Pico Use minicom to acquire printf messages from Pico Debug Pico programs Hardware and software preparation for debugging Pico programs Procedures for debugging Pico programs Usage of GDB","headline":"Develop Pico programs on Raspberry Pi or Linux","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2025/12/30/develop-pico-programs-on-raspberry-pi-or-linux.html"},"url":"https://jihuan-tian.github.io/computer/2025/12/30/develop-pico-programs-on-raspberry-pi-or-linux.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Develop Pico programs on Raspberry Pi or Linux</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-12-30T00:00:00+08:00" itemprop="datePublished">
+        Tue, Dec 30, W52, 2025 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/Raspberry-Pi">Raspberry-Pi</a>
+          
+            <a href="/tags/CMake">CMake</a>
+          
+            <a href="/tags/GDB">GDB</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li><a href="#org856d370">Development environment setup</a></li>
+  <li><a href="#org46ed944">Use CMake to manage and build projects</a></li>
+  <li><a href="#org1cafdc3">Use picotool to download binaries to Pico</a></li>
+  <li><a href="#org6c84aad">Use minicom to acquire printf messages from Pico</a></li>
+  <li><a href="#orgff66dc8">Debug Pico programs</a>
+    <ul>
+      <li><a href="#org7a34115">Hardware and software preparation for debugging Pico programs</a></li>
+      <li><a href="#orgbca18b0">Procedures for debugging Pico programs</a></li>
+      <li><a href="#org26d6aa2">Usage of GDB</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><a id="org856d370"></a></p>
+
+<h1 id="development-environment-setup">Development environment setup</h1>
+
+<p><a id="org46ed944"></a></p>
+
+<h1 id="use-cmake-to-manage-and-build-projects">Use CMake to manage and build projects</h1>
+
+<p>Example <code class="language-plaintext highlighter-rouge">CMakeLists.txt</code> for the <code class="language-plaintext highlighter-rouge">hello-world</code> target:</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span><span class="p">(</span>_target hello-world<span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> hello-world.S<span class="p">)</span>
+
+<span class="c1"># Enable UART output and disable USB output. With UART, we can debug Pico</span>
+<span class="c1"># program and receive print messages via minicom.</span>
+<span class="nf">pico_enable_stdio_usb</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 0<span class="p">)</span>
+<span class="nf">pico_enable_stdio_uart</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 1<span class="p">)</span>
+<span class="c1"># General additional output files from ELF firmware target, including UF2, bin,</span>
+<span class="c1"># dis, hex and map files.</span>
+<span class="nf">pico_add_extra_outputs</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span><span class="p">)</span>
+
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> pico_stdlib<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Configure and build the project:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>pico-dev-build
+<span class="nb">cd </span>pico-dev-build
+cmake <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>Debug <span class="nt">-DPICO_BOARD</span><span class="o">=</span>pico2_w ../pico-dev
+make <span class="nt">-j4</span> all
+</code></pre></div></div>
+
+<p><a id="org1cafdc3"></a></p>
+
+<h1 id="use-picotool-to-download-binaries-to-pico">Use picotool to download binaries to Pico</h1>
+
+<ul>
+  <li>It should be run with <code class="language-plaintext highlighter-rouge">sudo</code>.</li>
+  <li>
+    <p>Load a program into the flash when Pico is in the <code class="language-plaintext highlighter-rouge">BOOTSEL</code> mode: <code class="language-plaintext highlighter-rouge">sudo picotool load &lt;filename.uf2&gt;</code></p>
+
+    <p>If Pico is in the application mode, execute <code class="language-plaintext highlighter-rouge">sudo picotool load -f &lt;filename.uf2&gt;</code>, which will force Pico to reboot into <code class="language-plaintext highlighter-rouge">BOOTSEL</code> mode, then load the program to flash.</p>
+  </li>
+  <li>Enable Pico program to support communication via USB, so that we can use <code class="language-plaintext highlighter-rouge">picotool</code> to control the running mode of Pico.
+    <ul>
+      <li>
+        <p>CMake configuration</p>
+
+        <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># enable usb output, disable uart output</span>
+<span class="nf">pico_enable_stdio_usb</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 1<span class="p">)</span>
+<span class="nf">pico_enable_stdio_uart</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 0<span class="p">)</span>
+</code></pre></div>        </div>
+
+        <p>The standard USB connection is used for initial programming via the BOOTSEL mode or for basic serial communication (e.g., printf output), but not for interactive, step-through debugging. For program debugging, we need to use the UART mode.</p>
+
+        <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">pico_enable_stdio_usb</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 0<span class="p">)</span>
+<span class="nf">pico_enable_stdio_uart</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 1<span class="p">)</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>In the source code, include the header file <code class="language-plaintext highlighter-rouge">stdio.h</code> and call <code class="language-plaintext highlighter-rouge">stdio_init_all()</code> at the beginning of <code class="language-plaintext highlighter-rouge">main</code>.</p>
+      </li>
+    </ul>
+  </li>
+  <li>Reboot the device into application mode: <code class="language-plaintext highlighter-rouge">sudo picotool reboot</code> or <code class="language-plaintext highlighter-rouge">sudo picotool reboot -a</code></li>
+  <li>Reboot the device into BOOTSEL mode: <code class="language-plaintext highlighter-rouge">sudo picotool reboot -u</code></li>
+</ul>
+
+<p><a id="org6c84aad"></a></p>
+
+<h1 id="use-minicom-to-acquire-printf-messages-from-pico">Use minicom to acquire printf messages from Pico</h1>
+
+<p>Receive messages from Pico via UART or USB:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>minicom <span class="nt">-b</span> 115200 <span class="nt">-D</span> /dev/ttyACM0
+</code></pre></div></div>
+
+<p><a id="orgff66dc8"></a></p>
+
+<h1 id="debug-pico-programs">Debug Pico programs</h1>
+
+<p><a id="org7a34115"></a></p>
+
+<h2 id="hardware-and-software-preparation-for-debugging-pico-programs">Hardware and software preparation for debugging Pico programs</h2>
+
+<p><a id="orgbca18b0"></a></p>
+
+<h2 id="procedures-for-debugging-pico-programs">Procedures for debugging Pico programs</h2>
+
+<ul>
+  <li>
+    <p>Enable UART for the program to be debugged by editing <code class="language-plaintext highlighter-rouge">CMakeLists.txt</code>, where <code class="language-plaintext highlighter-rouge">${_target}</code> is the target name.</p>
+
+    <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">pico_enable_stdio_usb</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 0<span class="p">)</span>
+<span class="nf">pico_enable_stdio_uart</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 1<span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Configure and build the project in the debug mode, so that debugging symbols will be written into the binary file.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>pico-dev-build
+cmake <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>Debug <span class="nt">-DPICO_BOARD</span><span class="o">=</span>pico2_w ../pico-dev
+make <span class="nt">-j4</span> all
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Download the ELF file to Pico via <code class="language-plaintext highlighter-rouge">openocd</code>.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openocd <span class="nt">-f</span> interface/cmsis-dap.cfg <span class="nt">-f</span> target/rp2350.cfg <span class="nt">-c</span> <span class="s2">"adapter speed 5000"</span> <span class="nt">-c</span> <span class="s2">"program &lt;target&gt;.elf verify reset exit"</span>
+</code></pre></div>    </div>
+
+    <p>After execute, the following message appears:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Open On-Chip Debugger 0.12.0+dev (2025-10-24-02:10)
+Licensed under GNU GPL v2
+For bug reports, read
+        http://openocd.org/doc/doxygen/bugs.html
+Info : [rp2350.cm0] Hardware thread awareness created
+Info : [rp2350.cm1] Hardware thread awareness created
+ocd_process_reset_inner
+adapter speed: 5000 kHz
+Info : Using CMSIS-DAPv2 interface with VID:PID=0x2e8a:0x000c, serial=E6647C74030E872F
+Info : CMSIS-DAP: SWD supported
+Info : CMSIS-DAP: Atomic commands supported
+Info : CMSIS-DAP: Test domain timer supported
+Info : CMSIS-DAP: FW Version = 2.0.0
+Info : CMSIS-DAP: Interface Initialised (SWD)
+Info : SWCLK/TCK = 0 SWDIO/TMS = 0 TDI = 0 TDO = 0 nTRST = 0 nRESET = 0
+Info : CMSIS-DAP: Interface ready
+Info : clock speed 5000 kHz
+Info : SWD DPIDR 0x4c013477
+Info : [rp2350.cm0] Cortex-M33 r1p0 processor detected
+Info : [rp2350.cm0] target has 8 breakpoints, 4 watchpoints
+Info : [rp2350.cm0] Examination succeed
+Info : [rp2350.cm1] Cortex-M33 r1p0 processor detected
+Info : [rp2350.cm1] target has 8 breakpoints, 4 watchpoints
+Info : [rp2350.cm1] Examination succeed
+Info : [rp2350.cm0] starting gdb server on 3333
+Info : Listening on port 3333 for gdb connections
+[rp2350.cm0] halted due to debug-request, current mode: Thread
+xPSR: 0xf9000000 pc: 0x00000088 msp: 0xf0000000
+[rp2350.cm1] halted due to debug-request, current mode: Thread
+xPSR: 0xf9000000 pc: 0x00000088 msp: 0xf0000000
+Info : RP2350 rev 2, QSPI Flash win w25q32fv/jv id = 0x1640ef size = 4096 KiB in 1024 sectors
+Info : RP2xxx ROM API function FC @ 3711
+** Programming Started **
+Info : Padding image section 2 at 0x10003e24 with 220 bytes (bank write end alignment)
+Warn : Adding extra erase range, 0x10003f00 .. 0x10003fff
+** Programming Finished **
+** Verify Started **
+** Verified OK **
+** Resetting Target **
+shutdown command invoked
+</code></pre></div>    </div>
+
+    <p>The above two files on the command line, <code class="language-plaintext highlighter-rouge">interface/cmsis-dap.cfg</code> and <code class="language-plaintext highlighter-rouge">target/rp2350.cfg</code>, can be found in <code class="language-plaintext highlighter-rouge">/usr/local/share/openocd/scripts</code> after installing <code class="language-plaintext highlighter-rouge">openocd</code>.</p>
+
+    <p>A script <code class="language-plaintext highlighter-rouge">send-elf.sh</code> has been created in the <code class="language-plaintext highlighter-rouge">pico-dev/scripts</code> folder to assist typing the above command line. Run it as <code class="language-plaintext highlighter-rouge">send-elf.sh &lt;elf-file&gt;</code>.</p>
+  </li>
+  <li>
+    <p>Start <code class="language-plaintext highlighter-rouge">openocd</code> in server mode, which listens to the port <code class="language-plaintext highlighter-rouge">3333</code> on localhost.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openocd <span class="nt">-f</span> interface/cmsis-dap.cfg <span class="nt">-f</span> target/rp2350.cfg <span class="nt">-c</span> <span class="s2">"adapter speed 5000"</span>
+</code></pre></div>    </div>
+
+    <p>The following message appears:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Open On-Chip Debugger 0.12.0+dev (2025-10-24-02:10)
+Licensed under GNU GPL v2
+For bug reports, read
+        http://openocd.org/doc/doxygen/bugs.html
+Info : [rp2350.cm0] Hardware thread awareness created
+Info : [rp2350.cm1] Hardware thread awareness created
+ocd_process_reset_inner
+adapter speed: 5000 kHz
+Info : Listening on port 6666 for tcl connections
+Info : Listening on port 4444 for telnet connections
+Info : Using CMSIS-DAPv2 interface with VID:PID=0x2e8a:0x000c, serial=E6647C74030E872F
+Info : CMSIS-DAP: SWD supported
+Info : CMSIS-DAP: Atomic commands supported
+Info : CMSIS-DAP: Test domain timer supported
+Info : CMSIS-DAP: FW Version = 2.0.0
+Info : CMSIS-DAP: Interface Initialised (SWD)
+Info : SWCLK/TCK = 0 SWDIO/TMS = 0 TDI = 0 TDO = 0 nTRST = 0 nRESET = 0
+Info : CMSIS-DAP: Interface ready
+Info : clock speed 5000 kHz
+Info : SWD DPIDR 0x4c013477
+Info : [rp2350.cm0] Cortex-M33 r1p0 processor detected
+Info : [rp2350.cm0] target has 8 breakpoints, 4 watchpoints
+Info : [rp2350.cm0] Examination succeed
+Info : [rp2350.cm1] Cortex-M33 r1p0 processor detected
+Info : [rp2350.cm1] target has 8 breakpoints, 4 watchpoints
+Info : [rp2350.cm1] Examination succeed
+Info : [rp2350.cm0] starting gdb server on 3333
+Info : Listening on port 3333 for gdb connections
+</code></pre></div>    </div>
+
+    <p>The <code class="language-plaintext highlighter-rouge">openocd</code> process will occupy the terminal until it is closed by pressing <code class="language-plaintext highlighter-rouge">Ctrl+c</code>.</p>
+
+    <p>A script <code class="language-plaintext highlighter-rouge">start-openocd.sh</code> has been created in the <code class="language-plaintext highlighter-rouge">pico-dev/scripts</code> folder to assist typing the above command line. Run it as <code class="language-plaintext highlighter-rouge">start-openocd.sh</code>.</p>
+  </li>
+  <li>
+    <p>After the <code class="language-plaintext highlighter-rouge">openocd</code> server starts, open another terminal and run <code class="language-plaintext highlighter-rouge">gdb-multiarch</code> (on Linux) or <code class="language-plaintext highlighter-rouge">gdb</code> on Raspberry Pi OS in another terminal.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gdb-multiarch/gdb &lt;target&gt;.elf
+</code></pre></div>    </div>
+
+    <p>We can see this message:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Reading symbols from hello-world.elf...
+</code></pre></div>    </div>
+
+    <p>In the interactive session of GDB:</p>
+
+    <ul>
+      <li>
+        <p>Connect to the <code class="language-plaintext highlighter-rouge">openocd</code> server.</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>target remote localhost:3333
+</code></pre></div>        </div>
+
+        <p>We should see the following message indicating GDB has connected to <code class="language-plaintext highlighter-rouge">localhost:3333</code> and the program stops at <code class="language-plaintext highlighter-rouge">uart_tx_wait_blocking</code>.</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Remote debugging using localhost:3333
+warning: multi-threaded target stopped without sending a thread-id, using first non-exited thread
+uart_tx_wait_blocking (uart=0x40070000)
+    at pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h:432
+432         while (uart_get_hw(uart)-&gt;fr &amp; UART_UARTFR_BUSY_BITS) tight_loop_contents();
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Send <code class="language-plaintext highlighter-rouge">reset init</code> to the remote monitor <code class="language-plaintext highlighter-rouge">openocd</code> via the <code class="language-plaintext highlighter-rouge">monitor</code> command in GDB.</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>monitor reset init
+</code></pre></div>        </div>
+
+        <p>This will reset Pico and run <code class="language-plaintext highlighter-rouge">openocd</code>’s initialization sequence, then the program halts before the <code class="language-plaintext highlighter-rouge">main</code> function.</p>
+
+        <p>We should see this message:</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[rp2350.cm0] halted due to debug-request, current mode: Thread
+xPSR: 0xf9000000 pc: 0x00000088 msp: 0xf0000000
+[rp2350.cm1] halted due to debug-request, current mode: Thread
+xPSR: 0xf9000000 pc: 0x00000088 msp: 0xf0000000
+RP2xxx ROM API function FC @ 3711
+available
+</code></pre></div>        </div>
+
+        <p>The GDB commands in the previous two steps are written to the file <code class="language-plaintext highlighter-rouge">pico-dev/scripts/gdbinit</code>. We can let GDB execute these commands directly when GDB starts by running <code class="language-plaintext highlighter-rouge">gdb -x pico-dev/scripts/gdbinit &lt;elf-file&gt;</code> on the command line.</p>
+      </li>
+      <li>
+        <p>Then we can set breakpoints and run the program. For example, set a breakpoint at the entrance of the <code class="language-plaintext highlighter-rouge">main</code> function:</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>b main
+</code></pre></div>        </div>
+
+        <p>We should see this message:</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Breakpoint 1 at 0x10000274: file pico-dev/source/hello-world.S, line 5.
+Note: automatically using hardware breakpoints for read-only addresses.
+</code></pre></div>        </div>
+
+        <p><img src="/figures/Raspberry_Pi_Pico_development/2025-12-28-12-54-48-screenshot.png" alt="img" /></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>When stepping over the command <code class="language-plaintext highlighter-rouge">bl stdio_init_all</code>, GDB gets stuck and <code class="language-plaintext highlighter-rouge">openocd</code> server repeatedly reports:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rp2350.cm1] halted due to debug-request, current mode: Thread
+xPSR: 0x09000000 pc: 0x000000da msp: 0xf0000000
+</code></pre></div>    </div>
+
+    <p>This is caused by the fact that <code class="language-plaintext highlighter-rouge">stdio_init_all</code> is not step-safe.</p>
+
+    <p><strong>Solution</strong> Set a breakpoint after <code class="language-plaintext highlighter-rouge">bl stdio_init_all</code> and run <code class="language-plaintext highlighter-rouge">continue</code> in GDB to get there. For example, in the <code class="language-plaintext highlighter-rouge">hello-world</code> test case, we can break at line 9 in <code class="language-plaintext highlighter-rouge">hello-world.S</code>: <code class="language-plaintext highlighter-rouge">b hello-world.S:9</code>.</p>
+  </li>
+  <li>
+    <p>After debugging is finished and exiting from <code class="language-plaintext highlighter-rouge">gdb</code>, to let the program run normally, remove and reinsert the USB plug.</p>
+  </li>
+</ul>
+
+<p><a id="org26d6aa2"></a></p>
+
+<h2 id="usage-of-gdb">Usage of GDB</h2>
+
+
+  </div><a class="u-url" href="/computer/2025/12/30/develop-pico-programs-on-raspberry-pi-or-linux.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2025 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>

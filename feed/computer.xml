@@ -1,4 +1,302 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-12-22T18:06:43+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Configuration of lsp-bridge for C++ programming in Emacs</title><link href="https://jihuan-tian.github.io/computer/2025/12/22/configuration-of-lsp-bridge-for-c++-programming-in-emacs.html" rel="alternate" type="text/html" title="Configuration of lsp-bridge for C++ programming in Emacs" /><published>2025-12-22T00:00:00+08:00</published><updated>2025-12-22T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/12/22/configuration-of-lsp-bridge-for-c++-programming-in-emacs</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/12/22/configuration-of-lsp-bridge-for-c++-programming-in-emacs.html"><![CDATA[<p>After installing the Emacs package <code class="language-plaintext highlighter-rouge">lsp-bridge</code> (<a href="https://github.com/manateelazycat/lsp-bridge">GitHub repository</a>) and the Debian package <code class="language-plaintext highlighter-rouge">clangd</code> server, I can jump to definitions of C++ functions, classes and variables in Emacs use these functions <code class="language-plaintext highlighter-rouge">lsp-bridge-find-def</code>, <code class="language-plaintext highlighter-rouge">lsp-bridge-find-def-return</code>, <code class="language-plaintext highlighter-rouge">lsp-bridge-find-def-other-window</code>, <code class="language-plaintext highlighter-rouge">lsp-bridge-find-references</code>, etc. Now the experience of developing large and template based C++ projects in Emacs is really smooth and enjoyable.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2025-12-30T12:44:23+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Develop Pico programs on Raspberry Pi or Linux</title><link href="https://jihuan-tian.github.io/computer/2025/12/30/develop-pico-programs-on-raspberry-pi-or-linux.html" rel="alternate" type="text/html" title="Develop Pico programs on Raspberry Pi or Linux" /><published>2025-12-30T00:00:00+08:00</published><updated>2025-12-30T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/12/30/develop-pico-programs-on-raspberry-pi-or-linux</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/12/30/develop-pico-programs-on-raspberry-pi-or-linux.html"><![CDATA[<ul>
+  <li><a href="#org856d370">Development environment setup</a></li>
+  <li><a href="#org46ed944">Use CMake to manage and build projects</a></li>
+  <li><a href="#org1cafdc3">Use picotool to download binaries to Pico</a></li>
+  <li><a href="#org6c84aad">Use minicom to acquire printf messages from Pico</a></li>
+  <li><a href="#orgff66dc8">Debug Pico programs</a>
+    <ul>
+      <li><a href="#org7a34115">Hardware and software preparation for debugging Pico programs</a></li>
+      <li><a href="#orgbca18b0">Procedures for debugging Pico programs</a></li>
+      <li><a href="#org26d6aa2">Usage of GDB</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><a id="org856d370"></a></p>
+
+<h1 id="development-environment-setup">Development environment setup</h1>
+
+<p><a id="org46ed944"></a></p>
+
+<h1 id="use-cmake-to-manage-and-build-projects">Use CMake to manage and build projects</h1>
+
+<p>Example <code class="language-plaintext highlighter-rouge">CMakeLists.txt</code> for the <code class="language-plaintext highlighter-rouge">hello-world</code> target:</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span><span class="p">(</span>_target hello-world<span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> hello-world.S<span class="p">)</span>
+
+<span class="c1"># Enable UART output and disable USB output. With UART, we can debug Pico</span>
+<span class="c1"># program and receive print messages via minicom.</span>
+<span class="nf">pico_enable_stdio_usb</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 0<span class="p">)</span>
+<span class="nf">pico_enable_stdio_uart</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 1<span class="p">)</span>
+<span class="c1"># General additional output files from ELF firmware target, including UF2, bin,</span>
+<span class="c1"># dis, hex and map files.</span>
+<span class="nf">pico_add_extra_outputs</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span><span class="p">)</span>
+
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> pico_stdlib<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Configure and build the project:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>pico-dev-build
+<span class="nb">cd </span>pico-dev-build
+cmake <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>Debug <span class="nt">-DPICO_BOARD</span><span class="o">=</span>pico2_w ../pico-dev
+make <span class="nt">-j4</span> all
+</code></pre></div></div>
+
+<p><a id="org1cafdc3"></a></p>
+
+<h1 id="use-picotool-to-download-binaries-to-pico">Use picotool to download binaries to Pico</h1>
+
+<ul>
+  <li>It should be run with <code class="language-plaintext highlighter-rouge">sudo</code>.</li>
+  <li>
+    <p>Load a program into the flash when Pico is in the <code class="language-plaintext highlighter-rouge">BOOTSEL</code> mode: <code class="language-plaintext highlighter-rouge">sudo picotool load &lt;filename.uf2&gt;</code></p>
+
+    <p>If Pico is in the application mode, execute <code class="language-plaintext highlighter-rouge">sudo picotool load -f &lt;filename.uf2&gt;</code>, which will force Pico to reboot into <code class="language-plaintext highlighter-rouge">BOOTSEL</code> mode, then load the program to flash.</p>
+  </li>
+  <li>Enable Pico program to support communication via USB, so that we can use <code class="language-plaintext highlighter-rouge">picotool</code> to control the running mode of Pico.
+    <ul>
+      <li>
+        <p>CMake configuration</p>
+
+        <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># enable usb output, disable uart output</span>
+<span class="nf">pico_enable_stdio_usb</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 1<span class="p">)</span>
+<span class="nf">pico_enable_stdio_uart</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 0<span class="p">)</span>
+</code></pre></div>        </div>
+
+        <p>The standard USB connection is used for initial programming via the BOOTSEL mode or for basic serial communication (e.g., printf output), but not for interactive, step-through debugging. For program debugging, we need to use the UART mode.</p>
+
+        <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">pico_enable_stdio_usb</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 0<span class="p">)</span>
+<span class="nf">pico_enable_stdio_uart</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 1<span class="p">)</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>In the source code, include the header file <code class="language-plaintext highlighter-rouge">stdio.h</code> and call <code class="language-plaintext highlighter-rouge">stdio_init_all()</code> at the beginning of <code class="language-plaintext highlighter-rouge">main</code>.</p>
+      </li>
+    </ul>
+  </li>
+  <li>Reboot the device into application mode: <code class="language-plaintext highlighter-rouge">sudo picotool reboot</code> or <code class="language-plaintext highlighter-rouge">sudo picotool reboot -a</code></li>
+  <li>Reboot the device into BOOTSEL mode: <code class="language-plaintext highlighter-rouge">sudo picotool reboot -u</code></li>
+</ul>
+
+<p><a id="org6c84aad"></a></p>
+
+<h1 id="use-minicom-to-acquire-printf-messages-from-pico">Use minicom to acquire printf messages from Pico</h1>
+
+<p>Receive messages from Pico via UART or USB:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>minicom <span class="nt">-b</span> 115200 <span class="nt">-D</span> /dev/ttyACM0
+</code></pre></div></div>
+
+<p><a id="orgff66dc8"></a></p>
+
+<h1 id="debug-pico-programs">Debug Pico programs</h1>
+
+<p><a id="org7a34115"></a></p>
+
+<h2 id="hardware-and-software-preparation-for-debugging-pico-programs">Hardware and software preparation for debugging Pico programs</h2>
+
+<p><a id="orgbca18b0"></a></p>
+
+<h2 id="procedures-for-debugging-pico-programs">Procedures for debugging Pico programs</h2>
+
+<ul>
+  <li>
+    <p>Enable UART for the program to be debugged by editing <code class="language-plaintext highlighter-rouge">CMakeLists.txt</code>, where <code class="language-plaintext highlighter-rouge">${_target}</code> is the target name.</p>
+
+    <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">pico_enable_stdio_usb</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 0<span class="p">)</span>
+<span class="nf">pico_enable_stdio_uart</span><span class="p">(</span><span class="si">${</span><span class="nv">_target</span><span class="si">}</span> 1<span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Configure and build the project in the debug mode, so that debugging symbols will be written into the binary file.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>pico-dev-build
+cmake <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>Debug <span class="nt">-DPICO_BOARD</span><span class="o">=</span>pico2_w ../pico-dev
+make <span class="nt">-j4</span> all
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Download the ELF file to Pico via <code class="language-plaintext highlighter-rouge">openocd</code>.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openocd <span class="nt">-f</span> interface/cmsis-dap.cfg <span class="nt">-f</span> target/rp2350.cfg <span class="nt">-c</span> <span class="s2">"adapter speed 5000"</span> <span class="nt">-c</span> <span class="s2">"program &lt;target&gt;.elf verify reset exit"</span>
+</code></pre></div>    </div>
+
+    <p>After execute, the following message appears:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Open On-Chip Debugger 0.12.0+dev (2025-10-24-02:10)
+Licensed under GNU GPL v2
+For bug reports, read
+        http://openocd.org/doc/doxygen/bugs.html
+Info : [rp2350.cm0] Hardware thread awareness created
+Info : [rp2350.cm1] Hardware thread awareness created
+ocd_process_reset_inner
+adapter speed: 5000 kHz
+Info : Using CMSIS-DAPv2 interface with VID:PID=0x2e8a:0x000c, serial=E6647C74030E872F
+Info : CMSIS-DAP: SWD supported
+Info : CMSIS-DAP: Atomic commands supported
+Info : CMSIS-DAP: Test domain timer supported
+Info : CMSIS-DAP: FW Version = 2.0.0
+Info : CMSIS-DAP: Interface Initialised (SWD)
+Info : SWCLK/TCK = 0 SWDIO/TMS = 0 TDI = 0 TDO = 0 nTRST = 0 nRESET = 0
+Info : CMSIS-DAP: Interface ready
+Info : clock speed 5000 kHz
+Info : SWD DPIDR 0x4c013477
+Info : [rp2350.cm0] Cortex-M33 r1p0 processor detected
+Info : [rp2350.cm0] target has 8 breakpoints, 4 watchpoints
+Info : [rp2350.cm0] Examination succeed
+Info : [rp2350.cm1] Cortex-M33 r1p0 processor detected
+Info : [rp2350.cm1] target has 8 breakpoints, 4 watchpoints
+Info : [rp2350.cm1] Examination succeed
+Info : [rp2350.cm0] starting gdb server on 3333
+Info : Listening on port 3333 for gdb connections
+[rp2350.cm0] halted due to debug-request, current mode: Thread
+xPSR: 0xf9000000 pc: 0x00000088 msp: 0xf0000000
+[rp2350.cm1] halted due to debug-request, current mode: Thread
+xPSR: 0xf9000000 pc: 0x00000088 msp: 0xf0000000
+Info : RP2350 rev 2, QSPI Flash win w25q32fv/jv id = 0x1640ef size = 4096 KiB in 1024 sectors
+Info : RP2xxx ROM API function FC @ 3711
+** Programming Started **
+Info : Padding image section 2 at 0x10003e24 with 220 bytes (bank write end alignment)
+Warn : Adding extra erase range, 0x10003f00 .. 0x10003fff
+** Programming Finished **
+** Verify Started **
+** Verified OK **
+** Resetting Target **
+shutdown command invoked
+</code></pre></div>    </div>
+
+    <p>The above two files on the command line, <code class="language-plaintext highlighter-rouge">interface/cmsis-dap.cfg</code> and <code class="language-plaintext highlighter-rouge">target/rp2350.cfg</code>, can be found in <code class="language-plaintext highlighter-rouge">/usr/local/share/openocd/scripts</code> after installing <code class="language-plaintext highlighter-rouge">openocd</code>.</p>
+
+    <p>A script <code class="language-plaintext highlighter-rouge">send-elf.sh</code> has been created in the <code class="language-plaintext highlighter-rouge">pico-dev/scripts</code> folder to assist typing the above command line. Run it as <code class="language-plaintext highlighter-rouge">send-elf.sh &lt;elf-file&gt;</code>.</p>
+  </li>
+  <li>
+    <p>Start <code class="language-plaintext highlighter-rouge">openocd</code> in server mode, which listens to the port <code class="language-plaintext highlighter-rouge">3333</code> on localhost.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openocd <span class="nt">-f</span> interface/cmsis-dap.cfg <span class="nt">-f</span> target/rp2350.cfg <span class="nt">-c</span> <span class="s2">"adapter speed 5000"</span>
+</code></pre></div>    </div>
+
+    <p>The following message appears:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Open On-Chip Debugger 0.12.0+dev (2025-10-24-02:10)
+Licensed under GNU GPL v2
+For bug reports, read
+        http://openocd.org/doc/doxygen/bugs.html
+Info : [rp2350.cm0] Hardware thread awareness created
+Info : [rp2350.cm1] Hardware thread awareness created
+ocd_process_reset_inner
+adapter speed: 5000 kHz
+Info : Listening on port 6666 for tcl connections
+Info : Listening on port 4444 for telnet connections
+Info : Using CMSIS-DAPv2 interface with VID:PID=0x2e8a:0x000c, serial=E6647C74030E872F
+Info : CMSIS-DAP: SWD supported
+Info : CMSIS-DAP: Atomic commands supported
+Info : CMSIS-DAP: Test domain timer supported
+Info : CMSIS-DAP: FW Version = 2.0.0
+Info : CMSIS-DAP: Interface Initialised (SWD)
+Info : SWCLK/TCK = 0 SWDIO/TMS = 0 TDI = 0 TDO = 0 nTRST = 0 nRESET = 0
+Info : CMSIS-DAP: Interface ready
+Info : clock speed 5000 kHz
+Info : SWD DPIDR 0x4c013477
+Info : [rp2350.cm0] Cortex-M33 r1p0 processor detected
+Info : [rp2350.cm0] target has 8 breakpoints, 4 watchpoints
+Info : [rp2350.cm0] Examination succeed
+Info : [rp2350.cm1] Cortex-M33 r1p0 processor detected
+Info : [rp2350.cm1] target has 8 breakpoints, 4 watchpoints
+Info : [rp2350.cm1] Examination succeed
+Info : [rp2350.cm0] starting gdb server on 3333
+Info : Listening on port 3333 for gdb connections
+</code></pre></div>    </div>
+
+    <p>The <code class="language-plaintext highlighter-rouge">openocd</code> process will occupy the terminal until it is closed by pressing <code class="language-plaintext highlighter-rouge">Ctrl+c</code>.</p>
+
+    <p>A script <code class="language-plaintext highlighter-rouge">start-openocd.sh</code> has been created in the <code class="language-plaintext highlighter-rouge">pico-dev/scripts</code> folder to assist typing the above command line. Run it as <code class="language-plaintext highlighter-rouge">start-openocd.sh</code>.</p>
+  </li>
+  <li>
+    <p>After the <code class="language-plaintext highlighter-rouge">openocd</code> server starts, open another terminal and run <code class="language-plaintext highlighter-rouge">gdb-multiarch</code> (on Linux) or <code class="language-plaintext highlighter-rouge">gdb</code> on Raspberry Pi OS in another terminal.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gdb-multiarch/gdb &lt;target&gt;.elf
+</code></pre></div>    </div>
+
+    <p>We can see this message:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Reading symbols from hello-world.elf...
+</code></pre></div>    </div>
+
+    <p>In the interactive session of GDB:</p>
+
+    <ul>
+      <li>
+        <p>Connect to the <code class="language-plaintext highlighter-rouge">openocd</code> server.</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>target remote localhost:3333
+</code></pre></div>        </div>
+
+        <p>We should see the following message indicating GDB has connected to <code class="language-plaintext highlighter-rouge">localhost:3333</code> and the program stops at <code class="language-plaintext highlighter-rouge">uart_tx_wait_blocking</code>.</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Remote debugging using localhost:3333
+warning: multi-threaded target stopped without sending a thread-id, using first non-exited thread
+uart_tx_wait_blocking (uart=0x40070000)
+    at pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h:432
+432         while (uart_get_hw(uart)-&gt;fr &amp; UART_UARTFR_BUSY_BITS) tight_loop_contents();
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Send <code class="language-plaintext highlighter-rouge">reset init</code> to the remote monitor <code class="language-plaintext highlighter-rouge">openocd</code> via the <code class="language-plaintext highlighter-rouge">monitor</code> command in GDB.</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>monitor reset init
+</code></pre></div>        </div>
+
+        <p>This will reset Pico and run <code class="language-plaintext highlighter-rouge">openocd</code>’s initialization sequence, then the program halts before the <code class="language-plaintext highlighter-rouge">main</code> function.</p>
+
+        <p>We should see this message:</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[rp2350.cm0] halted due to debug-request, current mode: Thread
+xPSR: 0xf9000000 pc: 0x00000088 msp: 0xf0000000
+[rp2350.cm1] halted due to debug-request, current mode: Thread
+xPSR: 0xf9000000 pc: 0x00000088 msp: 0xf0000000
+RP2xxx ROM API function FC @ 3711
+available
+</code></pre></div>        </div>
+
+        <p>The GDB commands in the previous two steps are written to the file <code class="language-plaintext highlighter-rouge">pico-dev/scripts/gdbinit</code>. We can let GDB execute these commands directly when GDB starts by running <code class="language-plaintext highlighter-rouge">gdb -x pico-dev/scripts/gdbinit &lt;elf-file&gt;</code> on the command line.</p>
+      </li>
+      <li>
+        <p>Then we can set breakpoints and run the program. For example, set a breakpoint at the entrance of the <code class="language-plaintext highlighter-rouge">main</code> function:</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>b main
+</code></pre></div>        </div>
+
+        <p>We should see this message:</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Breakpoint 1 at 0x10000274: file pico-dev/source/hello-world.S, line 5.
+Note: automatically using hardware breakpoints for read-only addresses.
+</code></pre></div>        </div>
+
+        <p><img src="/figures/Raspberry_Pi_Pico_development/2025-12-28-12-54-48-screenshot.png" alt="img" /></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>When stepping over the command <code class="language-plaintext highlighter-rouge">bl stdio_init_all</code>, GDB gets stuck and <code class="language-plaintext highlighter-rouge">openocd</code> server repeatedly reports:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rp2350.cm1] halted due to debug-request, current mode: Thread
+xPSR: 0x09000000 pc: 0x000000da msp: 0xf0000000
+</code></pre></div>    </div>
+
+    <p>This is caused by the fact that <code class="language-plaintext highlighter-rouge">stdio_init_all</code> is not step-safe.</p>
+
+    <p><strong>Solution</strong> Set a breakpoint after <code class="language-plaintext highlighter-rouge">bl stdio_init_all</code> and run <code class="language-plaintext highlighter-rouge">continue</code> in GDB to get there. For example, in the <code class="language-plaintext highlighter-rouge">hello-world</code> test case, we can break at line 9 in <code class="language-plaintext highlighter-rouge">hello-world.S</code>: <code class="language-plaintext highlighter-rouge">b hello-world.S:9</code>.</p>
+  </li>
+  <li>
+    <p>After debugging is finished and exiting from <code class="language-plaintext highlighter-rouge">gdb</code>, to let the program run normally, remove and reinsert the USB plug.</p>
+  </li>
+</ul>
+
+<p><a id="org26d6aa2"></a></p>
+
+<h2 id="usage-of-gdb">Usage of GDB</h2>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Raspberry-Pi" /><category term="CMake" /><category term="GDB" /><summary type="html"><![CDATA[Development environment setup Use CMake to manage and build projects Use picotool to download binaries to Pico Use minicom to acquire printf messages from Pico Debug Pico programs Hardware and software preparation for debugging Pico programs Procedures for debugging Pico programs Usage of GDB]]></summary></entry><entry><title type="html">Configuration of lsp-bridge for C++ programming in Emacs</title><link href="https://jihuan-tian.github.io/computer/2025/12/22/configuration-of-lsp-bridge-for-c++-programming-in-emacs.html" rel="alternate" type="text/html" title="Configuration of lsp-bridge for C++ programming in Emacs" /><published>2025-12-22T00:00:00+08:00</published><updated>2025-12-22T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/12/22/configuration-of-lsp-bridge-for-c++-programming-in-emacs</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/12/22/configuration-of-lsp-bridge-for-c++-programming-in-emacs.html"><![CDATA[<p>After installing the Emacs package <code class="language-plaintext highlighter-rouge">lsp-bridge</code> (<a href="https://github.com/manateelazycat/lsp-bridge">GitHub repository</a>) and the Debian package <code class="language-plaintext highlighter-rouge">clangd</code> server, I can jump to definitions of C++ functions, classes and variables in Emacs use these functions <code class="language-plaintext highlighter-rouge">lsp-bridge-find-def</code>, <code class="language-plaintext highlighter-rouge">lsp-bridge-find-def-return</code>, <code class="language-plaintext highlighter-rouge">lsp-bridge-find-def-other-window</code>, <code class="language-plaintext highlighter-rouge">lsp-bridge-find-references</code>, etc. Now the experience of developing large and template based C++ projects in Emacs is really smooth and enjoyable.</p>
 
 <p>My configuration is below.</p>
 
@@ -503,7 +801,42 @@ If you are sure you want to delete it, run 'git branch -D dev'.
 
 <p><strong>Solution</strong></p>
 
-<p>Remove all node properties except <code class="language-plaintext highlighter-rouge">ID</code> and keep an empty line between the property drawer and the title line. Then refresh the database and this independent node will be included in the database, which can be verified by executing <code class="language-plaintext highlighter-rouge">org-roam-db-diagnose-node</code>. Finally, paste other properties back, if there are any.</p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Emacs" /><category term="Org-roam" /><summary type="html"><![CDATA[Phenomenon]]></summary></entry><entry><title type="html">Emacs tips learned and practiced in 2025 Week 30</title><link href="https://jihuan-tian.github.io/computer/2025/07/27/emacs-tips-learned-and-practiced-in-2025-week-30.html" rel="alternate" type="text/html" title="Emacs tips learned and practiced in 2025 Week 30" /><published>2025-07-27T00:00:00+08:00</published><updated>2025-07-27T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/07/27/emacs-tips-learned-and-practiced-in-2025-week-30</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/07/27/emacs-tips-learned-and-practiced-in-2025-week-30.html"><![CDATA[<ul>
+<p>Remove all node properties except <code class="language-plaintext highlighter-rouge">ID</code> and keep an empty line between the property drawer and the title line. Then refresh the database and this independent node will be included in the database, which can be verified by executing <code class="language-plaintext highlighter-rouge">org-roam-db-diagnose-node</code>. Finally, paste other properties back, if there are any.</p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Emacs" /><category term="Org-roam" /><summary type="html"><![CDATA[Phenomenon]]></summary></entry><entry><title type="html">Use filter-repo to delete large files which are refused by GitHub</title><link href="https://jihuan-tian.github.io/computer/2025/09/12/use-filter-repo-to-delete-large-files-which-are-refused-by-github.html" rel="alternate" type="text/html" title="Use filter-repo to delete large files which are refused by GitHub" /><published>2025-09-12T00:00:00+08:00</published><updated>2025-09-12T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/09/12/use-filter-repo-to-delete-large-files-which-are-refused-by-github</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/09/12/use-filter-repo-to-delete-large-files-which-are-refused-by-github.html"><![CDATA[<p><strong>Phenomenon</strong> Pushing my local HierBEM Git repository to GitHub is refused because there are files larger than 100 MB in the history commits.</p>
+
+<p><strong>Solution</strong></p>
+
+<ol>
+  <li>
+    <p>Install the Debian package <code class="language-plaintext highlighter-rouge">git-filter-repo</code>.</p>
+  </li>
+  <li>
+    <p>Clone the repository from my local Gitlab.</p>
+
+    <p>In the cloned folder, there are only raw Git data, without the working tree. This is because the option <code class="language-plaintext highlighter-rouge">--mirror</code> implies <code class="language-plaintext highlighter-rouge">--bare</code> and <code class="language-plaintext highlighter-rouge">--bare</code> implies <code class="language-plaintext highlighter-rouge">--no-checkout</code>.</p>
+  </li>
+  <li>
+    <p>Search files in the repository that are larger than 50 MB</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rev-list <span class="nt">--objects</span> <span class="nt">--all</span> | git cat-file <span class="nt">--batch-check</span><span class="o">=</span><span class="s1">'%(objectname) %(objecttype) %(objectsize) %(rest)'</span> | <span class="nb">awk</span> <span class="s1">'$3 &gt; 50*1024*1024 {print $1, $3/1024/1024 "MB", $4}'</span> | <span class="nb">sort</span> <span class="nt">-k2</span> <span class="nt">-nr</span>
+</code></pre></div>    </div>
+
+    <p>At the moment, there are three large files:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>8ca8f0088f79eae49e2d69f4a63116a4ce6f7a26 576.983MB tests/laplace-bem-dirichlet-full-matrix/laplace-bem-dirichlet-full-matrix.output
+7a364f1c6b88f07b45bbd4e4fcf1555d2c1e052f 576.983MB tests/laplace-bem-dirichlet-full-matrix/laplace-bem-dirichlet-full-matrix.output
+e8f296b9455d0affa5c9cf063fa4c39faee640e6 384.921MB tests/units/hmatrix-build-from-aca/hmatrix-build-from-aca.output
+af843293ba7fec7dec3b2a3a9a9ae4f7db8e94d8 384.921MB tests/units/hmatrix-build-from-aca-smp/hmatrix-build-from-aca-smp.output
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Filter out the large files from history.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git filter-repo <span class="nt">--path</span> tests/laplace-bem-dirichlet-full-matrix/laplace-bem-dirichlet-full-matrix.output <span class="nt">--path</span> tests/units/hmatrix-build-from-aca/hmatrix-build-from-aca.output <span class="nt">--path</span> tests/units/hmatrix-build-from-aca-smp/hmatrix-build-from-aca-smp.output <span class="nt">--invert-paths</span> 
+</code></pre></div>    </div>
+
+    <p>After running this command, the map from old commit hashes to new ones are stored in the file <code class="language-plaintext highlighter-rouge">filter-repo/commit-map</code>.</p>
+  </li>
+</ol>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Git" /><summary type="html"><![CDATA[Phenomenon Pushing my local HierBEM Git repository to GitHub is refused because there are files larger than 100 MB in the history commits.]]></summary></entry><entry><title type="html">Emacs tips learned and practiced in 2025 Week 30</title><link href="https://jihuan-tian.github.io/computer/2025/07/27/emacs-tips-learned-and-practiced-in-2025-week-30.html" rel="alternate" type="text/html" title="Emacs tips learned and practiced in 2025 Week 30" /><published>2025-07-27T00:00:00+08:00</published><updated>2025-07-27T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/07/27/emacs-tips-learned-and-practiced-in-2025-week-30</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/07/27/emacs-tips-learned-and-practiced-in-2025-week-30.html"><![CDATA[<ul>
   <li>
     <p>Have made my function <code class="language-plaintext highlighter-rouge">tjh/org-roam-open-node-by-id</code> support opening an Org id, which corresponds to a task in one of my Org agenda files, but is not included in my Org Roam note system. With a given id, this function first tries to acquire an Org Roam node with <code class="language-plaintext highlighter-rouge">org-roam-node-from-id</code>. If a node is found, use <code class="language-plaintext highlighter-rouge">org-roam-node-visit</code> to jump to this node. If it cannot be found, <code class="language-plaintext highlighter-rouge">org-id-goto</code> will be used to navigate to an Org task. N.B. The file to which this Org task belongs should have been registered as an agenda file, i.e. in the list <code class="language-plaintext highlighter-rouge">org-agenda-files</code>.</p>
 
