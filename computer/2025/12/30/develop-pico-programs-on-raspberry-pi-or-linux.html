@@ -80,24 +80,58 @@
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul>
-  <li><a href="#org856d370">Development environment setup</a></li>
-  <li><a href="#org46ed944">Use CMake to manage and build projects</a></li>
-  <li><a href="#org1cafdc3">Use picotool to download binaries to Pico</a></li>
-  <li><a href="#org6c84aad">Use minicom to acquire printf messages from Pico</a></li>
-  <li><a href="#orgff66dc8">Debug Pico programs</a>
+  <li><a href="#orge42112d">Development environment setup</a>
     <ul>
-      <li><a href="#org7a34115">Hardware and software preparation for debugging Pico programs</a></li>
-      <li><a href="#orgbca18b0">Procedures for debugging Pico programs</a></li>
-      <li><a href="#org26d6aa2">Usage of GDB</a></li>
+      <li><a href="#org89515ee">Use CMake to manage and build projects</a></li>
+      <li><a href="#org3a958ec">Use picotool to download binaries to Pico</a></li>
+      <li><a href="#orgd566b96">Use minicom to acquire printf messages from Pico</a></li>
+      <li><a href="#org9984ce7">Debug Pico programs</a>
+        <ul>
+          <li><a href="#orgdf5cdab">Hardware and software preparation for debugging Pico programs</a></li>
+          <li><a href="#org415dd57">Procedures for debugging Pico programs</a></li>
+          <li><a href="#orga35a7d4">Usage of GDB</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>
 
-<p><a id="org856d370"></a></p>
+<p><a id="orge42112d"></a></p>
 
 <h1 id="development-environment-setup">Development environment setup</h1>
 
-<p><a id="org46ed944"></a></p>
+<ul>
+  <li>
+    <p>Download <code class="language-plaintext highlighter-rouge">pico_setup.sh</code></p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>wget
+wget https://raw.githubusercontent.com/raspberrypi/pico-setup/master/pico_setup.sh
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Directly run <code class="language-plaintext highlighter-rouge">pico_setup.sh</code>. N.B. The absolute path of the current directory should not contain white spaces.</p>
+  </li>
+</ul>
+
+<p>During the the setup, the following dependencies will be installed</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">gcc-arm-none-eabi</code>: C/C++ compiler for embedded ARM chips using Cortex-M and Cortex-R processors.</li>
+  <li><code class="language-plaintext highlighter-rouge">gdb-multiarch</code>: GDB that supports multiple target architectures</li>
+  <li><code class="language-plaintext highlighter-rouge">libftdi-dev</code>: header files and static libraries for using <code class="language-plaintext highlighter-rouge">libftdi</code>, which is responsible for communication with EEPROM chips.</li>
+  <li><code class="language-plaintext highlighter-rouge">libusb-1.0-0-dev</code>: for programming USB applications.</li>
+  <li><code class="language-plaintext highlighter-rouge">libjim-dev</code>: Jim is an implementation of the Tcl language.</li>
+  <li><code class="language-plaintext highlighter-rouge">libgpiod-dev</code>: encapsulation of ioctl calls and data structures.</li>
+</ul>
+
+<p>And the following tools provided by Pico SDK will also be built and installed:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">picotools</code>: Tools for interacting with RP2040/RP2350 devices in BOOTSEL mode and with binaries, such as uploading binaries to Pico.</li>
+  <li><code class="language-plaintext highlighter-rouge">openocd</code> (<a href="https://openocd.org/">Open On-Chip Debugger</a>): Used for starting a debugging session, to which the debugger GDB can connect.</li>
+</ul>
+
+<p><a id="org89515ee"></a></p>
 
 <h1 id="use-cmake-to-manage-and-build-projects">Use CMake to manage and build projects</h1>
 
@@ -125,7 +159,7 @@ cmake <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>Debug <s
 make <span class="nt">-j4</span> all
 </code></pre></div></div>
 
-<p><a id="org1cafdc3"></a></p>
+<p><a id="org3a958ec"></a></p>
 
 <h1 id="use-picotool-to-download-binaries-to-pico">Use picotool to download binaries to Pico</h1>
 
@@ -161,7 +195,7 @@ make <span class="nt">-j4</span> all
   <li>Reboot the device into BOOTSEL mode: <code class="language-plaintext highlighter-rouge">sudo picotool reboot -u</code></li>
 </ul>
 
-<p><a id="org6c84aad"></a></p>
+<p><a id="orgd566b96"></a></p>
 
 <h1 id="use-minicom-to-acquire-printf-messages-from-pico">Use minicom to acquire printf messages from Pico</h1>
 
@@ -170,15 +204,46 @@ make <span class="nt">-j4</span> all
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>minicom <span class="nt">-b</span> 115200 <span class="nt">-D</span> /dev/ttyACM0
 </code></pre></div></div>
 
-<p><a id="orgff66dc8"></a></p>
+<p><a id="org9984ce7"></a></p>
 
 <h1 id="debug-pico-programs">Debug Pico programs</h1>
 
-<p><a id="org7a34115"></a></p>
+<p><a id="orgdf5cdab"></a></p>
 
 <h2 id="hardware-and-software-preparation-for-debugging-pico-programs">Hardware and software preparation for debugging Pico programs</h2>
 
-<p><a id="orgbca18b0"></a></p>
+<ul>
+  <li>Two alternatives of the mandatory hardware for debugging Pico on platforms, such as Linux, Windows, macOS, which do not have GPIOs to connect directly to UART or SWD (Serial Wire Debug).
+    <ol>
+      <li><strong>Use Raspberry Pi Debug Probe</strong>, which includes an RP2040 chip.</li>
+      <li>Use another Pico or Pico 2 which runs the firmware <code class="language-plaintext highlighter-rouge">debugprobe</code>.</li>
+    </ol>
+  </li>
+  <li>Serial Wire Debug brings fully capable <strong>debug</strong> and <strong>trace</strong> facilities to MCUs such as ARM Cortex-M3 processors while keeping chip and tool costs low, yet leaving the greatest number of pins available for system I/O.</li>
+  <li>
+    <p>Comparison with SWD and the old JTAG debug interface.</p>
+
+    <p><img src="/figures/2025-11-24-11-15-17-screenshot.png" alt="img" /></p>
+  </li>
+  <li>
+    <p>Hardware connection for debugging Pico</p>
+
+    <ul>
+      <li>RX on the debug probe connects to TX on Pico (Pin 1)</li>
+      <li>TX on the debug probe connects to RX on Pico (Pin 2)</li>
+      <li>GND on the debug probe connects to GND on Pico (Pin 3)</li>
+      <li>Two USBs connect to PC.</li>
+    </ul>
+
+    <p><img src="/figures/2025-11-24-11-19-36-screenshot.png" alt="img" /></p>
+
+    <p><img src="/figures/2025-11-24-11-20-03-screenshot.png" alt="img" /></p>
+  </li>
+  <li>Install <code class="language-plaintext highlighter-rouge">openocd</code>, which will be automatically installed when running <code class="language-plaintext highlighter-rouge">pico_setup.sh</code>.</li>
+  <li>Install <code class="language-plaintext highlighter-rouge">gdb-multiarch</code> on Linux or <code class="language-plaintext highlighter-rouge">gdb</code> on Raspberry Pi OS.</li>
+</ul>
+
+<p><a id="org415dd57"></a></p>
 
 <h2 id="procedures-for-debugging-pico-programs">Procedures for debugging Pico programs</h2>
 
@@ -355,7 +420,7 @@ available
 Note: automatically using hardware breakpoints for read-only addresses.
 </code></pre></div>        </div>
 
-        <p><img src="/figures/Raspberry_Pi_Pico_development/2025-12-28-12-54-48-screenshot.png" alt="img" /></p>
+        <p><img src="/figures/2025-12-28-12-54-48-screenshot.png" alt="img" /></p>
       </li>
     </ul>
   </li>
@@ -375,9 +440,70 @@ xPSR: 0x09000000 pc: 0x000000da msp: 0xf0000000
   </li>
 </ul>
 
-<p><a id="org26d6aa2"></a></p>
+<p><a id="orga35a7d4"></a></p>
 
 <h2 id="usage-of-gdb">Usage of GDB</h2>
+
+<ul>
+  <li>Load a binary file: <code class="language-plaintext highlighter-rouge">load &lt;target&gt;.elf</code></li>
+  <li>After loading a binary file, we can run it until it stops at a breakpoint: <code class="language-plaintext highlighter-rouge">c</code></li>
+  <li>Single step the program: <code class="language-plaintext highlighter-rouge">s</code></li>
+  <li>Set a breakpoint at a function: <code class="language-plaintext highlighter-rouge">b &lt;function-name&gt;</code></li>
+  <li>Set a breakpoint at a line in a source file: <code class="language-plaintext highlighter-rouge">b &lt;source-file&gt;:&lt;line-no&gt;</code></li>
+  <li>List breakpoint information: <code class="language-plaintext highlighter-rouge">i b</code></li>
+  <li>Delete a break point: <code class="language-plaintext highlighter-rouge">d &lt;breakpoint-no&gt;</code></li>
+  <li>Display program source code: <code class="language-plaintext highlighter-rouge">l</code></li>
+  <li>Disassemble a function: <code class="language-plaintext highlighter-rouge">disassemble &lt;function-name&gt;</code></li>
+  <li>Examine memory contents: <code class="language-plaintext highlighter-rouge">x /&lt;N&gt;u&lt;unit size&gt;f&lt;format&gt; &lt;address&gt;</code>, where
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;N&gt;</code> is the number of objects to display.</li>
+      <li><code class="language-plaintext highlighter-rouge">u</code> is used to specify the unit size and <code class="language-plaintext highlighter-rouge">&lt;unit size&gt;</code> can be
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">b</code>: byte</li>
+          <li><code class="language-plaintext highlighter-rouge">h</code>: half-word, i.e. 2 bytes</li>
+          <li><code class="language-plaintext highlighter-rouge">w</code>: word, i.e. 4 bytes</li>
+          <li><code class="language-plaintext highlighter-rouge">g</code>: giant word, i.e. 8 bytes</li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">f</code> is used to specify the display format and <code class="language-plaintext highlighter-rouge">&lt;format&gt;</code> can be
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">t</code>: binary</li>
+          <li><code class="language-plaintext highlighter-rouge">x</code>: hexidecimal</li>
+          <li><code class="language-plaintext highlighter-rouge">d</code>: decimal</li>
+          <li><code class="language-plaintext highlighter-rouge">i</code>: instruction</li>
+          <li><code class="language-plaintext highlighter-rouge">s</code>: string</li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;address&gt;</code> is the starting memory address.</li>
+    </ul>
+  </li>
+  <li>
+    <p>List register contents: <code class="language-plaintext highlighter-rouge">i r</code></p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r0             0xe000e434          -536812492
+r1             0x10000275          268436085
+r2             0x80808080          -2139062144
+r3             0x100031a4          268448164
+r4             0x100001d0          268435920
+r5             0x88526891          -2007865199
+r6             0x4f54710           83183376
+r7             0x400e0014          1074659348
+r8             0x43280035          1126694965
+r9             0x0                 0
+r10            0x10000000          268435456
+r11            0x62707361          1651536737
+r12            0x4a6dc800          1248708608
+sp             0x20082000          0x20082000
+lr             0x1000018f          268435855
+pc             0x10000274          0x10000274 &lt;main&gt;
+xpsr           0x69000000          1761607680
+</code></pre></div>    </div>
+  </li>
+  <li>Display help for a command: <code class="language-plaintext highlighter-rouge">h &lt;command-name&gt;</code></li>
+  <li>Interrupting the running program: <code class="language-plaintext highlighter-rouge">Control-c</code></li>
+  <li>Reset <code class="language-plaintext highlighter-rouge">gdb</code>: <code class="language-plaintext highlighter-rouge">mon reset init</code></li>
+  <li>Quit <code class="language-plaintext highlighter-rouge">gdb</code>: <code class="language-plaintext highlighter-rouge">q</code></li>
+</ul>
 
 
   </div><a class="u-url" href="/computer/2025/12/30/develop-pico-programs-on-raspberry-pi-or-linux.html" hidden></a>
