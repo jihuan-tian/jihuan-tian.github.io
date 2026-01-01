@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 
+title: HierBEM: Development Progress in 2025
 date: 2026-01-01
 categories: [thoughts]
 tags: [HierBEM]
