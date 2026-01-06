@@ -7,7 +7,7 @@ tags: [Emacs]
 mathjax: false
 ---
 
--   I edit source in both Emacs and VS Code. `auto-revert-mode` should enabled be so that Emacs can automatically reload a buffer whenever the associated file is modified in VS Code.
+-   I edit source code in both Emacs and VS Code. `auto-revert-mode` should enabled be so that Emacs can automatically reload a buffer whenever the associated file is modified in VS Code.
 -   `scroll-all-mode` is used to synchronize cursor movement in opened windows in a same frame. When comparing two similar files, this mode is very useful.
 -   I enable `flyspell-prog-mode` when editing source code, which will limit spell checking to comment.
 -   I enable `texfrag-mode` to render LaTeX fragments in the comment. A filter function should be defined to transform the LaTeX fragments written in Doxygen format to LaTeX code.
@@ -32,4 +32,4 @@ mathjax: false
     
     ![img](/figures/2026-01-05-17-34-52-screenshot.png)
 
-{{ "2026-01-05-modes-i-used-for-software-development-in-emacs" | backlink }}
+{{ "2026-01-05-modes-that-i-use-for-software-development-in-emacs" | backlink }}
