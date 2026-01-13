@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Migrate system from 4TB disk to 2TB SSD SATA | 止于至善</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Migrate system from 4TB disk to 2TB SSD SATA" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="My old system disk has 4 TB space, while the new SATA SSD disk only has 2 TB. Therefore, with Clonezilla, I cannot perform a whole disk migration, but only partition based migration." />
+<meta property="og:description" content="My old system disk has 4 TB space, while the new SATA SSD disk only has 2 TB. Therefore, with Clonezilla, I cannot perform a whole disk migration, but only partition based migration." />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2025/12/29/migrate-system-from-4tb-disk-to-2tb-ssd-sata.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2025/12/29/migrate-system-from-4tb-disk-to-2tb-ssd-sata.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-12-29T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Migrate system from 4TB disk to 2TB SSD SATA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2025-12-29T00:00:00+08:00","datePublished":"2025-12-29T00:00:00+08:00","description":"My old system disk has 4 TB space, while the new SATA SSD disk only has 2 TB. Therefore, with Clonezilla, I cannot perform a whole disk migration, but only partition based migration.","headline":"Migrate system from 4TB disk to 2TB SSD SATA","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2025/12/29/migrate-system-from-4tb-disk-to-2tb-ssd-sata.html"},"url":"https://jihuan-tian.github.io/computer/2025/12/29/migrate-system-from-4tb-disk-to-2tb-ssd-sata.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Migrate system from 4TB disk to 2TB SSD SATA</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-12-29T00:00:00+08:00" itemprop="datePublished">
+        Mon, Dec 29, W52, 2025 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/hard-disk">hard-disk</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>My old system disk has 4 TB space, while the new SATA SSD disk only has 2 TB. Therefore, with Clonezilla, I cannot perform a whole disk migration, but only partition based migration.</p>
+
+<p>Procedures for the migration are listed below.</p>
+
+<ol>
+  <li>
+    <p>Check the partition table on the old disk using <code class="language-plaintext highlighter-rouge">sudo gdisk -l</code>.</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Number  Start (sector)    End (sector)  Size       Code  Name
+1            2048        31250431   14.9 GiB    8200  Linux swap
+2        31250432      2177685503   1023.5 GiB  8303  Linux x86 root (/)
+3              34            2047   1007.0 KiB  EF02  BIOS boot partition
+4      2178734080      7814037134   2.6 TiB     8309  home
+5      2177685504      2178734079   512.0 MiB   EF00  EFI-system
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Partition the new disk. The swap partition, BIOS boot partition and EFI-system partition have the same sizes as before. The root partition is reduced to 500 GB. The remaining space on the 2 TB disk belongs to the home partition.</p>
+  </li>
+  <li>
+    <p>Format the swap partition using <code class="language-plaintext highlighter-rouge">mkswap</code>, the EFI partition using <code class="language-plaintext highlighter-rouge">mkfs.fat -F</code>.</p>
+  </li>
+  <li>
+    <p>Reboot to Debian live USB.</p>
+  </li>
+  <li>
+    <p>Resize root partition of the old disk to 500GB.</p>
+  </li>
+  <li>
+    <p>Reboot to Clonezilla and copy the root partition from the old disk to the new disk.</p>
+  </li>
+  <li>
+    <p>Shutdown the system. Unplug the old disk and connect the new disk to SATA 3.0 port.</p>
+  </li>
+  <li>
+    <p>Reboot to Debian live USB and do not boot into the old system. N.B. This is very important for a correct installation of grub and EFI.</p>
+  </li>
+  <li>
+    <p>Mount the new root partition on the new disk to <code class="language-plaintext highlighter-rouge">/mnt</code>. Mount the EFI partition to <code class="language-plaintext highlighter-rouge">/mnt/boot/efi</code>. Bind system directories:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount <span class="nt">--bind</span> /dev /mnt/dev
+<span class="nb">sudo </span>mount <span class="nt">--bind</span> /proc /mnt/proc
+<span class="nb">sudo </span>mount <span class="nt">--bind</span> /sys /mnt/sys
+</code></pre></div>    </div>
+
+    <p>Change the root directory of the shell to the mounted root partition <code class="language-plaintext highlighter-rouge">/mnt</code>: <code class="language-plaintext highlighter-rouge">sudo chroot /mnt</code>. Because of the previous binding system directory, the live system’s directories <code class="language-plaintext highlighter-rouge">/dev</code>, <code class="language-plaintext highlighter-rouge">/prodc</code> and <code class="language-plaintext highlighter-rouge">/sys</code> are available in the chroot environment. Then GRUB can see the disks and <code class="language-plaintext highlighter-rouge">update-grub</code> can detect file systems and UUIDs.</p>
+  </li>
+  <li>
+    <p>Install grub and EFI to the new disk.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>grub-install <span class="nt">--target</span><span class="o">=</span>i386-pc /dev/sdb
+<span class="nb">sudo </span>grub-install <span class="nt">--target</span><span class="o">=</span>x86_64-efi <span class="nt">--efi-directory</span><span class="o">=</span>/boot/efi <span class="nt">--bootloader-id</span><span class="o">=</span>GRUB update-grub
+</code></pre></div>    </div>
+
+    <p>Run <code class="language-plaintext highlighter-rouge">sudo update-grub</code>.</p>
+  </li>
+  <li>
+    <p>Modify the UUID for the root partition in <code class="language-plaintext highlighter-rouge">/etc/crypttab</code> and <code class="language-plaintext highlighter-rouge">/etc/fstab</code>. It should now be the UUID of the partition on the new disk.</p>
+  </li>
+  <li>
+    <p>Reboot to the system on the new disk.</p>
+  </li>
+  <li>
+    <p>Make LUKS and ext4 file system for the home partition on the new disk.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>cryptsetup luksFormat /dev/sdb5
+<span class="nb">sudo </span>cryptsetup open /dev/sdb5 newhome
+<span class="nb">sudo </span>mkfs.ext4 /dev/mapper/newhome
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Mount the home partition on the old disk and copy data to the new disk.</p>
+  </li>
+  <li>
+    <p>Modify the UUID of the swap partition not only in <code class="language-plaintext highlighter-rouge">/etc/fstab</code>, but also in <code class="language-plaintext highlighter-rouge">/etc/initramfs-tools/conf.d/resume</code>. Then update Initramfs: <code class="language-plaintext highlighter-rouge">sudo update-initramfs -u</code>, then reboot.</p>
+  </li>
+</ol>
+
+
+  </div><a class="u-url" href="/computer/2025/12/29/migrate-system-from-4tb-disk-to-2tb-ssd-sata.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2026 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
