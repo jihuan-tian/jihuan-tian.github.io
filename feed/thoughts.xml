@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-01-15T11:18:21+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">什么才算是真的懂了</title><link href="https://jihuan-tian.github.io/thoughts/2026/01/13/%E4%BB%80%E4%B9%88%E6%89%8D%E7%AE%97%E6%98%AF%E7%9C%9F%E7%9A%84%E6%87%82%E4%BA%86.html" rel="alternate" type="text/html" title="什么才算是真的懂了" /><published>2026-01-13T00:00:00+08:00</published><updated>2026-01-13T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2026/01/13/%E4%BB%80%E4%B9%88%E6%89%8D%E7%AE%97%E6%98%AF%E7%9C%9F%E7%9A%84%E6%87%82%E4%BA%86</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2026/01/13/%E4%BB%80%E4%B9%88%E6%89%8D%E7%AE%97%E6%98%AF%E7%9C%9F%E7%9A%84%E6%87%82%E4%BA%86.html"><![CDATA[<p>顿悟与深入的理解、能够用严谨的语言将道理讲清楚写出来、将理论实现为可以运行的代码——若能同时做到这三件截然不同的事，实现从模糊或者难以言说的理解，到能够自圆其说、输出知识，再到能够动手实践，这才算是将相关学问真的弄懂了。</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="科研" /><summary type="html"><![CDATA[顿悟与深入的理解、能够用严谨的语言将道理讲清楚写出来、将理论实现为可以运行的代码——若能同时做到这三件截然不同的事，实现从模糊或者难以言说的理解，到能够自圆其说、输出知识，再到能够动手实践，这才算是将相关学问真的弄懂了。]]></summary></entry><entry><title type="html">HierBEM Development Progress in 2025</title><link href="https://jihuan-tian.github.io/thoughts/2026/01/01/hierbem-development-progress-in-2025.html" rel="alternate" type="text/html" title="HierBEM Development Progress in 2025" /><published>2026-01-01T00:00:00+08:00</published><updated>2026-01-01T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2026/01/01/hierbem-development-progress-in-2025</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2026/01/01/hierbem-development-progress-in-2025.html"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-01-17T07:27:02+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">做事速度要快</title><link href="https://jihuan-tian.github.io/thoughts/2026/01/17/%E5%81%9A%E4%BA%8B%E9%80%9F%E5%BA%A6%E8%A6%81%E5%BF%AB.html" rel="alternate" type="text/html" title="做事速度要快" /><published>2026-01-17T00:00:00+08:00</published><updated>2026-01-17T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2026/01/17/%E5%81%9A%E4%BA%8B%E9%80%9F%E5%BA%A6%E8%A6%81%E5%BF%AB</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2026/01/17/%E5%81%9A%E4%BA%8B%E9%80%9F%E5%BA%A6%E8%A6%81%E5%BF%AB.html"><![CDATA[<p>《<a href="joplin://x-callback-url/openNote?id=e50c9487e02541daa5c7939589307883">Why speed matters</a>》这篇文章提到：</p>
+
+<blockquote>
+  <p>A common mistake is to spend a lot of time—too much time—on a component of your project that does not matter.</p>
+
+  <p>You learn by making mistakes. The faster you make mistakes, the faster you learn.</p>
+</blockquote>
+
+<p>Manateelazycat 也在《<a href="https://manateelazycat.github.io/2025/12/28/do-it/">怎么做高执行力?</a>》中说：</p>
+
+<blockquote>
+  <p>速度快：天下武功唯快不破，怎么做到效率高？就是别人在投机你在干活，别人在内耗你在干活，别人在斤斤计较你在干活。思想放空，执行力越高</p>
+</blockquote>
+
+<p>归结做事速度要快的原因如下：</p>
+
+<ul>
+  <li>
+    <p>做项目速度慢，往往出于这几种心态：完美主义、害怕把事情搞乱、害怕出错。这会导致拖延，由原本理所应当的迎难而上变成了畏首畏尾、停滞不前。同时，做得过慢、过细，也容易让我们陷入对自己工作成果的孤芳自赏中，尤其是当项目规模越来越大的时候。这样一来，就没有足够的勇气对项目进行大改（包括底层架构与关键数据结构的调整），甚至推翻之前不成熟的方案重写。</p>
+  </li>
+  <li>
+    <p>在某个技术细节上下太多工夫、做得太完美、过于优化、留出的裕度过大并不一定能够体现到最终的用户体验上。尽管认真、细致的态度没有错，但若不能转化为用户价值、实用价值，相较于同类产品就会比较吃亏，或者说没有形成市场竞争力。</p>
+  </li>
+  <li>
+    <p>做事做得快的人，在同样的时间里就可以写更多的代码与文字，从而得到更多的训练。同时，也有助于将注意力放在做事上，思想更简单，而非瞻前顾后。</p>
+  </li>
+  <li>
+    <p>若能在一个问题上做得又快又好，便有余力处理新的问题，探索新的领域。优秀的数学家都会在脑海中同时留存多个问题。哪个问题卡住了，就可以转到另一个问题去尝试，从而保证有持续的成果产出。顶级的科学家诸如费曼，能在最短的时间内把本职的专业工作做到最好，然后就有余力保持对大自然和周遭世界的广泛兴趣与好奇心，拓展各方面的特长并达到专业水准。</p>
+  </li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="管理提升" /><summary type="html"><![CDATA[《Why speed matters》这篇文章提到：]]></summary></entry><entry><title type="html">什么才算是真的懂了</title><link href="https://jihuan-tian.github.io/thoughts/2026/01/13/%E4%BB%80%E4%B9%88%E6%89%8D%E7%AE%97%E6%98%AF%E7%9C%9F%E7%9A%84%E6%87%82%E4%BA%86.html" rel="alternate" type="text/html" title="什么才算是真的懂了" /><published>2026-01-13T00:00:00+08:00</published><updated>2026-01-13T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2026/01/13/%E4%BB%80%E4%B9%88%E6%89%8D%E7%AE%97%E6%98%AF%E7%9C%9F%E7%9A%84%E6%87%82%E4%BA%86</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2026/01/13/%E4%BB%80%E4%B9%88%E6%89%8D%E7%AE%97%E6%98%AF%E7%9C%9F%E7%9A%84%E6%87%82%E4%BA%86.html"><![CDATA[<p>顿悟与深入的理解、能够用严谨的语言将道理讲清楚写出来、将理论实现为可以运行的代码——若能同时做到这三件截然不同的事，实现从模糊或者难以言说的理解，到能够自圆其说、输出知识，再到能够动手实践，这才算是将相关学问真的弄懂了。</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="科研" /><summary type="html"><![CDATA[顿悟与深入的理解、能够用严谨的语言将道理讲清楚写出来、将理论实现为可以运行的代码——若能同时做到这三件截然不同的事，实现从模糊或者难以言说的理解，到能够自圆其说、输出知识，再到能够动手实践，这才算是将相关学问真的弄懂了。]]></summary></entry><entry><title type="html">HierBEM Development Progress in 2025</title><link href="https://jihuan-tian.github.io/thoughts/2026/01/01/hierbem-development-progress-in-2025.html" rel="alternate" type="text/html" title="HierBEM Development Progress in 2025" /><published>2026-01-01T00:00:00+08:00</published><updated>2026-01-01T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2026/01/01/hierbem-development-progress-in-2025</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2026/01/01/hierbem-development-progress-in-2025.html"><![CDATA[<ul>
   <li>Implemented operator preconditioning for Laplace boundary integral equations.</li>
   <li>Extended HierBEM’s number system from real to complex values by separating the matrix/vector number type from the kernel number type, and by supporting complex arithmetic on both the PC host and the CUDA device.</li>
   <li>Applied sequence partition to parallel H-matrix construction and matrix-vector multiplication to achieve improved load balance.</li>
