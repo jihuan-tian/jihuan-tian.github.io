@@ -149,6 +149,10 @@ xrandr --addmode DP-1 2048x1536_60
 
 <p><img src="/figures/2025-02-22-ipad-as-extension-screen-via-vnc.png" alt="img" title="iPad as an extension screen for Linux via x11vnc" /></p>
 
+<ol>
+  <li>Stop the VNC server: <code class="language-plaintext highlighter-rouge">x11vnc -R stop</code></li>
+</ol>
+
 <h2 id="footnotes">Footnotes</h2>
 
 <p><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <code class="language-plaintext highlighter-rouge">x11vnc</code> is a VNC server to allow remote access to an existing X session. <code class="language-plaintext highlighter-rouge">tightvncserver</code> cannot be used, because it only supports creating a new X11 display, so that the virtual screen cannot be integrated the current desktop.</p>
