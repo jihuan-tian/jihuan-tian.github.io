@@ -1,0 +1,31 @@
+---
+layout: post
+title: 编译工具与开发环境版本协同
+date: 2026-03-05
+categories: [thoughts]
+tags: [算法开发]
+mathjax: false
+slug: version-sync-between-build-tools
+---
+
+春节假期后的一周以来，一直在尝试在升级后的 Debian Trixie 系统上重新编译 deal.II 与 HierBEM 。在系统升级的同时，也将 NVIDIA 驱动由 550 升级到了 590 ，将 CUDA Toolkit 由 12.4.99 升级到了 13.1.1 。
+
+一开始想直接将 deal.II 也从目前的 9.4.1 升级至 9.8.0-pre 。有可能 deal.II 的构建系统尚不支持 CUDA 13 ，编译过程中产生的 internal compiler error 无法解决。
+
+```text
+Error: Internal Compiler Error (codegen): "casting aggregate to non-void type is not supported!"
+```
+
+之后又尝试了不同的 GCC 版本 (11~14)，并又回到了 CUDA 12.4.99 与 deal.II 9.4.1 ，但都出现了不同的错误。初步判断与升级后的 glibc 有关。
+
+由此可以看出，想要成功编译较为复杂的软件项目需要注意多种工具、开发环境、语言标准的版本协同，包括：
+
+-   CUDA Toolkit
+-   GCC
+-   glibc
+-   C++ standard
+-   nvcc\_wrapper from Kokkos
+
+总之，在某个方面一味求新就容易产生“出乎意料”错误。但是 CUDA Toolkit 也不宜太旧，否则对于 C++20 甚至更新的语言标准支持不好。再者，使用最新版的 NVIDIA 驱动也有一定风险，例如可能偶尔会出现屏幕闪烁的情况。
+
+{{ "2026-03-05-编译工具与开发环境版本协同" | backlink }}
