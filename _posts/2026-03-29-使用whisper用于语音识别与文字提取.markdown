@@ -1,0 +1,74 @@
+---
+layout: post
+title: 使用 whisper 用于语音识别与文字提取
+date: 2026-03-29
+categories: [computer]
+tags: [Emacs,人工智能]
+mathjax: false
+slug: use-whisper-for-voice-recognition-and-text-extraction
+---
+
+-   下载 [whisper.el](https://github.com/natrys/whisper.el) 。不要通过首次运行 `whisper-run` 来自动安装 whisper.cpp 。默认编译与安装的 whisper.cpp 不支持 CUDA 加速，识别一段不长的语音就需要将近半分钟。因此，应按下一步手动编译 whisper.cpp 。
+-   下载与编译 [whisper.cpp](https://github.com/ggml-org/whisper.cpp) 。
+    
+    ```bash
+    cmake -B build -DCMAKE_C_COMPILER=gcc-12 -DCMAKE_CXX_COMPILER=g++-12 -DCMAKE_CUDA_COMPILER=/usr/local/cuda-12.4/nvcc -DCMAKE_CUDA_HOST_COMPILER=g++-12 -DGGML_CUDA=1
+    cmake --build build -j 4 --config Release
+    ```
+    
+    **一定要显示地设置进程数，否则编译时会占用所有内存，电脑卡死。**
+-   安装 Debian 包 `xdotool` 操作剪贴板，从而可以将提取的文本粘贴至任何软件的输入框中。
+-   配置 whisper.el 。
+    
+    ```elisp
+    (add-to-list 'load-path (concat root-path "/whisper.el"))
+    (require 'whisper)
+    (setq whisper-install-whispercpp 'manual)
+    (setq whisper-install-directory "~/下载")
+    (setq whisper-model "medium")
+    (setq whisper-language "en")
+    (setq whisper-return-cursor 'start)
+    (setq whisper-use-threads (- (num-processors) 1))
+    (setq whisper-quantize nil)
+    (setq whisper-insert-text-at-point nil)
+    (setq whisper-display-transcription-buffer nil)
+    (setq whisper-transcription-start-sound
+          "/usr/share/sounds/oxygen/stereo/message-new-instant.ogg")
+    (setq whisper-transcription-finish-sound
+          "/usr/share/sounds/oxygen/stereo/message-new-instant.ogg")
+    (defun tjh/whisper-start-notification ()
+      "Play a notification sound before whisper run."
+      (call-process "mpv" nil nil nil "--volume=300" whisper-transcription-start-sound))
+    (defun tjh/copy-whisper-text ()
+      "Copy the entire contents of the current (transcription) buffer to clipboard."
+      (let ((text (buffer-substring-no-properties (point-min) (point-max))))
+        (kill-new text)
+        (gui-set-selection 'CLIPBOARD text)
+        (message "Transcription copied to clipboard!")
+        (call-process "mpv" nil nil nil "--volume=300" whisper-transcription-finish-sound)
+        (unless whisper-insert-text-at-point
+          (start-process "xdotool-paste" nil "xdotool" "key" "Ctrl+v"))))
+    (add-hook 'whisper-before-transcription-hook #'tjh/whisper-start-notification)
+    (add-hook 'whisper-after-transcription-hook #'tjh/copy-whisper-text)
+    
+    (defun tjh/whisper-in-english ()
+      (interactive)
+      (setq whisper-language "en"))
+    
+    (defun tjh/whisper-in-chinese ()
+      (interactive)
+      (setq whisper-language "zh"))
+    
+    (defun tjh/whisper-to-emacs ()
+      (interactive)
+      (setq whisper-insert-text-at-point t))
+    
+    (defun tjh/whisper-to-apps ()
+      (interactive)
+      (setq whisper-insert-text-at-point nil))
+    ```
+    
+    以上最后定义的几个函数也可以通过 Bash 脚本运行 emacsclient 来执行。而 Bash 脚本的执行既可以绑定至 KDE 的全局快捷键，也可以由 iOS 中的快捷指令来调用。这样一来，就可以通过手机远程操控了。我把系统上常用的操作都制作成了快捷指令，手机或者平板就可以成为我的控制台，从而避免了使用复杂组合键，非常方便。
+-   初次执行 `whisper-run` 时会自动下载 medium 模型。
+
+{{ "2026-03-29-使用whisper用于语音识别与文字提取" | backlink }}
