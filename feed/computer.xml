@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-03-29T07:34:35+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">使用 whisper 用于语音识别与文字提取</title><link href="https://jihuan-tian.github.io/computer/2026/03/29/use-whisper-for-voice-recognition-and-text-extraction.html" rel="alternate" type="text/html" title="使用 whisper 用于语音识别与文字提取" /><published>2026-03-29T00:00:00+08:00</published><updated>2026-03-29T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/03/29/use-whisper-for-voice-recognition-and-text-extraction</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/03/29/use-whisper-for-voice-recognition-and-text-extraction.html"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-04-13T16:23:56+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Emacs GUI operations trigger system freeze</title><link href="https://jihuan-tian.github.io/computer/2026/04/13/emacs-gui-operations-trigger-system-freeze.html" rel="alternate" type="text/html" title="Emacs GUI operations trigger system freeze" /><published>2026-04-13T00:00:00+08:00</published><updated>2026-04-13T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/04/13/emacs-gui-operations-trigger-system-freeze</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/04/13/emacs-gui-operations-trigger-system-freeze.html"><![CDATA[<p><a id="org8776806"></a></p>
+
+<h1 id="phenomenon">Phenomenon</h1>
+
+<p>Clicking Emacs buttons, expanding menus, opening dropdown lists, or even displaying a popup message when the mouse is over a link, will cause my Linux system to freeze. During this freeze, several processes unrelated to Emacs occupy 100% CPU resource, such as python (started by Anki), sunshine, zotero, etc.</p>
+
+<p><a id="org1c676c1"></a></p>
+
+<h1 id="trial-and-cause">Trial and cause</h1>
+
+<p>After asking ChatGPT and trying its suggestions, solutions without effects:</p>
+
+<ul>
+  <li>disabling compositor in KDE does not help.</li>
+  <li>disabling desktop effects in KDE does not help.</li>
+  <li>previous migration from GTK3 to lucid x-toolkit when compiling Emacs does not help.</li>
+</ul>
+
+<p>The final cause is <strong>probably</strong> the input method fcitx5.</p>
+
+<p><a id="org5ba2096"></a></p>
+
+<h1 id="solution">Solution</h1>
+
+<p>Create an alias in <code class="language-plaintext highlighter-rouge">$HOME/.bashrc</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">emacs</span><span class="o">=</span><span class="s2">"GTK_IM_MODULE=none QT_IM_MODULE=none XMODIFIERS=@im=none emacs"</span>
+</code></pre></div></div>
+
+<p>In Emacs, use <code class="language-plaintext highlighter-rouge">pyim</code> as the input method. <code class="language-plaintext highlighter-rouge">toggle-input-method</code> is bound to <code class="language-plaintext highlighter-rouge">M-\</code>.</p>
+
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">"M-\\"</span><span class="p">)</span> <span class="nf">#'</span><span class="nv">toggle-input-method</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a id="orgd71d16f"></a></p>
+
+<h1 id="lessons-learnt">Lessons learnt</h1>
+
+<p>Emacs itself is a very reliable and robust system. Errors and bugs often come from its interaction with other libraries and tools, i.e. as a problem source, collaboration or synergy plays much important role than intrinsic issues. Therefore, when using a complex and powerful tool, we had better rely on its own infrastructure and functionalities, with few external dependencies as possible.</p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Emacs" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">使用 whisper 用于语音识别与文字提取</title><link href="https://jihuan-tian.github.io/computer/2026/03/29/use-whisper-for-voice-recognition-and-text-extraction.html" rel="alternate" type="text/html" title="使用 whisper 用于语音识别与文字提取" /><published>2026-03-29T00:00:00+08:00</published><updated>2026-03-29T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/03/29/use-whisper-for-voice-recognition-and-text-extraction</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/03/29/use-whisper-for-voice-recognition-and-text-extraction.html"><![CDATA[<ul>
   <li>下载 <a href="https://github.com/natrys/whisper.el">whisper.el</a> 。不要通过首次运行 <code class="language-plaintext highlighter-rouge">whisper-run</code> 来自动安装 whisper.cpp 。默认编译与安装的 whisper.cpp 不支持 CUDA 加速，识别一段不长的语音就需要将近半分钟。因此，应按下一步手动编译 whisper.cpp 。</li>
   <li>
     <p>下载与编译 <a href="https://github.com/ggml-org/whisper.cpp">whisper.cpp</a> 。</p>
