@@ -1,4 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-04-13T16:23:56+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Emacs GUI operations trigger system freeze</title><link href="https://jihuan-tian.github.io/computer/2026/04/13/emacs-gui-operations-trigger-system-freeze.html" rel="alternate" type="text/html" title="Emacs GUI operations trigger system freeze" /><published>2026-04-13T00:00:00+08:00</published><updated>2026-04-13T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/04/13/emacs-gui-operations-trigger-system-freeze</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/04/13/emacs-gui-operations-trigger-system-freeze.html"><![CDATA[<p><a id="org8776806"></a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-04-15T17:14:04+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Cursor’s xaver.clang-format extension does not support CUDA C++</title><link href="https://jihuan-tian.github.io/computer/2026/04/15/xaver-clang-format-does-not-support-cuda-cpp.html" rel="alternate" type="text/html" title="Cursor’s xaver.clang-format extension does not support CUDA C++" /><published>2026-04-15T00:00:00+08:00</published><updated>2026-04-15T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/04/15/xaver-clang-format-does-not-support-cuda-cpp</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/04/15/xaver-clang-format-does-not-support-cuda-cpp.html"><![CDATA[<p><a id="orgc6ee94e"></a></p>
+
+<h1 id="phenomenon">Phenomenon</h1>
+
+<p>The default formatter for CUDA C++ in VS Code or Cursor is <code class="language-plaintext highlighter-rouge">ms-vscode.cpptools</code>. However, it produces different formatting results from the Emacs <code class="language-plaintext highlighter-rouge">clang-format</code> package.</p>
+
+<p>However, if I set the formatter to <code class="language-plaintext highlighter-rouge">xaver.clang-format</code>, Cursor prompts me that <code class="language-plaintext highlighter-rouge">xaver.clang-format</code> does not support CUDA C++.</p>
+
+<p><a id="org9f6103f"></a></p>
+
+<h1 id="solution">Solution</h1>
+
+<p>Still use the formatter <code class="language-plaintext highlighter-rouge">ms-vscode.cpptools</code>, but should additionally assign the path to <code class="language-plaintext highlighter-rouge">clang-format</code> to the setting <code class="language-plaintext highlighter-rouge">C_Cpp.clang_format_path</code>.</p>
+
+<p>Related settings in <code class="language-plaintext highlighter-rouge">$HOME/.config/Cursor/User/settings.json</code> are below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"[cpp]"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"editor.defaultFormatter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xaver.clang-format"</span><span class="w">
+  </span><span class="p">}</span><span class="err">,</span><span class="w">
+</span><span class="nl">"files.associations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"*.hcu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cuda-cpp"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"*.h"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpp"</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span><span class="nl">"[cuda-cpp]"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"editor.defaultFormatter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ms-vscode.cpptools"</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span><span class="nl">"editor.defaultFormatter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xaver.clang-format"</span><span class="err">,</span><span class="w">
+</span><span class="nl">"editor.formatOnSave"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="err">,</span><span class="w">
+</span><span class="nl">"C_Cpp.clang_format_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/bin/clang-format"</span><span class="err">,</span><span class="w">
+</span><span class="nl">"C_Cpp.clang_format_style"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file"</span><span class="err">,</span><span class="w">
+</span><span class="nl">"clang-format.executable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/bin/clang-format"</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Now I can edit source code in Emacs and Cursor at the same time. The reason for why I use them both is: Cursor has the advantage of code structure overview, visualization and navigation diffs, while Emacs is more efficient for code modification, pattern searching via <code class="language-plaintext highlighter-rouge">ripgrep</code>.</p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Cursor" /><category term="Emacs" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Emacs GUI operations trigger system freeze</title><link href="https://jihuan-tian.github.io/computer/2026/04/13/emacs-gui-operations-trigger-system-freeze.html" rel="alternate" type="text/html" title="Emacs GUI operations trigger system freeze" /><published>2026-04-13T00:00:00+08:00</published><updated>2026-04-13T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/04/13/emacs-gui-operations-trigger-system-freeze</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/04/13/emacs-gui-operations-trigger-system-freeze.html"><![CDATA[<p><a id="org8776806"></a></p>
 
 <h1 id="phenomenon">Phenomenon</h1>
 
