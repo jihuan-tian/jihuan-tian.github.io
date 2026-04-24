@@ -38,6 +38,7 @@ mathjax: false
         (add-to-list 'load-path "~/.emacs.d/elpa/pyim-wbdict-20220604.1340")
         (add-to-list 'load-path "~/.emacs.d/elpa/pyim-20240508.256")
         ```
+        <span class="timestamp-wrapper"><span class="timestamp">[2026-04-24 Fri] </span></span> In Emacs 31.0.50, there is no need to add the paths for ELPA packages.
     -   Remove `(require 'org-install)`, `(require 'ox-freemind)`, `(require 'ox-taskjuggler)` from `tjh-org.el`. They are not available in the `org` packaged with Emacs 29.4.
 
 {{ "2025-01-16-migrate-from-emacs-28.2-to-29.4" | backlink }}
