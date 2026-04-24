@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Usage of pyim in Emacs | 止于至善</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Usage of pyim in Emacs" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="To reduce tension on finger muscles, now I use pyim-wbdict-v86-enable instead of pyim-wbdict-v86-single-enable. pyim uses the function pyim-candidates-xingma-words-default to order characters and words for selection. (defun pyim-candidates-xingma-words-default (code) &quot;搜索形码 CODE, 得到相应的词条列表。 当前的词条的构建规则是： 1. 先排公共词库中的字。 2. 然后再排所有词库中的词，词会按词频动态调整。&quot; (let* ((common-words (pyim-dcache-get code &#39;(code2word))) (common-chars (pyim-candidates--get-chars common-words)) (personal-words (pyim-dcache-get code &#39;(icode2word))) (other-words (pyim-dcache-get code &#39;(shortcode2word))) (words-without-chars (pyim-candidates--sort (pyim-candidates--remove-chars (delete-dups `(,@personal-words ,@common-words ,@other-words)))))) `(,@common-chars ,@words-without-chars))) The finally returned list of this function is a combination of common-chars and words-without-chars, i.e. characters are placed before words. At the moment, wubi 86 provided by pyim uses large character set, so uncommon characters will appear before common words. pyim uses pyim-toggle-assistant-scheme to change to a temporary input method, which is configured in the variable pyim-assistant-scheme. This mechanism is useful when we forget the wubi code for a character and want to consult it via the pinyin input method. (defun pyim-toggle-assistant-scheme () &quot;临时切换到辅助输入法. 这个功能一般用于五笔等形码输入法，在忘记编码的时候临时用拼音输入 中文。&quot; (interactive) (if (pyim-process-without-entered-p) (pyim-process-select-last-char) (pyim-scheme-toggle-assistant) (pyim-process-run))) In this function, when there is no characters entered in pyim, pyim-process-without-entered-p will return true and pyim-process-select-last-char will be executed and the input method will not be toggled. This means if we want to search the wubi code of a character, we must first type some part or the whole pinyin of the character, then press TAB to trigger pyim-toggle-assistant-scheme. The page length of pyim (pyim-page-length) should not be too short, because uncommon characters appear before common words. Otherwise, those common words are invisible and cannot be selected. Enable pyim-dcache-auto-update to make let pyim automatically adjust the word order according to their usage frequency." />
+<meta property="og:description" content="To reduce tension on finger muscles, now I use pyim-wbdict-v86-enable instead of pyim-wbdict-v86-single-enable. pyim uses the function pyim-candidates-xingma-words-default to order characters and words for selection. (defun pyim-candidates-xingma-words-default (code) &quot;搜索形码 CODE, 得到相应的词条列表。 当前的词条的构建规则是： 1. 先排公共词库中的字。 2. 然后再排所有词库中的词，词会按词频动态调整。&quot; (let* ((common-words (pyim-dcache-get code &#39;(code2word))) (common-chars (pyim-candidates--get-chars common-words)) (personal-words (pyim-dcache-get code &#39;(icode2word))) (other-words (pyim-dcache-get code &#39;(shortcode2word))) (words-without-chars (pyim-candidates--sort (pyim-candidates--remove-chars (delete-dups `(,@personal-words ,@common-words ,@other-words)))))) `(,@common-chars ,@words-without-chars))) The finally returned list of this function is a combination of common-chars and words-without-chars, i.e. characters are placed before words. At the moment, wubi 86 provided by pyim uses large character set, so uncommon characters will appear before common words. pyim uses pyim-toggle-assistant-scheme to change to a temporary input method, which is configured in the variable pyim-assistant-scheme. This mechanism is useful when we forget the wubi code for a character and want to consult it via the pinyin input method. (defun pyim-toggle-assistant-scheme () &quot;临时切换到辅助输入法. 这个功能一般用于五笔等形码输入法，在忘记编码的时候临时用拼音输入 中文。&quot; (interactive) (if (pyim-process-without-entered-p) (pyim-process-select-last-char) (pyim-scheme-toggle-assistant) (pyim-process-run))) In this function, when there is no characters entered in pyim, pyim-process-without-entered-p will return true and pyim-process-select-last-char will be executed and the input method will not be toggled. This means if we want to search the wubi code of a character, we must first type some part or the whole pinyin of the character, then press TAB to trigger pyim-toggle-assistant-scheme. The page length of pyim (pyim-page-length) should not be too short, because uncommon characters appear before common words. Otherwise, those common words are invisible and cannot be selected. Enable pyim-dcache-auto-update to make let pyim automatically adjust the word order according to their usage frequency." />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2026/04/24/usage-of-pyim-in-emacs.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2026/04/24/usage-of-pyim-in-emacs.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-04-24T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Usage of pyim in Emacs" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2026-04-24T00:00:00+08:00","datePublished":"2026-04-24T00:00:00+08:00","description":"To reduce tension on finger muscles, now I use pyim-wbdict-v86-enable instead of pyim-wbdict-v86-single-enable. pyim uses the function pyim-candidates-xingma-words-default to order characters and words for selection. (defun pyim-candidates-xingma-words-default (code) &quot;搜索形码 CODE, 得到相应的词条列表。 当前的词条的构建规则是： 1. 先排公共词库中的字。 2. 然后再排所有词库中的词，词会按词频动态调整。&quot; (let* ((common-words (pyim-dcache-get code &#39;(code2word))) (common-chars (pyim-candidates--get-chars common-words)) (personal-words (pyim-dcache-get code &#39;(icode2word))) (other-words (pyim-dcache-get code &#39;(shortcode2word))) (words-without-chars (pyim-candidates--sort (pyim-candidates--remove-chars (delete-dups `(,@personal-words ,@common-words ,@other-words)))))) `(,@common-chars ,@words-without-chars))) The finally returned list of this function is a combination of common-chars and words-without-chars, i.e. characters are placed before words. At the moment, wubi 86 provided by pyim uses large character set, so uncommon characters will appear before common words. pyim uses pyim-toggle-assistant-scheme to change to a temporary input method, which is configured in the variable pyim-assistant-scheme. This mechanism is useful when we forget the wubi code for a character and want to consult it via the pinyin input method. (defun pyim-toggle-assistant-scheme () &quot;临时切换到辅助输入法. 这个功能一般用于五笔等形码输入法，在忘记编码的时候临时用拼音输入 中文。&quot; (interactive) (if (pyim-process-without-entered-p) (pyim-process-select-last-char) (pyim-scheme-toggle-assistant) (pyim-process-run))) In this function, when there is no characters entered in pyim, pyim-process-without-entered-p will return true and pyim-process-select-last-char will be executed and the input method will not be toggled. This means if we want to search the wubi code of a character, we must first type some part or the whole pinyin of the character, then press TAB to trigger pyim-toggle-assistant-scheme. The page length of pyim (pyim-page-length) should not be too short, because uncommon characters appear before common words. Otherwise, those common words are invisible and cannot be selected. Enable pyim-dcache-auto-update to make let pyim automatically adjust the word order according to their usage frequency.","headline":"Usage of pyim in Emacs","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2026/04/24/usage-of-pyim-in-emacs.html"},"url":"https://jihuan-tian.github.io/computer/2026/04/24/usage-of-pyim-in-emacs.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Usage of pyim in Emacs</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-04-24T00:00:00+08:00" itemprop="datePublished">
+        Fri, Apr 24, W16, 2026 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/Emacs">Emacs</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li>To reduce tension on finger muscles, now I use <code class="language-plaintext highlighter-rouge">pyim-wbdict-v86-enable</code> instead of <code class="language-plaintext highlighter-rouge">pyim-wbdict-v86-single-enable</code>.</li>
+  <li>
+    <p>pyim uses the function <code class="language-plaintext highlighter-rouge">pyim-candidates-xingma-words-default</code> to order characters and words for selection.</p>
+
+    <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">pyim-candidates-xingma-words-default</span> <span class="p">(</span><span class="nv">code</span><span class="p">)</span>
+  <span class="s">"搜索形码 CODE, 得到相应的词条列表。
+    
+当前的词条的构建规则是：
+1. 先排公共词库中的字。
+2. 然后再排所有词库中的词，词会按词频动态调整。"</span>
+  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">common-words</span> <span class="p">(</span><span class="nv">pyim-dcache-get</span> <span class="nv">code</span> <span class="o">'</span><span class="p">(</span><span class="nv">code2word</span><span class="p">)))</span>
+         <span class="p">(</span><span class="nv">common-chars</span> <span class="p">(</span><span class="nv">pyim-candidates--get-chars</span> <span class="nv">common-words</span><span class="p">))</span>
+         <span class="p">(</span><span class="nv">personal-words</span> <span class="p">(</span><span class="nv">pyim-dcache-get</span> <span class="nv">code</span> <span class="o">'</span><span class="p">(</span><span class="nv">icode2word</span><span class="p">)))</span>
+         <span class="p">(</span><span class="nv">other-words</span> <span class="p">(</span><span class="nv">pyim-dcache-get</span> <span class="nv">code</span> <span class="o">'</span><span class="p">(</span><span class="nv">shortcode2word</span><span class="p">)))</span>
+         <span class="p">(</span><span class="nv">words-without-chars</span>
+          <span class="p">(</span><span class="nv">pyim-candidates--sort</span>
+           <span class="p">(</span><span class="nv">pyim-candidates--remove-chars</span>
+            <span class="p">(</span><span class="nv">delete-dups</span>
+             <span class="o">`</span><span class="p">(</span><span class="o">,@</span><span class="nv">personal-words</span>
+               <span class="o">,@</span><span class="nv">common-words</span>
+               <span class="o">,@</span><span class="nv">other-words</span><span class="p">))))))</span>
+    <span class="o">`</span><span class="p">(</span><span class="o">,@</span><span class="nv">common-chars</span>
+      <span class="o">,@</span><span class="nv">words-without-chars</span><span class="p">)))</span>
+</code></pre></div>    </div>
+
+    <p>The finally returned list of this function is a combination of <code class="language-plaintext highlighter-rouge">common-chars</code> and <code class="language-plaintext highlighter-rouge">words-without-chars</code>, i.e. <strong>characters are placed before words.</strong></p>
+
+    <p>At the moment, wubi 86 provided by pyim uses large character set, so uncommon characters will appear before common words.</p>
+  </li>
+  <li>
+    <p>pyim uses <code class="language-plaintext highlighter-rouge">pyim-toggle-assistant-scheme</code> to change to a temporary input method, which is configured in the variable <code class="language-plaintext highlighter-rouge">pyim-assistant-scheme</code>. This mechanism is useful when we forget the wubi code for a character and want to consult it via the pinyin input method.</p>
+
+    <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">pyim-toggle-assistant-scheme</span> <span class="p">()</span>
+  <span class="s">"临时切换到辅助输入法.
+    
+这个功能一般用于五笔等形码输入法，在忘记编码的时候临时用拼音输入
+中文。"</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nv">pyim-process-without-entered-p</span><span class="p">)</span>
+      <span class="p">(</span><span class="nv">pyim-process-select-last-char</span><span class="p">)</span>
+    <span class="p">(</span><span class="nv">pyim-scheme-toggle-assistant</span><span class="p">)</span>
+    <span class="p">(</span><span class="nv">pyim-process-run</span><span class="p">)))</span>
+</code></pre></div>    </div>
+
+    <p>In this function, when there is no characters entered in pyim, <code class="language-plaintext highlighter-rouge">pyim-process-without-entered-p</code> will return true and <code class="language-plaintext highlighter-rouge">pyim-process-select-last-char</code> will be executed and the input method will not be toggled. This means if we want to search the wubi code of a character, we must first type some part or the whole pinyin of the character, then press <code class="language-plaintext highlighter-rouge">TAB</code> to trigger <code class="language-plaintext highlighter-rouge">pyim-toggle-assistant-scheme</code>.</p>
+  </li>
+  <li>The page length of pyim (<code class="language-plaintext highlighter-rouge">pyim-page-length</code>) should not be too short, because uncommon characters appear before common words. Otherwise, those common words are invisible and cannot be selected.</li>
+  <li>Enable <code class="language-plaintext highlighter-rouge">pyim-dcache-auto-update</code> to make let pyim automatically adjust the word order according to their usage frequency.</li>
+</ul>
+
+<p>The whole configuration for pyim is below.</p>
+
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">require</span> <span class="ss">'pyim</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">require</span> <span class="ss">'pyim-wbdict</span><span class="p">)</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">default-input-method</span> <span class="s">"pyim"</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">"M-\\"</span><span class="p">)</span> <span class="nf">#'</span><span class="nv">toggle-input-method</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">pyim-default-scheme</span> <span class="ss">'wubi</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">pyim-wbdict-v86-enable</span><span class="p">)</span>
+<span class="c1">;; Use fullwidth punctuations.</span>
+<span class="p">(</span><span class="nv">setq-default</span> <span class="nv">pyim-punctuation-translate-p</span> <span class="o">'</span><span class="p">(</span><span class="nv">auto</span><span class="p">))</span>
+<span class="c1">;; Disable popup tooltip, use the minibuffer instead, which greatly reduce</span>
+<span class="c1">;; screen flashes.</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">pyim-page-tooltip</span> <span class="ss">'minibuffer</span><span class="p">)</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">pyim-assistant-scheme</span> <span class="ss">'quanpin</span><span class="p">)</span>
+<span class="c1">;; Disable word detection from the current buffer and word thinking to improve</span>
+<span class="c1">;; performance.</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">pyim-candidates-search-buffer-p</span> <span class="no">nil</span><span class="p">)</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">pyim-enable-shortcode</span> <span class="no">nil</span><span class="p">)</span>
+<span class="c1">;; Keep 6 options in the selection page.</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">pyim-page-length</span> <span class="mi">6</span><span class="p">)</span>
+<span class="c1">;; When using non-single char input, enable automatic adjusting word order</span>
+<span class="c1">;; depending on its usage frequency.</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">pyim-dcache-auto-update</span> <span class="no">t</span><span class="p">)</span>
+</code></pre></div></div>
+
+
+  </div><a class="u-url" href="/computer/2026/04/24/usage-of-pyim-in-emacs.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2026 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
