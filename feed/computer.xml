@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-04-29T13:11:32+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Xresources should have a newline at the end</title><link href="https://jihuan-tian.github.io/computer/2026/04/29/xresources-should-have-a-newline-at-the-end.html" rel="alternate" type="text/html" title="Xresources should have a newline at the end" /><published>2026-04-29T00:00:00+08:00</published><updated>2026-04-29T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/04/29/xresources-should-have-a-newline-at-the-end</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/04/29/xresources-should-have-a-newline-at-the-end.html"><![CDATA[<p><a id="org08beb8e"></a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-04-29T16:17:33+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Font configuration in Emacs</title><link href="https://jihuan-tian.github.io/computer/2026/04/29/font-configuration-in-emacs.html" rel="alternate" type="text/html" title="Font configuration in Emacs" /><published>2026-04-29T00:00:00+08:00</published><updated>2026-04-29T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/04/29/font-configuration-in-emacs</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/04/29/font-configuration-in-emacs.html"><![CDATA[<ul>
+  <li><a href="#org522bc39">Basic concepts</a></li>
+  <li><a href="#org07ed125">Buffer font configuration</a></li>
+  <li><a href="#org6a10e8c">Interface font configuration</a></li>
+</ul>
+
+<p><a id="org522bc39"></a></p>
+
+<h1 id="basic-concepts">Basic concepts</h1>
+
+<p>Several concepts should be clarified first.</p>
+
+<ul>
+  <li><strong>Script</strong>: [Oxford Advanced Learner] n. a set of letters in which a language is written. Therefore, a font covers a single or several scripts or alphabets.</li>
+  <li>
+    <p><strong>Font</strong>: it defines how to <strong>draw</strong> the characters within its supported scripts. For a font used on computers, the supported scripts are represented by some character code. We can use <code class="language-plaintext highlighter-rouge">fc-list</code> to check which fonts are available on a GNU/Linux system, which can be used by applications which support <code class="language-plaintext highlighter-rouge">fontconfig</code>. We can also use <code class="language-plaintext highlighter-rouge">fontforge</code> to check the encoding supported by a font file.</p>
+
+    <p>For example, check the 仓耳今楷 font on my system:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fc-list | <span class="nb">grep</span> <span class="nt">-i</span> tsanger
+</code></pre></div>    </div>
+
+    <p>Then we use <code class="language-plaintext highlighter-rouge">fontforge</code> to check its encoding in the menu “Encoding” → “Reencode”, which is ISO-10646-1 Unicode.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fontforge <span class="sb">`</span>fc-list | <span class="nb">grep</span> <span class="nt">-i</span> tsanger | <span class="nb">cut</span> <span class="nt">-d</span> : <span class="nt">-f</span> 1<span class="sb">`</span>
+</code></pre></div>    </div>
+
+    <p><img src="/figures/2026-04-29_16-08-26-show-font-encoding-in-fontforge.png" alt="img" /></p>
+  </li>
+  <li>
+    <p><strong>Fontset</strong>: a fontset is the collection of fonts that Emacs uses to <strong>display</strong> all scripts it supports.</p>
+
+    <p>Emacs defines three fontsets: <code class="language-plaintext highlighter-rouge">standard</code>, <code class="language-plaintext highlighter-rouge">startup</code> and <code class="language-plaintext highlighter-rouge">default</code> fontsets. The default fontset is the default fallback of the other two.</p>
+  </li>
+  <li>
+    <p><strong>Character set</strong>: it is a set of letters in <strong>one or several</strong> scripts. It is in the sense of symbols of characters, but not related to how they are represented on computers. For a same character set, there may be several ways of encoding.</p>
+
+    <p>Therefore, a font/fontset determines how character symbols are displayed or visualized, while a character set is just a group of character symbols. For a same language, a font/fontset and a character set may not be identical.</p>
+  </li>
+  <li><strong>Character code</strong>: the binary representation of characters on computers. Therefore, a complete character code or any subset of it naturally implies a character set, i.e. assign character code to a character set.</li>
+  <li><strong>Glyph</strong>: a glyph is a visual representation of a character. [OED] A sculptured mark or symbol.</li>
+  <li><strong>Face</strong>: it is short for typeface, which is a set of letters, numbers, etc. of a particular design, <strong>used in printing</strong>. It is the <strong>style</strong> Emacs uses to display some text. It is equivalent to a CSS style. Some faces defined by Emacs are <code class="language-plaintext highlighter-rouge">default</code>, <code class="language-plaintext highlighter-rouge">bold</code>, <code class="language-plaintext highlighter-rouge">bold-italic</code>, etc. Some faces defined by Org mode are <code class="language-plaintext highlighter-rouge">org-level-1</code>, <code class="language-plaintext highlighter-rouge">org-level-2</code>, <code class="language-plaintext highlighter-rouge">org-quote</code>, etc.</li>
+</ul>
+
+<p><a id="org07ed125"></a></p>
+
+<h1 id="buffer-font-configuration">Buffer font configuration</h1>
+
+<p>In my Emacs configuration, I assign the font “Noto Sans Mono” with a height 130 in units of 1/10 pt to the <code class="language-plaintext highlighter-rouge">default</code> face for all existing frames.</p>
+
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">set-face-attribute</span> <span class="ss">'default</span> <span class="no">nil</span> <span class="ss">:font</span> <span class="s">"Noto Sans Mono"</span> <span class="ss">:height</span> <span class="mi">130</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The second argument is <code class="language-plaintext highlighter-rouge">nil</code>, which means the configuration is applied to all existing and new frames, while <code class="language-plaintext highlighter-rouge">t</code> only for new frames.</p>
+
+<p>In the default fontset of Emacs, I choose the font 仓耳今楷05 for Chinese related scripts and character sets, so that English and Chinese can be displayed in separate fonts.</p>
+
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">script-or-charset</span> <span class="o">'</span><span class="p">(</span><span class="nv">han</span> <span class="nv">cjk-misc</span> <span class="nv">chinese-gbk</span> <span class="nv">kana</span> <span class="nv">big5</span> <span class="nv">big5-hkscs</span> <span class="nv">chinese-big5-1</span> <span class="nv">chinese-big5-2</span><span class="p">))</span>
+  <span class="p">(</span><span class="nv">set-fontset-font</span> <span class="no">t</span> <span class="nv">script-or-charset</span> <span class="p">(</span><span class="nv">font-spec</span> <span class="ss">:family</span> <span class="s">"仓耳今楷05"</span><span class="p">)))</span>
+</code></pre></div></div>
+
+<p>The first argument <code class="language-plaintext highlighter-rouge">t</code> means the default fontset. The function <code class="language-plaintext highlighter-rouge">font-spec</code> is used to create a font-spec object.</p>
+
+<p>According to the documentation of <code class="language-plaintext highlighter-rouge">set-fontset-font</code>, we can check the variable <code class="language-plaintext highlighter-rouge">script-representative-chars</code> for a list of scripts and execute <code class="language-plaintext highlighter-rouge">list-character-sets</code> to see existing character sets. In the above configuration, <code class="language-plaintext highlighter-rouge">han</code>, <code class="language-plaintext highlighter-rouge">cjk-misc</code> and <code class="language-plaintext highlighter-rouge">kana</code> are scripts. <code class="language-plaintext highlighter-rouge">chinese-gbk</code>, <code class="language-plaintext highlighter-rouge">big5</code>, <code class="language-plaintext highlighter-rouge">big5-hkscs</code>, <code class="language-plaintext highlighter-rouge">chinese-big5-1</code> and <code class="language-plaintext highlighter-rouge">chinese-big5-2</code> are character sets.</p>
+
+<p>The characters in big5 charset is like this.</p>
+
+<p><img src="/figures/2025-01-14_09-47-05-emacs-character-sets.png" alt="img" /></p>
+
+<p>Because the font 仓耳今楷05 looks a little smaller than a same size English font, I also assign it a scaling factor.</p>
+
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">;; Use Chinese in the font name and the rescaling will take effect.</span>
+<span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">'face-font-rescale-alist</span> <span class="o">'</span><span class="p">(</span><span class="s">"仓耳今楷05"</span> <span class="o">.</span> <span class="mf">1.3</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Now the Chinese font in Emacs editor looks more comfortable.</p>
+
+<p><img src="/figures/2025-01-14_10-07-54-emacs-with-tsanger-font.png" alt="img" /></p>
+
+<p><a id="org6a10e8c"></a></p>
+
+<h1 id="interface-font-configuration">Interface font configuration</h1>
+
+<p>For Emacs with lucid x-toolkit that I use, by default the Chinese characters in menu items are displayed as empty boxes.</p>
+
+<p>The solution is to set their fonts in <code class="language-plaintext highlighter-rouge">$HOME/.Xresources</code>. Available fonts can be listed with <code class="language-plaintext highlighter-rouge">fc-list</code> and these fonts are used by applications with <code class="language-plaintext highlighter-rouge">fontconfig</code> support.</p>
+
+<pre><code class="language-conf-xdefaults">Emacs.pane.menubar.font: Noto Sans CJK SC-12
+Emacs.menu*.font: Noto Sans CJK SC-12
+Emacs.dialog*.font: Noto Sans CJK SC-12
+</code></pre>
+
+<p>Then use <code class="language-plaintext highlighter-rouge">xrdg -merge $HOME/.Xresources</code> to apply the configuration and restart Emacs.</p>
+
+<p><strong>Related</strong></p>
+<ul>
+  <li><a href="/computer/2025/01/14/configure-chinese-font-in-emacs.html">Configure Chinese font in Emacs</a></li>
+  <li><a href="/computer/2026/04/29/xresources-should-have-a-newline-at-the-end.html">Xresources should have a newline at the end</a></li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Emacs" /><summary type="html"><![CDATA[Basic concepts Buffer font configuration Interface font configuration]]></summary></entry><entry><title type="html">Xresources should have a newline at the end</title><link href="https://jihuan-tian.github.io/computer/2026/04/29/xresources-should-have-a-newline-at-the-end.html" rel="alternate" type="text/html" title="Xresources should have a newline at the end" /><published>2026-04-29T00:00:00+08:00</published><updated>2026-04-29T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/04/29/xresources-should-have-a-newline-at-the-end</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/04/29/xresources-should-have-a-newline-at-the-end.html"><![CDATA[<p><a id="org08beb8e"></a></p>
 
 <h1 id="phenomenon">Phenomenon</h1>
 
@@ -2240,7 +2338,9 @@ The error was 'BadMatch (invalid parameter attributes)'.
 </code></pre></div></div>
 
 <p>Now the Chinese font in Emacs editor looks more comfortable.
-<img src="/figures/2025-01-14_10-07-54-emacs-with-tsanger-font.png" alt="img" /></p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Emacs" /><summary type="html"><![CDATA[Several concepts in Emacs should be clarified first.]]></summary></entry><entry><title type="html">A good way to merge two Git branches with many conflicts</title><link href="https://jihuan-tian.github.io/computer/2025/01/04/a-good-way-to-merge-two-git-branches-with-many-conflicts.html" rel="alternate" type="text/html" title="A good way to merge two Git branches with many conflicts" /><published>2025-01-04T00:00:00+08:00</published><updated>2025-01-04T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/01/04/a-good-way-to-merge-two-git-branches-with-many-conflicts</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/01/04/a-good-way-to-merge-two-git-branches-with-many-conflicts.html"><![CDATA[<p>When two Git branches have many conflicts during merging, simply accepting current changes or incoming changes for all conflicts will not make the resulted source code correct, because some lines of code from the incoming branch will not be treated as conflicts, if these lines in the current branch are not modified. Therefore, the resulted file interweaves the two input versions, which probably has many grammatical errors.</p>
+<img src="/figures/2025-01-14_10-07-54-emacs-with-tsanger-font.png" alt="img" /></p>
+
+<p>Backlinks: <a href="/computer/2026/04/29/font-configuration-in-emacs.html">《Font configuration in Emacs》</a></p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Emacs" /><summary type="html"><![CDATA[Several concepts in Emacs should be clarified first.]]></summary></entry><entry><title type="html">A good way to merge two Git branches with many conflicts</title><link href="https://jihuan-tian.github.io/computer/2025/01/04/a-good-way-to-merge-two-git-branches-with-many-conflicts.html" rel="alternate" type="text/html" title="A good way to merge two Git branches with many conflicts" /><published>2025-01-04T00:00:00+08:00</published><updated>2025-01-04T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2025/01/04/a-good-way-to-merge-two-git-branches-with-many-conflicts</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2025/01/04/a-good-way-to-merge-two-git-branches-with-many-conflicts.html"><![CDATA[<p>When two Git branches have many conflicts during merging, simply accepting current changes or incoming changes for all conflicts will not make the resulted source code correct, because some lines of code from the incoming branch will not be treated as conflicts, if these lines in the current branch are not modified. Therefore, the resulted file interweaves the two input versions, which probably has many grammatical errors.</p>
 
 <p>A good way to reliably merge two branches is to compare them respectively with the <strong>merge-base</strong> commit, which is the first common ancestor commit from which these two branches start to diverge. Then we will understand what on earth each branch has done to the merge-base. Only with such an understanding, the merging work will becomes meaningful. Luckily, the GitLens extension in VS Code provides this function in “GitLens Inspect → File history”.</p>
 
