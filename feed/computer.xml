@@ -1,4 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-04-24T20:05:51+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Usage of pyim in Emacs</title><link href="https://jihuan-tian.github.io/computer/2026/04/24/usage-of-pyim-in-emacs.html" rel="alternate" type="text/html" title="Usage of pyim in Emacs" /><published>2026-04-24T00:00:00+08:00</published><updated>2026-04-24T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/04/24/usage-of-pyim-in-emacs</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/04/24/usage-of-pyim-in-emacs.html"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/computer.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-04-29T13:11:32+08:00</updated><id>https://jihuan-tian.github.io/feed/computer.xml</id><title type="html">止于至善 | Computer</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Xresources should have a newline at the end</title><link href="https://jihuan-tian.github.io/computer/2026/04/29/xresources-should-have-a-newline-at-the-end.html" rel="alternate" type="text/html" title="Xresources should have a newline at the end" /><published>2026-04-29T00:00:00+08:00</published><updated>2026-04-29T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/04/29/xresources-should-have-a-newline-at-the-end</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/04/29/xresources-should-have-a-newline-at-the-end.html"><![CDATA[<p><a id="org08beb8e"></a></p>
+
+<h1 id="phenomenon">Phenomenon</h1>
+
+<p>Today, after I started KDE, the cursor became extremely small in some applications, such as konsole, KDE system settings, Anki, KDE desktop. However when the cursor was in GTK based applications such as Firefox, its size was normal. I tried to change the cursor size in KDE system settings but got no effect.</p>
+
+<p><a id="org98a3b5a"></a></p>
+
+<h1 id="analysis">Analysis</h1>
+
+<p>Remembering that I modified the menu font used by Emacs yesterday by editing <code class="language-plaintext highlighter-rouge">$HOME/.Xresources</code>, I doubt this may be the cause.</p>
+
+<pre><code class="language-conf-xdefaults">Xpdf*paperColor: rgb:f6/f0/de
+Xpdf*fontList: -adobe-helvetica-medium-r-normal--35-0-0-0-p-0-iso8859-1
+gv*font: -adobe-helvetica-medium-r-normal--35-0-0-0-p-0-iso8859-1
+Xft.dpi: 161
+Emacs.pane.menubar.font: Noto Sans CJK SC-12
+Emacs.menu*.font: Noto Sans CJK SC-12
+Emacs.dialog*.font: Noto Sans CJK SC-12
+</code></pre>
+
+<p>So I execute <code class="language-plaintext highlighter-rouge">xrdb -query | grep -i cursor</code> to check cursor related settings in the X server resource database and get this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Emacs.dialog<span class="k">*</span>.font:     Noto Sans CJK SC-12Xcursor.theme: WhiteSur-cursors
+Xcursor.size:   48
+</code></pre></div></div>
+
+<p>The configuration for the cursor theme has been mixed with the Emacs dialog font configuration. It is obvious that when I ran <code class="language-plaintext highlighter-rouge">xrdb -merge $HOME/.Xresources</code>, the system configuration was appended to my configuration without adding a new line.</p>
+
+<p><a id="org5510862"></a></p>
+
+<h1 id="cause-and-solution">Cause and solution</h1>
+
+<p>Yesterday I edited <code class="language-plaintext highlighter-rouge">$HOME/.Xresources</code> in Emacs using the <code class="language-plaintext highlighter-rouge">conf-xdefaults-mode</code>. In this mode, the Emacs variable <code class="language-plaintext highlighter-rouge">require-final-newline</code> is <code class="language-plaintext highlighter-rouge">nil</code>, while other modes I often use, such as <code class="language-plaintext highlighter-rouge">org-mode</code>, <code class="language-plaintext highlighter-rouge">c++-mode</code>, etc., set this variable to <code class="language-plaintext highlighter-rouge">t</code>.</p>
+
+<p>Solution: manually adding a newline to the end of <code class="language-plaintext highlighter-rouge">$HOME/.Xresources</code> and running <code class="language-plaintext highlighter-rouge">xrdb -load $HOME/.Xresources</code>. With this <code class="language-plaintext highlighter-rouge">-load</code> option, previous values will be overwritten.</p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="Linux" /><category term="Emacs" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Usage of pyim in Emacs</title><link href="https://jihuan-tian.github.io/computer/2026/04/24/usage-of-pyim-in-emacs.html" rel="alternate" type="text/html" title="Usage of pyim in Emacs" /><published>2026-04-24T00:00:00+08:00</published><updated>2026-04-24T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/04/24/usage-of-pyim-in-emacs</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/04/24/usage-of-pyim-in-emacs.html"><![CDATA[<ul>
   <li>To reduce tension on finger muscles, now I use <code class="language-plaintext highlighter-rouge">pyim-wbdict-v86-enable</code> instead of <code class="language-plaintext highlighter-rouge">pyim-wbdict-v86-single-enable</code>.</li>
   <li>
     <p>pyim uses the function <code class="language-plaintext highlighter-rouge">pyim-candidates-xingma-words-default</code> to order characters and words for selection.</p>
