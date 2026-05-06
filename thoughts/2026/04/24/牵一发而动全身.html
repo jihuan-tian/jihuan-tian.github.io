@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>牵一发而动全身 | 止于至善</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="牵一发而动全身" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="自从四月七号开始设计单元数据的预存储 (precomputation and storage of cell data used by a BEM bilinear form) ，到现在已将近三周，仍未完成。" />
+<meta property="og:description" content="自从四月七号开始设计单元数据的预存储 (precomputation and storage of cell data used by a BEM bilinear form) ，到现在已将近三周，仍未完成。" />
+<link rel="canonical" href="https://jihuan-tian.github.io/thoughts/2026/04/24/%E7%89%B5%E4%B8%80%E5%8F%91%E8%80%8C%E5%8A%A8%E5%85%A8%E8%BA%AB.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/thoughts/2026/04/24/%E7%89%B5%E4%B8%80%E5%8F%91%E8%80%8C%E5%8A%A8%E5%85%A8%E8%BA%AB.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-04-24T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="牵一发而动全身" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2026-04-24T00:00:00+08:00","datePublished":"2026-04-24T00:00:00+08:00","description":"自从四月七号开始设计单元数据的预存储 (precomputation and storage of cell data used by a BEM bilinear form) ，到现在已将近三周，仍未完成。","headline":"牵一发而动全身","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/thoughts/2026/04/24/%E7%89%B5%E4%B8%80%E5%8F%91%E8%80%8C%E5%8A%A8%E5%85%A8%E8%BA%AB.html"},"url":"https://jihuan-tian.github.io/thoughts/2026/04/24/%E7%89%B5%E4%B8%80%E5%8F%91%E8%80%8C%E5%8A%A8%E5%85%A8%E8%BA%AB.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">牵一发而动全身</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-04-24T00:00:00+08:00" itemprop="datePublished">
+        Fri, Apr 24, W16, 2026 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/thoughts">Thoughts</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/算法开发">算法开发</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>自从四月七号开始设计单元数据的预存储 (precomputation and storage of cell data used by a BEM bilinear form) ，到现在已将近三周，仍未完成。</p>
+
+<p>一开始想着也许可以不必将已经实现的三种边界元矩阵组装方法的所有逻辑都搞清楚，仅仅围绕涉及数据结构改动的地方，因循局部的逻辑链条一路走下去，就可以实现预存储机制、完成重构工作。这种预想的模式如同提灯走夜路，只要看清手中灯光所能照及的眼前一片范围，专注于脚下的坑坑洼洼，就可以在摸索中走完整个旅程。</p>
+
+<p>然而，这种方法的局限在于路人必须预先知道（哪怕是大致的）正确方向在哪里以及沿途的基本情况，否则在黑暗中乱闯试探的效率极低。虽然这种方法在我以前的代码修改中已被多次验证具有一定的可行性，但曾经的奏效只是因为当时修改的代码耦合度较低。现在我面对的则是涉及边界元矩阵组装的底层数据结构，而且在算法研究与测试、代码的演进过程中还形成了几种不同的实现方法。这些方法以不同的方式共用着一些基本数据，其中存在着冗余的内存开销。如果想要同时维护这几种实现，保留对历史代码的“兼容性”，便会出现“牵一发而动全身”的情况。</p>
+
+<p>最终决定保留三种方法中的两种：</p>
+
+<ul>
+  <li>基于生产者-消费者模型的 H-matrix 组装方法。</li>
+  <li>满阵组装方法：虽然该方法没有工程实用价值，但是可以作为基准，与 H-matrix 方法相互对照。</li>
+</ul>
+
+<p>在代码重构过程中，也咨询了人工智能，但效果不佳。由些得到的经验是：对于真正需要理解的内容与实实在在掌握的逻辑，只有靠人自己的努力和主观能动性。</p>
+
+<p>Backlinks: <a href="/thoughts/2026/05/06/%E7%AE%97%E5%8F%91%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F.html">《算发开发的两种模式》</a></p>
+
+  </div><a class="u-url" href="/thoughts/2026/04/24/%E7%89%B5%E4%B8%80%E5%8F%91%E8%80%8C%E5%8A%A8%E5%85%A8%E8%BA%AB.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2026 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
