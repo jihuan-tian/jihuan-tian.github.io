@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Navigation and movement in Emacs | 止于至善</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Navigation and movement in Emacs" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="General movement in a window" />
+<meta property="og:description" content="General movement in a window" />
+<link rel="canonical" href="https://jihuan-tian.github.io/computer/2026/05/26/navigation-and-movement-in-emacs.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/computer/2026/05/26/navigation-and-movement-in-emacs.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-05-26T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Navigation and movement in Emacs" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2026-05-26T00:00:00+08:00","datePublished":"2026-05-26T00:00:00+08:00","description":"General movement in a window","headline":"Navigation and movement in Emacs","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2026/05/26/navigation-and-movement-in-emacs.html"},"url":"https://jihuan-tian.github.io/computer/2026/05/26/navigation-and-movement-in-emacs.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Navigation and movement in Emacs</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-05-26T00:00:00+08:00" itemprop="datePublished">
+        Tue, May 26, W21, 2026 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/computer">Computer</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/Emacs">Emacs</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="general-movement-in-a-window">General movement in a window</h1>
+
+<ul>
+  <li>Next and previous line: <code class="language-plaintext highlighter-rouge">C-n</code>, <code class="language-plaintext highlighter-rouge">C-p</code></li>
+  <li>Next and previous character: <code class="language-plaintext highlighter-rouge">C-f</code>, <code class="language-plaintext highlighter-rouge">C-b</code></li>
+  <li>Next and previous word: <code class="language-plaintext highlighter-rouge">M-f</code> or <code class="language-plaintext highlighter-rouge">C-&lt;left&gt;</code>, <code class="language-plaintext highlighter-rouge">M-b</code> or <code class="language-plaintext highlighter-rouge">C-&lt;right&gt;</code></li>
+  <li>Scroll up (向下翻页) and down (向上翻页) a screen in the current window: <code class="language-plaintext highlighter-rouge">C-v</code>, <code class="language-plaintext highlighter-rouge">M-v</code></li>
+  <li>
+    <p>Scroll up and down a line in other window: <code class="language-plaintext highlighter-rouge">M-&lt;next&gt;</code> (<code class="language-plaintext highlighter-rouge">tjh/scroll-other-window</code>), <code class="language-plaintext highlighter-rouge">M-&lt;prior&gt;</code> (<code class="language-plaintext highlighter-rouge">tjh/scroll-other-window-down</code>)</p>
+
+    <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">;; Scroll other window with fixed number of lines.</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">tjh/scroll-other-window-lines</span> <span class="mi">1</span><span class="p">)</span>
+    
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/scroll-other-window</span> <span class="p">()</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">scroll-other-window</span> <span class="nv">tjh/scroll-other-window-lines</span><span class="p">))</span>
+    
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/scroll-other-window-down</span> <span class="p">()</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">scroll-other-window-down</span> <span class="nv">tjh/scroll-other-window-lines</span><span class="p">))</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Scroll up and down a screen in other window: <code class="language-plaintext highlighter-rouge">M-s-&lt;next&gt;</code>, <code class="language-plaintext highlighter-rouge">M-s-&lt;prior&gt;</code></li>
+  <li>Forward and backward a balanced expression: <code class="language-plaintext highlighter-rouge">C-M-f</code>, <code class="language-plaintext highlighter-rouge">C-M-b</code></li>
+  <li>Mark a balanced expression: <code class="language-plaintext highlighter-rouge">C-M-&lt;space&gt;</code></li>
+  <li>Balance the sizes of windows: <code class="language-plaintext highlighter-rouge">C-x +</code></li>
+  <li>Swap two windows left/right, up/down: <code class="language-plaintext highlighter-rouge">tjh/swap-two-windows</code></li>
+  <li>
+    <p>Swap the current window with the central window: <code class="language-plaintext highlighter-rouge">tjh/swap-with-center-window</code></p>
+
+    <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/get-center-window-horizontal</span> <span class="p">()</span>
+  <span class="s">"Get the center window among a set of horizontally distributed windows in the current frame"</span>
+  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">windows</span> <span class="p">(</span><span class="nv">window-list</span><span class="p">))</span>
+         <span class="p">(</span><span class="nv">indexed-window-left-edge-pos</span>
+          <span class="p">(</span><span class="nv">cl-mapcar</span> <span class="nf">#'</span><span class="nb">cons</span> <span class="p">(</span><span class="nv">cl-mapcar</span> <span class="nf">#'</span><span class="nb">car</span> <span class="p">(</span><span class="nv">cl-mapcar</span> <span class="nf">#'</span><span class="nv">window-body-edges</span> <span class="nv">windows</span><span class="p">))</span> <span class="p">(</span><span class="nv">number-sequence</span> <span class="mi">0</span> <span class="p">(</span><span class="nb">1-</span> <span class="p">(</span><span class="nb">length</span> <span class="nv">windows</span><span class="p">)))))</span>
+         <span class="p">(</span><span class="nv">sorted-indexed-window-left-edge-pos</span>
+          <span class="p">(</span><span class="nb">sort</span> <span class="nv">indexed-window-left-edge-pos</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nv">a</span> <span class="nv">b</span><span class="p">)</span> <span class="p">(</span><span class="nb">&lt;</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">a</span><span class="p">)</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">b</span><span class="p">)))))</span>
+         <span class="p">(</span><span class="nv">center-window-index</span> <span class="p">(</span><span class="nb">cdr</span> <span class="p">(</span><span class="nb">nth</span> <span class="p">(</span><span class="nb">/</span> <span class="p">(</span><span class="nb">length</span> <span class="nv">windows</span><span class="p">)</span> <span class="mi">2</span><span class="p">)</span> <span class="nv">sorted-indexed-window-left-edge-pos</span><span class="p">))))</span>
+    <span class="p">(</span><span class="nb">nth</span> <span class="nv">center-window-index</span> <span class="nv">windows</span><span class="p">)))</span>
+    
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/swap-window-buffers</span> <span class="p">(</span><span class="nv">win1</span> <span class="nv">win2</span><span class="p">)</span>
+  <span class="s">"Swap the buffers associated with two windows."</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">buffer1</span> <span class="p">(</span><span class="nv">window-buffer</span> <span class="nv">win1</span><span class="p">))</span>
+        <span class="p">(</span><span class="nv">buffer2</span> <span class="p">(</span><span class="nv">window-buffer</span> <span class="nv">win2</span><span class="p">)))</span>
+    <span class="p">(</span><span class="nv">set-window-buffer</span> <span class="nv">win1</span> <span class="p">(</span><span class="nv">buffer-name</span> <span class="nv">buffer2</span><span class="p">))</span>
+    <span class="p">(</span><span class="nv">set-window-buffer</span> <span class="nv">win2</span> <span class="p">(</span><span class="nv">buffer-name</span> <span class="nv">buffer1</span><span class="p">))))</span>
+    
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/swap-with-center-window</span> <span class="p">()</span>
+  <span class="s">"Swap the current window with the window in the center (horizontal) of the frame."</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">current-window</span> <span class="p">(</span><span class="nv">selected-window</span><span class="p">))</span>
+         <span class="p">(</span><span class="nv">center-window</span> <span class="p">(</span><span class="nv">tjh/get-center-window-horizontal</span><span class="p">)))</span>
+    <span class="p">(</span><span class="nb">unless</span> <span class="p">(</span><span class="nb">eq</span> <span class="nv">current-window</span> <span class="nv">center-window</span><span class="p">)</span>
+      <span class="p">(</span><span class="nv">tjh/swap-window-buffers</span> <span class="nv">current-window</span> <span class="nv">center-window</span><span class="p">)</span>
+      <span class="p">(</span><span class="nv">select-window</span> <span class="nv">center-window</span><span class="p">))))</span>
+    
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/swap-two-windows</span> <span class="p">()</span>
+  <span class="s">"Swap the current window and the other window."</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">current-window</span> <span class="p">(</span><span class="nv">selected-window</span><span class="p">))</span>
+         <span class="p">(</span><span class="nv">adjacent-window</span> <span class="p">(</span><span class="nv">next-window</span><span class="p">)))</span>
+    <span class="p">(</span><span class="nb">unless</span> <span class="p">(</span><span class="nb">eq</span> <span class="nv">current-window</span> <span class="nv">adjacent-window</span><span class="p">)</span>
+      <span class="p">(</span><span class="nv">tjh/swap-window-buffers</span> <span class="nv">current-window</span> <span class="nv">adjacent-window</span><span class="p">)</span>
+      <span class="p">(</span><span class="nv">select-window</span> <span class="nv">adjacent-window</span><span class="p">))))</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Previous and next window configuration: <code class="language-plaintext highlighter-rouge">C-c &lt;left&gt;</code>, <code class="language-plaintext highlighter-rouge">C-c &lt;right&gt;</code></li>
+  <li>Move the cursor to left/right/up/down window: <code class="language-plaintext highlighter-rouge">s-&lt;left&gt;/&lt;right&gt;/&lt;up&gt;/&lt;down&gt;</code></li>
+</ul>
+
+<h1 id="navigation-and-headingitem-manipulation-in-org-mode">Navigation and heading/item manipulation in Org mode</h1>
+
+<ul>
+  <li>Go to a heading in the buffer: <code class="language-plaintext highlighter-rouge">C-F7</code></li>
+  <li>Previous and next item: <code class="language-plaintext highlighter-rouge">C-c &lt;up&gt;</code>, <code class="language-plaintext highlighter-rouge">C-c &lt;down&gt;</code></li>
+  <li>Move a heading/item with its contents up and down: <code class="language-plaintext highlighter-rouge">M-&lt;up&gt;</code>, <code class="language-plaintext highlighter-rouge">M-&lt;down&gt;</code></li>
+  <li>Move a heading/item with its subtree/items up and down: <code class="language-plaintext highlighter-rouge">M-S-&lt;up&gt;</code>, <code class="language-plaintext highlighter-rouge">M-S-&lt;down&gt;</code></li>
+  <li>Promote/demote a heading/item with its contents: <code class="language-plaintext highlighter-rouge">M-&lt;left&gt;/&lt;right&gt;</code></li>
+  <li>Promote/demote a heading/item with its subtree/items: <code class="language-plaintext highlighter-rouge">M-S-&lt;left&gt;/&lt;right&gt;</code></li>
+  <li>Create a new same level heading: <code class="language-plaintext highlighter-rouge">C-&lt;return&gt;</code></li>
+  <li>Create a new same level TODO heading: <code class="language-plaintext highlighter-rouge">C-M-&lt;return&gt;</code></li>
+  <li>Create a new same level item: <code class="language-plaintext highlighter-rouge">M-&lt;return&gt;</code></li>
+  <li>Create a new same level TODO item: <code class="language-plaintext highlighter-rouge">M-S-&lt;return&gt;</code></li>
+  <li>Show headings to a certain level in the whole document: <code class="language-plaintext highlighter-rouge">C-&lt;n&gt; S-tab</code></li>
+  <li>Show subheadings to a certain level within the current heading: <code class="language-plaintext highlighter-rouge">C-&lt;n&gt; C-c tab</code></li>
+  <li>
+    <p>Show the heading hierarchy in the minibuffer: <code class="language-plaintext highlighter-rouge">tjh/org-where-am-i</code></p>
+
+    <div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/org-show-outline-path</span> <span class="p">()</span>
+  <span class="s">"Show Org heading levels in the minibuffer."</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="c1">;; Only run it when we are in the org-mode.</span>
+  <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">eq</span> <span class="nv">major-mode</span> <span class="ss">'org-mode</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">let</span> <span class="p">(</span><span class="c1">;; Concatenated string to be displayed in the minibuffer</span>
+          <span class="p">(</span><span class="nv">outline-path-string</span> <span class="s">""</span><span class="p">)</span>
+          <span class="c1">;; Heading level</span>
+          <span class="p">(</span><span class="nv">level</span> <span class="mi">1</span><span class="p">)</span>
+          <span class="c1">;; Face to be assigned to the heading text</span>
+          <span class="p">(</span><span class="nv">face</span><span class="p">))</span>
+      <span class="c1">;; Iterate over each ancestor headline of the current headline.</span>
+      <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">heading</span> <span class="p">(</span><span class="nv">org-get-outline-path</span> <span class="no">t</span> <span class="no">t</span><span class="p">))</span>
+        <span class="c1">;; Get a face from a collection of faces for org mode heading levels.</span>
+        <span class="c1">;; N.B. The index used by nth starts from 0.</span>
+        <span class="p">(</span><span class="k">setq</span> <span class="nv">face</span> <span class="p">(</span><span class="nb">nth</span> <span class="p">(</span><span class="nb">1-</span> <span class="nv">level</span><span class="p">)</span> <span class="nv">org-level-faces</span><span class="p">))</span>
+        <span class="p">(</span><span class="k">setq</span> <span class="nv">outline-path-string</span>
+              <span class="p">(</span><span class="nv">concat</span> <span class="nv">outline-path-string</span>
+                      <span class="c1">;; Prefix the heading with &lt;level&gt; number of stars.</span>
+                      <span class="p">(</span><span class="nv">propertize</span> <span class="p">(</span><span class="nb">make-string</span> <span class="nv">level</span> <span class="nv">?</span><span class="err">🍄</span><span class="p">)</span> <span class="ss">'face</span> <span class="nv">face</span><span class="p">)</span>
+                      <span class="s">" "</span>
+                      <span class="p">(</span><span class="nv">propertize</span> <span class="nv">heading</span> <span class="ss">'face</span> <span class="nv">face</span><span class="p">)</span>
+                      <span class="c1">;; Concatenate headings of different levels with newline,</span>
+                      <span class="c1">;; in case the string is to long to be filled in the</span>
+                      <span class="c1">;; minibuffer.</span>
+                      <span class="s">"\n"</span><span class="p">))</span>
+        <span class="p">(</span><span class="k">setq</span> <span class="nv">level</span> <span class="p">(</span><span class="nb">1+</span> <span class="nv">level</span><span class="p">)))</span>
+      <span class="p">(</span><span class="nv">message</span> <span class="s">"%s"</span> <span class="nv">outline-path-string</span><span class="p">))))</span>
+<span class="p">(</span><span class="nv">defalias</span> <span class="ss">'tjh/org-where-am-i</span> <span class="nf">#'</span><span class="nv">tjh/org-show-outline-path</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+
+  </div><a class="u-url" href="/computer/2026/05/26/navigation-and-movement-in-emacs.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2026 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
