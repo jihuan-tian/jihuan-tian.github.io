@@ -143,6 +143,24 @@ kf.kio.workers.thumbnail.djvu: QProcess::FailedToStart ""
 
 <p><img src="/figures/2024-06-11_10-07-18-djvu-preview-in-dolphin.png" alt="img" title="Preview of DjVu files in Dolphin" /></p>
 
+<p>2026-06-03: Previewing Xournal++ files is not supported by Dolphin even though there is a command <code class="language-plaintext highlighter-rouge">xournalpp-thumbnailer</code>. Solution: create a desktop file <code class="language-plaintext highlighter-rouge">xoppthumbnailer.desktop</code> in <code class="language-plaintext highlighter-rouge">$HOME/.local/share/kservices5</code> as below, where <code class="language-plaintext highlighter-rouge">%u</code> is the input file and <code class="language-plaintext highlighter-rouge">%o</code> is the output file. Then restart Dolphin and enable <code class="language-plaintext highlighter-rouge">application/x-xoj</code> in its “Previews” configuration.</p>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[<span class="n">Desktop</span> <span class="n">Entry</span>]
+<span class="n">Type</span>=<span class="n">Service</span>
+<span class="n">Name</span>=<span class="n">Xournal</span>++ <span class="n">Files</span>
+<span class="n">X</span>-<span class="n">KDE</span>-<span class="n">ServiceTypes</span>=<span class="n">ThumbCreator</span>
+<span class="n">MimeType</span>=<span class="n">application</span>/<span class="n">x</span>-<span class="n">xoj</span>;<span class="n">application</span>/<span class="n">x</span>-<span class="n">xopp</span>;
+<span class="n">CacheThumbnail</span>=<span class="n">true</span>
+<span class="n">Exec</span>=<span class="n">xournalpp</span>-<span class="n">thumbnailer</span> %<span class="n">u</span> %<span class="n">o</span>
+</code></pre></div></div>
+
+<p>However, should the desktop file be in <code class="language-plaintext highlighter-rouge">$HOME/.local/share/applications/</code> or <code class="language-plaintext highlighter-rouge">$HOME/.local/share/kservices5</code>? I remember that years before, I tried to put a similar desktop file in the former, but it had no effect. According to AI, that directory is strictly reserved for Application Launchers (the .desktop files that populate your application menu/dash so you can click and open an app).</p>
+
+<ol>
+  <li>When you place a file there, the system expects it to contain <code class="language-plaintext highlighter-rouge">Type=Application</code>.</li>
+  <li>Because thumbnailers are background services (<code class="language-plaintext highlighter-rouge">Type=Service</code>), file managers like Dolphin completely ignore <code class="language-plaintext highlighter-rouge">$HOME/.local/share/applications/</code> when searching for thumbnail plugins.</li>
+</ol>
+
 
   </div><a class="u-url" href="/computer/2024/06/11/thumbnails-in-kde.html" hidden></a>
 </article>
