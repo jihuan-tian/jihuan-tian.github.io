@@ -72,4 +72,21 @@ This is the preview of PDF and DjVu files in Dolphin.
 
 ![img](/figures/2024-06-11_10-07-18-djvu-preview-in-dolphin.png "Preview of DjVu files in Dolphin")
 
+2026-06-03: Previewing Xournal++ files is not supported by Dolphin even though there is a command `xournalpp-thumbnailer`. Solution: create a desktop file `xoppthumbnailer.desktop` in `$HOME/.local/share/kservices5` as below, where `%u` is the input file and `%o` is the output file. Then restart Dolphin and enable `application/x-xoj` in its &ldquo;Previews&rdquo; configuration.
+
+```conf
+[Desktop Entry]
+Type=Service
+Name=Xournal++ Files
+X-KDE-ServiceTypes=ThumbCreator
+MimeType=application/x-xoj;application/x-xopp;
+CacheThumbnail=true
+Exec=xournalpp-thumbnailer %u %o
+```
+
+However, should the desktop file be in `$HOME/.local/share/applications/` or `$HOME/.local/share/kservices5`? I remember that years before, I tried to put a similar desktop file in the former, but it had no effect. According to AI, that directory is strictly reserved for Application Launchers (the .desktop files that populate your application menu/dash so you can click and open an app).
+
+1.  When you place a file there, the system expects it to contain `Type=Application`.
+2.  Because thumbnailers are background services (`Type=Service`), file managers like Dolphin completely ignore `$HOME/.local/share/applications/` when searching for thumbnail plugins.
+
 {{ "2024-06-11-thumbnails-in-kde" | backlink }}
