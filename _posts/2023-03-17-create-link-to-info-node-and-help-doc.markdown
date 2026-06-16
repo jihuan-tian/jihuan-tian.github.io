@@ -3,7 +3,7 @@ layout: post
 title: Create link to Info node and help document in Emacs Org mode
 date: 2023-03-17
 categories: [computer]
-tags: [Emacs,Org-mode,知识联接]
+tags: [emacs,org-mode,知识联接]
 mathjax: false
 ---
 

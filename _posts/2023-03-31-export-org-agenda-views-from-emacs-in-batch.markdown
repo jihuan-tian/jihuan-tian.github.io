@@ -3,7 +3,7 @@ layout: post
 title: Export Org agenda views from Emacs in batch
 date: 2023-03-31
 categories: [computer]
-tags: [Emacs,Org-mode,GTD]
+tags: [emacs,org-mode,GTD]
 mathjax: false
 ---
 

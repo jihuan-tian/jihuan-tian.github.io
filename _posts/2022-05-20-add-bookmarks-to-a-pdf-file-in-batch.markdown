@@ -3,7 +3,7 @@ layout: post
 title: Add bookmarks to a PDF file in batch
 date: 2022-05-20
 categories: [computer]
-tags: [Emacs,PDF,ImageMagick,OCR]
+tags: [emacs,PDF,ImageMagick,OCR]
 mathjax: false
 ---
 

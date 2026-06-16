@@ -3,7 +3,7 @@ layout: post
 title: LaTeX fragment in Org mode with transparent background
 date: 2022-06-05
 categories: [computer]
-tags: [Emacs,Org-mode,LaTeX]
+tags: [emacs,org-mode,LaTeX]
 mathjax: false
 ---
 

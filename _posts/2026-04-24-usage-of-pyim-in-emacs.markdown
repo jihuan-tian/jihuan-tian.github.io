@@ -3,7 +3,7 @@ layout: post
 title: Usage of pyim in Emacs
 date: 2026-04-24
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

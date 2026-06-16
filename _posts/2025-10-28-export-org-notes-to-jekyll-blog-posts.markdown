@@ -3,7 +3,7 @@ layout: post
 title: "Export Org notes to Jekyll blog posts"
 date: 2025-10-28
 categories: [computer]
-tags: [Org-mode,Jekyll]
+tags: [org-mode,Jekyll]
 mathjax: false
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: Migrate from Emacs 28.2 to 29.4
 date: 2025-01-16
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

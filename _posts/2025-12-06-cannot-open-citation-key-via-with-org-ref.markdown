@@ -3,7 +3,7 @@ layout: post
 title: Cannot open citation key via with org-ref
 date: 2025-12-06
 categories: [computer]
-tags: [Org-mode,bug]
+tags: [org-mode,bug]
 mathjax: false
 ---
 

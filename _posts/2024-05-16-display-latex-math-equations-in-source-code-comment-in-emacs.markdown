@@ -3,7 +3,7 @@ layout: post
 title: Display LaTeX math equations in source code comment in Emacs
 date: 2024-05-16
 categories: [computer]
-tags: [Emacs,LaTeX]
+tags: [emacs,LaTeX]
 mathjax: false
 ---
 

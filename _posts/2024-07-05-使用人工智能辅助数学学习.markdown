@@ -3,7 +3,7 @@ layout: post
 title: 使用人工智能辅助数学学习
 date: 2024-07-05
 categories: [thoughts]
-tags: [人工智能,科研]
+tags: [ai,科研]
 mathjax: true
 ---
 

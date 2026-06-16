@@ -3,7 +3,7 @@ layout: post
 title: Definitive solution for converting LaTeX in Org mode to markdown
 date: 2024-06-22
 categories: [computer]
-tags: [Org-mode,LaTeX,Markdown]
+tags: [org-mode,LaTeX,Markdown]
 mathjax: false
 ---
 

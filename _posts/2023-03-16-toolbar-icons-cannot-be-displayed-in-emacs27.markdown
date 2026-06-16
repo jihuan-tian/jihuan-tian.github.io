@@ -3,7 +3,7 @@ layout: post
 title: Toolbar icons cannot be displayed in Emacs 27
 date: 2023-03-16
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

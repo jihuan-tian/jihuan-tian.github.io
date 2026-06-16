@@ -3,7 +3,7 @@ layout: post
 title: Filtering in file explorer on Linux
 date: 2022-10-26
 categories: [computer]
-tags: [Emacs,KDE,Dired-mode]
+tags: [emacs,KDE,Dired-mode]
 mathjax: false
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: Beautify Org mode
 date: 2024-09-06
 categories: [computer]
-tags: [Emacs, Org-mode]
+tags: [emacs, org-mode]
 mathjax: false
 ---
 

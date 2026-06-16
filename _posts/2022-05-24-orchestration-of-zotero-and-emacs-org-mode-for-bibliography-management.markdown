@@ -3,7 +3,7 @@ layout: post
 title: Orchestration of Zotero and Emacs Org mode for bibliography management
 date: 2022-05-24
 categories: [computer]
-tags: [Emacs,Org-mode,Zotero]
+tags: [emacs,org-mode,Zotero]
 mathjax: false
 ---
 

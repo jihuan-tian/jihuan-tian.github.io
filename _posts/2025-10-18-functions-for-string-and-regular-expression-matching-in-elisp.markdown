@@ -3,7 +3,7 @@ layout: post
 title: "Functions for string and regular expression matching in Elisp"
 date: 2025-10-18
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

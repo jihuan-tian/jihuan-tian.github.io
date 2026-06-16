@@ -3,7 +3,7 @@ layout: post
 title: Probable memory leak in Emacs 27
 date: 2023-03-29
 categories: [computer]
-tags: [Emacs,bug]
+tags: [emacs,bug]
 mathjax: false
 ---
 

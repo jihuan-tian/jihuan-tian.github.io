@@ -3,7 +3,7 @@ layout: post
 title: LaTeX equations cannot be rendered in org-roam-ui
 date: 2024-11-20
 categories: [computer]
-tags: [Emacs,Org-roam]
+tags: [emacs,org-roam]
 mathjax: false
 ---
 

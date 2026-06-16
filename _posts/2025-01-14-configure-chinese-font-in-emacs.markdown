@@ -3,7 +3,7 @@ layout: post
 title: Configure Chinese font in Emacs
 date: 2025-01-14
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

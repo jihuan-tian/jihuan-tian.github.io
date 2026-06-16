@@ -3,7 +3,7 @@ layout: post
 title: Create hyperlinks in Org mode
 date: 2022-06-05
 categories: [computer]
-tags: [Emacs,Org-mode,知识联接]
+tags: [emacs,org-mode,知识联接]
 mathjax: false
 ---
 

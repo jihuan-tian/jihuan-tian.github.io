@@ -3,7 +3,7 @@ layout: post
 title: Xresources should have a newline at the end
 date: 2026-04-29
 categories: [computer]
-tags: [Linux,Emacs]
+tags: [Linux,emacs]
 mathjax: false
 ---
 

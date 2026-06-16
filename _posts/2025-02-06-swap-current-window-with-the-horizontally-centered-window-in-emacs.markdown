@@ -3,7 +3,7 @@ layout: post
 title: Swap current window with the horizontally centered window in Emacs
 date: 2025-02-06
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

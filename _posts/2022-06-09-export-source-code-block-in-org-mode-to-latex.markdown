@@ -3,7 +3,7 @@ layout: post
 title: Export source code block in Org mode to LaTeX
 date: 2022-06-09
 categories: [computer]
-tags: [Emacs,Org-mode,LaTeX]
+tags: [emacs,org-mode,LaTeX]
 mathjax: false
 ---
 

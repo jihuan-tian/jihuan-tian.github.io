@@ -3,7 +3,7 @@ layout: post
 title: Org roam node cannot be found after running org-roam-extract-subtree
 date: 2025-09-15
 categories: [computer]
-tags: [Emacs,Org-roam]
+tags: [emacs,org-roam]
 mathjax: false
 ---
 

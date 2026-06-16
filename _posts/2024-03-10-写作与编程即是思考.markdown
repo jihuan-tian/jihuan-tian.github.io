@@ -3,7 +3,7 @@ layout: post
 title: 写作与编程即是思考
 date: 2024-03-10
 categories: [thoughts]
-tags: [人工智能]
+tags: [ai]
 mathjax: false
 ---
 

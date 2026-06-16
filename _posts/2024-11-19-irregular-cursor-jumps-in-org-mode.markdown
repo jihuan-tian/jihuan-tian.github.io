@@ -3,7 +3,7 @@ layout: post
 title: Irregular cursor jumps in Org mode
 date: 2024-11-19
 categories: [computer]
-tags: [Emacs,Org-mode,bug]
+tags: [emacs,org-mode,bug]
 mathjax: false
 ---
 

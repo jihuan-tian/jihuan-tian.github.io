@@ -3,7 +3,7 @@ layout: post
 title: Directly open an Org roam node by id from other programs
 date: 2025-06-10
 categories: [computer]
-tags: [Org-roam]
+tags: [org-roam]
 mathjax: false
 ---
 

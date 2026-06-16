@@ -3,7 +3,7 @@ layout: post
 title: "Edit linked images in Org using Krita, Xournal or LibreOffice Draw"
 date: 2025-10-18
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

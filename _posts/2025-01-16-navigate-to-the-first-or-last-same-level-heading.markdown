@@ -3,7 +3,7 @@ layout: post
 title: Navigate to the first or last same level heading
 date: 2025-01-16
 categories: [computer]
-tags: [Emacs,Org-mode]
+tags: [emacs,org-mode]
 mathjax: false
 ---
 

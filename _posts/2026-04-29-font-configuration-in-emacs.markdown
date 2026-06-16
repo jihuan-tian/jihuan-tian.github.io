@@ -3,7 +3,7 @@ layout: post
 title: Font configuration in Emacs
 date: 2026-04-29
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

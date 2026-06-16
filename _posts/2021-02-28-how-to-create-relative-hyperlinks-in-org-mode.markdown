@@ -3,7 +3,7 @@ layout: post
 title: How to create relative hyperlinks in Org mode?
 date: 2021-02-28
 categories: [computer]
-tags: [Emacs,Org-mode,知识联接]
+tags: [emacs,org-mode,知识联接]
 mathjax: false
 ---
 

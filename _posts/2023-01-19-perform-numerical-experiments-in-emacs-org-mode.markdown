@@ -3,7 +3,7 @@ layout: post
 title: Perform numerical experiments in Emacs Org mode
 date: 2023-01-19
 categories: [computer]
-tags: [算法开发,Org-mode,command]
+tags: [算法开发,org-mode,command]
 mathjax: false
 ---
 

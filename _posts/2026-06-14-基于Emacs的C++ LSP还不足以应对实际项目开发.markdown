@@ -3,7 +3,7 @@ layout: post
 title: 基于 Emacs 的 C++ LSP 还不足以应对实际项目开发
 date: 2026-06-14
 categories: [computer]
-tags: [Emacs,LSP]
+tags: [emacs,LSP]
 mathjax: false
 slug: emacs-cpp-lsp-still-not-capable-of-project-development
 ---

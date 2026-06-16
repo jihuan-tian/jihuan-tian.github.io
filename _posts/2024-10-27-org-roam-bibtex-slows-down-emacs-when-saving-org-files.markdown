@@ -3,7 +3,7 @@ layout: post
 title: org-roam-bibtex slows down Emacs when saving Org files
 date: 2024-10-27
 categories: [computer]
-tags: [Emacs, Org-mode, Org-roam]
+tags: [emacs, org-mode, org-roam]
 mathjax: false
 ---
 

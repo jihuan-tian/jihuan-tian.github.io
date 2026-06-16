@@ -3,7 +3,7 @@ layout: post
 title: Close Qt figure window in Octave
 date: 2022-04-23
 categories: [computer]
-tags: [Octave,Emacs]
+tags: [Octave,emacs]
 mathjax: false
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: Write LaTeX display equations with no numbering in Org mode
 date: 2023-07-28
 categories: [computer]
-tags: [LaTeX,Org-mode,Emacs]
+tags: [LaTeX,org-mode,emacs]
 mathjax: false
 ---
 

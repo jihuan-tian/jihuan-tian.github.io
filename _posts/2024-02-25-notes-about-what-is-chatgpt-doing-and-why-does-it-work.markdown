@@ -3,7 +3,7 @@ layout: post
 title: Notes about "What is ChatGPT Doing and Why does it work?"
 date: 2024-02-25
 categories: [thoughts]
-tags: [ChatGPT,人工智能]
+tags: [ChatGPT,ai]
 mathjax: true
 ---
 

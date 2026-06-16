@@ -3,7 +3,7 @@ layout: post
 title: Export Org contents to LaTeX file containing relative links
 date: 2024-07-25
 categories: [computer]
-tags: [Emacs,Org-mode]
+tags: [emacs,org-mode]
 mathjax: false
 ---
 

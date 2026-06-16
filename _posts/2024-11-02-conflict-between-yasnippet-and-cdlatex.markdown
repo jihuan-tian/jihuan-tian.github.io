@@ -3,7 +3,7 @@ layout: post
 title: Conflict between YASnippet and cdlatex
 date: 2024-11-02
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

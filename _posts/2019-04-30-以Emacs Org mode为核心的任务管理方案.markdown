@@ -3,7 +3,7 @@ layout: post
 title: 以Emacs Org mode为核心的任务管理方案
 date: 2019-04-30
 categories: [thoughts]
-tags: [管理提升,Org-mode,Emacs,论语]
+tags: [管理提升,org-mode,emacs,论语]
 ---
 
 # Table of contents

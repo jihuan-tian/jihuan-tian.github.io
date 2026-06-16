@@ -3,7 +3,7 @@ layout: post
 title: Convert Org mode contents to markdown
 date: 2024-05-13
 categories: [computer]
-tags: [Awk,Markdown,Org-mode]
+tags: [Awk,Markdown,org-mode]
 mathjax: false
 ---
 

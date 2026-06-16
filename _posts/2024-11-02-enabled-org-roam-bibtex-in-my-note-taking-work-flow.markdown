@@ -3,7 +3,7 @@ layout: post
 title: Enabled org-roam-bibtex in my note-taking work flow
 date: 2024-11-02
 categories: [computer]
-tags: [Emacs,Org-roam]
+tags: [emacs,org-roam]
 mathjax: false
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: Open Jekyll post URL from markdown-mode in Emacs
 date: 2024-06-23
 categories: [computer]
-tags: [Emacs,Jekyll]
+tags: [emacs,Jekyll]
 mathjax: false
 ---
 

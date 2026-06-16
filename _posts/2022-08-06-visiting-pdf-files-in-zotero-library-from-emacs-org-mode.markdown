@@ -3,7 +3,7 @@ layout: post
 title: Visiting PDF files in Zotero library from Emacs Org mode
 date: 2022-08-06
 categories: [computer]
-tags: [Emacs,Org-mode,Zotero]
+tags: [emacs,org-mode,Zotero]
 mathjax: false
 ---
 

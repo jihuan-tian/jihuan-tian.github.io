@@ -3,7 +3,7 @@ layout: post
 title: Configuration of lsp-bridge for C++ programming in Emacs
 date: 2025-12-22
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

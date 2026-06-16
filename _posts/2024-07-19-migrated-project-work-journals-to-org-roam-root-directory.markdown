@@ -3,7 +3,7 @@ layout: post
 title: Migrated project work journals to org-roam root directory
 date: 2024-07-19
 categories: [computer]
-tags: [Org-mode]
+tags: [org-mode]
 mathjax: false
 ---
 

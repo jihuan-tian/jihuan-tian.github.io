@@ -3,7 +3,7 @@ layout: post
 title: 将Emacs Org mode用于GTD任务管理
 date: 2019-09-30
 categories: [thoughts]
-tags: [管理提升,Org-mode,Emacs,GTD]
+tags: [管理提升,org-mode,emacs,GTD]
 ---
 
 # Table of contents

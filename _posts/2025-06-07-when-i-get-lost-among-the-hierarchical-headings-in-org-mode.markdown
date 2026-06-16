@@ -3,7 +3,7 @@ layout: post
 title: When I get lost among the hierarchical headings in Org mode
 date: 2025-06-07
 categories: [computer]
-tags: [Emacs,Org-mode]
+tags: [emacs,org-mode]
 mathjax: false
 ---
 

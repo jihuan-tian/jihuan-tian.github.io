@@ -3,7 +3,7 @@ layout: post
 title: Solved the issue of anki-editor not working
 date: 2024-03-07
 categories: [computer]
-tags: [Emacs,Org-mode,Anki,bug]
+tags: [emacs,org-mode,anki,bug]
 mathjax: false
 ---
 

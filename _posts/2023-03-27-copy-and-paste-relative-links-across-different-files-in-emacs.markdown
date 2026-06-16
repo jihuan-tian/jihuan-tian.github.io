@@ -3,7 +3,7 @@ layout: post
 title: Copy and paste relative links across different files in Emacs
 date: 2023-03-27
 categories: [computer]
-tags: [Emacs,Org-mode,AUCTeX,LaTeX]
+tags: [emacs,org-mode,AUCTeX,LaTeX]
 mathjax: false
 ---
 

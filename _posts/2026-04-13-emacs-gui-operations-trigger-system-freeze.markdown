@@ -3,7 +3,7 @@ layout: post
 title: Emacs GUI operations trigger system freeze
 date: 2026-04-13
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

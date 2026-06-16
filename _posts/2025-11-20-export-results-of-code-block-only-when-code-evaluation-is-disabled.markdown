@@ -3,7 +3,7 @@ layout: post
 title: Export results of code block only when code evaluation is disabled
 date: 2025-11-20
 categories: [computer]
-tags: [Org-mode]
+tags: [org-mode]
 mathjax: false
 ---
 

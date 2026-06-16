@@ -3,7 +3,7 @@ layout: post
 title: Insert a bunch of images in Org mode for LaTeX export
 date: 2023-01-15
 categories: [computer]
-tags: [LaTeX,Org-mode]
+tags: [LaTeX,org-mode]
 mathjax: false
 ---
 

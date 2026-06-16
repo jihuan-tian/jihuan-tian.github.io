@@ -3,7 +3,7 @@ layout: post
 title: 移除僵尸任务
 date: 2019-04-30
 categories: [thoughts]
-tags: [管理提升,Org-mode,Emacs]
+tags: [管理提升,org-mode,emacs]
 ---
 
 ![](/figures/p60467129.jpg)

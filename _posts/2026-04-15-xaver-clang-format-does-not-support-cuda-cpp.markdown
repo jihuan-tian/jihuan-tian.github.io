@@ -3,7 +3,7 @@ layout: post
 title: Cursor's xaver.clang-format extension does not support CUDA C++
 date: 2026-04-15
 categories: [computer]
-tags: [Cursor, Emacs]
+tags: [Cursor, emacs]
 mathjax: false
 ---
 

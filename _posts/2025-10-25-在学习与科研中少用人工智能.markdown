@@ -3,7 +3,7 @@ layout: post
 title: "在学习与科研中少用人工智能"
 date: 2025-10-25
 categories: [thoughts]
-tags: [人工智能]
+tags: [ai]
 mathjax: false
 ---
 

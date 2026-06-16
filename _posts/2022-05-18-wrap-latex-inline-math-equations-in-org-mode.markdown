@@ -3,7 +3,7 @@ layout: post
 title: Wrap LaTeX inline math equations in Org mode
 date: 2022-05-18
 categories: [computer]
-tags: [Org mode]
+tags: [org mode]
 mathjax: false
 ---
 

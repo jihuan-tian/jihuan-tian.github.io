@@ -3,7 +3,7 @@ layout: post
 title: Incomplete customized variables in Emacs init file
 date: 2026-02-04
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

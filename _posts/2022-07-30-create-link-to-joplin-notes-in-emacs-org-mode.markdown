@@ -3,7 +3,7 @@ layout: post
 title: Create link to Joplin notes in Emacs Org mode
 date: 2022-07-30
 categories: [computer]
-tags: [Emacs,Org-mode,Joplin,知识联接]
+tags: [emacs,org-mode,Joplin,知识联接]
 mathjax: false
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: 使用 whisper 用于语音识别与文字提取
 date: 2026-03-29
 categories: [computer]
-tags: [Emacs,人工智能]
+tags: [emacs,ai]
 mathjax: false
 slug: use-whisper-for-voice-recognition-and-text-extraction
 ---

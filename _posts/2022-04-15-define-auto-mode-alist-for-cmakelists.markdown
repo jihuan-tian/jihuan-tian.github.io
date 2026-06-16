@@ -3,7 +3,7 @@ layout: post
 title: Define auto-mode-alist for CMakeLists.txt
 date: 2022-04-15
 categories: [computer]
-tags: [Emacs,CMake]
+tags: [emacs,CMake]
 mathjax: false
 ---
 

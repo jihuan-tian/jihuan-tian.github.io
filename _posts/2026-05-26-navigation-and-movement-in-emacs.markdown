@@ -3,7 +3,7 @@ layout: post
 title: Navigation and movement in Emacs
 date: 2026-05-26
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

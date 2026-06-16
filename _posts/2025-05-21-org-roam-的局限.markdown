@@ -3,7 +3,7 @@ layout: post
 title: Org Roam 的局限
 date: 2025-05-21
 categories: [thoughts]
-tags: [Org-roam,note-taking]
+tags: [org-roam,note-taking]
 mathjax: false
 ---
 

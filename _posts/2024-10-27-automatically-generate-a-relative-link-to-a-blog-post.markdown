@@ -3,7 +3,7 @@ layout: post
 title: Automatically generate a relative link to a blog post
 date: 2024-10-27
 categories: [computer]
-tags: [Emacs, Org-mode]
+tags: [emacs, org-mode]
 mathjax: false
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: Modes that I use for software development in Emacs
 date: 2026-01-05
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

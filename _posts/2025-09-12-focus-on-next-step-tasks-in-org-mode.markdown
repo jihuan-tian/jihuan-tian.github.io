@@ -3,7 +3,7 @@ layout: post
 title: Focus on next step tasks in Org mode
 date: 2025-09-12
 categories: [thoughts]
-tags: [Org-mode,管理提升]
+tags: [org-mode,管理提升]
 mathjax: false
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: Change Emacs color theme according to the time of a day
 date: 2025-11-25
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

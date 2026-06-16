@@ -3,7 +3,7 @@ layout: post
 title: Emacs tips learned and practiced in 2025 Week 6 and 7
 date: 2025-02-14
 categories: [computer]
-tags: [emacs,Org-mode]
+tags: [emacs,org-mode]
 mathjax: false
 ---
 

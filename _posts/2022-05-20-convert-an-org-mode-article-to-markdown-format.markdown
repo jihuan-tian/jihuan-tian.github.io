@@ -3,7 +3,7 @@ layout: post
 title: Convert an Org mode article to Markdown format
 date: 2022-05-20
 categories: [computer]
-tags: [Markdown,Org-mode,Emacs]
+tags: [Markdown,org-mode,emacs]
 mathjax: false
 ---
 

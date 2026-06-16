@@ -3,7 +3,7 @@ layout: post
 title: Use Emacs in console
 date: 2025-02-01
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: Tips for making tikz commutative diagrams
 date: 2025-11-20
 categories: [computer]
-tags: [LaTeX,Org-mode]
+tags: [LaTeX,org-mode]
 mathjax: false
 ---
 

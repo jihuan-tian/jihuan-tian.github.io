@@ -3,7 +3,7 @@ layout: post
 title: Navigation in Org mode for instant editing
 date: 2022-10-26
 categories: [computer]
-tags: [Emacs,Org-mode]
+tags: [emacs,org-mode]
 mathjax: false
 ---
 

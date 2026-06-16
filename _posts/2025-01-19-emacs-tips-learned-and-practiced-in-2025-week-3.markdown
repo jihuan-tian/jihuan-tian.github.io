@@ -3,7 +3,7 @@ layout: post
 title: Emacs tips learned and practiced in 2025 Week 3
 date: 2025-01-19
 categories: [computer]
-tags: [Emacs]
+tags: [emacs]
 mathjax: false
 ---
 

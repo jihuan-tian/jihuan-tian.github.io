@@ -3,7 +3,7 @@ layout: post
 title: Caveats for moving an Org subtree to an org-roam node file
 date: 2025-02-17
 categories: [computer]
-tags: [Emacs,Org-roam,Org-mode]
+tags: [emacs,org-roam,org-mode]
 mathjax: false
 ---
 

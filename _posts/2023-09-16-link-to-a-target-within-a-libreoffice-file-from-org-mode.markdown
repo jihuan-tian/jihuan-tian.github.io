@@ -3,7 +3,7 @@ layout: post
 title: Link to a target within a LibreOffice file from Org mode
 date: 2023-09-16
 categories: [computer]
-tags: [Emacs,Org-mode,LibreOffice]
+tags: [emacs,org-mode,LibreOffice]
 mathjax: false
 ---
 
