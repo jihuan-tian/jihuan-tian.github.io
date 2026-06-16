@@ -1,4 +1,107 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/math.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-06-14T12:16:22+08:00</updated><id>https://jihuan-tian.github.io/feed/math.xml</id><title type="html">止于至善 | Math</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Understanding about Cauchy principal value and Hadamard finite part</title><link href="https://jihuan-tian.github.io/math/2026/01/06/understanding-about-cauchy-principal-value-and-hadamard-finite-part.html" rel="alternate" type="text/html" title="Understanding about Cauchy principal value and Hadamard finite part" /><published>2026-01-06T00:00:00+08:00</published><updated>2026-01-06T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2026/01/06/understanding-about-cauchy-principal-value-and-hadamard-finite-part</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2026/01/06/understanding-about-cauchy-principal-value-and-hadamard-finite-part.html"><![CDATA[<h1 id="standard-improper-integral">Standard improper integral</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/math.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-06-16T17:03:53+08:00</updated><id>https://jihuan-tian.github.io/feed/math.xml</id><title type="html">止于至善 | Math</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Understanding about the Jacobian matrix of an overlap map and a level set</title><link href="https://jihuan-tian.github.io/math/2026/06/16/understanding-about-jacobian-matrix-of-overlap-map-and-level-set.html" rel="alternate" type="text/html" title="Understanding about the Jacobian matrix of an overlap map and a level set" /><published>2026-06-16T00:00:00+08:00</published><updated>2026-06-16T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2026/06/16/understanding-about-jacobian-matrix-of-overlap-map-and-level-set</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2026/06/16/understanding-about-jacobian-matrix-of-overlap-map-and-level-set.html"><![CDATA[<h1 id="jacobian-matrix-of-a-multivariable-map">Jacobian matrix of a multivariable map</h1>
+
+<p>For a map of multiple variables, \(F(x): \mathbb{R}^n \rightarrow \mathbb{R}^m\), its Taylor expansion at a point \(x_0\) is</p>
+
+\[\begin{equation}
+  F(x) = F(x_0 + \Delta x) = F(x_0) + F_{\ast}(x_0) \Delta x + r(\Delta x),
+\end{equation}\]
+
+<p>where \(F_{\ast}(x_0)\) is the Jacobian matrix of \(F(x)\) evaluated at \(x_0\) and \(r(\Delta x)\) represents a high order residual with respect to the variable variation \(\Delta x\). The Jacobian matrix \(F_{\ast}\) captures the linear part of the map value’s variation with respect to \(\Delta x\) around \(x_0\), when \(\Delta x\) is small.</p>
+
+<h1 id="jacobian-matrix-of-a-coordinate-overlap-map-in-differential-geometry">Jacobian matrix of a coordinate overlap map in differential geometry</h1>
+
+<p>For an \(n\)-dimensional smooth manifold, the overlap/transition map \(f_{VU}: \mathbb{R}^n \rightarrow \mathbb{R}^n\) from the coordinate chart \((U, x)\) to the chart \((V, y)\) should be a diffeomorphism, i.e. both \(f_{VU}\) and its inverse \(f_{VU}^{-1}\) are differentiable in the overlapped region \(U \cap V\). According to the inverse function theorem, if \(f_{VU}\) is a differentiable bijective map and its inverse \(f_{VU}^{-1}\) exists, the condition for \(f_{VU}^{-1}\) being continuous and differentiable in a neighborhood \(W\) of a point \(p\) in \(U \cap V\) is that the determinant of the Jacobian matrix \(\det(F_{\ast}) \neq 0\) at \(p\). If this condition holds for all \(p\) in \(U \cap V\), \(f_{VU}\) is a diffeomorphism.</p>
+
+<p><em>The above requirement on the differentiability or smoothness of transition maps tells us coordinate charts for a manifold should not be arbitrarily selected. All charts in an atlas must conform with this smoothness structure.</em></p>
+
+<h1 id="geometric-meaning-of-the-jacobian-matrix-f_ast-for-the-overlap-map-f_vu">Geometric meaning of the Jacobian matrix \(F_{\ast}\) for the overlap map \(f_{VU}\)</h1>
+
+<p>\(F_{\ast}\) transforms or pushes forward (using the terminology in differential geometry) a tangent vector represented in the chart \((U, x)\) to the representation in the chart \((V, y)\). N.B. There is only one tangent vector involved and what is transformed is its numerical representation. We can call this <strong>coordinate transformation of a physical entity</strong>. Therefore, when the determinant of the Jacobian matrix is zero, \(F_{\ast}\) is not invertible, which means it has a non-trivial kernel. For any vector in this kernel space, \(F_{\ast}\) pushes it forward to a zero tangent vector with the chart \((V,y)\). This means a local variation in \(x\) leads to no variation in \(y\); thus \(y\) cannot be locally represented with \(x\).</p>
+
+<p>Take a curve embedded in a 2D plane \((x,y)\) as an example. There are two possible ways of choosing 1D coordinate chart for this curve, \(x\) or \(y\), as long as the slope at each point on this curve is a non-zero finite value. This requires each local segment of the curve should not be parallel to the \(x\) or \(y\) axis. The explicit representation of the curve equation \(y = f(x)\) is just the overlap map \(f_{yx}\). When the derivative \(\frac{\diff y}{\diff x}\) is zero at a point \(p_0 = (x_0,y_0)\) on the curve, which is the Jacobian matrix that degenerates to a scalar value, \(y\) does not change with \(x\) locally and \(y = f(x)\) does not have a local inverse.</p>
+
+<p>In the coordinate chart \((U, x)\), the basis vectors of the tangent space at a point \(p\) in \(U \cap V\) are \(\boldsymbol{e}_1, \cdots, \boldsymbol{e}_n\). Any \(\boldsymbol{e}_i\) can be pushed forward to the chart \((V, y)\) via \(F_{\ast}\), which is just the \(i\)-th column of \(F_{\ast}\). For example, for a unit sphere embedded in the 3D space \(\mathbb{R}^3\), the transformation from the spherical coordinates \((r, \phi, \theta)\) to Cartesian coordinates \((x, y, z)\) is</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    x &amp;= r \cos\phi \sin\theta \\
+    y &amp;= r \sin\phi \sin\theta \\
+    z &amp;= r \cos\theta
+  \end{aligned}.
+\end{equation}\]
+
+<p>Its Jacobian matrix is</p>
+
+\[\begin{equation}
+  \begin{pmatrix}
+    \cos\phi \sin\theta &amp; -r\sin\phi \sin\theta &amp; r\cos\phi \cos\theta\\
+    \sin\phi \sin\theta &amp; r\cos\phi \sin\theta &amp; r \sin\phi \cos\theta \\
+    \cos\theta &amp; 0 &amp; -r\sin\theta
+  \end{pmatrix}.
+\end{equation}\]
+
+<p>We can use the column vectors of this Jacobian matrix to visualize the basis vectors of the spherical coordinates in \(\mathbb{R}^3\).</p>
+
+<p><img src="/figures/2026-06-16-basis-on-sphere.png" alt="img" /></p>
+
+<h1 id="jacobian-matrix-of-a-level-set">Jacobian matrix of a level set</h1>
+
+<p>A level set is a manifold embedded in an ambient space with a higher dimension. It is usually implicitly defined as a set of constraints:</p>
+
+\[\begin{equation}
+  F: \mathbb{R}^n \rightarrow \mathbb{R}^m, F(x) = y_0, x\in \mathbb{R}^n, y_0\in \mathbb{R}^m, n &gt; m,
+\end{equation}\]
+
+<p>where \(y_0\) is a given fixed point. \(F(x) = y_0\) comprises \(m\) equations</p>
+
+\[\begin{equation}
+  F(x) = \begin{cases}
+    F^1(x) = y_0^1 \\
+    \quad \vdots \\
+    F^m(x) = y_0^m \\
+  \end{cases}.
+\end{equation}\]
+
+<p>The level set has \(n-m\) dimensions.</p>
+
+<p>Obviously, each multivariable function \(F^i(x): \mathbb{R}^n \rightarrow \mathbb{R}\) is a 0-form defined in the ambient space \(\mathbb{R}^n\). For any given value \(y_0^i\), if \((F^i)^{-1}(y_0^i)\) is not empty, \(F^i(x) = y_0^i\) characterizes an \((n-1)\)-dimensional contour hyper-surface. The entries of the \(i\)-th row in the Jacobian matrix \(F_{\ast}\) of \(F\) are just the coefficients of the 1-form \(dF^i\):</p>
+
+\[\begin{equation}
+  dF^i = \frac{\partial F^{i}}{\partial x^1} dx^1 + \cdots + \frac{\partial F^{i}}{\partial x^{n}} dx^n.
+\end{equation}\]
+
+<p>\(dF^i\) corresponds to a gradient vector rooted on the hyper-surface in the following relation</p>
+
+\[\begin{equation}
+  dF^i = g \nabla F^i = \flat(\nabla F^i),
+\end{equation}\]
+
+<p>where \(g\) is the 2nd rank covariant metric tensor and \(\flat\) is the flat operator, which transforms a tangent vector to a corresponding 1-form.</p>
+
+<p>Because each row in the Jacobian matrix \(F_{\ast}\) of the implicit expression for a level set defines a 1-form and this 1-form is associated with a gradient vector normal to the level set, the Jacobian matrix characterizes the normal space of the level set, which is a linear span of \(m\) 1-forms \(dF^1, \cdots, dF^m\).</p>
+
+<p>The Jacobian matrix \(F_{\ast} \in \mathbb{R}^{m\times n}\) with \(n &gt; m\) is a wide matrix. Only when \(F_{\ast}\) has a full rank in rows, i.e. \(F_{\ast}\) is a surjective map, the level set defines a manifold. This is because when \(F_{\ast}\) does not have a full rank, there exist at least two linearly dependent 1-forms, let them be \(F^i\) and \(F^j\). Because their associated gradient vectors are parallel to each other, the two level sets of \(n-1\) dimensions defined by \(F^i = y_0^i\) and \(F^j = y_0^j\) are locally tangential, which does form an effective intersection.</p>
+
+<p>When \(F_{\ast}\) has a full rank in rows at a point \(p\) such that \(F(p) = y_0\), \(F_{\ast}\) is still rank deficient in its columns. So \(F_{\ast}\) is not injective at \(y_0\) and has a non-trivial kernel. This kernel is just the tangent space at \(p\) with respect to the manifold described by \(F(x) = y_0\), which annihilates the set of 1-forms \(dF^1, \cdots, dF^m\).</p>
+
+<p>For example, let \(F: \mathbb{R}^3 \rightarrow \mathbb{R}^2\) and a one dimensional level set is implicitly defined as</p>
+
+\[\begin{equation}
+  \begin{cases}
+    F^1(x,y,z) = 0 \\
+    F^2(x,y,z) = 0
+  \end{cases}.
+\end{equation}\]
+
+<p>Let \(p\) be a point on the manifold. Then the normal space and tangent space at \(p\) are illustrated below.</p>
+
+<p><img src="/figures/2026-06-16-12-45-40-normal-space-of-level-set_export.png" alt="img" /></p>
+
+<p>Releated articles</p>
+<ul>
+  <li><a href="/math/2023/07/05/the-meaning-of-jacobian-matrix-having-a-rank.html">The meaning of Jacobian matrix having a rank (r)</a></li>
+  <li><a href="/math/2025/05/29/understanding-about-jacobian-matrix.html">Understanding about Jacobian matrix</a></li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="math" /><category term="differential-geometry" /><summary type="html"><![CDATA[Jacobian matrix of a multivariable map]]></summary></entry><entry><title type="html">Understanding about Cauchy principal value and Hadamard finite part</title><link href="https://jihuan-tian.github.io/math/2026/01/06/understanding-about-cauchy-principal-value-and-hadamard-finite-part.html" rel="alternate" type="text/html" title="Understanding about Cauchy principal value and Hadamard finite part" /><published>2026-01-06T00:00:00+08:00</published><updated>2026-01-06T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2026/01/06/understanding-about-cauchy-principal-value-and-hadamard-finite-part</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2026/01/06/understanding-about-cauchy-principal-value-and-hadamard-finite-part.html"><![CDATA[<h1 id="standard-improper-integral">Standard improper integral</h1>
 
 <p>If the integral domain is infinite, just evaluate the integral on a finite domain. Take the limit by extending the domain to infinite, and the integral should converge.</p>
 
@@ -1556,7 +1659,7 @@ it.
 <!-- l. 29 --><p class='noindent'><span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-90'>N.B. Different conventions are used in robotics and differential geometry. In the former, the rotation matrix is from chart </span>\((U)\)
 <span class='p1xr-x-x-90'>to </span>\((V)\)<span class='p1xr-x-x-90'>, while in the latter, the Jacobian matrix is from </span>\((V)\) <span class='p1xr-x-x-90'>to </span>\((U)\)<span class='p1xr-x-x-90'>. They are actually a same thing.</span></p>                                                                  </div>
 
-<p></p>]]></content><author><name>Jihuan Tian</name></author><category term="math" /><category term="differential-geometry" /><summary type="html"><![CDATA[Let \(M^n\) be a manifold which is assigned two coordinate charts \((U)\) and \((V)\). These two coordinate charts have a non-empty overlap, so that any point \(p\) in their intersection \(U\cap V\) has two numerical representations. The coordinate transformation from \((V)\) to \((U)\) is characterized by the transition map \(\Phi _{UV}\). Also note that \((U)\) and \((V)\) may have different number of coordinate components. For example, for a unit sphere embedded in the 3D space \(\mathbb {R}^3\), we can use either Cartesian coordinates \((x,y,z)\) or altitude-azimuth angles \((\theta , \phi )\) to characterize it. The \(i\)-th column vector of the Jacobian matrix \(J_{UV}\) for the transition map \(\Phi _{UV}\), if evaluated at a point \(p\) in the overlap \(U\cap V\), is the \(i\)-th basis vector of the tangent space rooted at \(p\) in the chart \((V)\), which is numerically represented by the basis of the chart \((U)\). N.B. This basis vector in the tangent space may not be a normalized vector. If the coordinate chart \((V)\) has \(k\) components, there are \(k\) columns in the Jacobian matrix, which span an oriented parallelogram. For a fixed tangent vector at \(p\), the Jacobian matrix \(J_{UV}\) can transform its coordinates in \((V)\) to \((U)\). Coordinate transformation in robotics is just a special case, where both \((U)\) and \((V)\) are flat frames. If all frames have a common origin, i.e. there is only rotation but no translation between them, the transition map \(\Phi _{UV}\) is a rotation matrix, which is also the Jacobian matrix \(J_{UV}\). The rotation matrix from chart \((U)\) to \((V)\) can be constructed by representing each basis vector of chart \((V)\) in chart \((U)\). Each numerical representation of the basis vector is a column vector and all such column vectors are placed horizontally as a rotation matrix \(R\). This rotation matrix \(R\) is just the Jacobian matrix \(J_{UV}\) from \((V)\) to \((U)\) 1. Then for a fixed poitn \(p\), its coordinates in the two charts are related as \(P^U = RP^V\), which is consistent with \(P^U = J_{UV} P^{V}\). The Gramian matrix \(J^{\mathrm {T}} J\) is a metric tensor, whose entries are the inner products of pairs of the basis vectors of the tangent space, i.e. \begin{equation} (J^{\mathrm {T}}J)_{ij} = \langle \boldsymbol {\partial }x_i^V, \boldsymbol {\partial }x_j^V \rangle . \end{equation} 1N.B. Different conventions are used in robotics and differential geometry. In the former, the rotation matrix is from chart \((U)\) to \((V)\), while in the latter, the Jacobian matrix is from \((V)\) to \((U)\). They are actually a same thing.]]></summary></entry><entry><title type="html">Understanding about the Lagrange multiplier method and its application in PDEs</title><link href="https://jihuan-tian.github.io/math/2025/05/28/understanding-about-the-lagrange-multiplier-method.html" rel="alternate" type="text/html" title="Understanding about the Lagrange multiplier method and its application in PDEs" /><published>2025-05-28T00:00:00+08:00</published><updated>2025-05-28T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2025/05/28/understanding-about-the-lagrange-multiplier-method</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2025/05/28/understanding-about-the-lagrange-multiplier-method.html"><![CDATA[<h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
+<p>Backlinks: <a href="/math/2026/06/16/understanding-about-jacobian-matrix-of-overlap-map-and-level-set.html">《Understanding about the Jacobian matrix of an overlap map and a level set》</a></p>]]></content><author><name>Jihuan Tian</name></author><category term="math" /><category term="differential-geometry" /><summary type="html"><![CDATA[Let \(M^n\) be a manifold which is assigned two coordinate charts \((U)\) and \((V)\). These two coordinate charts have a non-empty overlap, so that any point \(p\) in their intersection \(U\cap V\) has two numerical representations. The coordinate transformation from \((V)\) to \((U)\) is characterized by the transition map \(\Phi _{UV}\). Also note that \((U)\) and \((V)\) may have different number of coordinate components. For example, for a unit sphere embedded in the 3D space \(\mathbb {R}^3\), we can use either Cartesian coordinates \((x,y,z)\) or altitude-azimuth angles \((\theta , \phi )\) to characterize it. The \(i\)-th column vector of the Jacobian matrix \(J_{UV}\) for the transition map \(\Phi _{UV}\), if evaluated at a point \(p\) in the overlap \(U\cap V\), is the \(i\)-th basis vector of the tangent space rooted at \(p\) in the chart \((V)\), which is numerically represented by the basis of the chart \((U)\). N.B. This basis vector in the tangent space may not be a normalized vector. If the coordinate chart \((V)\) has \(k\) components, there are \(k\) columns in the Jacobian matrix, which span an oriented parallelogram. For a fixed tangent vector at \(p\), the Jacobian matrix \(J_{UV}\) can transform its coordinates in \((V)\) to \((U)\). Coordinate transformation in robotics is just a special case, where both \((U)\) and \((V)\) are flat frames. If all frames have a common origin, i.e. there is only rotation but no translation between them, the transition map \(\Phi _{UV}\) is a rotation matrix, which is also the Jacobian matrix \(J_{UV}\). The rotation matrix from chart \((U)\) to \((V)\) can be constructed by representing each basis vector of chart \((V)\) in chart \((U)\). Each numerical representation of the basis vector is a column vector and all such column vectors are placed horizontally as a rotation matrix \(R\). This rotation matrix \(R\) is just the Jacobian matrix \(J_{UV}\) from \((V)\) to \((U)\) 1. Then for a fixed poitn \(p\), its coordinates in the two charts are related as \(P^U = RP^V\), which is consistent with \(P^U = J_{UV} P^{V}\). The Gramian matrix \(J^{\mathrm {T}} J\) is a metric tensor, whose entries are the inner products of pairs of the basis vectors of the tangent space, i.e. \begin{equation} (J^{\mathrm {T}}J)_{ij} = \langle \boldsymbol {\partial }x_i^V, \boldsymbol {\partial }x_j^V \rangle . \end{equation} 1N.B. Different conventions are used in robotics and differential geometry. In the former, the rotation matrix is from chart \((U)\) to \((V)\), while in the latter, the Jacobian matrix is from \((V)\) to \((U)\). They are actually a same thing.]]></summary></entry><entry><title type="html">Understanding about the Lagrange multiplier method and its application in PDEs</title><link href="https://jihuan-tian.github.io/math/2025/05/28/understanding-about-the-lagrange-multiplier-method.html" rel="alternate" type="text/html" title="Understanding about the Lagrange multiplier method and its application in PDEs" /><published>2025-05-28T00:00:00+08:00</published><updated>2025-05-28T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2025/05/28/understanding-about-the-lagrange-multiplier-method</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2025/05/28/understanding-about-the-lagrange-multiplier-method.html"><![CDATA[<h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
    <div class='tableofcontents'>
     <span class='sectionToc'>1 <a href='#x1-20001' id='QQ2-1-2'>Lagrange multiplier method understood from differential geometry</a></span>
 <br />    <span class='sectionToc'>2 <a href='#x1-30002' id='QQ2-1-3'>Application of Lagrange multiplier method in PDEs</a></span>
@@ -6222,7 +6325,9 @@ coordinate components. Hence, the locus or submanifold defined by
 actually the number of the constraints instead of the number of free
 variables or dimensions of the submanifold</strong>. Hence, the submanifold
 dimension is the co-dimension of \(r\) in \(\mathbb{R}^{r+n}\), i.e.
-\(n\).</p>]]></content><author><name>Jihuan Tian</name></author><category term="math" /><category term="differential-geometry" /><category term="cmu-ddg" /><category term="snippet" /><summary type="html"><![CDATA[Let \(F(x) = 0\) be a set of \(r\) constraint functions defining a locus, where \(x\in \mathbb{R}^{r+n}\). If the Jacobian matrix of the multi-dimensional map \(F\) has rank \(r\), it means all the constraint equations are effective or independent, and \(r\) coordinate components in \(x\) can be eliminated, i.e. represented by the other \(n\) coordinate components. Hence, the locus or submanifold defined by \(F(x) = 0\) has \(n\) dimensions.]]></summary></entry><entry><title type="html">Construct topological data structures from a mesh</title><link href="https://jihuan-tian.github.io/math/2023/07/03/construct-topological-data-structures-from-a-mesh.html" rel="alternate" type="text/html" title="Construct topological data structures from a mesh" /><published>2023-07-03T00:00:00+08:00</published><updated>2023-07-03T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2023/07/03/construct-topological-data-structures-from-a-mesh</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2023/07/03/construct-topological-data-structures-from-a-mesh.html"><![CDATA[<p>When we construct topological data structures from a mesh, such as the
+\(n\).</p>
+
+<p>Backlinks: <a href="/math/2026/06/16/understanding-about-jacobian-matrix-of-overlap-map-and-level-set.html">《Understanding about the Jacobian matrix of an overlap map and a level set》</a></p>]]></content><author><name>Jihuan Tian</name></author><category term="math" /><category term="differential-geometry" /><category term="cmu-ddg" /><category term="snippet" /><summary type="html"><![CDATA[Let \(F(x) = 0\) be a set of \(r\) constraint functions defining a locus, where \(x\in \mathbb{R}^{r+n}\). If the Jacobian matrix of the multi-dimensional map \(F\) has rank \(r\), it means all the constraint equations are effective or independent, and \(r\) coordinate components in \(x\) can be eliminated, i.e. represented by the other \(n\) coordinate components. Hence, the locus or submanifold defined by \(F(x) = 0\) has \(n\) dimensions.]]></summary></entry><entry><title type="html">Construct topological data structures from a mesh</title><link href="https://jihuan-tian.github.io/math/2023/07/03/construct-topological-data-structures-from-a-mesh.html" rel="alternate" type="text/html" title="Construct topological data structures from a mesh" /><published>2023-07-03T00:00:00+08:00</published><updated>2023-07-03T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/math/2023/07/03/construct-topological-data-structures-from-a-mesh</id><content type="html" xml:base="https://jihuan-tian.github.io/math/2023/07/03/construct-topological-data-structures-from-a-mesh.html"><![CDATA[<p>When we construct topological data structures from a mesh, such as the
 signed incidence matrix associating \(k\)-simplices and
 \(k+1\)-simplices therein, don’t be keen to directly achieve this target
 in one round. Sometimes, we need several intermediate steps and data
