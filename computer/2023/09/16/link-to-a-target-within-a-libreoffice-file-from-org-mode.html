@@ -8,8 +8,8 @@
 <meta property="og:title" content="Link to a target within a LibreOffice file from Org mode" />
 <meta name="author" content="Jihuan Tian" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="In Org mode, to create a hyperlink which points to an internal target, such as heading, table, bookmark, etc., in a local LibreOffice document, should be an URL instead of an absolute or relative file system path, otherwise it cannot be opened by the libreoffice program. To generate such an URL, the path to the local LibreOffice file should be converted to an absolute one and prefixed with file://. The target in the LibreOffice document for linking should be appended to the URL in the form #&lt;target-name&gt;|&lt;target-category&gt;. The &lt;target-name&gt; can be checked within LibreOffice’s navigator. The &lt;target-category&gt; can be outline, table, figure, etc. Then special characters within the URL should be converted to URL encoding. For example, a white space should be represented as %20." />
-<meta property="og:description" content="In Org mode, to create a hyperlink which points to an internal target, such as heading, table, bookmark, etc., in a local LibreOffice document, should be an URL instead of an absolute or relative file system path, otherwise it cannot be opened by the libreoffice program. To generate such an URL, the path to the local LibreOffice file should be converted to an absolute one and prefixed with file://. The target in the LibreOffice document for linking should be appended to the URL in the form #&lt;target-name&gt;|&lt;target-category&gt;. The &lt;target-name&gt; can be checked within LibreOffice’s navigator. The &lt;target-category&gt; can be outline, table, figure, etc. Then special characters within the URL should be converted to URL encoding. For example, a white space should be represented as %20." />
+<meta name="description" content="In Org mode, to create a hyperlink which points to an internal target, such as heading, table, bookmark, etc., in a local LibreOffice document, should be an URL instead of an absolute or relative file system path, otherwise it cannot be opened by the libreoffice program." />
+<meta property="og:description" content="In Org mode, to create a hyperlink which points to an internal target, such as heading, table, bookmark, etc., in a local LibreOffice document, should be an URL instead of an absolute or relative file system path, otherwise it cannot be opened by the libreoffice program." />
 <link rel="canonical" href="https://jihuan-tian.github.io/computer/2023/09/16/link-to-a-target-within-a-libreoffice-file-from-org-mode.html" />
 <meta property="og:url" content="https://jihuan-tian.github.io/computer/2023/09/16/link-to-a-target-within-a-libreoffice-file-from-org-mode.html" />
 <meta property="og:site_name" content="止于至善" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Link to a target within a LibreOffice file from Org mode" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2023-09-16T00:00:00+08:00","datePublished":"2023-09-16T00:00:00+08:00","description":"In Org mode, to create a hyperlink which points to an internal target, such as heading, table, bookmark, etc., in a local LibreOffice document, should be an URL instead of an absolute or relative file system path, otherwise it cannot be opened by the libreoffice program. To generate such an URL, the path to the local LibreOffice file should be converted to an absolute one and prefixed with file://. The target in the LibreOffice document for linking should be appended to the URL in the form #&lt;target-name&gt;|&lt;target-category&gt;. The &lt;target-name&gt; can be checked within LibreOffice’s navigator. The &lt;target-category&gt; can be outline, table, figure, etc. Then special characters within the URL should be converted to URL encoding. For example, a white space should be represented as %20.","headline":"Link to a target within a LibreOffice file from Org mode","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2023/09/16/link-to-a-target-within-a-libreoffice-file-from-org-mode.html"},"url":"https://jihuan-tian.github.io/computer/2023/09/16/link-to-a-target-within-a-libreoffice-file-from-org-mode.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2023-09-16T00:00:00+08:00","datePublished":"2023-09-16T00:00:00+08:00","description":"In Org mode, to create a hyperlink which points to an internal target, such as heading, table, bookmark, etc., in a local LibreOffice document, should be an URL instead of an absolute or relative file system path, otherwise it cannot be opened by the libreoffice program.","headline":"Link to a target within a LibreOffice file from Org mode","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/computer/2023/09/16/link-to-a-target-within-a-libreoffice-file-from-org-mode.html"},"url":"https://jihuan-tian.github.io/computer/2023/09/16/link-to-a-target-within-a-libreoffice-file-from-org-mode.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/font.css">
   <link rel="stylesheet" href="/assets/main.css">
@@ -72,14 +72,29 @@
           
             <a href="/tags/org-mode">org-mode</a>
           
-            <a href="/tags/LibreOffice">LibreOffice</a>
+            <a href="/tags/libreoffice">libreoffice</a>
           
         
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>In Org mode, to create a hyperlink which points to an internal target, such as heading, table, bookmark, etc., in a local LibreOffice document, should be an URL instead of an absolute or relative file system path, otherwise it cannot be opened by the <code class="language-plaintext highlighter-rouge">libreoffice</code> program. To generate such an URL, the path to the local LibreOffice file should be converted to an absolute one and prefixed with <code class="language-plaintext highlighter-rouge">file://</code>. The target in the LibreOffice document for linking should be appended to the URL in the form <code class="language-plaintext highlighter-rouge">#&lt;target-name&gt;|&lt;target-category&gt;</code>. The <code class="language-plaintext highlighter-rouge">&lt;target-name&gt;</code> can be checked within LibreOffice’s navigator. The <code class="language-plaintext highlighter-rouge">&lt;target-category&gt;</code> can be <code class="language-plaintext highlighter-rouge">outline</code>, <code class="language-plaintext highlighter-rouge">table</code>, <code class="language-plaintext highlighter-rouge">figure</code>, etc. Then special characters within the URL should be converted to URL encoding. For example, a white space should be represented as <code class="language-plaintext highlighter-rouge">%20</code>.</p>
+    <p>In Org mode, to create a hyperlink which points to an internal target, such as heading, table, bookmark, etc., in a local LibreOffice document, should be an URL instead of an absolute or relative file system path, otherwise it cannot be opened by the <code class="language-plaintext highlighter-rouge">libreoffice</code> program.</p>
+
+<p>To generate such an URL, the path to the local LibreOffice file should be converted to an absolute one and prefixed with <code class="language-plaintext highlighter-rouge">file://</code>. The target in the LibreOffice document for linking should be appended to the URL in the form <code class="language-plaintext highlighter-rouge">#&lt;target-name&gt;|&lt;target-category&gt;</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">&lt;target-name&gt;</code> can be checked within LibreOffice’s navigator. If it contains white spaces, it should be converted to the URL encoding. This can be helped with this elisp function:</p>
+
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">tjh/url-encode-region</span> <span class="p">(</span><span class="nv">start</span> <span class="nv">end</span><span class="p">)</span>
+  <span class="s">"Replace the selected text with its URL-encoded equivalent."</span>
+  <span class="p">(</span><span class="nv">interactive</span> <span class="s">"r"</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">require</span> <span class="ss">'url-util</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">encoded</span> <span class="p">(</span><span class="nv">url-hexify-string</span> <span class="p">(</span><span class="nv">buffer-substring</span> <span class="nv">start</span> <span class="nv">end</span><span class="p">))))</span>
+    <span class="p">(</span><span class="nv">delete-region</span> <span class="nv">start</span> <span class="nv">end</span><span class="p">)</span>
+    <span class="p">(</span><span class="nv">insert</span> <span class="nv">encoded</span><span class="p">)))</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">&lt;target-category&gt;</code> can be <code class="language-plaintext highlighter-rouge">outline</code>, <code class="language-plaintext highlighter-rouge">table</code>, <code class="language-plaintext highlighter-rouge">figure</code>, etc.</p>
 
 <p>A new link type <code class="language-plaintext highlighter-rouge">libreoffice</code> can be created in Org as below.</p>
 
