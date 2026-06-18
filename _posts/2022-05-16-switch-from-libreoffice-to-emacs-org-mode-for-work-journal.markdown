@@ -3,7 +3,7 @@ layout: post
 title: Switch from LibreOffice to Emacs Org mode for work journal
 date: 2022-05-16
 categories: [computer]
-tags: [LibreOffice,org-mode]
+tags: [libreoffice,org-mode]
 mathjax: false
 ---
 

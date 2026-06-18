@@ -3,7 +3,7 @@ layout: post
 title: Manage scanned notes and sketches with LibreOffice Impress
 date: 2025-03-19
 categories: [computer]
-tags: [LibreOffice,Bash,note-taking]
+tags: [libreoffice,Bash,note-taking]
 mathjax: false
 ---
 

@@ -3,11 +3,27 @@ layout: post
 title: Link to a target within a LibreOffice file from Org mode
 date: 2023-09-16
 categories: [computer]
-tags: [emacs,org-mode,LibreOffice]
+tags: [emacs,org-mode,libreoffice]
 mathjax: false
 ---
 
-In Org mode, to create a hyperlink which points to an internal target, such as heading, table, bookmark, etc., in a local LibreOffice document, should be an URL instead of an absolute or relative file system path, otherwise it cannot be opened by the `libreoffice` program. To generate such an URL, the path to the local LibreOffice file should be converted to an absolute one and prefixed with `file://`. The target in the LibreOffice document for linking should be appended to the URL in the form `#<target-name>|<target-category>`. The `<target-name>` can be checked within LibreOffice&rsquo;s navigator. The `<target-category>` can be `outline`, `table`, `figure`, etc. Then special characters within the URL should be converted to URL encoding. For example, a white space should be represented as `%20`.
+In Org mode, to create a hyperlink which points to an internal target, such as heading, table, bookmark, etc., in a local LibreOffice document, should be an URL instead of an absolute or relative file system path, otherwise it cannot be opened by the `libreoffice` program.
+
+To generate such an URL, the path to the local LibreOffice file should be converted to an absolute one and prefixed with `file://`. The target in the LibreOffice document for linking should be appended to the URL in the form `#<target-name>|<target-category>`.
+
+The `<target-name>` can be checked within LibreOffice&rsquo;s navigator. If it contains white spaces, it should be converted to the URL encoding. This can be helped with this elisp function:
+
+```elisp
+(defun tjh/url-encode-region (start end)
+  "Replace the selected text with its URL-encoded equivalent."
+  (interactive "r")
+  (require 'url-util)
+  (let ((encoded (url-hexify-string (buffer-substring start end))))
+    (delete-region start end)
+    (insert encoded)))
+```
+
+The `<target-category>` can be `outline`, `table`, `figure`, etc.
 
 A new link type `libreoffice` can be created in Org as below.
 

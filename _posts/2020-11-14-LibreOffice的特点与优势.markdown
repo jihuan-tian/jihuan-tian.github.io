@@ -3,7 +3,7 @@ layout: post
 title: LibreOffice的特点与优势
 date: 2020-11-14
 categories: [computer]
-tags: [LibreOffice]
+tags: [libreoffice]
 ---
 
 # Table of contents
