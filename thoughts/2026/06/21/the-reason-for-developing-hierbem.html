@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>为什么要开发 HierBEM ？ | 止于至善</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="为什么要开发 HierBEM ？" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="本文整理了我开发三维伽辽金边界元算法库的初心与心路历程。" />
+<meta property="og:description" content="本文整理了我开发三维伽辽金边界元算法库的初心与心路历程。" />
+<link rel="canonical" href="https://jihuan-tian.github.io/thoughts/2026/06/21/the-reason-for-developing-hierbem.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/thoughts/2026/06/21/the-reason-for-developing-hierbem.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-06-21T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="为什么要开发 HierBEM ？" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2026-06-21T00:00:00+08:00","datePublished":"2026-06-21T00:00:00+08:00","description":"本文整理了我开发三维伽辽金边界元算法库的初心与心路历程。","headline":"为什么要开发 HierBEM ？","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/thoughts/2026/06/21/the-reason-for-developing-hierbem.html"},"url":"https://jihuan-tian.github.io/thoughts/2026/06/21/the-reason-for-developing-hierbem.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">为什么要开发 HierBEM ？</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-06-21T00:00:00+08:00" itemprop="datePublished">
+        Sun, Jun 21, W24, 2026 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/thoughts">Thoughts</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/hierbem">hierbem</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>本文整理了我开发三维伽辽金边界元算法库的初心与心路历程。</p>
+
+<h1 id="要有属于自己的基础数学算法库">要有属于自己的基础数学算法库</h1>
+
+<p>我们要有属于自己的基础数学算法库，不能只满足于利用现成的仿真工具去做一些应用型的研究与应用工作。即便这样能够获得立竿见影的成果，但对学者自身而言，这会令我们始终受工具自身能力的限制，缺乏接触底层理论、熟悉细节逻辑、掌握精妙技艺的实践机会，从而浪费了上天赋予我们本该用以成为更好的自己、不断逼近人类最优秀科学家和匠人的无限潜能。</p>
+
+<p>基础科学软硬件的水平决定了现代工业文明与工程水平的上限，所以编写属于自己的计算软件，做出属于自己的科学仪器，把核心技术真正掌握在自己的手里是有着重大、深远意义的。我近些年集中精力开发的 C++ 数学算法库 <a href="https://jihuan-tian.github.io/hierbem-site/">HierBEM</a>，以三维伽辽金边界元算法为核心模块，则正是属于基础科学软件这个层次。相信如果能有更多的人以相近的价值观不断夯实自身的理论和技术能力，开展科研和技术攻关，打通纯粹理论与工程实践之间的鸿沟，做成一批真正能够实用的基础算法库和仪器，那么良好的科研生态就能逐渐形成、扎根。</p>
+
+<p>纯粹的理论研究与工程实际之间的距离或者逻辑链条可以很长，时间跨度也可以很大，但二者之间绝不能是割裂的。年复一年地发表文章但始终见不到工程上的应用，这样的研究工作恐怕只对从事该研究小团体的私利有益，浪费的则是并不富裕的老百姓的血汗钱。中国的改革开放和大学科研与外国学术界的交流、接轨已四十余年。论智力我们自信且自豪地认为并不比外国人差。但如果这么多年都过去了我们还在一些重要的科技领域没有突破，仍被人卡着脖子，那也不要怪世界没有给我们时间和机会。</p>
+
+<h1 id="博士的使命与独立研究">博士的使命与独立研究</h1>
+
+<p>在我开始读博士研究生不久，2005 年的一次实验室聚餐后从校外骑车返回，正好与导师同行。其间，我提到何不将实验室里曾经开发出来的算法、软件都整理起来，做成函数库并提供通用、统一的接口，从而给今后的研究带来方便。这样一来，每开始一个新项目或者每当一个新学生加入实验室时，就可以直接站在前人的肩膀上更上一层楼，而不用事事从零做起，把功夫都耗在了功能的重复实现而不是理论与算法的创新上。同时，在使用的过程中通过不断地完善与测试，也能够保证算法与软件的正确性与可靠性。然而，对于我的这个提议，导师却说“这个事情我们不做”。</p>
+
+<p>想来那时的科研都是围绕着项目和资金转，是为了维持课题组生存下去的身不由己。而缺乏自由思想、独立精神、按常理做事和追求真理的果决与坚持，这是最大的问题。假使我们实验室从 2005 年那个时候就能够开始在数值算法库上持续积累，现在也不至于落后国外的先进水平太远。如今，当我看到国外高校的学者们精诚合作，十年磨一剑，如雨后春笋般地推出了诸多数值仿真开源软件，例如 <a href="https://dealii.org/">deal.II</a>、<a href="http://www.bempp.org/">Bempp</a>、<a href="https://fenicsproject.org/">FEniCS</a>，不由得为多年前的那次对话以及实验室所选择的发展道路扼腕痛惜。之所以持有如此的情愫，并非对学术感到幻灭，而是因为我所提的事情本是我们能够做到但是因为志向与选择的问题而没有做的。想必也不止是我们的实验室做如此选择，其他高校乃至社会上的某些行业恐怕也类似。</p>
+
+<p>就我曾经做过相关研究的学科而言，包括电介质物理、电磁场数值计算、计算数学，每个领域总还有对于从事该方向研究的学者来说根本绕不过去的来自西方的学术专著与专业软件，这种情况多年未变。为何如此？因为能够在完备性、准确性、细致性、严谨性、原创性等品质上与之相提并论的国产学术专著与基础软件仍是一片空白。而且，即便是在如此空白情况下，也鲜有学者或学术团队能够甘心坐冷板凳将国外的这些成果承接过来，予以全面、系统地吸收、消化，当然也就更不用提在此基础上能有什么原创性、本质性的创新成果了。</p>
+
+<p>尽管如此，作为生活在中国的中国人以及作为这个教育体系培养出的博士，不论我们当下是否身处学术圈内、体制内，面对这样的情况其实每个人都责无旁贷。真正有品质的研究、缜密精巧的算法、设计精良的高性能软件单靠当前运作模式与评价体系下的学校或者科研院所其实是没有指望的。这就需要尤其是因为散落在体制外而相对容易做到思想自由、精神独立、行动与方向可控的诸多博士能够迎难而上，摒弃将科学与工程割裂开来的错误的“二分法”思维，通过做真正的研究、做实实在在的底层技术与基础软件，打磨与完善自己的理性与手艺，实现真正意义上的自我“救赎”，并由此创造出经济价值。</p>
+
+<p>更何况，仅就个人修养与提升而言，无论在哪个领域，艺术、技术或科学，我们终归还是要通过好学、苦思、笃行，创作出一些震撼人心的东西，哪怕它们能够波及的范围仅限于我们自己或身边的人。达不到这个层次， 或者退一步讲，没有走在这条道路上，无论是苦、乐、忙、闲，都会很快被时间冲刷殆尽，毫无意义。</p>
+
+<p>如此先有了源自诸多个体的自我“救赎”，在当前的学术体制与评价体系之外塑造追求科学真理、崇尚工匠精神、培养科技审美的良好氛围，才能最终形成一股净化学术圈内诸多不正常现象的不尽源泉。如此充分发挥每个人的能动性，实现“克己复礼”，难道不正是科学的第一推动力么？</p>
+
+<h1 id="要做真正的产学研结合">要做真正的产学研结合</h1>
+
+<p>2014 年的时候我曾去位于上海松江的电子代工厂参观。入厂前正好赶上早上 8 点时分昼夜倒班的滚滚人潮。一眼望去，清一色地是稚嫩而疲倦的年轻打工人的脸庞。这其中透出的无助、无望、迷茫，让我觉得他们仿佛待宰的羔羊，在资本无情的胁迫下消耗着宝贵的精力、大好的青春时光、“君子不器”的无限人生可能。</p>
+
+<p>中国打工人经受的剥削与不公无处诉说，甚至这些“血汗 GDP”还要被炫耀为成就与政绩。但在我看来，这样的 GDP 恰恰是我们整个社会与民族的耻辱。作为科技工作者，如果我们占据着科研的关键岗位挥霍经费却不出原创性、革命性的成果、不能将科研资源转化为实实在在的经济效益，那就是远比官场腐败更加恶劣且隐蔽的腐败形式。如果我们申请的专利、发表的文章只是用来谋求个人升职、报奖、贯名号，打工人的种种苦难我们便难辞其咎。</p>
+
+<p>在科研上，我们要做正确且正义的事，拒绝做精致的利己主义者，不为评价标准本身而苟活。只有如此，才能为大多数普通人带来更多福祉。所谓的产学研应该是从纯理论出发直到最终成熟产品的诞生，亲力亲为，一路到底地将整个逻辑链条完全打通。在不可数的现实的可能性中，探索出极少的几个甚至是唯一的路径。</p>
+
+<h1 id="打破工科研究的限制">打破工科研究的限制</h1>
+
+<p>我在研究生时期，清华大学电机系里的王赞基老师曾教导同学们要做“顶天立地”的研究。所谓“顶天”，是深入、扎实地学习与研究基础理论，达到高屋建瓴的境界。所谓“立地”，则是将基础理论通过工程技术方法准确、可靠、有效地实现出来，以解决现实问题。</p>
+
+<p>工科中常见的研究模式是从实际应用出发，在现有的理论中寻找依据，再组合运用现有的或者发明新的技术，以解决具体问题。工科研究这种实用主义的“禀赋”从一开始便决定了其并非是追根溯源的。在这种模式的驱动下，虽然也能做事、出结果，但却无法获得真正意义上的——即纯粹理性的、彻底的理解，并最终反过来限制其自身的提升与发展。</p>
+
+<p>虽然在工科研究中我们也会经常遇到数学公式，但其中的逻辑推理并不完整与彻底，每一个环节也经不起严格的推敲。若研究者在工科的范畴内寻根究底地问下去，最终得到的仍是疑问和悬而未决——对于这一点，若以数值仿真为例，只要我们对比一下工科与数学学科对有限元方法的阐述就可以明白。因此，我觉得工科研究大多仅是借用了数学的表达形式来获得一种本质上仍是定性的、维象的解释，并用以“自欺”。由“自欺”导致“不知道”、“不理解”，从而无法做出本源性、原创性的创新。这也便是为什么我们国家在高科技领域被西方卡脖子后才逐渐意识到发展基础学科的重要性。</p>
+
+<p>对于工科领域的研究者而言，虽然其所从事的研究工作是从现实与实用性出发的，但其自身学习与探索的过程却是在理性的推动下一步步展开的——这是由人类的认知模式所决定的。除了理性的不够完整与彻底外，这个过程与理科领域的研究者并没有任何不同。所以，将自身归入工科阵营其实是一种急功近利、划地自限的实用主义二分法（dichotomy）。为了改变这个现状，以获得真正意义上的理解与自圆其说，工科领域的研究者虽然不必拥有提出新的基础理论的能力，但完全应该能够读懂和理解已有的基础理论成果。只有如此，才能将纯粹理性推及现实应用，使科学与工程有机结合，得到更多原创性的成果。</p>
+
+<h1 id="数值计算中的工匠精神">数值计算中的工匠精神</h1>
+
+<p>我之所以要提倡工匠精神，不是为了响应国家号召，也不是为了迎合市场需求，而仅仅是因为它完全符合论语所倡导的“如切如磋、如琢如磨”、“君子上达”、止于至善的纯粹而普适的原则。而且，鉴于工匠精神和与之相称的技艺培养之难，一个优秀的科学工作者应当终生秉持这种亲力亲为、兢兢业业的精神才有可能臻于理想的境界，而不是在小有所成乃至功成名就之后便“升格”为科研工作的组织者和资源的调动者。一流的科学家和工匠一定是亲力亲为地工作在第一线的。</p>
+
+<p>仅就数值计算研究领域来说，工匠精神应当包括如下三个方面。</p>
+
+<ul>
+  <li>
+    <p>构建起完备的基础理论体系。可以随时随地如数家珍般地讲解、推演其中的任何一部分内容。这就如同演奏家（virtuoso）能够流畅娴熟地表演他们的保留曲目。</p>
+  </li>
+  <li>
+    <p>具备通过亲自编程将理论方法付诸实践并塑造出精品软件的设计思想与高超手艺。与之相比，只能做出用作教学或演示的代码则是远远不够的。这是因为，能够真正实用的算法在理论基础、设计思想与开发方法上均与简单的演示程序有本质上的不同，需要长期的专门学习与训练才可掌握。</p>
+  </li>
+  <li>
+    <p>修辞立其诚。能够通过写作、报告、讲座等形式，精确、形象、深入浅出地阐释算法原理，起到传播思想与知识的效果。这也是“己欲立而立人，己欲达而达人”的具体体现。</p>
+  </li>
+</ul>
+
+<h1 id="十年酝酿">十年酝酿</h1>
+
+<p>自从我 2012 年 11 月底去 ABB 瑞士研究中心（CHCRC）的电力产品仿真研究组工作交换至今已过去十多年。这次机缘让我开始逐渐意识到，工科数值计算研究方向中学术和技术问题的彻底与完美的解决仅在工程学科的范畴内是根本无法求得的，必须跳出当前系统（jump out of the system），从更抽象与通用的纯数学理论入手，才能高屋建瓴，最终获得理性的认识与对具体实践的有效指导。</p>
+
+<p>此次工作交换之后，我便从最基本的集合论开始补习，再到拓扑学、实分析、泛函分析、偏微分方程、边界元理论等。同时，也全面学习、反复练习编程技术与相关工具链的使用。在这期间，我积累了一定量的笔记与心得，经历了在放弃与坚持之间的动摇犹疑，亦曾在毫无进展的焦急与痛苦中，纠结于应该“澄清所有细节”还是“不求甚解暂时跳过”。但正是在如同夜行般的试探摸索中，我的思路逐渐由懵懂变得清晰而准确，技术能力变得熟练而全面。</p>
+
+<p>然而，所有这些自学与早期技术路线的探索是在工作之余的空闲时间开展的——周末与节假日的浦东图书馆、咖啡厅便是最好的去处。受公司项目时紧时松的影响，这种业余时间的投入在一年内的分布其实并不稳定。同时，白天公司上班已占用了个人精力处于最佳状态的宝贵时间，到了晚上或周末再去学习、编程，许多时候已是强弩之末。更加严峻的是，当真正投入到具体的算法开发工作中时，遇到问题的难度、工作量、对专注力要求的强度与持久度往往是我心理预期的大约 100 倍。这个 100 倍的数量级差异，应该就是“业余爱好”与“专业精通”之间的差距，是我必须面对与克服的。</p>
+
+<p>好在我有足够的时间——正好十年——来破除博士期间形成的自我满足、坐井观天的狭碍心态，纠正与逐渐明确了研究思路与方向，确立了工作态度与研究风格，磨炼了性格、理论、技术。人生总共能用于有效学习与工作的时间大体不会超过五个十年。但在外部机缘与个人内心趋向共同的作用下，我终究做出上述转变，获得“第一人称视角”体验而非间接体验（vicarious feeling），构筑属于自己的知识与技艺而非假借平台之力，成为制造者（maker）而非使用者（user），使通用三维伽辽金边界元算法库 <a href="https://jihuan-tian.github.io/hierbem-site/">HierBEM</a> 的开发初见雏形——想来这一切都是完全值得的。</p>
+
+
+  </div><a class="u-url" href="/thoughts/2026/06/21/the-reason-for-developing-hierbem.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2026 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
