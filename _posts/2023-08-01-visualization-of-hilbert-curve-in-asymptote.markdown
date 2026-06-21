@@ -3,7 +3,7 @@ layout: post
 title: Visualization of Hilbert curve in Asymptote
 date: 2023-08-01
 categories: [math]
-tags: [BEM,Asymptote,H-matrix,math-visualization]
+tags: [bem,Asymptote,H-matrix,math-visualization]
 mathjax: false
 ---
 

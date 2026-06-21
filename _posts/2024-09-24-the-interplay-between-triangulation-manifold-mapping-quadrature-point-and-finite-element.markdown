@@ -3,7 +3,7 @@ layout: post
 title: The interplay between triangulation, manifold, mapping, quadrature point and finite element
 date: 2024-09-24
 categories: [math]
-tags: [BEM]
+tags: [bem]
 mathjax: true
 ---
 

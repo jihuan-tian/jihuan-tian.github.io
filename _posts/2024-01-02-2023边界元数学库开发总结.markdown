@@ -3,7 +3,7 @@ layout: post
 title: 2023边界元数学库开发总结
 date: 2024-01-02
 categories: [thoughts]
-tags: [算法开发,BEM]
+tags: [hierbem,bem]
 mathjax: false
 ---
 

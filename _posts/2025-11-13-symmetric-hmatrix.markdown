@@ -3,7 +3,7 @@ layout: post
 title: Symmetric $\mathcal{H}$-matrix
 date: 2025-11-13
 categories: [math]
-tags: [BEM]
+tags: [bem]
 mathjax: true
 ---
 

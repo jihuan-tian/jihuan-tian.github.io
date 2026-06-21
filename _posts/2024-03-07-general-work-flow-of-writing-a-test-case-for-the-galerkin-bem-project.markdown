@@ -3,7 +3,7 @@ layout: post
 title: General work flow of writing a test case for the Galerkin BEM project
 date: 2024-03-07
 categories: [computer]
-tags: [BEM,算法开发,CMake,unit-test]
+tags: [bem,hierbem,CMake,unit-test]
 mathjax: false
 ---
 

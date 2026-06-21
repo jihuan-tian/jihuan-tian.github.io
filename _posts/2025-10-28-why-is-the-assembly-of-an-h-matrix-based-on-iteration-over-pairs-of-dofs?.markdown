@@ -3,7 +3,7 @@ layout: post
 title: "Why is the assembly of an H-matrix based on iteration over pairs of DoFs?"
 date: 2025-10-28
 categories: [math]
-tags: [BEM,HierBEM]
+tags: [bem,hierbem]
 mathjax: true
 ---
 

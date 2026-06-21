@@ -3,7 +3,7 @@ layout: post
 title: Discretization of bilinear forms in BEM
 date: 2022-06-01
 categories: [math]
-tags: [BEM]
+tags: [bem]
 mathjax: true
 ---
 

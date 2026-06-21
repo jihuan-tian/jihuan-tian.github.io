@@ -3,7 +3,7 @@ layout: post
 title: How to build an $\mathcal{H}$-matrix on a subdomain
 date: 2025-11-04
 categories: [math]
-tags: [BEM]
+tags: [bem]
 mathjax: true
 ---
 

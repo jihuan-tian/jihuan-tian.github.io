@@ -3,7 +3,7 @@ layout: post
 title: 边界元算法开发状态与算法库简介
 date: 2022-12-30
 categories: [math]
-tags: [算法开发,BEM]
+tags: [hierbem,bem]
 mathjax: false
 ---
 

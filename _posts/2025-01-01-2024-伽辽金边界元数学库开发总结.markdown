@@ -3,7 +3,7 @@ layout: post
 title: 2024 伽辽金边界元数学库开发总结
 date: 2025-01-01
 categories: [thoughts]
-tags: [算法开发,BEM]
+tags: [hierbem,bem]
 mathjax: false
 ---
 

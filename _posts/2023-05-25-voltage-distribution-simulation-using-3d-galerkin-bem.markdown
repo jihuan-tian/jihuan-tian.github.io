@@ -3,7 +3,7 @@ layout: post
 title: Voltage distribution simulation using 3D Galerkin BEM
 date: 2023-05-25
 categories: [math]
-tags: [算法开发,BEM]
+tags: [hierbem,bem]
 mathjax: false
 ---
 

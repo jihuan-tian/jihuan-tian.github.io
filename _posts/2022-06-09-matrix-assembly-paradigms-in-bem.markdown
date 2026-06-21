@@ -3,7 +3,7 @@ layout: post
 title: Matrix assembly paradigms in BEM
 date: 2022-06-09
 categories: [math]
-tags: [BEM]
+tags: [bem]
 mathjax: true
 ---
 

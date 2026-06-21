@@ -3,7 +3,7 @@ layout: post
 title: Factor \(\sigma \) before the identity operator is always 0.5
 date: 2025-12-05
 categories: [math]
-tags: [BEM]
+tags: [bem]
 mathjax: true
 ---
 

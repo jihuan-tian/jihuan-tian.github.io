@@ -3,7 +3,7 @@ layout: post
 title: Verification of singularity order of BEM kernels
 date: 2022-08-27
 categories: [math]
-tags: [BEM]
+tags: [bem]
 mathjax: true
 ---
 

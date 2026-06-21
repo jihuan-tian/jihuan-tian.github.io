@@ -3,7 +3,7 @@ layout: post
 title: Schur complement
 date: 2024-04-28
 categories: [math]
-tags: [BEM]
+tags: [bem]
 mathjax: true
 ---
 

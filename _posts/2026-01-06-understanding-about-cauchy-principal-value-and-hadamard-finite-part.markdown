@@ -3,7 +3,7 @@ layout: post
 title: Understanding about Cauchy principal value and Hadamard finite part
 date: 2026-01-06
 categories: [math]
-tags: [BEM]
+tags: [bem]
 mathjax: true
 ---
 
