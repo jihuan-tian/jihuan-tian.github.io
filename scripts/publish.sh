@@ -39,6 +39,7 @@ if [ -z "$is_need_pull" ]; then
     http_proxy=192.168.0.100:32750 https_proxy=192.168.0.100:32750 git pull
     echo "=== Build blog for public!"
     bundle exec jekyll build
+    npx pagefind --site _site
     echo "=== Synchronize the new build to public for submit!"
     rsync -rtlvz --update --delete --exclude="/.git" "$blog-public/_site/" "$blog-public-for-submit/"
 

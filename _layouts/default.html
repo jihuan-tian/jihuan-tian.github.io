@@ -7,7 +7,8 @@
 
     {%- include header.html -%}
 
-    <main class="page-content" aria-label="Content">
+    <!-- The data-pagefind-body attribute tells Pagefind to only index what is inside this tag -->
+    <main class="page-content" aria-label="Content" data-pagefind-body>
       <div class="wrapper">
         {{ content }}
       </div>

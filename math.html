@@ -5,16 +5,17 @@ permalink: /math/
 mathjax: true
 ---
 
-<ul class="post-list">
-  {% for post in site.categories.math %}
-  <li>
-    <span class="post-meta">{{ post.date | date: '%a, %b %-d, W%W, %Y' }}</span>
-    <h3>
-      <a class="post-link" href="{{ post.url | relative_url }}">
-        {{ post.title }}
-      </a>
-    </h3>
-  </li>
-  {% endfor %}
-</ul>
-
+<aside data-pagefind-ignore>
+  <ul class="post-list">
+    {% for post in site.categories.math %}
+    <li>
+      <span class="post-meta">{{ post.date | date: '%a, %b %-d, W%W, %Y' }}</span>
+      <h3>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title }}
+        </a>
+      </h3>
+    </li>
+    {% endfor %}
+  </ul>
+</aside>
