@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Progress update of HierBEM | 止于至善</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Progress update of HierBEM" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Finished the implementation of precomputing and storing cell values for the regular cell neighboring type, i.e. the two cells \(K_x\) and \(K_y\) for the test and trial spaces are well separated. These cell values include Jacobian determinants, normal vectors, quadrature point coordinates and surface curls. The purpose of their precomputation is to improve the performance of H-matrix assembly, especially when the H-matrix has less data sparsity due to locally dense mesh or small admissibility constant." />
+<meta property="og:description" content="Finished the implementation of precomputing and storing cell values for the regular cell neighboring type, i.e. the two cells \(K_x\) and \(K_y\) for the test and trial spaces are well separated. These cell values include Jacobian determinants, normal vectors, quadrature point coordinates and surface curls. The purpose of their precomputation is to improve the performance of H-matrix assembly, especially when the H-matrix has less data sparsity due to locally dense mesh or small admissibility constant." />
+<link rel="canonical" href="https://jihuan-tian.github.io/thoughts/2026/07/04/progress-update-of-hierbem.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/thoughts/2026/07/04/progress-update-of-hierbem.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-04T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Progress update of HierBEM" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2026-07-04T00:00:00+08:00","datePublished":"2026-07-04T00:00:00+08:00","description":"Finished the implementation of precomputing and storing cell values for the regular cell neighboring type, i.e. the two cells \\(K_x\\) and \\(K_y\\) for the test and trial spaces are well separated. These cell values include Jacobian determinants, normal vectors, quadrature point coordinates and surface curls. The purpose of their precomputation is to improve the performance of H-matrix assembly, especially when the H-matrix has less data sparsity due to locally dense mesh or small admissibility constant.","headline":"Progress update of HierBEM","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/thoughts/2026/07/04/progress-update-of-hierbem.html"},"url":"https://jihuan-tian.github.io/thoughts/2026/07/04/progress-update-of-hierbem.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}",
+        real: "{\\rm Re}",
+        imag: "{\\rm Imag}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"></script>
+
+  
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/search/">Search</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<!-- The data-pagefind-body attribute tells Pagefind to only index what is inside this tag -->
+    <main class="page-content" aria-label="Content" data-pagefind-body>
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Progress update of HierBEM</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-07-04T00:00:00+08:00" itemprop="datePublished">
+        Sat, Jul 4, W26, 2026 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/thoughts">Thoughts</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/hierbem">hierbem</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Finished the implementation of precomputing and storing cell values for the regular cell neighboring type, i.e. the two cells \(K_x\) and \(K_y\) for the test and trial spaces are well separated. These cell values include Jacobian determinants, normal vectors, quadrature point coordinates and surface curls. The purpose of their precomputation is to improve the performance of H-matrix assembly, especially when the H-matrix has less data sparsity due to locally dense mesh or small admissibility constant.</p>
+
+<p>The said precomputation mechanism is applied to three code branches in HierBEM: full matrix assembly, H-matrix assembly without the producer-consumer model or task buffers, H-matrix assembly with the producer-consumer model and task buffers. The first two branches are only used for verification and performance baseline, while the third one is for production.</p>
+
+<p>Meanwhile, some low level functions for computing the said cell values are reorganized and made platform shared, namely</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">transform_quad_point_from_unit_to_permuted_real_cell</code></li>
+  <li><code class="language-plaintext highlighter-rouge">surface_jacobian_det_and_normal_vector</code></li>
+  <li><code class="language-plaintext highlighter-rouge">surface_jacobian_det_normal_vector_and_covariant</code></li>
+  <li><code class="language-plaintext highlighter-rouge">surface_curl</code></li>
+</ul>
+
+<p>They can now be called on both the CPU host and GPU device, which reduces redundant code and possibility of making errors.</p>
+
+<p>Classes for BEM values <code class="language-plaintext highlighter-rouge">BEMValues</code> and scratch data <code class="language-plaintext highlighter-rouge">PairCellWiseScratchData</code>, which are frequently used by numerical quadrature, are refactored for the three code branches for H-matrix assembly. Redundant memory allocation for data tables in BEM values and scratch data are also removed. For example,</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PairCellWiseScratchDataBase</code> is used by the low level function <code class="language-plaintext highlighter-rouge">transform_quad_point_from_unit_to_permuted_real_cell</code> and the H-matrix builder with the producer-consumer model and task buffers but only for near field matrix blocks.</li>
+  <li><code class="language-plaintext highlighter-rouge">PairCellWiseScratchDataForFullMatrix</code> is used by the full matrix builder.</li>
+  <li><code class="language-plaintext highlighter-rouge">PairCellWiseScratchDataForHMatrix</code> is used by the H-matrix builder without the producer-consumer model or task buffers.</li>
+  <li><code class="language-plaintext highlighter-rouge">PairCellWiseScratchDataForHMatrixFarField</code> is used by the H-matrix builder with the producer-consumer model and task buffers only for far field matrix blocks.</li>
+</ul>
+
+<p>Now for the baseline test case for solving a Laplace Dirichlet problem constructed on a two sphere model with 4041 nodes and 4033 quadrangles, the total wall time is reduced to 75 seconds. Compared to the old version without any precomputation, 10 times of performance improvement has been achieved.</p>
+
+<ul>
+  <li>Before precomputation of mapping support points: 771 seconds.</li>
+  <li>After precomputation of mapping support points: 364 seconds.</li>
+  <li>After precomputation of cell values: 75 seconds.</li>
+</ul>
+
+
+  </div><a class="u-url" href="/thoughts/2026/07/04/progress-update-of-hierbem.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2026 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
