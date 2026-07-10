@@ -1,4 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-07-04T08:22:59+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Progress update of HierBEM</title><link href="https://jihuan-tian.github.io/thoughts/2026/07/04/progress-update-of-hierbem.html" rel="alternate" type="text/html" title="Progress update of HierBEM" /><published>2026-07-04T00:00:00+08:00</published><updated>2026-07-04T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2026/07/04/progress-update-of-hierbem</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2026/07/04/progress-update-of-hierbem.html"><![CDATA[<p>Finished the implementation of precomputing and storing cell values for the regular cell neighboring type, i.e. the two cells \(K_x\) and \(K_y\) for the test and trial spaces are well separated. These cell values include Jacobian determinants, normal vectors, quadrature point coordinates and surface curls. The purpose of their precomputation is to improve the performance of H-matrix assembly, especially when the H-matrix has less data sparsity due to locally dense mesh or small admissibility constant.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed/thoughts.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-07-10T12:05:52+08:00</updated><id>https://jihuan-tian.github.io/feed/thoughts.xml</id><title type="html">止于至善 | Thoughts</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">HierBEM 重构体会</title><link href="https://jihuan-tian.github.io/thoughts/2026/07/10/hierbem-refactor-experience.html" rel="alternate" type="text/html" title="HierBEM 重构体会" /><published>2026-07-10T00:00:00+08:00</published><updated>2026-07-10T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2026/07/10/hierbem-refactor-experience</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2026/07/10/hierbem-refactor-experience.html"><![CDATA[<p>近期完成了 HierBEM 软件库的<a href="/thoughts/2026/07/04/progress-update-of-hierbem.html">重构工作</a>，提升了性能。在该过程中的体会整理如下。</p>
+
+<h1 id="文档">文档</h1>
+
+<ul>
+  <li>图示的作用与重要性：一图胜千言，容易在脑海中留下印象。无论是手绘还是使用绘图软件，怎么方便怎么来。如果只有文字描述，每次回顾相关内容时，加载信息时间长，忘得也快。此过程如同蜗牛爬井，进三尺退两尺，效率很低。</li>
+  <li>要将函数调用层级理清，尤其是 HierBEM 需要保留满阵组装和两个层级矩阵组装方法共三个代码分支。具体的重构与代码核查工作是依照函数调用关系展开的。</li>
+</ul>
+
+<h1 id="有限使用-ai">有限使用 AI</h1>
+
+<p>除了解读编译器出错信息外，我基本上没有使用 AI 来检查代码或者重构。这是由于有效的测试用例仅仅意味着后验正确性（posteriori correctness）。对于数值软件而言，它必须满足先验正确性（a priori correctness）。即在每一个逻辑分支中，从始至终的每个步骤都必须是正确无误的。 HierBEM 的本质是数学而不是软件，软件仅仅是其表现形式。</p>
+
+<h1 id="编码">编码</h1>
+
+<ul>
+  <li>要基于实测和亲自使用的体验，而非网上关于某种工具的宣传与教程，来构建属于自己的开发工具箱或者“瑞士军刀”。在不同的工作场景下，兼顾任务要求与硬件性能，了解每个工具的功能与性能局限，切换至最适合的工具，并让多种工具相互配合。例如，
+    <ul>
+      <li>使用 <code class="language-plaintext highlighter-rouge">ripgrep</code> 进行项目内的全局搜索与替换，是重构的有效工具。</li>
+      <li>使用 <code class="language-plaintext highlighter-rouge">clangd</code> 而非 VS Code IntelliSense 或 AI 进行语法和头文件的检查，效果要精确很多。</li>
+      <li>受系统内存限制，我无法在多进程编译的同时启用 eglot 或 gdb 。</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="调试">调试</h1>
+
+<p>对于只在较大问题规模下才会出现的程序异常，因程序运行时间过长，基本无法在 debug 模式下使用 gdb 来调试。此时有效的调试方法就是让程序输出信息。</p>
+
+<h1 id="重构">重构</h1>
+
+<ul>
+  <li>在软件的架构与性能上不能图快而打折扣。要不折不扣地做到想要的设计效果。比如，对于边界元矩阵组装的三个代码分支，一开始我想只保留性能最好的版本。但实际上其他两个分支虽然不具有工程实用价值，但作为参照也是很有用的。对于复杂的数值计算软件来说，将算法一气呵成地写下来也许并不是很难的事，但要想验证和确保算法实现的正确性，则是很花功夫的。因此，保留代码中的低性能分支具有重要的参考与验证价值。</li>
+  <li>尽管重构工作的路很长，且环顾四周一片渺茫，尽管做不到胸有成竹，但是终极目标与大方向要明确。然后，就是要坚定地朝着这个目标前行。正所谓，夫险以远，则至者少。参考<a href="journal-2026.md">算法开发的两种模式</a>。</li>
+  <li>重构是需要高度专注与耗费精力的工作，因此一定要在精神状态好的时候进行。精神状态不佳的时候就不要工作了，放松、运动、休息。</li>
+</ul>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="hierbem" /><summary type="html"><![CDATA[近期完成了 HierBEM 软件库的重构工作，提升了性能。在该过程中的体会整理如下。]]></summary></entry><entry><title type="html">Progress update of HierBEM</title><link href="https://jihuan-tian.github.io/thoughts/2026/07/04/progress-update-of-hierbem.html" rel="alternate" type="text/html" title="Progress update of HierBEM" /><published>2026-07-04T00:00:00+08:00</published><updated>2026-07-04T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2026/07/04/progress-update-of-hierbem</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2026/07/04/progress-update-of-hierbem.html"><![CDATA[<p>Finished the implementation of precomputing and storing cell values for the regular cell neighboring type, i.e. the two cells \(K_x\) and \(K_y\) for the test and trial spaces are well separated. These cell values include Jacobian determinants, normal vectors, quadrature point coordinates and surface curls. The purpose of their precomputation is to improve the performance of H-matrix assembly, especially when the H-matrix has less data sparsity due to locally dense mesh or small admissibility constant.</p>
 
 <p>The said precomputation mechanism is applied to three code branches in HierBEM: full matrix assembly, H-matrix assembly without the producer-consumer model or task buffers, H-matrix assembly with the producer-consumer model and task buffers. The first two branches are only used for verification and performance baseline, while the third one is for production.</p>
 
@@ -28,7 +63,9 @@
   <li>Before precomputation of mapping support points: 771 seconds.</li>
   <li>After precomputation of mapping support points: 364 seconds.</li>
   <li>After precomputation of cell values: 75 seconds.</li>
-</ul>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="hierbem" /><summary type="html"><![CDATA[Finished the implementation of precomputing and storing cell values for the regular cell neighboring type, i.e. the two cells \(K_x\) and \(K_y\) for the test and trial spaces are well separated. These cell values include Jacobian determinants, normal vectors, quadrature point coordinates and surface curls. The purpose of their precomputation is to improve the performance of H-matrix assembly, especially when the H-matrix has less data sparsity due to locally dense mesh or small admissibility constant.]]></summary></entry><entry><title type="html">为什么要开发 HierBEM ？</title><link href="https://jihuan-tian.github.io/thoughts/2026/06/21/the-reason-for-developing-hierbem.html" rel="alternate" type="text/html" title="为什么要开发 HierBEM ？" /><published>2026-06-21T00:00:00+08:00</published><updated>2026-06-21T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2026/06/21/the-reason-for-developing-hierbem</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2026/06/21/the-reason-for-developing-hierbem.html"><![CDATA[<p>本文整理了我开发三维伽辽金边界元算法库的初心与心路历程。</p>
+</ul>
+
+<p>Backlinks: <a href="/thoughts/2026/07/10/hierbem-refactor-experience.html">《HierBEM 重构体会》</a></p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="hierbem" /><summary type="html"><![CDATA[Finished the implementation of precomputing and storing cell values for the regular cell neighboring type, i.e. the two cells \(K_x\) and \(K_y\) for the test and trial spaces are well separated. These cell values include Jacobian determinants, normal vectors, quadrature point coordinates and surface curls. The purpose of their precomputation is to improve the performance of H-matrix assembly, especially when the H-matrix has less data sparsity due to locally dense mesh or small admissibility constant.]]></summary></entry><entry><title type="html">为什么要开发 HierBEM ？</title><link href="https://jihuan-tian.github.io/thoughts/2026/06/21/the-reason-for-developing-hierbem.html" rel="alternate" type="text/html" title="为什么要开发 HierBEM ？" /><published>2026-06-21T00:00:00+08:00</published><updated>2026-06-21T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2026/06/21/the-reason-for-developing-hierbem</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2026/06/21/the-reason-for-developing-hierbem.html"><![CDATA[<p>本文整理了我开发三维伽辽金边界元算法库的初心与心路历程。</p>
 
 <h1 id="要有属于自己的基础数学算法库">要有属于自己的基础数学算法库</h1>
 

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>HierBEM 重构体会 | 止于至善</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="HierBEM 重构体会" />
+<meta name="author" content="Jihuan Tian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="近期完成了 HierBEM 软件库的重构工作，提升了性能。在该过程中的体会整理如下。" />
+<meta property="og:description" content="近期完成了 HierBEM 软件库的重构工作，提升了性能。在该过程中的体会整理如下。" />
+<link rel="canonical" href="https://jihuan-tian.github.io/thoughts/2026/07/10/hierbem-refactor-experience.html" />
+<meta property="og:url" content="https://jihuan-tian.github.io/thoughts/2026/07/10/hierbem-refactor-experience.html" />
+<meta property="og:site_name" content="止于至善" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-10T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HierBEM 重构体会" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jihuan Tian"},"dateModified":"2026-07-10T00:00:00+08:00","datePublished":"2026-07-10T00:00:00+08:00","description":"近期完成了 HierBEM 软件库的重构工作，提升了性能。在该过程中的体会整理如下。","headline":"HierBEM 重构体会","mainEntityOfPage":{"@type":"WebPage","@id":"https://jihuan-tian.github.io/thoughts/2026/07/10/hierbem-refactor-experience.html"},"url":"https://jihuan-tian.github.io/thoughts/2026/07/10/hierbem-refactor-experience.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/font.css">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/htmlize-syntax-highlight.css">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?">
+  <link href="https://fonts.googlefonts.cn/css?family=EB+Garamond" rel="stylesheet"><link type="application/atom+xml" rel="alternate" href="https://jihuan-tian.github.io/feed.xml" title="止于至善" />
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">止于至善</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <!-- Enforce a fixed order for my categories. -->
+          <a class="page-link" href="/math/">Math</a>
+          <a class="page-link" href="/computer/">Computer</a>
+          <a class="page-link" href="/thoughts/">Thoughts</a>
+          <a class="page-link" href="/tags/">Tags</a>
+          <a class="page-link" href="/search/">Search</a>
+          <a class="page-link" href="/about/">About</a>
+        </div>
+      </nav></div>
+</header>
+<!-- The data-pagefind-body attribute tells Pagefind to only index what is inside this tag -->
+    <main class="page-content" aria-label="Content" data-pagefind-body>
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">HierBEM 重构体会</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-07-10T00:00:00+08:00" itemprop="datePublished">
+        Fri, Jul 10, W27, 2026 &nbsp;
+
+        
+          Categories:
+          
+            <a href="/thoughts">Thoughts</a>
+          
+         &nbsp;
+        
+          Tags:
+          
+            <a href="/tags/hierbem">hierbem</a>
+          
+        
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>近期完成了 HierBEM 软件库的<a href="/thoughts/2026/07/04/progress-update-of-hierbem.html">重构工作</a>，提升了性能。在该过程中的体会整理如下。</p>
+
+<h1 id="文档">文档</h1>
+
+<ul>
+  <li>图示的作用与重要性：一图胜千言，容易在脑海中留下印象。无论是手绘还是使用绘图软件，怎么方便怎么来。如果只有文字描述，每次回顾相关内容时，加载信息时间长，忘得也快。此过程如同蜗牛爬井，进三尺退两尺，效率很低。</li>
+  <li>要将函数调用层级理清，尤其是 HierBEM 需要保留满阵组装和两个层级矩阵组装方法共三个代码分支。具体的重构与代码核查工作是依照函数调用关系展开的。</li>
+</ul>
+
+<h1 id="有限使用-ai">有限使用 AI</h1>
+
+<p>除了解读编译器出错信息外，我基本上没有使用 AI 来检查代码或者重构。这是由于有效的测试用例仅仅意味着后验正确性（posteriori correctness）。对于数值软件而言，它必须满足先验正确性（a priori correctness）。即在每一个逻辑分支中，从始至终的每个步骤都必须是正确无误的。 HierBEM 的本质是数学而不是软件，软件仅仅是其表现形式。</p>
+
+<h1 id="编码">编码</h1>
+
+<ul>
+  <li>要基于实测和亲自使用的体验，而非网上关于某种工具的宣传与教程，来构建属于自己的开发工具箱或者“瑞士军刀”。在不同的工作场景下，兼顾任务要求与硬件性能，了解每个工具的功能与性能局限，切换至最适合的工具，并让多种工具相互配合。例如，
+    <ul>
+      <li>使用 <code class="language-plaintext highlighter-rouge">ripgrep</code> 进行项目内的全局搜索与替换，是重构的有效工具。</li>
+      <li>使用 <code class="language-plaintext highlighter-rouge">clangd</code> 而非 VS Code IntelliSense 或 AI 进行语法和头文件的检查，效果要精确很多。</li>
+      <li>受系统内存限制，我无法在多进程编译的同时启用 eglot 或 gdb 。</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="调试">调试</h1>
+
+<p>对于只在较大问题规模下才会出现的程序异常，因程序运行时间过长，基本无法在 debug 模式下使用 gdb 来调试。此时有效的调试方法就是让程序输出信息。</p>
+
+<h1 id="重构">重构</h1>
+
+<ul>
+  <li>在软件的架构与性能上不能图快而打折扣。要不折不扣地做到想要的设计效果。比如，对于边界元矩阵组装的三个代码分支，一开始我想只保留性能最好的版本。但实际上其他两个分支虽然不具有工程实用价值，但作为参照也是很有用的。对于复杂的数值计算软件来说，将算法一气呵成地写下来也许并不是很难的事，但要想验证和确保算法实现的正确性，则是很花功夫的。因此，保留代码中的低性能分支具有重要的参考与验证价值。</li>
+  <li>尽管重构工作的路很长，且环顾四周一片渺茫，尽管做不到胸有成竹，但是终极目标与大方向要明确。然后，就是要坚定地朝着这个目标前行。正所谓，夫险以远，则至者少。参考<a href="journal-2026.md">算法开发的两种模式</a>。</li>
+  <li>重构是需要高度专注与耗费精力的工作，因此一定要在精神状态好的时候进行。精神状态不佳的时候就不要工作了，放松、运动、休息。</li>
+</ul>
+
+
+  </div><a class="u-url" href="/thoughts/2026/07/10/hierbem-refactor-experience.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">止于至善</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jihuan Tian</li><li><a class="u-email" href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>RSS</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</p>
+      </div>
+      <div class="footer-col">
+        <p>The articles are under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution License</a>. Copyright &copy; 2026 <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+
+</html>
