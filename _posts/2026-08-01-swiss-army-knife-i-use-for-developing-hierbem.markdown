@@ -2,8 +2,8 @@
 layout: post
 title: Swiss Army knife I use for developing HierBEM
 date: 2026-08-03
-categories: []
-tags: []
+categories: [computer]
+tags: [programming,hierbem]
 mathjax: false
 ---
 
