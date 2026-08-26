@@ -3,7 +3,7 @@ layout: post
 title: Consideration about pedagogy
 date: 2024-07-19
 categories: [thoughts]
-tags: [教育]
+tags: [pedagogy]
 mathjax: false
 ---
 

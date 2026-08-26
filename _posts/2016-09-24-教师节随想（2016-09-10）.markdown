@@ -3,7 +3,7 @@ layout: post
 title: 教师节随想（2016-09-10）
 date: 2016-09-24
 categories: [thoughts]
-tags: [教育,论语]
+tags: [pedagogy,论语]
 ---
 
 > 师者，所以传道、授业、解惑也。

@@ -3,7 +3,7 @@ layout: post
 title: 不忘初心
 date: 2022-05-10
 categories: [thoughts]
-tags: [随想,回忆,教育]
+tags: [随想,回忆,pedagogy]
 mathjax: false
 ---
 
