@@ -11,144 +11,274 @@ Just realized I can use LibreOffice Impress to collect my scattered scanned imag
 
 -   A VBA script has been written for inserting, positioning and resizing the images automatically in LibreOffice Impress.
     
-    ```vba
-    ' Multiple images can be selected and inserted into Impress in batch, one image
-    ' per page.
-    Sub InsertImagesFromSelectedFolder()
-        ' Get the current document (LibreOffice Draw)
+    ```
+    ' Select image files and append one linked image per new slide.
+    ' Re-run anytime to add more images.
+    '
+    ' Do NOT use .uno:InsertGraphic here: after the first image it often reopens
+    ' the file dialog. Insert each GraphicObjectShape onto its page via the API
+    ' with LoadAsLink instead. LibreOffice rewrites links to relative paths on
+    ' save when "Save URLs relative to file system" is enabled.
+    Sub InsertLinkedImagesFromSelection()
         Dim oDoc As Object
-        oDoc = ThisComponent
-    
-        ' Open the folder and check if it's a directory
-        Dim files as Object
-        files = SelectMultipleImages()
-    
-        ' Loop through each file in the folder
+        Dim files As Object
+        Dim oPages As Object
+        Dim oPage As Object
+        Dim oGraph As Object
+        Dim oProvider As Object
+        Dim oProps(1) As New com.sun.star.beans.PropertyValue
+        Dim oInputFile As Object
+        Dim oInputStream As Object
+        Dim sFileURL As String
+        Dim sFileContent As String
+        Dim aSizeParts() As String
+        Dim dpi As Integer
+        Dim oBitmapSize As New com.sun.star.awt.Size
+        Dim oNewSize As New com.sun.star.awt.Size
+        Dim oPosition As New com.sun.star.awt.Point
+        Dim dImageRatio As Double
+        Dim dPageRatio As Double
         Dim i As Integer
+
+        oDoc = ThisComponent
+        files = SelectMultipleImages()
+        If IsNull(files) Then Exit Sub
+        If UBound(files) < LBound(files) Then Exit Sub
+
+        If oDoc.URL = "" Then
+            MsgBox "Please save the Impress document first so image links can be stored relative to the .odp file."
+            Exit Sub
+        End If
+
+        oProvider = CreateUnoService("com.sun.star.graphic.GraphicProvider")
+        oPages = oDoc.getDrawPages()
+        dpi = 168
+
         For i = LBound(files) To UBound(files)
-            Dim sFile as String
-            sFile = files(i)
-            ' Check if the file is an image (you can modify this to include more formats)
-            If (InStr(LCase(sFile), ".png") > 0 Or InStr(LCase(sFile), ".jpg") > 0 Or InStr(LCase(sFile), ".jpeg") > 0) Then
-                ' Create a new page for each image by inserting into DrawPages
-                Dim oPages As Object
-                oPages = oDoc.getDrawPages()
-                Dim oPage As Object
-                oPage = oPages.insertNewByIndex(oPages.getCount())
-                oPage.setName(ConvertFromURL(sFile))
-    
-                ' Create the image shape
-                Dim oGraph As Object
-                oGraph = oDoc.createInstance("com.sun.star.drawing.GraphicObjectShape")
-                oGraph.GraphicURL = sFile
-    
-                ' Get the image size by callign a Bash script, because they cannot
-                ' be acquired from LibreOffice VBA directly.
-                CallBashScript("/usr/local/bin/scripts/call_get_img_size.sh", ConvertFromURL(sFile))
-                Dim oInputFile as Object
-                oInputFile = CreateUnoService("com.sun.star.ucb.SimpleFileAccess")
-                Dim oInputStream as Object
-                oInputStream = oInputFile.openFileRead("/tmp/libreoffice/img-size.txt")
-                Dim sFileContent as String
-                sFileContent = ReadInputStream(oInputStream)
-                oInputStream.closeInput()
-                Dim aSizeParts() as String
-                aSizeParts = Split(sFileContent, "x")
-    
-    	    ' Sclae the image with respect to the page size. N.B. The size unit
-    	    ' adopted by LibreOffice is 1/100 mm.
-                Dim dpi As Integer
-                dpi = 168
-                Dim oBitmapSize As New com.sun.star.awt.Size
-                oBitmapSize.Width = Val(Trim(aSizeParts(0))) / dpi * 25.4 * 100
-                oBitmapSize.Height = Val(Trim(aSizeParts(1))) / dpi * 25.4 * 100
-    
-                Dim oNewSize As New com.sun.star.awt.Size    'New Image size     
-                Dim dImageRatio As Double     'Ratio of the height to width
-                Dim dPageRatio As Double      'Ratio of the height to width
-    
-                dImageRatio = CDbl(oBitmapSize.Height) / CDbl(oBitmapSize.Width)
-                dPageRatio = CDbl(oPage.Height) / CDbl(oPage.Width)
-    
-                ' Compare the ratios to see which is wider, relatively speaking
-                If oBitmapSize.Width > oPage.Width OR oBitmapSize.Height > oPage.Height Then
-    		If dPageRatio > dImageRatio Then
-                        oNewSize.Width  = oPage.Width
-                        oNewSize.Height = CLng(CDbl(oPage.Width) * dImageRatio)
-    		Else
-                        oNewSize.Width  = CLng(CDbl(oPage.Height) / dImageRatio)
-                        oNewSize.Height = oPage.Height
-    		End If
+            sFileURL = files(i)
+            If Not IsImageURL(sFileURL) Then GoTo ContinueLoop
+
+            CallBashScript("/usr/local/bin/scripts/call_get_img_size.sh", ConvertFromURL(sFileURL))
+            oInputFile = CreateUnoService("com.sun.star.ucb.SimpleFileAccess")
+            oInputStream = oInputFile.openFileRead("/tmp/img-size.txt")
+            sFileContent = ReadInputStream(oInputStream)
+            oInputStream.closeInput()
+            aSizeParts = Split(sFileContent, "x")
+
+            oPage = oPages.insertNewByIndex(oPages.getCount())
+            oPage.setName(ConvertFromURL(sFileURL))
+            ' Blank layout avoids title/body placeholders
+            oPage.Layout = 20
+
+            ' Scale to fit the page. LibreOffice size unit is 1/100 mm.
+            oBitmapSize.Width = Val(Trim(aSizeParts(0))) / dpi * 25.4 * 100
+            oBitmapSize.Height = Val(Trim(aSizeParts(1))) / dpi * 25.4 * 100
+            dImageRatio = CDbl(oBitmapSize.Height) / CDbl(oBitmapSize.Width)
+            dPageRatio = CDbl(oPage.Height) / CDbl(oPage.Width)
+
+            If oBitmapSize.Width > oPage.Width Or oBitmapSize.Height > oPage.Height Then
+                If dPageRatio > dImageRatio Then
+                    oNewSize.Width = oPage.Width
+                    oNewSize.Height = CLng(CDbl(oPage.Width) * dImageRatio)
                 Else
-    		oNewSize = oBitmapSize
+                    oNewSize.Width = CLng(CDbl(oPage.Height) / dImageRatio)
+                    oNewSize.Height = oPage.Height
                 End If
-    
-                ' Add the image to the current page.
-                oGraph.SetSize(oNewSize)
-    
-                ' Center the image on the page.
-                Dim oPosition as new com.sun.star.awt.Point
-                oPosition.X = (oPage.Width - oNewSize.Width)/2
-                oPosition.Y = (oPage.Height - oNewSize.Height)/2
-                oGraph.SetPosition(oPosition)
-    
-                oPage.add(oGraph)
+            Else
+                oNewSize.Width = oBitmapSize.Width
+                oNewSize.Height = oBitmapSize.Height
             End If
+
+            oPosition.X = (oPage.Width - oNewSize.Width) / 2
+            oPosition.Y = (oPage.Height - oNewSize.Height) / 2
+
+            oGraph = oDoc.createInstance("com.sun.star.drawing.GraphicObjectShape")
+            oGraph.SetSize(oNewSize)
+            oGraph.SetPosition(oPosition)
+
+            ' Absolute file URL + LoadAsLink. Do not set GraphicURL to a relative
+            ' path before add() — that raises IllegalArgumentException.
+            oProps(0).Name = "URL"
+            oProps(0).Value = sFileURL
+            oProps(1).Name = "LoadAsLink"
+            oProps(1).Value = True
+            oGraph.Graphic = oProvider.queryGraphic(oProps())
+
+            oPage.add(oGraph)
+
+ContinueLoop:
         Next i
     End Sub
-    
-    ' Function to display the file picker dialog and return the selected folder
+
+    ' Same flow as InsertLinkedImagesFromSelection, but embeds each image into
+    ' the .odp (copies the bitmap in). The document is self-contained; external
+    ' files are no longer needed after insert. Save-before-run is not required.
+    Sub InsertEmbeddedImagesFromSelection()
+        Dim oDoc As Object
+        Dim files As Object
+        Dim oPages As Object
+        Dim oPage As Object
+        Dim oGraph As Object
+        Dim oProvider As Object
+        Dim oProps(0) As New com.sun.star.beans.PropertyValue
+        Dim oInputFile As Object
+        Dim oInputStream As Object
+        Dim sFileURL As String
+        Dim sFileContent As String
+        Dim aSizeParts() As String
+        Dim dpi As Integer
+        Dim oBitmapSize As New com.sun.star.awt.Size
+        Dim oNewSize As New com.sun.star.awt.Size
+        Dim oPosition As New com.sun.star.awt.Point
+        Dim dImageRatio As Double
+        Dim dPageRatio As Double
+        Dim i As Integer
+
+        oDoc = ThisComponent
+        files = SelectMultipleImages()
+        If IsNull(files) Then Exit Sub
+        If UBound(files) < LBound(files) Then Exit Sub
+
+        oProvider = CreateUnoService("com.sun.star.graphic.GraphicProvider")
+        oPages = oDoc.getDrawPages()
+        dpi = 168
+
+        For i = LBound(files) To UBound(files)
+            sFileURL = files(i)
+            If Not IsImageURL(sFileURL) Then GoTo ContinueEmbedLoop
+
+            CallBashScript("/usr/local/bin/scripts/call_get_img_size.sh", ConvertFromURL(sFileURL))
+            oInputFile = CreateUnoService("com.sun.star.ucb.SimpleFileAccess")
+            oInputStream = oInputFile.openFileRead("/tmp/img-size.txt")
+            sFileContent = ReadInputStream(oInputStream)
+            oInputStream.closeInput()
+            aSizeParts = Split(sFileContent, "x")
+
+            oPage = oPages.insertNewByIndex(oPages.getCount())
+            oPage.setName(ConvertFromURL(sFileURL))
+            oPage.Layout = 20
+
+            oBitmapSize.Width = Val(Trim(aSizeParts(0))) / dpi * 25.4 * 100
+            oBitmapSize.Height = Val(Trim(aSizeParts(1))) / dpi * 25.4 * 100
+            dImageRatio = CDbl(oBitmapSize.Height) / CDbl(oBitmapSize.Width)
+            dPageRatio = CDbl(oPage.Height) / CDbl(oPage.Width)
+
+            If oBitmapSize.Width > oPage.Width Or oBitmapSize.Height > oPage.Height Then
+                If dPageRatio > dImageRatio Then
+                    oNewSize.Width = oPage.Width
+                    oNewSize.Height = CLng(CDbl(oPage.Width) * dImageRatio)
+                Else
+                    oNewSize.Width = CLng(CDbl(oPage.Height) / dImageRatio)
+                    oNewSize.Height = oPage.Height
+                End If
+            Else
+                oNewSize.Width = oBitmapSize.Width
+                oNewSize.Height = oBitmapSize.Height
+            End If
+
+            oPosition.X = (oPage.Width - oNewSize.Width) / 2
+            oPosition.Y = (oPage.Height - oNewSize.Height) / 2
+
+            oGraph = oDoc.createInstance("com.sun.star.drawing.GraphicObjectShape")
+            oGraph.SetSize(oNewSize)
+            oGraph.SetPosition(oPosition)
+
+            ' URL only — no LoadAsLink, so the bitmap is embedded in the document
+            oProps(0).Name = "URL"
+            oProps(0).Value = sFileURL
+            oGraph.Graphic = oProvider.queryGraphic(oProps())
+
+            oPage.add(oGraph)
+
+ContinueEmbedLoop:
+        Next i
+    End Sub
+
+    ' Multi-select does not preserve click order on many systems (e.g. GTK).
+    ' Sort by local file path so slides follow a stable name/path order matching
+    ' a typical file-manager listing (page01, page02, ...).
     Function SelectMultipleImages() As Object
         Dim oFilePicker As Object
-        Dim folderPath As String
-    
-        ' Create the file picker service
+        Dim files As Object
         oFilePicker = CreateUnoService("com.sun.star.ui.dialogs.FilePicker")
-    
-        ' Set dialog properties
-        oFilePicker.setMultiSelectionMode (True)
-        oFilePicker.setTitle("Select Folder with Images")
-        oFilePicker.execute()
-    
-        SelectMultipleImages = oFilePicker.getSelectedFiles()
+        oFilePicker.setMultiSelectionMode(True)
+        oFilePicker.setTitle("Select Images")
+        oFilePicker.appendFilter("Images (*.png;*.jpg;*.jpeg)", "*.png;*.jpg;*.jpeg")
+        oFilePicker.appendFilter("All files (*.*)", "*.*")
+        oFilePicker.setCurrentFilter("Images (*.png;*.jpg;*.jpeg)")
+        If oFilePicker.execute() <> 1 Then
+            SelectMultipleImages = Array()
+            Exit Function
+        End If
+        files = oFilePicker.getSelectedFiles()
+        SelectMultipleImages = SortFileURLsByPath(files)
     End Function
-    
-    ' Call a Bash script. LibreOffice VBA can only start a asynchronous process, so
-    ' we need to wait for 1000 ms to let the script finish. Also note the argument
-    ' list in the string passed to the Bash script does not need to be escaped.
+
+    Function SortFileURLsByPath(files As Object) As Object
+        Dim a() As String
+        Dim i As Integer
+        Dim j As Integer
+        Dim sTmp As String
+        Dim nLow As Integer
+        Dim nHigh As Integer
+
+        If IsNull(files) Then
+            SortFileURLsByPath = Array()
+            Exit Function
+        End If
+        nLow = LBound(files)
+        nHigh = UBound(files)
+        If nHigh < nLow Then
+            SortFileURLsByPath = Array()
+            Exit Function
+        End If
+
+        ReDim a(nLow To nHigh)
+        For i = nLow To nHigh
+            a(i) = files(i)
+        Next i
+
+        For i = nLow To nHigh - 1
+            For j = i + 1 To nHigh
+                If ConvertFromURL(a(j)) < ConvertFromURL(a(i)) Then
+                    sTmp = a(i)
+                    a(i) = a(j)
+                    a(j) = sTmp
+                End If
+            Next j
+        Next i
+
+        SortFileURLsByPath = a
+    End Function
+
+    Function IsImageURL(sURL As String) As Boolean
+        Dim s As String
+        s = LCase(sURL)
+        IsImageURL = (InStr(s, ".png") > 0 Or InStr(s, ".jpg") > 0 Or InStr(s, ".jpeg") > 0)
+    End Function
+
+    ' LibreOffice Basic can only start an asynchronous process, so wait for the
+    ' script to finish. Arguments do not need to be escaped.
     Sub CallBashScript(sScriptPath As String, sArgs As String)
         Dim oShell As Object
-    
-        ' Create a Shell object and execute the command
         oShell = CreateUnoService("com.sun.star.system.SystemShellExecute")
-        oShell.execute(sScriptPath, sArgs, 0)  ' The second parameter "0" is to run in the background
+        oShell.execute(sScriptPath, sArgs, 0)
         Wait 1000
     End Sub
-    
-    ' Read the content as a string from an input stream.
+
     Function ReadInputStream(oInputStream As Object) As String
-        Dim sContent As String
         Dim oTextStream As Object
-        Dim aBytes() As Byte
-        Dim nBytes As Integer
-    
-        ' Read data from input stream
         oTextStream = CreateUnoService("com.sun.star.io.TextInputStream")
         oTextStream.setInputStream(oInputStream)
-        oTextStream.setEncoding("UTF-8") ' Adjust encoding if necessary
-    
-        ' Read the full content
-        sContent = oTextStream.readLine()
-    
-        ' Return content as a string
-        ReadInputStream = sContent
+        oTextStream.setEncoding("UTF-8")
+        ReadInputStream = oTextStream.readLine()
     End Function
     ```
     
     The Bash script `call_get_img_size.sh` is as below. It calls `identify` to get the image information, from which we write the image size into a temporary file.
     
     ```bash
-    echo $(identify "$1" | gawk '{if(match($0, /([[:digit:]]+)x([[:digit:]]+)/, res) != 0) print res[0];}') > /tmp/libreoffice/img-size.txt
+    echo $(identify "$1" | gawk '{if(match($0, /([[:digit:]]+)x([[:digit:]]+)/, res) != 0) print res[0];}') > /tmp/img-size.txt
     ```
 
 -   For eye-protection, the white background of each image is converted to light yellow, i.e. RGB 246, 240, 222, with the command line image editing tool ImageMagick.
