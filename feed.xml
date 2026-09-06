@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-09-03T18:56:15+08:00</updated><id>https://jihuan-tian.github.io/feed.xml</id><title type="html">止于至善</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Manage handwriting math notes within Impress</title><link href="https://jihuan-tian.github.io/computer/2026/09/03/manage-handwriting-math-notes-within-impress.html" rel="alternate" type="text/html" title="Manage handwriting math notes within Impress" /><published>2026-09-03T00:00:00+08:00</published><updated>2026-09-03T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/09/03/manage-handwriting-math-notes-within-impress</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/09/03/manage-handwriting-math-notes-within-impress.html"><![CDATA[<p>After switching from Xournal++ to Krita for taking math notes, I start to use LibreOffice Impress for managing them <strong>in a same space</strong>. Each note image is inserted onto a slide, instead of being stored as an independent file in the file system.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jihuan-tian.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jihuan-tian.github.io/" rel="alternate" type="text/html" /><updated>2026-09-06T10:27:19+08:00</updated><id>https://jihuan-tian.github.io/feed.xml</id><title type="html">止于至善</title><subtitle>As regards numerical analysis, mathematical electromagnetism, Linux techniques and personal thoughts.</subtitle><author><name>Jihuan Tian</name></author><entry><title type="html">Manage handwriting math notes within Impress</title><link href="https://jihuan-tian.github.io/computer/2026/09/03/manage-handwriting-math-notes-within-impress.html" rel="alternate" type="text/html" title="Manage handwriting math notes within Impress" /><published>2026-09-03T00:00:00+08:00</published><updated>2026-09-03T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/09/03/manage-handwriting-math-notes-within-impress</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/09/03/manage-handwriting-math-notes-within-impress.html"><![CDATA[<p>After switching from Xournal++ to Krita for taking math notes, I start to use LibreOffice Impress for managing them <strong>in a same space</strong>. Each note image is inserted onto a slide, instead of being stored as an independent file in the file system.</p>
 
 <p>To import a collection of scanned images into Impress, use the VBA script mentioned in <a href="/computer/2025/03/19/manage-scanned-notes-and-sketches-with-libreoffice-impress.html">Manage scanned notes and sketches with LibreOffice Impress</a>.</p>
 
@@ -8,7 +8,13 @@
 
 <p>Moreover, I can create hyperlinks between slides or to external files, add annotations and do even more things. In this way, my notebook is a much better choice than GoodNotes.</p>
 
-<p><img src="/figures/2026-09-03_17-51-39-math-notes-in-impress.png" alt="img" /></p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="note_taking" /><summary type="html"><![CDATA[After switching from Xournal++ to Krita for taking math notes, I start to use LibreOffice Impress for managing them in a same space. Each note image is inserted onto a slide, instead of being stored as an independent file in the file system.]]></summary></entry><entry><title type="html">Switched from Xournal++ to Krita for taking math notes</title><link href="https://jihuan-tian.github.io/computer/2026/08/29/switched-from-xournalpp-to-krita-for-taking-math-notes.html" rel="alternate" type="text/html" title="Switched from Xournal++ to Krita for taking math notes" /><published>2026-08-29T00:00:00+08:00</published><updated>2026-08-29T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/08/29/switched-from-xournalpp-to-krita-for-taking-math-notes</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/08/29/switched-from-xournalpp-to-krita-for-taking-math-notes.html"><![CDATA[<p>For taking handwriting math notes on my computer, I’ve switched from Xournal++ to Krita, because the writing experiences and strokes of brushes in Krita are much better than the former.</p>
+<p><img src="/figures/2026-09-03_17-51-39-math-notes-in-impress.png" alt="img" /></p>]]></content><author><name>Jihuan Tian</name></author><category term="computer" /><category term="note_taking" /><summary type="html"><![CDATA[After switching from Xournal++ to Krita for taking math notes, I start to use LibreOffice Impress for managing them in a same space. Each note image is inserted onto a slide, instead of being stored as an independent file in the file system.]]></summary></entry><entry><title type="html">使用自由、开源软件是正确的选择</title><link href="https://jihuan-tian.github.io/thoughts/2026/09/03/using-free-and-open-source-software-is-a-correct-choice.html" rel="alternate" type="text/html" title="使用自由、开源软件是正确的选择" /><published>2026-09-03T00:00:00+08:00</published><updated>2026-09-03T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2026/09/03/using-free-and-open-source-software-is-a-correct-choice</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2026/09/03/using-free-and-open-source-software-is-a-correct-choice.html"><![CDATA[<p>现在想来，我从 2004 年初开始，由使用盗版、商业、闭源的操作系统和应用软件转向并坚持使用自由、开源软件完全是正确的选择。</p>
+
+<p>一方面，经过长期的积累，我获得了一定的编程体验、形成了评判软件优劣的原则与品味，培养出了用代码解决问题的意识而非被动等待开发者发布的更新，以及养成了通过定制化与拓展软件工具的能力而为我所用的工作习惯。</p>
+
+<p>另一方面，在有了基于大语言模型的人工智能后，凡是可以通过编写代码、开发插件来改变其功能、行为、外观的自由、开源软件，在适配性、工作效率、流程自动化、解决问题的能力上均释放出巨大的潜力与无限的可能。而各种工具的协同则进一步地将这些潜力与可能性成倍地放大。不得不说，由人工智能引发出的种种如虎添翼的效果是出乎我的意料的。</p>
+
+<p>无论外在的技术如何变化，一个普适的原则是：要充分地掌握我们所使用的工具，深入地理解其机制，尽量形成从底层与之交互的能力，而不是浮于表面——这样一来，软件工具的自由与开放就变得极为重要。只要把握住了这个原则，无论什么样的技术潮流涌现出来，我们都能够以更高级的方式将其吸收到自己的工具集与工作流中，而不是被动地接受、肤浅地使用。</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="free-software" /><summary type="html"><![CDATA[现在想来，我从 2004 年初开始，由使用盗版、商业、闭源的操作系统和应用软件转向并坚持使用自由、开源软件完全是正确的选择。]]></summary></entry><entry><title type="html">Switched from Xournal++ to Krita for taking math notes</title><link href="https://jihuan-tian.github.io/computer/2026/08/29/switched-from-xournalpp-to-krita-for-taking-math-notes.html" rel="alternate" type="text/html" title="Switched from Xournal++ to Krita for taking math notes" /><published>2026-08-29T00:00:00+08:00</published><updated>2026-08-29T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/computer/2026/08/29/switched-from-xournalpp-to-krita-for-taking-math-notes</id><content type="html" xml:base="https://jihuan-tian.github.io/computer/2026/08/29/switched-from-xournalpp-to-krita-for-taking-math-notes.html"><![CDATA[<p>For taking handwriting math notes on my computer, I’ve switched from Xournal++ to Krita, because the writing experiences and strokes of brushes in Krita are much better than the former.</p>
 
 <p>Even though Krita can only edit a single image at a time, I can use a folder to organize many pages related to a same mathematical topic. Similarly, scanned math notes on paper notebooks can also be organized like this.</p>
 
@@ -4878,7 +4884,7 @@ method.
 
 <p>事实上，在这个试错的过程中，用户固然能学到一些知识，收获一些经验，但无疑也浪费了大量时间，且工作效果与质量差强人意——这些都是巨大的时间与精力成本。对于开源软件的开发者而言，不能仅满足于通过开源项目来给自己练手，而不考虑用户的体验，软件的发布也不应很随意：明知软件存在严重的问题，结果还是发布了出来，并打着“敏捷”与“迭代”开发的旗号。让这样的“作品”公之于众，其实既是开发者自己的耻辱，也是对用户体验的无视与不尊重。</p>
 
-<p>所以，Linux 发展这么多年，到如今依然不能占领电脑桌面市场。无论其布道者再怎么吹嘘 Linux 系统及其应用软件的高性、安全、一切皆是文件、用管道灵活串接程序、内容与样式分离等优点，它依然仅适合程序员作项目开发用。个人生产力工具需要的是专业与稳定的产品，但很显然，Linux 的应用软件还无法提供全套的工具链。当然，那些经过了长期打磨与验证的开源软件另当别论（如 GNU Emacs ）。</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="开源软件" /><summary type="html"><![CDATA[昨天试用了视频编辑软件 Kdenlive 的语音识别功能。该项功能并非 Kdenlive 自己拥有，而是依赖于 Python 的 vosk 包。由此也可以体现出 Linux 下各种工具协同配合的操作模式。]]></summary></entry><entry><title type="html">从实数拓展到复数的代码修改基本完成</title><link href="https://jihuan-tian.github.io/thoughts/2025/05/11/%E4%BB%8E%E5%AE%9E%E6%95%B0%E6%8B%93%E5%B1%95%E5%88%B0%E5%A4%8D%E6%95%B0%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%88%90.html" rel="alternate" type="text/html" title="从实数拓展到复数的代码修改基本完成" /><published>2025-05-11T00:00:00+08:00</published><updated>2025-05-11T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/05/11/%E4%BB%8E%E5%AE%9E%E6%95%B0%E6%8B%93%E5%B1%95%E5%88%B0%E5%A4%8D%E6%95%B0%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%88%90</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/05/11/%E4%BB%8E%E5%AE%9E%E6%95%B0%E6%8B%93%E5%B1%95%E5%88%B0%E5%A4%8D%E6%95%B0%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%88%90.html"><![CDATA[<p>五一假期前，我在尝试使我的伽辽金边界元数值算法库仅基于已有的一套代码而无需重写，就能从实数拓展到复数，从而不光能够求解静态问题，也能求解时谐的波动问题（亥姆霍兹方程，包括标量的声波方程与矢量的高频电磁场方程），从而具有更大的实用价值。在这个过程中，我发现 C++ 标准库中的复数类型 <code class="language-plaintext highlighter-rouge">std::complex</code> 无法从 CPU host 跨越至 CUDA device ，从而导致大量的编译错误。</p>
+<p>所以，Linux 发展这么多年，到如今依然不能占领电脑桌面市场。无论其布道者再怎么吹嘘 Linux 系统及其应用软件的高性、安全、一切皆是文件、用管道灵活串接程序、内容与样式分离等优点，它依然仅适合程序员作项目开发用。个人生产力工具需要的是专业与稳定的产品，但很显然，Linux 的应用软件还无法提供全套的工具链。当然，那些经过了长期打磨与验证的开源软件另当别论（如 GNU Emacs ）。</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="free-software" /><summary type="html"><![CDATA[昨天试用了视频编辑软件 Kdenlive 的语音识别功能。该项功能并非 Kdenlive 自己拥有，而是依赖于 Python 的 vosk 包。由此也可以体现出 Linux 下各种工具协同配合的操作模式。]]></summary></entry><entry><title type="html">从实数拓展到复数的代码修改基本完成</title><link href="https://jihuan-tian.github.io/thoughts/2025/05/11/%E4%BB%8E%E5%AE%9E%E6%95%B0%E6%8B%93%E5%B1%95%E5%88%B0%E5%A4%8D%E6%95%B0%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%88%90.html" rel="alternate" type="text/html" title="从实数拓展到复数的代码修改基本完成" /><published>2025-05-11T00:00:00+08:00</published><updated>2025-05-11T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2025/05/11/%E4%BB%8E%E5%AE%9E%E6%95%B0%E6%8B%93%E5%B1%95%E5%88%B0%E5%A4%8D%E6%95%B0%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%88%90</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2025/05/11/%E4%BB%8E%E5%AE%9E%E6%95%B0%E6%8B%93%E5%B1%95%E5%88%B0%E5%A4%8D%E6%95%B0%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%88%90.html"><![CDATA[<p>五一假期前，我在尝试使我的伽辽金边界元数值算法库仅基于已有的一套代码而无需重写，就能从实数拓展到复数，从而不光能够求解静态问题，也能求解时谐的波动问题（亥姆霍兹方程，包括标量的声波方程与矢量的高频电磁场方程），从而具有更大的实用价值。在这个过程中，我发现 C++ 标准库中的复数类型 <code class="language-plaintext highlighter-rouge">std::complex</code> 无法从 CPU host 跨越至 CUDA device ，从而导致大量的编译错误。</p>
 
 <p>五一假期中，我重新理清了思路，通过定义 alias template ，能够确保在 host 与 device 上自动地分别使用两种不同但是数据内存排布完全一致的复数类型。这种对于数据类型的区分（demarcation），使得凡是进入到 kernel 与 device 函数的数据结构（主要是模板类）能够使用我自己定义的复数类。这一思路在原理上是完全行得通的。接来下，我便重新浏览层层调用的函数，修改其模板参数与函数参数类型。基本上在假期结束前完成了代码的修改。</p>
 
@@ -6443,8 +6449,7 @@ Sub InsertEmbeddedImagesFromSelection()
     End Sub</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>' Multi-select does not preserve click order on many systems (e.g. GTK).
-' Sort by local file path so slides follow a stable name/path order matching
-' a typical file-manager listing (page01, page02, ...).
+' Sort with version-number order so page2 comes before page10.
 Function SelectMultipleImages() As Object
     Dim oFilePicker As Object
     Dim files As Object
@@ -6459,10 +6464,10 @@ Function SelectMultipleImages() As Object
         Exit Function
     End If
     files = oFilePicker.getSelectedFiles()
-    SelectMultipleImages = SortFileURLsByPath(files)
+    SelectMultipleImages = SortFileURLsByVersion(files)
 End Function
 
-Function SortFileURLsByPath(files As Object) As Object
+Function SortFileURLsByVersion(files As Object) As Object
     Dim a() As String
     Dim i As Integer
     Dim j As Integer
@@ -6471,13 +6476,13 @@ Function SortFileURLsByPath(files As Object) As Object
     Dim nHigh As Integer
 
     If IsNull(files) Then
-        SortFileURLsByPath = Array()
+        SortFileURLsByVersion = Array()
         Exit Function
     End If
     nLow = LBound(files)
     nHigh = UBound(files)
     If nHigh &lt; nLow Then
-        SortFileURLsByPath = Array()
+        SortFileURLsByVersion = Array()
         Exit Function
     End If
 
@@ -6488,7 +6493,7 @@ Function SortFileURLsByPath(files As Object) As Object
 
     For i = nLow To nHigh - 1
         For j = i + 1 To nHigh
-            If ConvertFromURL(a(j)) &lt; ConvertFromURL(a(i)) Then
+            If VersionComparePath(ConvertFromURL(a(j)), ConvertFromURL(a(i))) &lt; 0 Then
                 sTmp = a(i)
                 a(i) = a(j)
                 a(j) = sTmp
@@ -6496,7 +6501,74 @@ Function SortFileURLsByPath(files As Object) As Object
         Next j
     Next i
 
-    SortFileURLsByPath = a
+    SortFileURLsByVersion = a
+End Function
+
+' Version/natural compare, similar to sort -V: digit runs compared as numbers.
+' Returns -1 if s1 &lt; s2, 0 if equal, 1 if s1 &gt; s2.
+Function VersionComparePath(s1 As String, s2 As String) As Integer
+    Dim i1 As Integer
+    Dim i2 As Integer
+    Dim len1 As Integer
+    Dim len2 As Integer
+    Dim c1 As String
+    Dim c2 As String
+    Dim n1 As Double
+    Dim n2 As Double
+
+    i1 = 1
+    i2 = 1
+    len1 = Len(s1)
+    len2 = Len(s2)
+
+    Do While i1 &lt;= len1 And i2 &lt;= len2
+        c1 = Mid(s1, i1, 1)
+        c2 = Mid(s2, i2, 1)
+
+        If (c1 &gt;= "0" And c1 &lt;= "9") And (c2 &gt;= "0" And c2 &lt;= "9") Then
+            n1 = 0
+            Do While i1 &lt;= len1
+                c1 = Mid(s1, i1, 1)
+                If c1 &lt; "0" Or c1 &gt; "9" Then Exit Do
+                n1 = n1 * 10 + Val(c1)
+                i1 = i1 + 1
+            Loop
+            n2 = 0
+            Do While i2 &lt;= len2
+                c2 = Mid(s2, i2, 1)
+                If c2 &lt; "0" Or c2 &gt; "9" Then Exit Do
+                n2 = n2 * 10 + Val(c2)
+                i2 = i2 + 1
+            Loop
+            If n1 &lt; n2 Then
+                VersionComparePath = -1
+                Exit Function
+            End If
+            If n1 &gt; n2 Then
+                VersionComparePath = 1
+                Exit Function
+            End If
+        Else
+            If c1 &lt; c2 Then
+                VersionComparePath = -1
+                Exit Function
+            End If
+            If c1 &gt; c2 Then
+                VersionComparePath = 1
+                Exit Function
+            End If
+            i1 = i1 + 1
+            i2 = i2 + 1
+        End If
+    Loop
+
+    If len1 &lt; len2 Then
+        VersionComparePath = -1
+    ElseIf len1 &gt; len2 Then
+        VersionComparePath = 1
+    Else
+        VersionComparePath = 0
+    End If
 End Function
 
 Function IsImageURL(sURL As String) As Boolean
@@ -25383,7 +25455,7 @@ iv. 看手机与碎片化信息的欲望
 
 <p>Therefore, it is necessary to keep a habit of learning and practicing mathematics through my whole career life. To be, or not to be, that is a question!</p>
 
-<p>Reference: <a href="/thoughts/2020/06/19/PhD-Manifesto.html">PhD Manifesto</a></p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="管理提升" /><category term="开源软件" /><category term="free-software" /><summary type="html"><![CDATA[After many tries of free and open source libraries for official projects and my personal hobbies, I find out the only thing that I can do is either applying them to concrete problems instead of solving a class of problems after mathematical abstraction, or merely playing the role of “glue” by integrating a morsel of functions with other tools just to form a work flow. Then I realize that without a complete and solid mathematical foundation, I cannot contribute too much to existing software libraries, like optimizing the performance, implementing new algorithms, improving the architecture, etc. This means I can only become a proficient user but never an ingenious maker with elegant design concepts and required craftsmanship, or become an experienced engineer but never a real expert with systematic knowledge and logics.]]></summary></entry><entry><title type="html">Three levels of mathematical proofs</title><link href="https://jihuan-tian.github.io/thoughts/2019/05/16/Three-levels-of-mathematical-proofs.html" rel="alternate" type="text/html" title="Three levels of mathematical proofs" /><published>2019-05-16T00:00:00+08:00</published><updated>2019-05-16T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2019/05/16/Three%20levels%20of%20mathematical%20proofs</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2019/05/16/Three-levels-of-mathematical-proofs.html"><![CDATA[<p>The first level merely needs already defined concepts and constructed formulations. The problem can be solved based on existing theorems without any risk like doing arithmetic.</p>
+<p>Reference: <a href="/thoughts/2020/06/19/PhD-Manifesto.html">PhD Manifesto</a></p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="管理提升" /><category term="free-software" /><summary type="html"><![CDATA[After many tries of free and open source libraries for official projects and my personal hobbies, I find out the only thing that I can do is either applying them to concrete problems instead of solving a class of problems after mathematical abstraction, or merely playing the role of “glue” by integrating a morsel of functions with other tools just to form a work flow. Then I realize that without a complete and solid mathematical foundation, I cannot contribute too much to existing software libraries, like optimizing the performance, implementing new algorithms, improving the architecture, etc. This means I can only become a proficient user but never an ingenious maker with elegant design concepts and required craftsmanship, or become an experienced engineer but never a real expert with systematic knowledge and logics.]]></summary></entry><entry><title type="html">Three levels of mathematical proofs</title><link href="https://jihuan-tian.github.io/thoughts/2019/05/16/Three-levels-of-mathematical-proofs.html" rel="alternate" type="text/html" title="Three levels of mathematical proofs" /><published>2019-05-16T00:00:00+08:00</published><updated>2019-05-16T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2019/05/16/Three%20levels%20of%20mathematical%20proofs</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2019/05/16/Three-levels-of-mathematical-proofs.html"><![CDATA[<p>The first level merely needs already defined concepts and constructed formulations. The problem can be solved based on existing theorems without any risk like doing arithmetic.</p>
 
 <p>On the second level, a direct application of theorems in books does not help. The problem must be transformed into a new shape or appended with intermediate steps, which can be considered as a preprocessing stage. Sometimes, smart tricks should be devised and this makes the situation quite difficult. After that, everything becomes crystal clear and the first level craft takes over the work.</p>
 
@@ -37291,7 +37363,7 @@ F调淫荡。亚理斯多德最推重 C调，因为它最宜于陶冶青年。</
 
 <p>首先，软件所操作的数据应当具有开放易读的格式。例如，UNIX系统采用一切皆是文本的设计思想，便使得数据与配置文件可以同时被机器和人所读。通过文本的解析处理就能够高效地实现批处理与自动化。与此同时，简单而标准的格式能够得到最为广泛、无歧义和不失真的支持。这就是为什么用LaTeX撰写文档远比Word来得稳定和放心。</p>
 
-<p>其次，软件自身的功能应当是可被用户扩展的，从而方便实现任务的自动化。这方面最为典型的例子就是Emacs文本编辑器。通过Lisp语言的功能扩展，使其能够支持各种编程语言的语法加亮和智能缩进，还能够进行GTD任务管理，撰写博客等等。</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="阅读" /><category term="管理提升" /><category term="工具" /><category term="开源软件" /><summary type="html"><![CDATA[最近在读讲述柳比歇夫几十年如一日精确记录工作与生活时间的那本书《奇特的一生》。若以柳先生为榜样，就需要在相当长的时期内甚至是整个人生范围实现统一、一贯的数据记录和统计功能，如健身、睡眠、蕃茄时间等等。这方面的工具软件在苹果应用商店中有不少，而且还在一直推陈出新。然而，无论是个人开发者还是专业的软件公司，大都是冲着经济利益而不是用户权益做产品的，因而他们很难在长时间内持续维护一款软件。所以，一旦这些封闭的商业软件停止维护或者干脆直接从苹果应用商店下架，无论用户多么一厢情愿地想坚持使用都不再可能。]]></summary></entry><entry><title type="html">《教授与疯子》摘录与笔记</title><link href="https://jihuan-tian.github.io/thoughts/2017/12/11/%E6%95%99%E6%8E%88%E4%B8%8E%E7%96%AF%E5%AD%90-%E6%91%98%E5%BD%95%E4%B8%8E%E7%AC%94%E8%AE%B0.html" rel="alternate" type="text/html" title="《教授与疯子》摘录与笔记" /><published>2017-12-11T00:00:00+08:00</published><updated>2017-12-11T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2017/12/11/%E3%80%8A%E6%95%99%E6%8E%88%E4%B8%8E%E7%96%AF%E5%AD%90%E3%80%8B%E6%91%98%E5%BD%95%E4%B8%8E%E7%AC%94%E8%AE%B0</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2017/12/11/%E6%95%99%E6%8E%88%E4%B8%8E%E7%96%AF%E5%AD%90-%E6%91%98%E5%BD%95%E4%B8%8E%E7%AC%94%E8%AE%B0.html"><![CDATA[<blockquote>
+<p>其次，软件自身的功能应当是可被用户扩展的，从而方便实现任务的自动化。这方面最为典型的例子就是Emacs文本编辑器。通过Lisp语言的功能扩展，使其能够支持各种编程语言的语法加亮和智能缩进，还能够进行GTD任务管理，撰写博客等等。</p>]]></content><author><name>Jihuan Tian</name></author><category term="thoughts" /><category term="阅读" /><category term="管理提升" /><category term="工具" /><category term="free-software" /><summary type="html"><![CDATA[最近在读讲述柳比歇夫几十年如一日精确记录工作与生活时间的那本书《奇特的一生》。若以柳先生为榜样，就需要在相当长的时期内甚至是整个人生范围实现统一、一贯的数据记录和统计功能，如健身、睡眠、蕃茄时间等等。这方面的工具软件在苹果应用商店中有不少，而且还在一直推陈出新。然而，无论是个人开发者还是专业的软件公司，大都是冲着经济利益而不是用户权益做产品的，因而他们很难在长时间内持续维护一款软件。所以，一旦这些封闭的商业软件停止维护或者干脆直接从苹果应用商店下架，无论用户多么一厢情愿地想坚持使用都不再可能。]]></summary></entry><entry><title type="html">《教授与疯子》摘录与笔记</title><link href="https://jihuan-tian.github.io/thoughts/2017/12/11/%E6%95%99%E6%8E%88%E4%B8%8E%E7%96%AF%E5%AD%90-%E6%91%98%E5%BD%95%E4%B8%8E%E7%AC%94%E8%AE%B0.html" rel="alternate" type="text/html" title="《教授与疯子》摘录与笔记" /><published>2017-12-11T00:00:00+08:00</published><updated>2017-12-11T00:00:00+08:00</updated><id>https://jihuan-tian.github.io/thoughts/2017/12/11/%E3%80%8A%E6%95%99%E6%8E%88%E4%B8%8E%E7%96%AF%E5%AD%90%E3%80%8B%E6%91%98%E5%BD%95%E4%B8%8E%E7%AC%94%E8%AE%B0</id><content type="html" xml:base="https://jihuan-tian.github.io/thoughts/2017/12/11/%E6%95%99%E6%8E%88%E4%B8%8E%E7%96%AF%E5%AD%90-%E6%91%98%E5%BD%95%E4%B8%8E%E7%AC%94%E8%AE%B0.html"><![CDATA[<blockquote>
   <p>P30 人们花费了七十多年的时间，才创造了十二巨册的初版《牛津英语词典》，每一册都如墓碑一般大小。这个庞大的、献给国王的文学杰作完成于一九二八年，最初称为《新英语词典》，最后命名为《牛津英语词典》，按词首字母被人们称为OED。</p>
 </blockquote>
 
