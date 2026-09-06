@@ -10,6 +10,7 @@ mathjax: false
 Just realized I can use LibreOffice Impress to collect my scattered scanned images for mathematical derivations on paper work journal and notebook as well as white board. Compared to LibreOffice Draw, the pages in Impress can be easily shifted and reorganized.
 
 -   A VBA script has been written for inserting, positioning and resizing the images automatically in LibreOffice Impress.
+
     
     ```
     ' Select image files and append one linked image per new slide.
@@ -195,8 +196,7 @@ ContinueEmbedLoop:
     End Sub
 
     ' Multi-select does not preserve click order on many systems (e.g. GTK).
-    ' Sort by local file path so slides follow a stable name/path order matching
-    ' a typical file-manager listing (page01, page02, ...).
+    ' Sort with version-number order so page2 comes before page10.
     Function SelectMultipleImages() As Object
         Dim oFilePicker As Object
         Dim files As Object
@@ -211,10 +211,10 @@ ContinueEmbedLoop:
             Exit Function
         End If
         files = oFilePicker.getSelectedFiles()
-        SelectMultipleImages = SortFileURLsByPath(files)
+        SelectMultipleImages = SortFileURLsByVersion(files)
     End Function
 
-    Function SortFileURLsByPath(files As Object) As Object
+    Function SortFileURLsByVersion(files As Object) As Object
         Dim a() As String
         Dim i As Integer
         Dim j As Integer
@@ -223,13 +223,13 @@ ContinueEmbedLoop:
         Dim nHigh As Integer
 
         If IsNull(files) Then
-            SortFileURLsByPath = Array()
+            SortFileURLsByVersion = Array()
             Exit Function
         End If
         nLow = LBound(files)
         nHigh = UBound(files)
         If nHigh < nLow Then
-            SortFileURLsByPath = Array()
+            SortFileURLsByVersion = Array()
             Exit Function
         End If
 
@@ -240,7 +240,7 @@ ContinueEmbedLoop:
 
         For i = nLow To nHigh - 1
             For j = i + 1 To nHigh
-                If ConvertFromURL(a(j)) < ConvertFromURL(a(i)) Then
+                If VersionComparePath(ConvertFromURL(a(j)), ConvertFromURL(a(i))) < 0 Then
                     sTmp = a(i)
                     a(i) = a(j)
                     a(j) = sTmp
@@ -248,7 +248,74 @@ ContinueEmbedLoop:
             Next j
         Next i
 
-        SortFileURLsByPath = a
+        SortFileURLsByVersion = a
+    End Function
+
+    ' Version/natural compare, similar to sort -V: digit runs compared as numbers.
+    ' Returns -1 if s1 < s2, 0 if equal, 1 if s1 > s2.
+    Function VersionComparePath(s1 As String, s2 As String) As Integer
+        Dim i1 As Integer
+        Dim i2 As Integer
+        Dim len1 As Integer
+        Dim len2 As Integer
+        Dim c1 As String
+        Dim c2 As String
+        Dim n1 As Double
+        Dim n2 As Double
+
+        i1 = 1
+        i2 = 1
+        len1 = Len(s1)
+        len2 = Len(s2)
+
+        Do While i1 <= len1 And i2 <= len2
+            c1 = Mid(s1, i1, 1)
+            c2 = Mid(s2, i2, 1)
+
+            If (c1 >= "0" And c1 <= "9") And (c2 >= "0" And c2 <= "9") Then
+                n1 = 0
+                Do While i1 <= len1
+                    c1 = Mid(s1, i1, 1)
+                    If c1 < "0" Or c1 > "9" Then Exit Do
+                    n1 = n1 * 10 + Val(c1)
+                    i1 = i1 + 1
+                Loop
+                n2 = 0
+                Do While i2 <= len2
+                    c2 = Mid(s2, i2, 1)
+                    If c2 < "0" Or c2 > "9" Then Exit Do
+                    n2 = n2 * 10 + Val(c2)
+                    i2 = i2 + 1
+                Loop
+                If n1 < n2 Then
+                    VersionComparePath = -1
+                    Exit Function
+                End If
+                If n1 > n2 Then
+                    VersionComparePath = 1
+                    Exit Function
+                End If
+            Else
+                If c1 < c2 Then
+                    VersionComparePath = -1
+                    Exit Function
+                End If
+                If c1 > c2 Then
+                    VersionComparePath = 1
+                    Exit Function
+                End If
+                i1 = i1 + 1
+                i2 = i2 + 1
+            End If
+        Loop
+
+        If len1 < len2 Then
+            VersionComparePath = -1
+        ElseIf len1 > len2 Then
+            VersionComparePath = 1
+        Else
+            VersionComparePath = 0
+        End If
     End Function
 
     Function IsImageURL(sURL As String) As Boolean
