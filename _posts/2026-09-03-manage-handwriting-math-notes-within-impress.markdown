@@ -3,7 +3,7 @@ layout: post
 title: Manage handwriting math notes within Impress
 date: 2026-09-03
 categories: [computer]
-tags: [note_taking]
+tags: [note-taking]
 mathjax: false
 ---
 
