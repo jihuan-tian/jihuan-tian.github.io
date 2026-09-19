@@ -5,6 +5,7 @@ date: 2026-09-18
 categories: [thoughts]
 tags: [learning-methods,research]
 mathjax: false
+slug: negative-effects-of-gaokao
 ---
 
 小学、中学时期，为了保持总成绩最高，我在语文和英语两门课上投入的时间过多，以至于在数学上投入的时间太少。固然语文和英语能让我具有足够的表达与写作能力以及有效获取前沿科技信息的能力，但这使我在今后理工科的学习和研究中总觉得底子不牢、储备的知识与技能不够。
